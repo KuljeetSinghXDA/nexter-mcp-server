@@ -1,0 +1,160 @@
+{
+  "blockName": "tpgb/tp-tab-item",
+  "version": "1.0.0",
+  "title": "Tab Tours Inner",
+  "category": "interactive",
+  "description": "Individual tab item that must be used inside the Tabs Tours block. Contains title and content panel with optional icon support. This block cannot be inserted independently - it requires a parent Tabs Tours block.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "className": {
+      "type": "string",
+      "default": "",
+      "description": "Additional CSS class names"
+    },
+    "tabtoIndex": {
+      "type": "number",
+      "default": "",
+      "description": "Tab index position within parent"
+    },
+    "tabinTitle": {
+      "type": "string",
+      "default": "",
+      "description": "Tab title/label displayed on tab button"
+    },
+    "uniqueKey": {
+      "type": "string",
+      "default": "",
+      "description": "Unique key for this tab within parent"
+    },
+    "active": {
+      "type": "string",
+      "default": "",
+      "description": "Active state indicator"
+    },
+    "activeTab": {
+      "type": "number",
+      "default": 1,
+      "description": "Active tab number (inherited from parent)"
+    },
+    "navAlign": {
+      "type": "string",
+      "default": "text-center",
+      "enum": ["text-left", "text-center", "text-right"],
+      "description": "Inherited from parent - tab navigation alignment"
+    },
+    "innerIcon": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show icon for this tab"
+    },
+    "iconFonts": {
+      "type": "string",
+      "default": "font_awesome",
+      "description": "Icon library selection"
+    },
+    "innericonName": {
+      "type": "string",
+      "default": "fas fa-home",
+      "description": "Font Awesome icon class for this tab"
+    },
+    "iconImage": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Custom icon image for this tab"
+    },
+    "iconImageSize": {
+      "type": "string",
+      "default": "full",
+      "description": "Size of custom icon image"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "tabinTitle",
+      "innerIcon",
+      "innericonName",
+      "iconImage",
+      "innerBlocks content"
+    ],
+    "requiresValidation": [
+      "tabtoIndex",
+      "uniqueKey",
+      "active"
+    ],
+    "dangerous": [
+      "block_id",
+      "className",
+      "activeTab",
+      "navAlign (inherited from parent)"
+    ]
+  },
+  "styleDependencies": [
+    "Inherits all styling from parent tp-tabs-tours block",
+    "Icon font library (Font Awesome)",
+    "Tab transition CSS"
+  ],
+  "commonUseCases": [
+    "Individual tab in tabbed interface",
+    "Content section in horizontal/vertical tabs",
+    "Tabbed product information panel",
+    "FAQ tab item"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-tabs-tours",
+    "tpgb/tp-heading-title",
+    "tpgb/tp-pro-paragraph"
+  ],
+  "capabilities": [
+    "Custom title per tab",
+    "Optional tab-specific icon (Font Awesome or image)",
+    "Supports innerBlocks for rich content",
+    "Inherits parent styling and behavior",
+    "Index-based tab ordering"
+  ],
+  "usesContext": [],
+  "supports": {
+    "inserter": false,
+    "reusable": false,
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": true,
+  "allowedInnerBlocks": ["*"],
+  "parentBlockRequired": true,
+  "requiredParentBlock": "tpgb/tp-tabs-tours",
+  "examples": [
+    {
+      "description": "Simple tab with title and content",
+      "attributes": {
+        "block_id": "a1b2",
+        "tabinTitle": "Features",
+        "tabtoIndex": 0,
+        "innerIcon": false
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "c3d4",
+            "content": "Our product features include..."
+          }
+        }
+      ]
+    },
+    {
+      "description": "Tab with custom icon",
+      "attributes": {
+        "block_id": "e5f6",
+        "tabinTitle": "Pricing",
+        "tabtoIndex": 1,
+        "innerIcon": true,
+        "innericonName": "fas fa-dollar-sign"
+      }
+    }
+  ]
+}
