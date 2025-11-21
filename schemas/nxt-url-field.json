@@ -1,0 +1,199 @@
+{
+  "blockName": "tpgb/tp-form-url-field",
+  "version": "1.0.0",
+  "title": "Website URL",
+  "category": "form",
+  "description": "Add a URL input field to your form with automatic URL validation. Features optional Font Awesome icons or custom images, field width control, required field validation, placeholder text, help text (description), autocomplete control, and icon color with hover states. Includes built-in URL format validation. Perfect for website submissions, social media profiles, portfolio links, or any URL input. Must be used inside a Form Block. Pro version with advanced form controls.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "labelss": {
+      "type": "string",
+      "default": "Url",
+      "description": "Field label text"
+    },
+    "reqTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Make field required"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "Url",
+      "description": "Placeholder text shown in empty input"
+    },
+    "autoComplete": {
+      "type": "string",
+      "default": "off",
+      "enum": ["off", "on", "url"],
+      "description": "HTML autocomplete attribute value"
+    },
+    "inpSz": {
+      "type": "object",
+      "default": {"md": "100", "unit": "%"},
+      "description": "Field width (percentage or px)",
+      "responsive": true
+    },
+    "hlpTxt": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable help text (description)"
+    },
+    "desctxt": {
+      "type": "string",
+      "default": "Description",
+      "description": "Help text content (when hlpTxt is true)"
+    },
+    "descPoss": {
+      "type": "string",
+      "default": "top",
+      "enum": ["top", "bottom"],
+      "description": "Help text position relative to field"
+    },
+    "urlIconType": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "fontAwesome", "image"],
+      "description": "Icon type for URL field"
+    },
+    "urlIcons": {
+      "type": "string",
+      "default": "",
+      "description": "Font Awesome icon class (when urlIconType is 'fontAwesome')"
+    },
+    "urlImage": {
+      "type": "object",
+      "default": {"url": "", "Id": ""},
+      "description": "Custom icon image (when urlIconType is 'image')"
+    },
+    "error": {
+      "type": "string",
+      "default": "This field is required.",
+      "description": "Error message for validation failure"
+    },
+    "icnClr": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal state)"
+    },
+    "hvrIcnClr": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (hover state)"
+    },
+    "uniqueid": {
+      "type": "string",
+      "default": "",
+      "description": "Unique field identifier for form submission"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "placeholder",
+      "error",
+      "inpSz",
+      "desctxt",
+      "urlIcons",
+      "urlImage",
+      "icnClr",
+      "hvrIcnClr"
+    ],
+    "requiresValidation": [
+      "reqTgl",
+      "autoComplete",
+      "hlpTxt",
+      "descPoss",
+      "urlIconType"
+    ],
+    "dangerous": [
+      "block_id",
+      "uniqueid"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Input container flexbox layout",
+    "URL validation JavaScript"
+  ],
+  "commonUseCases": [
+    "Website submission",
+    "Portfolio link",
+    "Social media profile",
+    "Company website",
+    "Blog URL",
+    "Project link",
+    "Reference URL",
+    "External resource links"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-form-block",
+    "tpgb/tp-form-email-field",
+    "tpgb/tp-form-submit-button"
+  ],
+  "capabilities": [
+    "Customizable label text",
+    "Automatic URL format validation",
+    "3 icon types (none, Font Awesome, custom image)",
+    "Required field validation",
+    "Custom placeholder text",
+    "Custom error messages",
+    "Autocomplete control (3 options)",
+    "Responsive width control",
+    "Help text with top/bottom positioning",
+    "Icon color with hover state",
+    "Unique field ID for form handling",
+    "Inline display support with submit button"
+  ],
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true,
+  "ancestorBlock": "tpgb/tp-form-block",
+  "examples": [
+    {
+      "description": "Simple website URL field",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Website",
+        "placeholder": "https://example.com",
+        "reqTgl": true,
+        "autoComplete": "url"
+      }
+    },
+    {
+      "description": "Portfolio link with icon",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Portfolio URL",
+        "urlIconType": "fontAwesome",
+        "urlIcons": "fas fa-link",
+        "placeholder": "Your portfolio website",
+        "reqTgl": false,
+        "icnClr": "#667eea",
+        "hvrIcnClr": "#764ba2"
+      }
+    },
+    {
+      "description": "Social media profile with help text",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "LinkedIn Profile",
+        "placeholder": "https://linkedin.com/in/username",
+        "hlpTxt": true,
+        "desctxt": "Enter your complete LinkedIn profile URL",
+        "descPoss": "bottom",
+        "urlIconType": "fontAwesome",
+        "urlIcons": "fab fa-linkedin",
+        "reqTgl": false
+      }
+    }
+  ]
+}
