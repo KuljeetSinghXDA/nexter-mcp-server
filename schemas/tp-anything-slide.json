@@ -1,0 +1,73 @@
+{
+  "blockName": "tpgb/tp-anything-slide",
+  "version": "1.0.0",
+  "title": "Slide Inner",
+  "category": "content",
+  "description": "Inner block for carousel slides. Must be used as a child of tp-anything-carousel. Acts as a container for slide content with unique identification. Part of the carousel system for creating dynamic, multi-item sliders with any content type.",
+  "source": "pro",
+  "attributes": {
+    "key": {
+      "type": "string",
+      "default": "",
+      "description": "Unique key identifier for the slide"
+    },
+    "itemId": {
+      "type": "string",
+      "default": "",
+      "description": "Item ID for slide identification and tracking"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "itemId"
+    ],
+    "requiresValidation": [
+      "key"
+    ],
+    "dangerous": []
+  },
+  "styleDependencies": [
+    "Parent carousel (tp-anything-carousel) JavaScript",
+    "Slide animation and transition effects",
+    "Carousel navigation system"
+  ],
+  "commonUseCases": [
+    "Custom content slides",
+    "Product showcases",
+    "Image galleries",
+    "Testimonial slides",
+    "Feature presentations",
+    "Portfolio items",
+    "Service highlights",
+    "Team member cards"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-anything-carousel",
+    "tpgb/tp-carousel-remote"
+  ],
+  "capabilities": [
+    "Inner block for carousel parent",
+    "Unique slide identification",
+    "Item ID tracking",
+    "Accepts any inner blocks",
+    "Part of carousel system",
+    "Supports wide and full alignment"
+  ],
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": true,
+  "parentBlock": "tpgb/tp-anything-carousel",
+  "examples": [
+    {
+      "description": "Basic slide container",
+      "attributes": {
+        "key": "slide-1",
+        "itemId": "carousel-item-001"
+      }
+    }
+  ]
+}

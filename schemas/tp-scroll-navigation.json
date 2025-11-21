@@ -1,0 +1,237 @@
+{
+  "blockName": "tpgb/tp-scroll-navigation",
+  "version": "1.0.0",
+  "title": "Scroll Navigation",
+  "category": "navigation",
+  "description": "Create elegant one-page navigation with smooth scrolling to anchor sections. Features dot or text indicators, tooltips, progress tracking, and custom positioning. Perfect for single-page websites, landing pages, portfolios, presentations, and long-form content. Navigate between page sections with visual indicators and active state highlighting.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "scrollNavStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2"],
+      "description": "Visual style: style-1 (dots), style-2 (text labels)"
+    },
+    "scrollNavRepeater": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Navigation items linked to page sections",
+      "items": {
+        "title": {
+          "type": "string",
+          "default": "Section",
+          "description": "Section title/label"
+        },
+        "sectionId": {
+          "type": "string",
+          "default": "",
+          "description": "CSS ID of target section (without #)"
+        },
+        "icon": {
+          "type": "string",
+          "default": "",
+          "description": "Font Awesome icon class (style-1)"
+        },
+        "tooltip": {
+          "type": "string",
+          "default": "Section",
+          "description": "Tooltip text on hover"
+        }
+      },
+      "default": [
+        {"_key": "0", "title": "Home", "sectionId": "section-1", "icon": "fas fa-home", "tooltip": "Home"},
+        {"_key": "1", "title": "About", "sectionId": "section-2", "icon": "fas fa-info-circle", "tooltip": "About"},
+        {"_key": "2", "title": "Services", "sectionId": "section-3", "icon": "fas fa-cog", "tooltip": "Services"},
+        {"_key": "3", "title": "Contact", "sectionId": "section-4", "icon": "fas fa-envelope", "tooltip": "Contact"}
+      ]
+    },
+    "scrollDirection": {
+      "type": "string",
+      "default": "vertical",
+      "enum": ["vertical", "horizontal"],
+      "description": "Scroll direction and nav position"
+    },
+    "scrollPosition": {
+      "type": "string",
+      "default": "right",
+      "enum": ["left", "right", "top", "bottom"],
+      "description": "Navigation position on page (vertical: left/right, horizontal: top/bottom)"
+    },
+    "scrollOffset": {
+      "type": "object",
+      "default": {"md": "100", "unit": "px"},
+      "description": "Offset from top/bottom/left/right edge",
+      "responsive": true
+    },
+    "scrollSpeed": {
+      "type": "string",
+      "default": "1000",
+      "description": "Smooth scroll animation duration in milliseconds"
+    },
+    "activeOffset": {
+      "type": "string",
+      "default": "100",
+      "description": "Offset in pixels for active section detection"
+    },
+    "showTooltip": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show tooltips on hover"
+    },
+    "tooltipPosition": {
+      "type": "string",
+      "default": "left",
+      "enum": ["left", "right", "top", "bottom"],
+      "description": "Tooltip placement"
+    },
+    "progressBar": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show scroll progress indicator"
+    },
+    "progressPosition": {
+      "type": "string",
+      "default": "top",
+      "enum": ["top", "bottom"],
+      "description": "Progress bar position"
+    },
+    "hideOnMobile": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide navigation on mobile devices"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "scrollNavRepeater",
+      "scrollOffset",
+      "scrollSpeed",
+      "activeOffset",
+      "tooltipPosition"
+    ],
+    "requiresValidation": [
+      "scrollNavStyle",
+      "scrollDirection",
+      "scrollPosition",
+      "showTooltip",
+      "progressBar",
+      "progressPosition",
+      "hideOnMobile"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Smooth scroll library (e.g., smooth-scroll.js)",
+    "Intersection Observer API for active section detection",
+    "Tooltip library or CSS tooltips",
+    "Progress bar JavaScript for scroll tracking",
+    "CSS sticky/fixed positioning"
+  ],
+  "commonUseCases": [
+    "Single-page websites",
+    "Landing pages with sections",
+    "Portfolio one-pagers",
+    "Long-form articles",
+    "Presentation-style sites",
+    "Product showcase pages",
+    "Event landing pages",
+    "Agency websites",
+    "Resume/CV pages",
+    "Sales pages with sections"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-navigation-menu",
+    "tpgb/tp-table-content",
+    "tpgb/tp-breadcrumb"
+  ],
+  "capabilities": [
+    "2 visual styles (dots with icons, text labels)",
+    "Unlimited navigation items with repeater field",
+    "Smooth scrolling to anchor sections",
+    "Section ID targeting",
+    "2 scroll directions (vertical, horizontal)",
+    "4 position options (left, right, top, bottom)",
+    "Active section highlighting",
+    "Custom scroll speed control",
+    "Active offset detection threshold",
+    "Tooltips on hover with placement control",
+    "Optional scroll progress bar",
+    "Progress bar position (top or bottom)",
+    "Font Awesome icons for nav items (style-1)",
+    "Text labels for sections (style-2)",
+    "Responsive offset controls",
+    "Hide on mobile option",
+    "Custom styling for normal and active states",
+    "Dot/indicator sizing and spacing",
+    "Typography controls for text labels",
+    "Background, border, radius, shadow for indicators",
+    "Transition animations"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple dot navigation (right side)",
+      "attributes": {
+        "block_id": "a1b2",
+        "scrollNavStyle": "style-1",
+        "scrollDirection": "vertical",
+        "scrollPosition": "right",
+        "scrollOffset": {"md": "50", "unit": "px"},
+        "scrollNavRepeater": [
+          {"_key": "0", "title": "Home", "sectionId": "home", "icon": "fas fa-home"},
+          {"_key": "1", "title": "About", "sectionId": "about", "icon": "fas fa-user"},
+          {"_key": "2", "title": "Portfolio", "sectionId": "portfolio", "icon": "fas fa-folder"},
+          {"_key": "3", "title": "Contact", "sectionId": "contact", "icon": "fas fa-envelope"}
+        ]
+      }
+    },
+    {
+      "description": "Text label navigation with progress bar",
+      "attributes": {
+        "block_id": "c3d4",
+        "scrollNavStyle": "style-2",
+        "scrollPosition": "left",
+        "progressBar": true,
+        "progressPosition": "top",
+        "scrollSpeed": "800"
+      }
+    },
+    {
+      "description": "Horizontal navigation (top)",
+      "attributes": {
+        "block_id": "e5f6",
+        "scrollDirection": "horizontal",
+        "scrollPosition": "top",
+        "scrollOffset": {"md": "80", "unit": "px"},
+        "showTooltip": false
+      }
+    },
+    {
+      "description": "Mobile-hidden nav with custom speed",
+      "attributes": {
+        "block_id": "g7h8",
+        "hideOnMobile": true,
+        "scrollSpeed": "1500",
+        "activeOffset": "150",
+        "tooltipPosition": "left"
+      }
+    }
+  ]
+}

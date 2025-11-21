@@ -1,0 +1,163 @@
+{
+  "blockName": "tpgb/tp-flipbox",
+  "version": "1.0.0",
+  "title": "Flip Box",
+  "category": "interactive",
+  "description": "Interactive flip box with front and back sides that flips on hover. Perfect for revealing additional content, creating engaging interactions, and showcasing dual-sided information like product features, team bios, or service details.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "layoutType": {
+      "type": "string",
+      "default": "listing",
+      "description": "Layout type"
+    },
+    "flipType": {
+      "type": "string",
+      "default": "horizontal",
+      "enum": ["horizontal", "vertical"],
+      "description": "Flip animation direction: horizontal (left-right) or vertical (top-bottom)"
+    },
+    "boxHeight": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Minimum height for flip box",
+      "responsive": true
+    },
+    "backAlign": {
+      "type": "string",
+      "default": "center",
+      "enum": ["left", "center", "right"],
+      "description": "Content alignment on back side"
+    },
+    "backCarouselBtn": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show CTA button on back side"
+    },
+    "btnCarouselStyle": {
+      "type": "string",
+      "default": "style-7",
+      "description": "Button style for back side"
+    },
+    "btnCarouselIconType": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "icon"],
+      "description": "Button icon type"
+    },
+    "btnCarouselIconName": {
+      "type": "string",
+      "default": "",
+      "description": "Button icon class"
+    },
+    "btnCarouselIconPosition": {
+      "type": "string",
+      "default": "after",
+      "enum": ["before", "after"],
+      "description": "Button icon position"
+    },
+    "flipcarousel": {
+      "type": "array",
+      "default": [],
+      "description": "Array of flip box items (when using repeater mode)",
+      "repeaterField": {
+        "title": {"type": "string", "default": "Special Feature", "description": "Front side title"},
+        "description": {"type": "string", "description": "Back side description"},
+        "btnText": {"type": "string", "default": "Read more", "description": "Button text"},
+        "btnUrl": {"type": "object", "description": "Button URL link"},
+        "iconType": {"type": "string", "default": "icon", "description": "Icon type"},
+        "iconStore": {"type": "string", "description": "Icon class"},
+        "imagestore": {"type": "object", "description": "Icon image"}
+      }
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "flipcarousel",
+      "boxHeight",
+      "backAlign",
+      "btnCarouselIconName",
+      "innerBlocks content (front and back)"
+    ],
+    "requiresValidation": [
+      "flipType",
+      "backCarouselBtn",
+      "btnCarouselStyle",
+      "btnCarouselIconType"
+    ],
+    "dangerous": [
+      "block_id",
+      "layoutType"
+    ]
+  },
+  "styleDependencies": [
+    "3D flip animation CSS",
+    "Front/back side styling",
+    "Button styling (if enabled)",
+    "Icon font library",
+    "Hover trigger effects"
+  ],
+  "commonUseCases": [
+    "Product feature reveals",
+    "Team member bios (photo front, details back)",
+    "Service descriptions",
+    "Interactive cards",
+    "Before/after displays",
+    "Hidden content reveals"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-infobox",
+    "tpgb/tp-hovercard",
+    "tpgb/tp-button",
+    "tpgb/tp-team-listing"
+  ],
+  "capabilities": [
+    "Horizontal or vertical flip",
+    "Custom box height",
+    "Front and back content via innerBlocks",
+    "Optional CTA button on back",
+    "Repeater mode for multiple flip boxes",
+    "Icon support",
+    "Content alignment control",
+    "Hover-triggered animation"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": true,
+  "allowedInnerBlocks": ["*"],
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple horizontal flip box",
+      "attributes": {
+        "block_id": "a1b2",
+        "flipType": "horizontal",
+        "boxHeight": {"md": "300", "unit": "px"},
+        "backAlign": "center",
+        "backCarouselBtn": true,
+        "btnCarouselStyle": "style-1"
+      },
+      "innerBlocks": [
+        {"blockName": "tpgb/tp-heading-title", "attrs": {"block_id": "c3d4", "Title": "Front Side"}},
+        {"blockName": "tpgb/tp-pro-paragraph", "attrs": {"block_id": "e5f6", "content": "Back side content here"}}
+      ]
+    },
+    {
+      "description": "Vertical flip with button",
+      "attributes": {
+        "block_id": "g7h8",
+        "flipType": "vertical",
+        "backCarouselBtn": true,
+        "btnCarouselIconType": "icon",
+        "btnCarouselIconName": "fas fa-arrow-right"
+      }
+    }
+  ]
+}

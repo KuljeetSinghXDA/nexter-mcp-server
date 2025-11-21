@@ -1,0 +1,384 @@
+{
+  "blockName": "tpgb/tp-table-content",
+  "version": "1.0.0",
+  "title": "Table of Contents",
+  "category": "navigation",
+  "description": "Auto-generate table of contents from page headings (H1-H6) for easy navigation and readability. Features 4 visual styles with nested heading support, smooth scrolling, fixed positioning, and collapsible toggle. Perfect for long-form blog posts, documentation, guides, tutorials, legal documents, and articles. List main headings with customizable styling and active link highlighting.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "typeList": {
+      "type": "string",
+      "default": "UL",
+      "enum": ["UL", "OL"],
+      "description": "List type: unordered (UL) or ordered (OL)"
+    },
+    "Style": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "style-1", "style-2", "style-3", "style-4"],
+      "description": "Visual style with decorative lines and indicators"
+    },
+    "selectorH1": {
+      "type": "boolean",
+      "default": true,
+      "description": "Include H1 headings in table of contents"
+    },
+    "selectorH2": {
+      "type": "boolean",
+      "default": true,
+      "description": "Include H2 headings in table of contents"
+    },
+    "selectorH3": {
+      "type": "boolean",
+      "default": true,
+      "description": "Include H3 headings in table of contents"
+    },
+    "selectorH4": {
+      "type": "boolean",
+      "default": true,
+      "description": "Include H4 headings in table of contents"
+    },
+    "selectorH5": {
+      "type": "boolean",
+      "default": true,
+      "description": "Include H5 headings in table of contents"
+    },
+    "selectorH6": {
+      "type": "boolean",
+      "default": true,
+      "description": "Include H6 headings in table of contents"
+    },
+    "contentSelector": {
+      "type": "string",
+      "default": "#content",
+      "description": "CSS selector for content area to scan for headings"
+    },
+    "ChildToggle": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable toggle for child/nested headings"
+    },
+    "headingsOffset": {
+      "type": "string",
+      "default": "1",
+      "description": "Heading level offset (start numbering from H1=1, H2=2, etc.)"
+    },
+    "smoothScroll": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable smooth scrolling animation on link click"
+    },
+    "smoothDuration": {
+      "type": "string",
+      "default": "420",
+      "description": "Smooth scroll duration in milliseconds"
+    },
+    "scrollOffset": {
+      "type": "string",
+      "default": "0",
+      "description": "Scroll offset in pixels (accounts for fixed headers)"
+    },
+    "fixedPosition": {
+      "type": "boolean",
+      "default": false,
+      "description": "Fixed position table of contents (sticky)"
+    },
+    "fixedOffset": {
+      "type": "string",
+      "default": "",
+      "description": "Fixed position offset from top in pixels"
+    },
+    "showText": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show table of contents title/heading"
+    },
+    "contentText": {
+      "type": "string",
+      "default": "Table of Contents",
+      "description": "Table of contents title text"
+    },
+    "TableDescText": {
+      "type": "string",
+      "default": "",
+      "description": "Optional description text below title"
+    },
+    "showIcon": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show prefix icon before title"
+    },
+    "PrefixIcon": {
+      "type": "string",
+      "default": "",
+      "description": "Font Awesome icon class for prefix icon"
+    },
+    "ToggleIcon": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show collapsible toggle icon"
+    },
+    "openIcon": {
+      "type": "string",
+      "default": "fas fa-angle-up",
+      "description": "Font Awesome icon when table is expanded"
+    },
+    "closeIcon": {
+      "type": "string",
+      "default": "fas fa-angle-down",
+      "description": "Font Awesome icon when table is collapsed"
+    },
+    "DefaultToggle": {
+      "type": "object",
+      "default": {"md": true, "sm": true, "xs": false},
+      "description": "Default collapsed/expanded state (responsive)",
+      "responsive": true
+    },
+    "totitleAlign": {
+      "type": "object",
+      "default": {"md": "", "sm": "", "xs": ""},
+      "description": "Title alignment",
+      "responsive": true
+    },
+    "leftOffset": {
+      "type": "string",
+      "default": "20",
+      "description": "Left padding/indent for nested lists in pixels"
+    },
+    "bottomOffset": {
+      "type": "string",
+      "default": "10",
+      "description": "Bottom margin for list items in pixels (style-2, style-3, style-4)"
+    },
+    "TableSetMinHeight": {
+      "type": "boolean",
+      "default": false,
+      "description": "Set maximum height with scrollbar"
+    },
+    "TableMinHeight": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Maximum height in pixels (when TableSetMinHeight is true)",
+      "responsive": true
+    },
+    "ScrollBarWidth": {
+      "type": "string",
+      "default": "",
+      "description": "Scrollbar width in pixels"
+    },
+    "ScrollBarThumb": {
+      "type": "string",
+      "default": "",
+      "description": "Scrollbar thumb color"
+    },
+    "ScrollBarTrack": {
+      "type": "string",
+      "default": "",
+      "description": "Scrollbar track color"
+    },
+    "LineWidth": {
+      "type": "string",
+      "default": "",
+      "description": "Decorative line width in pixels (style-1, style-2, style-3, style-4)"
+    },
+    "Line2Width": {
+      "type": "string",
+      "default": "",
+      "description": "Active line width in pixels (style-2, style-3, style-4)"
+    },
+    "LineColor": {
+      "type": "string",
+      "default": "",
+      "description": "Decorative line color"
+    },
+    "LineActiveColor": {
+      "type": "string",
+      "default": "",
+      "description": "Active line color (when heading is in viewport)"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "selectorH1",
+      "selectorH2",
+      "selectorH3",
+      "selectorH4",
+      "selectorH5",
+      "selectorH6",
+      "contentSelector",
+      "headingsOffset",
+      "smoothDuration",
+      "scrollOffset",
+      "fixedOffset",
+      "contentText",
+      "TableDescText",
+      "PrefixIcon",
+      "openIcon",
+      "closeIcon",
+      "DefaultToggle",
+      "totitleAlign",
+      "leftOffset",
+      "bottomOffset",
+      "TableMinHeight",
+      "ScrollBarWidth",
+      "ScrollBarThumb",
+      "ScrollBarTrack",
+      "LineWidth",
+      "Line2Width",
+      "LineColor",
+      "LineActiveColor"
+    ],
+    "requiresValidation": [
+      "typeList",
+      "Style",
+      "ChildToggle",
+      "smoothScroll",
+      "fixedPosition",
+      "showText",
+      "showIcon",
+      "ToggleIcon",
+      "TableSetMinHeight"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Heading detection and parsing JavaScript",
+    "Smooth scroll library (e.g., smooth-scroll.js)",
+    "Intersection Observer API for active link highlighting",
+    "CSS sticky positioning (when fixedPosition is true)",
+    "Custom scrollbar styling (webkit-scrollbar)"
+  ],
+  "commonUseCases": [
+    "Long-form blog posts",
+    "Documentation pages",
+    "Tutorial and guide articles",
+    "Legal documents and policies",
+    "Research papers and whitepapers",
+    "eBooks and long-form content",
+    "Product manuals",
+    "Knowledge base articles",
+    "Course syllabi",
+    "Reports and case studies",
+    "Multi-section landing pages",
+    "Technical specifications"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-navigation-menu",
+    "tpgb/tp-breadcrumb",
+    "core/table-of-contents"
+  ],
+  "capabilities": [
+    "Auto-generation from H1-H6 headings",
+    "Selective heading inclusion (toggle H1-H6 individually)",
+    "2 list types (unordered, ordered)",
+    "5 visual styles (none, style-1, style-2, style-3, style-4)",
+    "Custom CSS selector for content area",
+    "Nested heading support with indentation",
+    "Child heading toggle (collapsible sub-levels)",
+    "Smooth scrolling with duration control",
+    "Scroll offset for fixed headers",
+    "Fixed/sticky positioning option",
+    "Fixed position offset control",
+    "Optional title/heading display",
+    "Custom title text",
+    "Optional description text below title",
+    "Prefix icon (Font Awesome)",
+    "Collapsible toggle with open/close icons",
+    "Responsive default state (collapsed/expanded per breakpoint)",
+    "Responsive title alignment",
+    "Active link highlighting (when heading is in viewport)",
+    "Level 1 and sub-level typography customization",
+    "Normal and active color states",
+    "Custom left offset for nested lists",
+    "Custom bottom spacing for list items",
+    "Maximum height with scrollbar option",
+    "Custom scrollbar styling (width, thumb, track colors)",
+    "Decorative line styling (width, color for normal and active states)",
+    "4 styles with different line positions and effects",
+    "Extensive box styling (padding, border, radius, background, shadow)"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple table of contents (H2-H3 only)",
+      "attributes": {
+        "block_id": "a1b2",
+        "selectorH1": false,
+        "selectorH2": true,
+        "selectorH3": true,
+        "selectorH4": false,
+        "selectorH5": false,
+        "selectorH6": false,
+        "smoothScroll": true,
+        "contentText": "On This Page"
+      }
+    },
+    {
+      "description": "Documentation TOC with style-1",
+      "attributes": {
+        "block_id": "c3d4",
+        "Style": "style-1",
+        "typeList": "OL",
+        "showIcon": true,
+        "PrefixIcon": "fas fa-list",
+        "smoothDuration": "500",
+        "scrollOffset": "80"
+      }
+    },
+    {
+      "description": "Sticky sidebar TOC with max height",
+      "attributes": {
+        "block_id": "e5f6",
+        "fixedPosition": true,
+        "fixedOffset": "100",
+        "TableSetMinHeight": true,
+        "TableMinHeight": {"md": "600", "unit": "px"},
+        "ScrollBarWidth": "8",
+        "ScrollBarThumb": "#667eea",
+        "Style": "style-2"
+      }
+    },
+    {
+      "description": "Collapsible TOC (mobile-collapsed, desktop-expanded)",
+      "attributes": {
+        "block_id": "g7h8",
+        "ToggleIcon": true,
+        "openIcon": "fas fa-minus",
+        "closeIcon": "fas fa-plus",
+        "DefaultToggle": {"md": true, "sm": true, "xs": false},
+        "contentText": "Contents",
+        "TableDescText": "Jump to section"
+      }
+    },
+    {
+      "description": "Styled TOC with active indicators (style-4)",
+      "attributes": {
+        "block_id": "i9j0",
+        "Style": "style-4",
+        "LineWidth": "2",
+        "Line2Width": "4",
+        "LineColor": "#e0e0e0",
+        "LineActiveColor": "#667eea",
+        "leftOffset": "30",
+        "bottomOffset": "15"
+      }
+    }
+  ]
+}

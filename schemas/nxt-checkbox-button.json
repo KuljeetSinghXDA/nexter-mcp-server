@@ -1,0 +1,191 @@
+{
+  "blockName": "tpgb/tp-form-checkbox-button",
+  "version": "1.0.0",
+  "title": "Checkbox",
+  "category": "form",
+  "description": "Add checkboxes to enable multiple selections from a list of options. Features customizable option labels and values, vertical or horizontal layout, checkbox positioning alignment, border radius styling (square/rounded), field width control, required field validation, help text (description), and custom error messages. Perfect for multi-select choices, preferences, or agreement checkboxes. Must be used inside a Form Block. Pro version with advanced form controls.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "labelss": {
+      "type": "string",
+      "default": "Checkbox",
+      "description": "Field label text"
+    },
+    "fldOptions": {
+      "type": "array",
+      "default": [{"fldLabel": " Enter Label", "fldValue": " Enter Value"}],
+      "repeaterField": true,
+      "description": "Array of checkbox options with label and value pairs"
+    },
+    "optPos": {
+      "type": "string",
+      "default": "vertical",
+      "enum": ["vertical", "horizontal"],
+      "description": "Options layout orientation"
+    },
+    "chkPosition": {
+      "type": "string",
+      "default": "",
+      "enum": ["", "left", "center", "right"],
+      "description": "Checkbox alignment within option container"
+    },
+    "reqTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Make field required (at least one checkbox must be selected)"
+    },
+    "hlpTxt": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable help text (description)"
+    },
+    "desctxt": {
+      "type": "string",
+      "default": "Description",
+      "description": "Help text content (when hlpTxt is true)"
+    },
+    "descPoss": {
+      "type": "string",
+      "default": "top",
+      "enum": ["top", "bottom"],
+      "description": "Help text position relative to field"
+    },
+    "inpSz": {
+      "type": "object",
+      "default": {"md": "100", "unit": "%"},
+      "description": "Field width (percentage or px)",
+      "responsive": true
+    },
+    "bRadius": {
+      "type": "string",
+      "default": "square",
+      "enum": ["square", "rounded"],
+      "description": "Checkbox border radius style"
+    },
+    "error": {
+      "type": "string",
+      "default": "This field is required.",
+      "description": "Error message for validation failure"
+    },
+    "uniqueid": {
+      "type": "string",
+      "default": "",
+      "description": "Unique field identifier for form submission"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "fldOptions",
+      "desctxt",
+      "error",
+      "inpSz",
+      "chkPosition"
+    ],
+    "requiresValidation": [
+      "optPos",
+      "reqTgl",
+      "hlpTxt",
+      "descPoss",
+      "bRadius"
+    ],
+    "dangerous": [
+      "block_id",
+      "uniqueid"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Checkbox input styling",
+    "Flexbox layout for options",
+    "Border radius for checkbox shape"
+  ],
+  "commonUseCases": [
+    "Multi-select preferences",
+    "Interests selection",
+    "Terms agreement",
+    "Newsletter subscriptions",
+    "Feature selection",
+    "Survey multi-choice",
+    "Service options",
+    "Privacy consent"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-form-block",
+    "tpgb/tp-form-radio-button",
+    "tpgb/tp-form-submit-button"
+  ],
+  "capabilities": [
+    "Customizable label text",
+    "Multiple checkbox options",
+    "Custom label and value pairs",
+    "2 layout orientations (vertical, horizontal)",
+    "Checkbox alignment control (left, center, right)",
+    "Required field validation",
+    "Custom error messages",
+    "2 border radius styles (square, rounded)",
+    "Responsive width control",
+    "Help text with top/bottom positioning",
+    "Unique field ID for form handling",
+    "Inline display support with submit button",
+    "Dynamic option management"
+  ],
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true,
+  "ancestorBlock": "tpgb/tp-form-block",
+  "examples": [
+    {
+      "description": "Simple interests selection",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Select Your Interests",
+        "fldOptions": [
+          {"fldLabel": "Web Design", "fldValue": "design"},
+          {"fldLabel": "Development", "fldValue": "dev"},
+          {"fldLabel": "Marketing", "fldValue": "marketing"}
+        ],
+        "optPos": "vertical",
+        "reqTgl": true
+      }
+    },
+    {
+      "description": "Horizontal preferences with help text",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Newsletter Topics",
+        "fldOptions": [
+          {"fldLabel": "News", "fldValue": "news"},
+          {"fldLabel": "Updates", "fldValue": "updates"},
+          {"fldLabel": "Offers", "fldValue": "offers"}
+        ],
+        "optPos": "horizontal",
+        "bRadius": "rounded",
+        "hlpTxt": true,
+        "desctxt": "Select all topics you'd like to receive",
+        "descPoss": "top"
+      }
+    },
+    {
+      "description": "Terms agreement checkbox",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Agreement",
+        "fldOptions": [
+          {"fldLabel": "I agree to the Terms and Conditions", "fldValue": "agree"}
+        ],
+        "reqTgl": true,
+        "error": "You must agree to continue"
+      }
+    }
+  ]
+}

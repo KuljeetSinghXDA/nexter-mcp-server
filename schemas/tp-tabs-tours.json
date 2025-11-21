@@ -1,0 +1,534 @@
+{
+  "blockName": "tpgb/tp-tabs-tours",
+  "version": "1.0.0",
+  "title": "Tabs Tours",
+  "category": "content",
+  "description": "Create tabbed content sections with horizontal or vertical navigation. Display organized information in tabs or tours with icons, custom content, templates, and mobile accordion view. Features swiper effects, active tab highlighting, extensive styling, and responsive breakpoints. Perfect for FAQs, product features, service descriptions, and content organization.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "tabType": {
+      "type": "string",
+      "default": "",
+      "description": "Tab type variant"
+    },
+    "tablistRepeater": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Tab items with titles, content, icons, and templates",
+      "items": {
+        "tabTitle": {
+          "type": "string",
+          "default": "Tab",
+          "description": "Tab navigation title"
+        },
+        "contentType": {
+          "type": "string",
+          "default": "content",
+          "description": "Content source: 'content' or template"
+        },
+        "blockTemp": {
+          "type": "string",
+          "default": "",
+          "description": "Template ID for tab content"
+        },
+        "backendVisi": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show template in backend editor"
+        },
+        "tabDescription": {
+          "type": "string",
+          "default": "This is just dummy content. Put your relevant content over here.",
+          "description": "Tab content text"
+        },
+        "innerIcon": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show icon inside tab header"
+        },
+        "iconFonts": {
+          "type": "string",
+          "default": "font_awesome",
+          "description": "Icon library"
+        },
+        "iconImage": {
+          "type": "object",
+          "default": {"url": ""},
+          "description": "Custom icon image"
+        },
+        "iconimageSize": {
+          "type": "string",
+          "default": "full",
+          "description": "WordPress image size for icon"
+        },
+        "outerIcon": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show icon outside tab header"
+        },
+        "innericonName": {
+          "type": "string",
+          "default": "fas fa-home",
+          "description": "Inner Font Awesome icon class"
+        },
+        "outericonName": {
+          "type": "string",
+          "default": "fas fa-home",
+          "description": "Outer Font Awesome icon class"
+        },
+        "uniqueId": {
+          "type": "string",
+          "default": "",
+          "description": "Unique identifier for tab"
+        },
+        "ajaxbase": {
+          "type": "string",
+          "default": "",
+          "description": "AJAX base for dynamic loading"
+        }
+      },
+      "default": [
+        {"_key": "0", "tabTitle": "Tab 1", "tabDescription": "This is just dummy content.", "contentType": "content", "innericonName": "fas fa-home"},
+        {"_key": "1", "tabTitle": "Tab 2", "tabDescription": "Enter your relevant content.", "contentType": "content", "innericonName": "fas fa-home"}
+      ]
+    },
+    "tabLayout": {
+      "type": "string",
+      "default": "horizontal",
+      "enum": ["horizontal", "vertical"],
+      "description": "Tab navigation layout"
+    },
+    "navPosition": {
+      "type": "string",
+      "default": "top",
+      "enum": ["top", "bottom", "left", "right"],
+      "description": "Tab navigation position"
+    },
+    "swiperEffect": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable swiper slide effect for content"
+    },
+    "activeTab": {
+      "type": "string",
+      "default": "1",
+      "description": "Default active tab index"
+    },
+    "onhoverTab": {
+      "type": "string",
+      "default": "click",
+      "enum": ["click", "hover"],
+      "description": "Tab activation trigger"
+    },
+    "carouselId": {
+      "type": "string",
+      "default": "",
+      "description": "Unique carousel ID for remote control"
+    },
+    "iconSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Icon size",
+      "responsive": true
+    },
+    "iconwidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Icon container width and height",
+      "responsive": true
+    },
+    "iconColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal)"
+    },
+    "iconActcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (active/hover)"
+    },
+    "iconSpacing": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Icon spacing from text",
+      "responsive": true
+    },
+    "fullwidthIcon": {
+      "type": "boolean",
+      "default": false,
+      "description": "Full width icon above text"
+    },
+    "outiconSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Outer icon size",
+      "responsive": true
+    },
+    "outiconColor": {
+      "type": "string",
+      "default": "",
+      "description": "Outer icon color"
+    },
+    "outiconActColor": {
+      "type": "string",
+      "default": "",
+      "description": "Outer icon active color"
+    },
+    "hideToggle": {
+      "type": "object",
+      "default": {"md": false},
+      "description": "Hide tabs on responsive breakpoints",
+      "responsive": true
+    },
+    "vernavWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Vertical navigation width",
+      "responsive": true
+    },
+    "VerticalAlign": {
+      "type": "string",
+      "default": "center",
+      "enum": ["top", "center", "bottom"],
+      "description": "Vertical content alignment"
+    },
+    "titleTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for tab titles"
+    },
+    "navAlign": {
+      "type": "string",
+      "default": "text-center",
+      "enum": ["text-left", "text-center", "text-right"],
+      "description": "Tab navigation alignment"
+    },
+    "tabCol": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable column layout for tabs"
+    },
+    "colSize": {
+      "type": "object",
+      "default": {"md": ""},
+      "description": "Number of columns for tabs",
+      "responsive": true
+    },
+    "titleShow": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show tab titles"
+    },
+    "navequalwidth": {
+      "type": "boolean",
+      "default": false,
+      "description": "Equal width for all tabs"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Tab title color (normal)"
+    },
+    "titleActcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Tab title color (active/hover)"
+    },
+    "underline": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show animated underline for active tab"
+    },
+    "ulineColor": {
+      "type": "string",
+      "default": "",
+      "description": "Underline color"
+    },
+    "tabMargin": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Tab header margin",
+      "responsive": true
+    },
+    "tabPadding": {
+      "type": "object",
+      "default": {"md": {"top": 15, "bottom": 15, "left": 15, "right": 15}, "unit": "px"},
+      "description": "Tab header padding",
+      "responsive": true
+    },
+    "navSpace": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Space between tab headers",
+      "responsive": true
+    },
+    "tabBorder": {
+      "type": "object",
+      "default": {"openBorder": 0},
+      "description": "Tab header border (normal)"
+    },
+    "normalBradius": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Tab header border radius (normal)",
+      "responsive": true
+    },
+    "tabActborder": {
+      "type": "object",
+      "default": {"openBorder": 0},
+      "description": "Tab header border (active)"
+    },
+    "actBradius": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Tab header border radius (active)",
+      "responsive": true
+    },
+    "tabbgType": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color"},
+      "description": "Tab header background (normal)"
+    },
+    "acttabBgtype": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color"},
+      "description": "Tab header background (active/hover)"
+    },
+    "tabNBshadow": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Tab header box shadow (normal)"
+    },
+    "tabActBshadow": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Tab header box shadow (active/hover)"
+    },
+    "descTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for tab content"
+    },
+    "descColor": {
+      "type": "string",
+      "default": "",
+      "description": "Tab content text color"
+    },
+    "descMargin": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Tab content wrapper margin",
+      "responsive": true
+    },
+    "descPadding": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Tab content wrapper padding",
+      "responsive": true
+    },
+    "descBorder": {
+      "type": "object",
+      "default": {"openBorder": 0},
+      "description": "Tab content wrapper border"
+    },
+    "descBRedius": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Tab content wrapper border radius",
+      "responsive": true
+    },
+    "descbgType": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color"},
+      "description": "Tab content wrapper background"
+    },
+    "descboxShadow": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Tab content wrapper box shadow"
+    },
+    "navOpacity": {
+      "type": "string",
+      "default": "1",
+      "description": "Tab opacity (normal)"
+    },
+    "navZoom": {
+      "type": "string",
+      "default": "1",
+      "description": "Tab scale transform (normal)"
+    },
+    "ActnavOpacity": {
+      "type": "string",
+      "default": "1",
+      "description": "Tab opacity (active)"
+    },
+    "activenavZoom": {
+      "type": "string",
+      "default": "1",
+      "description": "Tab scale transform (active)"
+    },
+    "tabnavResp": {
+      "type": "string",
+      "default": "",
+      "description": "Responsive tab behavior"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "tablistRepeater",
+      "activeTab",
+      "iconSize",
+      "iconwidth",
+      "iconColor",
+      "iconActcolor",
+      "iconSpacing",
+      "titleColor",
+      "titleActcolor",
+      "ulineColor",
+      "tabMargin",
+      "tabPadding",
+      "navSpace",
+      "descMargin",
+      "descPadding",
+      "descColor",
+      "vernavWidth"
+    ],
+    "requiresValidation": [
+      "tabType",
+      "tabLayout",
+      "navPosition",
+      "swiperEffect",
+      "onhoverTab",
+      "carouselId",
+      "fullwidthIcon",
+      "hideToggle",
+      "VerticalAlign",
+      "navAlign",
+      "tabCol",
+      "titleShow",
+      "navequalwidth",
+      "underline"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Swiper.js (when swiperEffect is true)",
+    "Tab switching JavaScript",
+    "Accordion functionality for mobile",
+    "Active state management",
+    "Template rendering (when using templates)",
+    "AJAX loading (when using ajaxbase)"
+  ],
+  "commonUseCases": [
+    "FAQ sections",
+    "Product feature tabs",
+    "Service descriptions",
+    "Portfolio categorization",
+    "Pricing plan comparison",
+    "Content organization",
+    "Multi-step forms",
+    "Documentation navigation",
+    "Team member profiles",
+    "Event schedules",
+    "Course modules",
+    "Terms and conditions sections"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-accordion",
+    "core/group",
+    "tpgb/tp-carousel-remote"
+  ],
+  "capabilities": [
+    "Unlimited tabs with repeater field",
+    "Horizontal and vertical layouts",
+    "4 navigation positions (top, bottom, left, right)",
+    "Custom content or template-based tabs",
+    "Inner and outer icon support",
+    "Font Awesome and custom image icons",
+    "Click or hover activation",
+    "Default active tab selection",
+    "Swiper slide effects",
+    "Mobile accordion view",
+    "Responsive tab hiding",
+    "Equal width tabs option",
+    "Animated underline for active tab",
+    "Full width icon above text",
+    "Column layout for tabs",
+    "Normal and active state styling",
+    "Typography controls for titles and content",
+    "Icon sizing, spacing, and colors",
+    "Tab opacity and scale transforms",
+    "Background, border, radius, shadow for tabs and content",
+    "Padding, margin controls",
+    "Vertical alignment control",
+    "Template visibility in backend",
+    "Carousel ID for remote control",
+    "AJAX loading support"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple horizontal tabs with icons",
+      "attributes": {
+        "block_id": "a1b2",
+        "tabLayout": "horizontal",
+        "navPosition": "top",
+        "tablistRepeater": [
+          {"tabTitle": "Features", "innericonName": "fas fa-star", "innerIcon": true, "tabDescription": "Discover our amazing features."},
+          {"tabTitle": "Pricing", "innericonName": "fas fa-dollar-sign", "innerIcon": true, "tabDescription": "View our pricing plans."},
+          {"tabTitle": "Support", "innericonName": "fas fa-headset", "innerIcon": true, "tabDescription": "Get help from our team."}
+        ]
+      }
+    },
+    {
+      "description": "Vertical tabs with custom styling",
+      "attributes": {
+        "block_id": "c3d4",
+        "tabLayout": "vertical",
+        "navPosition": "left",
+        "vernavWidth": {"md": "250", "unit": "px"},
+        "titleColor": "#2c3e50",
+        "titleActcolor": "#667eea",
+        "tabbgType": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#f7f9fc"}
+      }
+    },
+    {
+      "description": "Tabs with underline and hover activation",
+      "attributes": {
+        "block_id": "e5f6",
+        "onhoverTab": "hover",
+        "underline": true,
+        "ulineColor": "#667eea",
+        "activeTab": "1"
+      }
+    },
+    {
+      "description": "Template-based tabs with swiper effect",
+      "attributes": {
+        "block_id": "g7h8",
+        "swiperEffect": true,
+        "tablistRepeater": [
+          {"tabTitle": "Overview", "contentType": "template", "blockTemp": "tab-template-1"},
+          {"tabTitle": "Details", "contentType": "template", "blockTemp": "tab-template-2"}
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "blockName": "tpgb/tp-form-submit-button",
+  "version": "1.0.0",
+  "title": "Submit",
+  "category": "form",
+  "description": "Add a submit button to your form with icon support and flexible positioning. Features Font Awesome icons or custom images, inline or block display modes, button alignment, size control, icon positioning and spacing, and icon color with hover states. Automatically handles form submission. Must be used inside a Form Block. Pro version with advanced form controls.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "labelss": {
+      "type": "string",
+      "default": "Submit",
+      "description": "Button text label"
+    },
+    "ButtonType": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "fontAwesome", "image"],
+      "description": "Icon type for submit button"
+    },
+    "ButtonIcon": {
+      "type": "string",
+      "default": "",
+      "description": "Font Awesome icon class (when ButtonType is 'fontAwesome')"
+    },
+    "ButtonImage": {
+      "type": "object",
+      "default": {"url": "", "Id": ""},
+      "description": "Custom icon image (when ButtonType is 'image')"
+    },
+    "btnAlign": {
+      "type": "object",
+      "default": "left",
+      "enum": ["left", "center", "right"],
+      "description": "Button alignment (when isInline is false)",
+      "responsive": false
+    },
+    "btnSz": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Button minimum width",
+      "responsive": true
+    },
+    "iconPos": {
+      "type": "string",
+      "default": "-1",
+      "enum": ["-1", "1"],
+      "description": "Icon position: -1 for left (before text), 1 for right (after text)"
+    },
+    "iconSpc": {
+      "type": "object",
+      "default": {"md": "", "unit": "%"},
+      "description": "Gap spacing between icon and text",
+      "responsive": true
+    },
+    "iconSz": {
+      "type": "object",
+      "default": {"md": "25", "unit": "px"},
+      "description": "Icon size (height and font-size)",
+      "responsive": true
+    },
+    "icnClr": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal state)"
+    },
+    "hvrIcnClr": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (hover state)"
+    },
+    "isInline": {
+      "type": "boolean",
+      "default": false,
+      "description": "Display inline with previous field (e.g., email field) instead of block"
+    },
+    "parentFormId": {
+      "type": "string",
+      "default": "",
+      "description": "Parent form block ID for submission handling"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "ButtonIcon",
+      "ButtonImage",
+      "btnAlign",
+      "btnSz",
+      "iconSpc",
+      "iconSz",
+      "icnClr",
+      "hvrIcnClr"
+    ],
+    "requiresValidation": [
+      "ButtonType",
+      "iconPos",
+      "isInline"
+    ],
+    "dangerous": [
+      "block_id",
+      "parentFormId"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Flexbox layout for inline mode",
+    "CSS gap for icon spacing",
+    "Icon order property for positioning"
+  ],
+  "commonUseCases": [
+    "Contact form submission",
+    "Newsletter signup button",
+    "Registration submission",
+    "Login button",
+    "Search form submit",
+    "Booking form submit",
+    "Feedback form submit",
+    "Inline email subscribe"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-form-block",
+    "tpgb/tp-form-email-field",
+    "tpgb/tp-form-name-field",
+    "tpgb/tp-button-core"
+  ],
+  "capabilities": [
+    "Customizable button text",
+    "3 icon types (none, Font Awesome, custom image)",
+    "2 display modes (inline, block)",
+    "3 alignment options (left, center, right)",
+    "Minimum width control",
+    "Icon left/right positioning",
+    "Icon spacing control",
+    "Icon size control",
+    "Icon color with hover state",
+    "Form submission handling",
+    "Parent form ID binding",
+    "Responsive controls"
+  ],
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true,
+  "ancestorBlock": "tpgb/tp-form-block",
+  "examples": [
+    {
+      "description": "Simple submit button",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Send Message",
+        "btnAlign": "center"
+      }
+    },
+    {
+      "description": "Submit button with icon",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Subscribe",
+        "ButtonType": "fontAwesome",
+        "ButtonIcon": "fas fa-paper-plane",
+        "iconPos": "1",
+        "iconSz": {"md": "20", "unit": "px"},
+        "icnClr": "#ffffff"
+      }
+    },
+    {
+      "description": "Inline submit for newsletter",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Join",
+        "isInline": true,
+        "ButtonType": "fontAwesome",
+        "ButtonIcon": "fas fa-arrow-right",
+        "btnSz": {"md": "120", "unit": "px"}
+      }
+    }
+  ]
+}

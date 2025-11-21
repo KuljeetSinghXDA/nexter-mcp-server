@@ -1,0 +1,314 @@
+{
+  "blockName": "tpgb/tp-messagebox",
+  "version": "1.0.0",
+  "title": "Message Box",
+  "category": "content",
+  "description": "Display notification boxes and alerts to show important notes, warnings, error messages, or success notifications to users. Includes optional icon, dismissible functionality, and extensive styling for title and description areas. Perfect for callouts, alerts, and informational boxes.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "Title": {
+      "type": "string",
+      "default": "Special Alert message for you. Got it?",
+      "description": "Message box title text"
+    },
+    "Description": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show/hide description text"
+    },
+    "descText": {
+      "type": "string",
+      "default": "I Am Text Block. Click Edit Button To Change This Text. Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Ut Elit Tellus, Luctus Nec Ullamcorper Mattis, Pulvinar Dapibus Leo.",
+      "description": "Description/body text content"
+    },
+    "icon": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide icon"
+    },
+    "icnPosition": {
+      "type": "string",
+      "default": "prefix",
+      "enum": ["prefix", "suffix"],
+      "description": "Icon position: before (prefix) or after (suffix) title"
+    },
+    "IconName": {
+      "type": "string",
+      "default": "fas fa-exclamation",
+      "description": "Font Awesome icon class"
+    },
+    "dismiss": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show dismiss/close button"
+    },
+    "dismsIcon": {
+      "type": "string",
+      "default": "far fa-times-circle",
+      "description": "Font Awesome icon class for dismiss button"
+    },
+    "titleTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography for title text"
+    },
+    "titleAdjust": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Title padding",
+      "responsive": true
+    },
+    "titleMargin": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Title margin",
+      "responsive": true
+    },
+    "titleNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (normal state)"
+    },
+    "titleHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (hover state)"
+    },
+    "titleNmlBG": {
+      "type": "object",
+      "default": {"bgType": "color", "bgGradient": {}},
+      "description": "Title background (normal state)"
+    },
+    "titleHvrBG": {
+      "type": "object",
+      "default": {"bgType": "color", "bgGradient": {}},
+      "description": "Title background (hover state)"
+    },
+    "titleNmlShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Title box shadow (normal state)"
+    },
+    "titleHvrShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Title box shadow (hover state)"
+    },
+    "descTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography for description text"
+    },
+    "descAdjust": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Description padding",
+      "responsive": true
+    },
+    "descMargin": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Description margin",
+      "responsive": true
+    },
+    "descNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Description color (normal state)"
+    },
+    "descHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Description color (hover state)"
+    },
+    "descNmlBG": {
+      "type": "object",
+      "default": {"bgType": "color", "bgGradient": {}},
+      "description": "Description background (normal state)"
+    },
+    "descHvrBG": {
+      "type": "object",
+      "default": {"bgType": "color", "bgGradient": {}},
+      "description": "Description background (hover state)"
+    },
+    "descNmlBRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Description border radius (normal state)",
+      "responsive": true
+    },
+    "descHvrBRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Description border radius (hover state)",
+      "responsive": true
+    },
+    "iconSize": {
+      "type": "object",
+      "default": {"md": ""},
+      "description": "Icon font size",
+      "responsive": true
+    },
+    "iconWidth": {
+      "type": "object",
+      "default": {"md": ""},
+      "description": "Icon container width/height",
+      "responsive": true
+    },
+    "msgArrow": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show message box arrow pointer"
+    },
+    "iconNormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal state)"
+    },
+    "iconHoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (hover state)"
+    },
+    "bgNormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Message box background color (normal state)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "Title",
+      "descText",
+      "Description",
+      "icon",
+      "dismiss",
+      "IconName",
+      "dismsIcon",
+      "titleNmlColor",
+      "titleHvrColor",
+      "descNmlColor",
+      "descHvrColor",
+      "iconNormalColor",
+      "iconHoverColor",
+      "titleTypo",
+      "descTypo",
+      "titleAdjust",
+      "titleMargin",
+      "descAdjust",
+      "descMargin",
+      "bgNormalColor"
+    ],
+    "requiresValidation": [
+      "icnPosition",
+      "msgArrow"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Alert box CSS",
+    "Dismissible functionality JavaScript",
+    "Arrow pointer CSS (optional)"
+  ],
+  "commonUseCases": [
+    "Success notifications",
+    "Warning messages",
+    "Error alerts",
+    "Info callouts",
+    "Important announcements",
+    "System status messages",
+    "Cookie notices",
+    "Feature highlights",
+    "Tips and hints",
+    "Promotional messages"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-blockquote",
+    "tpgb/tp-icon-box",
+    "tpgb/tp-infobox"
+  ],
+  "capabilities": [
+    "Title and optional description text",
+    "Optional icon with position control",
+    "Dismissible/closeable functionality",
+    "Custom dismiss icon",
+    "Arrow pointer option",
+    "Separate styling for title and description areas",
+    "Normal/Hover state styling",
+    "Typography controls",
+    "Padding and margin controls",
+    "Background colors and gradients",
+    "Box shadows",
+    "Border radius customization"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Success message",
+      "attributes": {
+        "block_id": "a1b2",
+        "Title": "Success! Your changes have been saved.",
+        "Description": false,
+        "icon": true,
+        "IconName": "fas fa-check-circle",
+        "titleNmlColor": "#27ae60",
+        "iconNormalColor": "#27ae60",
+        "bgNormalColor": "#d4edda"
+      }
+    },
+    {
+      "description": "Warning message with description",
+      "attributes": {
+        "block_id": "c3d4",
+        "Title": "Warning: Action Required",
+        "Description": true,
+        "descText": "Please review your account settings before continuing. Some information may be outdated.",
+        "icon": true,
+        "IconName": "fas fa-exclamation-triangle",
+        "titleNmlColor": "#f39c12",
+        "iconNormalColor": "#f39c12",
+        "bgNormalColor": "#fff3cd"
+      }
+    },
+    {
+      "description": "Error alert",
+      "attributes": {
+        "block_id": "e5f6",
+        "Title": "Error: Unable to process request",
+        "Description": false,
+        "icon": true,
+        "IconName": "fas fa-times-circle",
+        "dismiss": true,
+        "titleNmlColor": "#e74c3c",
+        "iconNormalColor": "#e74c3c",
+        "bgNormalColor": "#f8d7da"
+      }
+    },
+    {
+      "description": "Info callout",
+      "attributes": {
+        "block_id": "g7h8",
+        "Title": "Did you know?",
+        "Description": true,
+        "descText": "You can customize every aspect of your message boxes with our advanced styling options.",
+        "icon": true,
+        "IconName": "fas fa-info-circle",
+        "titleNmlColor": "#3498db",
+        "iconNormalColor": "#3498db",
+        "bgNormalColor": "#d1ecf1"
+      }
+    }
+  ]
+}

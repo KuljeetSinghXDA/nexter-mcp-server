@@ -1,0 +1,239 @@
+{
+  "blockName": "tpgb/tp-button-core",
+  "version": "1.0.0",
+  "title": "Button",
+  "category": "content",
+  "description": "Create eye-catching call-to-action buttons. Simple and clean button block with typography, colors, icons, and positioning options. Perfect for CTAs, links, and interactive elements. Free version alternative to Pro advanced buttons.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "btxt": {
+      "type": "string",
+      "source": "html",
+      "selector": ".tpgb-btn-txt",
+      "default": "Click Here",
+      "description": "Button text content"
+    },
+    "bLink": {
+      "type": "object",
+      "default": {"url": "#", "target": "", "nofollow": ""},
+      "description": "Button link URL with target and nofollow options"
+    },
+    "bAlign": {
+      "type": "object",
+      "default": {"md": "left", "sm": "", "xs": ""},
+      "description": "Button alignment",
+      "responsive": true
+    },
+    "biType": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "fontAwesome", "image"],
+      "description": "Button icon type"
+    },
+    "bIcon": {
+      "type": "string",
+      "default": "",
+      "description": "Font Awesome icon class (when biType is 'fontAwesome')"
+    },
+    "bImg": {
+      "type": "object",
+      "default": {"url": "", "Id": ""},
+      "description": "Custom icon image (when biType is 'image')"
+    },
+    "bipos": {
+      "type": "string",
+      "default": "",
+      "description": "Icon position order (CSS flexbox order)"
+    },
+    "bispac": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Icon spacing from text (column-gap)",
+      "responsive": true
+    },
+    "biSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Icon size (font-size for FA, max-width for image)",
+      "responsive": true
+    },
+    "bTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Button text typography"
+    },
+    "tShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "typeShadow": "text-shadow", "horizontal": 2, "vertical": 3, "blur": 2, "color": "rgba(0,0,0,0.5)"},
+      "description": "Button text shadow"
+    },
+    "btColor": {
+      "type": "string",
+      "default": "#fff",
+      "description": "Button text color (normal)"
+    },
+    "bthColor": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (hover)"
+    },
+    "btBg": {
+      "type": "object",
+      "default": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#6f14f1"},
+      "description": "Button background (normal)"
+    },
+    "bthBg": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Button background (hover)"
+    },
+    "bBord": {
+      "type": "object",
+      "default": {"openBorder": 0},
+      "description": "Button border (normal)"
+    },
+    "bthBColor": {
+      "type": "string",
+      "default": "",
+      "description": "Button border color (hover)"
+    },
+    "brad": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Button border radius",
+      "responsive": true
+    },
+    "btPad": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Button padding",
+      "responsive": true
+    },
+    "btshadow": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Button box shadow (normal)"
+    },
+    "globalPosition": {
+      "type": "object",
+      "default": {"md": "", "sm": "", "xs": ""},
+      "enum": ["static", "relative", "absolute", "fixed"],
+      "description": "Global positioning mode",
+      "responsive": true
+    },
+    "glohoriOffset": {
+      "type": "object",
+      "default": {"md": "0", "unit": "px"},
+      "description": "Horizontal offset (left/right) for absolute/fixed positioning",
+      "responsive": true
+    },
+    "gloverticalOffset": {
+      "type": "object",
+      "default": {"md": "0", "unit": "px"},
+      "description": "Vertical offset (top/bottom) for absolute/fixed positioning",
+      "responsive": true
+    },
+    "isRptBlock": {
+      "type": "boolean",
+      "default": false,
+      "description": "Flag indicating if block is inside a repeater"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "btxt",
+      "bLink",
+      "bAlign",
+      "bIcon",
+      "bImg",
+      "bispac",
+      "biSize",
+      "bTypo",
+      "btColor",
+      "bthColor",
+      "btPad",
+      "brad"
+    ],
+    "requiresValidation": [
+      "biType",
+      "bipos",
+      "globalPosition"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Flexbox layout for icon positioning"
+  ],
+  "commonUseCases": [
+    "Call-to-action buttons",
+    "Navigation links",
+    "Form submit buttons",
+    "Download links",
+    "External links",
+    "Contact buttons",
+    "Learn more buttons",
+    "Sign up buttons"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-advanced-buttons",
+    "core/button"
+  ],
+  "capabilities": [
+    "Customizable button text",
+    "Link URL with target and nofollow",
+    "3 alignment options",
+    "2 icon types (Font Awesome, image)",
+    "Icon positioning",
+    "Icon sizing and spacing",
+    "Typography controls",
+    "Text shadow",
+    "Normal and hover state colors",
+    "Background with gradient support (normal/hover)",
+    "Border styling (normal/hover)",
+    "Border radius",
+    "Padding control",
+    "Box shadow",
+    "Global positioning (static/relative/absolute/fixed)",
+    "Offset controls for positioned elements",
+    "Repeater block integration",
+    "Responsive controls",
+    "Dynamic data context support"
+  ],
+  "usesContext": ["postId", "postType", "queryId", "tpgb/dynamicSubFieldData", "tpgb/dynamicRowIndex", "tpgb/dynamicPost", "tpgb/dynamicRepField"],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple button with icon",
+      "attributes": {
+        "block_id": "a1b2",
+        "btxt": "Get Started",
+        "bLink": {"url": "/signup", "target": "", "nofollow": ""},
+        "biType": "fontAwesome",
+        "bIcon": "fas fa-arrow-right",
+        "bAlign": {"md": "center"}
+      }
+    },
+    {
+      "description": "Styled button with custom colors",
+      "attributes": {
+        "block_id": "c3d4",
+        "btxt": "Learn More",
+        "btColor": "#ffffff",
+        "btBg": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#667eea"},
+        "brad": {"md": {"top": "5", "bottom": "5", "left": "5", "right": "5"}, "unit": "px"},
+        "btPad": {"md": {"top": "15", "bottom": "15", "left": "30", "right": "30"}, "unit": "px"}
+      }
+    }
+  ]
+}

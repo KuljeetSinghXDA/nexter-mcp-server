@@ -1,0 +1,355 @@
+{
+  "blockName": "tpgb/tp-dark-mode",
+  "version": "1.0.0",
+  "title": "Dark Mode",
+  "category": "design",
+  "description": "Manage light and dark mode using global color palettes. Toggle between light and dark themes with customizable switch styles. Features 3 visual styles, positioning options (relative/absolute/fixed), custom icons, and extensive styling controls. Supports cookie persistence and OS theme matching. Perfect for user experience enhancement and accessibility.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "dmStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2", "style-3"],
+      "description": "Dark mode toggle visual style"
+    },
+    "S2IconType": {
+      "type": "string",
+      "default": "icon",
+      "description": "Icon type for style-2"
+    },
+    "IconName": {
+      "type": "string",
+      "default": "fas fa-sun",
+      "description": "Light mode Font Awesome icon class"
+    },
+    "darkIconEn": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable separate dark mode icon"
+    },
+    "darkIcon": {
+      "type": "string",
+      "default": "fas fa-moon",
+      "description": "Dark mode Font Awesome icon class (when darkIconEn is true)"
+    },
+    "saveCookies": {
+      "type": "boolean",
+      "default": false,
+      "description": "Save user preference in cookies"
+    },
+    "matchOsTheme": {
+      "type": "boolean",
+      "default": true,
+      "description": "Match operating system theme automatically"
+    },
+    "dmPosition": {
+      "type": "string",
+      "default": "relative",
+      "enum": ["relative", "absolute", "fixed"],
+      "description": "Toggle positioning mode"
+    },
+    "Alignment": {
+      "type": "object",
+      "default": {"md": "center", "sm": "", "xs": ""},
+      "enum": ["left", "center", "right"],
+      "description": "Toggle alignment (when dmPosition is 'relative')",
+      "responsive": true
+    },
+    "absoluteOff": {
+      "type": "object",
+      "default": {"md": "", "unit": "%"},
+      "description": "Left offset for absolute positioning",
+      "responsive": true
+    },
+    "fixedPos": {
+      "type": "string",
+      "default": "left-top",
+      "enum": ["left-top", "left-bottom", "right-top", "right-bottom"],
+      "description": "Fixed position corner (when dmPosition is 'fixed')"
+    },
+    "dmRightOf": {
+      "type": "object",
+      "default": {"md": "", "unit": "%"},
+      "description": "Horizontal offset for fixed positioning",
+      "responsive": true
+    },
+    "dmBottomOf": {
+      "type": "object",
+      "default": {"md": "", "unit": "%"},
+      "description": "Vertical offset for fixed positioning",
+      "responsive": true
+    },
+    "switchSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Toggle switch size (style-1, style-2)",
+      "responsive": true
+    },
+    "icons2Size": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Icon size for style-3",
+      "responsive": true
+    },
+    "bgs3Size": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Background size for style-3",
+      "responsive": true
+    },
+    "iconLgtColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color in light mode (style-3)"
+    },
+    "iconDarkColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color in dark mode (style-3)"
+    },
+    "dotLgtBG": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Toggle dot background (light mode, style-1/2)"
+    },
+    "dotDarkBG": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Toggle dot background (dark mode, style-1/2)"
+    },
+    "dotLgtBorder": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "sm": [], "xs": [], "unit": "px"}},
+      "description": "Toggle dot border (light mode)"
+    },
+    "dotDarkBorder": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "sm": [], "xs": [], "unit": "px"}},
+      "description": "Toggle dot border (dark mode)"
+    },
+    "dotLgtBRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Toggle dot border radius (light mode)",
+      "responsive": true
+    },
+    "dotDarkBRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Toggle dot border radius (dark mode)",
+      "responsive": true
+    },
+    "dotLgtShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Toggle dot box shadow (light mode)"
+    },
+    "dotDarkShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Toggle dot box shadow (dark mode)"
+    },
+    "switchLgtBG": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Toggle switch background (light mode)"
+    },
+    "switchDarkBG": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Toggle switch background (dark mode)"
+    },
+    "switchLgtBorder": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "sm": [], "xs": [], "unit": "px"}},
+      "description": "Toggle switch border (light mode)"
+    },
+    "switchDarkBorder": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "sm": [], "xs": [], "unit": "px"}},
+      "description": "Toggle switch border (dark mode)"
+    },
+    "switchLgtBRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Toggle switch border radius (light mode)",
+      "responsive": true
+    },
+    "switchDarkBRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Toggle switch border radius (dark mode)",
+      "responsive": true
+    },
+    "switchLgtShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Toggle switch box shadow (light mode)"
+    },
+    "switchDarkShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Toggle switch box shadow (dark mode)"
+    },
+    "beforeText": {
+      "type": "string",
+      "default": "Normal",
+      "description": "Text before toggle (style-1/2)"
+    },
+    "beforeTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography for before text"
+    },
+    "beforeColor": {
+      "type": "string",
+      "default": "",
+      "description": "Color for before text"
+    },
+    "beforeOffset": {
+      "type": "object",
+      "default": {"md": "-63", "unit": "px"},
+      "description": "Before text position offset",
+      "responsive": true
+    },
+    "afterText": {
+      "type": "string",
+      "default": "Dark",
+      "description": "Text after toggle (style-1/2)"
+    },
+    "afterTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography for after text"
+    },
+    "afterColor": {
+      "type": "string",
+      "default": "",
+      "description": "Color for after text"
+    },
+    "afterOffset": {
+      "type": "object",
+      "default": {"md": "-45", "unit": "px"},
+      "description": "After text position offset",
+      "responsive": true
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "IconName",
+      "darkIcon",
+      "switchSize",
+      "icons2Size",
+      "bgs3Size",
+      "iconLgtColor",
+      "iconDarkColor",
+      "beforeText",
+      "afterText",
+      "beforeColor",
+      "afterColor",
+      "beforeOffset",
+      "afterOffset",
+      "Alignment",
+      "absoluteOff",
+      "dmRightOf",
+      "dmBottomOf"
+    ],
+    "requiresValidation": [
+      "dmStyle",
+      "S2IconType",
+      "darkIconEn",
+      "saveCookies",
+      "matchOsTheme",
+      "dmPosition",
+      "fixedPos"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Dark mode toggle JavaScript",
+    "Cookie management (when saveCookies is true)",
+    "OS theme detection (when matchOsTheme is true)",
+    "CSS custom properties for theme switching",
+    "Global color palette system"
+  ],
+  "commonUseCases": [
+    "Website theme switcher",
+    "User preference control",
+    "Accessibility enhancement",
+    "Night mode toggle",
+    "Reading mode switch",
+    "Eye strain reduction",
+    "Battery saving dark theme",
+    "Modern UI enhancement"
+  ],
+  "relatedBlocks": [
+    "core/button"
+  ],
+  "capabilities": [
+    "3 visual toggle styles",
+    "Light and dark mode icons",
+    "Separate dark icon option",
+    "Cookie persistence",
+    "OS theme matching",
+    "3 positioning modes (relative, absolute, fixed)",
+    "4 fixed position corners",
+    "Responsive alignment",
+    "Custom icon size",
+    "Before/after text labels",
+    "Typography controls for labels",
+    "Normal and dark state styling",
+    "Background with gradient support",
+    "Border styling (normal/dark)",
+    "Border radius (normal/dark)",
+    "Box shadow (normal/dark)",
+    "Label positioning offsets",
+    "Responsive controls"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple toggle with default style",
+      "attributes": {
+        "block_id": "a1b2",
+        "dmStyle": "style-1",
+        "matchOsTheme": true,
+        "saveCookies": true
+      }
+    },
+    {
+      "description": "Icon-based toggle with custom colors",
+      "attributes": {
+        "block_id": "c3d4",
+        "dmStyle": "style-3",
+        "IconName": "fas fa-sun",
+        "darkIconEn": true,
+        "darkIcon": "fas fa-moon",
+        "iconLgtColor": "#ffa500",
+        "iconDarkColor": "#4169e1"
+      }
+    },
+    {
+      "description": "Fixed position toggle in corner",
+      "attributes": {
+        "block_id": "e5f6",
+        "dmStyle": "style-2",
+        "dmPosition": "fixed",
+        "fixedPos": "right-bottom",
+        "dmRightOf": {"md": "20", "unit": "px"},
+        "dmBottomOf": {"md": "20", "unit": "px"}
+      }
+    }
+  ]
+}

@@ -1,0 +1,504 @@
+{
+  "blockName": "tpgb/tp-adv-typo",
+  "version": "1.0.0",
+  "title": "Advanced Typography",
+  "category": "content",
+  "description": "Create stunning creative typography with stroke/fill effects, gradients, knockout text, marquee animations, and hover images. Features include text decorations with 7 overlay styles, mix-blend modes, circular text, continuous animations, and multiple listing mode. Perfect for hero sections, creative headlines, artistic text displays, and attention-grabbing typography.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "typoListing": {
+      "type": "string",
+      "default": "normal",
+      "enum": ["normal", "multiple"],
+      "description": "Listing mode: single text or multiple items"
+    },
+    "typoText": {
+      "type": "string",
+      "default": "Your Text Content",
+      "description": "Main typography text (when typoListing is 'normal')"
+    },
+    "tTextLink": {
+      "type": "object",
+      "default": {"url": "#", "target": "", "nofollow": ""},
+      "description": "Text link URL (normal mode)"
+    },
+    "textListing": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Multiple text items with individual styling (when typoListing is 'multiple')",
+      "items": {
+        "lText": {
+          "type": "string",
+          "default": "Your Text Content",
+          "description": "Text content"
+        },
+        "linkUrl": {
+          "type": "object",
+          "default": {"url": "#", "target": "", "nofollow": ""},
+          "description": "Link URL for this text"
+        },
+        "ariaLabel": {
+          "type": "string",
+          "default": "",
+          "description": "ARIA label for accessibility"
+        },
+        "strokeFill": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable text stroke and fill effects"
+        },
+        "strokeWidth": {
+          "type": "object",
+          "default": {"md": "", "unit": "px"},
+          "description": "Text stroke width",
+          "responsive": true
+        },
+        "gradientTgl": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use gradient for stroke color"
+        },
+        "strokeNColor": {
+          "type": "string",
+          "default": "",
+          "description": "Stroke color (normal, solid)"
+        },
+        "strokeHColor": {
+          "type": "string",
+          "default": "",
+          "description": "Stroke color (hover, solid)"
+        },
+        "strokeNGColor": {
+          "type": "string",
+          "default": "",
+          "description": "Stroke gradient (normal)"
+        },
+        "strokeHGColor": {
+          "type": "string",
+          "default": "",
+          "description": "Stroke gradient (hover)"
+        },
+        "fillNColor": {
+          "type": "string",
+          "default": "",
+          "description": "Fill color (normal)"
+        },
+        "fillHColor": {
+          "type": "string",
+          "default": "",
+          "description": "Fill color (hover)"
+        },
+        "blendMode": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable CSS mix-blend-mode"
+        },
+        "blendVariation": {
+          "type": "string",
+          "default": "color",
+          "enum": ["normal", "multiply", "screen", "overlay", "darken", "lighten", "color-dodge", "color-burn", "difference", "exclusion", "hue", "saturation", "color", "luminosity"],
+          "description": "CSS mix-blend-mode value"
+        },
+        "knockoutText": {
+          "type": "boolean",
+          "default": false,
+          "description": "Knockout text effect with background"
+        },
+        "koTextBG": {
+          "type": "object",
+          "default": {"openBg": 0},
+          "description": "Knockout text background"
+        },
+        "onHoverImg": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show image on hover"
+        },
+        "hoverImg": {
+          "type": "object",
+          "default": {"url": ""},
+          "description": "Hover image"
+        },
+        "hoverStyle": {
+          "type": "string",
+          "default": "1",
+          "description": "Hover image style variant"
+        },
+        "marquee": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable marquee scrolling animation"
+        },
+        "marqueeType": {
+          "type": "string",
+          "default": "default",
+          "enum": ["default", "on_transition"],
+          "description": "Marquee implementation type"
+        },
+        "marqueeDir": {
+          "type": "string",
+          "default": "left",
+          "enum": ["left", "right", "up", "down"],
+          "description": "Marquee scroll direction"
+        },
+        "marqueeBeh": {
+          "type": "string",
+          "default": "initial",
+          "enum": ["initial", "scroll", "slide", "alternate"],
+          "description": "Marquee behavior"
+        },
+        "marqueeLoop": {
+          "type": "string",
+          "default": "-1",
+          "description": "Marquee loop count (-1 for infinite)"
+        },
+        "marqueeScroll": {
+          "type": "string",
+          "default": "6",
+          "description": "Marquee scroll amount"
+        },
+        "marqueeAni": {
+          "type": "string",
+          "default": "3",
+          "description": "Marquee animation duration in seconds"
+        },
+        "marqueeTwidth": {
+          "type": "object",
+          "default": {"md": "", "unit": "px"},
+          "description": "Marquee text width",
+          "responsive": true
+        },
+        "contiAnimation": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable continuous animation"
+        },
+        "aniEffect": {
+          "type": "string",
+          "default": "pulse",
+          "enum": ["pulse", "floating", "tossing"],
+          "description": "Animation effect type"
+        },
+        "aniOnHover": {
+          "type": "boolean",
+          "default": false,
+          "description": "Trigger animation on hover only"
+        },
+        "aniDurTime": {
+          "type": "string",
+          "default": "",
+          "description": "Animation duration in seconds"
+        },
+        "advUnderline": {
+          "type": "string",
+          "default": "none",
+          "enum": ["none", "classic", "overlay"],
+          "description": "Text decoration type"
+        },
+        "overlayStyle": {
+          "type": "string",
+          "default": "style-1",
+          "enum": ["style-1", "style-2", "style-3", "style-4", "style-5", "style-6", "style-7"],
+          "description": "Overlay underline style (7 creative styles)"
+        },
+        "nLineType": {
+          "type": "string",
+          "default": "none",
+          "enum": ["none", "underline", "overline", "line-through"],
+          "description": "Classic text-decoration-line (normal)"
+        },
+        "hLineType": {
+          "type": "string",
+          "default": "none",
+          "enum": ["none", "underline", "overline", "line-through"],
+          "description": "Classic text-decoration-line (hover)"
+        },
+        "nLineStyle": {
+          "type": "string",
+          "default": "solid",
+          "enum": ["solid", "double", "dotted", "dashed", "wavy"],
+          "description": "Classic text-decoration-style (normal)"
+        }
+      }
+    },
+    "htmlTag": {
+      "type": "string",
+      "default": "h2",
+      "enum": ["h1", "h2", "h3", "h4", "h5", "h6", "p", "div", "span"],
+      "description": "HTML tag for text element"
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "text-left",
+      "enum": ["text-left", "text-center", "text-right"],
+      "description": "Text alignment"
+    },
+    "typoTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography settings (normal mode)"
+    },
+    "typoColor": {
+      "type": "string",
+      "default": "",
+      "description": "Text color (normal mode, normal state)"
+    },
+    "typoHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Text color (normal mode, hover state)"
+    },
+    "strokeFill": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable stroke/fill (normal mode)"
+    },
+    "strokeWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Stroke width (normal mode)",
+      "responsive": true
+    },
+    "gradientTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Use gradient for stroke (normal mode)"
+    },
+    "strokeNColor": {
+      "type": "string",
+      "default": "",
+      "description": "Stroke color (normal mode, normal state)"
+    },
+    "strokeHColor": {
+      "type": "string",
+      "default": "",
+      "description": "Stroke color (normal mode, hover state)"
+    },
+    "fillNColor": {
+      "type": "string",
+      "default": "",
+      "description": "Fill color (normal mode, normal state)"
+    },
+    "fillHColor": {
+      "type": "string",
+      "default": "",
+      "description": "Fill color (normal mode, hover state)"
+    },
+    "blendMode": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable mix-blend-mode (normal mode)"
+    },
+    "blendVariation": {
+      "type": "string",
+      "default": "color",
+      "description": "Mix-blend-mode value (normal mode)"
+    },
+    "knockoutText": {
+      "type": "boolean",
+      "default": false,
+      "description": "Knockout text effect (normal mode)"
+    },
+    "marquee": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable marquee (normal mode)"
+    },
+    "cirTextEn": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable circular text layout"
+    },
+    "cirTextPath": {
+      "type": "string",
+      "default": "",
+      "description": "SVG path for circular text"
+    },
+    "textMargin": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Text margin",
+      "responsive": true
+    },
+    "textPadding": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Text padding",
+      "responsive": true
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "typoText",
+      "textListing",
+      "tTextLink",
+      "typoTypo",
+      "typoColor",
+      "typoHvrColor",
+      "strokeWidth",
+      "strokeNColor",
+      "strokeHColor",
+      "fillNColor",
+      "fillHColor",
+      "koTextBG",
+      "hoverImg",
+      "marqueeDir",
+      "marqueeLoop",
+      "marqueeScroll",
+      "marqueeAni",
+      "marqueeTwidth",
+      "aniDurTime",
+      "cirTextPath",
+      "textMargin",
+      "textPadding"
+    ],
+    "requiresValidation": [
+      "typoListing",
+      "htmlTag",
+      "textAlign",
+      "strokeFill",
+      "gradientTgl",
+      "blendMode",
+      "blendVariation",
+      "knockoutText",
+      "onHoverImg",
+      "hoverStyle",
+      "marquee",
+      "marqueeType",
+      "marqueeBeh",
+      "contiAnimation",
+      "aniEffect",
+      "aniOnHover",
+      "advUnderline",
+      "overlayStyle",
+      "nLineType",
+      "hLineType",
+      "nLineStyle",
+      "cirTextEn"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "CSS text-stroke and text-fill properties",
+    "CSS gradients for stroke",
+    "CSS mix-blend-mode",
+    "Marquee animation JavaScript or CSS",
+    "SVG for circular text layout",
+    "Continuous animation keyframes (pulse, floating, tossing)",
+    "Hover image positioning JavaScript",
+    "Overlay underline animations"
+  ],
+  "commonUseCases": [
+    "Hero section headlines",
+    "Creative page titles",
+    "Artistic text displays",
+    "Attention-grabbing CTAs",
+    "Animated text banners",
+    "Circular text logos",
+    "Knockout text over images",
+    "Scrolling marquee announcements",
+    "Gradient text effects",
+    "Interactive hover text",
+    "Typography showcases",
+    "Brand statement text"
+  ],
+  "relatedBlocks": [
+    "core/heading",
+    "core/paragraph",
+    "tpgb/tp-heading-animation"
+  ],
+  "capabilities": [
+    "2 listing modes (single text, multiple items)",
+    "Unlimited text items in multiple mode",
+    "Text stroke and fill effects",
+    "Gradient support for stroke",
+    "Normal and hover state colors",
+    "14 CSS mix-blend-mode options",
+    "Knockout text with background",
+    "Hover image display (multiple styles)",
+    "Marquee scrolling animation",
+    "2 marquee types (default, on_transition)",
+    "4 scroll directions (left, right, up, down)",
+    "4 marquee behaviors (initial, scroll, slide, alternate)",
+    "Configurable loop count and speed",
+    "3 continuous animations (pulse, floating, tossing)",
+    "Animation on hover or always-on",
+    "Custom animation duration",
+    "3 underline types (none, classic, overlay)",
+    "7 creative overlay underline styles",
+    "Classic text-decoration with 4 line types and 5 styles",
+    "Circular text layout with SVG path",
+    "9 HTML tag options (h1-h6, p, div, span)",
+    "Text alignment control",
+    "Typography settings",
+    "Responsive stroke width",
+    "Margin and padding controls",
+    "Per-item styling in multiple mode",
+    "ARIA labels for accessibility",
+    "Link URLs with target and nofollow"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Gradient stroke text",
+      "attributes": {
+        "block_id": "a1b2",
+        "typoText": "Creative Typography",
+        "strokeFill": true,
+        "gradientTgl": true,
+        "strokeWidth": {"md": "2", "unit": "px"},
+        "strokeNGColor": "linear-gradient(90deg, #667eea 0%, #764ba2 100%)",
+        "fillNColor": "transparent"
+      }
+    },
+    {
+      "description": "Marquee scrolling announcement",
+      "attributes": {
+        "block_id": "c3d4",
+        "typoText": "🎉 Limited Time Offer - 50% Off All Products 🎉",
+        "marquee": true,
+        "marqueeDir": "left",
+        "marqueeLoop": "-1",
+        "marqueeAni": "15"
+      }
+    },
+    {
+      "description": "Circular text logo",
+      "attributes": {
+        "block_id": "e5f6",
+        "typoText": "Your Brand Name • Est. 2024 • ",
+        "cirTextEn": true,
+        "cirTextPath": "M 100,100 m -75,0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+      }
+    },
+    {
+      "description": "Multiple text items with different effects",
+      "attributes": {
+        "block_id": "g7h8",
+        "typoListing": "multiple",
+        "textListing": [
+          {"lText": "Creative", "strokeFill": true, "strokeNColor": "#667eea", "fillNColor": "transparent"},
+          {"lText": "Typography", "advUnderline": "overlay", "overlayStyle": "style-3"},
+          {"lText": "Design", "blendMode": true, "blendVariation": "difference"}
+        ]
+      }
+    }
+  ]
+}

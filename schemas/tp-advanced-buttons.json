@@ -1,0 +1,372 @@
+{
+  "blockName": "tpgb/tp-advanced-buttons",
+  "version": "1.0.0",
+  "title": "Pro Buttons",
+  "category": "content",
+  "description": "Create high-converting CTA and download buttons with multiple creative styles. Features include emoji reactions, extra text overlays, loading states, progress indicators, and extensive styling. Perfect for call-to-actions, file downloads, product purchases, and interactive user engagement. A/B tested button designs built for better conversion.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "btnType": {
+      "type": "string",
+      "default": "cta",
+      "enum": ["cta", "download"],
+      "description": "Button type: CTA or download"
+    },
+    "ctaStyle": {
+      "type": "string",
+      "default": "style-1",
+      "description": "CTA button style variant (when btnType is 'cta')"
+    },
+    "dwnldStyle": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Download button style variant (when btnType is 'download')"
+    },
+    "btnText": {
+      "type": "string",
+      "default": "Buy Now",
+      "description": "Main button text"
+    },
+    "dst5LoadingText": {
+      "type": "string",
+      "default": "downloading...",
+      "description": "Loading text for download style-5"
+    },
+    "dst5SuccessText": {
+      "type": "string",
+      "default": "done!",
+      "description": "Success text for download style-5"
+    },
+    "extraText": {
+      "type": "string",
+      "default": "The Plus",
+      "description": "Extra overlay text"
+    },
+    "dst3MWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Minimum width for download style-3",
+      "responsive": true
+    },
+    "extraText1": {
+      "type": "string",
+      "default": "The Plus",
+      "description": "Extra text 1 (for CTA style-6, style-9)"
+    },
+    "extraText2": {
+      "type": "string",
+      "default": "The Plus",
+      "description": "Extra text 2 (for CTA style-6, style-9, style-13)"
+    },
+    "nmlEmoji": {
+      "type": "string",
+      "default": "💯",
+      "description": "Normal state emoji (CTA style-8)"
+    },
+    "hvrEmoji": {
+      "type": "string",
+      "default": "👏",
+      "description": "Hover state emoji (CTA style-8)"
+    },
+    "btnLink": {
+      "type": "object",
+      "default": {"url": "#", "target": "", "nofollow": ""},
+      "description": "Button link URL"
+    },
+    "ariaLabel": {
+      "type": "string",
+      "default": "",
+      "description": "ARIA label for accessibility"
+    },
+    "btnAlign": {
+      "type": "string",
+      "default": "text-left",
+      "enum": ["text-left", "text-center", "text-right"],
+      "description": "Button alignment"
+    },
+    "btnTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for button text"
+    },
+    "btnPadding": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Button padding",
+      "responsive": true
+    },
+    "btnMargin": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Button margin",
+      "responsive": true
+    },
+    "btnWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Button width",
+      "responsive": true
+    },
+    "btnColor": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (normal)"
+    },
+    "btnHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (hover)"
+    },
+    "btnBgType": {
+      "type": "object",
+      "default": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#3882f7"},
+      "description": "Button background (normal)"
+    },
+    "btnHvrBgType": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Button background (hover)"
+    },
+    "btnBorder": {
+      "type": "object",
+      "default": {"openBorder": 0},
+      "description": "Button border (normal)"
+    },
+    "btnHvrBorder": {
+      "type": "object",
+      "default": {"openBorder": 0},
+      "description": "Button border (hover)"
+    },
+    "btnBradius": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Button border radius (normal)",
+      "responsive": true
+    },
+    "btnHvrBradius": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Button border radius (hover)",
+      "responsive": true
+    },
+    "btnBshadow": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Button box shadow (normal)"
+    },
+    "btnHvrBshadow": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Button box shadow (hover)"
+    },
+    "btnIcon": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show button icon"
+    },
+    "iconLibrary": {
+      "type": "string",
+      "default": "font_awesome",
+      "description": "Icon library"
+    },
+    "iconName": {
+      "type": "string",
+      "default": "fas fa-chevron-right",
+      "description": "Font Awesome icon class"
+    },
+    "iconImage": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Custom icon image"
+    },
+    "iconPosition": {
+      "type": "string",
+      "default": "after",
+      "enum": ["before", "after"],
+      "description": "Icon position relative to text"
+    },
+    "iconSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Icon size",
+      "responsive": true
+    },
+    "iconSpacing": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Icon spacing from text",
+      "responsive": true
+    },
+    "downloadFile": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "File to download (when btnType is 'download')"
+    },
+    "downloadName": {
+      "type": "string",
+      "default": "",
+      "description": "Downloaded file name"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "btnText",
+      "extraText",
+      "extraText1",
+      "extraText2",
+      "nmlEmoji",
+      "hvrEmoji",
+      "dst5LoadingText",
+      "dst5SuccessText",
+      "btnLink",
+      "ariaLabel",
+      "btnTypo",
+      "btnPadding",
+      "btnMargin",
+      "btnWidth",
+      "btnColor",
+      "btnHvrColor",
+      "iconName",
+      "iconImage",
+      "iconSize",
+      "iconSpacing",
+      "downloadFile",
+      "downloadName",
+      "dst3MWidth"
+    ],
+    "requiresValidation": [
+      "btnType",
+      "ctaStyle",
+      "dwnldStyle",
+      "btnAlign",
+      "btnIcon",
+      "iconLibrary",
+      "iconPosition"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Download progress JavaScript (for download buttons)",
+    "File download handling",
+    "Button hover animations",
+    "Emoji rendering",
+    "Loading state management",
+    "Success state indicators"
+  ],
+  "commonUseCases": [
+    "Call-to-action buttons",
+    "File download buttons",
+    "Product purchase buttons",
+    "Newsletter signup buttons",
+    "Contact form submission",
+    "Video play buttons",
+    "PDF/eBook downloads",
+    "Demo request buttons",
+    "Free trial signups",
+    "Add to cart buttons",
+    "Social share buttons",
+    "Resource downloads"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-button",
+    "core/button",
+    "tpgb/tp-form-block"
+  ],
+  "capabilities": [
+    "2 button types (CTA, download)",
+    "Multiple style variants for each type",
+    "Custom button text",
+    "3 extra text overlay fields",
+    "Emoji reactions (normal and hover)",
+    "Loading and success text for downloads",
+    "Download progress indicators",
+    "File download functionality",
+    "Custom download file names",
+    "Link URL with target and nofollow",
+    "ARIA labels for accessibility",
+    "Button alignment (left, center, right)",
+    "Typography controls",
+    "Responsive width control",
+    "Padding and margin controls",
+    "Normal and hover state styling",
+    "Text colors (normal/hover)",
+    "Background with gradient support (normal/hover)",
+    "Border styling (normal/hover)",
+    "Border radius (normal/hover)",
+    "Box shadow (normal/hover)",
+    "Icon support (Font Awesome or custom image)",
+    "Icon positioning (before/after text)",
+    "Icon sizing and spacing",
+    "Minimum width for specific styles",
+    "Multiple creative animation styles",
+    "A/B tested design patterns"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple CTA button with icon",
+      "attributes": {
+        "block_id": "a1b2",
+        "btnType": "cta",
+        "ctaStyle": "style-1",
+        "btnText": "Get Started",
+        "btnIcon": true,
+        "iconName": "fas fa-arrow-right",
+        "btnBgType": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#667eea"}
+      }
+    },
+    {
+      "description": "Download button with progress (style-5)",
+      "attributes": {
+        "block_id": "c3d4",
+        "btnType": "download",
+        "dwnldStyle": "style-5",
+        "btnText": "Download PDF",
+        "dst5LoadingText": "downloading...",
+        "dst5SuccessText": "done!",
+        "downloadFile": {"url": "/files/guide.pdf"},
+        "downloadName": "guide.pdf"
+      }
+    },
+    {
+      "description": "CTA with emoji reactions (style-8)",
+      "attributes": {
+        "block_id": "e5f6",
+        "btnType": "cta",
+        "ctaStyle": "style-8",
+        "btnText": "Join Now",
+        "nmlEmoji": "💯",
+        "hvrEmoji": "👏"
+      }
+    },
+    {
+      "description": "CTA with extra text overlay (style-6)",
+      "attributes": {
+        "block_id": "g7h8",
+        "btnType": "cta",
+        "ctaStyle": "style-6",
+        "btnText": "Buy Now",
+        "extraText1": "Limited Time",
+        "extraText2": "50% OFF",
+        "btnAlign": "text-center"
+      }
+    }
+  ]
+}

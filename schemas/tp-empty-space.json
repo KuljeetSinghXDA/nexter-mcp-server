@@ -1,0 +1,110 @@
+{
+  "blockName": "tpgb/tp-empty-space",
+  "version": "1.0.0",
+  "title": "Spacer",
+  "category": "layout",
+  "description": "Add customizable vertical spacing between elements to control page layout and declutter content. Simple spacer/divider block with responsive height control. Use to create breathing room, separate sections, or fine-tune vertical rhythm in your designs.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "className": {
+      "type": "string",
+      "default": "",
+      "description": "Additional CSS class names"
+    },
+    "toggle": {
+      "type": "string",
+      "default": "normal",
+      "enum": ["normal", "global"],
+      "description": "Spacing mode: normal (px units) or global (custom units like rem, em, vh)"
+    },
+    "space": {
+      "type": "object",
+      "default": {"md": 50},
+      "description": "Vertical spacing height (responsive). In 'normal' mode uses px, in 'global' mode uses the unit specified in the value (e.g. '2rem', '5vh')",
+      "responsive": true
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "space",
+      "toggle",
+      "className"
+    ],
+    "requiresValidation": [],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Basic height CSS styling",
+    "Responsive height adjustments"
+  ],
+  "commonUseCases": [
+    "Vertical spacing between sections",
+    "Separating content blocks",
+    "Creating breathing room in dense layouts",
+    "Controlling vertical rhythm",
+    "Adjusting spacing for responsive designs",
+    "Fine-tuning layout alignment",
+    "Spacing before/after headings",
+    "Separating form fields",
+    "Adding whitespace for emphasis",
+    "Creating visual hierarchy with spacing"
+  ],
+  "relatedBlocks": [
+    "core/spacer",
+    "tpgb/tp-container",
+    "tpgb/tp-row"
+  ],
+  "capabilities": [
+    "Responsive height control (desktop, tablet, mobile)",
+    "Two spacing modes (px or custom units)",
+    "Global mode supports rem, em, vh, vw units",
+    "Simple visual spacer with no content",
+    "Custom CSS classes",
+    "Minimal DOM footprint"
+  ],
+  "usesContext": [],
+  "supports": {},
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple 50px spacer",
+      "attributes": {
+        "block_id": "a1b2",
+        "toggle": "normal",
+        "space": {"md": 50}
+      }
+    },
+    {
+      "description": "Responsive spacer (100px desktop, 60px tablet, 30px mobile)",
+      "attributes": {
+        "block_id": "c3d4",
+        "toggle": "normal",
+        "space": {"md": 100, "sm": 60, "xs": 30}
+      }
+    },
+    {
+      "description": "Global mode with rem units",
+      "attributes": {
+        "block_id": "e5f6",
+        "toggle": "global",
+        "space": {"md": "3rem", "sm": "2rem", "xs": "1rem"}
+      }
+    },
+    {
+      "description": "Viewport-based spacing",
+      "attributes": {
+        "block_id": "g7h8",
+        "toggle": "global",
+        "space": {"md": "10vh", "sm": "7vh", "xs": "5vh"}
+      }
+    }
+  ]
+}
