@@ -1,0 +1,185 @@
+{
+  "blockName": "tpgb/tp-tabs-tours",
+  "version": "1.0.0",
+  "title": "Tabs Tours",
+  "category": "interactive",
+  "description": "Tabbed interface for organizing content into multiple panels with horizontal or vertical navigation. Perfect for displaying related content in a compact space. Supports icons, carousel integration, and click/hover triggers. Modern usage prefers innerBlocks (tp-tab-item) for each tab panel.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "tabType": {
+      "type": "string",
+      "default": "",
+      "description": "Tab type configuration"
+    },
+    "tablistRepeater": {
+      "type": "array",
+      "default": [],
+      "description": "Legacy repeater for tab items. Modern usage prefers using tp-tab-item innerBlocks",
+      "repeaterField": {
+        "tabTitle": {"type": "string", "default": "Tab", "description": "Tab label"},
+        "tabDescription": {"type": "string", "description": "Tab content"},
+        "contentType": {"type": "string", "default": "content", "description": "Content or template"},
+        "blockTemp": {"type": "string", "description": "Template ID"},
+        "innerIcon": {"type": "boolean", "default": false, "description": "Show icon"},
+        "iconFonts": {"type": "string", "default": "font_awesome", "description": "Icon library"},
+        "innericonName": {"type": "string", "default": "fas fa-home", "description": "Icon class"},
+        "iconImage": {"type": "object", "description": "Custom icon image"},
+        "outerIcon": {"type": "boolean", "description": "Outer icon toggle"},
+        "outericonName": {"type": "string", "description": "Outer icon class"},
+        "uniqueId": {"type": "string", "description": "Unique tab ID"},
+        "ajaxbase": {"type": "string", "description": "AJAX loading config"}
+      }
+    },
+    "tabLayout": {
+      "type": "string",
+      "default": "horizontal",
+      "enum": ["horizontal", "vertical"],
+      "description": "Tab navigation orientation"
+    },
+    "navPosition": {
+      "type": "string",
+      "default": "top",
+      "enum": ["top", "bottom", "left", "right"],
+      "description": "Tab navigation position relative to content"
+    },
+    "swiperEffect": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable swiper/carousel effect for tab content"
+    },
+    "activeTab": {
+      "type": "string",
+      "default": "1",
+      "description": "Index of tab active by default (1-based)"
+    },
+    "onhoverTab": {
+      "type": "string",
+      "default": "click",
+      "enum": ["click", "hover"],
+      "description": "Tab trigger method: click or hover"
+    },
+    "carouselId": {
+      "type": "string",
+      "default": "",
+      "description": "ID of carousel block to sync with tabs"
+    },
+    "iconSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Size of tab icons",
+      "responsive": true
+    },
+    "iconwidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Width/height for icon container (square)",
+      "responsive": true
+    },
+    "iconColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal state)"
+    },
+    "iniconBg": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Icon background styling"
+    },
+    "iconBor": {
+      "type": "object",
+      "default": {"openBorder": 0},
+      "description": "Icon border styling"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "tablistRepeater",
+      "activeTab",
+      "iconSize",
+      "iconColor",
+      "innerBlocks (tp-tab-item children)"
+    ],
+    "requiresValidation": [
+      "tabLayout",
+      "navPosition",
+      "onhoverTab",
+      "swiperEffect",
+      "carouselId"
+    ],
+    "dangerous": [
+      "block_id",
+      "tabType"
+    ]
+  },
+  "styleDependencies": [
+    "Tabs navigation CSS (horizontal/vertical)",
+    "Tab panel transition effects",
+    "Icon font library (Font Awesome)",
+    "Mobile accordion mode CSS",
+    "Swiper/carousel CSS (if enabled)"
+  ],
+  "commonUseCases": [
+    "Product information tabs (specs, reviews, FAQs)",
+    "Service feature tabs",
+    "Portfolio categories",
+    "FAQ sections",
+    "Team member details tabs",
+    "Course curriculum sections",
+    "Documentation navigation"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-tab-item",
+    "tpgb/tp-accordion",
+    "tpgb/tp-heading-title"
+  ],
+  "capabilities": [
+    "Horizontal or vertical tab layout",
+    "Top/bottom/left/right navigation positioning",
+    "Click or hover trigger",
+    "Icon support (Font Awesome or custom images)",
+    "Swiper/carousel integration",
+    "External carousel syncing",
+    "Mobile-responsive accordion mode",
+    "Multiple innerBlock tabs (tp-tab-item)",
+    "Custom tab styling",
+    "AJAX content loading"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": true,
+  "allowedInnerBlocks": ["tpgb/tp-tab-item"],
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple horizontal tabs with 3 panels",
+      "attributes": {
+        "block_id": "a1b2",
+        "tabLayout": "horizontal",
+        "navPosition": "top",
+        "activeTab": "1",
+        "onhoverTab": "click"
+      },
+      "innerBlocks": [
+        {"blockName": "tpgb/tp-tab-item", "attrs": {"block_id": "c3d4", "tabinTitle": "Features", "tabtoIndex": 0}},
+        {"blockName": "tpgb/tp-tab-item", "attrs": {"block_id": "e5f6", "tabinTitle": "Specs", "tabtoIndex": 1}},
+        {"blockName": "tpgb/tp-tab-item", "attrs": {"block_id": "g7h8", "tabinTitle": "Reviews", "tabtoIndex": 2}}
+      ]
+    },
+    {
+      "description": "Vertical tabs with icons",
+      "attributes": {
+        "block_id": "i9j0",
+        "tabLayout": "vertical",
+        "navPosition": "left",
+        "iconSize": {"md": "24", "unit": "px"}
+      }
+    }
+  ]
+}

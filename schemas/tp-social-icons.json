@@ -1,0 +1,198 @@
+{
+  "blockName": "tpgb/tp-social-icons",
+  "version": "1.0.0",
+  "title": "Social Icon",
+  "category": "social",
+  "description": "Display social media icons with links for easy sharing and following. Supports 15+ style variants, custom icons, tooltips, and hover effects. Perfect for header/footer social links, share buttons, and social media integration.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Visual style variant for social icons (15+ styles)"
+    },
+    "hoverStyle": {
+      "type": "string",
+      "default": "faded",
+      "enum": ["faded", "slide", "bounce", "rotate"],
+      "description": "Hover animation effect"
+    },
+    "socialIcon": {
+      "type": "array",
+      "default": [],
+      "description": "Array of social media icon items",
+      "repeaterField": {
+        "socialNtwk": {
+          "type": "string",
+          "default": "fab fa-facebook",
+          "description": "Social network icon (pre-defined options)"
+        },
+        "customType": {
+          "type": "string",
+          "default": "icon",
+          "enum": ["icon", "image"],
+          "description": "Custom icon type: Font Awesome or image"
+        },
+        "customIcons": {
+          "type": "string",
+          "default": "fab fa-whatsapp",
+          "description": "Custom Font Awesome icon class"
+        },
+        "imgField": {
+          "type": "object",
+          "default": {"url": ""},
+          "description": "Custom icon image upload"
+        },
+        "linkUrl": {
+          "type": "object",
+          "default": {"url": "#", "target": "", "nofollow": ""},
+          "description": "Social media profile/share URL"
+        },
+        "title": {
+          "type": "string",
+          "default": "Network",
+          "description": "Icon title/label (for style-12, style-14, style-15)"
+        },
+        "iconNmlColor": {
+          "type": "string",
+          "default": "",
+          "description": "Icon color (normal state)"
+        },
+        "iconHvrColor": {
+          "type": "string",
+          "default": "",
+          "description": "Icon color (hover state)"
+        },
+        "nmlBG": {
+          "type": "string",
+          "default": "",
+          "description": "Background color (normal state)"
+        },
+        "hvrBG": {
+          "type": "string",
+          "default": "",
+          "description": "Background color (hover state)"
+        },
+        "nmlBColor": {
+          "type": "string",
+          "default": "",
+          "description": "Border color (normal state)"
+        },
+        "hvrBColor": {
+          "type": "string",
+          "default": "",
+          "description": "Border color (hover state)"
+        },
+        "tooltipText": {
+          "type": "string",
+          "default": "",
+          "description": "Tooltip text on hover"
+        },
+        "tooltipTypo": {
+          "type": "object",
+          "default": {"openTypography": 0},
+          "description": "Typography for tooltip"
+        }
+      }
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "socialIcon (add/edit/remove items)",
+      "hoverStyle"
+    ],
+    "requiresValidation": [
+      "style"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Social icon style CSS (15+ variants)",
+    "Hover animation effects",
+    "Icon font library (Font Awesome)",
+    "Tooltip styling"
+  ],
+  "commonUseCases": [
+    "Header/footer social media links",
+    "Author social profiles",
+    "Social sharing buttons",
+    "Follow us section",
+    "Contact page social links",
+    "Team member social profiles"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-icon-box",
+    "tpgb/tp-button",
+    "tpgb/tp-team-listing"
+  ],
+  "capabilities": [
+    "15+ style variants",
+    "Multiple hover animations",
+    "Font Awesome or custom image icons",
+    "Per-icon color customization",
+    "Tooltip support",
+    "Link targeting and nofollow",
+    "Repeater for multiple social networks",
+    "Brand colors support"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple social icons with 3 networks",
+      "attributes": {
+        "block_id": "a1b2",
+        "style": "style-1",
+        "hoverStyle": "faded",
+        "socialIcon": [
+          {
+            "socialNtwk": "fab fa-facebook",
+            "linkUrl": {"url": "https://facebook.com/yourpage", "target": "_blank"},
+            "title": "Facebook",
+            "nmlBG": "#3b5998",
+            "hvrBG": "#2d4373"
+          },
+          {
+            "socialNtwk": "fab fa-twitter",
+            "linkUrl": {"url": "https://twitter.com/yourhandle", "target": "_blank"},
+            "title": "Twitter",
+            "nmlBG": "#1da1f2",
+            "hvrBG": "#0c85d0"
+          },
+          {
+            "socialNtwk": "fab fa-instagram",
+            "linkUrl": {"url": "https://instagram.com/yourhandle", "target": "_blank"},
+            "title": "Instagram",
+            "nmlBG": "#e4405f",
+            "hvrBG": "#d31e40"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Social icons with tooltips",
+      "attributes": {
+        "block_id": "c3d4",
+        "style": "style-3",
+        "socialIcon": [
+          {
+            "socialNtwk": "fab fa-linkedin",
+            "linkUrl": {"url": "https://linkedin.com/company/yourcompany"},
+            "tooltipText": "Follow us on LinkedIn"
+          }
+        ]
+      }
+    }
+  ]
+}

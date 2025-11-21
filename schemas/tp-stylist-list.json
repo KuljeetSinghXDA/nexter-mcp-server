@@ -1,0 +1,176 @@
+{
+  "blockName": "tpgb/tp-stylist-list",
+  "version": "1.0.0",
+  "title": "Stylish List",
+  "category": "content",
+  "description": "Create visually appealing lists with custom icons, links, tooltips, and hint badges. Perfect for feature lists, checkmarks, bullet points, and step-by-step instructions with enhanced styling options.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "hover_bg_style": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable hover background effect on list items"
+    },
+    "listsRepeater": {
+      "type": "array",
+      "default": [],
+      "description": "Array of list items",
+      "repeaterField": {
+        "description": {
+          "type": "string",
+          "default": "List item",
+          "description": "List item text content"
+        },
+        "selectIcon": {
+          "type": "string",
+          "default": "fontawesome",
+          "enum": ["fontawesome", "image"],
+          "description": "Icon type: Font Awesome or custom image"
+        },
+        "iconFontawesome": {
+          "type": "string",
+          "default": "fas fa-check-circle",
+          "description": "Font Awesome icon class for bullet/marker"
+        },
+        "iconImg": {
+          "type": "object",
+          "default": {"url": ""},
+          "description": "Custom icon image upload"
+        },
+        "descurl": {
+          "type": "object",
+          "default": {"url": "", "target": "", "nofollow": ""},
+          "description": "Optional link for list item"
+        },
+        "hintText": {
+          "type": "string",
+          "default": "",
+          "description": "Hint/badge text (e.g., 'New', 'Pro', 'Popular')"
+        },
+        "hintColor": {
+          "type": "string",
+          "description": "Hint badge text color"
+        },
+        "hintBgColor": {
+          "type": "string",
+          "description": "Hint badge background color"
+        },
+        "hoverBgItem": {
+          "type": "string",
+          "description": "Hover background color for this item"
+        },
+        "tooltipText": {
+          "type": "string",
+          "default": "",
+          "description": "Tooltip text on hover"
+        },
+        "tooltipTypo": {
+          "type": "object",
+          "default": {"openTypography": 0},
+          "description": "Typography for tooltip"
+        }
+      }
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "listsRepeater (add/edit/remove items)",
+      "hover_bg_style"
+    ],
+    "requiresValidation": [],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "List styling CSS",
+    "Icon font library (Font Awesome)",
+    "Tooltip styling",
+    "Hover effects",
+    "Hint badge styling"
+  ],
+  "commonUseCases": [
+    "Feature lists with checkmarks",
+    "Product benefits/specifications",
+    "Step-by-step instructions",
+    "Service offerings",
+    "Pricing plan features",
+    "Requirements or prerequisites",
+    "Pros and cons lists",
+    "Navigation menus"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-icon-box",
+    "tpgb/tp-infobox",
+    "tpgb/tp-pricing-table"
+  ],
+  "capabilities": [
+    "Custom icons per list item",
+    "Font Awesome or image icons",
+    "Optional links on items",
+    "Hint/badge text support",
+    "Tooltip support",
+    "Hover background effects",
+    "Per-item color customization",
+    "Repeater for unlimited items"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple feature list with checkmarks",
+      "attributes": {
+        "block_id": "a1b2",
+        "listsRepeater": [
+          {
+            "description": "Unlimited Projects",
+            "iconFontawesome": "fas fa-check",
+            "selectIcon": "fontawesome"
+          },
+          {
+            "description": "24/7 Support",
+            "iconFontawesome": "fas fa-check",
+            "selectIcon": "fontawesome"
+          },
+          {
+            "description": "Advanced Analytics",
+            "iconFontawesome": "fas fa-check",
+            "selectIcon": "fontawesome",
+            "hintText": "New",
+            "hintBgColor": "#27ae60"
+          }
+        ]
+      }
+    },
+    {
+      "description": "List with links and tooltips",
+      "attributes": {
+        "block_id": "c3d4",
+        "hover_bg_style": true,
+        "listsRepeater": [
+          {
+            "description": "Documentation",
+            "iconFontawesome": "fas fa-book",
+            "descurl": {"url": "/docs", "target": "_self"},
+            "tooltipText": "Read our comprehensive documentation"
+          },
+          {
+            "description": "API Reference",
+            "iconFontawesome": "fas fa-code",
+            "descurl": {"url": "/api", "target": "_self"},
+            "tooltipText": "Explore our API"
+          }
+        ]
+      }
+    }
+  ]
+}

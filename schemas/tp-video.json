@@ -1,0 +1,268 @@
+{
+  "blockName": "tpgb/tp-video",
+  "version": "1.0.0",
+  "title": "Video",
+  "category": "media",
+  "description": "Embed YouTube, Vimeo, or self-hosted videos with custom play buttons, banner images, and advanced controls. Supports autoplay, loop, muted mode, and schema markup for SEO. Perfect for video marketing, tutorials, and content engagement.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "VideoType": {
+      "type": "string",
+      "default": "youtube",
+      "enum": ["youtube", "vimeo", "self-hosted"],
+      "description": "Video source platform"
+    },
+    "YoutubeID": {
+      "type": "string",
+      "default": "TJ1SDXbij8Y",
+      "description": "YouTube video ID (from URL)"
+    },
+    "VimeoID": {
+      "type": "string",
+      "default": "27246366",
+      "description": "Vimeo video ID (from URL)"
+    },
+    "mp4Url": {
+      "type": "object",
+      "default": [],
+      "description": "Self-hosted video file upload (MP4)"
+    },
+    "autoPlay": {
+      "type": "boolean",
+      "default": false,
+      "description": "Auto-play video on page load"
+    },
+    "muted": {
+      "type": "boolean",
+      "default": false,
+      "description": "Start video muted"
+    },
+    "loop": {
+      "type": "boolean",
+      "default": false,
+      "description": "Loop video continuously"
+    },
+    "controls": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show video player controls"
+    },
+    "showinfo": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show video information (YouTube)"
+    },
+    "touchDisable": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disable touch/click on video overlay"
+    },
+    "ModestBranding": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide YouTube logo (YouTube)"
+    },
+    "VideoColor": {
+      "type": "string",
+      "default": "",
+      "description": "Player accent color (Vimeo)"
+    },
+    "rel": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show related videos at end (YouTube)"
+    },
+    "yt_privacy": {
+      "type": "boolean",
+      "default": false,
+      "description": "Use YouTube privacy-enhanced mode"
+    },
+    "VimeoTitle": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show video title (Vimeo)"
+    },
+    "VimeoPortrait": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show author portrait (Vimeo)"
+    },
+    "VimeoByline": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show author byline (Vimeo)"
+    },
+    "image_banner": {
+      "type": "string",
+      "default": "banner_img",
+      "description": "Banner image mode"
+    },
+    "ShowBannerImg": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show custom banner/thumbnail image before play"
+    },
+    "BannerImg": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Custom banner/thumbnail image"
+    },
+    "BannerImgSize": {
+      "type": "string",
+      "default": "full",
+      "description": "Banner image size"
+    },
+    "VideoIcon": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Custom play button icon image"
+    },
+    "VideoIconSize": {
+      "type": "string",
+      "default": "full",
+      "description": "Play icon size"
+    },
+    "IconAlign": {
+      "type": "string",
+      "default": "center",
+      "enum": ["left", "center", "right"],
+      "description": "Play button alignment on banner"
+    },
+    "OverlayIconImg": {
+      "type": "object",
+      "default": [],
+      "description": "Overlay icon image"
+    },
+    "OverlayIconImgSize": {
+      "type": "string",
+      "default": "full",
+      "description": "Overlay icon size"
+    },
+    "VideoTitle": {
+      "type": "string",
+      "default": "Earth from the Moon",
+      "description": "Video title for schema markup"
+    },
+    "markupSch": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable VideoObject schema markup for SEO"
+    },
+    "iframeTitle": {
+      "type": "string",
+      "default": "",
+      "description": "Iframe title for accessibility"
+    },
+    "VideoTitleTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography settings for video title overlay"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "YoutubeID",
+      "VimeoID",
+      "mp4Url",
+      "autoPlay",
+      "muted",
+      "loop",
+      "controls",
+      "BannerImg",
+      "VideoIcon",
+      "IconAlign",
+      "VideoTitle",
+      "iframeTitle"
+    ],
+    "requiresValidation": [
+      "VideoType",
+      "ShowBannerImg",
+      "markupSch",
+      "rel",
+      "yt_privacy",
+      "ModestBranding"
+    ],
+    "dangerous": [
+      "block_id",
+      "touchDisable"
+    ]
+  },
+  "styleDependencies": [
+    "Video player iframe embed CSS",
+    "Banner/overlay styling",
+    "Play button styling",
+    "Responsive aspect ratio CSS"
+  ],
+  "commonUseCases": [
+    "Product demo videos",
+    "Tutorial and how-to videos",
+    "Testimonial videos",
+    "Promotional videos",
+    "Background videos",
+    "Video testimonials",
+    "Course lesson videos",
+    "Embedded vlogs"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-image",
+    "tpgb/tp-button",
+    "tpgb/tp-heading-title"
+  ],
+  "capabilities": [
+    "YouTube, Vimeo, and self-hosted support",
+    "Autoplay, loop, and muted options",
+    "Custom banner/thumbnail image",
+    "Custom play button icon",
+    "Player controls customization",
+    "Privacy-enhanced YouTube mode",
+    "Schema markup for SEO",
+    "Responsive video embed",
+    "Vimeo color customization",
+    "Related videos control"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple YouTube video embed",
+      "attributes": {
+        "block_id": "a1b2",
+        "VideoType": "youtube",
+        "YoutubeID": "dQw4w9WgXcQ",
+        "controls": true,
+        "rel": false
+      }
+    },
+    {
+      "description": "YouTube video with custom thumbnail",
+      "attributes": {
+        "block_id": "c3d4",
+        "VideoType": "youtube",
+        "YoutubeID": "dQw4w9WgXcQ",
+        "ShowBannerImg": true,
+        "BannerImg": {"url": "https://example.com/thumbnail.jpg"},
+        "autoPlay": false
+      }
+    },
+    {
+      "description": "Vimeo video with schema markup",
+      "attributes": {
+        "block_id": "e5f6",
+        "VideoType": "vimeo",
+        "VimeoID": "123456789",
+        "markupSch": true,
+        "VideoTitle": "Product Demo Video",
+        "VideoColor": "#3498db"
+      }
+    }
+  ]
+}
