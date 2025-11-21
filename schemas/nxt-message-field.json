@@ -1,0 +1,168 @@
+{
+  "blockName": "tpgb/tp-form-message-field",
+  "version": "1.0.0",
+  "title": "Message",
+  "category": "form",
+  "description": "Add a multi-line textarea field to your form for longer text messages. Features customizable row count (line numbers), field width control, required field validation, placeholder text, help text (description), and autocomplete control. Perfect for message fields, comments, feedback, or any longer text input. Must be used inside a Form Block. Pro version with advanced form controls.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "labelss": {
+      "type": "string",
+      "default": "Message",
+      "description": "Field label text"
+    },
+    "reqTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Make field required"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "Message",
+      "description": "Placeholder text shown in empty textarea"
+    },
+    "error": {
+      "type": "string",
+      "default": "This field is required.",
+      "description": "Error message for validation failure"
+    },
+    "hlpTxt": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable help text (description)"
+    },
+    "desctxt": {
+      "type": "string",
+      "default": "Description",
+      "description": "Help text content (when hlpTxt is true)"
+    },
+    "autoComplete": {
+      "type": "string",
+      "default": "off",
+      "enum": ["off", "on"],
+      "description": "HTML autocomplete attribute value"
+    },
+    "lineNum": {
+      "type": "string",
+      "default": "2",
+      "description": "Number of visible text lines (rows) in textarea"
+    },
+    "inpSz": {
+      "type": "object",
+      "default": {"md": "100", "unit": "%"},
+      "description": "Field width (percentage or px)",
+      "responsive": true
+    },
+    "descPoss": {
+      "type": "string",
+      "default": "top",
+      "enum": ["top", "bottom"],
+      "description": "Help text position relative to field"
+    },
+    "uniqueid": {
+      "type": "string",
+      "default": "",
+      "description": "Unique field identifier for form submission"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "placeholder",
+      "error",
+      "desctxt",
+      "lineNum",
+      "inpSz"
+    ],
+    "requiresValidation": [
+      "reqTgl",
+      "hlpTxt",
+      "autoComplete",
+      "descPoss"
+    ],
+    "dangerous": [
+      "block_id",
+      "uniqueid"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Textarea element styling"
+  ],
+  "commonUseCases": [
+    "Contact form message",
+    "Feedback comments",
+    "Support request details",
+    "Testimonial submissions",
+    "Application essays",
+    "Review text",
+    "Additional comments",
+    "Custom message input"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-form-block",
+    "tpgb/tp-form-name-field",
+    "tpgb/tp-form-submit-button"
+  ],
+  "capabilities": [
+    "Customizable label text",
+    "Multi-line textarea input",
+    "Configurable row count (line numbers)",
+    "Required field validation",
+    "Custom placeholder text",
+    "Custom error messages",
+    "Autocomplete control (on/off)",
+    "Responsive width control",
+    "Help text with top/bottom positioning",
+    "Unique field ID for form handling",
+    "Inline display support with submit button"
+  ],
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true,
+  "ancestorBlock": "tpgb/tp-form-block",
+  "examples": [
+    {
+      "description": "Simple message field",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Your Message",
+        "placeholder": "Enter your message here...",
+        "lineNum": "4",
+        "reqTgl": true
+      }
+    },
+    {
+      "description": "Feedback form with help text",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Feedback",
+        "placeholder": "Tell us what you think",
+        "lineNum": "6",
+        "hlpTxt": true,
+        "desctxt": "Please provide detailed feedback to help us improve",
+        "descPoss": "top",
+        "reqTgl": true
+      }
+    },
+    {
+      "description": "Large comment area",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Additional Comments",
+        "placeholder": "Any additional information...",
+        "lineNum": "8",
+        "reqTgl": false
+      }
+    }
+  ]
+}
