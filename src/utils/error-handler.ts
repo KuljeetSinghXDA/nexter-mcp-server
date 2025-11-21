@@ -4,13 +4,12 @@
  * Creates structured errors with actionable fix suggestions
  */
 
-import { 
-  StructuredError, 
-  Fix, 
-  FixStep, 
-  ErrorCode, 
+import {
+  StructuredError,
+  Fix,
+  ErrorCode,
   ErrorType,
-  ErrorDetails 
+  ErrorDetails
 } from '../types/errors.js';
 
 /**

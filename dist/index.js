@@ -10,11 +10,16 @@ import express from 'express';
 import compression from 'compression';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { registerTools, toolHandlers, toolDefinitions } from './tools/index.js';
 import { registerResources } from './resources/index.js';
 import { WordPressClient } from './services/wordpress-client.js';
 import { SchemaLoader } from './services/schema-loader.js';
 import { logger } from './utils/logger.js';
+// ES module __dirname equivalent
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // Load environment variables
 dotenv.config();
 // Validate required environment variables
@@ -27,7 +32,7 @@ for (const envVar of requiredEnvVars) {
 }
 // Initialize services
 const wpClient = new WordPressClient();
-const schemaLoader = new SchemaLoader('./schemas');
+const schemaLoader = new SchemaLoader(path.join(__dirname, '../schemas'));
 // Create MCP server
 const mcpServer = new Server({
     name: 'nexter-mcp-server',
@@ -81,7 +86,8 @@ async function startServer() {
                 },
                 schemas: {
                     loaded: schemaLoader.getLoadedCount(),
-                    path: './schemas'
+                    total: schemaLoader.getTotalCount(),
+                    path: path.join(__dirname, '../schemas')
                 }
             });
         });
@@ -104,6 +110,16 @@ async function startServer() {
             res.status(405).send('GET /mcp is not supported. This server only supports POST /mcp for MCP protocol.');
         });
         // POST /mcp - Main MCP endpoint (HTTP transport)
+        //
+        // SECURITY MODEL:
+        // This endpoint intentionally has NO authentication because:
+        // 1. Runs in isolated Docker network (not exposed to internet)
+        // 2. Traefik handles external auth/routing at proxy layer
+        // 3. All WordPress operations use WordPress Application Passwords
+        // 4. Rate limiting prevents abuse from within network
+        // 5. Only accepts JSON-RPC 2.0 formatted requests
+        //
+        // External access: https://nexter.aiengineops.com/mcp → Traefik → internal:3000/mcp
         app.post('/mcp', async (req, res) => {
             try {
                 const request = req.body;
@@ -240,6 +256,8 @@ async function startServer() {
                     // Call the actual tool handler
                     const toolName = request.params?.name;
                     const toolArgs = request.params?.arguments || {};
+                    // Note: Using 'as any' here because toolHandlers have different signatures
+                    // and TypeScript can't infer which one is being called at runtime
                     const handler = toolHandlers[toolName];
                     if (!handler) {
                         return res.status(400).json({
@@ -294,7 +312,7 @@ async function startServer() {
             logger.info(`🚀 MCP Server listening on port ${port}`);
             logger.info(`📡 Transport mode: ${transportMode}`);
             logger.info(`🌐 WordPress URL: ${process.env.WORDPRESS_URL}`);
-            logger.info(`📚 Schemas path: ./schemas`);
+            logger.info(`📚 Schemas path: ${path.join(__dirname, '../schemas')}`);
             logger.info(`✅ Health check: http://localhost:${port}/health`);
             logger.info(`🔌 MCP HTTP endpoint: POST http://localhost:${port}/mcp`);
         });

@@ -6,7 +6,6 @@
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { WordPressClient } from '../services/wordpress-client.js';
 import { SchemaLoader } from '../services/schema-loader.js';
-import { StructuredError } from '../types/errors.js';
 export declare function registerTools(server: Server, wpClient: WordPressClient, schemaLoader: SchemaLoader): void;
 export declare const toolHandlers: {
     get_block_schemas: typeof handleGetBlockSchemas;
@@ -244,7 +243,7 @@ declare function handleCreateContent(args: any, wpClient: WordPressClient): Prom
     error_type: string;
     error_code: string;
     message: string;
-    errors: StructuredError[];
+    errors: import("../types/errors.js").StructuredError[];
     warnings: string[];
     suggestion: string;
     details?: undefined;
@@ -319,7 +318,7 @@ declare function handleSearchContent(args: any, wpClient: WordPressClient): Prom
     query: any;
     note: string;
 }>;
-declare function handleEditContent(args: any, wpClient: WordPressClient, schemaLoader: SchemaLoader): Promise<{
+declare function handleEditContent(args: any, wpClient: WordPressClient, _schemaLoader: SchemaLoader): Promise<{
     success: boolean;
     error: string;
     errors?: undefined;
@@ -335,7 +334,7 @@ declare function handleEditContent(args: any, wpClient: WordPressClient, schemaL
 } | {
     success: boolean;
     error: string;
-    errors: StructuredError[];
+    errors: import("../types/errors.js").StructuredError[];
     warnings: string[];
     suggestion: string;
     details?: undefined;
@@ -372,11 +371,11 @@ declare function handleEditContent(args: any, wpClient: WordPressClient, schemaL
     details?: undefined;
     original_preserved?: undefined;
 }>;
-declare function handleValidateContent(args: any, wpClient: WordPressClient): Promise<{
+declare function handleValidateContent(args: any, _wpClient: WordPressClient): Promise<{
     status: string;
     valid: boolean;
     blocks: any[];
-    errors: StructuredError[];
+    errors: import("../types/errors.js").StructuredError[];
     warnings: string[];
     fixes_applied: string[];
     message: string;
@@ -384,7 +383,7 @@ declare function handleValidateContent(args: any, wpClient: WordPressClient): Pr
 } | {
     status: string;
     valid: boolean;
-    errors: StructuredError[];
+    errors: import("../types/errors.js").StructuredError[];
     warnings: string[];
     message: string;
     suggestion: string | undefined;

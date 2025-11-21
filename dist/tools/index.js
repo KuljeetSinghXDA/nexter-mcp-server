@@ -650,7 +650,7 @@ async function handleSearchContent(args, wpClient) {
                     : 'Many matches found. Consider refining your search.'
     };
 }
-async function handleEditContent(args, wpClient, schemaLoader) {
+async function handleEditContent(args, wpClient, _schemaLoader) {
     const postId = args.post_id;
     const operations = args.operations;
     const titleUpdate = args.title_update;
@@ -661,19 +661,22 @@ async function handleEditContent(args, wpClient, schemaLoader) {
     // Apply each operation
     for (const op of operations) {
         switch (op.operation) {
-            case 'modify_block':
+            case 'modify_block': {
                 blocks = modifyBlockAttributes(blocks, op.block_id, op.new_attrs);
                 changeLog.push(`Modified block ${op.block_id}`);
                 break;
-            case 'add_block':
+            }
+            case 'add_block': {
                 const position = op.target_position ?? blocks.length;
                 blocks = insertBlock(blocks, position, op.new_block);
                 changeLog.push(`Added ${op.new_block.blockName} at position ${position}`);
                 break;
-            case 'remove_block':
+            }
+            case 'remove_block': {
                 blocks = removeBlock(blocks, op.block_id);
                 changeLog.push(`Removed block ${op.block_id}`);
                 break;
+            }
             default:
                 return {
                     success: false,
@@ -724,7 +727,7 @@ async function handleEditContent(args, wpClient, schemaLoader) {
         message: 'Changes saved with new revision. Original preserved.'
     };
 }
-async function handleValidateContent(args, wpClient) {
+async function handleValidateContent(args, _wpClient) {
     const blocks = args.blocks;
     const strict = args.strict || false;
     const autoFix = args.auto_fix || false;

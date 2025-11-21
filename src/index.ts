@@ -1,6 +1,6 @@
 /**
  * Nexter MCP Server - Main Entry Point
- * 
+ *
  * Provides MCP tools for AI-powered WordPress content management
  * with Nexter Blocks (90+ blocks supported)
  */
@@ -11,11 +11,17 @@ import express, { Request, Response } from 'express';
 import compression from 'compression';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { registerTools, toolHandlers, toolDefinitions } from './tools/index.js';
 import { registerResources } from './resources/index.js';
 import { WordPressClient } from './services/wordpress-client.js';
 import { SchemaLoader } from './services/schema-loader.js';
 import { logger } from './utils/logger.js';
+
+// ES module __dirname equivalent
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Load environment variables
 dotenv.config();
@@ -31,7 +37,7 @@ for (const envVar of requiredEnvVars) {
 
 // Initialize services
 const wpClient = new WordPressClient();
-const schemaLoader = new SchemaLoader('./schemas');
+const schemaLoader = new SchemaLoader(path.join(__dirname, '../schemas'));
 
 // Create MCP server
 const mcpServer = new Server(
@@ -97,7 +103,8 @@ async function startServer() {
         },
         schemas: {
           loaded: schemaLoader.getLoadedCount(),
-          path: './schemas'
+          total: schemaLoader.getTotalCount(),
+          path: path.join(__dirname, '../schemas')
         }
       });
     });
@@ -266,7 +273,9 @@ async function startServer() {
           // Call the actual tool handler
           const toolName = request.params?.name;
           const toolArgs = request.params?.arguments || {};
-          
+
+          // Note: Using 'as any' here because toolHandlers have different signatures
+          // and TypeScript can't infer which one is being called at runtime
           const handler = (toolHandlers as any)[toolName];
           if (!handler) {
             return res.status(400).json({
@@ -322,7 +331,7 @@ async function startServer() {
       logger.info(`🚀 MCP Server listening on port ${port}`);
       logger.info(`📡 Transport mode: ${transportMode}`);
       logger.info(`🌐 WordPress URL: ${process.env.WORDPRESS_URL}`);
-      logger.info(`📚 Schemas path: ./schemas`);
+      logger.info(`📚 Schemas path: ${path.join(__dirname, '../schemas')}`);
       logger.info(`✅ Health check: http://localhost:${port}/health`);
       logger.info(`🔌 MCP HTTP endpoint: POST http://localhost:${port}/mcp`);
     });
