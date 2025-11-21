@@ -1,0 +1,576 @@
+{
+  "blockName": "tpgb/tp-carousel-remote",
+  "version": "1.0.0",
+  "title": "Carousel Remote",
+  "category": "navigation",
+  "description": "Remote control for any carousel using unique ID connection. Features prev/next navigation buttons, customizable dot indicators with icons/images, tooltips, pagination display, and extensive styling. Perfect for controlling product carousels, image sliders, testimonial carousels, and any swiper-based content from a separate location.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "carouselId": {
+      "type": "string",
+      "default": "Id1",
+      "description": "Unique carousel ID to connect with target carousel"
+    },
+    "carobtn": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show prev/next navigation buttons"
+    },
+    "remType": {
+      "type": "string",
+      "default": "carousel",
+      "description": "Remote control type"
+    },
+    "btntxt1": {
+      "type": "string",
+      "default": "Prev",
+      "description": "Previous button text"
+    },
+    "btntxt2": {
+      "type": "string",
+      "default": "Next",
+      "description": "Next button text"
+    },
+    "rbtnAlign": {
+      "type": "string",
+      "default": "text-left",
+      "enum": ["text-left", "text-center", "text-right"],
+      "description": "Button alignment"
+    },
+    "pAriaLabel": {
+      "type": "string",
+      "default": "",
+      "description": "Previous button ARIA label"
+    },
+    "nAriaLabel": {
+      "type": "string",
+      "default": "",
+      "description": "Next button ARIA label"
+    },
+    "BiconFont": {
+      "type": "string",
+      "default": "font_awesome",
+      "enum": ["font_awesome", "img"],
+      "description": "Button icon type"
+    },
+    "btnIcon1": {
+      "type": "string",
+      "default": "fas fa-angle-left",
+      "description": "Previous button Font Awesome icon"
+    },
+    "btnIcon2": {
+      "type": "string",
+      "default": "fas fa-angle-right",
+      "description": "Next button Font Awesome icon"
+    },
+    "Ctmicon1": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Previous button custom image"
+    },
+    "Ctmicon2": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Next button custom image"
+    },
+    "imgSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size for icons"
+    },
+    "iconSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Button icon size",
+      "responsive": true
+    },
+    "iconSpace": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Icon spacing from button text",
+      "responsive": true
+    },
+    "iconColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal)"
+    },
+    "HvrIcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (hover/active)"
+    },
+    "btnSpace": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Space between prev and next buttons",
+      "responsive": true
+    },
+    "rbtnpadding": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Button padding",
+      "responsive": true
+    },
+    "rbtnTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for button text"
+    },
+    "txtcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (normal)"
+    },
+    "Hvrtxtcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (hover/active)"
+    },
+    "btnBorder": {
+      "type": "object",
+      "default": {"openBorder": 0},
+      "description": "Button border (normal)"
+    },
+    "btnHBorder": {
+      "type": "object",
+      "default": {"openBorder": 0},
+      "description": "Button border (hover/active)"
+    },
+    "btnBradius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Button border radius (normal)",
+      "responsive": true
+    },
+    "btnHBradius": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Button border radius (hover/active)",
+      "responsive": true
+    },
+    "btnBgtype": {
+      "type": "object",
+      "default": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#3882f7"},
+      "description": "Button background (normal)"
+    },
+    "hvrBgtype": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Button background (hover/active)"
+    },
+    "btnBshadow": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Button box shadow (normal)"
+    },
+    "hvrBshadow": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Button box shadow (hover/active)"
+    },
+    "showDot": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show dot indicators"
+    },
+    "dotList": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Dot indicator items with icons/images",
+      "items": {
+        "label": {
+          "type": "string",
+          "default": "Slide",
+          "description": "Dot label/tooltip text"
+        },
+        "iconFonts": {
+          "type": "string",
+          "default": "font_awesome",
+          "description": "Icon type"
+        },
+        "iconName": {
+          "type": "string",
+          "default": "fas fa-home",
+          "description": "Font Awesome icon class"
+        },
+        "iconImage": {
+          "type": "object",
+          "default": {"url": ""},
+          "description": "Custom icon image"
+        },
+        "iconimageSize": {
+          "type": "string",
+          "default": "full",
+          "description": "WordPress image size"
+        },
+        "doticonColor": {
+          "type": "string",
+          "default": "",
+          "description": "Dot icon color (normal)"
+        },
+        "dotBgtype": {
+          "type": "object",
+          "default": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#c2ccc4"},
+          "description": "Dot background (normal)"
+        },
+        "acticonColor": {
+          "type": "string",
+          "default": "",
+          "description": "Dot icon color (active/hover)"
+        },
+        "actdotBgtype": {
+          "type": "object",
+          "default": {"openBg": 0},
+          "description": "Dot background (active/hover)"
+        }
+      },
+      "default": [
+        {"_key": "0", "label": "Slide 1", "iconName": "fas fa-home"},
+        {"_key": "1", "label": "Slide 2", "iconName": "fas fa-globe-europe"}
+      ]
+    },
+    "dotLayout": {
+      "type": "string",
+      "default": "horizontal",
+      "enum": ["horizontal", "vertical"],
+      "description": "Dot layout direction"
+    },
+    "dotstyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2"],
+      "description": "Dot visual style (style-1: animated border, style-2: tooltips)"
+    },
+    "AborderColor": {
+      "type": "string",
+      "default": "#6f14f1",
+      "description": "Active border color (style-1)"
+    },
+    "AniDuration": {
+      "type": "string",
+      "default": "",
+      "description": "Border animation duration in milliseconds (style-1)"
+    },
+    "tooltipDir": {
+      "type": "string",
+      "default": "top",
+      "enum": ["top", "bottom", "left", "right"],
+      "description": "Tooltip direction for horizontal layout (style-2)"
+    },
+    "vtooltipDir": {
+      "type": "string",
+      "default": "left",
+      "enum": ["top", "bottom", "left", "right"],
+      "description": "Tooltip direction for vertical layout (style-2)"
+    },
+    "dotSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Dot size (width, height, line-height)",
+      "responsive": true
+    },
+    "dotSpace": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Space between dots",
+      "responsive": true
+    },
+    "diconSize": {
+      "type": "object",
+      "default": {"md": "20", "unit": "px"},
+      "description": "Dot icon size",
+      "responsive": true
+    },
+    "dimgSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Dot image max width",
+      "responsive": true
+    },
+    "dmargin": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Dot margin",
+      "responsive": true
+    },
+    "dpadding": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Dot padding",
+      "responsive": true
+    },
+    "totipmargin": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Tooltip margin (style-2)",
+      "responsive": true
+    },
+    "totippadding": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Tooltip padding (style-2)",
+      "responsive": true
+    },
+    "totipAlign": {
+      "type": "string",
+      "default": "center",
+      "enum": ["flex-start", "center", "flex-end"],
+      "description": "Tooltip text alignment (style-2)"
+    },
+    "totipTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for tooltip text (style-2)"
+    },
+    "totipColor": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip text color (style-2)"
+    },
+    "totipHColor": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip text color on hover (style-2)"
+    },
+    "totipBgcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip background (style-2)"
+    },
+    "totipHBgcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip background on hover (style-2)"
+    },
+    "totipHgh": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip height in pixels (style-2)"
+    },
+    "tooltiparrow": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show tooltip arrow (style-2)"
+    },
+    "arrowColor": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip arrow color (style-2)"
+    },
+    "totipBshadow": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Tooltip box shadow (style-2)"
+    },
+    "tipBradius": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Tooltip border radius (style-2)",
+      "responsive": true
+    },
+    "showpagi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show pagination (e.g., '1 / 5')"
+    },
+    "sliderInd": {
+      "type": "string",
+      "default": "",
+      "description": "Pagination separator"
+    },
+    "noColor": {
+      "type": "string",
+      "default": "",
+      "description": "Pagination text color"
+    },
+    "noTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for pagination"
+    },
+    "ActnoColor": {
+      "type": "string",
+      "default": "",
+      "description": "Active pagination number color"
+    },
+    "ActnoTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for active pagination number"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "carouselId",
+      "btntxt1",
+      "btntxt2",
+      "pAriaLabel",
+      "nAriaLabel",
+      "btnIcon1",
+      "btnIcon2",
+      "Ctmicon1",
+      "Ctmicon2",
+      "iconSize",
+      "iconSpace",
+      "iconColor",
+      "HvrIcolor",
+      "btnSpace",
+      "rbtnpadding",
+      "txtcolor",
+      "Hvrtxtcolor",
+      "dotList",
+      "AborderColor",
+      "AniDuration",
+      "dotSize",
+      "dotSpace",
+      "diconSize",
+      "totipmargin",
+      "totippadding",
+      "totipColor",
+      "arrowColor"
+    ],
+    "requiresValidation": [
+      "carobtn",
+      "remType",
+      "rbtnAlign",
+      "BiconFont",
+      "imgSize",
+      "showDot",
+      "dotLayout",
+      "dotstyle",
+      "tooltipDir",
+      "vtooltipDir",
+      "totipAlign",
+      "tooltiparrow",
+      "showpagi",
+      "sliderInd"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Carousel control JavaScript",
+    "Swiper.js or similar carousel library",
+    "Dot indicator click handlers",
+    "Tooltip positioning (style-2)",
+    "Active state management",
+    "Pagination update logic"
+  ],
+  "commonUseCases": [
+    "Product image carousel controls",
+    "Testimonial slider navigation",
+    "Portfolio gallery controls",
+    "Image slideshow navigation",
+    "Content carousel remote",
+    "Team member slider controls",
+    "Service showcase navigation",
+    "Case study carousel controls",
+    "Blog post slider navigation",
+    "Video playlist controls"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-carousel",
+    "tpgb/tp-post-listing",
+    "tpgb/tp-product-listing",
+    "tpgb/tp-testimonials"
+  ],
+  "capabilities": [
+    "Remote carousel control via unique ID",
+    "Prev/next navigation buttons",
+    "Custom button text",
+    "Font Awesome or custom image icons",
+    "ARIA labels for accessibility",
+    "Button alignment control",
+    "Optional dot indicators",
+    "Unlimited dots with repeater field",
+    "2 dot styles (animated border, tooltips)",
+    "Horizontal and vertical dot layouts",
+    "Icons or images for dots",
+    "Per-dot color customization",
+    "Active state for dots",
+    "Tooltips with 4 direction options (style-2)",
+    "Tooltip arrow with custom color",
+    "Border animation duration (style-1)",
+    "Pagination display (e.g., '1 / 5')",
+    "Button typography controls",
+    "Icon and text spacing",
+    "Normal and hover/active state styling",
+    "Background, border, radius, shadow for buttons and dots",
+    "Responsive sizing for all elements",
+    "Tooltip styling (typography, colors, background, shadow)",
+    "Dot sizing, spacing, padding, margin"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple prev/next buttons",
+      "attributes": {
+        "block_id": "a1b2",
+        "carouselId": "product-carousel",
+        "carobtn": true,
+        "btntxt1": "Previous",
+        "btntxt2": "Next",
+        "btnIcon1": "fas fa-chevron-left",
+        "btnIcon2": "fas fa-chevron-right"
+      }
+    },
+    {
+      "description": "Dot indicators with animated borders",
+      "attributes": {
+        "block_id": "c3d4",
+        "carouselId": "gallery-carousel",
+        "showDot": true,
+        "dotstyle": "style-1",
+        "AborderColor": "#667eea",
+        "AniDuration": "3000",
+        "dotLayout": "horizontal"
+      }
+    },
+    {
+      "description": "Dots with tooltips (vertical layout)",
+      "attributes": {
+        "block_id": "e5f6",
+        "carouselId": "testimonial-carousel",
+        "showDot": true,
+        "dotstyle": "style-2",
+        "dotLayout": "vertical",
+        "vtooltipDir": "left",
+        "tooltiparrow": true,
+        "dotList": [
+          {"label": "Customer 1", "iconName": "fas fa-user"},
+          {"label": "Customer 2", "iconName": "fas fa-user"},
+          {"label": "Customer 3", "iconName": "fas fa-user"}
+        ]
+      }
+    },
+    {
+      "description": "Full remote with buttons, dots, and pagination",
+      "attributes": {
+        "block_id": "g7h8",
+        "carouselId": "featured-carousel",
+        "carobtn": true,
+        "showDot": true,
+        "showpagi": true,
+        "sliderInd": "/",
+        "rbtnAlign": "text-center"
+      }
+    }
+  ]
+}

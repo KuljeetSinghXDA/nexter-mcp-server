@@ -2,8 +2,8 @@
   "blockName": "tpgb/tp-testimonials",
   "version": "1.0.0",
   "title": "Testimonials",
-  "category": "marketing",
-  "description": "Display customer testimonials, reviews, and feedback to build trust and credibility. Supports multiple layout styles, star ratings, author information, avatars, and both grid and carousel display modes.",
+  "category": "content",
+  "description": "Showcase customer testimonials, reviews, and feedback with multiple layout styles. Features grid and carousel displays, star ratings, avatars, author details, content height limits with scrolling, and read more/less functionality. Perfect for building trust and credibility with social proof, client testimonials, reviews, and case study quotes.",
   "source": "pro",
   "attributes": {
     "block_id": {
@@ -14,33 +14,30 @@
     "style": {
       "type": "string",
       "default": "style-1",
-      "description": "Visual style variant for testimonials"
+      "description": "Testimonial visual style variant"
     },
     "telayout": {
       "type": "string",
       "default": "carousel",
-      "enum": ["grid", "carousel"],
-      "description": "Display layout: static grid or carousel slider"
+      "enum": ["carousel", "grid"],
+      "description": "Layout type: carousel slider or grid"
     },
     "columns": {
       "type": "object",
       "default": {"md": 6, "sm": 6, "xs": 12},
-      "description": "Grid column width in bootstrap grid system (1-12)",
+      "description": "Grid column width (when telayout is 'grid')",
       "responsive": true
     },
     "columnSpace": {
       "type": "object",
-      "default": {
-        "md": {"top": 15, "right": 15, "bottom": 15, "left": 15},
-        "unit": "px"
-      },
-      "description": "Spacing between testimonial items (grid layout)",
+      "default": {"md": {"top": 15, "right": 15, "bottom": 15, "left": 15}, "unit": "px"},
+      "description": "Grid column spacing (when telayout is 'grid')",
       "responsive": true
     },
     "styleLayout": {
       "type": "string",
       "default": "style-1",
-      "description": "Layout style variant"
+      "description": "Style layout variant"
     },
     "style4Alignment": {
       "type": "string",
@@ -48,94 +45,408 @@
       "enum": ["left", "center", "right"],
       "description": "Content alignment for style-4"
     },
+    "carouselId": {
+      "type": "string",
+      "default": "",
+      "description": "Unique carousel ID for remote control"
+    },
     "rating": {
       "type": "boolean",
       "default": false,
-      "description": "Enable star rating display"
+      "description": "Show star ratings"
     },
     "ItemRepeater": {
       "type": "array",
+      "repeaterField": true,
+      "description": "Testimonial items",
+      "items": {
+        "testiTitle": {
+          "type": "string",
+          "default": "John Doe",
+          "description": "Author name"
+        },
+        "designation": {
+          "type": "string",
+          "default": "MD at Orange",
+          "description": "Author job title/designation"
+        },
+        "content": {
+          "type": "string",
+          "default": "I am pretty satisfied with Nexter Blocks. Nexter Blocks has completely surpassed our expectations. I was amazed at the quality of Nexter Blocks.",
+          "description": "Testimonial content/quote"
+        },
+        "authorTitle": {
+          "type": "string",
+          "default": "Supercharge ⚡ Gutenberg",
+          "description": "Additional author title/tagline"
+        },
+        "avatar": {
+          "type": "object",
+          "default": {"url": ""},
+          "description": "Author avatar image"
+        },
+        "starRating": {
+          "type": "string",
+          "default": "3",
+          "description": "Star rating value (0-5)"
+        }
+      },
       "default": [
         {
           "_key": "cvi9",
           "testiTitle": "John Doe",
           "designation": "MD at Orange",
-          "content": "I am pretty satisfied with Nexter Blocks.",
+          "content": "I am pretty satisfied with Nexter Blocks. Nexter Blocks has completely surpassed our expectations. I was amazed at the quality of Nexter Blocks.",
           "authorTitle": "Supercharge ⚡ Gutenberg",
           "avatar": {"url": ""},
           "starRating": ""
         }
-      ],
-      "description": "Array of testimonial items",
-      "repeaterField": {
-        "testiTitle": {"type": "string", "description": "Author name"},
-        "designation": {"type": "string", "description": "Author job title/role"},
-        "content": {"type": "string", "description": "Testimonial text/review"},
-        "authorTitle": {"type": "string", "description": "Additional author info or company"},
-        "avatar": {"type": "object", "description": "Author avatar image"},
-        "starRating": {"type": "string", "description": "Star rating (1-5)"}
-      }
+      ]
     },
     "contentHei": {
       "type": "object",
       "default": {"md": "", "unit": "px"},
-      "description": "Fixed height for testimonial content (with scrollbar)",
+      "description": "Content height limit with scroll",
       "responsive": true
     },
-    "carouselId": {
+    "titleHei": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Author title height limit with scroll",
+      "responsive": true
+    },
+    "cntscrollOn": {
+      "type": "string",
+      "default": "on-hover",
+      "enum": ["always", "on-hover"],
+      "description": "Content scrollbar visibility"
+    },
+    "descByLimit": {
+      "type": "string",
+      "default": "default",
+      "enum": ["default", "limit"],
+      "description": "Content display: full or character limit"
+    },
+    "caroByheight": {
       "type": "string",
       "default": "",
-      "description": "Carousel configuration ID"
+      "enum": ["", "height"],
+      "description": "Carousel height mode"
+    },
+    "descLimit": {
+      "type": "string",
+      "default": "30",
+      "description": "Content character limit (when descByLimit is 'limit')"
+    },
+    "redmorTxt": {
+      "type": "string",
+      "default": "Read More",
+      "description": "Read more button text"
+    },
+    "redlesTxt": {
+      "type": "string",
+      "default": "Read Less",
+      "description": "Read less button text"
+    },
+    "titleByLimit": {
+      "type": "string",
+      "default": "default",
+      "enum": ["default", "limit"],
+      "description": "Title display: full or character limit"
+    },
+    "titleLimit": {
+      "type": "string",
+      "default": "30",
+      "description": "Title character limit (when titleByLimit is 'limit')"
+    },
+    "starIcon": {
+      "type": "string",
+      "default": "default",
+      "enum": ["default", "custom"],
+      "description": "Star icon type"
+    },
+    "sIcon": {
+      "type": "string",
+      "default": "",
+      "description": "Custom star icon class"
+    },
+    "titleTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for post title"
+    },
+    "titleNormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Post title color (normal)"
+    },
+    "titleHoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Post title color (hover)"
+    },
+    "AuthortitleTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for author title"
+    },
+    "AuthortitleNormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Author title color (normal)"
+    },
+    "AuthortitleHoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Author title color (hover)"
+    },
+    "DesTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for designation"
+    },
+    "DesNormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Designation color (normal)"
+    },
+    "DesHoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Designation color (hover)"
+    },
+    "contentTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for testimonial content"
+    },
+    "cntntMargin": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Content text margin (style-2)",
+      "responsive": true
+    },
+    "contentNormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Content text color (normal)"
+    },
+    "cntHovercolor": {
+      "type": "string",
+      "default": "",
+      "description": "Content text color (hover)"
+    },
+    "starSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Star icon size",
+      "responsive": true
+    },
+    "TopSpace": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Star rating top margin",
+      "responsive": true
+    },
+    "bottomSpc": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Star rating bottom margin",
+      "responsive": true
+    },
+    "betSpc": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Space between stars",
+      "responsive": true
+    },
+    "stoutLine": {
+      "type": "boolean",
+      "default": false,
+      "description": "Star outline style (stroke instead of fill)"
+    },
+    "stnrmColor": {
+      "type": "string",
+      "default": "#bcb0b0",
+      "description": "Star color (normal or outline)"
+    },
+    "stactColor": {
+      "type": "string",
+      "default": "#f5a623",
+      "description": "Active/filled star color"
+    },
+    "avatarSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Avatar image size",
+      "responsive": true
+    },
+    "avatarBorder": {
+      "type": "object",
+      "default": {"openBorder": 0},
+      "description": "Avatar border"
+    },
+    "avatarBradius": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Avatar border radius",
+      "responsive": true
+    },
+    "itemPadding": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Testimonial item padding",
+      "responsive": true
+    },
+    "itemMargin": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Testimonial item margin",
+      "responsive": true
+    },
+    "itemBorder": {
+      "type": "object",
+      "default": {"openBorder": 0},
+      "description": "Testimonial item border (normal)"
+    },
+    "itemHvrBorder": {
+      "type": "object",
+      "default": {"openBorder": 0},
+      "description": "Testimonial item border (hover)"
+    },
+    "itemBradius": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Testimonial item border radius",
+      "responsive": true
+    },
+    "itemBgType": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Testimonial item background (normal)"
+    },
+    "itemHvrBgType": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Testimonial item background (hover)"
+    },
+    "itemBshadow": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Testimonial item box shadow (normal)"
+    },
+    "itemHvrBshadow": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Testimonial item box shadow (hover)"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
     }
   },
   "editingGuidelines": {
     "safeToModify": [
       "ItemRepeater",
-      "style4Alignment",
+      "columns",
       "columnSpace",
       "contentHei",
-      "rating"
+      "titleHei",
+      "descLimit",
+      "titleLimit",
+      "redmorTxt",
+      "redlesTxt",
+      "titleTypo",
+      "titleNormalColor",
+      "titleHoverColor",
+      "AuthortitleTypo",
+      "DesTypo",
+      "contentTypo",
+      "contentNormalColor",
+      "starSize",
+      "TopSpace",
+      "bottomSpc",
+      "betSpc",
+      "stnrmColor",
+      "stactColor",
+      "avatarSize",
+      "itemPadding",
+      "itemMargin",
+      "cntntMargin"
     ],
     "requiresValidation": [
       "style",
       "telayout",
       "styleLayout",
-      "columns",
-      "carouselId"
+      "style4Alignment",
+      "carouselId",
+      "rating",
+      "cntscrollOn",
+      "descByLimit",
+      "caroByheight",
+      "titleByLimit",
+      "starIcon",
+      "stoutLine"
     ],
     "dangerous": [
       "block_id"
     ]
   },
   "styleDependencies": [
-    "Testimonial style CSS",
-    "Grid or carousel layout CSS",
-    "Star rating icons",
-    "Avatar image styling",
-    "Responsive styling"
+    "Swiper.js or similar carousel library (when telayout is 'carousel')",
+    "Read more/less toggle JavaScript",
+    "Content scrolling behavior",
+    "Star rating display",
+    "Grid layout system",
+    "Carousel remote control support"
   ],
   "commonUseCases": [
-    "Customer testimonials section",
-    "Product reviews display",
-    "Client feedback showcase",
-    "Social proof section",
+    "Customer testimonials",
+    "Product reviews",
+    "Client feedback",
+    "Case study quotes",
+    "Service reviews",
+    "Social proof sections",
     "Trust building content",
-    "Service reviews"
+    "User success stories",
+    "Expert endorsements",
+    "Client recommendations",
+    "Peer reviews",
+    "Satisfaction ratings"
   ],
   "relatedBlocks": [
-    "tpgb/tp-heading-title",
-    "tpgb/tp-team-listing",
-    "tpgb/tp-icon-box"
+    "tpgb/tp-carousel",
+    "tpgb/tp-post-listing",
+    "tpgb/tp-team-member"
   ],
   "capabilities": [
-    "Multiple style variants",
-    "Grid or carousel layout",
-    "Star rating support",
-    "Author avatars",
-    "Responsive column system",
-    "Fixed height with scrolling",
-    "Repeater for multiple testimonials",
-    "Custom spacing and alignment"
+    "Multiple visual style variants",
+    "2 layout types (carousel, grid)",
+    "Unlimited testimonials with repeater field",
+    "Responsive grid columns (md, sm, xs)",
+    "Author name and designation",
+    "Testimonial content/quote",
+    "Additional author title field",
+    "Avatar images",
+    "Star ratings (0-5 scale)",
+    "Default or custom star icons",
+    "Star outline or filled style",
+    "Content height limit with scrolling",
+    "Title height limit with scrolling",
+    "Scroll on hover or always visible",
+    "Read more/less functionality",
+    "Character limits for content and title",
+    "Custom read more/less button text",
+    "Carousel remote control via unique ID",
+    "Content alignment (style-4)",
+    "Typography controls for title, author, designation, content",
+    "Normal and hover state colors",
+    "Star sizing and spacing controls",
+    "Avatar sizing, border, and radius",
+    "Item padding and margin",
+    "Background, border, radius, shadow for items (normal/hover)",
+    "Responsive controls for all sizing"
   ],
   "usesContext": [],
   "supports": {
@@ -145,30 +456,53 @@
   "parentBlockRequired": false,
   "examples": [
     {
-      "description": "Simple testimonial carousel with 3 reviews",
+      "description": "Simple grid testimonials with ratings",
       "attributes": {
         "block_id": "a1b2",
-        "telayout": "carousel",
+        "telayout": "grid",
+        "columns": {"md": 4, "sm": 6, "xs": 12},
         "rating": true,
         "ItemRepeater": [
-          {
-            "_key": "1",
-            "testiTitle": "Jane Smith",
-            "designation": "CEO at TechCorp",
-            "content": "Outstanding service! Highly recommended.",
-            "starRating": "5",
-            "avatar": {"url": ""}
-          }
+          {"testiTitle": "Sarah Johnson", "designation": "CEO, TechCorp", "content": "Outstanding service and support!", "starRating": "5"},
+          {"testiTitle": "Michael Chen", "designation": "Designer", "content": "Exceeded all expectations.", "starRating": "5"},
+          {"testiTitle": "Emma Davis", "designation": "Founder", "content": "Highly recommended!", "starRating": "4"}
         ]
       }
     },
     {
-      "description": "Grid layout testimonials (2 columns)",
+      "description": "Carousel testimonials with avatars",
       "attributes": {
         "block_id": "c3d4",
-        "telayout": "grid",
-        "columns": {"md": 6, "sm": 12, "xs": 12},
-        "columnSpace": {"md": {"top": 20, "right": 20, "bottom": 20, "left": 20}}
+        "telayout": "carousel",
+        "style": "style-1",
+        "rating": true,
+        "ItemRepeater": [
+          {"testiTitle": "John Doe", "designation": "MD at Orange", "content": "Amazing product quality!", "avatar": {"url": "/avatar1.jpg"}, "starRating": "5"},
+          {"testiTitle": "Jane Smith", "designation": "Marketing Director", "content": "Best decision we made.", "avatar": {"url": "/avatar2.jpg"}, "starRating": "5"}
+        ]
+      }
+    },
+    {
+      "description": "Testimonials with content limits and read more",
+      "attributes": {
+        "block_id": "e5f6",
+        "descByLimit": "limit",
+        "descLimit": "100",
+        "redmorTxt": "Show More",
+        "redlesTxt": "Show Less",
+        "contentHei": {"md": "150", "unit": "px"}
+      }
+    },
+    {
+      "description": "Style-4 testimonials with center alignment",
+      "attributes": {
+        "block_id": "g7h8",
+        "style": "style-4",
+        "style4Alignment": "center",
+        "rating": true,
+        "stoutLine": false,
+        "stnrmColor": "#ddd",
+        "stactColor": "#f5a623"
       }
     }
   ]
