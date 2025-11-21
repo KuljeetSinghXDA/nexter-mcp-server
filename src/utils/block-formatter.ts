@@ -1,14 +1,16 @@
 /**
  * Block Formatter Utility
- * 
+ *
  * Formats blocks into complete Gutenberg structure before sending to WordPress
  */
+
+import { randomBytes } from 'crypto';
 
 /**
  * Generate 4-character hex ID matching Nexter's format
  */
 function generateBlockId(): string {
-  return Math.random().toString(16).substring(2, 6);
+  return randomBytes(2).toString('hex');
 }
 
 /**

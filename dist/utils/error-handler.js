@@ -57,7 +57,8 @@ function getFixesForError(errorCode, details) {
                             correct_value: 'GENERATE_NEW',
                             code_example: `
 // Generate a unique block_id
-block.attrs.block_id = Math.random().toString(16).slice(2, 6);
+import { randomBytes } from 'crypto';
+block.attrs.block_id = randomBytes(2).toString('hex');
 
 // Example result: "a3f2"
 `
@@ -330,7 +331,7 @@ export function missingBlockIdError(blockName) {
         block_name: blockName,
         expected: '4-character hex ID (e.g., "a3f2")',
         suggestions: [
-            'Generate with: Math.random().toString(16).slice(2, 6)'
+            'Generate with: require("crypto").randomBytes(2).toString("hex")'
         ]
     });
 }

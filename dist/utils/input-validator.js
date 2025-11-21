@@ -3,6 +3,7 @@
  *
  * Validates block structure and attributes before sending to WordPress
  */
+import { randomBytes } from 'crypto';
 import { missingBlockIdError, invalidBlockIdError, invalidBlockNameError, missingFieldError, validationError } from './error-handler.js';
 /**
  * Validate block structure
@@ -192,7 +193,7 @@ export function autoFixBlock(block) {
     // Auto-generate block_id if missing
     if (block.blockName?.startsWith('tpgb/') && !block.attrs?.block_id) {
         fixed.attrs = fixed.attrs || {};
-        fixed.attrs.block_id = Math.random().toString(16).slice(2, 6);
+        fixed.attrs.block_id = randomBytes(2).toString('hex');
         changes.push(`Generated block_id: ${fixed.attrs.block_id}`);
     }
     // Fix block name format
