@@ -1,0 +1,1079 @@
+{
+  "blockName": "tpgb/tp-container",
+  "version": "1.0.0",
+  "title": "Container",
+  "category": "layout",
+  "description": "Foundational layout block for creating sections and rows. Acts as a wrapper for columns (tp-container-inner) with extensive styling and layout options. Supports wide/full width, flexbox layout, shape dividers, and Pro features including video/animated backgrounds, sticky positioning, parallax effects, and canvas animations. This is the primary structural block for page layouts.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "anchor": {
+      "type": "string",
+      "description": "HTML anchor/ID for scroll linking"
+    },
+    "className": {
+      "type": "string",
+      "default": "",
+      "description": "Additional CSS class names"
+    },
+    "columns": {
+      "type": "number",
+      "default": "",
+      "description": "Number of columns (auto-calculated based on inner blocks)"
+    },
+    "contentWidth": {
+      "type": "string",
+      "default": "wide",
+      "enum": ["wide", "full"],
+      "description": "Container width mode: wide (contained) or full (edge-to-edge)"
+    },
+    "contwidFull": {
+      "type": "string",
+      "default": "",
+      "description": "Full width container configuration"
+    },
+    "align": {
+      "type": "string",
+      "default": "wide",
+      "enum": ["wide", "full"],
+      "description": "Block alignment in editor"
+    },
+    "containerWide": {
+      "type": "object",
+      "default": {"md": "", "unit": "%"},
+      "description": "Maximum width when contentWidth is 'wide'",
+      "responsive": true
+    },
+    "containerFull": {
+      "type": "object",
+      "default": {"md": 100, "unit": "vw"},
+      "description": "Maximum width when contentWidth is 'full'",
+      "responsive": true
+    },
+    "colDir": {
+      "type": "string",
+      "default": "",
+      "description": "Column direction override"
+    },
+    "sectionWidth": {
+      "type": "string",
+      "default": "boxed",
+      "enum": ["boxed", "full"],
+      "description": "Section width mode"
+    },
+    "height": {
+      "type": "string",
+      "default": "",
+      "enum": ["", "min-height"],
+      "description": "Height control mode"
+    },
+    "minHeight": {
+      "type": "object",
+      "default": {"md": 300, "unit": "px"},
+      "description": "Minimum height when height mode is 'min-height'",
+      "responsive": true
+    },
+    "gutterSpace": {
+      "type": "object",
+      "default": {"md": 15, "unit": "px"},
+      "description": "Spacing between columns (padding for tp-container-inner)",
+      "responsive": true
+    },
+    "tagName": {
+      "type": "string",
+      "default": "div",
+      "enum": ["div", "section", "article", "header", "footer", "main", "aside"],
+      "description": "HTML tag for semantic structure"
+    },
+    "overflow": {
+      "type": "string",
+      "default": "",
+      "enum": ["", "hidden", "visible", "scroll", "auto"],
+      "description": "CSS overflow property"
+    },
+    "liveCopy": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable live copy mode for template replication"
+    },
+    "currentID": {
+      "type": "number",
+      "default": "",
+      "description": "Current post/page ID for live copy"
+    },
+    "customClass": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS classes"
+    },
+    "customId": {
+      "type": "string",
+      "default": "",
+      "description": "Custom HTML ID"
+    },
+    "customCss": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS rules for this block"
+    },
+    "shapeTop": {
+      "type": "string",
+      "default": "",
+      "description": "Top shape divider SVG name (e.g., wave, curve, arrow)"
+    },
+    "shapeTColor": {
+      "type": "string",
+      "default": "",
+      "description": "Top shape divider fill color"
+    },
+    "shapeTWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": ""},
+      "description": "Top shape divider width percentage",
+      "responsive": true
+    },
+    "shapeTHeight": {
+      "type": "object",
+      "default": {"md": "", "unit": ""},
+      "description": "Top shape divider height in pixels",
+      "responsive": true
+    },
+    "shapeTFlip": {
+      "type": "boolean",
+      "default": false,
+      "description": "Flip top shape divider horizontally"
+    },
+    "shapeTInvert": {
+      "type": "boolean",
+      "default": false,
+      "description": "Invert top shape divider vertically"
+    },
+    "shapeTFront": {
+      "type": "boolean",
+      "default": false,
+      "description": "Bring top shape divider to front (above content)"
+    },
+    "shapeBottom": {
+      "type": "string",
+      "default": "",
+      "description": "Bottom shape divider SVG name"
+    },
+    "shapeBColor": {
+      "type": "string",
+      "default": "",
+      "description": "Bottom shape divider fill color"
+    },
+    "shapeBWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": ""},
+      "description": "Bottom shape divider width percentage",
+      "responsive": true
+    },
+    "shapeBHeight": {
+      "type": "object",
+      "default": {"md": "", "unit": ""},
+      "description": "Bottom shape divider height in pixels",
+      "responsive": true
+    },
+    "shapeBFlip": {
+      "type": "boolean",
+      "default": false,
+      "description": "Flip bottom shape divider horizontally"
+    },
+    "shapeBInvert": {
+      "type": "boolean",
+      "default": false,
+      "description": "Invert bottom shape divider vertically"
+    },
+    "shapeBFront": {
+      "type": "boolean",
+      "default": false,
+      "description": "Bring bottom shape divider to front"
+    },
+    "NormalBg": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": ""},
+      "description": "Background styling (normal state)"
+    },
+    "HoverBg": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": ""},
+      "description": "Background styling (hover state)"
+    },
+    "StickyBg": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": ""},
+      "description": "Background styling (sticky state)"
+    },
+    "NormalBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": ""}
+      },
+      "description": "Border styling (normal state)"
+    },
+    "HoverBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": ""}
+      },
+      "description": "Border styling (hover state)"
+    },
+    "StickyBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": ""}
+      },
+      "description": "Border styling (sticky state)"
+    },
+    "NormalBradius": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Border radius (normal state)",
+      "responsive": true
+    },
+    "HoverBradius": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Border radius (hover state)",
+      "responsive": true
+    },
+    "StickyBradius": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Border radius (sticky state)",
+      "responsive": true
+    },
+    "NormalBShadow": {
+      "type": "object",
+      "default": {
+        "openShadow": 0,
+        "inset": 0,
+        "horizontal": 0,
+        "vertical": 4,
+        "blur": 8,
+        "spread": 0,
+        "color": "rgba(0,0,0,0.40)"
+      },
+      "description": "Box shadow (normal state)"
+    },
+    "HoverBShadow": {
+      "type": "object",
+      "default": {
+        "openShadow": 0,
+        "inset": 0,
+        "horizontal": 0,
+        "vertical": 4,
+        "blur": 8,
+        "spread": 0,
+        "color": "rgba(0,0,0,0.40)"
+      },
+      "description": "Box shadow (hover state)"
+    },
+    "StickyBShadow": {
+      "type": "object",
+      "default": {
+        "openShadow": 0,
+        "inset": 0,
+        "horizontal": 0,
+        "vertical": 4,
+        "blur": 8,
+        "spread": 0,
+        "color": "rgba(0,0,0,0.40)"
+      },
+      "description": "Box shadow (sticky state)"
+    },
+    "Margin": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Container margin",
+      "responsive": true
+    },
+    "Padding": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Container padding",
+      "responsive": true
+    },
+    "ZIndex": {
+      "type": "string",
+      "default": "",
+      "description": "CSS z-index stacking order"
+    },
+    "HideDesktop": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide container on desktop (1201px+)"
+    },
+    "HideTablet": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide container on tablet (768-1200px)"
+    },
+    "HideMobile": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide container on mobile (767px and below)"
+    },
+    "deepBgopt": {
+      "type": "string",
+      "default": "",
+      "enum": ["", "bg_normal_color", "bg_gradientcolor", "bg_image", "bg_moving_color", "bg_scrolling_color"],
+      "description": "Pro: Deep background layer type for advanced effects",
+      "proFeature": true
+    },
+    "DeepBgcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Solid color for deep background layer",
+      "proFeature": true
+    },
+    "DeepGrecolor": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Gradient color for deep background layer",
+      "proFeature": true
+    },
+    "colorList": {
+      "type": "array",
+      "default": [
+        {"_key": "0", "aniColor": "#8072fc", "aniBgtype": ""},
+        {"_key": "1", "aniColor": "#6fc784", "aniBgtype": ""},
+        {"_key": "2", "aniColor": "#ff5a6e", "aniBgtype": ""}
+      ],
+      "description": "Pro: Color list repeater for animated/scrolling backgrounds",
+      "repeaterField": {
+        "aniColor": {"type": "string", "default": "", "description": "Animation color"},
+        "aniBgtype": {"type": "object", "default": {"openBg": 0}, "description": "Background type per color"},
+        "scrollImg": {"type": "object", "default": {"url": ""}, "description": "Scroll image URL"}
+      },
+      "proFeature": true
+    },
+    "animdur": {
+      "type": "string",
+      "default": "3",
+      "description": "Pro: Animation duration in seconds for color transitions",
+      "proFeature": true
+    },
+    "animDelay": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Animation delay in seconds",
+      "proFeature": true
+    },
+    "crativeImg": {
+      "type": "object",
+      "default": {"url": "", "Id": ""},
+      "description": "Pro: Creative background image upload",
+      "proFeature": true
+    },
+    "deepimgPosition": {
+      "type": "object",
+      "default": {"md": "", "sm": "", "xs": ""},
+      "description": "Pro: Deep image background position",
+      "responsive": true,
+      "proFeature": true
+    },
+    "deepimgAtta": {
+      "type": "object",
+      "default": {"md": "", "sm": "", "xs": ""},
+      "description": "Pro: Deep image background attachment",
+      "responsive": true,
+      "proFeature": true
+    },
+    "deepimgRepeat": {
+      "type": "object",
+      "default": {"md": "", "sm": "", "xs": ""},
+      "description": "Pro: Deep image background repeat",
+      "responsive": true,
+      "proFeature": true
+    },
+    "deepimgSize": {
+      "type": "object",
+      "default": {"md": "", "sm": "", "xs": ""},
+      "description": "Pro: Deep image background size",
+      "responsive": true,
+      "proFeature": true
+    },
+    "craBgeffect": {
+      "type": "string",
+      "default": "columns_simple_image",
+      "enum": ["columns_simple_image", "bg_canvas", "multi-color", "bg_image_effect", "mordern-image-effect"],
+      "description": "Pro: Creative background effect type",
+      "proFeature": true
+    },
+    "imgeffect": {
+      "type": "string",
+      "default": "",
+      "enum": ["", "tilt", "mouse_move"],
+      "description": "Pro: Image effect interaction type (tilt or mouse parallax)",
+      "proFeature": true
+    },
+    "intensity": {
+      "type": "string",
+      "default": "30",
+      "description": "Pro: Effect intensity (0-100)",
+      "proFeature": true
+    },
+    "perspective": {
+      "type": "string",
+      "default": "1000",
+      "description": "Pro: 3D perspective for tilt effect",
+      "proFeature": true
+    },
+    "Scale": {
+      "type": "string",
+      "default": "1",
+      "description": "Pro: Scale multiplier for effects",
+      "proFeature": true
+    },
+    "inverted": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Invert effect direction",
+      "proFeature": true
+    },
+    "scrollPara": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Enable scroll parallax effect",
+      "proFeature": true
+    },
+    "kburnseffect": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Enable Ken Burns zoom/pan effect",
+      "proFeature": true
+    },
+    "Kbeffctdir": {
+      "type": "string",
+      "default": "normal",
+      "enum": ["normal", "reverse"],
+      "description": "Pro: Ken Burns effect direction",
+      "proFeature": true
+    },
+    "effctDure": {
+      "type": "string",
+      "default": "14",
+      "description": "Pro: Effect duration in seconds",
+      "proFeature": true
+    },
+    "respoImg": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Enable responsive background images",
+      "proFeature": true
+    },
+    "tabImage": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Pro: Tablet-specific background image",
+      "proFeature": true
+    },
+    "mobileImg": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Pro: Mobile-specific background image",
+      "proFeature": true
+    },
+    "movedir": {
+      "type": "string",
+      "default": "right",
+      "enum": ["left", "right", "top", "bottom"],
+      "description": "Pro: Movement direction for animated backgrounds",
+      "proFeature": true
+    },
+    "trasispeed": {
+      "type": "string",
+      "default": "30",
+      "description": "Pro: Transition speed for moving backgrounds",
+      "proFeature": true
+    },
+    "videosour": {
+      "type": "string",
+      "default": "youtube",
+      "enum": ["youtube", "vimeo", "self-hosted"],
+      "description": "Pro: Video background source type",
+      "proFeature": true
+    },
+    "mp4Url": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: MP4 video URL for self-hosted video background",
+      "proFeature": true
+    },
+    "WebMUrl": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: WebM video URL for self-hosted video background",
+      "proFeature": true
+    },
+    "youtubeId": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: YouTube video ID for video background",
+      "proFeature": true
+    },
+    "vimeoId": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Vimeo video ID for video background",
+      "proFeature": true
+    },
+    "iframeTitle": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Accessible iframe title for video embed",
+      "proFeature": true
+    },
+    "videoloop": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Loop video background",
+      "proFeature": true
+    },
+    "videoMute": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Mute video background audio",
+      "proFeature": true
+    },
+    "videoImg": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Pro: Video poster/fallback image",
+      "proFeature": true
+    },
+    "parallax": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Enable parallax effect on middle layer images",
+      "proFeature": true
+    },
+    "rowImgs": {
+      "type": "array",
+      "default": [],
+      "description": "Pro: Legacy parallax images array",
+      "proFeature": true
+    },
+    "midimgList": {
+      "type": "array",
+      "description": "Pro: Middle layer parallax images with extensive positioning and magic scroll effects",
+      "repeaterField": {
+        "parallaxImg": {"type": "object", "default": {"url": ""}, "description": "Parallax image upload"},
+        "DleftAuto": {"type": "boolean", "default": false, "description": "Auto left positioning (desktop)"},
+        "leftPos": {"type": "string", "default": "20", "description": "Left position percentage"},
+        "DrightAuto": {"type": "boolean", "default": false, "description": "Auto right positioning (desktop)"},
+        "righttPos": {"type": "string", "description": "Right position percentage"},
+        "DtopAuto": {"type": "boolean", "default": false, "description": "Auto top positioning (desktop)"},
+        "topPos": {"type": "string", "default": "25", "description": "Top position percentage"},
+        "DbottomAuto": {"type": "boolean", "default": false, "description": "Auto bottom positioning (desktop)"},
+        "bottomPos": {"type": "string", "description": "Bottom position percentage"},
+        "DimgWidth": {"type": "string", "default": "150", "description": "Desktop image width (px)"},
+        "tpgbMagicScroll": {"type": "boolean", "default": false, "description": "Enable magic scroll animations"},
+        "MSScrollOpt": {"type": "object", "description": "Magic scroll options (trigger, duration, offset)"},
+        "MSVertical": {"type": "object", "description": "Vertical movement speed and reverse"},
+        "MSHorizontal": {"type": "object", "description": "Horizontal movement speed and reverse"},
+        "MSOpacity": {"type": "object", "description": "Opacity animation speed and reverse"},
+        "MSRotate": {"type": "object", "description": "Rotation animation (X/Y/Z axis)"},
+        "MSScale": {"type": "object", "description": "Scale animation (X/Y/Z axis)"},
+        "MSSkew": {"type": "object", "description": "Skew animation (X/Y axis)"},
+        "borderR": {"type": "array", "description": "Border radius animation"},
+        "MsadvOption": {"type": "array", "description": "Advanced animation options (repeat, easing, delay, timing)"},
+        "MSDevelop": {"type": "boolean", "default": false, "description": "Magic scroll developer mode"},
+        "devName": {"type": "string", "default": "", "description": "Developer identifier"},
+        "MSSticky": {"type": "boolean", "default": false, "description": "Sticky positioning for magic scroll"},
+        "Effectin": {"type": "string", "default": "", "description": "Entrance effect"},
+        "imgOpa": {"type": "string", "default": "", "description": "Image opacity"},
+        "ImgZind": {"type": "string", "default": "", "description": "Image z-index"},
+        "resVisib": {"type": "boolean", "default": false, "description": "Enable responsive visibility"},
+        "desHide": {"type": "boolean", "default": false, "description": "Hide on desktop"},
+        "tabHide": {"type": "boolean", "default": false, "description": "Hide on tablet"},
+        "moHide": {"type": "boolean", "default": false, "description": "Hide on mobile"},
+        "imgSize": {"type": "string", "default": "", "description": "Image size preset"},
+        "imgDire": {"type": "string", "default": "", "description": "Image direction/alignment"},
+        "modImgeff": {"type": "string", "default": "", "description": "Modern image effect"},
+        "imgeffdur": {"type": "string", "description": "Image effect duration"},
+        "tranOrigin": {"type": "string", "default": "center center", "description": "Transform origin"}
+      },
+      "proFeature": true
+    },
+    "transieffect": {
+      "type": "string",
+      "default": "fade2",
+      "description": "Pro: Transition effect for slideshow backgrounds",
+      "proFeature": true
+    },
+    "transdur": {
+      "type": "string",
+      "default": "3000",
+      "description": "Pro: Transition duration in milliseconds",
+      "proFeature": true
+    },
+    "slidetime": {
+      "type": "string",
+      "default": "2000",
+      "description": "Pro: Slide display time in milliseconds",
+      "proFeature": true
+    },
+    "textureoly": {
+      "type": "string",
+      "default": "none",
+      "description": "Pro: Texture overlay pattern",
+      "proFeature": true
+    },
+    "animation": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Background animation type",
+      "proFeature": true
+    },
+    "bgduration": {
+      "type": "string",
+      "default": "15",
+      "description": "Pro: Background animation duration in seconds",
+      "proFeature": true
+    },
+    "bgRotation": {
+      "type": "string",
+      "default": "120",
+      "description": "Pro: Background rotation angle",
+      "proFeature": true
+    },
+    "fullBggra": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Full background gradient mode",
+      "proFeature": true
+    },
+    "bgposition": {
+      "type": "string",
+      "default": "inherit",
+      "description": "Pro: Background position for animations",
+      "proFeature": true
+    },
+    "scrollchg": {
+      "type": "string",
+      "default": "no",
+      "enum": ["no", "yes"],
+      "description": "Pro: Background changes on scroll",
+      "proFeature": true
+    },
+    "scrolltra": {
+      "type": "string",
+      "default": "0.7",
+      "description": "Pro: Scroll transparency value",
+      "proFeature": true
+    },
+    "midOption": {
+      "type": "string",
+      "default": "",
+      "enum": ["", "canvas", "automove-img"],
+      "description": "Pro: Middle layer option (canvas particles or auto-moving images)",
+      "proFeature": true
+    },
+    "canvasSty": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Pro: Canvas particle style preset",
+      "proFeature": true
+    },
+    "particleList": {
+      "type": "array",
+      "default": [
+        {"_key": "0", "bubbleColor": "#8072fc"},
+        {"_key": "1", "bubbleColor": "#6fc784"},
+        {"_key": "2", "bubbleColor": "#ff5a6e"}
+      ],
+      "description": "Pro: Particle colors repeater for canvas background",
+      "repeaterField": {
+        "bubbleColor": {"type": "string", "default": "", "description": "Particle/bubble color"}
+      },
+      "proFeature": true
+    },
+    "patiColor": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Primary particle color",
+      "proFeature": true
+    },
+    "canShape": {
+      "type": "string",
+      "default": "circle",
+      "enum": ["circle", "square", "triangle"],
+      "description": "Pro: Canvas particle shape",
+      "proFeature": true
+    },
+    "ctmJson": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Custom particles.js JSON configuration",
+      "proFeature": true
+    },
+    "topOption": {
+      "type": "string",
+      "default": "",
+      "enum": ["", "color", "texture-img"],
+      "description": "Pro: Top overlay layer option",
+      "proFeature": true
+    },
+    "topBgtype": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color"},
+      "description": "Pro: Top layer background type",
+      "proFeature": true
+    },
+    "textureImg": {
+      "type": "object",
+      "default": {"url": "", "id": ""},
+      "description": "Pro: Texture overlay image upload",
+      "proFeature": true
+    },
+    "teximgPosition": {
+      "type": "object",
+      "default": {"md": "", "sm": "", "xs": ""},
+      "description": "Pro: Texture image background position",
+      "responsive": true,
+      "proFeature": true
+    },
+    "teximgAtta": {
+      "type": "object",
+      "default": {"md": "", "sm": "", "xs": ""},
+      "description": "Pro: Texture image background attachment",
+      "responsive": true,
+      "proFeature": true
+    },
+    "teximgRepeat": {
+      "type": "object",
+      "default": {"md": "", "sm": "", "xs": ""},
+      "description": "Pro: Texture image background repeat",
+      "responsive": true,
+      "proFeature": true
+    },
+    "teximgSize": {
+      "type": "object",
+      "default": {"md": "", "sm": "", "xs": ""},
+      "description": "Pro: Texture image background size",
+      "responsive": true,
+      "proFeature": true
+    },
+    "timgOpacity": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Texture image opacity (0-1)",
+      "proFeature": true
+    },
+    "wrapLink": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Wrap entire container in a clickable link",
+      "proFeature": true
+    },
+    "rowUrl": {
+      "type": "object",
+      "default": {"url": "", "target": "", "nofollow": ""},
+      "description": "Pro: Container link URL and settings",
+      "proFeature": true
+    },
+    "flexreverse": {
+      "type": "boolean",
+      "default": false,
+      "description": "Reverse flex direction on desktop"
+    },
+    "flexRespreverse": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable responsive flex reverse"
+    },
+    "flexTabreverse": {
+      "type": "boolean",
+      "default": false,
+      "description": "Reverse flex direction on tablet"
+    },
+    "flexMobreverse": {
+      "type": "boolean",
+      "default": false,
+      "description": "Reverse flex direction on mobile"
+    },
+    "flexDirection": {
+      "type": "object",
+      "default": {"md": "", "sm": "", "xs": "column"},
+      "description": "Flex direction (row, column)",
+      "responsive": true
+    },
+    "showchild": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show child visibility controls"
+    },
+    "contSticky": {
+      "type": "object",
+      "default": {"md": false},
+      "description": "Pro: Enable sticky positioning (responsive)",
+      "responsive": true,
+      "proFeature": true
+    },
+    "contOverlays": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Enable container overlays",
+      "proFeature": true
+    },
+    "constType": {
+      "type": "string",
+      "default": "normal-sticky",
+      "enum": ["normal-sticky", "scroll-view"],
+      "description": "Pro: Sticky container type",
+      "proFeature": true
+    },
+    "contopoffset": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Pro: Top offset for sticky positioning",
+      "responsive": true,
+      "proFeature": true
+    },
+    "sanimaType": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "slide", "fade"],
+      "description": "Pro: Sticky animation type",
+      "proFeature": true
+    },
+    "stiMargin": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Pro: Margin when sticky",
+      "responsive": true,
+      "proFeature": true
+    },
+    "stiPadding": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Pro: Padding when sticky",
+      "responsive": true,
+      "proFeature": true
+    },
+    "backFilter": {
+      "type": "object",
+      "default": {"openFilter": false, "isbackdrop": true},
+      "description": "Pro: Backdrop filter effects (blur, brightness, etc.)",
+      "proFeature": true
+    },
+    "scupSticky": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Scroll up sticky behavior",
+      "proFeature": true
+    },
+    "stTransdur": {
+      "type": "string",
+      "default": "0.3",
+      "description": "Pro: Sticky transition duration in seconds",
+      "proFeature": true
+    },
+    "conPosi": {
+      "type": "object",
+      "description": "Pro: Container positioning settings",
+      "proFeature": true
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "Padding",
+      "Margin",
+      "minHeight",
+      "gutterSpace",
+      "NormalBg",
+      "HoverBg",
+      "NormalBorder",
+      "HoverBorder",
+      "NormalBradius",
+      "HoverBradius",
+      "NormalBShadow",
+      "HoverBShadow",
+      "shapeTop",
+      "shapeTColor",
+      "shapeTWidth",
+      "shapeTHeight",
+      "shapeBottom",
+      "shapeBColor",
+      "shapeBWidth",
+      "shapeBHeight",
+      "customClass",
+      "customId",
+      "HideDesktop",
+      "HideTablet",
+      "HideMobile"
+    ],
+    "requiresValidation": [
+      "contentWidth",
+      "containerWide",
+      "height",
+      "tagName",
+      "overflow",
+      "deepBgopt",
+      "videosour",
+      "craBgeffect",
+      "imgeffect",
+      "flexDirection",
+      "contSticky",
+      "constType",
+      "sanimaType",
+      "midOption"
+    ],
+    "dangerous": [
+      "block_id",
+      "columns",
+      "align",
+      "className",
+      "anchor"
+    ]
+  },
+  "styleDependencies": [
+    "Container flexbox layout CSS",
+    "Width constraints (wide/full)",
+    "Shape divider SVG assets",
+    "Background layer CSS (normal, deep, middle, top)",
+    "Video background player scripts",
+    "Parallax scroll libraries",
+    "Canvas particles.js library",
+    "Ken Burns animation CSS",
+    "Tilt.js for 3D effects",
+    "Magic scroll animation library",
+    "Sticky positioning CSS",
+    "Backdrop filter CSS",
+    "Responsive breakpoint handling"
+  ],
+  "commonUseCases": [
+    "Page sections and rows (primary use)",
+    "Hero sections with video backgrounds",
+    "Full-width feature sections",
+    "Sticky headers and navigation containers",
+    "Parallax scrolling sections",
+    "Animated gradient backgrounds",
+    "Canvas particle effect sections",
+    "Multi-column layouts with gutters",
+    "Content with shape dividers (waves, curves)",
+    "Responsive flexbox layouts"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-container-inner",
+    "tpgb/tp-row",
+    "tpgb/tp-column"
+  ],
+  "capabilities": [
+    "Wide or full width modes",
+    "Flexbox layout with responsive direction control",
+    "Column gap/gutter spacing",
+    "Min-height with vertical alignment",
+    "Shape dividers (top and bottom with SVG shapes)",
+    "Normal/Hover/Sticky state styling",
+    "Responsive visibility controls",
+    "Custom HTML tag selection for semantic structure",
+    "Pro: Video backgrounds (YouTube, Vimeo, self-hosted)",
+    "Pro: Animated gradient backgrounds",
+    "Pro: Scrolling color backgrounds",
+    "Pro: Canvas particle effects",
+    "Pro: Ken Burns zoom/pan effects",
+    "Pro: Parallax scroll effects",
+    "Pro: Tilt and mouse-move interactions",
+    "Pro: Middle layer parallax images with magic scroll",
+    "Pro: Texture overlay layer",
+    "Pro: Sticky positioning with animations",
+    "Pro: Container link wrapper",
+    "Pro: Backdrop filters",
+    "Pro: Responsive background images per breakpoint"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true,
+    "html": false
+  },
+  "innerBlocksAllowed": true,
+  "allowedInnerBlocks": ["tpgb/tp-container-inner", "*"],
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple centered content section",
+      "attributes": {
+        "block_id": "a1b2",
+        "contentWidth": "wide",
+        "containerWide": {"md": "1200", "unit": "px"},
+        "minHeight": {"md": "400", "unit": "px"},
+        "height": "min-height",
+        "Padding": {"md": {"top": "80", "bottom": "80", "left": "20", "right": "20"}, "unit": "px"}
+      }
+    },
+    {
+      "description": "Full-width hero section with background and shape divider",
+      "attributes": {
+        "block_id": "c3d4",
+        "contentWidth": "full",
+        "minHeight": {"md": "600", "unit": "px"},
+        "height": "min-height",
+        "NormalBg": {"openBg": 1, "bgType": "gradient", "bgGradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"},
+        "shapeBottom": "wave",
+        "shapeBColor": "#ffffff",
+        "shapeBHeight": {"md": "100", "unit": "px"}
+      }
+    },
+    {
+      "description": "Pro: Video background container",
+      "attributes": {
+        "block_id": "e5f6",
+        "contentWidth": "full",
+        "deepBgopt": "bg_video",
+        "videosour": "youtube",
+        "youtubeId": "dQw4w9WgXcQ",
+        "videoloop": true,
+        "videoMute": true,
+        "videoImg": {"url": "/path/to/poster.jpg"},
+        "minHeight": {"md": "700", "unit": "px"}
+      }
+    },
+    {
+      "description": "Pro: Sticky container with animation",
+      "attributes": {
+        "block_id": "g7h8",
+        "contentWidth": "wide",
+        "contSticky": {"md": true},
+        "constType": "normal-sticky",
+        "contopoffset": {"md": "100", "unit": "px"},
+        "sanimaType": "slide",
+        "stTransdur": "0.5",
+        "StickyBg": {"openBg": 1, "bgType": "color", "bgColor": "#ffffff"},
+        "StickyBShadow": {"openShadow": 1, "horizontal": 0, "vertical": 4, "blur": 12, "spread": 0, "color": "rgba(0,0,0,0.1)"}
+      }
+    },
+    {
+      "description": "Pro: Animated gradient background",
+      "attributes": {
+        "block_id": "i9j0",
+        "contentWidth": "full",
+        "deepBgopt": "bg_moving_color",
+        "colorList": [
+          {"_key": "0", "aniColor": "#8072fc"},
+          {"_key": "1", "aniColor": "#6fc784"},
+          {"_key": "2", "aniColor": "#ff5a6e"}
+        ],
+        "animdur": "5",
+        "minHeight": {"md": "500", "unit": "px"}
+      }
+    }
+  ]
+}
