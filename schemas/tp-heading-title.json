@@ -1,0 +1,469 @@
+{
+  "blockName": "tpgb/tp-heading-title",
+  "version": "1.0.0",
+  "title": "Advanced Heading",
+  "category": "content",
+  "description": "A versatile heading block with multiple style variants, subtitle support, separators, animations, and gradient effects. Supports responsive typography, custom HTML tags (h1-h6), text truncation, and dynamic content. Ideal for page headers, section titles, and feature headings.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "anchor": {
+      "type": "string",
+      "description": "HTML anchor ID for direct linking to this heading"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2", "style-3", "style-4", "style-5", "style-6", "style-7", "style-8", "style-9"],
+      "description": "Visual style variant of the heading. Each style provides unique separator and layout options"
+    },
+    "Title": {
+      "type": "string",
+      "default": "Main Heading",
+      "description": "Main heading text content"
+    },
+    "subTitle": {
+      "type": "string",
+      "default": "It's Sub Heading",
+      "description": "Optional subtitle text displayed above or below main title"
+    },
+    "extraTitle": {
+      "type": "string",
+      "default": "I am Extra",
+      "description": "Optional extra title text for additional emphasis"
+    },
+    "ETPosition": {
+      "type": "string",
+      "default": "afterTitle",
+      "enum": ["beforeTitle", "afterTitle"],
+      "description": "Position of extra title relative to main title"
+    },
+    "subTitlePosition": {
+      "type": "string",
+      "default": "onBottonTitle",
+      "enum": ["onTopTitle", "onBottonTitle"],
+      "description": "Position of subtitle relative to main title"
+    },
+    "titleType": {
+      "type": "string",
+      "default": "h3",
+      "enum": ["h1", "h2", "h3", "h4", "h5", "h6", "div", "span", "p"],
+      "description": "HTML tag for main title (affects SEO and semantic structure)"
+    },
+    "subTitleType": {
+      "type": "string",
+      "default": "h3",
+      "enum": ["h1", "h2", "h3", "h4", "h5", "h6", "div", "span", "p"],
+      "description": "HTML tag for subtitle"
+    },
+    "headingType": {
+      "type": "string",
+      "default": "default",
+      "description": "Heading display type variation"
+    },
+    "splitType": {
+      "type": "string",
+      "default": "words",
+      "enum": ["words", "chars", "lines"],
+      "description": "Text split type for animation effects"
+    },
+    "Alignment": {
+      "type": "object",
+      "default": {
+        "md": "center",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Responsive text alignment (left/center/right). Applies differently based on style variant",
+      "responsive": true,
+      "conditionalStyle": "Not applicable to style-5"
+    },
+    "titleTypo": {
+      "type": "object",
+      "default": {
+        "openTypography": 0,
+        "size": {"md": "", "unit": "px"}
+      },
+      "description": "Typography settings for main title: font family, size, weight, line height, letter spacing, text transform",
+      "responsive": true
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Main title text color (hex, rgb, rgba). Only applies when titleGrad is false"
+    },
+    "titleGrad": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable gradient color for title text"
+    },
+    "titleStroke": {
+      "type": "string",
+      "default": "",
+      "description": "Gradient CSS for title text (when titleGrad is true). Creates gradient text effect using background-clip"
+    },
+    "titleMargin": {
+      "type": "object",
+      "default": {
+        "md": {"top": "", "right": "", "bottom": "", "left": ""},
+        "unit": "px"
+      },
+      "description": "Responsive margin spacing around main title",
+      "responsive": true
+    },
+    "titlePadd": {
+      "type": "object",
+      "default": {
+        "md": {"top": "", "right": "", "bottom": "", "left": ""},
+        "unit": "px"
+      },
+      "description": "Responsive padding spacing inside main title",
+      "responsive": true
+    },
+    "titleB": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {"md": {"top": "", "left": "", "bottom": "", "right": ""}, "unit": ""}
+      },
+      "description": "Border settings for main title: type (solid/dashed/dotted), color, width per side",
+      "responsive": true
+    },
+    "titleBRadius": {
+      "type": "object",
+      "default": {
+        "md": {"top": "", "right": "", "bottom": "", "left": ""},
+        "unit": "px"
+      },
+      "description": "Border radius for main title (rounded corners)",
+      "responsive": true
+    },
+    "titleBg": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Background settings for main title: color, gradient, image"
+    },
+    "titleShadow": {
+      "type": "object",
+      "default": {
+        "openShadow": 0,
+        "blur": 8,
+        "color": "rgba(0,0,0,0.40)",
+        "horizontal": 0,
+        "inset": 0,
+        "spread": 0,
+        "vertical": 4
+      },
+      "description": "Box shadow settings for main title"
+    },
+    "subTitleTypo": {
+      "type": "object",
+      "default": {
+        "openTypography": 0,
+        "size": {"md": "", "unit": "px"}
+      },
+      "description": "Typography settings for subtitle",
+      "responsive": true
+    },
+    "subTitleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Subtitle text color. Only applies when subTitleGrad is false"
+    },
+    "subTitleGrad": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable gradient color for subtitle text"
+    },
+    "subTitleStroke": {
+      "type": "string",
+      "default": "",
+      "description": "Gradient CSS for subtitle text (when subTitleGrad is true)"
+    },
+    "subTitleMargin": {
+      "type": "object",
+      "default": {
+        "md": {"top": "", "right": "", "bottom": "", "left": ""},
+        "unit": "px"
+      },
+      "description": "Responsive margin spacing around subtitle",
+      "responsive": true
+    },
+    "extraTitleTypo": {
+      "type": "object",
+      "default": {
+        "openTypography": 0,
+        "size": {"md": "", "unit": "px"}
+      },
+      "description": "Typography settings for extra title",
+      "responsive": true
+    },
+    "extraTitleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Extra title text color"
+    },
+    "sepColor": {
+      "type": "string",
+      "default": "",
+      "description": "Separator line/border color (applies to style-3, style-4, style-5, style-8)",
+      "conditionalStyle": "Only visible in specific styles"
+    },
+    "sepWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "%"},
+      "description": "Separator width (applies to style-3, style-8)",
+      "responsive": true,
+      "conditionalStyle": "Only applicable to certain styles"
+    },
+    "sepHeight": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Separator border thickness (style-3)",
+      "responsive": true,
+      "conditionalStyle": "Only applicable to style-3"
+    },
+    "topSepHeight": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Top separator height (style-4)",
+      "responsive": true,
+      "conditionalStyle": "Only applicable to style-4"
+    },
+    "bottomSepHeight": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Bottom separator height (style-4)",
+      "responsive": true,
+      "conditionalStyle": "Only applicable to style-4"
+    },
+    "sepDotColor": {
+      "type": "string",
+      "default": "",
+      "description": "Separator dot color (applies to style-6, style-8)",
+      "conditionalStyle": "Only visible in specific styles"
+    },
+    "septopspa": {
+      "type": "string",
+      "default": "",
+      "description": "Separator top spacing in pixels (style-6)",
+      "conditionalStyle": "Only applicable to style-6"
+    },
+    "imgName": {
+      "type": "object",
+      "default": {"url": "", "Id": ""},
+      "description": "Optional image for separator decoration (style-3)"
+    },
+    "limitTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Master toggle for text truncation features"
+    },
+    "titleLimit": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable text truncation for main title"
+    },
+    "titleLimitOn": {
+      "type": "string",
+      "default": "char",
+      "enum": ["char", "word"],
+      "description": "Truncation type: by character or by word"
+    },
+    "titleCount": {
+      "type": "string",
+      "default": "3",
+      "description": "Number of characters/words to show before truncation"
+    },
+    "titleDots": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show ellipsis (...) after truncated title"
+    },
+    "subTitleLimit": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable text truncation for subtitle"
+    },
+    "subTitleLimitOn": {
+      "type": "string",
+      "default": "char",
+      "enum": ["char", "word"],
+      "description": "Truncation type for subtitle: by character or by word"
+    },
+    "subTitleCount": {
+      "type": "string",
+      "default": "3",
+      "description": "Number of characters/words to show in subtitle before truncation"
+    },
+    "subTitleDots": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show ellipsis (...) after truncated subtitle"
+    },
+    "aniEffect": {
+      "type": "string",
+      "default": "default",
+      "description": "Animation effect type (none/fade/slide/scale/rotate/etc)"
+    },
+    "aniPosition": {
+      "type": "object",
+      "default": {"aniPositionX": "", "aniPositionY": ""},
+      "description": "Animation starting position offset (X and Y coordinates)"
+    },
+    "animationScale": {
+      "type": "object",
+      "default": {"animationScaleX": "", "animationScaleY": "", "animationScaleZ": ""},
+      "description": "Animation scale transformation (X, Y, Z axes)"
+    },
+    "animationRotate": {
+      "type": "object",
+      "default": {"animationRotateX": "", "animationRotateY": "", "animationRotateZ": ""},
+      "description": "Animation rotation transformation (X, Y, Z axes in degrees)"
+    },
+    "extrOpt": {
+      "type": "object",
+      "default": {"animationOpacity": "", "animationSpeed": "", "animationDelay": ""},
+      "description": "Extra animation options: opacity, speed (ms), delay (ms)"
+    },
+    "isRptBlock": {
+      "type": "boolean",
+      "default": false,
+      "description": "Flag indicating if block is inside a repeater"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content visibility"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "Title",
+      "subTitle",
+      "extraTitle",
+      "titleColor",
+      "subTitleColor",
+      "extraTitleColor",
+      "sepColor",
+      "sepDotColor",
+      "Alignment",
+      "titleMargin",
+      "titlePadd",
+      "subTitleMargin"
+    ],
+    "requiresValidation": [
+      "style",
+      "titleType",
+      "subTitleType",
+      "anchor",
+      "titleLimit",
+      "subTitleLimit",
+      "titleCount",
+      "subTitleCount",
+      "aniEffect"
+    ],
+    "dangerous": [
+      "block_id",
+      "isRptBlock",
+      "headingType",
+      "splitType"
+    ]
+  },
+  "styleDependencies": [
+    "style.css",
+    "Conditional styles based on 'style' attribute",
+    "Responsive typography CSS",
+    "Animation CSS when aniEffect is set",
+    "Gradient effects when titleGrad or subTitleGrad enabled"
+  ],
+  "commonUseCases": [
+    "Page or section main heading",
+    "Hero section title with subtitle",
+    "Feature section heading with decorative separator",
+    "Blog post title",
+    "Call-to-action heading",
+    "Service or product title",
+    "Testimonial section header"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-pro-paragraph",
+    "tpgb/tp-button",
+    "tpgb/tp-container",
+    "tpgb/tp-image"
+  ],
+  "capabilities": [
+    "Multiple style variants (9 styles)",
+    "Responsive typography",
+    "Gradient text effects",
+    "Text truncation with ellipsis",
+    "Custom HTML tag selection (h1-h6)",
+    "Subtitle and extra title support",
+    "Decorative separators (different per style)",
+    "Animation effects",
+    "Border and shadow styling",
+    "Background styling",
+    "Dynamic content support via WordPress context",
+    "Anchor link support",
+    "Responsive alignment"
+  ],
+  "usesContext": [
+    "postId",
+    "postType",
+    "queryId",
+    "tpgb/dynamicSubFieldData",
+    "tpgb/dynamicRowIndex",
+    "tpgb/dynamicPost",
+    "tpgb/dynamicRepField"
+  ],
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple centered heading with subtitle",
+      "attributes": {
+        "block_id": "a1b2",
+        "style": "style-1",
+        "Title": "Welcome to Our Website",
+        "subTitle": "Building amazing experiences",
+        "titleType": "h1",
+        "Alignment": {"md": "center", "sm": "center", "xs": "center"}
+      }
+    },
+    {
+      "description": "Heading with separator line (style-3)",
+      "attributes": {
+        "block_id": "c3d4",
+        "style": "style-3",
+        "Title": "Our Services",
+        "titleType": "h2",
+        "sepColor": "#3498db",
+        "sepWidth": {"md": "60", "unit": "%"},
+        "Alignment": {"md": "center"}
+      }
+    },
+    {
+      "description": "Gradient heading with animation",
+      "attributes": {
+        "block_id": "e5f6",
+        "style": "style-1",
+        "Title": "Innovative Solutions",
+        "titleType": "h2",
+        "titleGrad": true,
+        "titleStroke": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "aniEffect": "fade",
+        "extrOpt": {"animationSpeed": "1000", "animationDelay": "200"}
+      }
+    }
+  ]
+}
