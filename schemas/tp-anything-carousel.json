@@ -1,0 +1,219 @@
+{
+  "blockName": "tpgb/tp-anything-carousel",
+  "version": "1.0.0",
+  "title": "Carousel Anything",
+  "category": "layout",
+  "description": "Create fully customizable carousels/sliders that can contain any content type including images, videos, text, or nested blocks. Features slide and fade transitions, equal height synchronization, remote control compatibility, and overflow management. Perfect for testimonial sliders, product showcases, image galleries, and content carousels.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "carouselList": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Array of carousel slide items",
+      "items": {
+        "title": {
+          "type": "string",
+          "default": "Slide",
+          "description": "Slide title/label (for editor organization)"
+        },
+        "blockTemp": {
+          "type": "string",
+          "default": "none",
+          "description": "Pro: Reusable block template ID"
+        },
+        "contentType": {
+          "type": "string",
+          "default": "template",
+          "enum": ["template", "content"],
+          "description": "Content source: template or innerBlocks"
+        },
+        "backendVisi": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show slide in backend editor"
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "title": "Slide",
+          "blockTemp": "none",
+          "backendVisi": false,
+          "contentType": "template"
+        }
+      ]
+    },
+    "carouselId": {
+      "type": "string",
+      "default": "",
+      "description": "Unique carousel ID for remote control integration"
+    },
+    "caroslideType": {
+      "type": "string",
+      "default": "template",
+      "enum": ["template", "content"],
+      "description": "Global slide content type"
+    },
+    "OverflowHid": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide overflow content outside carousel bounds"
+    },
+    "rmdOrder": {
+      "type": "boolean",
+      "default": false,
+      "description": "Randomize slide order on load"
+    },
+    "tpgbEqualHeight": {
+      "type": "boolean",
+      "default": false,
+      "description": "Synchronize equal height across all slides"
+    },
+    "equalUnqClass": {
+      "type": "string",
+      "default": "",
+      "description": "Unique class for equal height synchronization"
+    },
+    "rewindFade": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable rewind animation for fade transitions"
+    },
+    "carType": {
+      "type": "string",
+      "default": "slide",
+      "enum": ["slide", "fade"],
+      "description": "Carousel transition type"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "carouselList",
+      "carouselId",
+      "OverflowHid",
+      "rmdOrder",
+      "tpgbEqualHeight",
+      "equalUnqClass",
+      "rewindFade",
+      "carType"
+    ],
+    "requiresValidation": [
+      "caroslideType",
+      "blockTemp"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Carousel/slider JavaScript library (Swiper.js or similar)",
+    "Slide transition animations (slide/fade)",
+    "Equal height synchronization JavaScript",
+    "Remote control integration",
+    "Touch/swipe gesture support",
+    "Navigation arrows and pagination dots",
+    "Autoplay and loop functionality"
+  ],
+  "commonUseCases": [
+    "Testimonial sliders",
+    "Product showcase carousels",
+    "Image galleries",
+    "Content sliders with mixed media",
+    "Feature highlights carousel",
+    "Team member sliders",
+    "Portfolio project carousels",
+    "Before/after comparison sliders",
+    "Logo carousels",
+    "Case study showcases"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-anything-slide",
+    "tpgb/tp-carousel-remote",
+    "tpgb/tp-media-listing"
+  ],
+  "capabilities": [
+    "Unlimited slides with repeater field",
+    "InnerBlocks support for custom slide content",
+    "2 transition types (slide and fade)",
+    "Reusable block template integration",
+    "Equal height synchronization across slides",
+    "Remote control compatibility (carousel ID)",
+    "Randomized slide order option",
+    "Overflow control (show/hide content outside bounds)",
+    "Rewind animation for fade transitions",
+    "Backend slide visibility toggle",
+    "Per-slide content type selection",
+    "Responsive navigation and controls",
+    "Touch/swipe gesture support",
+    "Autoplay and loop modes",
+    "Custom navigation arrows and pagination"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple 3-slide testimonial carousel",
+      "attributes": {
+        "block_id": "a1b2",
+        "carType": "slide",
+        "carouselList": [
+          {"_key": "0", "title": "Testimonial 1", "contentType": "content"},
+          {"_key": "1", "title": "Testimonial 2", "contentType": "content"},
+          {"_key": "2", "title": "Testimonial 3", "contentType": "content"}
+        ],
+        "tpgbEqualHeight": true
+      }
+    },
+    {
+      "description": "Fade transition carousel with remote control",
+      "attributes": {
+        "block_id": "c3d4",
+        "carType": "fade",
+        "rewindFade": true,
+        "carouselId": "hero-carousel",
+        "carouselList": [
+          {"_key": "0", "title": "Hero 1"},
+          {"_key": "1", "title": "Hero 2"}
+        ]
+      }
+    },
+    {
+      "description": "Product showcase with overflow hidden",
+      "attributes": {
+        "block_id": "e5f6",
+        "carType": "slide",
+        "OverflowHid": true,
+        "tpgbEqualHeight": true,
+        "equalUnqClass": "product-carousel"
+      }
+    },
+    {
+      "description": "Random order content slider",
+      "attributes": {
+        "block_id": "g7h8",
+        "rmdOrder": true,
+        "carouselList": [
+          {"_key": "0", "title": "Feature 1"},
+          {"_key": "1", "title": "Feature 2"},
+          {"_key": "2", "title": "Feature 3"},
+          {"_key": "3", "title": "Feature 4"}
+        ]
+      }
+    }
+  ]
+}

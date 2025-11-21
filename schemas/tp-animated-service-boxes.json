@@ -1,0 +1,381 @@
+{
+  "blockName": "tpgb/tp-animated-service-boxes",
+  "version": "1.0.0",
+  "title": "Animated Service Boxes",
+  "category": "content",
+  "description": "Showcase services and features with 8 distinct main styles and multiple sub-variations. Includes image accordion, sliding boxes, article boxes, info banners, hover sections, fancy boxes, service elements, and portfolio styles. Each style features unique animations, layouts, and interactive effects. Perfect for service showcases, feature highlights, and portfolio displays.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "mainStyleType": {
+      "type": "string",
+      "default": "image-accordion",
+      "enum": ["image-accordion", "sliding-boxes", "article-boxes", "info-banner", "hover-section", "fancy-box", "services-element", "portfolio"],
+      "description": "Main style category (8 types)"
+    },
+    "imgAcrdnStyle": {
+      "type": "string",
+      "default": "accordion-style-1",
+      "enum": ["accordion-style-1", "accordion-style-2"],
+      "description": "Image accordion sub-style (when mainStyleType is 'image-accordion')"
+    },
+    "imgOrientation": {
+      "type": "string",
+      "default": "accordion-vertical",
+      "enum": ["accordion-vertical", "accordion-horizontal"],
+      "description": "Image accordion orientation"
+    },
+    "slideStyle": {
+      "type": "string",
+      "default": "sliding-style-1",
+      "enum": ["sliding-style-1", "sliding-style-2", "sliding-style-3", "sliding-style-4"],
+      "description": "Sliding boxes sub-style"
+    },
+    "articleStyle": {
+      "type": "string",
+      "default": "article-box-style-1",
+      "enum": ["article-box-style-1", "article-box-style-2"],
+      "description": "Article boxes sub-style"
+    },
+    "activeSlide": {
+      "type": "string",
+      "default": "1",
+      "description": "Default active slide/accordion index (1-based)"
+    },
+    "imgFlexGrow": {
+      "type": "string",
+      "default": "7.5",
+      "description": "Active accordion item flex-grow value (CSS flex property)"
+    },
+    "bannerStyle": {
+      "type": "string",
+      "default": "info-banner-style-1",
+      "enum": ["info-banner-style-1", "info-banner-style-2"],
+      "description": "Info banner sub-style"
+    },
+    "bannerOrientation": {
+      "type": "string",
+      "default": "info-banner-left",
+      "enum": ["info-banner-left", "info-banner-right"],
+      "description": "Info banner image/content orientation"
+    },
+    "sectionStyle": {
+      "type": "string",
+      "default": "hover-section-style-1",
+      "enum": ["hover-section-style-1", "hover-section-style-2"],
+      "description": "Hover section sub-style"
+    },
+    "sectionImgPreload": {
+      "type": "boolean",
+      "default": false,
+      "description": "Preload hover section images for faster transitions"
+    },
+    "fancyBStyle": {
+      "type": "string",
+      "default": "fancy-box-style-1",
+      "enum": ["fancy-box-style-1", "fancy-box-style-2"],
+      "description": "Fancy box sub-style"
+    },
+    "serviceEStyle": {
+      "type": "string",
+      "default": "services-element-style-1",
+      "enum": ["services-element-style-1", "services-element-style-2"],
+      "description": "Services element sub-style"
+    },
+    "portfolioStyle": {
+      "type": "string",
+      "default": "portfolio-style-1",
+      "enum": ["portfolio-style-1", "portfolio-style-2"],
+      "description": "Portfolio sub-style"
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size for all images"
+    },
+    "disBtn": {
+      "type": "boolean",
+      "default": false,
+      "description": "Display button/CTA in service boxes"
+    },
+    "btnStyle": {
+      "type": "string",
+      "default": "style-7",
+      "description": "Button style variant (when disBtn is true)"
+    },
+    "btnIconType": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "icon"],
+      "description": "Button icon display"
+    },
+    "btnIconStore": {
+      "type": "string",
+      "default": "",
+      "description": "Font Awesome icon class for button"
+    },
+    "btnIconPosition": {
+      "type": "string",
+      "default": "after",
+      "enum": ["before", "after"],
+      "description": "Button icon position relative to text"
+    },
+    "disIcnImg": {
+      "type": "boolean",
+      "default": false,
+      "description": "Display icon/image in service boxes"
+    },
+    "serviceBox": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Array of service/feature items",
+      "items": {
+        "title": {
+          "type": "string",
+          "default": "Service",
+          "description": "Service title"
+        },
+        "iconType": {
+          "type": "string",
+          "default": "icon",
+          "enum": ["icon", "image"],
+          "description": "Icon type for service"
+        },
+        "iconStore": {
+          "type": "string",
+          "default": "fab fa-whatsapp",
+          "description": "Font Awesome icon class"
+        },
+        "imgStore": {
+          "type": "object",
+          "default": {"url": ""},
+          "description": "Custom icon image"
+        },
+        "imageSize": {
+          "type": "string",
+          "default": "full",
+          "description": "Icon image WordPress size"
+        },
+        "subTitle": {
+          "type": "string",
+          "default": "",
+          "description": "Service subtitle/tagline"
+        },
+        "description": {
+          "type": "string",
+          "default": "Description Text will go here.",
+          "description": "Service description/details"
+        },
+        "featureImg": {
+          "type": "object",
+          "default": {"url": ""},
+          "description": "Featured/background image for service"
+        },
+        "btnText": {
+          "type": "string",
+          "default": "Read More",
+          "description": "Button text label"
+        },
+        "btnUrl": {
+          "type": "object",
+          "default": {"url": "", "target": "", "nofollow": ""},
+          "description": "Button link URL"
+        },
+        "ariaLabel": {
+          "type": "string",
+          "default": "",
+          "description": "Accessibility aria-label for button"
+        },
+        "contentList": {
+          "type": "string",
+          "default": "Feature 1 | Feature 2 | Feature 3 | Feature 4",
+          "description": "Pipe-separated list of features/bullet points"
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "title": "Marketing",
+          "subTitle": "",
+          "iconType": "icon",
+          "description": "Description Text will go here.",
+          "iconStore": "fas fa-home",
+          "imgStore": {"url": ""},
+          "contentList": "Feature 1 | Feature 2 | Feature 3 | Feature 4",
+          "btnText": "Read More",
+          "btnUrl": {"url": "#", "target": "", "nofollow": ""},
+          "ariaLabel": "",
+          "featureImg": {"url": ""}
+        },
+        {
+          "_key": "1",
+          "title": "Sales",
+          "subTitle": "",
+          "iconType": "icon",
+          "description": "Description Text will go here.",
+          "iconStore": "fas fa-home",
+          "imgStore": {"url": ""},
+          "contentList": "Feature 1 | Feature 2 | Feature 3 | Feature 4",
+          "btnText": "Read More",
+          "btnUrl": {"url": "#", "target": "", "nofollow": ""},
+          "ariaLabel": "",
+          "featureImg": {"url": ""}
+        }
+      ]
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "serviceBox",
+      "disBtn",
+      "btnStyle",
+      "btnText",
+      "disIcnImg",
+      "imageSize",
+      "btnIconStore",
+      "btnIconPosition"
+    ],
+    "requiresValidation": [
+      "mainStyleType",
+      "imgAcrdnStyle",
+      "imgOrientation",
+      "slideStyle",
+      "articleStyle",
+      "activeSlide",
+      "imgFlexGrow",
+      "bannerStyle",
+      "bannerOrientation",
+      "sectionStyle",
+      "sectionImgPreload",
+      "fancyBStyle",
+      "serviceEStyle",
+      "portfolioStyle",
+      "btnIconType"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "CSS flexbox for accordion layout",
+    "CSS Grid for box layouts",
+    "Hover animations and transitions",
+    "Background image preloading (when sectionImgPreload enabled)",
+    "Icon font libraries (Font Awesome)",
+    "Responsive breakpoint adjustments"
+  ],
+  "commonUseCases": [
+    "Service showcases",
+    "Feature highlights",
+    "Portfolio displays",
+    "Product category navigation",
+    "Interactive team sections",
+    "Benefits/advantages displays",
+    "Process step visualizations",
+    "Department/division showcases",
+    "Skill set presentations",
+    "Vertical market offerings"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-infobox",
+    "tpgb/tp-icon-box",
+    "tpgb/tp-process-steps",
+    "tpgb/tp-flipbox"
+  ],
+  "capabilities": [
+    "8 main style categories with unique animations",
+    "20+ total style variations across all categories",
+    "Image accordion (vertical/horizontal, 2 styles)",
+    "Sliding boxes (4 styles with slide-in effects)",
+    "Article boxes (2 styles for content-heavy displays)",
+    "Info banners (2 styles, left/right orientations)",
+    "Hover sections (2 styles with background transitions)",
+    "Fancy boxes (2 styles with decorative elements)",
+    "Service elements (2 styles for icon-based services)",
+    "Portfolio styles (2 styles for project showcases)",
+    "Unlimited service items with repeater field",
+    "Icon or custom image per item",
+    "Title, subtitle, description per item",
+    "Feature list with pipe-separated items",
+    "Optional buttons with multiple styles",
+    "Button icons (before/after text)",
+    "Featured/background images per item",
+    "Active slide/accordion selection",
+    "Flex-grow control for accordion active state",
+    "Image preloading for hover sections",
+    "Accessibility aria-labels",
+    "WordPress image size selection"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Vertical image accordion showcase",
+      "attributes": {
+        "block_id": "a1b2",
+        "mainStyleType": "image-accordion",
+        "imgAcrdnStyle": "accordion-style-1",
+        "imgOrientation": "accordion-vertical",
+        "activeSlide": "1",
+        "serviceBox": [
+          {"_key": "0", "title": "Web Design", "featureImg": {"url": "/design.jpg"}},
+          {"_key": "1", "title": "Development", "featureImg": {"url": "/dev.jpg"}},
+          {"_key": "2", "title": "Marketing", "featureImg": {"url": "/marketing.jpg"}}
+        ]
+      }
+    },
+    {
+      "description": "Sliding boxes with buttons (style-2)",
+      "attributes": {
+        "block_id": "c3d4",
+        "mainStyleType": "sliding-boxes",
+        "slideStyle": "sliding-style-2",
+        "disBtn": true,
+        "btnStyle": "style-7",
+        "serviceBox": [
+          {"_key": "0", "title": "Consulting", "iconStore": "fas fa-chart-line", "btnText": "Learn More"},
+          {"_key": "1", "title": "Support", "iconStore": "fas fa-headset", "btnText": "Contact Us"}
+        ]
+      }
+    },
+    {
+      "description": "Fancy box style with icons",
+      "attributes": {
+        "block_id": "e5f6",
+        "mainStyleType": "fancy-box",
+        "fancyBStyle": "fancy-box-style-1",
+        "disIcnImg": true,
+        "serviceBox": [
+          {"_key": "0", "title": "Fast Delivery", "iconType": "icon", "iconStore": "fas fa-shipping-fast", "description": "Quick turnaround times"},
+          {"_key": "1", "title": "24/7 Support", "iconType": "icon", "iconStore": "fas fa-clock", "description": "Always here to help"}
+        ]
+      }
+    },
+    {
+      "description": "Hover section with preloaded images",
+      "attributes": {
+        "block_id": "g7h8",
+        "mainStyleType": "hover-section",
+        "sectionStyle": "hover-section-style-2",
+        "sectionImgPreload": true,
+        "serviceBox": [
+          {"_key": "0", "title": "Project A", "featureImg": {"url": "/project-a-bg.jpg"}},
+          {"_key": "1", "title": "Project B", "featureImg": {"url": "/project-b-bg.jpg"}}
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "blockName": "tpgb/tp-heading-animation",
+  "version": "1.0.0",
+  "title": "Heading Animation",
+  "category": "content",
+  "description": "Create eye-catching animated headings with 2 main styles: text highlights with underlines/circles/strikethroughs, or rotating text animations. Features customizable prefix/postfix text, multiple animation variations, adjustable duration, and extensive typography controls. Perfect for hero sections, feature highlights, and attention-grabbing headers.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "style": {
+      "type": "string",
+      "default": "highlights",
+      "enum": ["highlights", "textAnim"],
+      "description": "Animation style: highlights (underline/circle) or textAnim (rotating words)"
+    },
+    "highLightStyle": {
+      "type": "string",
+      "default": "underline",
+      "enum": ["underline", "circle", "strikethrough"],
+      "description": "Highlight decoration type (when style is 'highlights')"
+    },
+    "textAnimStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2", "style-3", "style-4"],
+      "description": "Text animation variant (when style is 'textAnim')"
+    },
+    "prefixText": {
+      "type": "string",
+      "default": "We are ",
+      "description": "Text before animated/highlighted word"
+    },
+    "highlightsText": {
+      "type": "string",
+      "default": "Innovative",
+      "description": "Static highlighted text (when style is 'highlights')"
+    },
+    "animText": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Array of rotating text items (when style is 'textAnim')",
+      "items": {
+        "singleText": {
+          "type": "string",
+          "default": "Creative",
+          "description": "Individual rotating word/phrase"
+        }
+      },
+      "default": [
+        {"_key": "cvi9", "singleText": "Innovative"},
+        {"_key": "sci9", "singleText": "Creative"}
+      ]
+    },
+    "postfixText": {
+      "type": "string",
+      "default": "",
+      "description": "Text after animated/highlighted word"
+    },
+    "durationTiming": {
+      "type": "string",
+      "default": "600",
+      "description": "Animation duration in milliseconds (for text rotation)"
+    },
+    "alignment": {
+      "type": "object",
+      "default": {"md": "center"},
+      "description": "Heading text alignment",
+      "responsive": true
+    },
+    "titleTag": {
+      "type": "string",
+      "default": "div",
+      "enum": ["h1", "h2", "h3", "h4", "h5", "h6", "div", "span", "p"],
+      "description": "HTML tag for heading wrapper"
+    },
+    "textTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for entire heading"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "",
+      "description": "Heading text color (prefix, postfix, and base)"
+    },
+    "animTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for animated/highlighted text"
+    },
+    "animColor": {
+      "type": "string",
+      "default": "",
+      "description": "Animated/highlighted text color"
+    },
+    "lineColor": {
+      "type": "string",
+      "default": "",
+      "description": "Line/underline color (textAnim style-1)"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "prefixText",
+      "highlightsText",
+      "animText",
+      "postfixText",
+      "alignment",
+      "titleTag",
+      "textTypo",
+      "textColor",
+      "animTypo",
+      "animColor",
+      "lineColor"
+    ],
+    "requiresValidation": [
+      "style",
+      "highLightStyle",
+      "textAnimStyle",
+      "durationTiming"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "CSS animations for text rotation",
+    "SVG or CSS for highlight decorations (underline, circle, strikethrough)",
+    "JavaScript for text rotation timing",
+    "Responsive typography adjustments"
+  ],
+  "commonUseCases": [
+    "Hero section headlines",
+    "Feature highlight headings",
+    "Attention-grabbing titles",
+    "Value proposition statements",
+    "Service category headers",
+    "Landing page headlines",
+    "Call-to-action section titles",
+    "About page introductions",
+    "Portfolio section headers",
+    "Promotional banner headings"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-heading-title",
+    "tpgb/tp-heading",
+    "tpgb/tp-cta-banner"
+  ],
+  "capabilities": [
+    "2 main animation styles (highlights and rotating text)",
+    "3 highlight decoration types (underline, circle, strikethrough)",
+    "4 text animation variants with different rotation effects",
+    "Unlimited rotating words with repeater field",
+    "Customizable prefix and postfix text",
+    "Adjustable animation duration",
+    "Separate typography for base and animated text",
+    "Separate colors for base and animated text",
+    "Responsive alignment (desktop, tablet, mobile)",
+    "9 HTML tag options for semantic markup",
+    "Line color customization (style-1)",
+    "Full typography control (font family, size, weight, etc.)",
+    "Text shadow and decorations"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple underline highlight",
+      "attributes": {
+        "block_id": "a1b2",
+        "style": "highlights",
+        "highLightStyle": "underline",
+        "prefixText": "We are ",
+        "highlightsText": "Innovative",
+        "postfixText": " thinkers",
+        "alignment": {"md": "center"},
+        "titleTag": "h1"
+      }
+    },
+    {
+      "description": "Rotating text with 4 words",
+      "attributes": {
+        "block_id": "c3d4",
+        "style": "textAnim",
+        "textAnimStyle": "style-2",
+        "prefixText": "We help you ",
+        "animText": [
+          {"_key": "0", "singleText": "Grow"},
+          {"_key": "1", "singleText": "Succeed"},
+          {"_key": "2", "singleText": "Scale"},
+          {"_key": "3", "singleText": "Thrive"}
+        ],
+        "durationTiming": "800"
+      }
+    },
+    {
+      "description": "Circle highlight with custom colors",
+      "attributes": {
+        "block_id": "e5f6",
+        "style": "highlights",
+        "highLightStyle": "circle",
+        "prefixText": "The ",
+        "highlightsText": "Best",
+        "postfixText": " Solution",
+        "textColor": "#2c3e50",
+        "animColor": "#667eea",
+        "animTypo": {"openTypography": 1, "size": {"md": "48", "unit": "px"}, "weight": "700"}
+      }
+    },
+    {
+      "description": "Animated heading with custom duration",
+      "attributes": {
+        "block_id": "g7h8",
+        "style": "textAnim",
+        "textAnimStyle": "style-4",
+        "prefixText": "Build ",
+        "animText": [
+          {"_key": "0", "singleText": "Websites"},
+          {"_key": "1", "singleText": "Apps"},
+          {"_key": "2", "singleText": "Experiences"}
+        ],
+        "postfixText": " that matter",
+        "durationTiming": "1000",
+        "alignment": {"md": "left"}
+      }
+    }
+  ]
+}
