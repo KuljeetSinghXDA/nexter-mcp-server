@@ -82,8 +82,10 @@ class Nexter_MCP_Block_Parser {
      *
      * Match Nexter MCP convention: 4-character lowercase hex
      * (base ID before WordPress appends _postId suffix)
+     *
+     * Uses cryptographically secure random_bytes() matching Node.js crypto.randomBytes(2)
      */
     public static function generate_block_id() {
-        return substr(md5(uniqid(rand(), true)), 0, 4);
+        return bin2hex(random_bytes(2)); // Generates 4-char hex (same as Node.js)
     }
 }
