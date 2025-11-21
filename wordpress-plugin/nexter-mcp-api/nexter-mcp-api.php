@@ -43,9 +43,11 @@ function nexter_mcp_init() {
     
     // Initialize REST API
     Nexter_MCP_REST_API::init();
-    
-    // Log initialization
-    error_log('Nexter MCP API v' . NEXTER_MCP_VERSION . ' initialized (Phase 1 Fix Applied) - Timestamp: ' . date('Y-m-d H:i:s'));
+
+    // Log initialization (only in WP_DEBUG mode)
+    if (defined('WP_DEBUG') && WP_DEBUG) {
+        error_log('[Nexter MCP] API v' . NEXTER_MCP_VERSION . ' initialized - Timestamp: ' . date('Y-m-d H:i:s'));
+    }
 }
 
 function nexter_mcp_missing_nexter_notice() {
@@ -66,9 +68,9 @@ register_activation_hook(__FILE__, 'nexter_mcp_activate');
 function nexter_mcp_activate() {
     // Flush rewrite rules for REST API
     flush_rewrite_rules();
-    
-    // Log activation
-    error_log('Nexter MCP API activated successfully');
+
+    // Log activation (always log activation/deactivation events)
+    error_log('[Nexter MCP] Plugin activated successfully');
 }
 
 // Deactivation hook
@@ -76,15 +78,16 @@ register_deactivation_hook(__FILE__, 'nexter_mcp_deactivate');
 
 function nexter_mcp_deactivate() {
     flush_rewrite_rules();
-    error_log('Nexter MCP API deactivated');
+    // Log deactivation (always log activation/deactivation events)
+    error_log('[Nexter MCP] Plugin deactivated');
 }
 
-// Add settings link on plugins page
-add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'nexter_mcp_add_settings_link');
+// Add status link on plugins page
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'nexter_mcp_add_status_link');
 
-function nexter_mcp_add_settings_link($links) {
-    $settings_link = '<a href="' . admin_url('options-general.php?page=nexter-mcp-api') . '">Settings</a>';
-    array_unshift($links, $settings_link);
+function nexter_mcp_add_status_link($links) {
+    $status_link = '<a href="' . admin_url('options-general.php?page=nexter-mcp-api') . '">Status</a>';
+    array_unshift($links, $status_link);
     return $links;
 }
 
@@ -93,18 +96,22 @@ add_action('admin_menu', 'nexter_mcp_add_admin_menu');
 
 function nexter_mcp_add_admin_menu() {
     add_options_page(
-        'Nexter MCP API Settings',
+        'Nexter MCP API Status',
         'Nexter MCP API',
         'manage_options',
         'nexter-mcp-api',
-        'nexter_mcp_settings_page'
+        'nexter_mcp_status_page'
     );
 }
 
-function nexter_mcp_settings_page() {
+function nexter_mcp_status_page() {
     ?>
     <div class="wrap">
-        <h1>Nexter MCP API Settings</h1>
+        <h1>Nexter MCP API Status</h1>
+        <p class="description" style="font-size: 14px; margin-bottom: 20px;">
+            This plugin provides REST API endpoints for AI-powered content management.
+            <strong>No configuration needed</strong> - it works automatically once Nexter Blocks is active.
+        </p>
         
         <div class="card">
             <h2>Connection Status</h2>
@@ -160,10 +167,13 @@ function nexter_mcp_settings_page() {
   <?php echo rest_url('wp/v2/users/me'); ?></pre>
         </div>
         
-        <div class="card">
-            <h2>ℹ️ Setup Complete</h2>
+        <div class="card" style="border-left: 4px solid #46b450;">
+            <h2>✅ Plugin Status: Active</h2>
             <p><strong>This plugin is ready to use!</strong> No configuration needed.</p>
             <p>The REST API endpoints are now active and can be accessed by your MCP Server using WordPress Application Passwords for authentication.</p>
+            <p style="color: #666; font-style: italic; margin-top: 15px;">
+                ℹ️ This is a status/information page. There are no settings to configure - the plugin works automatically.
+            </p>
         </div>
     </div>
     <?php

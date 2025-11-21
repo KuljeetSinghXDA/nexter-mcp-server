@@ -8,8 +8,15 @@ import fs from 'fs';
 
 // Ensure logs directory exists
 const logsDir = './logs';
-if (!fs.existsSync(logsDir)) {
-  fs.mkdirSync(logsDir, { recursive: true });
+try {
+  if (!fs.existsSync(logsDir)) {
+    fs.mkdirSync(logsDir, { recursive: true });
+  }
+} catch (error) {
+  // Log to console if directory creation fails
+  // Winston will still work with console transport only
+  console.warn('⚠️  Failed to create logs directory:', error);
+  console.warn('📝 Logging will continue to console only');
 }
 
 const logLevel = process.env.LOG_LEVEL || 'info';

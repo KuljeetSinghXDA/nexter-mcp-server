@@ -272,28 +272,32 @@ class Nexter_MCP_REST_API {
         $excerpt = $request->get_param('excerpt');
         $categories = $request->get_param('categories');
         $tags = $request->get_param('tags');
-        
-        // DEBUG: Log what we receive
-        error_log('🔍 PHP DEBUG - Blocks received from Node.js:');
-        error_log('  Block count: ' . count($blocks));
-        foreach ($blocks as $i => $block) {
-            if (isset($block['blockName']) && $block['blockName'] === 'tpgb/tp-pro-paragraph') {
-                error_log("  Block {$i} - " . $block['blockName']);
-                error_log('    attrs: ' . json_encode($block['attrs']));
-                error_log('    attrs.content exists: ' . (isset($block['attrs']['content']) ? 'YES' : 'NO'));
-                if (isset($block['attrs']['content'])) {
-                    error_log('    attrs.content value: ' . substr($block['attrs']['content'], 0, 50) . '...');
+
+        // DEBUG: Log what we receive (only in WP_DEBUG mode)
+        if (defined('WP_DEBUG') && WP_DEBUG) {
+            error_log('[Nexter MCP] Blocks received from Node.js:');
+            error_log('[Nexter MCP]   Block count: ' . count($blocks));
+            foreach ($blocks as $i => $block) {
+                if (isset($block['blockName']) && $block['blockName'] === 'tpgb/tp-pro-paragraph') {
+                    error_log("[Nexter MCP]   Block {$i} - " . $block['blockName']);
+                    error_log('[Nexter MCP]     attrs: ' . json_encode($block['attrs']));
+                    error_log('[Nexter MCP]     attrs.content exists: ' . (isset($block['attrs']['content']) ? 'YES' : 'NO'));
+                    if (isset($block['attrs']['content'])) {
+                        error_log('[Nexter MCP]     attrs.content value: ' . substr($block['attrs']['content'], 0, 50) . '...');
+                    }
                 }
             }
         }
-        
+
         // Serialize blocks for initial post creation
         $content = serialize_blocks($blocks);
-        
-        // DEBUG: Log what serialize_blocks outputs
-        error_log('🔍 PHP DEBUG - After serialize_blocks():');
-        error_log('  Content length: ' . strlen($content));
-        error_log('  Content preview: ' . substr($content, 0, 300));
+
+        // DEBUG: Log what serialize_blocks outputs (only in WP_DEBUG mode)
+        if (defined('WP_DEBUG') && WP_DEBUG) {
+            error_log('[Nexter MCP] After serialize_blocks():');
+            error_log('[Nexter MCP]   Content length: ' . strlen($content));
+            error_log('[Nexter MCP]   Content preview: ' . substr($content, 0, 300));
+        }
         
         // Prepare post data
         $post_data = [

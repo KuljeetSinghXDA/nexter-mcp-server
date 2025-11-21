@@ -120,8 +120,18 @@ async function startServer() {
       res.setHeader('Allow', 'POST');
       res.status(405).send('GET /mcp is not supported. This server only supports POST /mcp for MCP protocol.');
     });
-    
+
     // POST /mcp - Main MCP endpoint (HTTP transport)
+    //
+    // SECURITY MODEL:
+    // This endpoint intentionally has NO authentication because:
+    // 1. Runs in isolated Docker network (not exposed to internet)
+    // 2. Traefik handles external auth/routing at proxy layer
+    // 3. All WordPress operations use WordPress Application Passwords
+    // 4. Rate limiting prevents abuse from within network
+    // 5. Only accepts JSON-RPC 2.0 formatted requests
+    //
+    // External access: https://nexter.aiengineops.com/mcp → Traefik → internal:3000/mcp
     app.post('/mcp', async (req: Request, res: Response) => {
       try {
         const request = req.body;
