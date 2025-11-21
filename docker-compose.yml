@@ -1,0 +1,75 @@
+services:
+  nexter-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nexter-mcp-server
+    restart: unless-stopped
+    
+    # Environment variables (Dokploy will populate from UI)
+    environment:
+      # WordPress Connection (REQUIRED)
+      - WORDPRESS_URL=${WORDPRESS_URL}
+      - WP_USERNAME=${WP_USERNAME}
+      - WP_APP_PASSWORD=${WP_APP_PASSWORD}
+      
+      # Server Configuration (Optional - have defaults)
+      - NODE_ENV=production
+      - PORT=3000
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - MCP_TRANSPORT=${MCP_TRANSPORT:-http}
+      
+      # Performance (Optional - have defaults)
+      - CACHE_TTL=${CACHE_TTL:-3600}
+      - MAX_CONCURRENT_REQUESTS=${MAX_CONCURRENT_REQUESTS:-50}
+      
+      # WordPress API (Optional - have defaults)
+      - WP_API_TIMEOUT=${WP_API_TIMEOUT:-30000}
+      - WP_API_RETRY_ATTEMPTS=${WP_API_RETRY_ATTEMPTS:-3}
+    
+    # NOTE: No 'ports' section needed! Dokploy's Traefik handles routing automatically
+    # when you configure a domain in the UI (nexter.aiengineops.com)
+    
+    # Expose port internally for Traefik to route to
+    expose:
+      - "3000"
+    
+    volumes:
+      # Persist logs
+      - nexter-mcp-logs:/app/logs:rw
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+    
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  nexter-mcp-logs:
+    driver: local
+
+# IMPORTANT: Dokploy automatically handles:
+# - Traefik labels for domain routing (nexter.aiengineops.com → internal port 3000)
+# - Network attachment (connects to Dokploy's internal network)
+# - SSL certificates via Let's Encrypt
+# - No port exposure needed in docker-compose.yml
+# - Traefik routes external traffic to container's internal PORT (3000)
