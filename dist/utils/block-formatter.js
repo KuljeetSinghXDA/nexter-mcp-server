@@ -3,11 +3,12 @@
  *
  * Formats blocks into complete Gutenberg structure before sending to WordPress
  */
+import { randomBytes } from 'crypto';
 /**
  * Generate 4-character hex ID matching Nexter's format
  */
 function generateBlockId() {
-    return Math.random().toString(16).substring(2, 6);
+    return randomBytes(2).toString('hex');
 }
 /**
  * Generate innerHTML for Nexter blocks based on their attributes
