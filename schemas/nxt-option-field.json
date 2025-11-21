@@ -1,0 +1,170 @@
+{
+  "blockName": "tpgb/tp-form-option-field",
+  "version": "1.0.0",
+  "title": "Dropdown",
+  "category": "form",
+  "description": "Add a select dropdown field to list choices with single selection. Features customizable option labels and values, field width control, required field validation, help text (description), and custom error messages. Perfect for country selection, category choices, dropdown menus, or any single-select list. Must be used inside a Form Block. Pro version with advanced form controls.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "labelss": {
+      "type": "string",
+      "default": "Select",
+      "description": "Field label text"
+    },
+    "fldOptions": {
+      "type": "array",
+      "default": [{"fldLabel": " Enter Label", "fldValue": " Enter Value"}],
+      "repeaterField": true,
+      "description": "Array of dropdown options with label and value pairs"
+    },
+    "reqTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Make field required (user must select an option)"
+    },
+    "inpSz": {
+      "type": "object",
+      "default": {"md": "100", "unit": "%"},
+      "description": "Field width (percentage or px)",
+      "responsive": true
+    },
+    "hlpTxt": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable help text (description)"
+    },
+    "desctxt": {
+      "type": "string",
+      "default": "Description",
+      "description": "Help text content (when hlpTxt is true)"
+    },
+    "descPoss": {
+      "type": "string",
+      "default": "top",
+      "enum": ["top", "bottom"],
+      "description": "Help text position relative to field"
+    },
+    "error": {
+      "type": "string",
+      "default": "This field is required.",
+      "description": "Error message for validation failure"
+    },
+    "uniqueid": {
+      "type": "string",
+      "default": "",
+      "description": "Unique field identifier for form submission"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "fldOptions",
+      "inpSz",
+      "desctxt",
+      "error"
+    ],
+    "requiresValidation": [
+      "reqTgl",
+      "hlpTxt",
+      "descPoss"
+    ],
+    "dangerous": [
+      "block_id",
+      "uniqueid"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Select dropdown styling",
+    "Custom dropdown UI"
+  ],
+  "commonUseCases": [
+    "Country selection",
+    "State/region dropdown",
+    "Category selection",
+    "Product options",
+    "Service selection",
+    "Priority levels",
+    "Department choice",
+    "Subject selection",
+    "Industry picker"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-form-block",
+    "tpgb/tp-form-checkbox-button",
+    "tpgb/tp-form-radio-button",
+    "tpgb/tp-form-submit-button"
+  ],
+  "capabilities": [
+    "Customizable label text",
+    "Multiple dropdown options (single selection)",
+    "Custom label and value pairs",
+    "Required field validation",
+    "Custom error messages",
+    "Responsive width control",
+    "Help text with top/bottom positioning",
+    "Unique field ID for form handling",
+    "Inline display support with submit button",
+    "Dynamic option management"
+  ],
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true,
+  "ancestorBlock": "tpgb/tp-form-block",
+  "examples": [
+    {
+      "description": "Simple country selector",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Select Country",
+        "fldOptions": [
+          {"fldLabel": "United States", "fldValue": "us"},
+          {"fldLabel": "United Kingdom", "fldValue": "uk"},
+          {"fldLabel": "Canada", "fldValue": "ca"},
+          {"fldLabel": "Australia", "fldValue": "au"}
+        ],
+        "reqTgl": true
+      }
+    },
+    {
+      "description": "Category selection with help text",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Inquiry Type",
+        "fldOptions": [
+          {"fldLabel": "General Question", "fldValue": "general"},
+          {"fldLabel": "Technical Support", "fldValue": "support"},
+          {"fldLabel": "Sales Inquiry", "fldValue": "sales"},
+          {"fldLabel": "Feedback", "fldValue": "feedback"}
+        ],
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "Please select the category that best describes your inquiry",
+        "descPoss": "top"
+      }
+    },
+    {
+      "description": "Priority selection",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Priority Level",
+        "fldOptions": [
+          {"fldLabel": "Low", "fldValue": "low"},
+          {"fldLabel": "Medium", "fldValue": "medium"},
+          {"fldLabel": "High", "fldValue": "high"},
+          {"fldLabel": "Critical", "fldValue": "critical"}
+        ],
+        "reqTgl": true
+      }
+    }
+  ]
+}

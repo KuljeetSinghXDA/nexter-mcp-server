@@ -1,0 +1,160 @@
+{
+  "blockName": "tpgb/tp-form-acceptance-button",
+  "version": "1.0.0",
+  "title": "Agree to Terms",
+  "category": "form",
+  "description": "Include a consent statement with a checkbox for terms and conditions acceptance. Features customizable acceptance label, optional link to terms/privacy policy, required field validation, label and link typography controls, and color styling with hover states. Perfect for privacy policy consent, terms of service agreements, newsletter opt-ins, or GDPR compliance checkboxes. Must be used inside a Form Block. Pro version with advanced form controls.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "labelss": {
+      "type": "string",
+      "default": "I have read and accepted the Privacy Policy.",
+      "description": "Acceptance statement text (consent label)"
+    },
+    "reqTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Make field required (user must check to submit)"
+    },
+    "lnkTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable link within acceptance text"
+    },
+    "lnkLbl": {
+      "type": "string",
+      "default": "",
+      "description": "Link text label (when lnkTgl is true)"
+    },
+    "lnk": {
+      "type": "object",
+      "default": {"url": "", "target": "", "nofollow": ""},
+      "description": "Link URL with target and nofollow options (when lnkTgl is true)"
+    },
+    "lblClr": {
+      "type": "string",
+      "default": "",
+      "description": "Acceptance label text color (normal state)"
+    },
+    "lnkLblClr": {
+      "type": "string",
+      "default": "",
+      "description": "Link text color (normal state)"
+    },
+    "lblTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for acceptance label and link"
+    },
+    "hvrLblClr": {
+      "type": "string",
+      "default": "",
+      "description": "Acceptance label text color (hover state)"
+    },
+    "hvrLnkLblClr": {
+      "type": "string",
+      "default": "",
+      "description": "Link text color (hover state)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "lnkLbl",
+      "lnk",
+      "lblClr",
+      "lnkLblClr",
+      "lblTypo",
+      "hvrLblClr",
+      "hvrLnkLblClr"
+    ],
+    "requiresValidation": [
+      "reqTgl",
+      "lnkTgl"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Checkbox input styling",
+    "Link hover transitions"
+  ],
+  "commonUseCases": [
+    "Terms of service acceptance",
+    "Privacy policy consent",
+    "GDPR compliance checkbox",
+    "Newsletter opt-in",
+    "Age verification",
+    "Cookie policy consent",
+    "Legal disclaimers",
+    "Terms and conditions agreement"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-form-block",
+    "tpgb/tp-form-checkbox-button",
+    "tpgb/tp-form-submit-button"
+  ],
+  "capabilities": [
+    "Customizable acceptance statement",
+    "Optional embedded link in text",
+    "Link URL with target and nofollow",
+    "Required field validation",
+    "Label typography controls",
+    "Label color customization",
+    "Link color customization",
+    "Hover state colors for label",
+    "Hover state colors for link",
+    "Dedicated terms acceptance UI"
+  ],
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true,
+  "ancestorBlock": "tpgb/tp-form-block",
+  "examples": [
+    {
+      "description": "Simple terms acceptance",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "I agree to the Terms and Conditions",
+        "reqTgl": true
+      }
+    },
+    {
+      "description": "Privacy policy with link",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "I have read and accept the",
+        "lnkTgl": true,
+        "lnkLbl": "Privacy Policy",
+        "lnk": {"url": "/privacy-policy", "target": "_blank", "nofollow": ""},
+        "reqTgl": true,
+        "lnkLblClr": "#667eea",
+        "hvrLnkLblClr": "#764ba2"
+      }
+    },
+    {
+      "description": "GDPR consent with styled text",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "I consent to the processing of my personal data as described in the",
+        "lnkTgl": true,
+        "lnkLbl": "Privacy Notice",
+        "lnk": {"url": "/gdpr-privacy-notice", "target": "_blank", "nofollow": ""},
+        "reqTgl": true,
+        "lblTypo": {"openTypography": 1, "size": {"md": "14", "unit": "px"}},
+        "lblClr": "#555555"
+      }
+    }
+  ]
+}

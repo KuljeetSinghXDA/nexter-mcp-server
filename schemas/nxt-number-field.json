@@ -1,0 +1,225 @@
+{
+  "blockName": "tpgb/tp-form-number-field",
+  "version": "1.0.0",
+  "title": "Numeric Input",
+  "category": "form",
+  "description": "Add a numeric input field for number entry with validation. Features optional Font Awesome icons or custom images, min/max number validation, maximum character count limit, field width control, required field validation, placeholder text, help text (description), and icon color with hover states. Perfect for quantity fields, age input, pricing, ratings, or any numeric data. Must be used inside a Form Block. Pro version with advanced form controls.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "labelss": {
+      "type": "string",
+      "default": "Number",
+      "description": "Field label text"
+    },
+    "reqTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Make field required"
+    },
+    "valNum": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable number range validation using minNum/maxNum"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "Number",
+      "description": "Placeholder text shown in empty input"
+    },
+    "error": {
+      "type": "string",
+      "default": "This field is required.",
+      "description": "Error message for validation failure"
+    },
+    "minNum": {
+      "type": "string",
+      "default": "",
+      "description": "Minimum allowed number (when valNum is true)"
+    },
+    "maxNum": {
+      "type": "string",
+      "default": "",
+      "description": "Maximum allowed number (when valNum is true)"
+    },
+    "inpSz": {
+      "type": "object",
+      "default": {"md": "100", "unit": "%"},
+      "description": "Field width (percentage or px)",
+      "responsive": true
+    },
+    "hlpTxt": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable help text (description)"
+    },
+    "desctxt": {
+      "type": "string",
+      "default": "Description",
+      "description": "Help text content (when hlpTxt is true)"
+    },
+    "descPoss": {
+      "type": "string",
+      "default": "top",
+      "enum": ["top", "bottom"],
+      "description": "Help text position relative to field"
+    },
+    "numIconType": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "fontAwesome", "image"],
+      "description": "Icon type for number field"
+    },
+    "numIcons": {
+      "type": "string",
+      "default": "",
+      "description": "Font Awesome icon class (when numIconType is 'fontAwesome')"
+    },
+    "numImage": {
+      "type": "object",
+      "default": {"url": "", "Id": ""},
+      "description": "Custom icon image (when numIconType is 'image')"
+    },
+    "maxCount": {
+      "type": "string",
+      "default": "15",
+      "description": "Maximum character/digit count allowed"
+    },
+    "icnClr": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal state)"
+    },
+    "hvrIcnClr": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (hover state)"
+    },
+    "uniqueid": {
+      "type": "string",
+      "default": "",
+      "description": "Unique field identifier for form submission"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "placeholder",
+      "error",
+      "minNum",
+      "maxNum",
+      "inpSz",
+      "desctxt",
+      "numIcons",
+      "numImage",
+      "maxCount",
+      "icnClr",
+      "hvrIcnClr"
+    ],
+    "requiresValidation": [
+      "reqTgl",
+      "valNum",
+      "hlpTxt",
+      "descPoss",
+      "numIconType"
+    ],
+    "dangerous": [
+      "block_id",
+      "uniqueid"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Number input styling",
+    "Input container flexbox layout",
+    "Number validation JavaScript"
+  ],
+  "commonUseCases": [
+    "Quantity selection",
+    "Age input",
+    "Price fields",
+    "Rating numbers",
+    "Count fields",
+    "Year input",
+    "Numeric identifiers",
+    "Capacity limits",
+    "Budget amounts"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-form-block",
+    "tpgb/tp-form-name-field",
+    "tpgb/tp-form-submit-button"
+  ],
+  "capabilities": [
+    "Customizable label text",
+    "Numeric input validation",
+    "3 icon types (none, Font Awesome, custom image)",
+    "Min/max number range validation",
+    "Maximum character count limit",
+    "Required field validation",
+    "Custom placeholder text",
+    "Custom error messages",
+    "Responsive width control",
+    "Help text with top/bottom positioning",
+    "Icon color with hover state",
+    "Unique field ID for form handling",
+    "Inline display support with submit button"
+  ],
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true,
+  "ancestorBlock": "tpgb/tp-form-block",
+  "examples": [
+    {
+      "description": "Simple quantity field",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Quantity",
+        "placeholder": "Enter quantity",
+        "valNum": true,
+        "minNum": "1",
+        "maxNum": "100",
+        "reqTgl": true
+      }
+    },
+    {
+      "description": "Age input with icon and validation",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Your Age",
+        "numIconType": "fontAwesome",
+        "numIcons": "fas fa-calendar-alt",
+        "placeholder": "Age",
+        "valNum": true,
+        "minNum": "18",
+        "maxNum": "120",
+        "maxCount": "3",
+        "reqTgl": true,
+        "icnClr": "#667eea"
+      }
+    },
+    {
+      "description": "Budget field with help text",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Monthly Budget",
+        "placeholder": "Enter amount",
+        "valNum": true,
+        "minNum": "500",
+        "maxNum": "50000",
+        "hlpTxt": true,
+        "desctxt": "Enter your estimated monthly budget (USD)",
+        "descPoss": "bottom",
+        "reqTgl": true
+      }
+    }
+  ]
+}
