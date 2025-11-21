@@ -1,0 +1,115 @@
+{
+  "blockName": "tpgb/tp-repeater-template",
+  "version": "1.0.0",
+  "title": "Repeater Inner",
+  "category": "dynamic",
+  "description": "Inner template block for ACF repeater layouts. Defines the repeating content structure within a Repeater Block. Each instance represents one iteration of the repeater data. Provides context for dynamic row index and manages subfield selection. Supports post options and field mapping. Must be used as a child of the Repeater Block. Perfect for FAQs, testimonials, team profiles, or any repeating content structure. Pro version with ACF integration.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "postOpt": {
+      "type": "object",
+      "default": {"value": "", "label": ""},
+      "description": "Post selection options for dynamic content source"
+    },
+    "repField": {
+      "type": "string",
+      "default": "",
+      "description": "ACF repeater field name to bind to this template"
+    },
+    "childSybfield": {
+      "type": "number",
+      "default": 0,
+      "description": "Child subfield index (0-based) for nested repeaters"
+    },
+    "selectedLayout": {
+      "type": "string",
+      "default": "",
+      "description": "Selected layout identifier for flexible content fields"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "selectedLayout"
+    ],
+    "requiresValidation": [
+      "postOpt",
+      "repField",
+      "childSybfield"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "ACF (Advanced Custom Fields) plugin",
+    "Parent Repeater Block grid layout"
+  ],
+  "commonUseCases": [
+    "FAQ repeater items",
+    "Team member profiles",
+    "Testimonial cards",
+    "Product listings",
+    "Service lists",
+    "Portfolio items",
+    "Timeline events",
+    "Feature lists",
+    "Price table rows"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-repeater-block",
+    "tpgb/tp-dynamic-heading"
+  ],
+  "capabilities": [
+    "ACF repeater template definition",
+    "Dynamic row index provision",
+    "Post option binding",
+    "Repeater field mapping",
+    "Subfield selection for nested repeaters",
+    "Layout selection for flexible content",
+    "Context provision to child blocks",
+    "Inherits context from parent Repeater Block"
+  ],
+  "usesContext": ["tpgb/dynamicRepField", "tpgb/dynamicPost"],
+  "providesContext": {
+    "tpgb/dynamicRowIndex": "childSybfield"
+  },
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": true,
+  "parentBlock": "tpgb/tp-repeater-block",
+  "examples": [
+    {
+      "description": "Basic repeater template",
+      "attributes": {
+        "block_id": "a1b2",
+        "repField": "team_members",
+        "childSybfield": 0
+      }
+    },
+    {
+      "description": "Repeater with post binding",
+      "attributes": {
+        "block_id": "c3d4",
+        "postOpt": {"value": "123", "label": "Sample Post"},
+        "repField": "faq_items",
+        "childSybfield": 0
+      }
+    },
+    {
+      "description": "Flexible content layout",
+      "attributes": {
+        "block_id": "e5f6",
+        "repField": "content_sections",
+        "selectedLayout": "text_image_layout",
+        "childSybfield": 0
+      }
+    }
+  ]
+}

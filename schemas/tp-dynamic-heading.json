@@ -1,0 +1,123 @@
+{
+  "blockName": "tpgb/tp-dynamic-heading",
+  "version": "1.0.0",
+  "title": "Dynamic HTML",
+  "category": "dynamic",
+  "description": "Display dynamic HTML content within repeater templates with typography and color controls. Automatically adjusts content based on ACF repeater data, user interaction, or context. Features text alignment, colors with hover states, and typography settings. Must be used inside a Repeater Template block. Perfect for displaying dynamic text fields, custom HTML, or data-driven content. Pro version with ACF integration.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "textValue": {
+      "type": "string",
+      "default": "Add Your HTML Content Here",
+      "description": "HTML content to display (can include dynamic field placeholders)"
+    },
+    "hAlign": {
+      "type": "object",
+      "default": {"md": "left", "sm": "", "xs": ""},
+      "enum": ["left", "center", "right"],
+      "description": "Text alignment",
+      "responsive": true
+    },
+    "hColor": {
+      "type": "string",
+      "default": "",
+      "description": "Text color (normal state)"
+    },
+    "hvrHColor": {
+      "type": "string",
+      "default": "",
+      "description": "Text color (hover state)"
+    },
+    "hTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography settings for dynamic content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "textValue",
+      "hAlign",
+      "hColor",
+      "hvrHColor",
+      "hTypo"
+    ],
+    "requiresValidation": [],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "CSS text-align",
+    "Typography controls",
+    "Hover state transitions"
+  ],
+  "commonUseCases": [
+    "ACF repeater field display",
+    "Dynamic text content",
+    "Custom HTML in repeaters",
+    "Data-driven content",
+    "Repeating text sections",
+    "Dynamic headings",
+    "Field value display",
+    "Template-based content"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-repeater-block",
+    "tpgb/tp-repeater-template",
+    "tpgb/tp-heading"
+  ],
+  "capabilities": [
+    "Dynamic HTML content display",
+    "ACF repeater field integration",
+    "3 alignment options",
+    "Normal and hover text colors",
+    "Typography controls",
+    "Context-aware content",
+    "Dynamic field placeholder support",
+    "Responsive controls"
+  ],
+  "usesContext": ["tpgb/dynamicRepField", "tpgb/dynamicPost", "tpgb/dynamicSubFieldData", "tpgb/dynamicRowIndex"],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true,
+  "parentBlock": "tpgb/tp-repeater-template",
+  "ancestorBlock": "tpgb/tp-repeater-template",
+  "examples": [
+    {
+      "description": "Simple dynamic text display",
+      "attributes": {
+        "block_id": "a1b2",
+        "textValue": "{{field_name}}",
+        "hAlign": {"md": "left"},
+        "hColor": "#333333"
+      }
+    },
+    {
+      "description": "Centered dynamic heading with hover",
+      "attributes": {
+        "block_id": "c3d4",
+        "textValue": "<h3>{{title}}</h3>",
+        "hAlign": {"md": "center"},
+        "hColor": "#2c3e50",
+        "hvrHColor": "#667eea"
+      }
+    },
+    {
+      "description": "Custom HTML with typography",
+      "attributes": {
+        "block_id": "e5f6",
+        "textValue": "<div class='custom'>{{content}}</div>",
+        "hTypo": {"openTypography": 1, "size": {"md": "18", "unit": "px"}},
+        "hColor": "#555555"
+      }
+    }
+  ]
+}
