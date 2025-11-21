@@ -1,0 +1,379 @@
+{
+  "blockName": "tpgb/tp-coupon-code",
+  "version": "1.0.0",
+  "title": "Coupon Code",
+  "category": "content",
+  "description": "Increase conversion using coupons, offers, promo codes, and discounts. Features 4 coupon types (standard, scratch, slide-out, peel) with 3 standard styles, copy-to-clipboard functionality, and custom reveal effects. Perfect for promotional campaigns, discount codes, special offers, flash sales, and affiliate marketing. Supports click or hover reveal, redirect links, and cookie-based restrictions.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "couponType": {
+      "type": "string",
+      "default": "standard",
+      "enum": ["standard", "scratch", "slideOut", "peel"],
+      "description": "Coupon display type: standard button, scratch-off, slide-out, or peel effect"
+    },
+    "standardStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2", "style-3"],
+      "description": "Standard coupon visual style (when couponType is 'standard')"
+    },
+    "directionHint": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show direction hint/arrow"
+    },
+    "couponText": {
+      "type": "string",
+      "default": "Show Code",
+      "description": "Button text for revealing coupon code"
+    },
+    "redirectLink": {
+      "type": "object",
+      "default": {"url": "", "target": false, "nofollow": false},
+      "description": "Redirect URL after code reveal"
+    },
+    "codeArrow": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show arrow on code display"
+    },
+    "codecopyIcn": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show copy icon for code"
+    },
+    "couponCode": {
+      "type": "string",
+      "default": "PO-SI-MY-TH-007",
+      "description": "The actual coupon code to display"
+    },
+    "actionType": {
+      "type": "string",
+      "default": "click",
+      "enum": ["click", "hover", "popup"],
+      "description": "Code reveal trigger: click, hover, or popup modal"
+    },
+    "popupTitle": {
+      "type": "string",
+      "default": "Here is your coupon code",
+      "description": "Popup modal title (when actionType is 'popup')"
+    },
+    "popupDesc": {
+      "type": "string",
+      "default": "Use code on site",
+      "description": "Popup modal description (when actionType is 'popup')"
+    },
+    "copyBtnText": {
+      "type": "string",
+      "default": "Copy Code",
+      "description": "Copy button text"
+    },
+    "afterCopyText": {
+      "type": "string",
+      "default": "Copied!",
+      "description": "Text shown after successful copy"
+    },
+    "visitBtnText": {
+      "type": "string",
+      "default": "Visit Site",
+      "description": "Visit site button text (popup mode)"
+    },
+    "standardConAlign": {
+      "type": "object",
+      "default": {"md": "center"},
+      "description": "Content alignment for standard style",
+      "responsive": true
+    },
+    "standardAlign": {
+      "type": "object",
+      "default": {"md": "center"},
+      "description": "Block alignment for standard style",
+      "responsive": true
+    },
+    "saveCookie": {
+      "type": "boolean",
+      "default": false,
+      "description": "Save code reveal state in cookie"
+    },
+    "hideLink": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide redirect link and show masked links instead"
+    },
+    "linkMaskText": {
+      "type": "string",
+      "default": "",
+      "description": "Masked link dropdown text"
+    },
+    "maskLinkList": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "List of masked links with labels",
+      "items": {
+        "label": {
+          "type": "string",
+          "default": "Label",
+          "description": "Link label"
+        },
+        "linkUrl": {
+          "type": "object",
+          "default": {"url": "#", "target": "", "nofollow": ""},
+          "description": "Link URL"
+        }
+      },
+      "default": [
+        {"_key": "0", "label": "Wordpress", "linkUrl": {"url": "#", "target": "", "nofollow": ""}}
+      ]
+    },
+    "tabReverse": {
+      "type": "boolean",
+      "default": false,
+      "description": "Reverse tab order (accessibility)"
+    },
+    "fillPercent": {
+      "type": "string",
+      "default": "70",
+      "description": "Scratch fill percentage to auto-reveal (scratch type)"
+    },
+    "scratchWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Width for scratch/slideOut/peel types",
+      "responsive": true
+    },
+    "scratchHeight": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Height for scratch/slideOut/peel types",
+      "responsive": true
+    },
+    "slideDirection": {
+      "type": "string",
+      "default": "left",
+      "enum": ["left", "right", "top", "bottom"],
+      "description": "Slide direction (slideOut type)"
+    },
+    "frontContentType": {
+      "type": "string",
+      "default": "default",
+      "enum": ["default", "template"],
+      "description": "Front content type: default text or template (scratch/slideOut/peel)"
+    },
+    "frontContent": {
+      "type": "string",
+      "default": "Front Content",
+      "description": "Front content text (when frontContentType is 'default')"
+    },
+    "frontTemp": {
+      "type": "string",
+      "default": "",
+      "description": "Front template ID (when frontContentType is 'template')"
+    },
+    "backendVisi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show in backend editor (template mode)"
+    },
+    "backContentType": {
+      "type": "string",
+      "default": "default",
+      "enum": ["default", "template"],
+      "description": "Back content type: default text or template (scratch/slideOut/peel)"
+    },
+    "backTitle": {
+      "type": "string",
+      "default": "Back Title",
+      "description": "Back title text (when backContentType is 'default')"
+    },
+    "backDesc": {
+      "type": "string",
+      "default": "Back Description",
+      "description": "Back description text (when backContentType is 'default')"
+    },
+    "backTemp": {
+      "type": "string",
+      "default": "",
+      "description": "Back template ID (when backContentType is 'template')"
+    },
+    "backtempVisi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show back template in backend editor"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "couponText",
+      "redirectLink",
+      "couponCode",
+      "popupTitle",
+      "popupDesc",
+      "copyBtnText",
+      "afterCopyText",
+      "visitBtnText",
+      "standardConAlign",
+      "standardAlign",
+      "linkMaskText",
+      "maskLinkList",
+      "fillPercent",
+      "scratchWidth",
+      "scratchHeight",
+      "frontContent",
+      "backTitle",
+      "backDesc"
+    ],
+    "requiresValidation": [
+      "couponType",
+      "standardStyle",
+      "directionHint",
+      "codeArrow",
+      "codecopyIcn",
+      "actionType",
+      "saveCookie",
+      "hideLink",
+      "tabReverse",
+      "slideDirection",
+      "frontContentType",
+      "frontTemp",
+      "backendVisi",
+      "backContentType",
+      "backTemp",
+      "backtempVisi"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Copy-to-clipboard JavaScript",
+    "Scratch-off canvas rendering (scratch type)",
+    "Slide animation JavaScript (slideOut type)",
+    "Peel effect JavaScript (peel type)",
+    "Cookie storage for state persistence",
+    "Modal/popup library (popup actionType)"
+  ],
+  "commonUseCases": [
+    "Promotional discount codes",
+    "Limited-time offer codes",
+    "Flash sale coupons",
+    "Affiliate discount codes",
+    "Newsletter signup incentives",
+    "First-time buyer discounts",
+    "Seasonal sale codes",
+    "Referral program codes",
+    "Cart abandonment recovery codes",
+    "Social media exclusive offers",
+    "Email campaign coupons",
+    "Gamified discount reveals"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-button",
+    "tpgb/tp-cta-banner",
+    "tpgb/tp-popup-builder"
+  ],
+  "capabilities": [
+    "4 coupon types: standard (3 styles), scratch-off, slide-out, peel effect",
+    "3 action types: click reveal, hover reveal, popup modal",
+    "Copy-to-clipboard functionality",
+    "Custom coupon code text",
+    "Redirect link after reveal",
+    "Direction hints and arrows",
+    "Copy icon display",
+    "Popup modal with title and description",
+    "Custom button text (show code, copy, visit site, after copy)",
+    "Cookie-based state persistence",
+    "Masked links dropdown (hide direct redirect)",
+    "Masked links repeater with labels",
+    "Responsive alignment controls",
+    "Custom scratch percentage threshold (scratch type)",
+    "Custom width and height (scratch/slideOut/peel)",
+    "4 slide directions (slideOut type)",
+    "Front and back content with template support",
+    "Default text or reusable template for front/back",
+    "Backend editor visibility toggles",
+    "Tab order reversal for accessibility",
+    "Extensive styling controls for button, code display, popup, and interactive elements"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple click-to-reveal coupon (style-1)",
+      "attributes": {
+        "block_id": "a1b2",
+        "couponType": "standard",
+        "standardStyle": "style-1",
+        "couponText": "Get 20% Off",
+        "couponCode": "SAVE20",
+        "actionType": "click",
+        "codecopyIcn": true
+      }
+    },
+    {
+      "description": "Popup modal coupon with redirect",
+      "attributes": {
+        "block_id": "c3d4",
+        "couponType": "standard",
+        "standardStyle": "style-2",
+        "actionType": "popup",
+        "couponCode": "FLASH30",
+        "popupTitle": "Here's your exclusive 30% discount!",
+        "popupDesc": "Use this code at checkout",
+        "redirectLink": {"url": "https://example.com/shop", "target": "_blank"}
+      }
+    },
+    {
+      "description": "Scratch-off gamified coupon",
+      "attributes": {
+        "block_id": "e5f6",
+        "couponType": "scratch",
+        "couponCode": "MYSTERY50",
+        "fillPercent": "60",
+        "scratchWidth": {"md": "400", "unit": "px"},
+        "scratchHeight": {"md": "250", "unit": "px"},
+        "frontContent": "Scratch to reveal your discount!"
+      }
+    },
+    {
+      "description": "Slide-out coupon with masked links",
+      "attributes": {
+        "block_id": "g7h8",
+        "couponType": "slideOut",
+        "slideDirection": "right",
+        "couponCode": "PARTNER15",
+        "hideLink": true,
+        "linkMaskText": "Choose your store",
+        "maskLinkList": [
+          {"label": "Store A", "linkUrl": {"url": "https://store-a.com"}},
+          {"label": "Store B", "linkUrl": {"url": "https://store-b.com"}}
+        ]
+      }
+    },
+    {
+      "description": "Peel effect with cookie persistence",
+      "attributes": {
+        "block_id": "i9j0",
+        "couponType": "peel",
+        "couponCode": "WELCOME10",
+        "saveCookie": true,
+        "backTitle": "Welcome!",
+        "backDesc": "Use code WELCOME10 for 10% off your first order"
+      }
+    }
+  ]
+}

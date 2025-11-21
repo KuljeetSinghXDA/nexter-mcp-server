@@ -1,0 +1,304 @@
+{
+  "blockName": "tpgb/tp-expand",
+  "version": "1.0.0",
+  "title": "Expand",
+  "category": "content",
+  "description": "Show or hide complete info on the page when it cannot be viewed fully on the initial screen using Expand or Read More options. Features customizable expand/collapse buttons with icons, content height limitation, smooth transitions, and optional extra buttons. Perfect for long-form content, FAQs, product descriptions, biography sections, and content teasers. Supports custom templates or text content with opacity overlay effects.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "title": {
+      "type": "string",
+      "default": "About Earth",
+      "description": "Section title (optional)"
+    },
+    "contentSource": {
+      "type": "string",
+      "default": "customContent",
+      "enum": ["customContent", "template"],
+      "description": "Content source: custom text or reusable template"
+    },
+    "content": {
+      "type": "string",
+      "default": "Earth is the third planet from the Sun and the only astronomical object known to harbour life. According to radiometric dating estimation and other evidence, Earth formed over 4.5 billion years ago. Earth's gravity interacts with other objects in space, especially the Sun and the Moon, which is Earth's only natural satellite. Earth orbits around the Sun in about 365.25 days.<br/><br/>Earth's axis of rotation is tilted with respect to its orbital plane, producing seasons on Earth. The gravitational interaction between Earth and the Moon causes tides, stabilises Earth's orientation on its axis, and gradually slows its rotation. Earth is the densest planet in the Solar System and the largest and most massive of the four rocky planets.",
+      "description": "Custom content (when contentSource is 'customContent')"
+    },
+    "templates": {
+      "type": "string",
+      "default": "",
+      "description": "Template ID (when contentSource is 'template')"
+    },
+    "backendVisi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show template in backend editor"
+    },
+    "titleTag": {
+      "type": "string",
+      "default": "div",
+      "enum": ["h1", "h2", "h3", "h4", "h5", "h6", "div", "span"],
+      "description": "HTML tag for title"
+    },
+    "iconPosition": {
+      "type": "string",
+      "default": "before",
+      "enum": ["before", "after"],
+      "description": "Icon position relative to button text"
+    },
+    "expandText": {
+      "type": "string",
+      "default": "Read More",
+      "description": "Expand button text"
+    },
+    "ariaLabel": {
+      "type": "string",
+      "default": "",
+      "description": "ARIA label for expand button"
+    },
+    "readMoreIcon": {
+      "type": "string",
+      "default": "fas fa-angle-down",
+      "description": "Font Awesome icon for expand button"
+    },
+    "collapseText": {
+      "type": "string",
+      "default": "Read Less",
+      "description": "Collapse button text"
+    },
+    "collapseIcon": {
+      "type": "string",
+      "default": "fas fa-angle-up",
+      "description": "Font Awesome icon for collapse button"
+    },
+    "extraButton": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show extra action button (e.g., 'Watch Video')"
+    },
+    "extraButtonText": {
+      "type": "string",
+      "default": "Watch Video",
+      "description": "Extra button text (when extraButton is true)"
+    },
+    "extraButtonLink": {
+      "type": "object",
+      "default": {"url": "", "target": "", "nofollow": ""},
+      "description": "Extra button link URL"
+    },
+    "ariaLabelEb": {
+      "type": "string",
+      "default": "",
+      "description": "ARIA label for extra button"
+    },
+    "extraButtonIcon": {
+      "type": "string",
+      "default": "fas fa-angle-right",
+      "description": "Font Awesome icon for extra button"
+    },
+    "contentExpandDir": {
+      "type": "string",
+      "default": "above",
+      "enum": ["above", "below"],
+      "description": "Content expansion direction (above or below toggle button)"
+    },
+    "contentMaxHeight": {
+      "type": "object",
+      "default": {"md": "100", "unit": "px"},
+      "description": "Maximum content height when collapsed",
+      "responsive": true
+    },
+    "customOpacity": {
+      "type": "boolean",
+      "default": false,
+      "description": "Use custom opacity overlay at content bottom"
+    },
+    "opacityHeight": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Opacity overlay height (when customOpacity is true)",
+      "responsive": true
+    },
+    "opacityColor": {
+      "type": "string",
+      "default": "",
+      "description": "Opacity overlay end color (gradient from transparent)"
+    },
+    "transDuration": {
+      "type": "string",
+      "default": "200",
+      "description": "Transition duration in milliseconds"
+    },
+    "toggleAlignment": {
+      "type": "string",
+      "default": "left",
+      "enum": ["left", "center", "right"],
+      "description": "Toggle button alignment"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "title",
+      "content",
+      "expandText",
+      "ariaLabel",
+      "readMoreIcon",
+      "collapseText",
+      "collapseIcon",
+      "extraButtonText",
+      "extraButtonLink",
+      "ariaLabelEb",
+      "extraButtonIcon",
+      "contentMaxHeight",
+      "opacityHeight",
+      "opacityColor",
+      "transDuration",
+      "toggleAlignment"
+    ],
+    "requiresValidation": [
+      "contentSource",
+      "templates",
+      "backendVisi",
+      "titleTag",
+      "iconPosition",
+      "extraButton",
+      "contentExpandDir",
+      "customOpacity"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "CSS transitions for smooth expand/collapse",
+    "JavaScript for height calculation and toggle",
+    "Gradient overlay CSS (when customOpacity is true)"
+  ],
+  "commonUseCases": [
+    "Long-form blog posts with teasers",
+    "Product descriptions (collapsed by default)",
+    "FAQ sections with expandable answers",
+    "Team member biographies",
+    "Event details and agendas",
+    "Service descriptions",
+    "Privacy policies and terms",
+    "Article excerpts",
+    "Course syllabi",
+    "Property listings with full details",
+    "Recipe instructions",
+    "Project descriptions in portfolios"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-accordion",
+    "tpgb/tp-tabs",
+    "core/group"
+  ],
+  "capabilities": [
+    "Custom content or reusable template support",
+    "Optional section title with customizable HTML tag (h1-h6, div, span)",
+    "Expand and collapse button text customization",
+    "Font Awesome icons for both buttons",
+    "Icon position (before or after text)",
+    "Optional extra action button (e.g., 'Watch Video') with link",
+    "2 expansion directions (above or below toggle button)",
+    "Maximum content height control (responsive)",
+    "Custom opacity overlay at content bottom",
+    "Opacity overlay height control",
+    "Gradient opacity color customization",
+    "Transition duration control",
+    "3 toggle button alignments (left, center, right)",
+    "ARIA labels for accessibility",
+    "Extensive styling controls for title, description, toggle button, extra button, and icons",
+    "Template visibility in backend editor",
+    "Responsive typography controls"
+  ],
+  "usesContext": [
+    "postId",
+    "postType",
+    "queryId",
+    "tpgb/dynamicSubFieldData",
+    "tpgb/dynamicRowIndex",
+    "tpgb/dynamicPost",
+    "tpgb/dynamicRepField"
+  ],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple 'Read More' for blog excerpt",
+      "attributes": {
+        "block_id": "a1b2",
+        "title": "",
+        "expandText": "Read More",
+        "collapseText": "Read Less",
+        "contentMaxHeight": {"md": "150", "unit": "px"},
+        "toggleAlignment": "left",
+        "transDuration": "300"
+      }
+    },
+    {
+      "description": "Product description with custom icon",
+      "attributes": {
+        "block_id": "c3d4",
+        "title": "Product Details",
+        "titleTag": "h3",
+        "expandText": "View Full Details",
+        "readMoreIcon": "fas fa-chevron-down",
+        "collapseIcon": "fas fa-chevron-up",
+        "contentMaxHeight": {"md": "100", "unit": "px"},
+        "customOpacity": true,
+        "opacityColor": "#ffffff"
+      }
+    },
+    {
+      "description": "FAQ answer with extra 'Contact Us' button",
+      "attributes": {
+        "block_id": "e5f6",
+        "expandText": "Show Answer",
+        "collapseText": "Hide Answer",
+        "extraButton": true,
+        "extraButtonText": "Contact Support",
+        "extraButtonLink": {"url": "/contact", "target": ""},
+        "toggleAlignment": "center"
+      }
+    },
+    {
+      "description": "Team bio with template content",
+      "attributes": {
+        "block_id": "g7h8",
+        "contentSource": "template",
+        "templates": "team-bio-template",
+        "title": "About John Doe",
+        "titleTag": "h4",
+        "expandText": "Read Full Bio",
+        "collapseText": "Show Less",
+        "iconPosition": "after"
+      }
+    },
+    {
+      "description": "Recipe with gradient overlay",
+      "attributes": {
+        "block_id": "i9j0",
+        "title": "Full Recipe",
+        "contentMaxHeight": {"md": "200", "unit": "px"},
+        "customOpacity": true,
+        "opacityHeight": {"md": "80", "unit": "px"},
+        "opacityColor": "#f9f9f9",
+        "expandText": "Show Full Recipe",
+        "toggleAlignment": "center",
+        "transDuration": "400"
+      }
+    }
+  ]
+}
