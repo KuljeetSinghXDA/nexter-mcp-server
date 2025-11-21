@@ -1,0 +1,175 @@
+{
+  "blockName": "tpgb/tp-testimonials",
+  "version": "1.0.0",
+  "title": "Testimonials",
+  "category": "marketing",
+  "description": "Display customer testimonials, reviews, and feedback to build trust and credibility. Supports multiple layout styles, star ratings, author information, avatars, and both grid and carousel display modes.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Visual style variant for testimonials"
+    },
+    "telayout": {
+      "type": "string",
+      "default": "carousel",
+      "enum": ["grid", "carousel"],
+      "description": "Display layout: static grid or carousel slider"
+    },
+    "columns": {
+      "type": "object",
+      "default": {"md": 6, "sm": 6, "xs": 12},
+      "description": "Grid column width in bootstrap grid system (1-12)",
+      "responsive": true
+    },
+    "columnSpace": {
+      "type": "object",
+      "default": {
+        "md": {"top": 15, "right": 15, "bottom": 15, "left": 15},
+        "unit": "px"
+      },
+      "description": "Spacing between testimonial items (grid layout)",
+      "responsive": true
+    },
+    "styleLayout": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Layout style variant"
+    },
+    "style4Alignment": {
+      "type": "string",
+      "default": "left",
+      "enum": ["left", "center", "right"],
+      "description": "Content alignment for style-4"
+    },
+    "rating": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable star rating display"
+    },
+    "ItemRepeater": {
+      "type": "array",
+      "default": [
+        {
+          "_key": "cvi9",
+          "testiTitle": "John Doe",
+          "designation": "MD at Orange",
+          "content": "I am pretty satisfied with Nexter Blocks.",
+          "authorTitle": "Supercharge ⚡ Gutenberg",
+          "avatar": {"url": ""},
+          "starRating": ""
+        }
+      ],
+      "description": "Array of testimonial items",
+      "repeaterField": {
+        "testiTitle": {"type": "string", "description": "Author name"},
+        "designation": {"type": "string", "description": "Author job title/role"},
+        "content": {"type": "string", "description": "Testimonial text/review"},
+        "authorTitle": {"type": "string", "description": "Additional author info or company"},
+        "avatar": {"type": "object", "description": "Author avatar image"},
+        "starRating": {"type": "string", "description": "Star rating (1-5)"}
+      }
+    },
+    "contentHei": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Fixed height for testimonial content (with scrollbar)",
+      "responsive": true
+    },
+    "carouselId": {
+      "type": "string",
+      "default": "",
+      "description": "Carousel configuration ID"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "ItemRepeater",
+      "style4Alignment",
+      "columnSpace",
+      "contentHei",
+      "rating"
+    ],
+    "requiresValidation": [
+      "style",
+      "telayout",
+      "styleLayout",
+      "columns",
+      "carouselId"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Testimonial style CSS",
+    "Grid or carousel layout CSS",
+    "Star rating icons",
+    "Avatar image styling",
+    "Responsive styling"
+  ],
+  "commonUseCases": [
+    "Customer testimonials section",
+    "Product reviews display",
+    "Client feedback showcase",
+    "Social proof section",
+    "Trust building content",
+    "Service reviews"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-heading-title",
+    "tpgb/tp-team-listing",
+    "tpgb/tp-icon-box"
+  ],
+  "capabilities": [
+    "Multiple style variants",
+    "Grid or carousel layout",
+    "Star rating support",
+    "Author avatars",
+    "Responsive column system",
+    "Fixed height with scrolling",
+    "Repeater for multiple testimonials",
+    "Custom spacing and alignment"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple testimonial carousel with 3 reviews",
+      "attributes": {
+        "block_id": "a1b2",
+        "telayout": "carousel",
+        "rating": true,
+        "ItemRepeater": [
+          {
+            "_key": "1",
+            "testiTitle": "Jane Smith",
+            "designation": "CEO at TechCorp",
+            "content": "Outstanding service! Highly recommended.",
+            "starRating": "5",
+            "avatar": {"url": ""}
+          }
+        ]
+      }
+    },
+    {
+      "description": "Grid layout testimonials (2 columns)",
+      "attributes": {
+        "block_id": "c3d4",
+        "telayout": "grid",
+        "columns": {"md": 6, "sm": 12, "xs": 12},
+        "columnSpace": {"md": {"top": 20, "right": 20, "bottom": 20, "left": 20}}
+      }
+    }
+  ]
+}
