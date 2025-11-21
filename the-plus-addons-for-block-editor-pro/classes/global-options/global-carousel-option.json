@@ -1,0 +1,289 @@
+{
+  "dotsBorderColor": {
+      "type": "string",
+      "default": "",
+      "style": [{
+          "condition": [{
+                  "key": "dotsStyle",
+                  "relation": "==",
+                  "value": [
+                      "style-1",
+                      "style-2",
+                      "style-3",
+                      "style-4",
+                      "style-6"
+                  ]
+              },
+              {
+                  "key": "showDots",
+                  "relation": "==",
+                  "value": true
+              }
+          ],
+          "selector": "{{PLUS_WRAP}}.dots-style-1 ul.splide__pagination li button.splide__pagination__page{-webkit-box-shadow:inset 0 0 0 8px {{dotsBorderColor}};-moz-box-shadow: inset 0 0 0 8px {{dotsBorderColor}};box-shadow: inset 0 0 0 8px {{dotsBorderColor}};} {{PLUS_WRAP}}.dots-style-1 ul.splide__pagination li button.splide__pagination__page.is-active{-webkit-box-shadow:inset 0 0 0 1px {{dotsBorderColor}};-moz-box-shadow: inset 0 0 0 1px {{dotsBorderColor}};box-shadow: inset 0 0 0 1px {{dotsBorderColor}};}{{PLUS_WRAP}}.dots-style-2 ul.splide__pagination li button.splide__pagination__page, {{PLUS_WRAP}}.dots-style-6 .splide__pagination button{border: 1px solid {{dotsBorderColor}};}{{PLUS_WRAP}}.dots-style-3 .splide__pagination li button{-webkit-box-shadow: inset 0 0 0 1px {{dotsBorderColor}};-moz-box-shadow: inset 0 0 0 1px {{dotsBorderColor}};box-shadow: inset 0 0 0 1px {{dotsBorderColor}};}{{PLUS_WRAP}}.dots-style-3 .splide__pagination li button.is-active{-webkit-box-shadow: inset 0 0 0 8px {{dotsBorderColor}};-moz-box-shadow: inset 0 0 0 8px {{dotsBorderColor}};box-shadow: inset 0 0 0 8px {{dotsBorderColor}};}{{PLUS_WRAP}}.dots-style-4 .splide__pagination li button::before{-webkit-box-shadow: inset 0 0 0 1px {{dotsBorderColor}};-moz-box-shadow: inset 0 0 0 1px {{dotsBorderColor}};box-shadow: inset 0 0 0 1px {{dotsBorderColor}};}{{PLUS_WRAP}}.dots-style-1 ul.splide__pagination li button.splide__pagination__page{background: transparent;color: {{dotsBorderColor}};}"
+      }],
+      "scopy": true
+  },
+  "dotsBgColor": {
+      "type": "string",
+      "default": "",
+      "style": [{
+          "condition": [{
+                  "key": "dotsStyle",
+                  "relation": "==",
+                  "value": [
+                      "style-2",
+                      "style-3",
+                      "style-4",
+                      "style-5",
+                      "style-7"
+                  ]
+              },
+              {
+                  "key": "showDots",
+                  "relation": "==",
+                  "value": true
+              }
+          ],
+          "selector": "{{PLUS_WRAP}}.dots-style-2 ul.splide__pagination li button.splide__pagination__page,{{PLUS_WRAP}}.dots-style-2 ul.splide__pagination li button.splide__pagination__page,{{PLUS_WRAP}}.dots-style-3 .splide__pagination li button,{{PLUS_WRAP}}.dots-style-4 .splide__pagination li button::before,{{PLUS_WRAP}}.dots-style-5 .splide__pagination li button,{{PLUS_WRAP}}.dots-style-7 .splide__pagination li button{background:{{dotsBgColor}};}"
+      }],
+      "scopy": true
+  },
+  "dotsActiveBorderColor": {
+      "type": "string",
+      "default": "",
+      "style": [{
+          "condition": [{
+                  "key": "dotsStyle",
+                  "relation": "==",
+                  "value": [
+                      "style-2",
+                      "style-4",
+                      "style-6"
+                  ]
+              },
+              {
+                  "key": "showDots",
+                  "relation": "==",
+                  "value": true
+              }
+          ],
+          "selector": "{{PLUS_WRAP}}.dots-style-2 .splide__pagination li button.is-active::after{border-color: {{dotsActiveBorderColor}};}{{PLUS_WRAP}}.dots-style-4 .splide__pagination li button.is-active{-webkit-box-shadow: inset 0 0 0 1px {{dotsActiveBorderColor}};-moz-box-shadow: inset 0 0 0 1px {{dotsActiveBorderColor}};box-shadow: inset 0 0 0 1px {{dotsActiveBorderColor}};}{{PLUS_WRAP}}.dots-style-6 .splide__pagination button::after{color: {{dotsActiveBorderColor}};}"
+      }],
+      "scopy": true
+  },
+  "dotsActiveBgColor": {
+      "type": "string",
+      "default": "",
+      "style": [{
+          "condition": [{
+                  "key": "dotsStyle",
+                  "relation": "==",
+                  "value": [
+                      "style-2",
+                      "style-4",
+                      "style-5",
+                      "style-7"
+                  ]
+              },
+              {
+                  "key": "showDots",
+                  "relation": "==",
+                  "value": true
+              }
+          ],
+          "selector": "{{PLUS_WRAP}}.dots-style-2 .splide__pagination li button.is-active::after,{{PLUS_WRAP}}.dots-style-4 .splide__pagination li button.is-active::before,{{PLUS_WRAP}}.dots-style-5 .splide__pagination li:hover button,{{PLUS_WRAP}}.dots-style-5 .splide__pagination li button.is-active,{{PLUS_WRAP}}.dots-style-7 .splide__pagination li button.is-active{background: {{dotsActiveBgColor}};}"
+      }],
+      "scopy": true
+  },
+  "arrowsBgColor": {
+      "type": "string",
+      "default": "",
+      "style": [{
+          "condition": [{
+                  "key": "arrowsStyle",
+                  "relation": "==",
+                  "value": [
+                      "style-1",
+                      "style-3",
+                      "style-4",
+                      "style-6"
+                  ]
+              },
+              {
+                  "key": "showArrows",
+                  "relation": "==",
+                  "value": true
+              }
+          ],
+          "selector": "{{PLUS_WRAP}} .splide__arrows.style-1 .splide__arrow.style-1,{{PLUS_WRAP}} .splide__arrows.style-3 .splide__arrow.style-3 .icon-wrap,{{PLUS_WRAP}} .splide__arrows.style-6 .splide__arrow.style-6:before{background:{{arrowsBgColor}};}{{PLUS_WRAP}} .splide__arrows.style-4 .splide__arrow.style-4 .icon-wrap{border-color:{{arrowsBgColor}}}"
+      }],
+      "scopy": true
+  },
+  "arrowsIconColor": {
+      "type": "string",
+      "default": "",
+      "style": [{
+          "condition": [{
+              "key": "showArrows",
+              "relation": "==",
+              "value": true
+          }],
+          "selector": "{{PLUS_WRAP}} .splide__arrows.style-1 .splide__arrow.style-1:before,{{PLUS_WRAP}} .splide__arrows.style-3 .splide__arrow.style-3 .icon-wrap,{{PLUS_WRAP}} .splide__arrows.style-4 .splide__arrow.style-4 .icon-wrap,{{PLUS_WRAP}} .splide__arrows.style-6 .splide__arrow.style-6 .icon-wrap svg{color:{{arrowsIconColor}};}{{PLUS_WRAP}} .splide__arrows.style-2 .splide__arrow.style-2 .icon-wrap:before,{{PLUS_WRAP}} .splide__arrows.style-2 .splide__arrow.style-2 .icon-wrap:after,{{PLUS_WRAP}} .splide__arrows.style-5 .splide__arrow.style-5 .icon-wrap:before,{{PLUS_WRAP}} .splide__arrows.style-5 .splide__arrow.style-5 .icon-wrap:after{background:{{arrowsIconColor}};}"
+      }],
+      "scopy": true
+  },
+  "arrowsHoverBgColor": {
+      "type": "string",
+      "default": "",
+      "style": [{
+          "condition": [{
+                  "key": "arrowsStyle",
+                  "relation": "==",
+                  "value": [
+                      "style-1",
+                      "style-2",
+                      "style-3",
+                      "style-4"
+                  ]
+              },
+              {
+                  "key": "showArrows",
+                  "relation": "==",
+                  "value": true
+              }
+          ],
+          "selector": "{{PLUS_WRAP}} .splide__arrows.style-1 .splide__arrow.style-1:hover,{{PLUS_WRAP}} .splide__arrows.style-2 .splide__arrow.style-2:hover:before,{{PLUS_WRAP}} .splide__arrows.style-3 .splide__arrow.style-3:hover .icon-wrap{background:{{arrowsHoverBgColor}};}{{PLUS_WRAP}} .splide__arrows.style-4 .splide__arrow.style-4:hover:before,{{PLUS_WRAP}} .splide__arrows.style-4 .splide__arrow.style-4:hover .icon-wrap{border-color:{{arrowsHoverBgColor}};}"
+      }],
+      "scopy": true
+  },
+  "arrowsHoverIconColor": {
+      "type": "string",
+      "default": "",
+      "style": [{
+          "condition": [{
+              "key": "showArrows",
+              "relation": "==",
+              "value": true
+          }],
+          "selector": "{{PLUS_WRAP}} .splide__arrows.style-1 .splide__arrow.style-1:hover:before,{{PLUS_WRAP}} .splide__arrows.style-3 .splide__arrow.style-3:hover .icon-wrap,{{PLUS_WRAP}} .splide__arrows.style-4 .splide__arrow.style-4:hover .icon-wrap,{{PLUS_WRAP}} .splide__arrows.style-6 .splide__arrow.style-6:hover .icon-wrap svg{color:{{arrowsHoverIconColor}};}{{PLUS_WRAP}} .splide__arrows.style-2 .splide__arrow.style-2:hover .icon-wrap:before,{{PLUS_WRAP}} .splide__arrows.style-2 .splide__arrow.style-2:hover .icon-wrap:after,{{PLUS_WRAP}} .splide__arrows.style-5 .splide__arrow.style-5:hover .icon-wrap:before,{{PLUS_WRAP}} .splide__arrows.style-5 .splide__arrow.style-5:hover .icon-wrap:after{background:{{arrowsHoverIconColor}};}"
+      }],
+      "scopy": true
+  },
+  "centerPadding": {
+      "type": "object",
+      "default": {
+          "md": 0,
+          "sm": 0,
+          "xs": 0
+      },
+      "scopy": true
+  },
+  "centerSlideEffect": {
+      "type": "string",
+      "default": "none",
+      "scopy": true
+  },
+  "centerslideScale": {
+      "type": "string",
+      "default": 1,
+      "style": [{
+          "condition": [{
+                  "key": "centerMode",
+                  "relation": "==",
+                  "value": true
+              },
+              {
+                  "key": "centerSlideEffect",
+                  "relation": "==",
+                  "value": "scale"
+              }
+          ],
+          "selector": "{{PLUS_WRAP}} .splide__list .splide__slide.is-active > div,{{PLUS_WRAP}} .splide__list .splide__slide.is-active > a{-webkit-transform: scale({{centerslideScale}});-moz-transform: scale({{centerslideScale}});-ms-transform: scale({{centerslideScale}});-o-transform: scale({{centerslideScale}});transform: scale({{centerslideScale}});}{{PLUS_WRAP}} .splide__list .splide__slide > div,{{PLUS_WRAP}} .splide__list .splide__slide.is-active > a{transition: .3s all linear;}"
+      }],
+      "scopy": true
+  },
+  "normalslideScale": {
+      "type": "string",
+      "default": 1,
+      "style": [{
+          "condition": [{
+                  "key": "centerMode",
+                  "relation": "==",
+                  "value": true
+              },
+              {
+                  "key": "centerSlideEffect",
+                  "relation": "==",
+                  "value": "scale"
+              }
+          ],
+          "selector": "{{PLUS_WRAP}} .splide__list .splide__slide  > div,{{PLUS_WRAP}} .splide__list .splide__slide  > a{-webkit-transform: scale({{normalslideScale}});-moz-transform: scale({{normalslideScale}});-ms-transform: scale({{normalslideScale}});-o-transform: scale({{normalslideScale}});transform: scale({{normalslideScale}});}{{PLUS_WRAP}} .splide__list .splide__slide > div,{{PLUS_WRAP}} .splide__list .splide__slide  > a{transition: .3s all linear;}"
+      }],
+      "scopy": true
+  },
+  "slideOpacity": {
+      "type": "object",
+      "default": {
+          "md": 1,
+          "sm": 1,
+          "xs": 1
+      },
+      "style": [{
+          "condition": [{
+              "key": "centerMode",
+              "relation": "==",
+              "value": true
+          }],
+          "selector": "{{PLUS_WRAP}} .splide__list .splide__slide:not(.is-active) > div,{{PLUS_WRAP}} .splide__list .splide__slide:not(.is-active) > a{opacity:{{slideOpacity}};}{{PLUS_WRAP}} .splide__list .splide__slide > div,{{PLUS_WRAP}} .splide__list .splide__slide > a{transition: .3s all linear;}"
+      }],
+      "scopy": true
+  },
+  "slideBoxShadow": {
+      "type": "object",
+      "default": {
+          "openShadow": 0,
+          "blur": 8,
+          "color": "rgba(0,0,0,0.40)",
+          "horizontal": 0,
+          "inset": 0,
+          "spread": 0,
+          "vertical": 4
+      },
+      "style": [{
+          "condition": [{
+                  "key": "centerMode",
+                  "relation": "==",
+                  "value": true
+              },
+              {
+                  "key": "centerSlideEffect",
+                  "relation": "==",
+                  "value": "shadow"
+              }
+          ],
+          "selector": "{{PLUS_WRAP}} .splide__list .splide__slide.is-active > div,{{PLUS_WRAP}} .splide__list .splide__slide.is-active > a"
+      }],
+      "scopy": true
+  },
+  "slideheightRatio": {
+      "type": "string",
+      "default": "0.5",
+      "scopy": true
+  },
+  "tabslideRatio": {
+      "type": "string",
+      "default": "",
+      "scopy": true
+  },
+  "mobslideRatio": {
+      "type": "string",
+      "default": "",
+      "scopy": true
+  },
+  "trimSpace": {
+      "type": "boolean",
+      "default": false,
+      "scopy": true
+  }
+}

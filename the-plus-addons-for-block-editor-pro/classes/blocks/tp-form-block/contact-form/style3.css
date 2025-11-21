@@ -1,0 +1,32 @@
+.tp-form-block.nxt-style-3 .nxt-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: end
+}
+
+.nxt-style-3 .nxt-check-title-label,.nxt-style-3 .nxt-date-label,.nxt-style-3 .nxt-email-label,.nxt-style-3 .nxt-message-label,.nxt-style-3 .nxt-name-label,.nxt-style-3 .nxt-number-label,.nxt-style-3 .nxt-option-label,.nxt-style-3 .nxt-phone-label,.nxt-style-3 .nxt-radio-title-label,.nxt-style-3 .nxt-time-label,.nxt-style-3 .nxt-url-label {
+    display: none;
+    transition: all .3s ease;
+    pointer-events: none
+}
+
+.nxt-style-3 .nxt-date-input .nxt-date-richtext,.nxt-style-3 .nxt-input-container,.nxt-style-3 .nxt-input-wrapper,.nxt-style-3 .nxt-message-richtext,.nxt-style-3 .nxt-option-container .nxt-option-field,.nxt-style-3 .nxt-time-input .nxt-time-richtext {
+    border: 0;
+    border-bottom: 1px solid #8f8f8fa6;
+    border-radius: 0 0 4px 4px
+}
+
+.nxt-style-3 .nxt-url-input .nxt-url-richtext:focus {
+    border: 0;
+    box-shadow: none;
+    outline: 0
+}
+
+.nxt-style-3 .nxt-date-input .nxt-date-richtext:focus,.nxt-style-3 .nxt-message-richtext:focus,.nxt-style-3 .nxt-option-container .nxt-option-field:focus,.nxt-style-3 .nxt-time-input .nxt-time-richtext:focus {
+    border: 0;
+    border-bottom: 1px solid #8f8f8fa6;
+    box-shadow: none;
+    outline-width: 0;
+    outline-style: none
+}

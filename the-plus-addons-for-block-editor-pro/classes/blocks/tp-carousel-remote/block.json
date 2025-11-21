@@ -1,0 +1,983 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-carousel-remote",
+	"version": "0.1.0",
+	"title": "Carousel Remote",
+	"category": "tpgb",
+	"description": "Connect any carousel using unique ID to trigger carousel motion",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "carouselId": {
+            "type": "string",
+            "default": "Id1"
+        },
+        "carobtn": {
+            "type": "boolean",
+            "default": true
+        },
+        "remType": {
+            "type": "string",
+            "default": "carousel"
+        },
+        "btntxt1": {
+            "type": "string",
+            "default": "Prev"
+        },
+        "btntxt2": {
+            "type": "string",
+            "default": "Next"
+        },
+        "rbtnAlign": {
+            "type": "string",
+            "default": "text-left",
+            "scopy": true
+        },
+        "pAriaLabel": {
+            "type": "string",
+            "default": ""
+        },
+        "nAriaLabel": {
+            "type": "string",
+            "default": ""
+        },
+        "BiconFont": {
+            "type": "string",
+            "default": "font_awesome"
+        },
+        "btnIcon1": {
+            "type": "string",
+            "default": "fas fa-angle-left"
+        },
+        "btnIcon2": {
+            "type": "string",
+            "default": "fas fa-angle-right"
+        },
+        "Ctmicon1": {
+            "type": "object",
+            "default": {
+                "url": ""
+            }
+        },
+        "Ctmicon2": {
+            "type": "object",
+            "default": {
+                "url": ""
+            }
+        },
+        "imgSize": {
+            "type": "string",
+            "default": "full"
+        },
+        "iconSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                    "condition": [{
+                            "key": "carobtn",
+                            "relation": "==",
+                            "value": true
+                        },
+                        {
+                            "key": "BiconFont",
+                            "relation": "==",
+                            "value": "font_awesome"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .slider-btn span.nav-icon { font-size: {{iconSize}}; }"
+                },
+                {
+                    "condition": [{
+                            "key": "carobtn",
+                            "relation": "==",
+                            "value": true
+                        },
+                        {
+                            "key": "BiconFont",
+                            "relation": "==",
+                            "value": "img"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .slider-btn span.nav-icon img{ max-width: {{iconSize}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "iconSpace": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "carobtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} a.slider-btn.tpgb-prev-btn span.nav-icon{ margin-right: {{iconSpace}}; } {{PLUS_WRAP}} a.slider-btn.tpgb-next-btn span.nav-icon{ margin-left: {{iconSpace}}; } "
+            }],
+            "scopy": true
+        },
+        "iconColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "carobtn",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "BiconFont",
+                        "relation": "==",
+                        "value": "font_awesome"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} a.slider-btn span.nav-icon{ color: {{iconColor}}; } "
+            }],
+            "scopy": true
+        },
+        "HvrIcolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "carobtn",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "BiconFont",
+                        "relation": "==",
+                        "value": "font_awesome"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} a.slider-btn:hover span.nav-icon,{{PLUS_WRAP}} a.slider-btn.active span.nav-icon{ color: {{HvrIcolor}}; } "
+            }],
+            "scopy": true
+        },
+        "btnSpace": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "carobtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn.tpgb-prev-btn{ margin-right: {{btnSpace}}; } {{PLUS_WRAP}} .slider-btn-wrap a.slider-btn.tpgb-next-btn{ margin-left: {{btnSpace}}; } "
+            }],
+            "scopy": true
+        },
+        "rbtnpadding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "carobtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn{ padding: {{rbtnpadding}}; }"
+            }],
+            "scopy": true
+        },
+        "rbtnTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "btntxt1",
+                        "relation": "!=",
+                        "value": ""
+                    },
+                    {
+                        "key": "btntxt2",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn"
+            }],
+            "scopy": true
+        },
+        "txtcolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "btntxt1",
+                        "relation": "!=",
+                        "value": ""
+                    },
+                    {
+                        "key": "btntxt2",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn{ color: {{txtcolor}}; } "
+            }],
+            "scopy": true
+        },
+        "btnBorder": {
+            "type": "object",
+            "default": {
+                "openBorder": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "carobtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn"
+            }],
+            "scopy": true
+        },
+        "btnBradius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "carobtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn{ border-radius: {{btnBradius}}; }"
+            }],
+            "scopy": true
+        },
+        "btnBgtype": {
+            "type": "object",
+            "default": {
+                "openBg": 1,
+                "bgType": "color",
+                "bgDefaultColor": "#3882f7"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "carobtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn"
+            }],
+            "scopy": true
+        },
+        "btnBshadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "carobtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn"
+            }],
+            "scopy": true
+        },
+        "Hvrtxtcolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "btntxt1",
+                        "relation": "!=",
+                        "value": ""
+                    },
+                    {
+                        "key": "btntxt2",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn:hover,{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn.active{ color: {{Hvrtxtcolor}}; } "
+            }],
+            "scopy": true
+        },
+        "btnHBorder": {
+            "type": "object",
+            "default": {
+                "openBorder": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "carobtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn:hover,{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn.active"
+            }],
+            "scopy": true
+        },
+        "btnHBradius": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "carobtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn:hover,{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn.active{ border-radius: {{btnHBradius}}; }"
+            }],
+            "scopy": true
+        },
+        "hvrBgtype": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "carobtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn:hover,{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn.active"
+            }],
+            "scopy": true
+        },
+        "hvrBshadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "carobtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn:hover,{{PLUS_WRAP}} .slider-btn-wrap a.slider-btn.active"
+            }],
+            "scopy": true
+        },
+        "showDot": {
+            "type": "boolean",
+            "default": false
+        },
+        "dotList": {
+            "type": "array",
+            "repeaterField": [{
+                "label": {
+                    "type": "string",
+                    "default": "Slide"
+                },
+                "iconFonts": {
+                    "type": "string",
+                    "default": "font_awesome"
+                },
+                "iconName": {
+                    "type": "string",
+                    "default": "fas fa-home"
+                },
+                "iconImage": {
+                    "type": "object",
+                    "default": {
+                        "url": ""
+                    }
+                },
+                "iconimageSize": {
+                    "type": "string",
+                    "default": "full"
+                },
+                "doticonColor": {
+                    "type": "string",
+                    "default": "",
+                    "style": [{
+                        "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .tpgb-dots .dot-icon{ color:{{doticonColor}};}"
+                    }]
+                },
+                "dotBgtype": {
+                    "type": "object",
+                    "default": {
+                        "openBg": 1,
+                        "bgType": "color",
+                        "bgDefaultColor": "#c2ccc4"
+                    },
+                    "style": [{
+                        "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}}.tpgb-carodots-item "
+                    }]
+                },
+                "acticonColor": {
+                    "type": "string",
+                    "default": "",
+                    "style": [{
+                        "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}}.active .tpgb-dots .dot-icon,{{PLUS_WRAP}} {{TP_REPEAT_ID}}:hover .tpgb-dots .dot-icon{color:{{acticonColor}};}"
+                    }]
+                },
+                "actdotBgtype": {
+                    "type": "object",
+                    "default": {
+                        "openBg": 0
+                    },
+                    "style": [{
+                        "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}}.tpgb-carodots-item.active,{{PLUS_WRAP}} {{TP_REPEAT_ID}}.tpgb-carodots-item:hover"
+                    }]
+                }
+            }],
+            "default": [{
+                    "_key": "0",
+                    "label": "Slide 1",
+                    "iconFonts": "font_awesome",
+                    "iconName": "fas fa-home",
+                    "txtcolor": "",
+                    "iconColor": "",
+                    "acttxtcolor": "",
+                    "acticonColor": "",
+                    "iconimageSize": "full",
+                    "dotBgtype": {
+                        "openBg": 1,
+                        "bgType": "color",
+                        "bgDefaultColor": "#c2ccc4"
+                    }
+                },
+                {
+                    "_key": "1",
+                    "label": "Slide 2",
+                    "iconFonts": "font_awesome",
+                    "iconName": "fas fa-globe-europe",
+                    "txtcolor": "",
+                    "iconColor": "",
+                    "acttxtcolor": "",
+                    "acticonColor": "",
+                    "iconimageSize": "full",
+                    "dotBgtype": {
+                        "openBg": 1,
+                        "bgType": "color",
+                        "bgDefaultColor": "#c2ccc4"
+                    }
+                }
+            ]
+        },
+        "dotLayout": {
+            "type": "string",
+            "default": "horizontal"
+        },
+        "dotstyle": {
+            "type": "string",
+            "default": "style-1"
+        },
+        "AborderColor": {
+            "type": "string",
+            "default": "#6f14f1"
+        },
+        "AniDuration": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "showDot",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "dotstyle",
+                        "relation": "==",
+                        "value": "style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-carodots-item.style-1.active .active-border .border{ animation-duration: {{AniDuration}}ms ; }"
+            }]
+        },
+        "tooltipDir": {
+            "type": "string",
+            "default": "top"
+        },
+        "vtooltipDir": {
+            "type": "string",
+            "default": "left"
+        },
+        "dotSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "showDot",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-carodots-item{ width : {{dotSize}}; height: {{dotSize}}; line-height:{{dotSize}}; }"
+            }],
+            "scopy": true
+        },
+        "dotSpace": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                    "condition": [{
+                            "key": "showDot",
+                            "relation": "==",
+                            "value": true
+                        },
+                        {
+                            "key": "dotLayout",
+                            "relation": "==",
+                            "value": "horizontal"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-carousel-dots.dot-horizontal .tpgb-carodots-item{ margin-left: {{dotSpace}}; }  {{PLUS_WRAP}} .tpgb-carousel-dots.dot-horizontal .tpgb-carodots-item:first-child { margin-left: 0 ; }  {{PLUS_WRAP}}.tpgb-carousel-dots.dot-horizontal .tpgb-carodots-item::last-child { margin-right: 0; }"
+                },
+                {
+                    "condition": [{
+                            "key": "showDot",
+                            "relation": "==",
+                            "value": true
+                        },
+                        {
+                            "key": "dotLayout",
+                            "relation": "==",
+                            "value": "vertical"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-carousel-dots.dot-vertical .tpgb-carodots-item{ margin-top: {{dotSpace}}; }  {{PLUS_WRAP}} .tpgb-carousel-dots.dot-vertical .tpgb-carodots-item:first-child{ margin-top: 0 ; }  {{PLUS_WRAP}} .tpgb-carousel-dots.dot-vertical .tpgb-carodots-item:last-child{ margin-bottom: 0; }"
+                }
+            ],
+            "scopy": true
+        },
+        "diconSize": {
+            "type": "object",
+            "default": {
+                "md": "20",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "showDot",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-carodots-item .dot-icon{ font-size : {{diconSize}}; }"
+            }],
+            "scopy": true
+        },
+        "dimgSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "showDot",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-carodots-item .tpgb-dots img{ max-width : {{dimgSize}}; }"
+            }],
+            "scopy": true
+        },
+        "dmargin": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "showDot",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-carodots-item{ margin : {{dmargin}}; }"
+            }],
+            "scopy": true
+        },
+        "dpadding": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "showDot",
+                    "relation": "==",
+                    "value": true
+                }],
+                 "selector": "{{PLUS_WRAP}} .tpgb-carodots-item .tpgb-dots{ padding : {{dpadding}}; }"
+            }],
+            "scopy": true
+        },
+        "totipmargin": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "showDot",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "dotstyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-dots .tooltip-txt { margin : {{totipmargin}}; }"
+            }],
+            "scopy": true
+        },
+        "totippadding": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "showDot",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "dotstyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-carodots-item .tpgb-dots .tooltip-txt { padding : {{totippadding}}; }"
+            }],
+            "scopy": true
+        },
+        "totipAlign": {
+            "type": "string",
+            "default": "center",
+            "style": [{
+                "condition": [{
+                        "key": "showDot",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "dotstyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-dots .tooltip-txt { justify-content : {{totipAlign}}; }"
+            }],
+            "scopy": true
+        },
+        "totipTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "showDot",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "dotstyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-dots .tooltip-txt"
+            }],
+            "scopy": true
+        },
+        "totipColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "showDot",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "dotstyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-dots .tooltip-txt{color : {{totipColor}};}"
+            }],
+            "scopy": true
+        },
+        "totipHColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "showDot",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "dotstyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-dots .tooltip-txt:hover{color : {{totipHColor}};}"
+            }],
+            "scopy": true
+        },
+        "totipBgcolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "showDot",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "dotstyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-dots .tooltip-txt{ background: {{totipBgcolor}};}"
+            }],
+            "scopy": true
+        },
+        "totipHBgcolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "showDot",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "dotstyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-dots .tooltip-txt:hover{ background: {{totipHBgcolor}};}"
+            }],
+            "scopy": true
+        },
+        "totipHgh": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "showDot",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "dotstyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-dots .tooltip-txt{ height : {{totipHgh}}px }"
+            }],
+            "scopy": true
+        },
+        "tooltiparrow": {
+            "type": "boolean",
+            "default": true,
+            "scopy": true
+        },
+        "arrowColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "dotstyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    },
+                    {
+                        "key": "tooltiparrow",
+                        "relation": "==",
+                        "value": true
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-dots .tooltip-txt.tooltip-arrow:after,.tpgb-carousel-dots.dot-vertical .tpgb-carodots-item.style-2 .tooltip-txt.tooltip-arrow:after{border-right-color : {{arrowColor}} }"
+            }],
+            "scopy": true
+        },
+        "totipBshadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "showDot",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "dotstyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-dots .tooltip-txt"
+            }],
+            "scopy": true
+        },
+        "tipBradius": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "showDot",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "dotstyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-dots .tooltip-txt{ border-radius: {{tipBradius}}; }"
+            }],
+            "scopy": true
+        },
+        "showpagi": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "sliderInd": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "noColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "showpagi",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .carousel-pagination .totalpage{ color : {{noColor}}; }"
+            }],
+            "scopy": true
+        },
+        "noTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "showpagi",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .carousel-pagination .totalpage"
+            }],
+            "scopy": true
+        },
+        "ActnoColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "showpagi",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .carousel-pagination .pagination-list .active{ color : {{ActnoColor}}; }"
+            }],
+            "scopy": true
+        },
+        "ActnoTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "showpagi",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .carousel-pagination .pagination-list .active"
+            }],
+            "scopy": true
+        },
+        "showBlockContent" :{
+            "type": "boolean",
+            "default": true
+        }
+    }
+}

@@ -1,0 +1,435 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-cta-banner",
+	"version": "0.1.0",
+	"title": "CTA Banner",
+	"category": "tpgb",
+	"description": "Display eye-popping banners and advertisements to gain attention and conversions.",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "styleType": {
+            "type": "string",
+            "default": "style-1"
+        },
+        "bannerImage": {
+            "type": "object",
+            "default": {
+                "url": ""
+            }
+        },
+        "imageSize": {
+            "type": "string",
+            "default": "full"
+        },
+        "Title": {
+            "type": "string",
+            "default": "Exclusive Offers"
+        },
+        "subTitle": {
+            "type": "string",
+            "default": "Never Before"
+        },
+        "desc": {
+            "type": "string",
+            "default": ""
+        },
+        "hoverStyle": {
+            "type": "string",
+            "default": "cta_img_vertical"
+        },
+        "titleTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Title",
+                    "relation": "!=",
+                    "value": ""
+                }],
+                "selector": "{{PLUS_WRAP}}.tpgb-cta-banner h3.cta-title"
+            }],
+            "scopy": true
+        },
+        "titleColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Title",
+                    "relation": "!=",
+                    "value": ""
+                }],
+                "selector": "{{PLUS_WRAP}}.tpgb-cta-banner h3.cta-title{ color: {{titleColor}}; }"
+            }],
+            "scopy": true
+        },
+        "titlehoverColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                    "condition": [{
+                            "key": "Title",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "styleType",
+                            "relation": "!=",
+                            "value": "style-8"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .cta-block:hover .cta-title { color: {{titlehoverColor}}; }"
+                },
+                {
+                    "condition": [{
+                            "key": "Title",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "styleType",
+                            "relation": "==",
+                            "value": "style-8"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .cta-product-box:hover .cta-title{ color: {{titlehoverColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "subtitleTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "subTitle",
+                    "relation": "!=",
+                    "value": ""
+                }],
+                "selector": "{{PLUS_WRAP}}.tpgb-cta-banner h4.cta-subtitle"
+            }],
+            "scopy": true
+        },
+        "subtitleColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "subTitle",
+                    "relation": "!=",
+                    "value": ""
+                }],
+                "selector": "{{PLUS_WRAP}}.tpgb-cta-banner h4.cta-subtitle{ color: {{subtitleColor}}; }"
+            }],
+            "scopy": true
+        },
+        "subtitlehoverColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                    "condition": [{
+                            "key": "subTitle",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "styleType",
+                            "relation": "!=",
+                            "value": "style-8"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .cta-block:hover .cta-subtitle{ color: {{subtitlehoverColor}}; }"
+                },
+                {
+                    "condition": [{
+                            "key": "subTitle",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "styleType",
+                            "relation": "==",
+                            "value": "style-8"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .cta-product-box:hover .cta-subtitle{ color: {{subtitlehoverColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "descTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "desc",
+                    "relation": "!=",
+                    "value": ""
+                }],
+                "selector": "{{PLUS_WRAP}} .cta-desc"
+            }],
+            "scopy": true
+        },
+        "descColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "desc",
+                    "relation": "!=",
+                    "value": ""
+                }],
+                "selector": "{{PLUS_WRAP}} .cta-desc{ color: {{descColor}}; }"
+            }],
+            "scopy": true
+        },
+        "descHvrColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                    "condition": [{
+                            "key": "desc",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "styleType",
+                            "relation": "!=",
+                            "value": "style-8"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .cta-block:hover .cta-desc{ color: {{descHvrColor}}; }"
+                },
+                {
+                    "condition": [{
+                            "key": "desc",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "styleType",
+                            "relation": "==",
+                            "value": "style-8"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .cta-product-box:hover .cta-desc{ color: {{descHvrColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "desctopsp": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "desc",
+                    "relation": "!=",
+                    "value": ""
+                }],
+                "selector": "{{PLUS_WRAP}} .cta-desc{margin-top: {{desctopsp}};}"
+            }],
+            "scopy": true
+        },
+        "descbottomsp": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "desc",
+                    "relation": "!=",
+                    "value": ""
+                }],
+                "selector": "{{PLUS_WRAP}} .cta-desc{margin-bottom: {{descbottomsp}};}"
+            }],
+            "scopy": true
+        },
+        "normalbgBorder": {
+            "type": "object",
+            "default": {
+                "unit": [
+                    "px"
+                ]
+            },
+            "style": [{
+                "condition": [{
+                    "key": "styleType",
+                    "relation": "!=",
+                    "value": "style-8"
+                }],
+                "selector": "{{PLUS_WRAP}} .cta-block .cta-block-inner{ border-radius: {{normalbgBorder}}; }"
+            }],
+            "scopy": true
+        },
+        "normalbgShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "styleType",
+                        "relation": "!=",
+                        "value": "style-8"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .cta-block .cta-block-inner"
+                },
+                {
+                    "condition": [{
+                        "key": "styleType",
+                        "relation": "==",
+                        "value": "style-8"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .cta-product-box"
+                }
+            ],
+            "scopy": true
+        },
+        "normalbgType": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "styleType",
+                        "relation": "!=",
+                        "value": "style-8"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .cta-block .entry-thumb .entry-hover:before"
+                },
+                {
+                    "condition": [{
+                        "key": "styleType",
+                        "relation": "==",
+                        "value": "style-8"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .cta-product-box .cta-product-box-inner:after"
+                }
+            ],
+            "scopy": true
+        },
+        "borderRadius": {
+            "type": "object",
+            "default": {
+                "unit": [
+                    "px"
+                ]
+            },
+            "style": [{
+                "condition": [{
+                    "key": "styleType",
+                    "relation": "!=",
+                    "value": "style-8"
+                }],
+                "selector": "{{PLUS_WRAP}} .cta-block:hover .cta-block-inner{ border-radius: {{borderRadius}}; }"
+            }],
+            "scopy": true
+        },
+        "hoverbgShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "styleType",
+                        "relation": "!=",
+                        "value": "style-8"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .cta-block:hover .cta-block-inner"
+                },
+                {
+                    "condition": [{
+                        "key": "styleType",
+                        "relation": "==",
+                        "value": "style-8"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .cta-product-box:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "hoverbgType": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "styleType",
+                        "relation": "!=",
+                        "value": "style-8"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .cta-block:hover .entry-thumb .entry-hover:before"
+                },
+                {
+                    "condition": [{
+                        "key": "styleType",
+                        "relation": "=\t=",
+                        "value": "style-8"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .cta-product-box:hover .cta-product-box-inner:after"
+                }
+            ],
+            "scopy": true
+        },
+        "btndivBgcolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "styleType",
+                    "relation": "==",
+                    "value": "style-8"
+                }],
+                "selector": "{{PLUS_WRAP}} .cta-product-box .cta-btn-block{ background : {{btndivBgcolor}}; }"
+            }],
+            "scopy": true
+        },
+        "isRptBlock": {
+			"type": "boolean",
+			"default": false
+		},
+        "showBlockContent" :{
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "usesContext": [ "postId", "postType", "queryId", "tpgb/dynamicSubFieldData", "tpgb/dynamicRowIndex", "tpgb/dynamicPost", "tpgb/dynamicRepField" ]
+}

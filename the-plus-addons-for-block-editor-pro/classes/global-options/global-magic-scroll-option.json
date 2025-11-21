@@ -1,0 +1,269 @@
+{
+    "PlusMagicScroll": {
+        "type": "boolean",
+        "default": false,
+        "scopy": true
+    },
+    "MSView": {
+        "type": "array",
+        "default": [
+            { "value": "md", "label": "Desktop" },
+            { "value": "sm", "label": "Tablet" },
+            { "value": "xs", "label": "Mobile" }
+        ],
+        "scopy": true
+    },
+    "MSType": {
+        "type": "string",
+        "default": "normal",
+        "scopy": true
+    },
+    "MSScrollOpt": {
+        "type": "object",
+        "default": {
+            "trigger": { "md": 0.5 },
+            "duration": { "md": 300, "unit": "px" },
+            "offset": { "md": "0", "unit": "px" },
+            "tpgbReset": 0
+        }
+    },
+    "MSVertical": {
+        "type": "object",
+        "default": {
+            "speed": { "md": [0, 5] },
+            "reverse": false,
+            "tpgbReset": 0
+        },
+        "scopy": true
+    },
+    "MSHorizontal": {
+        "type": "object",
+        "default": {
+            "speed": { "md": [0, 5] },
+            "reverse": false,
+            "tpgbReset": 0
+        },
+        "scopy": true
+    },
+    "MSOpacity": {
+        "type": "object",
+        "default": {
+            "speed": { "md": [0, 10] },
+            "reverse": false,
+            "tpgbReset": 0
+        },
+        "scopy": true
+    },
+    "MSRotate": {
+        "type": "object",
+        "default": {
+            "position": "center center",
+            "rotateX": { "md": [0, 4] },
+            "rotateY": { "md": [0, 0] },
+            "rotateZ": { "md": [0, 0] },
+            "reverse": false,
+            "tpgbReset": 0
+        }
+    },
+    "MSScale": {
+        "type": "object",
+        "default": {
+            "scaleX": { "md": [1, 1.5] },
+            "scaleY": { "md": [1, 1] },
+            "scaleZ": { "md": [1, 1] },
+            "reverse": false,
+            "tpgbReset": 0
+        }
+    },
+    "MSSticky": {
+        "type": "boolean",
+        "default": false
+    },
+    "MSDevelop": {
+        "type": "boolean",
+        "default": false
+    },
+    "MSdevName": {
+        "type": "string",
+        "default": ""
+    },
+    "MSFrame": {
+        "type": "array",
+        "repeaterField": [
+            {
+                "scrollOpt": {
+                    "type": "array",
+                    "default": {
+                        "trigger": { "md": 0.5 },
+                        "duration": { "md": 300, "unit": "px" },
+                        "offset": { "md": "0", "unit": "px" },
+                        "tpgbReset": 0
+                    }
+                },
+                "vertical": {
+                    "type": "",
+                    "default": {
+                        "speed": { "md": [0, 5] },
+                        "reverse": false,
+                        "tpgbReset": 0
+                    }
+                },
+                "horizontal": {
+                    "type": "array",
+                    "default": {
+                        "speed": { "md": [0, 5] },
+                        "reverse": false,
+                        "tpgbReset": 0
+                    }
+                },
+                "opacity": {
+                    "type": "array",
+                    "default": {
+                        "speed": { "md": [0, 10] },
+                        "reverse": false,
+                        "tpgbReset": 0
+                    }
+                },
+                "rotate": {
+                    "type": "array",
+                    "default": {
+                        "position": "center center",
+                        "rotateX": { "md": [0, 4] },
+                        "rotateY": { "md": [0, 0] },
+                        "rotateZ": { "md": [0, 0] },
+                        "reverse": false,
+                        "tpgbReset": 0
+                    }
+                },
+                "scale": {
+                    "type": "array",
+                    "default": {
+                        "scaleX": { "md": [1, 1.5] },
+                        "scaleY": { "md": [1, 1] },
+                        "scaleZ": { "md": [1, 1] },
+                        "reverse": false,
+                        "tpgbReset": 0
+                    }
+                },
+                "skew": {
+                    "type": "array",
+                    "default": {
+                        "skewX": { "md": [0, 1] },
+                        "skewY": { "md": [0, 0] },
+                        "reverse": false,
+                        "tpgbReset": 0
+                    }
+                },
+                "borderR": {
+                    "type": "array",
+                    "default": {
+                        "fromBR": { "md": { "top": "", "bottom": "", "left": "", "right": "", "unit": "px" } },
+                        "toBR": { "md": { "top": "", "bottom": "", "left": "", "right": "", "unit": "px" } },
+                        "tpgbReset": 0
+                    }
+                },
+                "bgColor": {
+                    "type": "array",
+                    "default": {
+                        "fromColor": "",
+                        "toColor": "",
+                        "tpgbReset": 0
+                    }
+                },
+                "advOption": {
+                    "type": "array",
+                    "default": {
+                        "repeat": { "md": "0" },
+                        "easing": "",
+                        "delay": { "md": "0" },
+                        "timing": { "md": "1" },
+                        "reverse": true,
+                        "selector": "",
+                        "tpgbReset": 0
+                    }
+                },
+                "sticky": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "develop": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "devName": {
+                    "type": "string",
+                    "default": ""
+                }
+            }
+        ],
+        "default": [
+            {
+                "_key": "0",
+                "scrollOpt": {
+                    "trigger": { "md": 0.5 },
+                    "duration": { "md": 300, "unit": "px" },
+                    "offset": { "md": "0", "unit": "px" },
+                    "tpgbReset": 0
+                },
+                "vertical": {
+                    "speed": { "md": [0, 5] },
+                    "reverse": false,
+                    "tpgbReset": 0
+                },
+                "horizontal": {
+                    "speed": { "md": [0, 5] },
+                    "reverse": false,
+                    "tpgbReset": 0
+                },
+                "opacity": {
+                    "speed": { "md": [0, 10] },
+                    "reverse": false,
+                    "tpgbReset": 0
+                },
+                "rotate": {
+                    "position": "center center",
+                    "rotateX": { "md": [0, 4] },
+                    "rotateY": { "md": [0, 0] },
+                    "rotateZ": { "md": [0, 0] },
+                    "reverse": false,
+                    "tpgbReset": 0
+                },
+                "scale": {
+                    "scaleX": { "md": [1, 1.5] },
+                    "scaleY": { "md": [1, 1] },
+                    "scaleZ": { "md": [1, 1] },
+                    "reverse": false,
+                    "tpgbReset": 0
+                },
+                "skew": {
+                    "skewX": { "md": [0, 1] },
+                    "skewY": { "md": [0, 0] },
+                    "reverse": false,
+                    "tpgbReset": 0
+                },
+                "borderR": {
+                    "fromBR": { "md": { "top": "", "bottom": "", "left": "", "right": "", "unit": "px" } },
+                    "toBR": { "md": { "top": "", "bottom": "", "left": "", "right": "", "unit": "px" } },
+                    "tpgbReset": 0
+                },
+                "bgColor": {
+                    "fromColor": "",
+                    "toColor": "",
+                    "tpgbReset": 0
+                },
+                "advOption": {
+                    "repeat": { "md": "0" },
+                    "easing": "",
+                    "delay": { "md": "0" },
+                    "timing": { "md": "1" },
+                    "reverse": true,
+                    "selector": "",
+                    "tpgbReset": 0
+                },
+                "sticky": false,
+                "develop": false,
+                "devName": ""
+            }
+        ]
+    }
+}

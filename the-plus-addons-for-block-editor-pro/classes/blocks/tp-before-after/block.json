@@ -1,0 +1,213 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-before-after",
+	"version": "0.1.0",
+	"title": "Before After",
+	"category": "tpgb",
+	"description": "Display two different versions of a webpage or product for comparison, measurement and decision-making",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "style": {
+            "type": "string",
+            "default": "horizontal"
+        },
+        "beforeImg": {
+            "type": "object",
+            "default": {
+                "url": ""
+            }
+        },
+        "beforeLabel": {
+            "type": "string",
+            "default": ""
+        },
+        "afterImg": {
+            "type": "object",
+            "default": {
+                "url": ""
+            }
+        },
+        "afterLabel": {
+            "type": "string",
+            "default": ""
+        },
+        "imageSize": {
+            "type": "string",
+            "default": "full"
+        },
+        "alignment": {
+            "type": "object",
+            "default": {
+                "md": "center",
+                "sm": "",
+                "xs": ""
+            },
+            "scopy": true
+        },
+        "fullWidth": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "onmouseHvr": {
+            "type": "boolean",
+            "default": true,
+            "scopy": true
+        },
+        "sepStyle": {
+            "type": "string",
+            "default": "middle",
+            "scopy": true
+        },
+        "sepLine": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "sepWidth": {
+            "type": "string",
+            "default": "5",
+            "scopy": true
+        },
+        "sepPosi": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "sepColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-beforeafter-sep{ background : {{sepColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "sepbotColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-bottom-sep{ background : {{sepbotColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "sepIcon": {
+            "type": "object",
+            "default": {
+                "url": ""
+            },
+            "scopy": true
+        },
+        "padding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-beforeafter-inner .tpgb-beforeafter-label{ padding: {{padding}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "labelTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-beforeafter-inner .tpgb-beforeafter-label"
+                }
+            ],
+            "scopy": true
+        },
+        "labelColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-beforeafter-inner .tpgb-beforeafter-label{ color : {{labelColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "labelBgtype": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-beforeafter-inner .tpgb-beforeafter-label"
+                }
+            ],
+            "scopy": true
+        },
+        "labelBorder": {
+            "type": "object",
+            "default": {
+                "openBorder": 0
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-beforeafter-inner .tpgb-beforeafter-label"
+                }
+            ],
+            "scopy": true
+        },
+        "labelBradius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-beforeafter-inner .tpgb-beforeafter-label{ border-radius: {{labelBradius}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "labelBshadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-beforeafter-inner .tpgb-beforeafter-label"
+                }
+            ],
+            "scopy": true
+        },
+        "showBlockContent" :{
+            "type": "boolean",
+            "default": true
+        }
+    }
+}

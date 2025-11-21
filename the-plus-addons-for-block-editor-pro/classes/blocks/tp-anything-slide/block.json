@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-anything-slide",
+	"version": "0.1.0",
+	"title": "Slide Inner",
+	"category": "tpgb",
+	"description": "Display collapsible long form content in FAQ style on your website.",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+        "anchor" : true,
+        "align": ["wide","full"]
+	},
+    "parent": ["tpgb/tp-anything-carousel"],
+	"textdomain": "tpgb",
+    "attributes": {
+        "key": {
+            "type": "string",
+            "default": ""
+        },
+        "itemId": {
+            "type": "string",
+            "default": ""
+        }
+    }
+}

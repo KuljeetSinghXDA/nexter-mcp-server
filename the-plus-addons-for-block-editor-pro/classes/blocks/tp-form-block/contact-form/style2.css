@@ -1,0 +1,45 @@
+.tp-form-block.nxt-style-2 .nxt-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: end
+}
+
+.nxt-style-2 .nxt-date-label,.nxt-style-2 .nxt-message-label,.nxt-style-2 .nxt-option-label,.nxt-style-2 .nxt-time-label {
+    position: absolute;
+    top: -3px;
+    left: 10px;
+    font-size: 16px;
+    transition: .3s;
+    z-index: 10;
+    line-height: 24px;
+    background: #fff
+}
+
+.nxt-style-2 .nxt-check-box,.nxt-style-2 .nxt-check-box-container,.nxt-style-2 .nxt-date-input,.nxt-style-2 .nxt-email-input,.nxt-style-2 .nxt-message-input,.nxt-style-2 .nxt-name-input,.nxt-style-2 .nxt-number-input,.nxt-style-2 .nxt-option-container,.nxt-style-2 .nxt-phone-input,.nxt-style-2 .nxt-radio-box,.nxt-style-2 .nxt-time-input,.nxt-style-2 .nxt-url-input {
+    padding-top: 10px
+}
+
+.nxt-style-2 .nxt-url-input .nxt-url-richtext:focus {
+    border: 0;
+    box-shadow: none;
+    outline: 0
+}
+
+.nxt-style-2 .nxt-date-input .nxt-date-richtext:focus,.nxt-style-2 .nxt-message-richtext:focus,.nxt-style-2 .nxt-option-container .nxt-option-field:focus,.nxt-style-2 .nxt-time-input .nxt-time-richtext:focus {
+    box-shadow: none;
+    border: 1px solid #8f8f8fa6;
+    outline-width: 0;
+    outline-style: none
+}
+
+.nxt-style-2 .nxt-email-label,.nxt-style-2 .nxt-name-label,.nxt-style-2 .nxt-number-label,.nxt-style-2 .nxt-phone-label,.nxt-style-2 .nxt-url-label {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    font-size: 16px;
+    transition: .3s;
+    z-index: 10;
+    line-height: 24px;
+    background: #fff
+}

@@ -1,0 +1,29 @@
+@media (min-width:1024px) {
+    .tpgb-column-sticky {
+        position: sticky!important
+    }
+
+    .admin-bar .tpgb-column-sticky {
+        top: 32px
+    }
+}
+
+@media (max-width:1024px) and (min-width:768px) {
+    .tpgb-tab-column-sticky {
+        position: sticky!important
+    }
+
+    .admin-bar .tpgb-tab-column-sticky {
+        top: 32px
+    }
+}
+
+@media (max-width:767px) {
+    .tpgb-mob-column-sticky {
+        position: sticky!important
+    }
+
+    .admin-bar .tpgb-mob-column-sticky {
+        top: 32px
+    }
+}

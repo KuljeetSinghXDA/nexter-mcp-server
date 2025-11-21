@@ -1,0 +1,128 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-form-phone-field",
+	"version": "0.1.0",
+	"title": "Phone Number",
+	"category": "tpgb",
+	"description": "Add a phone number field in your form.",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"anchor": true,
+		"align": ["wide", "full"]
+	},
+	"textdomain": "tpgb",
+	"ancestor": ["tpgb/tp-form-block"],
+	"attributes": {
+		"block_id": {
+			"type": "string",
+			"default": ""
+		},
+		"labelss": {
+			"type": "string",
+			"default": "Phone"
+		},
+		"countryWidth": {
+			"type": "object",
+			"default": {
+				"md": "",
+				"unit": "px"
+			},
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}} .nxt-phone-input .nxt-input-wrapper .nxt-country-dropdown{width: {{countryWidth}};}"
+				}
+			],
+			"scopy": true
+		},
+		"error": {
+			"type": "string",
+			"default": "This field is required"
+		},
+		"autoComplete": {
+			"type": "string",
+			"default": "off"
+		},
+		"patt": {
+			"type": "string",
+			"default": "^\\d{3} \\d{3} \\d{4}$"
+		},
+		"reqTgl": {
+			"type": "boolean",
+			"default": false
+		},
+		"inpSz": {
+			"type": "object",
+			"default": {
+				"md": "100",
+				"unit": "%"
+			},
+			"style": [
+				{
+					"selector": "{{PLUS_CLIENT_ID}} {margin:0; width: {{inpSz}}; } {{PLUS_CLIENT_ID}}[data-type='tpgb/tp-form-phone-field'].tp-form-phone-field{width:100%} {{PLUS_CLIENT_ID}}~.block-editor-block-list__block.wp-block:has(.nxt-btn-inline) {flex: 0; margin-bottom:3px !important;}",
+					"backend": true
+				},
+				{
+					"selector": "{{PLUS_WRAP}}.tp-form-phone-field {width: {{inpSz}}; } {{PLUS_WRAP}}~.nxt-submit-button.nxt-btn-inline{flex: 0;}",
+					"backend": false
+				}
+			]
+		},
+		"descPoss": {
+			"type": "string",
+			"default": "top"
+		},
+		"hlpTxt": {
+			"type": "boolean",
+			"default": false
+		},
+		"desctxt": {
+			"type": "string",
+			"default": "Description"
+		},
+		"phnIconType": {
+			"type": "string",
+			"default": "none"
+		},
+		"phnIcons": {
+			"type": "string",
+			"default": ""
+		},
+		"phnImage": {
+			"type": "object",
+			"default": {
+				"url": "",
+				"Id": ""
+			}
+		},
+		"icnClr": {
+			"type": "string",
+			"default": "",
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}} .nxt-phone-input .nxt-input-wrapper .nxt-phone-icon{ color: {{icnClr}}; }"
+				}
+			],
+			"scopy": true
+		},
+		"hvrIcnClr": {
+			"type": "string",
+			"default": "",
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}} .nxt-phone-input .nxt-input-wrapper:hover .nxt-phone-icon{ color: {{hvrIcnClr}}; }"
+				}
+			],
+			"scopy": true
+		},
+        "uniqueid": {
+			"type": "string",
+			"default": ""
+		},
+        "defCountry": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}

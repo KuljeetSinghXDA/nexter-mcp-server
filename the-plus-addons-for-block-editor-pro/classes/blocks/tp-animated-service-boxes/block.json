@@ -1,0 +1,2318 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-animated-service-boxes",
+	"version": "0.1.0",
+	"title": "Animated Service Boxes",
+	"category": "tpgb",
+	"description": "Showcase your best features & services through interactive design.",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "mainStyleType": {
+            "type": "string",
+            "default": "image-accordion"
+        },
+        "imgAcrdnStyle": {
+            "type": "string",
+            "default": "accordion-style-1"
+        },
+        "imgOrientation": {
+            "type": "string",
+            "default": "accordion-vertical"
+        },
+        "slideStyle": {
+            "type": "string",
+            "default": "sliding-style-1"
+        },
+        "articleStyle": {
+            "type": "string",
+            "default": "article-box-style-1"
+        },
+        "activeSlide": {
+            "type": "string",
+            "default": "1"
+        },
+        "imgFlexGrow": {
+            "type": "string",
+            "default": "7.5",
+            "style": [{
+                "selector": "{{PLUS_WRAP}}.image-accordion .service-item-loop.active_accrodian{ flex-grow: {{imgFlexGrow}}; }"
+            }]
+        },
+        "bannerStyle": {
+            "type": "string",
+            "default": "info-banner-style-1"
+        },
+        "bannerOrientation": {
+            "type": "string",
+            "default": "info-banner-left"
+        },
+        "sectionStyle": {
+            "type": "string",
+            "default": "hover-section-style-1"
+        },
+        "sectionImgPreload": {
+            "type": "boolean",
+            "default": false
+        },
+        "fancyBStyle": {
+            "type": "string",
+            "default": "fancy-box-style-1"
+        },
+        "serviceEStyle": {
+            "type": "string",
+            "default": "services-element-style-1"
+        },
+        "portfolioStyle": {
+            "type": "string",
+            "default": "portfolio-style-1"
+        },
+        "imageSize": {
+            "type": "string",
+            "default": "full"
+        },
+        "disBtn": {
+            "type": "boolean",
+            "default": false
+        },
+        "btnStyle": {
+            "type": "string",
+            "default": "style-7"
+        },
+        "btnIconType": {
+            "type": "string",
+            "default": "none"
+        },
+        "btnIconStore": {
+            "type": "string",
+            "default": ""
+        },
+        "btnIconPosition": {
+            "type": "string",
+            "default": "after"
+        },
+        "disIcnImg": {
+            "type": "boolean",
+            "default": false
+        },
+        "serviceBox": {
+            "type": "array",
+            "repeaterField": [{
+                "title": {
+                    "type": "string",
+                    "default": "Service"
+                },
+                "iconType": {
+                    "type": "string",
+                    "default": "icon"
+                },
+                "iconStore": {
+                    "type": "string",
+                    "default": "fab fa-whatsapp"
+                },
+                "imgStore": {
+                    "type": "object",
+                    "default": {
+                        "url": ""
+                    }
+                },
+                "imageSize": {
+                    "type": "string",
+                    "default": "full"
+                },
+                "subTitle": {
+                    "type": "string",
+                    "default": ""
+                },
+                "description": {
+                    "type": "string",
+                    "default": "Description Text will go here."
+                },
+                "featureImg": {
+                    "type": "object",
+                    "default": {
+                        "url": ""
+                    }
+                },
+                "btnText": {
+                    "type": "string",
+                    "default": "Read More"
+                },
+                "btnUrl": {
+                    "type": "object",
+                    "default": {
+                        "url": "",
+                        "target": "",
+                        "nofollow": ""
+                    }
+                },
+                "ariaLabel": {
+                    "type": "string",
+                    "default": ""
+                },
+                "contentList": {
+                    "type": "string",
+                    "default": "Feature 1 | Feature 2 | Feature 3 | Feature 4"
+                }
+            }],
+            "default": [{
+                    "_key": "0",
+                    "title": "Marketing",
+                    "subTitle": "",
+                    "iconType": "icon",
+                    "description": "Description Text will go here.",
+                    "iconStore": "fas fa-home",
+                    "imgStore": {"url" : ""},
+                    "contentList": "Feature 1 | Feature 2 | Feature 3 | Feature 4",
+                    "btnText": "Read More",
+                    "btnUrl": {
+                        "url": "#",
+                        "target": "",
+                        "nofollow": ""
+                    },
+                    "ariaLabel": "",
+                    "featureImg": {
+                        "url": ""
+                    }
+                },
+                {
+                    "_key": "1",
+                    "title": "Sales",
+                    "subTitle": "",
+                    "iconType": "icon",
+                    "description": "Description Text will go here.",
+                    "iconStore": "fas fa-home",
+                    "imgStore": {"url" : ""},
+                    "contentList": "Feature 1 | Feature 2 | Feature 3 | Feature 4",
+                    "btnText": "Read More",
+                    "btnUrl": {
+                        "url": "#",
+                        "target": "",
+                        "nofollow": ""
+                    },
+                    "ariaLabel": "",
+                    "featureImg": {
+                        "url": ""
+                    }
+                },
+                {
+                    "_key": "2",
+                    "title": "Fulfillments",
+                    "subTitle": "",
+                    "iconType": "icon",
+                    "description": "Description Text will go here.",
+                    "iconStore": "fas fa-home",
+                    "imgStore": {"url" : ""},
+                    "contentList": "Feature 1 | Feature 2 | Feature 3 | Feature 4",
+                    "btnText": "Read More",
+                    "btnUrl": {
+                        "url": "#",
+                        "target": "",
+                        "nofollow": ""
+                    },
+                    "ariaLabel": "",
+                    "featureImg": {
+                        "url": ""
+                    }
+                }
+            ]
+        },
+        "tansNmlCss": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "tansHvrCss": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "textAlign": {
+            "type": "string",
+            "default": "left",
+            "style": [{
+                "condition": [{
+                    "key": "mainStyleType",
+                    "relation": "==",
+                    "value": [
+                        "image-accordion",
+                        "info-banner",
+                        "hover-section",
+                        "portfolio"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}}.image-accordion .asb-content ,{{PLUS_WRAP}}.info-banner.info-banner-style-1 .info-banner-content-wrapper, {{PLUS_WRAP}}.hover-section .asb_wrap_list.tpgb-row.hover-section-extra, {{PLUS_WRAP}}.portfolio.portfolio-style-1 .asb_wrap_list{ text-align: {{textAlign}}; }"
+            }],
+            "scopy": true
+        },
+        "textAlign2": {
+            "type": "string",
+            "default": "flex-start",
+            "style": [{
+                    "condition": [{
+                            "key": "mainStyleType",
+                            "relation": "==",
+                            "value": "portfolio"
+                        },
+                        {
+                            "key": "portfolioStyle",
+                            "relation": "==",
+                            "value": "portfolio-style-2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.portfolio.portfolio-style-2 .portfolio-wrapper{ align-items: {{textAlign2}}; }"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "sliding-boxes"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.sliding-boxes .asb-content{ align-items: {{textAlign2}}; }"
+                },
+                {
+                    "condition": [{
+                            "key": "mainStyleType",
+                            "relation": "==",
+                            "value": "info-banner"
+                        },
+                        {
+                            "key": "bannerStyle",
+                            "relation": "==",
+                            "value": "info-banner-style-2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.info-banner-style-2 .info-banner-content-wrapper .info-front-content{ align-items: {{textAlign2}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "alignOffset": {
+            "type": "string",
+            "default": "flex-start",
+            "style": [{
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "image-accordion"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.image-accordion .asb-content{ justify-content: {{alignOffset}};}"
+                },
+                {
+                    "condition": [{
+                            "key": "mainStyleType",
+                            "relation": "==",
+                            "value": "portfolio"
+                        },
+                        {
+                            "key": "portfolioStyle",
+                            "relation": "==",
+                            "value": "portfolio-style-1"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.portfolio.portfolio-style-1 .asb_wrap_list.tpgb-row{ align-items: {{alignOffset}};}"
+                },
+                {
+                    "condition": [{
+                            "key": "mainStyleType",
+                            "relation": "==",
+                            "value": "portfolio"
+                        },
+                        {
+                            "key": "portfolioStyle",
+                            "relation": "==",
+                            "value": "portfolio-style-2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.portfolio.portfolio-style-2 .portfolio-wrapper{ justify-content: {{alignOffset}}; }"
+                },
+                {
+                    "condition": [{
+                            "key": "mainStyleType",
+                            "relation": "==",
+                            "value": "info-banner"
+                        },
+                        {
+                            "key": "bannerStyle",
+                            "relation": "==",
+                            "value": "info-banner-style-2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.info-banner-style-2 .info-banner-content-wrapper .info-front-content{ justify-content: {{alignOffset}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "sliding-boxes"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.sliding-boxes .service-item-loop .asb-content{ justify-content: {{alignOffset}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "layoutHeight": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}}.image-accordion .asb_wrap_list, {{PLUS_WRAP}}.portfolio.portfolio-style-1 .portfolio-hover-wrapper, {{PLUS_WRAP}}.portfolio.portfolio-style-1 .portfolio-hover-image { height: {{layoutHeight}}; } \n\t\t\t\t\t{{PLUS_WRAP}}.portfolio.portfolio-style-2 .portfolio-wrapper, {{PLUS_WRAP}}.article-box-style-2 .article-box-front-wrapper, {{PLUS_WRAP}}.info-banner.info-banner-style-1 .info-banner-content-wrapper, {{PLUS_WRAP}}.info-banner.info-banner-style-2 .info-front-content, {{PLUS_WRAP}}.hover-section{ min-height: {{layoutHeight}}; }"
+            }],
+            "scopy": true
+        },
+        "columns": {
+            "type": "object",
+            "default": {
+                "md": 3,
+                "sm": 4,
+                "xs": 6
+            }
+        },
+        "sbTabColumn": {
+            "type": "string",
+            "default": "sb_t_2"
+        },
+        "sbMobColumn": {
+            "type": "string",
+            "default": "sb_m_1"
+        },
+        "columnGap": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "sliding-boxes"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.sliding-boxes .service-item-loop{padding: {{columnGap}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "!=",
+                        "value": [
+                            "image-accordion",
+                            "sliding-boxes",
+                            "portfolio"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .service-item-loop, {{PLUS_WRAP}}.services-element .se-wrapper-main{padding: {{columnGap}};}"
+                }
+            ]
+        },
+        "ColumnGapSliding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "sliding-boxes"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.sliding-boxes .service-item-loop:not(:last-child){margin-right: {{ColumnGapSliding}};}"
+                }
+            ]
+        },
+        "titleOnClick": {
+            "type": "string",
+            "default": "Click Here"
+        },
+        "titleTagType": {
+            "type": "string",
+            "default": "h6",
+            "scopy": true
+        },
+        "titleTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "!=",
+                        "value": "portfolio"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .service-item-loop .asb-title"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "portfolio"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.portfolio .service-item-loop .asb-title"
+                }
+            ],
+            "scopy": true
+        },
+        "titleNmlColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "!=",
+                        "value": "portfolio"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .service-item-loop .asb-title{ color: {{titleNmlColor}}; }"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "portfolio"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.portfolio.portfolio-style-1 .service-item-loop .asb-title, {{PLUS_WRAP}}.portfolio.portfolio-style-2 .service-item-loop .asb-title{ color: {{titleNmlColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "titleHvrColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "!=",
+                        "value": [
+                            "hover-section",
+                            "portfolio"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .service-item-loop:hover .asb-title{ color: {{titleHvrColor}}; }"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": [
+                            "hover-section",
+                            "portfolio"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}}.hover-section .service-item-loop.active-hover .asb-title, {{PLUS_WRAP}}.portfolio .service-item-loop.active-port .asb-title{ color: {{titleHvrColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "titleLinkTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                    "key": "mainStyleType",
+                    "relation": "==",
+                    "value": "portfolio"
+                }],
+                "selector": "{{PLUS_WRAP}}.portfolio .pf_a_click"
+            }],
+            "scopy": true
+        },
+        "titleLinkColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "mainStyleType",
+                    "relation": "==",
+                    "value": "portfolio"
+                }],
+                "selector": "{{PLUS_WRAP}}.portfolio .pf_a_click{ color: {{titleLinkColor}}; }"
+            }],
+            "scopy": true
+        },
+        "sTitleTagType": {
+            "type": "string",
+            "default": "h6",
+            "scopy": true
+        },
+        "subTitleTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .service-item-loop .asb-sub-title"
+            }],
+            "scopy": true
+        },
+        "subTtlNColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .service-item-loop .asb-sub-title{ color: {{subTtlNColor}}; }"
+            }],
+            "scopy": true
+        },
+        "subTtlHColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .service-item-loop:hover .asb-sub-title{ color: {{subTtlHColor}}; }"
+            }],
+            "scopy": true
+        },
+        "descTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .service-item-loop .asb-desc"
+            }],
+            "scopy": true
+        },
+        "descNmlColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .service-item-loop .asb-desc{ color: {{descNmlColor}}; }"
+            }],
+            "scopy": true
+        },
+        "descHvrColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .service-item-loop:hover .asb-desc{ color: {{descHvrColor}}; }"
+            }],
+            "scopy": true
+        },
+        "iconStyle": {
+            "type": "string",
+            "default": "icon-square",
+            "scopy": true
+        },
+        "iconWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "disIcnImg",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "mainStyleType",
+                        "relation": "!=",
+                        "value": "portfolio"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .service-item-loop .asb-icon{ width: {{iconWidth}}; height: {{iconWidth}}; line-height: {{iconWidth}}; }"
+            }],
+            "scopy": true
+        },
+        "iconImgSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                    "condition": [{
+                            "key": "disIcnImg",
+                            "relation": "==",
+                            "value": true
+                        },
+                        {
+                            "key": "mainStyleType",
+                            "relation": "!=",
+                            "value": [
+                                "portfolio",
+                                "services-element"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .service-item-loop .asb-icon{ font-size: {{iconImgSize}}; } {{PLUS_WRAP}} .service-item-loop img.asb-image{ height: {{iconImgSize}}; width: {{iconImgSize}}; }"
+                },
+                {
+                    "condition": [{
+                            "key": "disIcnImg",
+                            "relation": "==",
+                            "value": true
+                        },
+                        {
+                            "key": "mainStyleType",
+                            "relation": "==",
+                            "value": "services-element"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.services-element .se-wrapper .asb-icon-image{ font-size: {{iconImgSize}}; } {{PLUS_WRAP}}.services-element .se-wrapper img.asb-icon-image.asb-image{ height: {{iconImgSize}}; width: {{iconImgSize}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "icnInsetColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "services-element"
+                    },
+                    {
+                        "key": "serviceEStyle",
+                        "relation": "==",
+                        "value": "services-element-style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.services-element.services-element-style-2 .se-icon{ box-shadow:inset 0 0 0 2px {{icnInsetColor}}; } {{PLUS_WRAP}}.services-element.services-element-style-2 .se-wrapper:hover .se-icon{ box-shadow:inset 0 0 0 40px {{icnInsetColor}}; }"
+            }],
+            "scopy": true
+        },
+        "icnNmlColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                    "condition": [{
+                            "key": "disIcnImg",
+                            "relation": "==",
+                            "value": true
+                        },
+                        {
+                            "key": "mainStyleType",
+                            "relation": "!=",
+                            "value": "services-element"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .service-item-loop .asb-icon{ color: {{icnNmlColor}}; }"
+                },
+                {
+                    "condition": [{
+                            "key": "disIcnImg",
+                            "relation": "==",
+                            "value": true
+                        },
+                        {
+                            "key": "mainStyleType",
+                            "relation": "==",
+                            "value": "services-element"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.services-element .se-icon .asb-icon-image{ color: {{icnNmlColor}}; } {{PLUS_WRAP}}.services-element.services-element-style-2 .se-wrapper-inner::after{ background-color: {{icnNmlColor}}18; }"
+                }
+            ],
+            "scopy": true
+        },
+        "icnHvrColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                    "condition": [{
+                            "key": "disIcnImg",
+                            "relation": "==",
+                            "value": true
+                        },
+                        {
+                            "key": "mainStyleType",
+                            "relation": "!=",
+                            "value": "services-element"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .service-item-loop:hover .asb-icon{ color: {{icnHvrColor}}; }"
+                },
+                {
+                    "condition": [{
+                            "key": "disIcnImg",
+                            "relation": "==",
+                            "value": true
+                        },
+                        {
+                            "key": "mainStyleType",
+                            "relation": "==",
+                            "value": "services-element"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.services-element .se-wrapper:hover .asb-icon-image{ color: {{icnHvrColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "icnNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [{
+                "condition": [{
+                        "key": "disIcnImg",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "mainStyleType",
+                        "relation": "!=",
+                        "value": "services-element"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .service-item-loop .asb-icon-image"
+            }],
+            "scopy": true
+        },
+        "icnHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [{
+                "condition": [{
+                        "key": "disIcnImg",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "mainStyleType",
+                        "relation": "!=",
+                        "value": "services-element"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .service-item-loop:hover .asb-icon-image"
+            }],
+            "scopy": true
+        },
+        "icnNBColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "disIcnImg",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "mainStyleType",
+                        "relation": "!=",
+                        "value": "services-element"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .service-item-loop .asb-icon-image{ border-color: {{icnNBColor}}; }"
+            }],
+            "scopy": true
+        },
+        "icnHBColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "disIcnImg",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "mainStyleType",
+                        "relation": "!=",
+                        "value": "services-element"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .service-item-loop:hover .asb-icon-image{ border-color: {{icnHBColor}}; }"
+            }],
+            "scopy": true
+        },
+        "icnNBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "disIcnImg",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "mainStyleType",
+                        "relation": "!=",
+                        "value": "services-element"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .service-item-loop .asb-icon-image{border-radius: {{icnNBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "icnHBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "disIcnImg",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "mainStyleType",
+                        "relation": "!=",
+                        "value": "services-element"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .service-item-loop:hover .asb-icon-image{border-radius: {{icnHBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "icnNShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "disIcnImg",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "mainStyleType",
+                        "relation": "!=",
+                        "value": "services-element"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .service-item-loop .asb-icon-image"
+            }],
+            "scopy": true
+        },
+        "icnHShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "disIcnImg",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "mainStyleType",
+                        "relation": "!=",
+                        "value": "services-element"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .service-item-loop:hover .asb-icon-image"
+            }],
+            "scopy": true
+        },
+        "marginBottomS1": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "services-element"
+                    },
+                    {
+                        "key": "serviceEStyle",
+                        "relation": "==",
+                        "value": "services-element-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.services-element.services-element-style-1 .se-liting-ul{ margin-bottom: {{marginBottomS1}}; }"
+            }],
+            "scopy": true
+        },
+        "listTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                    "key": "mainStyleType",
+                    "relation": "==",
+                    "value": "services-element"
+                }],
+                "selector": "{{PLUS_WRAP}}.services-element .se-listing"
+            }],
+            "scopy": true
+        },
+        "listColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "mainStyleType",
+                    "relation": "==",
+                    "value": "services-element"
+                }],
+                "selector": "{{PLUS_WRAP}}.services-element .se-listing{ color: {{listColor}}; }"
+            }],
+            "scopy": true
+        },
+        "listDotColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "services-element"
+                    },
+                    {
+                        "key": "serviceEStyle",
+                        "relation": "==",
+                        "value": "services-element-style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.services-element.services-element-style-2 .se-listing:before{ box-shadow:0 0 0 2px {{listDotColor}}; } {{PLUS_WRAP}}.services-element.services-element-style-2 .se-listing:hover:before{ box-shadow:0 0 0 3px {{listDotColor}}; }"
+            }],
+            "scopy": true
+        },
+        "btnTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                    "key": "disBtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-adv-button .button-link-wrap"
+            }],
+            "scopy": true
+        },
+        "btnNmlColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                    "condition": [{
+                        "key": "disBtn",
+                        "relation": "==",
+                        "value": true
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-button .button-link-wrap{ color: {{btnNmlColor}}; }"
+                },
+                {
+                    "condition": [{
+                            "key": "disBtn",
+                            "relation": "==",
+                            "value": true
+                        },
+                        {
+                            "key": "btnStyle",
+                            "relation": "==",
+                            "value": "style-7"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-button.button-style-7 .button-link-wrap:after{ border-color: {{btnNmlColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "btnHvrColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "disBtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-adv-button .button-link-wrap:hover{ color: {{btnHvrColor}}; }"
+            }],
+            "scopy": true
+        },
+        "btnTSpace": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "disBtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-adv-button{ margin-top: {{btnTSpace}}; }"
+            }],
+            "scopy": true
+        },
+        "btnBSpace": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "disBtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-adv-button{ margin-bottom : {{btnBSpace}}; }"
+            }],
+            "scopy": true
+        },
+        "btnIconSpacing": {
+            "type": "object",
+            "default": {
+                "md": 5,
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "disBtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .button-link-wrap .button-before { margin-right: {{btnIconSpacing}}; } {{PLUS_WRAP}} .button-link-wrap .button-after { margin-left: {{btnIconSpacing}}; }"
+            }],
+            "scopy": true
+        },
+        "btnIconSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "disBtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .button-link-wrap .btn-icon { font-size: {{btnIconSize}}; }"
+            }],
+            "scopy": true
+        },
+        "btnPadding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "disBtn",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-adv-button.button-style-8 .button-link-wrap{ padding: {{btnPadding}}; }"
+            }],
+            "scopy": true
+        },
+        "btnNormalB": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "disBtn",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "btnStyle",
+                        "relation": "==",
+                        "value": "style-8"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-adv-button.button-style-8 .button-link-wrap"
+            }],
+            "scopy": true
+        },
+        "btnBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "disBtn",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "btnStyle",
+                        "relation": "==",
+                        "value": "style-8"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-adv-button.button-style-8 .button-link-wrap{border-radius: {{btnBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "btnBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "disBtn",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "btnStyle",
+                        "relation": "==",
+                        "value": "style-8"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-adv-button.button-style-8 .button-link-wrap"
+            }],
+            "scopy": true
+        },
+        "btnShadow": {
+            "type": "object",
+            "default": {
+                "horizontal": 0,
+                "vertical": 8,
+                "blur": 20,
+                "spread": 1,
+                "color": "rgba(0,0,0,0.27)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "disBtn",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "btnStyle",
+                        "relation": "==",
+                        "value": "style-8"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-adv-button .button-link-wrap"
+            }],
+            "scopy": true
+        },
+        "btnHvrB": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "disBtn",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "btnStyle",
+                        "relation": "==",
+                        "value": "style-8"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-adv-button.button-style-8 .button-link-wrap:hover"
+            }],
+            "scopy": true
+        },
+        "btnHvrBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "disBtn",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "btnStyle",
+                        "relation": "==",
+                        "value": "style-8"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-adv-button.button-style-8 .button-link-wrap:hover{border-radius: {{btnHvrBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "btnHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "disBtn",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "btnStyle",
+                        "relation": "==",
+                        "value": "style-8"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-adv-button.button-style-8 .button-link-wrap:hover"
+            }],
+            "scopy": true
+        },
+        "btnHvrShadow": {
+            "type": "object",
+            "default": {
+                "horizontal": "",
+                "vertical": "",
+                "blur": "",
+                "spread": "",
+                "color": "rgba(0,0,0,0.27)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "disBtn",
+                        "relation": "==",
+                        "value": true
+                    },
+                    {
+                        "key": "btnStyle",
+                        "relation": "==",
+                        "value": "style-8"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-adv-button .button-link-wrap:hover"
+            }],
+            "scopy": true
+        },
+        "portS1Margin": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "portfolio"
+                    },
+                    {
+                        "key": "portfolioStyle",
+                        "relation": "==",
+                        "value": "portfolio-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.portfolio.portfolio-style-1 .portfolio-hover-wrapper{margin: {{portS1Margin}};}"
+            }],
+            "scopy": true
+        },
+        "portS1Padding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "portfolio"
+                    },
+                    {
+                        "key": "portfolioStyle",
+                        "relation": "==",
+                        "value": "portfolio-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.portfolio.portfolio-style-1 .portfolio-hover-wrapper{padding: {{portS1Padding}};}"
+            }],
+            "scopy": true
+        },
+        "imgWidthHeight": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "portfolio"
+                    },
+                    {
+                        "key": "portfolioStyle",
+                        "relation": "==",
+                        "value": "portfolio-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.portfolio.portfolio-style-1 .portfolio-hover-image{ width: {{imgWidthHeight}}; height: {{imgWidthHeight}}; }"
+            }],
+            "scopy": true
+        },
+        "featureImgBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "portfolio"
+                    },
+                    {
+                        "key": "portfolioStyle",
+                        "relation": "==",
+                        "value": "portfolio-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.portfolio.portfolio-style-1 .portfolio-hover-image"
+            }],
+            "scopy": true
+        },
+        "fImgBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "portfolio"
+                    },
+                    {
+                        "key": "portfolioStyle",
+                        "relation": "==",
+                        "value": "portfolio-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.portfolio.portfolio-style-1 .portfolio-hover-image{border-radius: {{fImgBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "fImgShadow": {
+            "type": "object",
+            "default": {
+                "horizontal": "",
+                "vertical": "",
+                "blur": "",
+                "spread": "",
+                "color": "rgba(0,0,0,0.27)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "portfolio"
+                    },
+                    {
+                        "key": "portfolioStyle",
+                        "relation": "==",
+                        "value": "portfolio-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.portfolio.portfolio-style-1 .portfolio-hover-image"
+            }],
+            "scopy": true
+        },
+        "visAllCont": {
+            "type": "boolean",
+            "default": false,
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "image-accordion"
+                    },
+                    {
+                        "key": "visAllCont",
+                        "relation": "==",
+                        "value": true
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.image-accordion .asb-content { opacity: 1;}"
+            }],
+            "scopy": true
+        },
+        "contentPadding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "image-accordion"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.image-accordion .asb-content{padding: {{contentPadding}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "fancy-box"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.fancy-box .fancybox-inner-content{padding: {{contentPadding}};}"
+                },
+                {
+                    "condition": [{
+                            "key": "mainStyleType",
+                            "relation": "==",
+                            "value": "portfolio"
+                        },
+                        {
+                            "key": "portfolioStyle",
+                            "relation": "==",
+                            "value": "portfolio-style-1"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.portfolio.portfolio-style-1 .portfolio-content-wrapper{padding: {{contentPadding}};}"
+                },
+                {
+                    "condition": [{
+                            "key": "mainStyleType",
+                            "relation": "==",
+                            "value": "portfolio"
+                        },
+                        {
+                            "key": "portfolioStyle",
+                            "relation": "==",
+                            "value": "portfolio-style-2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.portfolio.portfolio-style-2 .portfolio-wrapper{padding: {{contentPadding}};}"
+                },
+                {
+                    "condition": [{
+                            "key": "mainStyleType",
+                            "relation": "==",
+                            "value": "info-banner"
+                        },
+                        {
+                            "key": "bannerStyle",
+                            "relation": "==",
+                            "value": "info-banner-style-2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.info-banner.info-banner-style-1 .info-banner-content-wrapper, .info-banner.info-banner-style-1 .info-banner-back-content-inner, .info-banner-style-2 .info-front-content{padding: {{contentPadding}};}"
+                },
+                {
+                    "condition": [{
+                            "key": "mainStyleType",
+                            "relation": "==",
+                            "value": "services-element"
+                        },
+                        {
+                            "key": "serviceEStyle",
+                            "relation": "==",
+                            "value": "services-element-style-2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.services-element .se-wrapper-main{padding: {{contentPadding}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "seContentPadding": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "services-element"
+                    },
+                    {
+                        "key": "serviceEStyle",
+                        "relation": "==",
+                        "value": "services-element-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.services-element.services-element-style-1 .se-wrapper{padding: {{seContentPadding}};} {{PLUS_WRAP}}.services-element.services-element-style-1 .se-listing-section{padding: 0 {{seContentPadding}};}"
+            }],
+            "scopy": true
+        },
+        "serEls2BG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "services-element"
+                    },
+                    {
+                        "key": "serviceEStyle",
+                        "relation": "==",
+                        "value": "services-element-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.services-element.services-element-style-1 .se-wrapper"
+            }],
+            "scopy": true
+        },
+        "serEls2HBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "services-element"
+                    },
+                    {
+                        "key": "serviceEStyle",
+                        "relation": "==",
+                        "value": "services-element-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.services-element.services-element-style-1 .se-wrapper .se-listing-section"
+            }],
+            "scopy": true
+        },
+        "serEls2HBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "services-element"
+                    },
+                    {
+                        "key": "serviceEStyle",
+                        "relation": "==",
+                        "value": "services-element-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.services-element.services-element-style-1 .se-wrapper .se-listing-section"
+            }],
+            "scopy": true
+        },
+        "serEls2BRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "5",
+                    "right": "5",
+                    "bottom": "5",
+                    "left": "5"
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "services-element"
+                    },
+                    {
+                        "key": "serviceEStyle",
+                        "relation": "==",
+                        "value": "services-element-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.services-element.services-element-style-1 .se-wrapper {border-radius: {{serEls2BRadius}};}"
+            }],
+            "scopy": true
+        },
+        "serEls2HBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "5",
+                    "right": "5",
+                    "bottom": "5",
+                    "left": "5"
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "services-element"
+                    },
+                    {
+                        "key": "serviceEStyle",
+                        "relation": "==",
+                        "value": "services-element-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.services-element.services-element-style-1 .se-wrapper .se-listing-section {border-radius: {{serEls2HBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "serEls2HShadow": {
+            "type": "object",
+            "default": {
+                "horizontal": "0",
+                "vertical": "0",
+                "blur": "30",
+                "spread": "0",
+                "color": "rgba(0,0,0,0.2)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "services-element"
+                    },
+                    {
+                        "key": "serviceEStyle",
+                        "relation": "==",
+                        "value": "services-element-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.services-element.services-element-style-1 .se-wrapper .se-listing-section"
+            }],
+            "scopy": true
+        },
+        "iaS1Margin": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "image-accordion"
+                    },
+                    {
+                        "key": "imgAcrdnStyle",
+                        "relation": "==",
+                        "value": "accordion-style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.image-accordion.accordion-style-2 .service-item-loop{margin: calc( {{iaS1Margin}} \/ 2);}"
+            }],
+            "scopy": true
+        },
+        "contentMargin": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                    "condition": [{
+                            "key": "mainStyleType",
+                            "relation": "==",
+                            "value": "article-box"
+                        },
+                        {
+                            "key": "articleStyle",
+                            "relation": "==",
+                            "value": "article-box-style-1"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.article-box.article-box-style-1 .article-overlay{margin: {{contentMargin}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "info-banner"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.info-banner-style-2 .info-front-content, {{PLUS_WRAP}}.info-banner-style-1 .service-item-loop{margin: {{contentMargin}};}"
+                },
+                {
+                    "condition": [{
+                            "key": "mainStyleType",
+                            "relation": "==",
+                            "value": "portfolio"
+                        },
+                        {
+                            "key": "portfolioStyle",
+                            "relation": "==",
+                            "value": "portfolio-style-1"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.portfolio.portfolio-style-1 .portfolio-content-wrapper{margin: {{contentMargin}};}"
+                },
+                {
+                    "condition": [{
+                            "key": "mainStyleType",
+                            "relation": "==",
+                            "value": "services-element"
+                        },
+                        {
+                            "key": "serviceEStyle",
+                            "relation": "==",
+                            "value": "services-element-style-2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.services-element .se-wrapper-main, {{PLUS_WRAP}}.services-element.services-element-style-2 .service-item-loop{margin: {{contentMargin}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "hoverBGOverlay": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "portfolio"
+                    },
+                    {
+                        "key": "portfolioStyle",
+                        "relation": "==",
+                        "value": "portfolio-style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.portfolio.portfolio-style-2 .portfolio-wrapper{ box-shadow: {{hoverBGOverlay}} 0 0 0 2000px inset; }"
+            }],
+            "scopy": true
+        },
+        "articleS1BG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                    "condition": [{
+                            "key": "mainStyleType",
+                            "relation": "==",
+                            "value": "article-box"
+                        },
+                        {
+                            "key": "articleStyle",
+                            "relation": "==",
+                            "value": "article-box-style-1"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.article-box.article-box-style-1 .article-overlay"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "image-accordion"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.image-accordion .service-item-loop.active_accrodian .asb-content"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "sliding-boxes"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.sliding-boxes .service-item-loop .asb-content"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "info-banner"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.info-banner.info-banner-style-1 .info-banner-content-wrapper ,{{PLUS_WRAP}}.info-banner-style-2 .info-front-content"
+                }
+            ],
+            "scopy": true
+        },
+        "contentBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "sliding-boxes"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.sliding-boxes .service-item-loop"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "fancy-box"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.fancy-box .fancybox-inner-wrapper"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "article-box"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.article-box.article-box-style-1 .article-overlay, {{PLUS_WRAP}}.article-box-style-2 .article-box-main-wrapper"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "info-banner"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.info-banner.info-banner-style-1 .info-banner-content-wrapper, {{PLUS_WRAP}}.info-banner-style-2 .info-front-content"
+                }
+            ],
+            "scopy": true
+        },
+        "contentBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "image-accordion"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.image-accordion .service-item-loop{border-radius: {{contentBRadius}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "sliding-boxes"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.sliding-boxes .service-item-loop{border-radius: {{contentBRadius}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "fancy-box"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.fancy-box .fancybox-inner-wrapper{border-radius: {{contentBRadius}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "article-box"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.article-box.article-box-style-1 .article-overlay, {{PLUS_WRAP}}.article-box-style-2 .article-box-main-wrapper{border-radius: {{contentBRadius}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "info-banner"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.info-banner.info-banner-style-1 .info-banner-content-wrapper, {{PLUS_WRAP}}.info-banner-style-2 .info-front-content{border-radius: {{contentBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "fancyNmlOverlay": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "mainStyleType",
+                    "relation": "==",
+                    "value": "fancy-box"
+                }],
+                "selector": "{{PLUS_WRAP}}.fancy-box .fancybox-inner-wrapper .fancybox-image-background{ box-shadow: {{fancyNmlOverlay}} 0 0 0 2000px inset; }"
+            }],
+            "scopy": true
+        },
+        "fancyHvrOverlay": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "mainStyleType",
+                    "relation": "==",
+                    "value": "fancy-box"
+                }],
+                "selector": "{{PLUS_WRAP}}.fancy-box .fancybox-inner-wrapper:hover .fancybox-image-background{ box-shadow: {{fancyHvrOverlay}} 0 0 0 2000px inset; }"
+            }],
+            "scopy": true
+        },
+        "fancyLineSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "mainStyleType",
+                    "relation": "==",
+                    "value": "fancy-box"
+                }],
+                "selector": "{{PLUS_WRAP}}.fancy-box .fancybox-inner-wrapper:after{height: {{fancyLineSize}};}"
+            }],
+            "scopy": true
+        },
+        "fancyLineColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "mainStyleType",
+                    "relation": "==",
+                    "value": "fancy-box"
+                }],
+                "selector": "{{PLUS_WRAP}}.fancy-box .fancybox-inner-wrapper:after{ background: {{fancyLineColor}}; }"
+            }],
+            "scopy": true
+        },
+        "olayIBColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "info-banner"
+                    },
+                    {
+                        "key": "bannerStyle",
+                        "relation": "==",
+                        "value": "info-banner-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.info-banner-style-1 .info-banner-content-wrapper .info-banner-back-content{ box-shadow: {{olayIBColor}} 0 0 0 2000px inset; }"
+            }],
+            "scopy": true
+        },
+        "olayIBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "info-banner"
+                    },
+                    {
+                        "key": "bannerStyle",
+                        "relation": "==",
+                        "value": "info-banner-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.info-banner-style-1 .info-banner-content-wrapper .info-banner-back-content"
+            }],
+            "scopy": true
+        },
+        "outContentBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "article-box"
+                    },
+                    {
+                        "key": "articleStyle",
+                        "relation": "==",
+                        "value": "article-box-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.article-box-style-1 .article-box-inner-content"
+            }],
+            "scopy": true
+        },
+        "outContentBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "article-box"
+                    },
+                    {
+                        "key": "articleStyle",
+                        "relation": "==",
+                        "value": "article-box-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.article-box-style-1 .article-box-inner-content{border-radius: {{outContentBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "outContentShadow": {
+            "type": "object",
+            "default": {
+                "horizontal": "",
+                "vertical": "",
+                "blur": "",
+                "spread": "",
+                "color": "rgba(0,0,0,0.27)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "mainStyleType",
+                        "relation": "==",
+                        "value": "article-box"
+                    },
+                    {
+                        "key": "articleStyle",
+                        "relation": "==",
+                        "value": "article-box-style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.article-box-style-1 .article-box-inner-content"
+            }],
+            "scopy": true
+        },
+        "tpgbEqualHeight": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "equalUnqClass": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "showBlockContent" :{
+            "type": "boolean",
+            "default": true
+        }
+    }
+}

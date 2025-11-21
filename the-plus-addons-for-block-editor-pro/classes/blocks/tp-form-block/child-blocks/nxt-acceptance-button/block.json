@@ -1,0 +1,97 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-form-acceptance-button",
+	"version": "0.1.0",
+	"title": "Agree to Terms",
+	"category": "tpgb",
+	"description": "Include a consent statement with a checkbox in your form.",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"anchor": true,
+		"align": ["wide", "full"]
+	},
+	"textdomain": "tpgb",
+	"ancestor": ["tpgb/tp-form-block"],
+	"attributes": {
+		"block_id": {
+			"type": "string",
+			"default": ""
+		},
+		"labelss": {
+			"type": "string",
+			"default": "I have read and accepted the Privacy Policy."
+		},
+		"reqTgl": {
+			"type": "boolean",
+			"default": false
+		},
+		"lnkTgl": {
+			"type": "boolean",
+			"default": false
+		},
+		"lnkLbl": {
+			"type": "string",
+			"default": ""
+		},
+		"lnk": {
+			"type": "object",
+			"default": {
+				"url": "",
+				"target": "",
+				"nofollow": ""
+			}
+		},
+		"lblClr": {
+			"type": "string",
+			"default": "",
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}} .nxt-accept-label {color:{{lblClr}}}"
+				}
+			],
+			"scopy": true
+		},
+		"lnkLblClr": {
+			"type": "string",
+			"default": "",
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}} .nxt-link-label {color:{{lnkLblClr}}}"
+				}
+			],
+			"scopy": true
+		},
+		"lblTypo": {
+			"type": "object",
+			"default": {
+				"openTypography": 0
+			},
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}} .nxt-accept-label, {{PLUS_WRAP}} .nxt-link-label"
+				}
+			],
+			"scopy": true
+		},
+		"hvrLblClr": {
+			"type": "string",
+			"default": "",
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}} .nxt-accept-input:hover .nxt-accept-label {color:{{hvrLblClr}};}"
+				}
+			]
+		},
+		"hvrLnkLblClr": {
+			"type": "string",
+			"default": "",
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}} .nxt-accept-input:hover .nxt-link-label {color:{{hvrLnkLblClr}};}"
+				}
+			]
+		}
+	}
+}

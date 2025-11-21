@@ -1,0 +1,1326 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-audio-player",
+	"version": "0.1.0",
+	"title": "Audio Player",
+	"category": "tpgb",
+	"description": "Stream your audio, create playlists directly from your site",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "Apstyle": {
+            "type": "string",
+            "default": "style-1"
+        },
+        "Aprepeater": {
+            "type": "array",
+            "repeaterField": [{
+                "title": {
+                    "type": "string",
+                    "default": "Shape of You"
+                },
+                "author": {
+                    "type": "string",
+                    "default": "Ed Sheeran"
+                },
+                "AudSource": {
+                    "type": "string",
+                    "default": "url"
+                },
+                "sorself": {
+                    "type": "object",
+                    "default": {
+                        "url": "",
+                        "Id": ""
+                    }
+                },
+                "sorurl": {
+                    "type": "object",
+                    "default": {
+                        "url": "",
+                        "target": "",
+                        "nofollow": ""
+                    }
+                },
+                "Imagesource": {
+                    "type": "object",
+                    "default": {
+                        "url": "",
+                        "Id": ""
+                    }
+                }
+            }],
+            "default": [{
+                "_key": "1",
+                "title": "Shape of You",
+                "author": "Ed Sheeran",
+                "AudSource": "url",
+                "Imagesource": {
+                    "url": ""
+                },
+                "sorurl": {
+                    "url": ""
+                }
+            }]
+        },
+        "Audioimage": {
+            "type": "object",
+            "default": {
+                "url": "",
+                "Id": ""
+            }
+        },
+        "ImageSize": {
+            "type": "string",
+            "default": "thumbnail"
+        },
+        "SplitText": {
+            "type": "string",
+            "default": "by"
+        },
+        "MaxWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap{max-width:{{MaxWidth}};margin:0 auto;}"
+            }],
+            "scopy": true
+        },
+        "DefaultVolume": {
+            "type": "string",
+            "default": ""
+        },
+        "SongFont": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "!=",
+                    "value": "style-2"
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .trackDetails .title,{{PLUS_WRAP}} .tpgb-audioplay-wrap .tpgb-player .title"
+            }],
+            "scopy": true
+        },
+        "TitleColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "!=",
+                    "value": "style-2"
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .trackDetails .title,{{PLUS_WRAP}} .tpgb-audioplay-wrap .tpgb-player .title{color:{{TitleColor}};}"
+            }],
+            "scopy": true
+        },
+        "AuthorFont": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "Apstyle",
+                        "relation": "!=",
+                        "value": "style-2"
+                    },
+                    {
+                        "key": "Apstyle",
+                        "relation": "!=",
+                        "value": "style-7"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .trackDetails .artist,{{PLUS_WRAP}} .tpgb-audioplay-wrap .tpgb-player .artist"
+            }],
+            "scopy": true
+        },
+        "Authorcolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "Apstyle",
+                        "relation": "!=",
+                        "value": "style-2"
+                    },
+                    {
+                        "key": "Apstyle",
+                        "relation": "!=",
+                        "value": "style-7"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .trackDetails .artist,{{PLUS_WRAP}} .tpgb-audioplay-wrap .tpgb-player .artist{color:{{Authorcolor}};}"
+            }],
+            "scopy": true
+        },
+        "SplitFont": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .trackDetails .splitTxt,{{PLUS_WRAP}} .tpgb-audioplay-wrap .splitTxt"
+            }],
+            "scopy": true
+        },
+        "SpliTextColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .tpgb-player .trackDetails .splitTxt{color:{{SpliTextColor}};}"
+            }],
+            "scopy": true
+        },
+        "CBGcolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": "style-9"
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap.style-9 .controls{background:{{CBGcolor}};}"
+            }],
+            "scopy": true
+        },
+        "CBGRadiuss9": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": "style-9"
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap.style-9 .controls{border-radius:{{CBGRadiuss9}};}"
+            }],
+            "scopy": true
+        },
+        "IconColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                    "condition": [{
+                            "key": "Apstyle",
+                            "relation": "!=",
+                            "value": "style-2"
+                        },
+                        {
+                            "key": "Apstyle",
+                            "relation": "!=",
+                            "value": "style-4"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlistIcon,{{PLUS_WRAP}} .tpgb-audioplay-wrap .volumeIcon .vol-icon-toggle,{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls {color:{{IconColor}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": "style-9"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap.style-9 .tpgb-player:hover .controls {color:{{IconColor}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "IconSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "Apstyle",
+                        "relation": "!=",
+                        "value": "style-2"
+                    },
+                    {
+                        "key": "Apstyle",
+                        "relation": "!=",
+                        "value": "style-4"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlistIcon,{{PLUS_WRAP}} .tpgb-audioplay-wrap .volumeIcon .vol-icon-toggle,{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .rew,{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .fwd,{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .play,{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .pause{font-size:{{IconSize}};}"
+            }],
+            "scopy": true
+        },
+        "PlayPausecolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .play,{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .pause{color:{{PlayPausecolor}}; }"
+            }],
+            "scopy": true
+        },
+        "PlayPauseSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .play,{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .pause{font-size:{{PlayPauseSize}};}"
+            }],
+            "scopy": true
+        },
+        "bgsize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .play,\n                    {{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .pause{width:{{bgsize}};height:{{bgsize}};line-height:{{bgsize}}}"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": [
+                            "style-3",
+                            "style-8"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .tpgb-ap-pp{width:{{bgsize}};height:{{bgsize}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": "style-5"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap.style-5 .controls .tpgb-ap-pp{width:{{bgsize}};height:{{bgsize}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "bgtype": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": [
+                            "style-1",
+                            "style-2",
+                            "style-4",
+                            "style-6",
+                            "style-7",
+                            "style-9"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .play,{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .pause"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": [
+                            "style-3",
+                            "style-5",
+                            "style-8"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .tpgb-ap-pp"
+                }
+            ],
+            "scopy": true
+        },
+        "BackgroundType": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "color": "#fff"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": [
+                            "style-1",
+                            "style-2",
+                            "style-4",
+                            "style-7",
+                            "style-9"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .play,{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .pause"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": [
+                            "style-3",
+                            "style-8"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .tpgb-ap-pp"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": [
+                            "style-5",
+                            "style-6"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .tpgb-ap-pp"
+                }
+            ],
+            "scopy": true
+        },
+        "BorderRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": [
+                            "style-1",
+                            "style-2",
+                            "style-4",
+                            "style-6",
+                            "style-7",
+                            "style-9"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .play,{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .pause{border-radius:{{BorderRadius}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": [
+                            "style-3",
+                            "style-8"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .tpgb-ap-pp{border-radius:{{BorderRadius}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": "style-5"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls .tpgb-ap-pp{border-radius:{{BorderRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "PlIconcolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlistIcon{color:{{PlIconcolor}};}"
+            }],
+            "scopy": true
+        },
+        "PlIconSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlistIcon{font-size:{{PlIconSize}}; }"
+            }],
+            "scopy": true
+        },
+        "VolSize": {
+            "type": "object",
+            "default": {
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-2",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .volumeIcon .vol-icon-toggle{font-size:{{VolSize}}; }"
+            }],
+            "scopy": true
+        },
+        "VolIcolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-2",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .volumeIcon .vol-icon-toggle{color:{{VolIcolor}};}"
+            }],
+            "scopy": true
+        },
+        "VolScolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-2",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .volume .noUi-connects{background:{{VolScolor}};}"
+            }],
+            "scopy": true
+        },
+        "VolSBgColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-2",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .tpgb-volume-bg{background:{{VolSBgColor}}; }"
+            }],
+            "scopy": true
+        },
+        "VolSRangeColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-2",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .volume .noUi-origin{background:{{VolSRangeColor}};}"
+            }],
+            "scopy": true
+        },
+        "CBoxShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-2",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .tpgb-volume-bg"
+            }],
+            "scopy": true
+        },
+        "TTimeSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": "style-3"
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap.style-3 .currenttime, \n                            {{PLUS_WRAP}} .tpgb-audioplay-wrap.style-3 .durationtime{font-size:{{TTimeSize}};}"
+            }],
+            "scopy": true
+        },
+        "TTimecolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": "style-3"
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap.style-3 .ap-time .currenttime,\n                            {{PLUS_WRAP}} .tpgb-audioplay-wrap.style-3 .ap-time .durationtime{color:{{TTimecolor}};}"
+            }],
+            "scopy": true
+        },
+        "TTWidth": {
+            "type": "object",
+            "default": {
+                "unit": "%"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": [
+                            "style-1",
+                            "style-5",
+                            "style-6",
+                            "style-7",
+                            "style-8"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .tracker{width:{{TTWidth}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": [
+                            "style-2",
+                            "style-4"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .main-wrapper-style{width:{{TTWidth}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": "style-7"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap.style-7 .ap-time-title{width:{{TTWidth}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": [
+                            "style-8",
+                            "style-7"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .controls{width:{{TTWidth}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": [
+                            "style-8",
+                            "style-3"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .ap-time-seek-vol{width:{{TTWidth}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "TDotColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "!=",
+                    "value": "style-9"
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .tracker .noUi-handle{background:{{TDotColor}};}"
+            }],
+            "scopy": true
+        },
+        "Trackcolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "!=",
+                    "value": "style-9"
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .tracker.noUi-target{border-color:{{Trackcolor}};}"
+            }],
+            "scopy": true
+        },
+        "TFillcolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "!=",
+                    "value": "style-9"
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .tracker .tracker-fill{background:{{TFillcolor}};}"
+            }],
+            "scopy": true
+        },
+        "TIBorder": {
+            "type": "object",
+            "default": {
+                "openBorder": 0
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": [
+                            "style-3",
+                            "style-8"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .trackimage img"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": "style-5"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap.style-5 .ap-st5-img"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": "style-9"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap.style-9 .tpgb-player-bg-img"
+                }
+            ],
+            "scopy": true
+        },
+        "TIBorderR": {
+            "type": "object",
+            "default": {
+                "unit": "%"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": [
+                            "style-3",
+                            "style-8"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .trackimage img{border-radius:{{TIBorderR}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": "style-5"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap.style-5 .ap-st5-img{border-radius:{{TIBorderR}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": "style-9"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap.style-9 .tpgb-player-bg-img{border-radius:{{TIBorderR}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "TIBoxShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": [
+                            "style-3",
+                            "style-8"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .trackimage img"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": "style-5"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap.style-5 .ap-st5-img"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": "style-9"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap.style-9 .tpgb-player-bg-img"
+                }
+            ],
+            "scopy": true
+        },
+        "PlPadding": {
+            "type": "object",
+            "default": {
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlist .tpgb-playlist{padding:{{PlPadding}};}"
+            }],
+            "scopy": true
+        },
+        "PlIMargin": {
+            "type": "object",
+            "default": {
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlist .tpgb-playlist{margin:{{PlIMargin}};}"
+            }],
+            "scopy": true
+        },
+        "PlOMargin": {
+            "type": "object",
+            "default": {
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlist{margin:{{PlOMargin}};}"
+            }],
+            "scopy": true
+        },
+        "PLTypography": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlist .tpgb-playlist"
+            }],
+            "scopy": true
+        },
+        "NormalColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlist .tpgb-playlist{color:{{NormalColor}};}"
+            }],
+            "scopy": true
+        },
+        "NormalTop": {
+            "type": "object",
+            "default": {
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlist{margin-top:{{NormalTop}};}"
+            }],
+            "scopy": true
+        },
+        "PlBgCr": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlist"
+            }],
+            "scopy": true
+        },
+        "ActiveColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlist .tpgb-playlist.active{color:{{ActiveColor}}; }"
+            }],
+            "scopy": true
+        },
+        "ActiveTop": {
+            "type": "object",
+            "default": {
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlist .tpgb-playlist.active{margin-top:{{ActiveTop}};}"
+            }],
+            "scopy": true
+        },
+        "HColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlist:hover .tpgb-playlist{color:{{HColor}};}"
+            }],
+            "scopy": true
+        },
+        "HAColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlist:hover .tpgb-playlist.active{color:{{HAColor}}; }"
+            }],
+            "scopy": true
+        },
+        "HAPlaBgcolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlist:hover .tpgb-playlist.active{background-color:{{HAPlaBgcolor}};}"
+            }],
+            "scopy": true
+        },
+        "PlaBgcolor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlist .tpgb-playlist.active{background-color:{{PlaBgcolor}};}"
+            }],
+            "scopy": true
+        },
+        "Plborder": {
+            "type": "object",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlist"
+            }],
+            "scopy": true
+        },
+        "PlborderR": {
+            "type": "object",
+            "default": {
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlist{border-radius:{{PlborderR}};}"
+            }],
+            "scopy": true
+        },
+        "PlBoxshadow": {
+            "type": "object",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-1",
+                        "style-3",
+                        "style-4",
+                        "style-5",
+                        "style-6"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .playlist"
+            }],
+            "scopy": true
+        },
+        "PlBgType": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "!=",
+                    "value": "style-9"
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .tpgb-player"
+            }],
+            "scopy": true
+        },
+        "PBPadding": {
+            "type": "object",
+            "default": {
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": [
+                        "style-5",
+                        "style-7",
+                        "style-8"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .tpgb-player{padding:{{PBPadding}};}"
+            }],
+            "scopy": true
+        },
+        "PBMargin": {
+            "type": "object",
+            "default": {
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": "style-5"
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .tpgb-player{margin:{{PBMargin}};}"
+            }],
+            "scopy": true
+        },
+        "PlBorderType": {
+            "type": "object",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "!=",
+                    "value": "style-9"
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap .tpgb-player"
+            }],
+            "scopy": true
+        },
+        "PLBgBordeR": {
+            "type": "object",
+            "default": {
+                "unit": "px"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "!=",
+                        "value": [
+                            "style-5",
+                            "style-6",
+                            "style-9"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-player{border-radius:{{PLBgBordeR}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": "style-6"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-player .ap-st5-content{border-radius:{{PLBgBordeR}};}"
+                },
+                {
+                    "condition": [{
+                        "key": "Apstyle",
+                        "relation": "==",
+                        "value": "style-5"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-player .ap-st5-img{border-radius:{{PLBgBordeR}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "PBGboxshadow": {
+            "type": "object",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "!=",
+                    "value": "style-9"
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-player"
+            }],
+            "scopy": true
+        },
+        "PBGCSSFilters": {
+            "type": "object",
+            "default": {
+                "openFilter": true,
+                "blur": 8
+            },
+            "style": [{
+                "condition": [{
+                    "key": "Apstyle",
+                    "relation": "==",
+                    "value": "style-8"
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-audioplay-wrap.style-8 .tpgb-player-bg-img"
+            }],
+            "scopy": true
+        },
+        "showBlockContent" :{
+            "type": "boolean",
+            "default": true
+        }
+    }
+}

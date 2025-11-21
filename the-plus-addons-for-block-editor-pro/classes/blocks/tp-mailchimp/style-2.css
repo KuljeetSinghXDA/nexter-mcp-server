@@ -1,0 +1,22 @@
+.tpgb-mailchimp.form-style-2 .plus-newsletter-input-wrapper {
+    display: flex!important;
+    align-items: center!important;
+    width: 100%
+}
+
+.tpgb-mailchimp.form-style-2 button.subscribe-btn-submit {
+    margin-left: 10px
+}
+
+.tpgb-mailchimp.form-style-2 .plus-newsletter-input-wrapper span.prefix-icon {
+    position: absolute;
+    padding-left: 0;
+    left: 15px;
+    top: unset;
+    transform: unset
+}
+.tpgb-mailchimp.form-style-2 .plus-newsletter-input-wrapper span.prefix-icon:nth-child(3),.tpgb-mailchimp.form-style-2 .plus-newsletter-input-wrapper span.prefix-icon:nth-child(4) {
+    position: absolute;
+    left: calc(50% - 40px);
+    transform: translateX(-50%);
+}

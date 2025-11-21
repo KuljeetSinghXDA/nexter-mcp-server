@@ -1,0 +1,627 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-creative-image",
+	"version": "0.1.0",
+	"title": "Advanced Image",
+	"category": "tpgb",
+	"description": "An important visual part of your website. It is used to make the website look more attractive and appealing.",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "SelectImg": {
+            "type": "object",
+            "default": {
+                "url": ""
+            }
+        },
+        "ScrollRevelImg": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "AnimBgColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-bg-animate-img:after{background:{{AnimBgColor}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "AnimDirection": {
+            "type": "string",
+            "default": "left",
+            "scopy": true
+        },
+        "ImgSize": {
+            "type": "string",
+            "default": "full"
+        },
+        "Alignment": {
+            "type": "object",
+            "default": {
+                "md": "center",
+                "sm": "",
+                "xs": ""
+            },
+            "scopy": true
+        },
+        "link": {
+            "type": "object",
+            "default": {
+                "url": "",
+                "target": "",
+                "nofollow": ""
+            }
+        },
+        "ariaLabel": {
+            "type": "string",
+            "default": ""
+        },
+        "ImgWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-animate-image .tpgb-creative-img-wrap img,{{PLUS_WRAP}} .tpgb-animate-image .scroll-image-wrap,{{PLUS_WRAP}} .tpgb-animate-image figure:not(.tpgb-parallax-img-parent):not(.tpgb-creative-img-parallax){max-width: {{ImgWidth}};width:100%;}"
+                }
+            ],
+            "scopy": true
+        },
+        "showCaption": {
+            "type": "boolean",
+            "default": false
+        },
+        "ImgCaption": {
+            "type": "string",
+            "default": "Credit : Gutenberg, WordPress"
+        },
+        "floatAlign": {
+            "type": "string",
+            "default": "none"
+        },
+        "captionTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "showCaption",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-animate-image figcaption.tpgb-img-caption"
+                }
+            ],
+            "scopy": true
+        },
+        "captionNormalColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "showCaption",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-animate-image figcaption.tpgb-img-caption{color: {{captionNormalColor}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "captionHoverColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "showCaption",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-animate-image:hover figcaption.tpgb-img-caption{color: {{captionHoverColor}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "ScrollImgEffect": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "ScrollImgHeight": {
+            "type": "object",
+            "default": {
+                "md": 400
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollImgEffect",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-creative-image .scroll-image-wrap .creative-scroll-image{ min-height: {{ScrollImgHeight}}px; }"
+                }
+            ],
+            "scopy": true
+        },
+        "ScrollTransDur": {
+            "type": "object",
+            "default": {
+                "md": 2
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollImgEffect",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-creative-image .scroll-image-wrap .creative-scroll-image{ transition: background-position {{ScrollTransDur}}s ease-in-out;-webkit-transition: background-position {{ScrollTransDur}}s ease-in-out; }"
+                }
+            ],
+            "scopy": true
+        },
+        "showMaskImg": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "MaskImg": {
+            "type": "object",
+            "default": {
+                "url": ""
+            }
+        },
+        "MaskShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "typeShadow": "drop-shadow",
+                "horizontal": 2,
+                "vertical": 3,
+                "blur": 2,
+                "color": "rgba(0,0,0,0.5)"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-animate-image"
+                }
+            ],
+            "scopy": true
+        },
+        "ScrollParallax": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "ScrollMoveX": {
+            "type": "string",
+            "default": "120",
+            "scopy": true
+        },
+        "ScrollMoveY": {
+            "type": "string",
+            "default": "0",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollParallax",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-creative-img-parallax .tpgb-parallax-img-parent .tpgb-simple-parallax-img{ top : -{{ScrollMoveY}}px }",
+                    "backend": false
+                }
+            ],
+            "scopy": true
+        },
+        "border": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "",
+                        "left": "",
+                        "bottom": "",
+                        "right": ""
+                    },
+                    "unit": ""
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollParallax",
+                            "relation": "!=",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-creative-image .tpgb-animate-image img, {{PLUS_WRAP}}.tpgb-creative-image .scroll-image-wrap"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollParallax",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": " {{PLUS_WRAP}}.tpgb-creative-image .section-parallax-img"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": " {{PLUS_WRAP}}.tpgb-creative-image .tpgb-bg-animate-img"
+                }
+            ],
+            "scopy": true
+        },
+        "borderHover": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "",
+                        "left": "",
+                        "bottom": "",
+                        "right": ""
+                    },
+                    "unit": ""
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollParallax",
+                            "relation": "!=",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-creative-image .tpgb-animate-image img:hover, {{PLUS_WRAP}}.tpgb-creative-image .scroll-image-wrap:hover"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollParallax",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": " {{PLUS_WRAP}}.tpgb-creative-image .section-parallax-img:hover"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": " {{PLUS_WRAP}}.tpgb-creative-image .tpgb-bg-animate-img:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "borderRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "left": "",
+                    "bottom": ""
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "!=",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-creative-image .tpgb-animate-image img,{{PLUS_WRAP}}.tpgb-creative-image .scroll-image-wrap,{{PLUS_WRAP}}.tpgb-creative-image .section-parallax-img{border-radius: {{borderRadius}};}"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": " {{PLUS_WRAP}}.tpgb-creative-image .tpgb-bg-animate-img{border-radius: {{borderRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "borderRadiusHover": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "left": "",
+                    "bottom": ""
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "!=",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-creative-image .tpgb-animate-image img:hover,{{PLUS_WRAP}}.tpgb-creative-image .scroll-image-wrap:hover,{{PLUS_WRAP}}.tpgb-creative-image .section-parallax-img:hover{border-radius: {{borderRadiusHover}};}"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": " {{PLUS_WRAP}}.tpgb-creative-image .tpgb-bg-animate-img:hover{border-radius: {{borderRadiusHover}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "shadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "!=",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-creative-image .tpgb-animate-image img,{{PLUS_WRAP}}.tpgb-creative-image .scroll-image-wrap"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": " {{PLUS_WRAP}}.tpgb-creative-image .tpgb-bg-animate-img"
+                }
+            ],
+            "scopy": true
+        },
+        "nmlDropShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "typeShadow": "drop-shadow",
+                "horizontal": 2,
+                "vertical": 3,
+                "blur": 2,
+                "color": "rgba(0,0,0,0.5)"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "!=",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-creative-image .tpgb-animate-image img,{{PLUS_WRAP}}.tpgb-creative-image .scroll-image-wrap"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": " {{PLUS_WRAP}}.tpgb-creative-image .tpgb-bg-animate-img"
+                }
+            ],
+            "scopy": true
+        },
+        "shadowHover": {
+            "type": "object",
+            "default": {
+                "openShadow": 0
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "!=",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-creative-image .tpgb-animate-image img:hover,{{PLUS_WRAP}}.tpgb-creative-image .scroll-image-wrap:hover"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": " {{PLUS_WRAP}}.tpgb-creative-image .tpgb-bg-animate-img:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "hvrDropShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "typeShadow": "drop-shadow",
+                "horizontal": 2,
+                "vertical": 3,
+                "blur": 2,
+                "color": "rgba(0,0,0,0.5)"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "!=",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-creative-image .tpgb-animate-image img:hover,{{PLUS_WRAP}}.tpgb-creative-image .scroll-image-wrap:hover"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": " {{PLUS_WRAP}}.tpgb-creative-image .tpgb-bg-animate-img:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "imgNFilter": {
+            "type": "object",
+            "default": {
+                "openFilter": false
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "!=",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} img.hover__img"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": " {{PLUS_WRAP}}.tpgb-creative-image .tpgb-bg-animate-img"
+                }
+            ],
+            "scopy": true
+        },
+        "imgHFilter": {
+            "type": "object",
+            "default": {
+                "openFilter": false
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "!=",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} img.hover__img:hover"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ScrollRevelImg",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": " {{PLUS_WRAP}}.tpgb-creative-image .tpgb-bg-animate-img:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "fancyBox": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "FancyOption": {
+            "type": "string",
+            "default": "[]",
+            "scopy": true
+        },
+        "isRptBlock": {
+			"type": "boolean",
+			"default": false
+		},
+        "showBlockContent" :{
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "usesContext": [ "postId", "postType", "queryId", "tpgb/dynamicSubFieldData", "tpgb/dynamicRowIndex", "tpgb/dynamicPost", "tpgb/dynamicRepField" ]
+}

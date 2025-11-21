@@ -1,0 +1,213 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-heading-animation",
+	"version": "0.1.0",
+	"title": "Heading Animation",
+	"category": "tpgb",
+	"description": "Create animated impactful header that draws attention",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "style": {
+            "type": "string",
+            "default": "highlights"
+        },
+        "highLightStyle": {
+            "type": "string",
+            "default": "underline"
+        },
+        "textAnimStyle": {
+            "type": "string",
+            "default": "style-1"
+        },
+        "prefixText": {
+            "type": "string",
+            "default": "We are "
+        },
+        "highlightsText": {
+            "type": "string",
+            "default": "Innovative"
+        },
+        "animText": {
+            "type": "array",
+            "repeaterField": [
+                {
+                    "singleText": {
+                        "type": "string",
+                        "default": "Creative"
+                    }
+                }
+            ],
+            "default": [
+                {
+                    "_key": "cvi9",
+                    "singleText": "Innovative"
+                },
+                {
+                    "_key": "sci9",
+                    "singleText": "Creative"
+                }
+            ]
+        },
+        "postfixText": {
+            "type": "string",
+            "default": ""
+        },
+        "durationTiming": {
+            "type": "string",
+            "default": "600"
+        },
+        "alignment": {
+            "type": "object",
+            "default": {
+                "md": "center"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}}{ text-align: {{alignment}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "titleTag": {
+            "type": "string",
+            "default": "div",
+            "scopy": true
+        },
+        "textTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}}.tpgb-heading-animation.tpgb-animation-head"
+                }
+            ],
+            "scopy": true
+        },
+        "textColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}}.tpgb-heading-animation.tpgb-animation-head{ color: {{textColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "animTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .heading-text-wrap"
+                }
+            ],
+            "scopy": true
+        },
+        "animColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .heading-text-wrap{ color: {{animColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "lineColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "style",
+                            "relation": "==",
+                            "value": "textAnim"
+                        },
+                        {
+                            "key": "textAnimStyle",
+                            "relation": "==",
+                            "value": "style-1"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .heading-text-style-1:after{ background: {{lineColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "AnimationDur": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "style",
+                            "relation": "==",
+                            "value": "highlights"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .heading-highlights svg path{ animation-duration : {{AnimationDur}}s; }"
+                }
+            ],
+            "scopy": true
+        },
+        "strokeWidth": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "style",
+                            "relation": "==",
+                            "value": "highlights"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .heading-highlights svg path{ stroke-width: {{strokeWidth}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "strokeColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "style",
+                            "relation": "==",
+                            "value": "highlights"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .heading-highlights svg path{ stroke: {{strokeColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "isRptBlock": {
+			"type": "boolean",
+			"default": false
+		},
+        "showBlockContent" :{
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "usesContext": [ "postId", "postType", "queryId", "tpgb/dynamicSubFieldData", "tpgb/dynamicRowIndex", "tpgb/dynamicPost", "tpgb/dynamicRepField" ]
+}

@@ -1,0 +1,292 @@
+<?php
+/* Block : Tabs And Tours
+ * @since : 2.0.0
+ */
+defined( 'ABSPATH' ) || exit;
+
+function tpgb_tp_tabs_tours_render_callback( $attributes, $content) {
+	
+	$block_id = (!empty($attributes['block_id'])) ? $attributes['block_id'] :'';
+	$pattern = '/\btpgb-block-'.esc_attr($block_id).'/';
+    
+    if (preg_match($pattern, $content)) {
+		if( class_exists('Tpgb_Blocks_Global_Options') ){
+            $global_blocks = Tpgb_Blocks_Global_Options::get_instance();
+            $content = $global_blocks::block_row_conditional_render($attributes,$content);
+        }
+       return $content;
+    }
+	$tabLayout =  (!empty($attributes['tabLayout'])) ? $attributes['tabLayout'] :'horizontal';
+	$activeTab = (!empty($attributes['activeTab'])) ? $attributes['activeTab'] :'1';
+	$onhoverTab = (!empty($attributes['onhoverTab'])) ? $attributes['onhoverTab'] :'';
+	$carouselId = (!empty($attributes['carouselId'])) ? $attributes['carouselId'] : '';
+	$swiperEffect = (!empty($attributes['swiperEffect'])) ? $attributes['swiperEffect'] :false;
+	$navAlign =  (!empty($attributes['navAlign'])) ? $attributes['navAlign'] :'text-center';
+	$fullwidthIcon = (!empty($attributes['fullwidthIcon'])) ? $attributes['fullwidthIcon'] :false;
+	$hide_modile =  (!empty($attributes['hide_modile'])) ? $attributes['hide_modile'] :false;
+	$navWidth =  (!empty($attributes['navWidth'])) ? $attributes['navWidth'] :false;
+	$underline = (!empty($attributes['underline'])) ? $attributes['underline'] :false;
+	$tablistRepeater = (!empty($attributes['tablistRepeater'])) ? $attributes['tablistRepeater'] : [];
+	$titleShow =  (!empty($attributes['titleShow'])) ? $attributes['titleShow'] : false;
+	$navPosition = (!empty($attributes['navPosition'])) ? $attributes['navPosition'] :'top' ;
+	$tabnavResp =  (!empty($attributes['tabnavResp'])) ? $attributes['tabnavResp'] :'';
+	$hideToggle = (!empty($attributes['hideToggle'])) ? $attributes['hideToggle'] :false;
+	$VerticalAlign = (!empty($attributes['VerticalAlign'])) ? $attributes['VerticalAlign'] :'';
+	
+	$tabType = (!empty($attributes['tabType'])) ? $attributes['tabType'] : '' ;
+
+	$blockClass = Tp_Blocks_Helper::block_wrapper_classes( $attributes );
+
+	$output = '';
+	$tab_nav = '';
+	$tab_content = '';
+
+	// Set Swiper Effect
+	$swiper_container = '';
+	$swiper_wrap = '';
+	$swiper_slide = '';
+	if($swiperEffect == true && $tabLayout == 'horizontal'){
+		$swiper_container = 'swiper-container swiper-free-mode';
+		$swiper_wrap = 'swiper-wrapper';
+		$swiper_slide = 'swiper-slide swiper-slide-active';	
+	}
+
+	// Set Full Width Icon Class
+	$full_icon_class = '';
+	if($fullwidthIcon == true){
+		$full_icon_class = 'full-width-icon';
+	}else{
+		$full_icon_class = 'normal-width-icon';
+	}
+
+	// set class to hide Outer icon on mobile view
+	$hide_modile = '';
+	if(!empty($hideToggle['md']) && $hideToggle['md'] == true){
+		$hide_modile .= ' desc-hide';
+	}if( !empty($hideToggle['sm']) && $hideToggle['sm'] == true ){
+		$hide_modile .= ' tablet-hide';
+	}if(!empty($hideToggle['sm']) && $hideToggle['xs'] == true){
+		$hide_modile .= ' mobile-hide';
+	}
+
+	//Set class For full width Nav bar
+	$full_width_nav = '';
+	if($navWidth == true){
+		$full_width_nav = 'full-width';
+	}
+
+	// set class For UnderLine
+	$underline_class = '';
+	if($underline == true){
+		$underline_class = 'tab-underline';
+	}
+
+	//Set responsive class
+	$responsive_class = '';
+	if($tabnavResp == 'nav_full'){
+		$responsive_class = 'nav-full-width';
+	}else if($tabnavResp == 'nav_one'){
+		$responsive_class = "nav-one-by-one";
+	}else if($tabnavResp == 'tab_accordion'){
+		$responsive_class = 'mobile-accordion';
+	}
+
+	//Set Vertival TabAlign class
+	$alignclass = '';
+	if($VerticalAlign == 'top'){
+		$alignclass = 'align-top';
+	}else if($VerticalAlign == 'center'){
+		$alignclass = "align-center";
+	}else if($VerticalAlign == 'bottom'){
+		$alignclass = "align-bottom";
+	}
+	$i=0;$j=0;
+
+	$dataAttr = '';
+	if(!empty($carouselId)){
+		$dataAttr .= ' id="tptab_'.esc_attr($carouselId).'"';
+		$dataAttr .= ' data-tabs-id="tptab_'.esc_attr($carouselId).'"';
+		$dataAttr .= ' data-connection="tpca-'.esc_attr($carouselId).'"';
+		$dataAttr .= ' data-extra-conn="tpex-'.esc_attr($carouselId).'"';
+	}
+
+	// Output for Tab Navigation
+	$nav_loop='';
+	if(!empty($tablistRepeater)){ 
+		foreach ( $tablistRepeater as $index => $item ) :
+			$j++;
+			// Set active class
+			$active = $temClass ='';
+			if($j==$activeTab){
+				$active=' active';
+			}
+
+			if( $item['contentType'] == 'template' && !empty($item['blockTemp']) && $item['blockTemp']!='none' && isset($item['ajaxbase']) && !empty($item['ajaxbase']) && $item['ajaxbase'] == 'ajax-base' ){
+				$temClass = 'tpgb-load-template-'.esc_attr($onhoverTab).' tpgb-load-'.esc_attr($item['blockTemp']);
+			}
+
+			$nav_loop .= '<div class="tpgb-tab-li">';
+				$nav_loop .= '<div id="'.(!empty($item['uniqueId']) ? esc_attr($item['uniqueId']) : 'tpag-tab-title-'.esc_attr($block_id).esc_attr($j) ).'" class="tpgb-tab-header tpgb-trans-linear '.esc_attr($active).' '.esc_attr($temClass).' " data-tab="'.esc_attr($j).'" role="tab" aria-controls="'.(!empty($item['uniqueId']) ? esc_attr($item['uniqueId']) : 'tpag-tab-title-'.esc_attr($block_id).esc_attr($j) ).'">';
+					if(!empty($item['innerIcon'])){
+						$nav_loop .= '<span class="tab-icon-wrap">';
+							if($item['iconFonts'] == 'font_awesome') {
+								$nav_loop .= '<i class="tab-icon tpgb-trans-linear '.esc_attr($item['innericonName']).'"></i>';
+							}else if($item['iconFonts'] == 'image'){
+								$altText = (isset($item['iconImage']['alt']) && !empty($item['iconImage']['alt'])) ? esc_attr($item['iconImage']['alt']) : ((!empty($item['iconImage']['title'])) ? esc_attr($item['iconImage']['title']) : esc_attr__('Tab Icon','tpgbp'));
+
+								if( !empty($item['iconImage']['id']) ){
+									$nav_loop .= wp_get_attachment_image($item['iconImage']['id'], $item['iconimageSize'], false, ['alt'=> $altText]);
+								}else if(isset($item['iconImage']['dynamic'])){
+									$imgUrl = Tpgbp_Pro_Blocks_Helper::tpgb_dynamic_repeat_url($item['iconImage']);
+									$nav_loop .= '<img src="'.esc_url($imgUrl).'" alt="'.$altText.'"/>';
+								}
+							} 
+						$nav_loop .= '</span>';
+					}
+					if(!empty($titleShow)){
+						$nav_loop .= '<span>' .wp_kses_post($item['tabTitle']). '</span>';
+					}
+					if(!empty($item['outerIcon'])){
+						$nav_loop .= '<div class="tab-sep-icon">';
+							$nav_loop .= '<i class="tab-between-icon '.(!empty($item['outericonName']) ? esc_attr($item['outericonName']) : '' ).'"></i>';
+						$nav_loop .= '</div>';
+					}
+				$nav_loop .= '</div>';
+			$nav_loop .= '</div>';
+			
+		endforeach;
+	}
+	$tab_nav .= '<div class="tpgb-tabs-nav-wrapper '.esc_attr($swiper_wrap).' '.esc_attr($navAlign).' '.($tabLayout=='vertical' ? esc_attr($alignclass) : '').'">';
+		$tab_nav .= '<div class="tpgb-tabs-nav tpgb-trans-linear '.esc_attr($swiper_slide).' '.esc_attr($full_icon_class).' '.esc_attr($hide_modile).' '.esc_attr($full_width_nav).' '.esc_attr($underline_class).' " role="tablist">';
+		$tab_nav .= $nav_loop;
+		$tab_nav .= '</div>';
+	$tab_nav .= '</div>';
+	
+	//Output tab content
+	$content_loop = '';
+	if(!empty($tablistRepeater)){ 
+		if($tabType == 'editor' ){
+
+			foreach ( $tablistRepeater as $index => $item ) :
+				$i++;
+			
+				// Set active class
+				$active='';
+				if($i==$activeTab){
+					$active=' active';
+				}
+
+				// Set Tab Title For responsive accordian
+				$content_loop .= '<div class="tab-mobile-title '.esc_attr($active).' '.esc_attr($navAlign).'" data-tab="'.esc_attr($i).'">';
+					if(!empty($item['innerIcon'])){
+						$content_loop .= '<span class="tab-icon-wrap">';
+							if($item['iconFonts'] == 'font_awesome') {
+									$content_loop .= '<i class="tab-icon tpgb-trans-linear '.esc_attr($item['innericonName']).'"></i>';
+								}else if($item['iconFonts'] == 'image'){
+									$altText = (isset($item['iconImage']['alt']) && !empty($item['iconImage']['alt'])) ? esc_attr($item['iconImage']['alt']) : ((!empty($item['iconImage']['title'])) ? esc_attr($item['iconImage']['title']) : esc_attr__('Tab Icon','tpgbp'));
+
+									if(!empty($item['iconImage']['id'])){
+										$content_loop .= wp_get_attachment_image($item['iconImage']['id'], $item['iconimageSize'], false, ['alt'=> $altText]);
+									}else if(isset($item['iconImage']['dynamic'])){
+										$imgUrl = Tpgbp_Pro_Blocks_Helper::tpgb_dynamic_repeat_url($item['iconImage']);
+										$content_loop .= '<img src="'.esc_url($imgUrl).'" alt="'.$altText.'"/>';
+									}
+								}
+						$content_loop .= '</span>';
+					}
+					$content_loop .= '<span>'.wp_kses_post($item['tabTitle']).'</span>';
+				$content_loop .= '</div>';
+			endforeach;
+			$content_loop .= $content;
+
+		}else{
+			foreach ( $tablistRepeater as $index => $item ) :
+				$i++;
+			
+				// Set active class
+				$active=$cntClass =$onloadClass ='';
+				if($i==$activeTab){
+					$active=' active';
+				}
+
+				if( $item['contentType'] == 'template' && !empty($item['blockTemp']) && $item['blockTemp']!='none' && isset($item['ajaxbase']) && !empty($item['ajaxbase']) && $item['ajaxbase'] == 'ajax-base' ){
+					$cntClass = 'tpgb-load-'.esc_attr( $item['blockTemp'] ).'-content';
+	
+					if($i==$activeTab){
+						$onloadClass = 'tpgb-load-template-view tpgb-load-'.esc_attr($item['blockTemp']);
+					}
+				}
+
+				// Set Tab Title For responsive accordian
+				$content_loop .= '<div class="tab-mobile-title '.esc_attr($active).' '.esc_attr($navAlign).'" data-tab="'.esc_attr($i).'">';
+					if(!empty($item['innerIcon'])){
+						$content_loop .= '<span class="tab-icon-wrap">';
+							if($item['iconFonts'] == 'font_awesome') {
+									$content_loop .= '<i class="tab-icon tpgb-trans-linear '.esc_attr($item['innericonName']).'"></i>';
+								}else if($item['iconFonts'] == 'image'){
+									$altText = (isset($item['iconImage']['alt']) && !empty($item['iconImage']['alt'])) ? esc_attr($item['iconImage']['alt']) : ((!empty($item['iconImage']['title'])) ? esc_attr($item['iconImage']['title']) : esc_attr__('Tab Icon','tpgbp'));
+
+									if(!empty($item['iconImage']['id'])){
+										$content_loop .= wp_get_attachment_image($item['iconImage']['id'], $item['iconimageSize'], false, ['alt'=> $altText]);
+									}else if(isset($item['iconImage']['dynamic'])){
+										$imgUrl = Tpgbp_Pro_Blocks_Helper::tpgb_dynamic_repeat_url($item['iconImage']);
+										$content_loop .= '<img src="'.esc_url($imgUrl).'" alt="'.$altText.'"/>';
+									}
+								}
+						$content_loop .= '</span>';
+					}
+					$content_loop .= '<span>'.wp_kses_post($item['tabTitle']).'</span>';
+				$content_loop .= '</div>';
+
+				$content_loop .= '<div id="tpag-tab-content-'.esc_attr($block_id).esc_attr($i).'" class="tpgb-tab-content '.esc_attr($active).' '.esc_attr($onloadClass).'" data-tab="'.esc_attr($i).'" role="tabpanel" aria-labelledby="'.(!empty($item['UniqueId']) ? esc_attr($item['UniqueId']) : 'tpag-tab-title-'.esc_attr($block_id).esc_attr($i) ).'">';
+					$content_loop .= '<div class ="tpgb-content-editor '.esc_attr($cntClass).'">';
+						if( !empty($item['contentType']) && $item['contentType'] == 'content'){
+							$content_loop .= Tpgbp_Pro_Blocks_Helper::tpgb_dynamic_val($item['tabDescription']);
+						}else if($item['contentType'] == 'template' && !empty($item['blockTemp'])  && $item['blockTemp']!='none'){
+							ob_start();
+							if(!empty($item['blockTemp'])) {
+								echo Tpgb_Library()->plus_do_block($item['blockTemp']);
+							}
+							
+							if( isset($item['ajaxbase']) && !empty($item['ajaxbase']) && $item['ajaxbase'] == 'ajax-base'){
+								$content_loop .= '';
+							}else{
+								$content_loop .= ob_get_contents();
+							}
+							ob_end_clean();
+						}
+					$content_loop .= '</div>';
+				$content_loop .= '</div>';
+				
+			endforeach;
+		}
+	}
+
+	$tab_content .= '<div class="tpgb-tabs-content-wrapper tpgb-trans-linear">' .$content_loop. '</div>';
+	
+	$output .= '<div class="tpgb-tabs-tours tpgb-block-'.esc_attr($block_id).' tab-view-'.esc_attr($tabLayout).' '.esc_attr($blockClass).'">';
+		$output .= '<div class="tpgb-tabs-wrapper tpgb-relative-block tpex-'.(!empty($carouselId) ? esc_attr($carouselId)  : '' ).' '.esc_attr($swiper_container).'  '.esc_attr($responsive_class).' " data-tab-default="'.esc_attr($activeTab).'" data-tab-hover="'.($onhoverTab == 'click' ? 'no' : 'yes').'" '.$dataAttr.'>';
+			if( $navPosition == 'top' || $navPosition == 'left' ){
+				$output .= $tab_nav.$tab_content;
+			}else{
+				$output .= $tab_content.$tab_nav;
+			}
+		$output .= '</div>';
+	$output .= '</div>';
+
+	$output = Tpgb_Blocks_Global_Options::block_Wrap_Render($attributes, $output);
+	
+    return $output;
+}
+
+/**
+ * Render for the server-side
+ */
+function tpgb_tp_tabs_tours() {
+	
+	if(method_exists('Tpgb_Blocks_Global_Options', 'merge_options_json')){
+		$block_data = Tpgb_Blocks_Global_Options::merge_options_json(__DIR__, 'tpgb_tp_tabs_tours_render_callback');
+		register_block_type( $block_data['name'], $block_data );
+	}
+}
+add_action( 'init', 'tpgb_tp_tabs_tours' );

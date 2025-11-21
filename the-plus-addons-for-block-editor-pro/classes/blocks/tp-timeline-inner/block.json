@@ -1,0 +1,92 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-timeline-inner",
+	"version": "0.1.0",
+	"title": "Timeline Inner",
+	"category": "tpgb",
+	"description": "Showcase updates or milestones in series of events using the Timeline block.",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"inserter": false,
+		"reusable": false,
+		"html": false
+	},
+    "parent": ["tpgb/tp-timeline"],
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "className": {
+            "type": "string",
+            "default": ""
+        },
+        "index": {
+            "type": "number",
+            "default": ""
+        },
+        "repetKey": {
+            "type": "string",
+            "default": ""
+        },
+        "RSAlign": {
+            "type": "string",
+            "default": ""
+        },
+        "RPosition": {
+            "type": "string",
+            "default": ""
+        },
+        "layout": {
+            "type": "string",
+            "default": ""
+        },
+        "MLayout": {
+            "type": "boolean",
+            "default": false
+        },
+        "RcAlign": {
+            "type": "string",
+            "default": "text-right"
+        },
+        "style": {
+            "type": "string",
+            "default": "style-1"
+        },
+        "RcTitle": {
+            "type": "string",
+            "default": ""
+        },
+        "description": {
+            "type": "string",
+            "default": ""
+        },
+        "Rnone": {
+            "type": "string",
+            "default": ""
+        },
+        "PinStyle": {
+            "type": "string",
+            "default": "style-1"
+        },
+        "RTitle": {
+            "type": "string",
+            "default": ""
+        },
+        "Ricon": {
+            "type": "string",
+            "default": ""
+        },
+        "RButton": {
+            "type": "boolean",
+            "default": false
+        },
+        "RBtnText": {
+            "type": "string",
+            "default": ""
+        }
+    }
+}

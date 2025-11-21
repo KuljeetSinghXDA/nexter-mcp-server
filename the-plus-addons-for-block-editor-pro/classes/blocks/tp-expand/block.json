@@ -1,0 +1,767 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-expand",
+	"version": "0.1.0",
+	"title": "Expand",
+	"category": "tpgb",
+	"description": "Show or Hide complete info on the page, when it cannot be viewed fully on the initial screen using Expand or Read More options",
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": "About Earth"
+        },
+        "contentSource": {
+            "type": "string",
+            "default": "customContent"
+        },
+        "content": {
+            "type": "string",
+            "default": "Earth is the third planet from the Sun and the only astronomical object known to harbour life. According to radiometric dating estimation and other evidence, Earth formed over 4.5 billion years ago. Earth's gravity interacts with other objects in space, especially the Sun and the Moon, which is Earth's only natural satellite. Earth orbits around the Sun in about 365.25 days.<br/><br/>Earth's axis of rotation is tilted with respect to its orbital plane, producing seasons on Earth. The gravitational interaction between Earth and the Moon causes tides, stabilises Earth's orientation on its axis, and gradually slows its rotation. Earth is the densest planet in the Solar System and the largest and most massive of the four rocky planets."
+        },
+        "templates": {
+            "type": "string",
+            "default": ""
+        },
+        "backendVisi": {
+            "type": "boolean",
+            "default": false
+        },
+        "ajaxbase": {
+            "type": "string",
+            "default": ""
+        },
+        "titleTag": {
+            "type": "string",
+            "default": "div"
+        },
+        "iconPosition": {
+            "type": "string",
+            "default": "before"
+        },
+        "expandText": {
+            "type": "string",
+            "default": "Read More"
+        },
+        "ariaLabel": {
+            "type": "string",
+            "default": ""
+        },
+        "readMoreIcon": {
+            "type": "string",
+            "default": "fas fa-angle-down"
+        },
+        "collapseText": {
+            "type": "string",
+            "default": "Read Less"
+        },
+        "collapseIcon": {
+            "type": "string",
+            "default": "fas fa-angle-up"
+        },
+        "extraButton": {
+            "type": "boolean",
+            "default": false
+        },
+        "extraButtonText": {
+            "type": "string",
+            "default": "Watch Video"
+        },
+        "extraButtonLink": {
+            "type": "object",
+            "default": {
+                "url": "",
+                "target": "",
+                "nofollow": ""
+            }
+        },
+        "ariaLabelEb": {
+            "type": "string",
+            "default": ""
+        },
+        "extraButtonIcon": {
+            "type": "string",
+            "default": "fas fa-angle-right"
+        },
+        "contentExpandDir": {
+            "type": "string",
+            "default": "above"
+        },
+        "contentMaxHeight": {
+            "type": "object",
+            "default": {
+                "md": "100",
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-description{ height: {{contentMaxHeight}}; }"
+            }],
+            "scopy": true
+        },
+        "customOpacity": {
+            "type": "boolean",
+            "default": false,
+            "style": [{
+                "selector": "{{PLUS_WRAP}}:not(.fullview) .tpgb-unfold-description:after{ top: auto; }"
+            }],
+            "scopy": true
+        },
+        "opacityHeight": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "customOpacity",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}}:not(.fullview) .tpgb-unfold-description:after{ min-height : {{opacityHeight}}; }"
+            }],
+            "scopy": true
+        },
+        "opacityColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "selector": "{{PLUS_WRAP}}:not(.fullview) .tpgb-unfold-description:after{ background: linear-gradient(rgba(255,255,255,0), {{opacityColor}} ); }"
+            }],
+            "scopy": true
+        },
+        "transDuration": {
+            "type": "string",
+            "default": 200
+        },
+        "toggleAlignment": {
+            "type": "string",
+            "default": "left",
+            "style": [{
+                    "condition": [{
+                        "key": "toggleAlignment",
+                        "relation": "!=",
+                        "value": "right"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle{ justify-content: {{toggleAlignment}}; }"
+                },
+                {
+                    "condition": [{
+                        "key": "toggleAlignment",
+                        "relation": "==",
+                        "value": "right"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle{ justify-content: flex-end; }"
+                },
+                {
+                    "condition": [{
+                        "key": "toggleAlignment",
+                        "relation": "==",
+                        "value": "right"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link{  }"
+                }
+            ],
+            "scopy": true
+        },
+        "titleMargin": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "title",
+                    "relation": "!=",
+                    "value": ""
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-title{ margin: {{titleMargin}}; }"
+            }],
+            "scopy": true
+        },
+        "titleAlign": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "title",
+                    "relation": "!=",
+                    "value": ""
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-title{ text-align: {{titleAlign}}; }"
+            }],
+            "scopy": true
+        },
+        "titleTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "title",
+                    "relation": "!=",
+                    "value": ""
+                }],
+                "selector": "{{PLUS_WRAP}}.tp-expand.tpgb-unfold-wrapper .tpgb-unfold-title"
+            }],
+            "scopy": true
+        },
+        "titleColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "title",
+                    "relation": "!=",
+                    "value": ""
+                }],
+                "selector": "{{PLUS_WRAP}}.tp-expand.tpgb-unfold-wrapper .tpgb-unfold-title{ color: {{titleColor}}; }"
+            }],
+            "scopy": true
+        },
+        "descMargin": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-description,{{PLUS_WRAP}} .tpgb-unfold-description p{ margin: {{descMargin}}; }"
+            }],
+            "scopy": true
+        },
+        "descAlign": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-description,{{PLUS_WRAP}} .tpgb-unfold-description p{ text-align: {{descAlign}}; }"
+            }],
+            "scopy": true
+        },
+        "descTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-description,{{PLUS_WRAP}} .tpgb-unfold-description p"
+            }],
+            "scopy": true
+        },
+        "descColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-description,{{PLUS_WRAP}} .tpgb-unfold-description p{ color: {{descColor}}; }"
+            }],
+            "scopy": true
+        },
+        "toggleBtnMargin": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle,{{PLUS_WRAP}}.fullview .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link{ margin: {{toggleBtnMargin}}; }"
+            }],
+            "scopy": true
+        },
+        "toggleBtnPadding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle,{{PLUS_WRAP}}.fullview .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link{ padding: {{toggleBtnPadding}}; }"
+            }],
+            "scopy": true
+        },
+        "toggleWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle{ width: {{toggleWidth}}; }"
+            }],
+            "scopy": true
+        },
+        "toggleBtnTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle"
+            }],
+            "scopy": true
+        },
+        "toggleBtnColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle{ color: {{toggleBtnColor}}; }"
+            }],
+            "scopy": true
+        },
+        "toggleBtnColorH": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle:hover{ color: {{toggleBtnColorH}}; }"
+            }],
+            "scopy": true
+        },
+        "toggleBtnBg": {
+            "type": "object",
+            "default": {
+                "openBg": 1,
+                "bgType": "color",
+                "videoSource": "local",
+                "bgDefaultColor": "#101011"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle"
+            }],
+            "scopy": true
+        },
+        "toggleBtnBgH": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle:hover"
+            }],
+            "scopy": true
+        },
+        "toggleBtnBorder": {
+            "type": "object",
+            "default": {
+                "openBorder": 1,
+                "type": "solid",
+                "color": "#101011",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle"
+            }],
+            "scopy": true
+        },
+        "toggleBtnBorderH": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "",
+                        "left": "",
+                        "bottom": "",
+                        "right": ""
+                    }
+                }
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle:hover"
+            }],
+            "scopy": true
+        },
+        "toggleBtnBoxShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle"
+            }],
+            "scopy": true
+        },
+        "toggleBtnBoxShadowH": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle:hover"
+            }],
+            "scopy": true
+        },
+        "toggleIconSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle .toggle-button-icon{ font-size: {{toggleIconSize}}; }"
+            }],
+            "scopy": true
+        },
+        "toggleIconOffsetAfter": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "iconPosition",
+                    "relation": "==",
+                    "value": "after"
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle .toggle-button-icon{ margin-left: {{toggleIconOffsetAfter}}; }"
+            }],
+            "scopy": true
+        },
+        "toggleIconOffsetBefore": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "iconPosition",
+                    "relation": "==",
+                    "value": "before"
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle .toggle-button-icon{ margin-right: {{toggleIconOffsetBefore}}; }"
+            }],
+            "scopy": true
+        },
+        "toggleIconColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle .toggle-button-icon{ color: {{toggleIconColor}}; }"
+            }],
+            "scopy": true
+        },
+        "toggleIconColorH": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle .toggle-button-icon:hover{ color: {{toggleIconColorH}}; }"
+            }],
+            "scopy": true
+        },
+        "extraButtonMargin": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "extraButton",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link{ margin: {{extraButtonMargin}}; }"
+            }],
+            "scopy": true
+        },
+        "extraBtnTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "extraButton",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link"
+            }],
+            "scopy": true
+        },
+        "extraBtnColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "extraButton",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}}.tpgb-unfold-wrapper .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link{ color: {{extraBtnColor}}; }"
+            }],
+            "scopy": true
+        },
+        "extraBtnColorH": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "extraButton",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}}.tpgb-unfold-wrapper .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link:hover{ color: {{extraBtnColorH}}; }"
+            }],
+            "scopy": true
+        },
+        "extraBtnBg": {
+            "type": "object",
+            "default": {
+                "openBg": 1,
+                "bgType": "color",
+                "bgDefaultColor": "#6f14f1"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "extraButton",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link"
+            }],
+            "scopy": true
+        },
+        "extraBtnBgH": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "extraButton",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link:hover"
+            }],
+            "scopy": true
+        },
+        "extraBtnBorder": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "",
+                        "left": "",
+                        "bottom": "",
+                        "right": ""
+                    }
+                }
+            },
+            "style": [{
+                "condition": [{
+                    "key": "extraButton",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link"
+            }],
+            "scopy": true
+        },
+        "extraBtnBorderH": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "",
+                        "left": "",
+                        "bottom": "",
+                        "right": ""
+                    }
+                }
+            },
+            "style": [{
+                "condition": [{
+                    "key": "extraButton",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link:hover"
+            }],
+            "scopy": true
+        },
+        "extraBtnBoxShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "extraButton",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link"
+            }],
+            "scopy": true
+        },
+        "extraBtnBoxShadowH": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "extraButton",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link:hover"
+            }],
+            "scopy": true
+        },
+        "extraToggleIconSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "extraButton",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link .extra-button-icon{ font-size: {{extraToggleIconSize}}; }"
+            }],
+            "scopy": true
+        },
+        "extraTIconOffsetAfter": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "iconPosition",
+                        "relation": "==",
+                        "value": "after"
+                    },
+                    {
+                        "key": "extraButton",
+                        "relation": "==",
+                        "value": true
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link .extra-button-icon{ margin-left: {{extraTIconOffsetAfter}}; }"
+            }],
+            "scopy": true
+        },
+        "extraTIconOffsetBefore": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "iconPosition",
+                        "relation": "==",
+                        "value": "before"
+                    },
+                    {
+                        "key": "extraButton",
+                        "relation": "==",
+                        "value": true
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link .extra-button-icon{ margin-right: {{extraTIconOffsetBefore}}; }"
+            }],
+            "scopy": true
+        },
+        "extraTIconColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "extraButton",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-unfold-last-toggle .tpgb-unfold-toggle-link .extra-button-icon{ color: {{extraTIconColor}}; }"
+            }],
+            "scopy": true
+        },
+        "isRptBlock": {
+			"type": "boolean",
+			"default": false
+		}
+    },
+    "usesContext": [ "postId", "postType", "queryId", "tpgb/dynamicSubFieldData", "tpgb/dynamicRowIndex", "tpgb/dynamicPost", "tpgb/dynamicRepField" ]
+}

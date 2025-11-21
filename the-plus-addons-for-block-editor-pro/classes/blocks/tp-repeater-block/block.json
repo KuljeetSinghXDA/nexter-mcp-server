@@ -1,0 +1,116 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-repeater-block",
+	"version": "0.1.0",
+	"title": "Repeater",
+	"category": "tpgb",
+	"apiVersion": 3,
+	"description": "The Repeater Block allows you to add and manage repeatable content like FAQs, testimonials, or team profiles with ease.",
+	"example": {
+		"attributes": {}
+	},
+	"textdomain": "tpgb",
+	"attributes": {
+		"block_id": {
+			"type": "string",
+			"default": ""
+		},
+		"sourceOpt": {
+			"type": "string",
+			"default": "none"
+		},
+		"repField": {
+			"type": "string",
+			"default": ""
+		},
+		"postOpt": {
+			"type": "object",
+			"default": {
+				"label": "",
+				"value": ""
+			}
+		},
+		"gridColumns": {
+			"type": "object",
+			"default": {
+				"md": "2"
+			},
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}}.nxt-repeater-container .nxt-grid-columns { grid-template-columns: repeat({{gridColumns}}, 1fr); }",
+					"backend": true
+				},
+				{
+					"selector": "{{PLUS_WRAP}}.nxt-repeater-container { grid-template-columns: repeat({{gridColumns}}, 1fr); }",
+					"backend": false
+				}
+			],
+			"scopy": true
+		},
+		"contPad": {
+			"type": "object",
+			"default": {
+				"md": {
+					"top": "",
+					"bottom": "",
+					"left": "",
+					"right": ""
+				},
+				"unit": "px"
+			},
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}}.nxt-repeater-container .nxt-grid-columns { padding : {{contPad}}}",
+					"backend": true
+				},
+				{
+					"selector": "{{PLUS_WRAP}}.nxt-repeater-container { padding : {{contPad}}}",
+					"backend": false
+				}
+			],
+			"scopy": true
+		},
+		"columnsGap": {
+			"type": "object",
+			"default": {
+				"md": "10",
+				"unit": "px"
+			},
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}}.nxt-repeater-container .nxt-grid-columns { grid-column-gap: {{columnsGap}}}",
+					"backend": true
+				},
+				{
+					"selector": "{{PLUS_WRAP}}.nxt-repeater-container { grid-column-gap: {{columnsGap}}}",
+					"backend": false
+				}
+			]
+		},
+		"rowGap": {
+			"type": "object",
+			"default": {
+				"md": "10",
+				"unit": "px"
+			},
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}}.nxt-repeater-container .nxt-grid-columns { grid-row-gap: {{rowGap}}}",
+					"backend": true
+				},
+				{
+					"selector": "{{PLUS_WRAP}}.nxt-repeater-container {grid-row-gap: {{rowGap}}}",
+					"backend": false
+				}
+			]
+		},
+		"selectedLayout": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"providesContext": {
+		"tpgb/dynamicRepField": "repField",
+		"tpgb/dynamicPost": "postOpt"
+}
+}

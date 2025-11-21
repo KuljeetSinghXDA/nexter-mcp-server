@@ -1,0 +1,1733 @@
+# Copyright (C) 2025 POSIMYTH
+# This file is distributed under the same license as the Nexter Blocks Pro plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Nexter Blocks Pro 4.5.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/the-plus-addons-for-block-editor-pro\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-08-27T09:45:37+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: tpgbp\n"
+
+#. Plugin Name of the plugin
+#: the-plus-addons-for-block-editor-pro.php
+msgid "Nexter Blocks Pro"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: the-plus-addons-for-block-editor-pro.php
+msgid "https://nexterwp.com/nexter-blocks/"
+msgstr ""
+
+#. Description of the plugin
+#: the-plus-addons-for-block-editor-pro.php
+msgid "Highly customizable WordPress Gutenberg blocks with 90+ advanced blocks and 1000+ ready-to-use starter templates to create stunning websites effortlessly."
+msgstr ""
+
+#. Author of the plugin
+#: the-plus-addons-for-block-editor-pro.php
+msgid "POSIMYTH"
+msgstr ""
+
+#. Author URI of the plugin
+#: the-plus-addons-for-block-editor-pro.php
+msgid "https://posimyth.com"
+msgstr ""
+
+#: classes/blocks/tp-advanced-buttons/index.php:65
+#: classes/blocks/tp-animated-service-boxes/index.php:175
+#: classes/blocks/tp-circle-menu/index.php:184
+#: classes/blocks/tp-expand/index.php:120
+#: classes/blocks/tp-expand/index.php:132
+#: classes/blocks/tp-mailchimp/index.php:34
+msgid "Button"
+msgstr ""
+
+#: classes/blocks/tp-animated-service-boxes/index.php:162
+#: classes/blocks/tp-animated-service-boxes/index.php:211
+msgid "Service Box"
+msgstr ""
+
+#: classes/blocks/tp-audio-player/index.php:232
+#: classes/blocks/tp-audio-player/index.php:234
+msgid "Audio Player"
+msgstr ""
+
+#: classes/blocks/tp-before-after/index.php:38
+msgid "Before Image"
+msgstr ""
+
+#: classes/blocks/tp-before-after/index.php:51
+msgid "After Image"
+msgstr ""
+
+#: classes/blocks/tp-before-after/index.php:68
+msgid "Seprator Icon"
+msgstr ""
+
+#: classes/blocks/tp-before-after/index.php:112
+msgid "Please select a Before images & After Image"
+msgstr ""
+
+#: classes/blocks/tp-carousel-remote/index.php:93
+msgid "Prev"
+msgstr ""
+
+#: classes/blocks/tp-carousel-remote/index.php:94
+msgid "Next"
+msgstr ""
+
+#: classes/blocks/tp-carousel-remote/index.php:145
+#: classes/blocks/tp-carousel-remote/index.php:147
+msgid "Carousel Remote"
+msgstr ""
+
+#: classes/blocks/tp-circle-menu/index.php:42
+#: classes/blocks/tp-circle-menu/index.php:49
+#: classes/blocks/tp-circle-menu/index.php:67
+msgid "Toggle Button"
+msgstr ""
+
+#: classes/blocks/tp-circle-menu/index.php:194
+msgid "Item Icon"
+msgstr ""
+
+#: classes/blocks/tp-container/index.php:503
+#: classes/blocks/tp-row/index.php:290
+msgid "Parallax Image"
+msgstr ""
+
+#: classes/blocks/tp-container/index.php:553
+#: classes/blocks/tp-row/index.php:326
+msgid "My Video"
+msgstr ""
+
+#: classes/blocks/tp-creative-image/index.php:28
+#: classes/blocks/tp-creative-image/index.php:100
+msgid "Creative Image"
+msgstr ""
+
+#: classes/blocks/tp-cta-banner/index.php:24
+msgid "Banner Image"
+msgstr ""
+
+#: classes/blocks/tp-data-table/index.php:48
+#: classes/blocks/tp-data-table/index.php:51
+msgid "Opps!! You didn\\'t enter any table data or CSV file"
+msgstr ""
+
+#: classes/blocks/tp-data-table/index.php:219
+#: assets/js/admin/blocks.js:1
+msgid "Google Sheet Not Found"
+msgstr ""
+
+#: classes/blocks/tp-dynamic-device/index.php:72
+#: classes/blocks/tp-dynamic-device/index.php:114
+msgid "Custom Device"
+msgstr ""
+
+#: classes/blocks/tp-dynamic-device/index.php:131
+msgid "Dynamic Device"
+msgstr ""
+
+#: classes/blocks/tp-dynamic-device/index.php:149
+msgid "Content Frame"
+msgstr ""
+
+#: classes/blocks/tp-dynamic-device/index.php:174
+msgid "Dynamic Device Icon"
+msgstr ""
+
+#: classes/blocks/tp-dynamic-device/index.php:263
+msgid "Image Content"
+msgstr ""
+
+#: classes/blocks/tp-expand/index.php:127
+msgid "Extra Button"
+msgstr ""
+
+#: classes/blocks/tp-flipbox/index.php:51
+#: classes/blocks/tp-flipbox/index.php:128
+msgid "Flipbox Image"
+msgstr ""
+
+#: classes/blocks/tp-flipbox/index.php:81
+#: classes/blocks/tp-flipbox/index.php:141
+#: classes/blocks/tp-pricing-table/index.php:86
+msgid "icon"
+msgstr ""
+
+#: classes/blocks/tp-hotspot/index.php:48
+msgid "Pin Point"
+msgstr ""
+
+#: classes/blocks/tp-hotspot/index.php:69
+#: classes/blocks/tp-hotspot/index.php:79
+msgid "Pin Image"
+msgstr ""
+
+#: classes/blocks/tp-hotspot/index.php:101
+#: classes/blocks/tp-hotspot/index.php:108
+msgid "Hotspot Image"
+msgstr ""
+
+#: classes/blocks/tp-login-register/index.php:3634
+msgid "Minimum Eight Characters"
+msgstr ""
+
+#: classes/blocks/tp-login-register/index.php:3637
+msgid "1 number (0-9)"
+msgstr ""
+
+#: classes/blocks/tp-login-register/index.php:3640
+msgid "1 letter (Aa-Zz)"
+msgstr ""
+
+#: classes/blocks/tp-login-register/index.php:3644
+msgid "1 Special Character (!@#$%^&*)"
+msgstr ""
+
+#: classes/blocks/tp-login-register/index.php:3648
+msgid "Four to Eight characters"
+msgstr ""
+
+#: classes/blocks/tp-login-register/index.php:3652
+msgid "Minimum six characters"
+msgstr ""
+
+#: classes/blocks/tp-login-register/index.php:3656
+msgid "1 lowercase(a-z) & 1 uppercase(A-Z)"
+msgstr ""
+
+#: classes/blocks/tp-login-register/index.php:3659
+msgid "1 alphanumeric (1Aa-9Zz)"
+msgstr ""
+
+#: classes/blocks/tp-login-register/index.php:3663
+msgid "1 number(0-9) Or 1 special character  (!@#$%^&*)"
+msgstr ""
+
+#: classes/blocks/tp-login-register/index.php:3743
+msgid "Magic Link"
+msgstr ""
+
+#: classes/blocks/tp-login-register/index.php:4041
+#: classes/blocks/tp-team-listing/index.php:170
+msgid "Facebook"
+msgstr ""
+
+#: classes/blocks/tp-login-register/index.php:4116
+msgid "Back Icon"
+msgstr ""
+
+#: classes/blocks/tp-login-register/index.php:4181
+msgid "You are already signed in."
+msgstr ""
+
+#: classes/blocks/tp-login-register/index.php:4225
+msgid "Reset Password"
+msgstr ""
+
+#: classes/blocks/tp-login-register/index.php:4227
+msgid "****"
+msgstr ""
+
+#: classes/blocks/tp-login-register/index.php:4231
+msgid "Reenter Password"
+msgstr ""
+
+#: classes/blocks/tp-lottiefiles/index.php:118
+msgid "Opps!! Please Enter Only JSON File Extension."
+msgstr ""
+
+#: classes/blocks/tp-lottiefiles/index.php:130
+msgid "Animation Icon"
+msgstr ""
+
+#: classes/blocks/tp-lottiefiles/index.php:164
+msgid "JSON Parse Not Working"
+msgstr ""
+
+#: classes/blocks/tp-media-listing/index.php:151
+#: classes/blocks/tp-media-listing/index.php:157
+msgid "Please select a multiple images Gallery"
+msgstr ""
+
+#: classes/blocks/tp-media-listing/index.php:384
+msgid "Popup Icon"
+msgstr ""
+
+#: classes/blocks/tp-media-listing/index.php:419
+msgid "Image Icon"
+msgstr ""
+
+#: classes/blocks/tp-media-listing/index.php:550
+#: classes/blocks/tp-post-listing/index.php:2698
+#: classes/blocks/tp-product-listing/index.php:596
+#: classes/blocks/tp-social-feed/index.php:5208
+#: classes/blocks/tp-social-reviews/index.php:805
+#: classes/blocks/tp-team-listing/index.php:1352
+msgid "All"
+msgstr ""
+
+#: classes/blocks/tp-mobile-menu/index.php:72
+#: classes/blocks/tp-mobile-menu/index.php:108
+#: classes/blocks/tp-mobile-menu/index.php:143
+msgid "Mobile Menu Image"
+msgstr ""
+
+#: classes/blocks/tp-mouse-cursor/index.php:125
+msgid "Mouse Cursor"
+msgstr ""
+
+#: classes/blocks/tp-navigation-builder/index.php:124
+msgid "Close Image"
+msgstr ""
+
+#: classes/blocks/tp-navigation-builder/index.php:139
+msgid "Open Image"
+msgstr ""
+
+#: classes/blocks/tp-navigation-builder/index.php:157
+msgid "navigation"
+msgstr ""
+
+#: classes/blocks/tp-navigation-builder/index.php:157
+msgid "Main navigation"
+msgstr ""
+
+#: classes/blocks/tp-navigation-builder/index.php:247
+msgid "Main menu"
+msgstr ""
+
+#: classes/blocks/tp-navigation-builder/index.php:289
+msgid "Navigation Image"
+msgstr ""
+
+#: classes/blocks/tp-navigation-builder/index.php:3413
+msgid "Add a menu"
+msgstr ""
+
+#: classes/blocks/tp-popup-builder/index.php:191
+msgid "Offcanvas Toggle Image"
+msgstr ""
+
+#: classes/blocks/tp-popup-builder/index.php:218
+msgid "Popup Close Image"
+msgstr ""
+
+#: classes/blocks/tp-post-listing/index.php:2699
+#: classes/blocks/tp-product-listing/index.php:597
+#: classes/blocks/tp-social-feed/index.php:5230
+#: classes/blocks/tp-social-reviews/index.php:826
+#: classes/blocks/tp-team-listing/index.php:1376
+msgid "Filters"
+msgstr ""
+
+#: classes/blocks/tp-post-listing/index.php:2807
+#: classes/extras/tpgb-category-image.php:133
+msgid "Category Image"
+msgstr ""
+
+#: classes/blocks/tp-post-navigation/index.php:70
+#: classes/blocks/tp-post-navigation/index.php:74
+msgid "Previous Post Image"
+msgstr ""
+
+#: classes/blocks/tp-post-navigation/index.php:88
+#: classes/blocks/tp-post-navigation/index.php:92
+msgid "Next Post Image"
+msgstr ""
+
+#: classes/blocks/tp-post-navigation/index.php:107
+#: classes/blocks/tp-post-navigation/index.php:112
+#: classes/blocks/tp-post-navigation/index.php:117
+#: classes/blocks/tp-post-navigation/index.php:120
+#: classes/blocks/tp-post-navigation/index.php:131
+#: classes/blocks/tp-post-navigation/index.php:136
+#: classes/blocks/tp-post-navigation/index.php:141
+#: classes/blocks/tp-post-navigation/index.php:144
+msgid "prev"
+msgstr ""
+
+#: classes/blocks/tp-preloader/index.php:130
+msgid "Preloader Image"
+msgstr ""
+
+#: classes/blocks/tp-preloader/index.php:229
+msgid "Opps! Wrong file format. Only JSON files accepted."
+msgstr ""
+
+#: classes/blocks/tp-pricing-table/index.php:74
+msgid "Price Icon"
+msgstr ""
+
+#: classes/blocks/tp-process-steps/index.php:77
+#: classes/blocks/tp-process-steps/index.php:87
+#: classes/blocks/tp-process-steps/index.php:104
+msgid "Process Step Image"
+msgstr ""
+
+#: classes/blocks/tp-product-listing/index.php:168
+msgid "Wondering why it\\'s not working? Please install WooCommerce Plugin and create your products to make this section working."
+msgstr ""
+
+#: classes/blocks/tp-product-listing/index.php:170
+msgid "Products not found"
+msgstr ""
+
+#: classes/blocks/tp-product-listing/index.php:820
+msgid "Sale"
+msgstr ""
+
+#: classes/blocks/tp-scroll-navigation/index.php:60
+msgid "Navigation Button"
+msgstr ""
+
+#: classes/blocks/tp-social-feed/index.php:4080
+#: classes/blocks/tp-social-feed/index.php:4098
+#: classes/blocks/tp-social-reviews/index.php:274
+msgid "All Social Feed"
+msgstr ""
+
+#: classes/blocks/tp-social-sharing/index.php:147
+msgid "Social"
+msgstr ""
+
+#: classes/blocks/tp-tabs-tours/index.php:135
+#: classes/blocks/tp-tabs-tours/index.php:186
+#: classes/blocks/tp-tabs-tours/index.php:227
+msgid "Tab Icon"
+msgstr ""
+
+#: classes/blocks/tp-team-listing/index.php:111
+msgid "Profile Image"
+msgstr ""
+
+#: classes/blocks/tp-team-listing/index.php:162
+#: classes/tp-block-helper.php:3396
+msgid "Site URL"
+msgstr ""
+
+#: classes/blocks/tp-team-listing/index.php:178
+msgid "Twitter"
+msgstr ""
+
+#: classes/blocks/tp-team-listing/index.php:186
+msgid "Instagram"
+msgstr ""
+
+#: classes/blocks/tp-team-listing/index.php:194
+msgid "Mail"
+msgstr ""
+
+#: classes/blocks/tp-team-listing/index.php:202
+msgid "LinkedIn"
+msgstr ""
+
+#: classes/blocks/tp-team-listing/index.php:207
+msgid "Phone No"
+msgstr ""
+
+#: classes/blocks/tp-testimonials/index.php:213
+#: classes/blocks/tp-testimonials/index.php:221
+msgid "Author Avatar"
+msgstr ""
+
+#: classes/extras/tpgb-category-image.php:84
+msgid "Thumbnail"
+msgstr ""
+
+#: classes/extras/tpgb-category-image.php:87
+msgid "Add/Edit Image"
+msgstr ""
+
+#: classes/extras/tpgb-category-image.php:88
+msgid "Remove"
+msgstr ""
+
+#: classes/extras/tpgb-category-image.php:116
+msgid "Image"
+msgstr ""
+
+#: classes/tp-block-helper.php:3293
+msgid "Select Menu"
+msgstr ""
+
+#: classes/tp-block-helper.php:3339
+#: classes/tp-block-helper.php:3383
+#: classes/tp-block-helper.php:3410
+msgid "Select Option"
+msgstr ""
+
+#: classes/tp-block-helper.php:3344
+msgid "Post Title"
+msgstr ""
+
+#: classes/tp-block-helper.php:3344
+msgid "Post Slug"
+msgstr ""
+
+#: classes/tp-block-helper.php:3344
+msgid "Post Excerpt"
+msgstr ""
+
+#: classes/tp-block-helper.php:3344
+msgid "Post Date"
+msgstr ""
+
+#: classes/tp-block-helper.php:3344
+msgid "Post Date GMT"
+msgstr ""
+
+#: classes/tp-block-helper.php:3344
+msgid "Post Modified"
+msgstr ""
+
+#: classes/tp-block-helper.php:3344
+msgid "Post Modified GMT"
+msgstr ""
+
+#: classes/tp-block-helper.php:3344
+msgid "Post Type"
+msgstr ""
+
+#: classes/tp-block-helper.php:3344
+msgid "Post Status"
+msgstr ""
+
+#: classes/tp-block-helper.php:3351
+msgid "Archive Title"
+msgstr ""
+
+#: classes/tp-block-helper.php:3351
+msgid "Archive Description"
+msgstr ""
+
+#: classes/tp-block-helper.php:3351
+msgid "Archive URL"
+msgstr ""
+
+#: classes/tp-block-helper.php:3357
+msgid "Author Name"
+msgstr ""
+
+#: classes/tp-block-helper.php:3357
+msgid "Author ID"
+msgstr ""
+
+#: classes/tp-block-helper.php:3357
+msgid "Author Posts"
+msgstr ""
+
+#: classes/tp-block-helper.php:3357
+msgid "Author First Name"
+msgstr ""
+
+#: classes/tp-block-helper.php:3357
+msgid "Author Last Name"
+msgstr ""
+
+#: classes/tp-block-helper.php:3363
+msgid "Comment Number"
+msgstr ""
+
+#: classes/tp-block-helper.php:3363
+msgid "Comment Status"
+msgstr ""
+
+#: classes/tp-block-helper.php:3369
+msgid "Site Title"
+msgstr ""
+
+#: classes/tp-block-helper.php:3369
+msgid "Site Tagline"
+msgstr ""
+
+#: classes/tp-block-helper.php:3377
+msgid "WooCommerce"
+msgstr ""
+
+#: classes/tp-block-helper.php:3378
+msgid "Product Title"
+msgstr ""
+
+#: classes/tp-block-helper.php:3378
+msgid "Product Terms"
+msgstr ""
+
+#: classes/tp-block-helper.php:3378
+msgid "Product Price"
+msgstr ""
+
+#: classes/tp-block-helper.php:3378
+msgid "Product Rating"
+msgstr ""
+
+#: classes/tp-block-helper.php:3378
+msgid "Product Sale"
+msgstr ""
+
+#: classes/tp-block-helper.php:3378
+msgid "Product Short Description"
+msgstr ""
+
+#: classes/tp-block-helper.php:3378
+msgid "Product SKU"
+msgstr ""
+
+#: classes/tp-block-helper.php:3378
+msgid "Product Stock"
+msgstr ""
+
+#: classes/tp-block-helper.php:3388
+#: includes/social-feed/popup-type.php:14
+#: includes/social-feed/popup-type.php:48
+#: includes/social-feed/social-feed-ob-style.php:7
+#: includes/social-feed/social-feed-ob-style.php:14
+msgid "Post URL"
+msgstr ""
+
+#: classes/tp-block-helper.php:3404
+msgid "Author Posts URL"
+msgstr ""
+
+#: classes/tp-block-helper.php:3405
+msgid "Author Profile Picture URL"
+msgstr ""
+
+#: classes/tp-block-helper.php:3415
+msgid "Featured Image"
+msgstr ""
+
+#: classes/tp-block-helper.php:3423
+msgid "Site Logo"
+msgstr ""
+
+#: classes/tp-block-helper.php:3431
+msgid "Author Profile Picture"
+msgstr ""
+
+#: classes/tp-block-helper.php:3432
+msgid "User Profile Picture"
+msgstr ""
+
+#: classes/tp-block-helper.php:3437
+msgid "Select Color"
+msgstr ""
+
+#: classes/tp-block-helper.php:4531
+msgid "Custom URL"
+msgstr ""
+
+#: classes/tp-block-helper.php:4534
+msgid "Gallery Listing Widget Used Custom Url Media"
+msgstr ""
+
+#: classes/tp-block-helper.php:5888
+msgid "No action values found"
+msgstr ""
+
+#: classes/tp-block-helper.php:5935
+msgid "Failed to validate reCAPTCHA. Error: "
+msgstr ""
+
+#: classes/tp-block-helper.php:5945
+msgid "reCAPTCHA v3 validation failed or the score is too low. "
+msgstr ""
+
+#: classes/tp-block-helper.php:5953
+msgid "reCAPTCHA validation failed. Please try again. "
+msgstr ""
+
+#: classes/tp-block-helper.php:5961
+msgid "No reCAPTCHA response or captcha option received. "
+msgstr ""
+
+#: classes/tp-block-helper.php:5981
+msgid "Failed to validate Cloudflare Turnstile. Error: "
+msgstr ""
+
+#: classes/tp-block-helper.php:5990
+msgid "Cloudflare Turnstile validation failed. Please check again. "
+msgstr ""
+
+#: classes/tp-block-helper.php:5996
+msgid "No Cloudflare Turnstile response received. "
+msgstr ""
+
+#: classes/tp-block-helper.php:6104
+#: classes/tp-block-helper.php:6294
+msgid "You have received a new form submission:"
+msgstr ""
+
+#: classes/tp-block-helper.php:6153
+msgid "Invalid email format in "
+msgstr ""
+
+#: classes/tp-block-helper.php:6276
+msgid "Failed to send email. "
+msgstr ""
+
+#. translators: %s: Database error message
+#: classes/tp-block-helper.php:6514
+msgid "Failed to insert data into the database. Error: %s"
+msgstr ""
+
+#: classes/tp-block-helper.php:6529
+msgid "A valid URL was not provided. "
+msgstr ""
+
+#. translators: %s: Webhook response error message
+#: classes/tp-block-helper.php:6565
+msgid "Webhook request failed: %s"
+msgstr ""
+
+#: classes/tp-block-helper.php:6574
+msgid "Webhook request successful. "
+msgstr ""
+
+#. translators: %s: Webhook response error message
+#: classes/tp-block-helper.php:6577
+msgid "Webhook request failed with status code: %s. Response: %s"
+msgstr ""
+
+#: classes/tp-block-helper.php:6595
+msgid "Slack channel is required. "
+msgstr ""
+
+#. translators: %s: Discord webhook URL
+#: classes/tp-block-helper.php:6657
+msgid "A valid Discord webhook URL was not provided. "
+msgstr ""
+
+#. translators: %s: Discord webhook request failed message
+#: classes/tp-block-helper.php:6672
+msgid "Discord webhook request failed: %s"
+msgstr ""
+
+#: classes/tp-block-helper.php:6680
+msgid "Message sent successfully to Discord."
+msgstr ""
+
+#: classes/tp-block-helper.php:6681
+msgid "Failed to send message to Discord. Response: %s"
+msgstr ""
+
+#. translators: %s: ActiveCampaign API error message
+#: classes/tp-block-helper.php:6712
+msgid "Failed to connect to ActiveCampaign API. Error: %s"
+msgstr ""
+
+#: classes/tp-block-helper.php:6715
+msgid "Contact added to ActiveCampaign successfully."
+msgstr ""
+
+#: classes/tp-block-helper.php:6716
+msgid "Failed to add contact to ActiveCampaign. Check response details."
+msgstr ""
+
+#: classes/tp-block-helper.php:6746
+#: classes/tp-block-helper.php:6787
+msgid "Subscriber added successfully."
+msgstr ""
+
+#: classes/tp-block-helper.php:6749
+#: classes/tp-block-helper.php:6790
+msgid "Failed to add subscriber. Check response details."
+msgstr ""
+
+#: classes/tp-block-helper.php:6753
+msgid "API key, email, name, and group ID are required fields."
+msgstr ""
+
+#: classes/tp-block-helper.php:6794
+msgid "Account ID, API key, email, and name are required fields."
+msgstr ""
+
+#. translators: %s: ConvertKit API error message
+#: classes/tp-block-helper.php:6830
+msgid "Failed to connect to ConvertKit API. Error: %s"
+msgstr ""
+
+#: classes/tp-block-helper.php:6839
+msgid "Subscriber added successfully to ConvertKit."
+msgstr ""
+
+#: classes/tp-block-helper.php:6842
+msgid "Failed to submit form to ConvertKit. Please check your input and try again."
+msgstr ""
+
+#. translators: %s: GetResponse API error message
+#: classes/tp-block-helper.php:6883
+msgid "Failed to connect to GetResponse API. Error: %s"
+msgstr ""
+
+#: classes/tp-block-helper.php:6890
+msgid "Form submitted successfully to GetResponse."
+msgstr ""
+
+#: classes/tp-block-helper.php:6893
+msgid "Failed to submit form to GetResponse. Please check your input and try again."
+msgstr ""
+
+#: classes/tp-block-helper.php:6907
+msgid "Invalid Mailchimp API key format."
+msgstr ""
+
+#: classes/tp-block-helper.php:6913
+msgid "Mailchimp API key is missing the data center."
+msgstr ""
+
+#. translators: %s: Mailchimp API error message
+#: classes/tp-block-helper.php:6943
+msgid "Failed to connect to Mailchimp API. Error: %s"
+msgstr ""
+
+#: classes/tp-block-helper.php:6951
+msgid "Subscriber added successfully to Mailchimp."
+msgstr ""
+
+#: classes/tp-block-helper.php:6999
+msgid "Failed to add contact. Please try again later."
+msgstr ""
+
+#: classes/tp-block-helper.php:7001
+msgid "Contact added successfully"
+msgstr ""
+
+#. translators: Category: %s
+#: classes/tp-core-init-blocks.php:875
+msgid "Category: %s"
+msgstr ""
+
+#. translators: Tag: %s
+#: classes/tp-core-init-blocks.php:881
+msgid "Tag: %s"
+msgstr ""
+
+#. translators: Search Results for: %s
+#: classes/tp-core-init-blocks.php:885
+msgid "Search Results for: %s"
+msgstr ""
+
+#. translators: Page %s
+#: classes/tp-core-init-blocks.php:888
+msgid "&nbsp;&ndash; Page %s"
+msgstr ""
+
+#: classes/tp-core-init-blocks.php:891
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#. translators: Year: %s
+#: classes/tp-core-init-blocks.php:894
+msgid "Year: %s"
+msgstr ""
+
+#: classes/tp-core-init-blocks.php:897
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr ""
+
+#. translators: Month: %s
+#: classes/tp-core-init-blocks.php:900
+msgid "Month: %s"
+msgstr ""
+
+#: classes/tp-core-init-blocks.php:903
+msgctxt "daily archives date format"
+msgid "F j, Y"
+msgstr ""
+
+#. translators: Day: %s
+#: classes/tp-core-init-blocks.php:906
+msgid "Day: %s"
+msgstr ""
+
+#. translators: Author: %s
+#: classes/tp-core-init-blocks.php:912
+msgid "Author: %s"
+msgstr ""
+
+#: classes/tp-core-init-blocks.php:916
+msgctxt "post format archive title"
+msgid "Asides"
+msgstr ""
+
+#: classes/tp-core-init-blocks.php:918
+msgctxt "post format archive title"
+msgid "Galleries"
+msgstr ""
+
+#: classes/tp-core-init-blocks.php:920
+msgctxt "post format archive title"
+msgid "Statuses"
+msgstr ""
+
+#: classes/tp-core-init-blocks.php:922
+msgctxt "post format archive title"
+msgid "Audio"
+msgstr ""
+
+#: classes/tp-core-init-blocks.php:924
+msgctxt "post format archive title"
+msgid "Chats"
+msgstr ""
+
+#: classes/tp-core-init-blocks.php:926
+msgctxt "post format archive title"
+msgid "Images"
+msgstr ""
+
+#: classes/tp-core-init-blocks.php:928
+msgctxt "post format archive title"
+msgid "Videos"
+msgstr ""
+
+#: classes/tp-core-init-blocks.php:930
+msgctxt "post format archive title"
+msgid "Quotes"
+msgstr ""
+
+#: classes/tp-core-init-blocks.php:932
+msgctxt "post format archive title"
+msgid "Links"
+msgstr ""
+
+#. translators: Archives: %s
+#: classes/tp-core-init-blocks.php:938
+msgid "Archives: %s"
+msgstr ""
+
+#. translators: %1$s: %2$s
+#: classes/tp-core-init-blocks.php:945
+msgid "%1$s: %2$s"
+msgstr ""
+
+#: classes/tp-core-init-blocks.php:948
+msgid "Archives"
+msgstr ""
+
+#: classes/tp-core-init-blocks.php:950
+msgid "Page Not Found"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:95
+#: classes/tp-custom-ajax.php:103
+#: classes/tp-custom-ajax.php:362
+#: classes/tp-custom-ajax.php:367
+#: classes/tp-custom-ajax.php:413
+#: classes/tp-custom-ajax.php:418
+#: classes/tp-custom-ajax.php:742
+#: classes/tp-custom-ajax.php:747
+#: classes/tp-custom-ajax.php:929
+#: classes/tp-custom-ajax.php:978
+#: classes/tp-custom-ajax.php:983
+msgid "Ooops, something went wrong, please try again later."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:111
+msgid "Enable Membership  Option From Site General Setting"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:136
+msgid "Field Is Missing"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:174
+#: classes/tp-custom-ajax.php:424
+#: classes/tp-custom-ajax.php:658
+msgid "Please check the the captcha form."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:203
+#: classes/tp-custom-ajax.php:453
+#: classes/tp-custom-ajax.php:687
+msgid "Please check the the reCaptcha form."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:212
+msgid "Username Already Exists."
+msgstr ""
+
+#. translators: You have successfully registered to %s. We have emailed your password to the email address you entered.
+#: classes/tp-custom-ajax.php:243
+msgid "You have successfully registered to %s. We have emailed your password to the email address you entered."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:245
+msgid "The e-mail could not be sent"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:257
+#: classes/tp-custom-ajax.php:384
+#: classes/tp-custom-ajax.php:850
+#: classes/tp-custom-ajax.php:887
+msgid "Login successful, Redirecting..."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:259
+msgid "Registered Successfully, Ops! Login Failed...!"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:263
+msgid "Redirecting..."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:285
+msgid "Registered Successfully"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:299
+msgid "The email address you entered is not valid."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:304
+msgid "An account exists with this email address."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:312
+msgid "Password & Confirm Password Not Match!"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:389
+msgid "Ops! Invalid Email..!"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:392
+msgid "Ops! Invalid Username..!"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:395
+msgid "Ops! Incorrent Password..!"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:464
+#: classes/tp-custom-ajax.php:989
+msgid "<strong>ERROR</strong>: Enter a username or email address."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:469
+#: classes/tp-custom-ajax.php:476
+#: classes/tp-custom-ajax.php:994
+#: classes/tp-custom-ajax.php:1001
+msgid "<strong>ERROR</strong>: There is no account with that username or email address."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:528
+msgid "Someone has requested a password reset for the following account:"
+msgstr ""
+
+#. translators: Site Name: %s
+#: classes/tp-custom-ajax.php:530
+msgid "Site Name: %s"
+msgstr ""
+
+#. translators: Username: %s
+#: classes/tp-custom-ajax.php:532
+msgid "Username: %s"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:533
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:534
+msgid "To reset your password, visit the following address:"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:538
+#: classes/tp-custom-ajax.php:549
+msgid "Click Here"
+msgstr ""
+
+#. translators: [%s] Password Reset
+#: classes/tp-custom-ajax.php:553
+msgid "[%s] Password Reset"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:560
+#: classes/tp-custom-ajax.php:563
+msgid "Check your e-mail for the reset password link."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:565
+msgid "The e-mail could not be sent."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:565
+msgid "Possible reason: your host may have disabled the mail() function."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:652
+msgid "SomeThing Wants to Wrong"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:700
+msgid "The entered key has expired. Please start reset process again."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:702
+msgid "The entered key is invalid. Please start reset process again."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:709
+msgid "Password does not match. Please try again."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:714
+msgid ""
+"Password Field is Empty. Enter Password.\r\n"
+"                    "
+msgstr ""
+
+#: classes/tp-custom-ajax.php:721
+msgid "Your password has been changed. Use your new password to sign in."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:737
+msgid "Registration option not enbled in your general settings."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:763
+msgid "Invalid Authorization"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:770
+msgid "Facebook email validation failed"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:908
+#: classes/tp-custom-ajax.php:924
+msgid "Unauthorized access"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:935
+msgid "clientId Not Set"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:942
+msgid "User not verified by Google"
+msgstr ""
+
+#: classes/tp-custom-ajax.php:1046
+msgid "Magic Link Send..."
+msgstr ""
+
+#: classes/tp-custom-ajax.php:1048
+msgid "<strong>ERROR</strong>: Ooops, something went wrong, please try again later. "
+msgstr ""
+
+#: includes/blog/post-meta-style-3.php:4
+#: includes/blog/post-meta-style-3.php:8
+msgid "author"
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:71
+msgid "Activate Nexter Blocks License to Receive Active Plugin Updates"
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:72
+msgid "Your Pro version is installed, now activate your license for active updates and support access."
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:73
+msgid "Activate License"
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:79
+msgid "Your Nexter Blocks License Has Expired"
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:80
+msgid "Please renew your license to continue using Pro features and receive updates, security patches, and access to new features."
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:81
+msgid "Renew License"
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:86
+msgid "Final Reminder – Nexter Blocks License Expires in 7 Days"
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:87
+msgid "Your Nexter Blocks Pro license will expire in 7 days. Renewing ensures continued access to updates and Pro features without interruption."
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:88
+msgid "Renew Now"
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:93
+msgid "Heads-Up: Your Nexter Blocks Pro License Will Expire in 1 Month"
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:94
+msgid "Your Pro license will expire in 30 days renew in advance to avoid any break in functionality or receiving active updates."
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:95
+msgid "Renew Early"
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:155
+#: includes/plus-library/tpgb-library.php:201
+msgid "An Error Occurred, Please Try Again Later."
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:169
+#: includes/plus-library/tpgb-library.php:289
+msgid "Your license key expired."
+msgstr ""
+
+#. translators: %1$s is a placeholder for the support URL
+#: includes/plus-library/tpgb-library.php:175
+msgid "Your license key has been disabled."
+msgstr ""
+
+#. translators: Invalid license. %s
+#: includes/plus-library/tpgb-library.php:180
+msgid "Invalid license."
+msgstr ""
+
+#. translators: Your license is not active for this URL. %s
+#: includes/plus-library/tpgb-library.php:186
+msgid "Your license is not active for this URL."
+msgstr ""
+
+#. translators: %s: item name
+#: includes/plus-library/tpgb-library.php:191
+msgid "This appears to be an invalid license key for %s."
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:196
+msgid "Your license key has reached its activation limit."
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:206
+msgid "Your License is active."
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:322
+msgid "Your Licence Key is Expired !!!"
+msgstr ""
+
+#. translators: %1$s is the URL for POSIMYTH Store, %2$s is the link text for POSIMYTH Store, %3$s is the URL for Help Desk, and %4$s is the link text for Help Desk.
+#: includes/plus-library/tpgb-library.php:324
+msgid "<p>Seems Like Your Licence Key for Nexter WP is Expired. Visit <a href=\"%1$s\" target=\"_blank\">POSIMYTH Store</a> to Pay Invoices / Change Payment Methods / Manage Your Subscriptions. Please Don’t Hesitate to Reach Us at <a href=\"%2$s\" target=\"_blank\">Nexter Support</a> if You Have an Issue Regarding Our Products.</p>"
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:329
+msgid "Congratulation! License Successfully Activated."
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:333
+msgid "We Have Revoked Your Licence for Nexter"
+msgstr ""
+
+#. translators: %s: support tpgb
+#: includes/plus-library/tpgb-library.php:335
+msgid "<p>Your Licence Key for Nexter WP is Revoked for Some Reason. Visit <a href=\"%1$s\" target=\"_blank\">POSIMYTH Store</a> to Update Your Licence Key / Manage Payments / Pay Invoices. Reach Out to Us at <a href=\"%2$s\" target=\"_blank\">Nexter Support</a> for Queries Regarding Our Products.</p>"
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:339
+msgid "It's Time to Enter Licence Key"
+msgstr ""
+
+#. translators: %s: store tpgb
+#: includes/plus-library/tpgb-library.php:341
+msgid "<p>You’re Just One Step Away From Having Fun While Crafting Websites. Paste Your Licence Key for Nexter WP Here and Get Inspired With Other People Who Build With Us. Visit <a href=\"%s\" target=\"_blank\">POSIMYTH Store</a> to Update Your Licence Key / Manage Payments / Pay Invoices.</p>"
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:346
+msgid "Typo in Licence Key is Unacceptable !"
+msgstr ""
+
+#. translators: %s: store url
+#: includes/plus-library/tpgb-library.php:348
+msgid "<p>We Can’t Find Licence Key You Just Entered in Any of Our Lists. Make Sure You Are Not Adding Any White Spaces With It. If You're Having This Issue Repeatedly, Visit  <a href=\"%s\" target=\"_blank\">POSIMYTH Store</a> to Confirm Your Licence Key.</p>"
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:352
+msgid "This License Key Belongs to Some Other Product"
+msgstr ""
+
+#. translators: %s: store url
+#: includes/plus-library/tpgb-library.php:354
+msgid "<p>It Appears That Licence Key You Entered Belongs to Some Other Product from Our Product Collection. In Layman Terms, You Dialed a Wrong Number. Visit <a href=\"%s\" target=\"_blank\">POSIMYTH Store</a> and Verify Your Licence Key for Nexter WP.</p>"
+msgstr ""
+
+#: includes/plus-library/tpgb-library.php:358
+msgid "You Should’ve Ordered More !!!"
+msgstr ""
+
+#. translators: %s: store url
+#: includes/plus-library/tpgb-library.php:360
+msgid "<p>Unfortunately, Your Activation Quota for Active / Running Websites Built With Nexter WP  is Over. Like What You’re Using ? Visit <a href=\"%s\" target=\"_blank\">POSIMYTH Store</a> to Upgrade Your Existing Plan and Allow Your Creativity to Bloom.</p>"
+msgstr ""
+
+#: includes/plus-library/Tpgb_SL_Plugin_Updater.php:251
+msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s."
+msgstr ""
+
+#: includes/plus-library/Tpgb_SL_Plugin_Updater.php:260
+msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s or %5$supdate now%6$s."
+msgstr ""
+
+#: includes/plus-library/Tpgb_SL_Plugin_Updater.php:504
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: includes/plus-library/Tpgb_SL_Plugin_Updater.php:504
+msgid "Error"
+msgstr ""
+
+#: includes/product-listing/product-style-1.php:55
+msgid "thumb"
+msgstr ""
+
+#: includes/product-listing/product-style-2.php:61
+#: includes/product-listing/product-style-2.php:121
+msgid "View"
+msgstr ""
+
+#: includes/rollback.php:109
+msgid "HTTP Error"
+msgstr ""
+
+#: includes/rollback.php:121
+#: includes/rollback.php:208
+msgid "An error occurred, please try again"
+msgstr ""
+
+#: includes/rollback.php:193
+msgid "Not Found Data"
+msgstr ""
+
+#: includes/rollback.php:216
+msgid "Error, Try selecting another version."
+msgstr ""
+
+#: includes/rollback.php:242
+#: includes/rollback.php:278
+msgid "Rollback to Previous Version"
+msgstr ""
+
+#: includes/social-feed/fancybox-feed-post.php:6
+#: includes/social-feed/fancybox-feed-post.php:32
+#: includes/social-feed/fancybox-feed-post.php:86
+msgid "Social Feed"
+msgstr ""
+
+#: includes/social-feed/fancybox-feed-post.php:17
+#: includes/social-feed/fancybox-feed-post.php:21
+#: includes/social-feed/fancybox-feed.php:25
+#: includes/social-feed/fancybox-feed.php:29
+msgid "Facebook Post"
+msgstr ""
+
+#: includes/social-feed/fancybox-feed-post.php:18
+#: includes/social-feed/fancybox-feed-post.php:22
+#: includes/social-feed/fancybox-feed-post.php:28
+#: includes/social-feed/fancybox-feed-post.php:35
+#: includes/social-feed/fancybox-feed.php:26
+#: includes/social-feed/fancybox-feed.php:30
+msgid "Facebook Image"
+msgstr ""
+
+#: includes/social-feed/fancybox-feed-post.php:83
+#: includes/social-feed/fancybox-feed-post.php:89
+#: includes/social-feed/fancybox-feed.php:50
+#: includes/social-feed/fancybox-feed.php:64
+msgid "Instagram Image"
+msgstr ""
+
+#: includes/social-feed/fancybox-feed-post.php:95
+#: includes/social-feed/fancybox-feed.php:77
+msgid "Social Media Image"
+msgstr ""
+
+#: includes/social-feed/fancybox-feed-style-1.php:21
+#: includes/social-feed/fancybox-feed-style-2.php:23
+msgid "View Post"
+msgstr ""
+
+#: includes/social-feed/fancybox-feed-style-1.php:21
+#: includes/social-feed/fancybox-feed-style-2.php:23
+msgid "View post"
+msgstr ""
+
+#: includes/social-feed/fancybox-feed.php:47
+#: includes/social-feed/fancybox-feed.php:62
+#: includes/social-feed/fancybox-feed.php:68
+msgid "Instagram Post"
+msgstr ""
+
+#: includes/social-feed/fancybox-feed.php:75
+#: includes/social-feed/fancybox-feed.php:81
+msgid "Social Media Post"
+msgstr ""
+
+#: includes/social-feed/fancybox-header.php:4
+#: includes/social-feed/social-feed-ob-style.php:20
+#: includes/social-reviews/social-review-b-style-1.php:6
+#: includes/social-reviews/social-review-ob-style.php:30
+msgid "User Profile"
+msgstr ""
+
+#: includes/social-feed/feed-Description.php:19
+#: includes/social-feed/feed-Description.php:23
+msgid "Hashtag"
+msgstr ""
+
+#: includes/social-feed/feed-Description.php:33
+msgid "Description"
+msgstr ""
+
+#: includes/social-feed/feed-footer.php:10
+#: includes/social-feed/feed-footer.php:56
+#: includes/social-feed/feed-footer.php:69
+#: includes/social-feed/feed-footer.php:142
+msgid "Like "
+msgstr ""
+
+#: includes/social-feed/feed-footer.php:12
+#: includes/social-feed/feed-footer.php:54
+msgid "Like"
+msgstr ""
+
+#: includes/social-feed/feed-footer.php:13
+msgid "Reaction"
+msgstr ""
+
+#: includes/social-feed/feed-footer.php:21
+#: includes/social-feed/feed-footer.php:79
+#: includes/social-feed/feed-footer.php:152
+msgid "comment "
+msgstr ""
+
+#: includes/social-feed/feed-footer.php:31
+#: includes/social-feed/feed-footer.php:89
+msgid "share "
+msgstr ""
+
+#: includes/social-feed/feed-footer.php:42
+msgid "Retweet"
+msgstr ""
+
+#: includes/social-feed/feed-footer.php:44
+msgid "Retweet "
+msgstr ""
+
+#: includes/social-feed/feed-footer.php:102
+msgid "view "
+msgstr ""
+
+#: includes/social-feed/feed-footer.php:111
+msgid "likes "
+msgstr ""
+
+#: includes/social-feed/feed-footer.php:120
+msgid "Comment "
+msgstr ""
+
+#: includes/social-feed/feed-footer.php:130
+msgid "Dislike "
+msgstr ""
+
+#: includes/social-feed/popup-type.php:22
+#: includes/social-feed/popup-type.php:25
+#: includes/social-feed/popup-type.php:38
+#: includes/social-feed/popup-type.php:41
+msgid "Post Thumbnail"
+msgstr ""
+
+#: includes/social-feed/popup-type.php:30
+#: includes/social-feed/popup-type.php:51
+msgid "Popup Gallery"
+msgstr ""
+
+#: includes/social-reviews/social-review-b-style-2.php:4
+#: includes/social-reviews/social-review-ob-style.php:24
+msgid "Social Logo"
+msgstr ""
+
+#: includes/social-reviews/social-review-ob-style.php:20
+msgid "Review URL"
+msgstr ""
+
+#: includes/social-reviews/social-review-ob-style.php:24
+msgid "Page URL"
+msgstr ""
+
+#: includes/social-reviews/social-review-style-1.php:26
+#: includes/social-reviews/social-review-style-2.php:33
+msgid "Posted On "
+msgstr ""
+
+#: plus-block-loader.php:82
+msgid "Settings"
+msgstr ""
+
+#: plus-block-loader.php:85
+msgid "Need Help?"
+msgstr ""
+
+#: plus-block-loader.php:88
+msgid "License"
+msgstr ""
+
+#: plus-block-loader.php:101
+msgid "Docs"
+msgstr ""
+
+#: plus-block-loader.php:102
+msgid "Video Tutorials"
+msgstr ""
+
+#: plus-block-loader.php:103
+msgid "Join Community"
+msgstr ""
+
+#: plus-block-loader.php:104
+msgid "What's New?"
+msgstr ""
+
+#: plus-block-loader.php:105
+msgid "Request Feature"
+msgstr ""
+
+#: plus-block-loader.php:106
+msgid "Rate 5 Stars"
+msgstr ""
+
+#: the-plus-addons-for-block-editor-pro.php:63
+msgid "Activate Nexter Blocks Free to Use All Blocks"
+msgstr ""
+
+#: the-plus-addons-for-block-editor-pro.php:64
+msgid "Please activate Nexter Blocks Free to unlock all 90+ blocks along with Nexter Pro. Activating the Free version keeps everything modular and lightweight. Nexter only loads only when blocks are actually used, so there’s no impact on performance on frontend and backend."
+msgstr ""
+
+#: the-plus-addons-for-block-editor-pro.php:65
+msgid "Activate Now"
+msgstr ""
+
+#: the-plus-addons-for-block-editor-pro.php:80
+msgid "Install Nexter Blocks Free to Use All Blocks"
+msgstr ""
+
+#: the-plus-addons-for-block-editor-pro.php:81
+msgid "Please install Nexter Blocks Free to unlock all 90+ blocks along with Nexter Pro. Installing the Free version keeps everything modular and lightweight. Nexter only loads only when blocks are actually used, so there’s no impact on performance on frontend and backend."
+msgstr ""
+
+#: the-plus-addons-for-block-editor-pro.php:82
+msgid "Install Now"
+msgstr ""
+
+#. translators: Nexter Blocks requires PHP version %s+. The plugin is currently not running. Please update to the latest PHP version.
+#: the-plus-addons-for-block-editor-pro.php:103
+msgid "Nexter Blocks requires PHP version %s+. The plugin is currently not running. Please update to the latest PHP version."
+msgstr ""
+
+#. translators: Nexter Blocks requires at least WordPress version %s+. Because you’re using an older version, the plugin is currently not running. Please update WordPress to the latest version.
+#: the-plus-addons-for-block-editor-pro.php:121
+msgid "Nexter Blocks requires at least WordPress version %s+. Because you’re using an older version, the plugin is currently not running. Please update WordPress to the latest version."
+msgstr ""
+
+#. translators: Nexter Blocks Pro requires Nexter Blocks Free version %s+. Since you’re using an older version, the plugin is currently not active.
+#: the-plus-addons-for-block-editor-pro.php:139
+msgid "Nexter Blocks Pro requires Nexter Blocks Free version %s+. Since you’re using an older version, the plugin is currently not active."
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Sync Style"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Save"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Syncing..."
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Add Name to your Style"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Save and apply global styles for a consistent design."
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Enter Style Name"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Validation Error Occurred"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Sender's Message Send To Failed"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Validation Error Occured"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "ConvertKit Form"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Label Bottom Margin"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Choose a Form Layout"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Description Position"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Top"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Bottom"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Icon Color"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Hover Icon Color"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Country Dropdown Width"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Max Characters"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "v2 (Invisible)"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Using different reCAPTCHA versions (e.g., V2 and V3) across multiple forms on the same page may cause conflicts. For smooth functionality, please ensure only one reCAPTCHA version is used per page."
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Cloudflare Client Key"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Cloudflare Secret Key"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "At this moment, This feature only work at frontend."
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Select Group"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "All Posts"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Choose where your repeater data is saved (e.g., post, page, or CPT with ACF fields)."
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Select an ACF repeater field from the chosen source. Fields must be created first."
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Extra Options"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Repeater Block"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "This block allows you to create dynamic listings using Repeater Fields from "
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid " or "
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid " JetEngine"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid ". "
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Choose Listing Layout Option : "
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "This block allows you to create dynamic listings using Repeater Fields from    "
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "ACF"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Tip: Use blocks that support"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Choose Post"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "If no results appear, please ensure you’ve created repeater fields in ACF or JetEngine.."
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Invalid ACF field name. Please check and try again."
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "To display the feed, select Content Type and turn on Show Album."
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Image Top Offset"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Animation"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Animation Color"
+msgstr ""
+
+#: assets/js/admin/blocks.js:1
+msgid "Divider Width"
+msgstr ""

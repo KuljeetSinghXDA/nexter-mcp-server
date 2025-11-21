@@ -1,0 +1,1328 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-circle-menu",
+	"version": "0.1.0",
+	"title": "Circle Menu",
+	"category": "tpgb",
+	"description": "Display eye-catching dynamic site navigation with complete style",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "layoutType": {
+            "type": "string",
+            "default": "circle"
+        },
+        "cDirection": {
+            "type": "string",
+            "default": "bottom-right"
+        },
+        "menuStyle": {
+            "type": "string",
+            "default": "style-1"
+        },
+        "sDirection": {
+            "type": "string",
+            "default": "right"
+        },
+        "circleMenu": {
+            "type": "array",
+            "repeaterField": [{
+                "iconType": {
+                    "type": "string",
+                    "default": "icon"
+                },
+                "iconStore": {
+                    "type": "string",
+                    "default": "fab fa-whatsapp"
+                },
+                "imageStore": {
+                    "type": "object",
+                    "default": {
+                        "url": ""
+                    }
+                },
+                "imageSize": {
+                    "type": "string",
+                    "default": "thumbnail"
+                },
+                "title": {
+                    "type": "string",
+                    "default": "New Menu"
+                },
+                "linkType": {
+                    "type": "string",
+                    "default": "url"
+                },
+                "linkUrl": {
+                    "type": "object",
+                    "default": {
+                        "url": "#",
+                        "target": "",
+                        "nofollow": ""
+                    }
+                },
+                "emailtxt": {
+                    "type": "string",
+                    "default": ""
+                },
+                "phoneNo": {
+                    "type": "string",
+                    "default": ""
+                },
+                "ariaLabel": {
+                    "type": "string",
+                    "default": ""
+                },
+                "iconNmlColor": {
+                    "type": "string",
+                    "default": "",
+                    "style": [{
+                        "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list{{TP_REPEAT_ID}} .menu_icon { color: {{iconNmlColor}}; }"
+                    }]
+                },
+                "iconHvrColor": {
+                    "type": "string",
+                    "default": "",
+                    "style": [{
+                            "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list{{TP_REPEAT_ID}}:hover .menu_icon { color: {{iconHvrColor}}; }"
+                        },
+                        {
+                            "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .menu-style-2 {{TP_REPEAT_ID}}:hover .menu-tooltip-title{color: {{iconHvrColor}};}"
+                        }
+                    ]
+                },
+                "textNmlColor": {
+                    "type": "string",
+                    "default": "",
+                    "style": [{
+                        "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .menu-style-2 {{TP_REPEAT_ID}} .menu-tooltip-title{color: {{textNmlColor}};}"
+                    }]
+                },
+                "textHvrColor": {
+                    "type": "string",
+                    "default": "",
+                    "style": [{
+                        "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .menu-style-2 {{TP_REPEAT_ID}}:hover .menu-tooltip-title{color: {{textHvrColor}};}"
+                    }]
+                },
+                "iconNmlBG": {
+                    "type": "object",
+                    "style": [{
+                            "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list{{TP_REPEAT_ID}} .menu_icon"
+                        },
+                        {
+                            "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .menu-style-2 {{TP_REPEAT_ID}} .menu-tooltip-title"
+                        }
+                    ]
+                },
+                "iconHvrBG": {
+                    "type": "object",
+                    "style": [{
+                            "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list{{TP_REPEAT_ID}}:hover .menu_icon"
+                        },
+                        {
+                            "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .menu-style-2 {{TP_REPEAT_ID}}:hover .menu-tooltip-title"
+                        }
+                    ]
+                },
+                "nmlBColor": {
+                    "type": "string",
+                    "default": "",
+                    "style": [{
+                            "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list{{TP_REPEAT_ID}} .menu_icon { border-color: {{nmlBColor}}; }"
+                        },
+                        {
+                            "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .menu-style-2 {{TP_REPEAT_ID}} .menu-tooltip-title{border-color: {{nmlBColor}};}"
+                        }
+                    ]
+                },
+                "hvrBColor": {
+                    "type": "string",
+                    "default": "",
+                    "style": [{
+                            "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list{{TP_REPEAT_ID}}:hover .menu_icon { border-color: {{hvrBColor}}; }"
+                        },
+                        {
+                            "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .menu-style-2 {{TP_REPEAT_ID}}:hover .menu-tooltip-title{border-color: {{hvrBColor}};}"
+                        }
+                    ]
+                },
+                "tooltipText": {
+                    "type": "string",
+                    "default": "I am tooltip."
+                }
+            }],
+            "default": [{
+                    "_key": "0",
+                    "iconType": "icon",
+                    "iconStore": "fab fa-facebook-f",
+                    "title": "Facebook",
+                    "linkType": "url",
+                    "linkUrl": {
+                        "url": "#",
+                        "target": "",
+                        "nofollow": ""
+                    },
+                    "emailtxt": "",
+                    "iconNmlBG": {
+                        "openBg": 1,
+                        "bgDefaultColor": "#3a579a"
+                    },
+                    "tooltipText": "Facebook"
+                },
+                {
+                    "_key": "1",
+                    "iconType": "icon",
+                    "iconStore": "fab fa-twitter",
+                    "title": "Twitter",
+                    "linkType": "url",
+                    "linkUrl": {
+                        "url": "#",
+                        "target": "",
+                        "nofollow": ""
+                    },
+                    "emailtxt": "",
+                    "iconNmlBG": {
+                        "openBg": 1,
+                        "bgDefaultColor": "#0aaded"
+                    },
+                    "tooltipText": "Twitter"
+                },
+                {
+                    "_key": "2",
+                    "iconType": "icon",
+                    "iconStore": "fab fa-instagram",
+                    "title": "Instagram",
+                    "linkType": "url",
+                    "linkUrl": {
+                        "url": "#",
+                        "target": "",
+                        "nofollow": ""
+                    },
+                    "emailtxt": "",
+                    "iconNmlBG": {
+                        "openBg": 1,
+                        "bgDefaultColor": "#c32aa3"
+                    },
+                    "tooltipText": "Instagram"
+                },
+                {
+                    "_key": "3",
+                    "iconType": "icon",
+                    "iconStore": "fab fa-linkedin-in",
+                    "title": "LinkedIn",
+                    "linkType": "url",
+                    "linkUrl": {
+                        "url": "#",
+                        "target": "",
+                        "nofollow": ""
+                    },
+                    "emailtxt": "",
+                    "iconNmlBG": {
+                        "openBg": 1,
+                        "bgDefaultColor": "#127bb6"
+                    },
+                    "tooltipText": "LinkedIn"
+                }
+            ]
+        },
+        "tglIcnType": {
+            "type": "string",
+            "default": "icon"
+        },
+        "iconStore": {
+            "type": "string",
+            "default": "fas fa-home"
+        },
+        "imageStore": {
+            "type": "object",
+            "default": { "url" : "" }
+        },
+        "imageSize": {
+            "type": "string",
+            "default": "thumbnail"
+        },
+        "tglStyle": {
+            "type": "string",
+            "default": "style-1"
+        },
+        "ariaLabel": {
+            "type": "string",
+            "default": ""
+        },
+        "iconPos": {
+            "type": "string",
+            "default": "absolute"
+        },
+        "leftAuto": {
+            "type": "boolean",
+            "default": true
+        },
+        "leftASize": {
+            "type": "object",
+            "default": {
+                "md": "20",
+                "unit": "%"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "leftAuto",
+                        "relation": "==",
+                        "value": true
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-wrap{ margin: 0 auto !important; margin-top: auto !important; left: {{leftASize}}; }"
+                },
+                {
+                    "condition": [{
+                        "key": "leftAuto",
+                        "relation": "==",
+                        "value": false
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-wrap{ left: auto; }"
+                }
+            ]
+        },
+        "rightAuto": {
+            "type": "boolean",
+            "default": false
+        },
+        "rightASize": {
+            "type": "object",
+            "default": {
+                "md": "20",
+                "unit": "%"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "rightAuto",
+                        "relation": "==",
+                        "value": true
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-wrap{ margin: 0 auto !important; margin-top: auto !important; right: {{rightASize}}; }"
+                },
+                {
+                    "condition": [{
+                        "key": "rightAuto",
+                        "relation": "==",
+                        "value": false
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-wrap{ right: auto; }"
+                }
+            ]
+        },
+        "topAuto": {
+            "type": "boolean",
+            "default": true
+        },
+        "topASize": {
+            "type": "object",
+            "default": {
+                "md": "0",
+                "unit": "%"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "topAuto",
+                        "relation": "==",
+                        "value": true
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-wrap{ margin-top: {{topASize}} !important; }"
+                },
+                {
+                    "condition": [{
+                        "key": "topAuto",
+                        "relation": "==",
+                        "value": false
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-wrap{ top: auto; }"
+                }
+            ]
+        },
+        "bottomAuto": {
+            "type": "boolean",
+            "default": false
+        },
+        "bottomASize": {
+            "type": "object",
+            "default": {
+                "md": "0",
+                "unit": "%"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "bottomAuto",
+                        "relation": "==",
+                        "value": true
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-wrap{ bottom: {{bottomASize}}; }"
+                },
+                {
+                    "condition": [{
+                        "key": "bottomAuto",
+                        "relation": "==",
+                        "value": false
+                    }],
+                    "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-wrap{ bottom: auto; }"
+                }
+            ]
+        },
+        "iconGap": {
+            "type": "string",
+            "default": "0",
+            "condition": [{
+                "key": "layoutType",
+                "relation": "==",
+                "value": "straight"
+            }]
+        },
+        "openSpeed": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "layoutType",
+                    "relation": "==",
+                    "value": "straight"
+                }],
+                "selector": "{{PLUS_WRAP}}.tpgb-circle-menu.layout-straight .tpgb-circle-menu-wrap .tpgb-circle-menu-list:not(.tpgb-circle-main-menu-list) { transition-duration: {{openSpeed}}ms; }"
+            }]
+        },
+        "angleStart": {
+            "type": "string",
+            "default": "0"
+        },
+        "angleEnd": {
+            "type": "string",
+            "default": "90"
+        },
+        "circleRadius": {
+            "type": "object",
+            "default": {
+                "md": "150"
+            }
+        },
+        "iconDelay": {
+            "type": "string",
+            "default": "1000"
+        },
+        "menuOSpeed": {
+            "type": "string",
+            "default": "500"
+        },
+        "icnStepIn": {
+            "type": "string",
+            "default": "-20"
+        },
+        "icnStepOut": {
+            "type": "string",
+            "default": "20"
+        },
+        "icnTrigger": {
+            "type": "string",
+            "default": "hover"
+        },
+        "icnTrans": {
+            "type": "string",
+            "default": "ease",
+            "style": [{
+                "selector": "{{PLUS_WRAP}}.tpgb-circle-menu.layout-straight .tpgb-circle-menu-wrap .tpgb-circle-menu-list:not(.tpgb-circle-main-menu-list) { transition-timing-function: {{icnTrans}}; }"
+            }]
+        },
+        "icnSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .menu_icon{ font-size: {{icnSize}}; }"
+            }],
+            "scopy": true
+        },
+        "icnWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "layoutType",
+                        "relation": "==",
+                        "value": "circle"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .tpgb-circle-menu-wrap .tpgb-circle-menu-list:not(.tpgb-circle-main-menu-list) , {{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .menu_icon { width: {{icnWidth}} !important; height: {{icnWidth}} !important; line-height: {{icnWidth}} !important; }"
+                },
+                {
+                    "condition": [{
+                            "key": "layoutType",
+                            "relation": "==",
+                            "value": "straight"
+                        },
+                        {
+                            "key": "menuStyle",
+                            "relation": "==",
+                            "value": "style-1"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .tpgb-circle-menu-wrap .tpgb-circle-menu-list:not(.tpgb-circle-main-menu-list) , {{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .menu_icon { width: {{icnWidth}} !important; height: {{icnWidth}} !important; line-height: {{icnWidth}} !important; }"
+                }
+            ],
+            "scopy": true
+        },
+        "imgWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .menu_icon img{ width: {{imgWidth}}; }"
+            }],
+            "scopy": true
+        },
+        "icnNmlBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "sm": [],
+                    "xs": [],
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .menu_icon"
+            }],
+            "scopy": true
+        },
+        "icnHvrBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "sm": [],
+                    "xs": [],
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list:hover .menu_icon"
+            }],
+            "scopy": true
+        },
+        "icnNmlBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .menu_icon , {{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .menu_icon img{border-radius: {{icnNmlBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "icnHvrBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list:hover .menu_icon , {{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list:hover .menu_icon img{border-radius: {{icnHvrBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "icnNmlShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .menu_icon"
+            }],
+            "scopy": true
+        },
+        "icnHvrShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list:hover .menu_icon"
+            }],
+            "scopy": true
+        },
+        "tIcnSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "selector": " {{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .main_menu_icon{ font-size: {{tIcnSize}}; }"
+            }],
+            "scopy": true
+        },
+        "tIcnWidth": {
+            "type": "object",
+            "default": {
+                "md": "40",
+                "unit": "px"
+            },
+            "style": [{
+                "selector": " {{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .main_menu_icon{ width: {{tIcnWidth}}; height: {{tIcnWidth}}; line-height: {{tIcnWidth}}; }"
+            }],
+            "scopy": true
+        },
+        "tImgWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .main_menu_icon img{ width: {{tImgWidth}}; }"
+            }],
+            "scopy": true
+        },
+        "tIcnNmlColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                    "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .main_menu_icon{ color: {{tIcnNmlColor}}; }"
+                },
+                {
+                    "condition": [{
+                        "key": "tglStyle",
+                        "relation": "==",
+                        "value": "style-3"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .tpgb-circle-main-menu-list.style-3 a.main_menu_icon .close-toggle-icon, {{PLUS_WRAP}}.tpgb-circle-menu .tpgb-circle-main-menu-list.style-3 a.main_menu_icon .close-toggle-icon:before{ background-color: {{tIcnNmlColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "tIcnHvrColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                    "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list:hover .main_menu_icon{ color: {{tIcnHvrColor}}; }"
+                },
+                {
+                    "condition": [{
+                        "key": "tglStyle",
+                        "relation": "==",
+                        "value": "style-3"
+                    }],
+                    "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .tpgb-circle-main-menu-list.style-3 a.main_menu_icon:hover .close-toggle-icon, {{PLUS_WRAP}}.tpgb-circle-menu .tpgb-circle-main-menu-list.style-3 a.main_menu_icon:hover .close-toggle-icon:before{ background-color: {{tIcnHvrColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "tIcnNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .main_menu_icon"
+            }],
+            "scopy": true
+        },
+        "tIcnHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list:hover .main_menu_icon"
+            }],
+            "scopy": true
+        },
+        "tIcnNmlBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "sm": [],
+                    "xs": [],
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .main_menu_icon"
+            }],
+            "scopy": true
+        },
+        "tIcnHvrBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "sm": [],
+                    "xs": [],
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list:hover .main_menu_icon"
+            }],
+            "scopy": true
+        },
+        "tIcnNmlBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .main_menu_icon , .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .main_menu_icon img{border-radius: {{tIcnNmlBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "tIcnHvrBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list:hover .main_menu_icon , .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list:hover .main_menu_icon img{border-radius: {{tIcnHvrBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "tIcnNmlShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list .main_menu_icon"
+            }],
+            "scopy": true
+        },
+        "tIcnHvrShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .tpgb-circle-menu-list:hover .main_menu_icon"
+            }],
+            "scopy": true
+        },
+        "tipInteractive": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "tipPlacement": {
+            "type": "string",
+            "default": "top",
+            "scopy": true
+        },
+        "tipTheme": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "tipMaxWidth": {
+            "type": "string",
+            "default": "100",
+            "style": [{
+                "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .tippy-box{width : {{tipMaxWidth}}px; max-width : {{tipMaxWidth}}px; }  "
+            }],
+            "scopy": true
+        },
+        "tipOffset": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "tipDistance": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "tipArrow": {
+            "type": "boolean",
+            "default": true,
+            "scopy": true
+        },
+        "tipTriggers": {
+            "type": "string",
+            "default": "mouseenter",
+            "scopy": true
+        },
+        "tipAnimation": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "tipDurationIn": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "tipDurationOut": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "deskHide": {
+            "type": "boolean",
+            "default": false,
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-list:not(.tpgb-circle-main-menu-list) .tippy-box{display: none;}"
+            }],
+            "scopy": true
+        },
+        "tabHide": {
+            "type": "boolean",
+            "default": false,
+            "style": [{
+                "selector": "@media (min-width:768px) and (max-width:1024px){ {{PLUS_WRAP}} .tpgb-circle-menu-list:not(.tpgb-circle-main-menu-list) .tippy-box{display: none;} }"
+            }],
+            "scopy": true
+        },
+        "mobHide": {
+            "type": "boolean",
+            "default": false,
+            "style": [{
+                "selector": "@media (max-width: 1024px){.text-center{text-align: center;}}@media (max-width:767px){ {{PLUS_WRAP}} .tpgb-circle-menu-list:not(.tpgb-circle-main-menu-list) .tippy-box{display: none;} }"
+            }],
+            "scopy": true
+        },
+        "textTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "layoutType",
+                        "relation": "==",
+                        "value": "straight"
+                    },
+                    {
+                        "key": "menuStyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .menu-style-2 .menu-tooltip-title"
+            }],
+            "scopy": true
+        },
+        "textPadding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "layoutType",
+                        "relation": "==",
+                        "value": "straight"
+                    },
+                    {
+                        "key": "menuStyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.layout-straight .menu-style-2 .menu-tooltip-title{padding: {{textPadding}};}"
+            }],
+            "scopy": true
+        },
+        "textNmlColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "layoutType",
+                        "relation": "==",
+                        "value": "straight"
+                    },
+                    {
+                        "key": "menuStyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.layout-straight .menu-style-2 .menu-tooltip-title{color: {{textNmlColor}};}"
+            }],
+            "scopy": true
+        },
+        "textHvrColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "layoutType",
+                        "relation": "==",
+                        "value": "straight"
+                    },
+                    {
+                        "key": "menuStyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.layout-straight .menu-style-2 .tpgb-circle-menu-list:hover .menu-tooltip-title{color: {{textHvrColor}};}"
+            }],
+            "scopy": true
+        },
+        "textNmlBG": {
+            "type": "object",
+            "default": {
+                "bgType": "color",
+                "bgGradient": []
+            },
+            "style": [{
+                "condition": [{
+                        "key": "layoutType",
+                        "relation": "==",
+                        "value": "straight"
+                    },
+                    {
+                        "key": "menuStyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .menu-style-2 .menu-tooltip-title"
+            }],
+            "scopy": true
+        },
+        "textHvrBG": {
+            "type": "object",
+            "default": {
+                "bgType": "color",
+                "bgGradient": []
+            },
+            "style": [{
+                "condition": [{
+                        "key": "layoutType",
+                        "relation": "==",
+                        "value": "straight"
+                    },
+                    {
+                        "key": "menuStyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .menu-style-2 .tpgb-circle-menu-list:hover .menu-tooltip-title"
+            }],
+            "scopy": true
+        },
+        "textNmlBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "layoutType",
+                        "relation": "==",
+                        "value": "straight"
+                    },
+                    {
+                        "key": "menuStyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .menu-style-2 .menu-tooltip-title"
+            }],
+            "scopy": true
+        },
+        "textHvrBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "layoutType",
+                        "relation": "==",
+                        "value": "straight"
+                    },
+                    {
+                        "key": "menuStyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .menu-style-2 .tpgb-circle-menu-list:hover .menu-tooltip-title"
+            }],
+            "scopy": true
+        },
+        "textNmlBR": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "layoutType",
+                        "relation": "==",
+                        "value": "straight"
+                    },
+                    {
+                        "key": "menuStyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .menu-style-2 .menu-tooltip-title{border-radius: {{textNmlBR}};}"
+            }],
+            "scopy": true
+        },
+        "textHvrBR": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "layoutType",
+                        "relation": "==",
+                        "value": "straight"
+                    },
+                    {
+                        "key": "menuStyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .menu-style-2 .tpgb-circle-menu-list:hover .menu-tooltip-title{border-radius: {{textHvrBR}};}"
+            }],
+            "scopy": true
+        },
+        "textNmlBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "blur": 8,
+                "color": "rgba(0,0,0,0.40)",
+                "horizontal": 0,
+                "inset": 0,
+                "spread": 0,
+                "vertical": 4
+            },
+            "style": [{
+                "condition": [{
+                        "key": "layoutType",
+                        "relation": "==",
+                        "value": "straight"
+                    },
+                    {
+                        "key": "menuStyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .menu-style-2 .menu-tooltip-title"
+            }],
+            "scopy": true
+        },
+        "textHvrBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "blur": 8,
+                "color": "rgba(0,0,0,0.40)",
+                "horizontal": 0,
+                "inset": 0,
+                "spread": 0,
+                "vertical": 4
+            },
+            "style": [{
+                "condition": [{
+                        "key": "layoutType",
+                        "relation": "==",
+                        "value": "straight"
+                    },
+                    {
+                        "key": "menuStyle",
+                        "relation": "==",
+                        "value": "style-2"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}}.tpgb-circle-menu .menu-style-2 .tpgb-circle-menu-list:hover .menu-tooltip-title"
+            }],
+            "scopy": true
+        },
+        "tooltipTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tippy-box .tippy-content"
+            }],
+            "scopy": true
+        },
+        "tooltipColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tippy-box .tippy-content{ color: {{tooltipColor}}; }"
+            }],
+            "scopy": true
+        },
+        "tipArrowColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "tipArrow",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tippy-arrow{color: {{tipArrowColor}};}"
+            }],
+            "scopy": true
+        },
+        "tipPadding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tippy-box{padding: {{tipPadding}};}"
+            }],
+            "scopy": true
+        },
+        "tipBorder": {
+            "type": "object",
+            "default": {
+                "openBorder": 0
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tippy-box"
+            }],
+            "scopy": true
+        },
+        "tipBorderRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tippy-box{border-radius: {{tipBorderRadius}};}"
+            }],
+            "scopy": true
+        },
+        "tipBg": {
+            "type": "object",
+            "default": {
+                "bgType": "color"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tippy-box"
+            }],
+            "scopy": true
+        },
+        "tipBoxShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "blur": 8,
+                "color": "rgba(0,0,0,0.40)",
+                "horizontal": 0,
+                "inset": 0,
+                "spread": 0,
+                "vertical": 4
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}} .tippy-box"
+            }],
+            "scopy": true
+        },
+        "scrollToggle": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "scrollValue": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "overlayColorTgl": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "overlayColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "overlayColorTgl",
+                    "relation": "==",
+                    "value": true
+                }],
+                "selector": "{{PLUS_WRAP}} .tpgb-circle-menu-inner-wrapper .show-bg-overlay.activebg{ background: {{overlayColor}}; }"
+            }],
+            "scopy": true
+        }
+    }
+}

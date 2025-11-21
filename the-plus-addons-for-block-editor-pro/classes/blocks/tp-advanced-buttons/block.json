@@ -1,0 +1,3064 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-advanced-buttons",
+	"version": "0.1.0",
+	"title": "Pro Buttons",
+	"category": "tpgb",
+	"description": "Appealing A/B Tested buttons build for better conversion",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "btnType": {
+            "type": "string",
+            "default": "cta"
+        },
+        "ctaStyle": {
+            "type": "string",
+            "default": "style-1"
+        },
+        "dwnldStyle": {
+            "type": "string",
+            "default": "style-1"
+        },
+        "btnText": {
+            "type": "string",
+            "default": "Buy Now"
+        },
+        "dst5LoadingText": {
+            "type": "string",
+            "default": "downloading...",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-5"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-5 .tp-meter:before{ content: '{{dst5LoadingText}}'; }"
+                }
+            ]
+        },
+        "dst5SuccessText": {
+            "type": "string",
+            "default": "done!",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-5"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-5 .tp-meter.is-done:after{ content: '{{dst5SuccessText}}'; }"
+                }
+            ]
+        },
+        "extraText": {
+            "type": "string",
+            "default": "The Plus"
+        },
+        "dst3MWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-3 .adv-button-link-wrap{ min-width: {{dst3MWidth}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "extraText1": {
+            "type": "string",
+            "default": "The Plus",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "cta"
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-6",
+                                "style-9"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-9 .adv-btn-parrot:before{ content: '{{extraText1}}'; }"
+                }
+            ]
+        },
+        "extraText2": {
+            "type": "string",
+            "default": "The Plus",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "cta"
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-6",
+                                "style-9",
+                                "style-13"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-6 .adv-button-link-wrap:before , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-9 .adv-button-link-wrap:hover .adv-btn-parrot::before, {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap::after{ content: '{{extraText2}}'; }"
+                }
+            ]
+        },
+        "nmlEmoji": {
+            "type": "string",
+            "default": "💯",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "cta"
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-8"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-8 .adv-btn-emoji:before{ content: '{{nmlEmoji}}'; }"
+                }
+            ]
+        },
+        "hvrEmoji": {
+            "type": "string",
+            "default": "👏",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "cta"
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-8"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-8 .adv-button-link-wrap:hover .adv-btn-emoji:before{ content: '{{hvrEmoji}}'; }"
+                }
+            ]
+        },
+        "cta10Width": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "cta"
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-10"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-10 .adv-button-link-wrap svg{ width: {{cta10Width}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "cta10Height": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "cta"
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-10"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-10 .adv-button-link-wrap svg{ height: {{cta10Height}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "btnLink": {
+            "type": "object",
+            "default": {
+                "url": "#",
+                "target": "",
+                "nofollow": ""
+            }
+        },
+        "dwnldFileName": {
+            "type": "string",
+            "default": "download"
+        },
+        "Alignment": {
+            "type": "object",
+            "default": {
+                "md": "left"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}}.tpgb-advanced-buttons{ text-align: {{Alignment}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "tooltipPos": {
+            "type": "string",
+            "default": "left"
+        },
+        "minWidthSt5": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "cta"
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-5"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-5 .adv-button-link-wrap{ min-width: calc({{minWidthSt5}} + 1px); justify-content: center; }"
+                }
+            ],
+            "scopy": true
+        },
+        "nmlAnSpeed": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "cta"
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-3",
+                                "style-4",
+                                "style-5"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-3 .adv-button-link-wrap , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-4 .pulsing::before , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-4 .pulsing::after ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-5 .tpgb-cta-style-5-text{ animation-duration: {{nmlAnSpeed}}ms; -o-animation-duration: {{nmlAnSpeed}}ms; -ms-animation-duration: {{nmlAnSpeed}}ms; -moz-animation-duration: {{nmlAnSpeed}}ms; -webkit-animation-duration: {{nmlAnSpeed}}ms; }"
+                }
+            ],
+            "scopy": true
+        },
+        "hvrAnSpeed": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "cta"
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-3",
+                                "style-4",
+                                "style-5"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-3 .adv-button-link-wrap:hover , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-4:hover .pulsing::before , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-4:hover .pulsing::after ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-5 .adv-button-link-wrap:hover .tpgb-cta-style-5-text{ animation-duration: {{hvrAnSpeed}}ms; -o-animation-duration: {{hvrAnSpeed}}ms; -ms-animation-duration: {{hvrAnSpeed}}ms; -moz-animation-duration: {{hvrAnSpeed}}ms; -webkit-animation-duration: {{hvrAnSpeed}}ms; }"
+                }
+            ],
+            "scopy": true
+        },
+        "marqueeSpeed": {
+            "type": "string",
+            "default": "12",
+            "scopy": true
+        },
+        "marqueeDir": {
+            "type": "string",
+            "default": "left",
+            "scopy": true
+        },
+        "ariaLabel": {
+            "type": "string",
+            "default": ""
+        },
+        "texTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnText",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "!=",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta .adv-button-link-wrap ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-5 .adv-button-link-wrap .tpgb-cta-style-5-text"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "btnText",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-10"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.tpgb-cta-style-10 .adv-button-link-wrap .tpgb-trans-ease"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "btnText",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap .sty13-main-text,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap .sty13-extra-text"
+                }
+            ],
+            "scopy": true
+        },
+        "textNmlColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnText",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "!=",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta .adv-button-link-wrap , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-5 .adv-button-link-wrap .tpgb-cta-style-5-text{ color: {{textNmlColor}}; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "btnText",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap .sty13-main-text{ color: {{textNmlColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "extraTextColor": {
+            "type": "string",
+            "default": "#000",
+            "scopy": true
+        },
+        "textHvrColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnText",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "!=",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta .adv-button-link-wrap:hover , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-5 .adv-button-link-wrap:hover .tpgb-cta-style-5-text{ color: {{textHvrColor}}; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "btnText",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap:hover > span.sty13-extra-text{ color: {{textHvrColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "nmlFillColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnText",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-10"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-10 .adv-button-link-wrap svg .tpgb-cpt-btn01{ fill: {{nmlFillColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "hvrFillColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnText",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-10"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-10 .adv-button-link-wrap:hover svg .tpgb-cpt-btn01{ fill: {{hvrFillColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "hvrDotColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnText",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-10"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-10 .adv-button-link-wrap svg .tpgb-cpt-btn02{ stroke: {{hvrDotColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "normalBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-1 .adv-button-link-wrap::before ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-2 .adv-button-link-wrap::before"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-3 .adv-button-link-wrap"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-4"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-4 .adv-button-link-wrap , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-4 .pulsing:before , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-4 .pulsing:after"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-5",
+                                "style-6",
+                                "style-7",
+                                "style-8",
+                                "style-9",
+                                "style-11",
+                                "style-12",
+                                "style-13"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner .adv-button-link-wrap"
+                }
+            ],
+            "scopy": true
+        },
+        "hoverBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-1 .adv-button-link-wrap:hover::before ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-2 .adv-button-link-wrap:hover::before"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-3 .adv-button-link-wrap:hover"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-4"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-4 .adv-button-link-wrap:hover , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-4:hover .pulsing:before , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-4:hover .pulsing:after"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-3",
+                                "style-4",
+                                "style-5",
+                                "style-6",
+                                "style-7",
+                                "style-8",
+                                "style-9",
+                                "style-11",
+                                "style-12",
+                                "style-13"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner .adv-button-link-wrap:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "nmlB11Color": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnText",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-11"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-11 .adv-button-link-wrap{ border-color: {{nmlB11Color}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "hvrB11Color": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnText",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-11"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-11 .adv-button-link-wrap:hover{ border-color: {{hvrB11Color}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "nmlDots11": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnText",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-11"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-11 .adv-button-link-wrap::before, {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-11 .adv-button-link-wrap::after"
+                }
+            ],
+            "scopy": true
+        },
+        "hvrDots11": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnText",
+                            "relation": "!=",
+                            "value": ""
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-11"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-11 .adv-button-link-wrap:hover::before, {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-11 .adv-button-link-wrap:hover::after"
+                }
+            ],
+            "scopy": true
+        },
+        "bgNormalB": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-1 .adv-button-link-wrap::before ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-2 .adv-button-link-wrap::before"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-4",
+                                "style-5",
+                                "style-6",
+                                "style-7",
+                                "style-8",
+                                "style-9",
+                                "style-12"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner .adv-button-link-wrap"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-3",
+                                "style-13"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-3 .adv-button-link-wrap ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap"
+                }
+            ],
+            "scopy": true
+        },
+        "bgHoverB": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-1 .adv-button-link-wrap:hover::before ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-2 .adv-button-link-wrap:hover::before"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-4",
+                                "style-5",
+                                "style-6",
+                                "style-7",
+                                "style-8",
+                                "style-9",
+                                "style-12"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner .adv-button-link-wrap:hover"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-3",
+                                "style-13"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-3 .adv-button-link-wrap:hover ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "nmlBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-1 .adv-button-link-wrap::before ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-2 .adv-button-link-wrap::before{border-radius: {{nmlBRadius}};}"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-4"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-4 .adv-button-link-wrap , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-4 .pulsing:before , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-4 .pulsing:after{border-radius: {{nmlBRadius}};}"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-5"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.tpgb-cta-style-5 .adv-button-link-wrap{border-radius: {{nmlBRadius}};}"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-6",
+                                "style-7",
+                                "style-8",
+                                "style-9",
+                                "style-12"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner .adv-button-link-wrap{border-radius: {{nmlBRadius}};}"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-3",
+                                "style-13"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-3 .adv-button-link-wrap , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap{border-radius: {{nmlBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "hvrBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-1 .adv-button-link-wrap:hover::before ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-2 .adv-button-link-wrap:hover::before{border-radius: {{hvrBRadius}};}"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-4"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-4 .adv-button-link-wrap:hover , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-4:hover .pulsing::before , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-4:hover .pulsing::after{border-radius: {{hvrBRadius}};}"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-5"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.tpgb-cta-style-5 .adv-button-link-wrap:hover{border-radius: {{hvrBRadius}};}"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-6",
+                                "style-7",
+                                "style-8",
+                                "style-9",
+                                "style-12"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner .adv-button-link-wrap:hover{border-radius: {{hvrBRadius}};}"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-3",
+                                "style-13"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-3 .adv-button-link-wrap:hover , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap:hover{border-radius: {{hvrBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "nmlboxShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-1 .adv-button-link-wrap::before ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-2 .adv-button-link-wrap::before"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-3",
+                                "style-4",
+                                "style-5",
+                                "style-6",
+                                "style-7",
+                                "style-8",
+                                "style-9",
+                                "style-12",
+                                "style-13"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner .adv-button-link-wrap"
+                }
+            ],
+            "scopy": true
+        },
+        "hvrboxShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-1 .adv-button-link-wrap:hover::before ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-2 .adv-button-link-wrap:hover::before"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-3",
+                                "style-4",
+                                "style-5",
+                                "style-6",
+                                "style-7",
+                                "style-8",
+                                "style-9",
+                                "style-12",
+                                "style-13"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner .adv-button-link-wrap:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "bdrWH": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "cta"
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-1 .adv-button-link-wrap:before , {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-2 .adv-button-link-wrap:before{ width: {{bdrWH}}; height: {{bdrWH}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "btnPadding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "cta"
+                        },
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2",
+                                "style-3",
+                                "style-4",
+                                "style-5",
+                                "style-6",
+                                "style-7",
+                                "style-8",
+                                "style-9",
+                                "style-12",
+                                "style-13"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta .adv-button-link-wrap{padding: {{btnPadding}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "strokeWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-10"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-10 .adv-button-link-wrap svg{ stroke-width: {{strokeWidth}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "strokeColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-10"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-10 .adv-button-link-wrap svg .tpgb-cpt-btn01{ stroke: {{strokeColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "tipTexTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap:after"
+                }
+            ],
+            "scopy": true
+        },
+        "tipTextNmlColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap::after{ color: {{tipTextNmlColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "tipTextHvrColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap:hover::after{ color: {{tipTextHvrColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "tipNormalBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap::before"
+                }
+            ],
+            "scopy": true
+        },
+        "tipHoverBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap:hover::before"
+                }
+            ],
+            "scopy": true
+        },
+        "tipNormalB": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap::before "
+                }
+            ],
+            "scopy": true
+        },
+        "tipHoverB": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap:hover::before "
+                }
+            ],
+            "scopy": true
+        },
+        "tipNmlBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap::before{border-radius: {{tipNmlBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "tipHvrBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap:hover::before{border-radius: {{tipHvrBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "tipNmlboxShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap::before"
+                }
+            ],
+            "scopy": true
+        },
+        "tipHvrboxShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap:hover::before"
+                }
+            ],
+            "scopy": true
+        },
+        "tipNmlTransCss": {
+            "type": "string",
+            "default": "skew(-25deg)",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap::before{transform: {{tipNmlTransCss}}; -ms-transform:{{tipNmlTransCss}}; -moz-transform: {{tipNmlTransCss}}; -webkit-transform: {{tipNmlTransCss}}; transform-style: preserve-3d;-ms-transform-style: preserve-3d;-moz-transform-style: preserve-3d;-webkit-transform-style: preserve-3d;}"
+                }
+            ],
+            "scopy": true
+        },
+        "tipHvrTransCss": {
+            "type": "string",
+            "default": "skew(-25deg)",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "ctaStyle",
+                            "relation": "==",
+                            "value": "style-13"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-cta.tpgb-cta-style-13 .adv-button-link-wrap:hover::before{transform: {{tipHvrTransCss}}; -ms-transform:{{tipHvrTransCss}}; -moz-transform: {{tipHvrTransCss}}; -webkit-transform: {{tipHvrTransCss}}; transform-style: preserve-3d;-ms-transform-style: preserve-3d;-moz-transform-style: preserve-3d;-webkit-transform-style: preserve-3d;}"
+                }
+            ],
+            "scopy": true
+        },
+        "dSt4IcnSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-4"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-4 .adv-button-link-wrap .cmn-icon{ font-size: {{dSt4IcnSize}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "dst35TexTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-3 span.dw-sty3-extra-text, {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-3 span.dw-sty3-main-text"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-5"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-5 .adv-button-link-wrap ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-5 .tp-meter:before ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-5 .tp-meter.is-done:after"
+                }
+            ],
+            "scopy": true
+        },
+        "dSt35NmlTextClr": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap span.dw-sty3-main-text{ color: {{dSt35NmlTextClr}}; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-5"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-5 .adv-button-link-wrap{ color: {{dSt35NmlTextClr}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "dSt35HvrTextClr": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-3 .adv-button-link-wrap:hover span.dw-sty3-extra-text { color: {{dSt35HvrTextClr}}; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-5"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-5 .adv-button-link-wrap:hover{ color: {{dSt35HvrTextClr}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "dSt5CmltTextClr": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-5"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-5 .tp-meter.is-done:after{ color: {{dSt5CmltTextClr}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "dSt3NmlIcnClr": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-3 .adv-button-link-wrap:before ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-3 .adv-button-link-wrap:after{ border-color: {{dSt3NmlIcnClr}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "dSt3HvrIcnClr": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-3 .adv-button-link-wrap:hover:before ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-3 .adv-button-link-wrap:hover:after{ border-color: {{dSt3HvrIcnClr}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "dSt3NmlIcnBG": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-3 .adv-button-link-wrap:before ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-3 .adv-button-link-wrap:after{ background: {{dSt3NmlIcnBG}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "dSt3HvrIcnBG": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-3 .adv-button-link-wrap:hover:before ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-3 .adv-button-link-wrap:hover:after{ background: {{dSt3HvrIcnBG}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "dnst3IcnNmlClr": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-1"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-1 .adv-button-link-wrap svg polyline ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-1 .adv-button-link-wrap svg path{ stroke: {{dnst3IcnNmlClr}}; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-2 .adv-button-link-wrap #arrow polyline ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-2 .adv-button-link-wrap #arrow path{ stroke: {{dnst3IcnNmlClr}}; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-4"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-4 .adv-button-link-wrap .cmn-icon{ color: {{dnst3IcnNmlClr}}; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-5"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-5 .adv-button-link-wrap .icon-download{ border-color: {{dnst3IcnNmlClr}}; } {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-5 .adv-button-link-wrap .icon-download::after{ border-top-color: {{dnst3IcnNmlClr}}; } {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-5 .adv-button-link-wrap .icon-download::before{ background: {{dnst3IcnNmlClr}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "dnst13IcnHvrClr": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-2 .adv-button-link-wrap:hover #arrow polyline ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-2 .adv-button-link-wrap:hover #arrow path{ stroke: {{dnst13IcnHvrClr}}; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-4"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-4 .adv-button-link-wrap:hover .cmn-icon{ color: {{dnst13IcnHvrClr}}; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-5"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-5 .adv-button-link-wrap:hover .icon-download{ border-color: {{dnst13IcnHvrClr}}; } {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-5 .adv-button-link-wrap:hover .icon-download::after{ border-top-color: {{dnst13IcnHvrClr}}; } {{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-5 .adv-button-link-wrap:hover .icon-download::before{ background: {{dnst13IcnHvrClr}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "dst12IcnDlClr": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-1 .adv-button-link-wrap.downloaded svg path#check ,{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-2 .adv-button-link-wrap svg#check{ stroke: {{dst12IcnDlClr}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "dst2IcnBClr": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-btn-inner.ab-download.tpgb-download-style-2 .adv-button-link-wrap.load #border{ stroke: {{dst2IcnBClr}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "downloadNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-1 .adv-button-link-wrap ,{{PLUS_WRAP}} .ab-download.tpgb-download-style-2, {{PLUS_WRAP}} .ab-download.tpgb-download-style-2 .adv-button-link-wrap, {{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap span.dw-sty3-main-text, {{PLUS_WRAP}} .ab-download.tpgb-download-style-4 .adv-button-link-wrap, {{PLUS_WRAP}} .ab-download.tpgb-download-style-5 .adv-button-link-wrap"
+                }
+            ],
+            "scopy": true
+        },
+        "downloadHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-1 .adv-button-link-wrap:hover ,{{PLUS_WRAP}} .ab-download.tpgb-download-style-2:hover, {{PLUS_WRAP}} .ab-download.tpgb-download-style-2 .adv-button-link-wrap:hover, {{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap:hover span.dw-sty3-extra-text, {{PLUS_WRAP}} .ab-download.tpgb-download-style-4 .adv-button-link-wrap:hover, {{PLUS_WRAP}} .ab-download.tpgb-download-style-4 .adv-button-link-wrap.success, {{PLUS_WRAP}} .ab-download.tpgb-download-style-5 .adv-button-link-wrap:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "downloadNBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-1 .adv-button-link-wrap ,{{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap span.dw-sty3-main-text, {{PLUS_WRAP}} .ab-download.tpgb-download-style-4 .adv-button-link-wrap, {{PLUS_WRAP}} .ab-download.tpgb-download-style-5 .adv-button-link-wrap, {{PLUS_WRAP}} .ab-download.tpgb-download-style-5 .tp-meter"
+                }
+            ],
+            "scopy": true
+        },
+        "downloadHBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "!=",
+                            "value": "style-2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-1 .adv-button-link-wrap:hover , {{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap:hover span.dw-sty3-extra-text, {{PLUS_WRAP}} .ab-download.tpgb-download-style-4 .adv-button-link-wrap:hover, {{PLUS_WRAP}} .ab-download.tpgb-download-style-5 .adv-button-link-wrap:hover, {{PLUS_WRAP}} .ab-download.tpgb-download-style-5 .adv-button-link-wrap .tp-meter"
+                }
+            ],
+            "scopy": true
+        },
+        "downloadNmlBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "!=",
+                            "value": "style-2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-1 .adv-button-link-wrap, {{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap span.dw-sty3-main-text, {{PLUS_WRAP}} .ab-download.tpgb-download-style-4 .adv-button-link-wrap, {{PLUS_WRAP}} .ab-download.tpgb-download-style-5 .adv-button-link-wrap, {{PLUS_WRAP}} .ab-download.tpgb-download-style-5 .adv-button-link-wrap .tp-meter{border-radius: {{downloadNmlBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "downloadHvrBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-3",
+                                "style-4"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-1 .adv-button-link-wrap:hover,{{PLUS_WRAP}} .ab-download.tpgb-download-style-1 .adv-button-link-wrap.downloaded:hover,{{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap span.dw-sty3-extra-text, {{PLUS_WRAP}} .ab-download.tpgb-download-style-4 .adv-button-link-wrap:hover{border-radius: {{downloadHvrBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "downloadNmlBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-1 .adv-button-link-wrap, {{PLUS_WRAP}} .ab-download.tpgb-download-style-2, {{PLUS_WRAP}} .ab-download.tpgb-download-style-2 .adv-button-link-wrap, {{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap span.dw-sty3-main-text, {{PLUS_WRAP}} .ab-download.tpgb-download-style-4 .adv-button-link-wrap, {{PLUS_WRAP}} .ab-download.tpgb-download-style-5 .adv-button-link-wrap"
+                }
+            ],
+            "scopy": true
+        },
+        "downloadHvrBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-1 .adv-button-link-wrap:hover, {{PLUS_WRAP}} .ab-download.tpgb-download-style-2:hover, {{PLUS_WRAP}} .ab-download.tpgb-download-style-2 .adv-button-link-wrap:hover, {{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap:hover span.dw-sty3-extra-text, {{PLUS_WRAP}} .ab-download.tpgb-download-style-4 .adv-button-link-wrap:hover, {{PLUS_WRAP}} .ab-download.tpgb-download-style-5 .adv-button-link-wrap:hover, {{PLUS_WRAP}} .ab-download.tpgb-download-style-5 .adv-button-link-wrap .tp-meter"
+                }
+            ],
+            "scopy": true
+        },
+        "dwnldTextPadding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2",
+                                "style-4"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .adv_btn_ext_txt{padding: {{dwnldTextPadding}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "dwnldTextTopOffset": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2",
+                                "style-4"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .adv_btn_ext_txt{ top: {{dwnldTextTopOffset}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "dwnldTextRightOffset": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2",
+                                "style-4"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .adv_btn_ext_txt{ margin-right: {{dwnldTextRightOffset}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "dwnldTexTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2",
+                                "style-4"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .adv_btn_ext_txt"
+                }
+            ],
+            "scopy": true
+        },
+        "dwnldTextNClr": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2",
+                                "style-4"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .adv_btn_ext_txt{ color: {{dwnldTextNClr}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "dwnldTextHClr": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2",
+                                "style-4"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .adv_btn_ext_txt:hover{ color: {{dwnldTextHClr}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "dwnldTextNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2",
+                                "style-4"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .adv_btn_ext_txt"
+                }
+            ],
+            "scopy": true
+        },
+        "dwnldTextHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2",
+                                "style-4"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .adv_btn_ext_txt:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "dwnldTextNmlB": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2",
+                                "style-4"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .adv_btn_ext_txt"
+                }
+            ],
+            "scopy": true
+        },
+        "dwnldTextHvrB": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2",
+                                "style-4"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .adv_btn_ext_txt:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "dwnldTextNBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2",
+                                "style-4"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .adv_btn_ext_txt{border-radius: {{dwnldTextNBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "dwnldTextHBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2",
+                                "style-4"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .adv_btn_ext_txt:hover{border-radius: {{dwnldTextHBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "dwnldTextNBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2",
+                                "style-4"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .adv_btn_ext_txt"
+                }
+            ],
+            "scopy": true
+        },
+        "dwnldTextHBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2",
+                                "style-4"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .adv_btn_ext_txt:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "dst3BoxNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap"
+                }
+            ],
+            "scopy": true
+        },
+        "dst3BoxHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "dst3BoxNmlBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap"
+                }
+            ],
+            "scopy": true
+        },
+        "dst3BoxHvrBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "dst3BoxNBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap{border-radius: {{dst3BoxNBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "dst3BoxHBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap:hover{border-radius: {{dst3BoxHBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "dst3BoxNBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap"
+                }
+            ],
+            "scopy": true
+        },
+        "dst3BoxHBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "btnType",
+                            "relation": "==",
+                            "value": "download"
+                        },
+                        {
+                            "key": "dwnldStyle",
+                            "relation": "==",
+                            "value": "style-3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .ab-download.tpgb-download-style-3 .adv-button-link-wrap:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "showBlockContent" :{
+            "type": "boolean",
+            "default": true
+        }
+    }
+}

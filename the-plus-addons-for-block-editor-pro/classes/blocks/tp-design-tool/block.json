@@ -1,0 +1,149 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-design-tool",
+	"version": "0.1.0",
+	"title": "Design Tool",
+	"category": "tpgb",
+	"description": "Add Horizontal & Vertical equal lines to verify alignment of your website content",
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "designToolOpt": {
+            "type": "string",
+            "default": "grid_stystem"
+        },
+        "gridSystemOpt": {
+            "type": "string",
+            "default": "gs_default"
+        },
+        "gridDirection": {
+            "type": "string",
+            "default": "ltr"
+        },
+        "gridMaxWidth": {
+            "type": "object",
+            "default": {
+                "md": "1140",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "gridSystemOpt",
+                            "relation": "==",
+                            "value": "gs_custom"
+                        }
+                    ],
+                    "selector": "html {--tp_grid_cont_max_width: {{gridMaxWidth}} !important; }"
+                }
+            ],
+            "scopy": true
+        },
+        "gridColumn": {
+            "type": "object",
+            "default": {
+                "md": "12",
+                "unit": ""
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "gridSystemOpt",
+                            "relation": "==",
+                            "value": "gs_custom"
+                        }
+                    ],
+                    "selector": "html {--tp_grid_columns: {{gridColumn}} !important; }"
+                }
+            ],
+            "scopy": true
+        },
+        "gridBGcolor": {
+            "type": "string",
+            "default": "#8072fc40",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "gridSystemOpt",
+                            "relation": "==",
+                            "value": "gs_custom"
+                        }
+                    ],
+                    "selector": "html { --tp_grid_color: {{gridBGcolor}} !important; }"
+                }
+            ],
+            "scopy": true
+        },
+        "alleySpace": {
+            "type": "object",
+            "default": {
+                "md": "30",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "gridSystemOpt",
+                            "relation": "==",
+                            "value": "gs_custom"
+                        }
+                    ],
+                    "selector": "html {--tp_grid_alley: {{alleySpace}} !important; }"
+                }
+            ],
+            "scopy": true
+        },
+        "alleyBGcolor": {
+            "type": "string",
+            "default": "#00000000",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "gridSystemOpt",
+                            "relation": "==",
+                            "value": "gs_custom"
+                        }
+                    ],
+                    "selector": "html { --tp_grid_alley_color: {{alleyBGcolor}} ; }"
+                }
+            ],
+            "scopy": true
+        },
+        "gridOffset": {
+            "type": "object",
+            "default": {
+                "md": "30",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "gridSystemOpt",
+                            "relation": "==",
+                            "value": "gs_custom"
+                        }
+                    ],
+                    "selector": "html { --tp_grid_left_right_offset: {{gridOffset}} !important; }"
+                }
+            ],
+            "scopy": true
+        },
+        "gridOnFront": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        }
+    }
+}

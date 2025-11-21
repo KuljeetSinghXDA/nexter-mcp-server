@@ -1,0 +1,306 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-google-map",
+	"version": "0.1.0",
+	"title": "Google Map",
+	"category": "tpgb",
+	"description": "This simple block offers you to embed the location of a particular place on the map using Google Maps to provide you accurate information about that place.",
+	"example": {
+		"attributes": {}
+	},
+	"supports": { "align": ["wide","full"] },
+	"textdomain": "tpgb",
+    "attributes": {
+      "block_id": {
+        "type": "string",
+        "default": ""
+      },
+      "locationPoint": {
+          "type": "array",
+          "repeaterField": [
+              {
+                  "latitude": {
+                      "type": "string",
+                      "default": ""
+                  },
+                  "longitude": {
+                      "type": "string",
+                      "default": ""
+                  },
+                  "address": {
+                      "type": "string",
+                      "default": ""
+                  },
+                  "pinIcon": {
+                      "type": "object",
+                      "default": {
+                          "url": ""
+                      }
+                  },
+                  "pinIconSize": {
+                      "type": "string",
+                      "default": "thumbnail"
+                  },
+                   "latOrAddr": {
+                        "type": "string",
+                        "default": "latitude"
+                    },
+                    "addr": {
+                        "type": "string",
+                        "default": "Galaxy Signature Science City Road, Opp. sukan bungalow, Sola, Ahmedabad, Gujarat-380060"
+                    }
+              }
+          ],
+          "default": [
+              {
+                  "_key": "0",
+                  "latitude": "40.6884135",
+                  "longitude": "-74.3606169",
+                  "address": "",
+                  "pinIcon": {
+                      "url": ""
+                  },
+                  "latOrAddr": "latitude",
+                    "addr": "Galaxy Signature Science City Road, Opp. sukan bungalow, Sola, Ahmedabad, Gujarat-380060"
+              }
+          ]
+      },
+      "mapHeight": {
+          "type": "object",
+          "default": {
+              "md": 300,
+              "unit": "px"
+          },
+          "style": [
+              {
+                  "selector": "{{PLUS_WRAP}} .tpgb-adv-map{ min-height: {{mapHeight}}; }"
+              }
+          ],
+          "scopy": true
+      },
+      "Zoom": {
+          "type": "string",
+          "default": 8.5,
+          "scopy": true
+      },
+      "scrollWheel": {
+          "type": "boolean",
+          "default": true,
+          "scopy": true
+      },
+      "panCtrl": {
+          "type": "boolean",
+          "default": true,
+          "scopy": true
+      },
+      "Draggable": {
+          "type": "boolean",
+          "default": true,
+          "scopy": true
+      },
+      "zoomCtrl": {
+          "type": "boolean",
+          "default": true,
+          "scopy": true
+      },
+      "mapTypeCtrl": {
+          "type": "boolean",
+          "default": true,
+          "scopy": true
+      },
+      "scaleCtrl": {
+          "type": "boolean",
+          "default": true,
+          "scopy": true
+      },
+      "fullScreenCtrl": {
+          "type": "boolean",
+          "default": true,
+          "scopy": true
+      },
+      "streetViewCtrl": {
+          "type": "boolean",
+          "default": true,
+          "scopy": true
+      },
+      "gmapType": {
+          "type": "string",
+          "default": "roadmap",
+          "scopy": true
+      },
+      "customStyleTgl": {
+          "type": "boolean",
+          "default": false,
+          "scopy": true
+      },
+      "customStyle": {
+          "type": "string",
+          "default": "style-1",
+          "scopy": true
+      },
+      "contentTgl": {
+          "type": "boolean",
+          "default": false
+      },
+      "title": {
+          "type": "string",
+          "default": "Location Here"
+      },
+      "description": {
+          "type": "string",
+          "default": "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
+      },
+      "contentBG": {
+          "type": "object",
+          "default": {
+              "openBg": 0,
+              "bgType": "color",
+              "bgDefaultColor": "",
+              "bgGradient": {
+                  "color1": "#16d03e",
+                  "color2": "#1f91f3",
+                  "type": "linear",
+                  "direction": "90",
+                  "start": 5,
+                  "stop": 80,
+                  "radial": "center",
+                  "clip": false
+              },
+              "overlayBg": "",
+              "overlayBgOpacity": "",
+              "bgGradientOpacity": ""
+          },
+          "style": [
+              {
+                  "condition": [
+                      {
+                          "key": "contentTgl",
+                          "relation": "==",
+                          "value": true
+                      }
+                  ],
+                  "selector": "{{PLUS_WRAP}} .tpgb-overlay-map-content"
+              }
+          ],
+          "scopy": true
+      },
+      "titleTypo": {
+          "type": "object",
+          "default": {
+              "openTypography": 0,
+              "size": {
+                  "md": "",
+                  "unit": "px"
+              }
+          },
+          "style": [
+              {
+                  "condition": [
+                      {
+                          "key": "title",
+                          "relation": "!=",
+                          "value": ""
+                      }
+                  ],
+                  "selector": "{{PLUS_WRAP}} .gmap-title"
+              }
+          ],
+          "scopy": true
+      },
+      "titleColor": {
+          "type": "string",
+          "default": "",
+          "style": [
+              {
+                  "condition": [
+                      {
+                          "key": "contentTgl",
+                          "relation": "==",
+                          "value": true
+                      }
+                  ],
+                  "selector": "{{PLUS_WRAP}} .gmap-title{ color: {{titleColor}}; }"
+              }
+          ],
+          "scopy": true
+      },
+      "descTypo": {
+          "type": "object",
+          "default": {
+              "openTypography": 0,
+              "size": {
+                  "md": "",
+                  "unit": "px"
+              }
+          },
+          "style": [
+              {
+                  "condition": [
+                      {
+                          "key": "description",
+                          "relation": "!=",
+                          "value": ""
+                      }
+                  ],
+                  "selector": "{{PLUS_WRAP}} .gmap-desc"
+              }
+          ],
+          "scopy": true
+      },
+      "descColor": {
+          "type": "string",
+          "default": "",
+          "style": [
+              {
+                  "condition": [
+                      {
+                          "key": "contentTgl",
+                          "relation": "==",
+                          "value": true
+                      }
+                  ],
+                  "selector": "{{PLUS_WRAP}} .gmap-desc{ color: {{descColor}}; }"
+              }
+          ],
+          "scopy": true
+      },
+      "toggleColor": {
+          "type": "string",
+          "default": "rgba(0, 0, 0, 0.4)",
+          "style": [
+              {
+                  "condition": [
+                      {
+                          "key": "contentTgl",
+                          "relation": "==",
+                          "value": true
+                      }
+                  ],
+                  "selector": "{{PLUS_WRAP}}-checked:not(checked) + {{PLUS_WRAP}}-label:after,{{PLUS_WRAP}}-checked + {{PLUS_WRAP}}-label:before{ border-color: {{toggleColor}}; }"
+              }
+          ],
+          "scopy": true
+      },
+      "tglActiveClr": {
+          "type": "string",
+          "default": "",
+          "style": [
+              {
+                  "condition": [
+                      {
+                          "key": "contentTgl",
+                          "relation": "==",
+                          "value": true
+                      }
+                  ],
+                  "selector": "{{PLUS_WRAP}}-checked:checked + {{PLUS_WRAP}}-label:after{ border-color: {{tglActiveClr}}; }"
+              }
+          ],
+          "scopy": true
+      },
+      "showBlockContent" :{
+            "type": "boolean",
+            "default": true
+        }
+    }
+}

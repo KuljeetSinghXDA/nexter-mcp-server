@@ -1,0 +1,34 @@
+.nxt-news-letter-form .nxt-newsstyle-3,.nxt-newsstyle-3 .nxt-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: end
+}
+
+.nxt-newsstyle-3 .nxt-input-wrapper {
+    border: 0;
+    border-bottom: 1px solid #8f8f8fa6
+}
+
+.nxt-newsstyle-3 .nxt-check-title-label,.nxt-newsstyle-3 .nxt-date-label,.nxt-newsstyle-3 .nxt-email-label,.nxt-newsstyle-3 .nxt-message-label,.nxt-newsstyle-3 .nxt-name-label,.nxt-newsstyle-3 .nxt-number-label,.nxt-newsstyle-3 .nxt-option-label,.nxt-newsstyle-3 .nxt-phone-label,.nxt-newsstyle-3 .nxt-radio-title-label,.nxt-newsstyle-3 .nxt-time-label,.nxt-newsstyle-3 .nxt-url-label {
+    display: none;
+    transition: all .3s ease;
+    pointer-events: none
+}
+
+.nxt-newsstyle-3 .nxt-date-input .nxt-date-richtext,.nxt-newsstyle-3 .nxt-message-richtext,.nxt-newsstyle-3 .nxt-input-container,.nxt-newsstyle-3 .nxt-option-field,.nxt-newsstyle-3 .nxt-option-field:focus,.nxt-newsstyle-3 .nxt-phone-input .nxt-input-wrapper,.nxt-newsstyle-3 .nxt-time-input .nxt-time-richtext,.nxt-newsstyle-3 .nxt-url-richtext {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #8f8f8fa6;
+    font-size: 14px;
+    transition: all .3s ease;
+    border-radius: 0 0 4px 4px
+}
+
+.nxt-newsstyle-3 .nxt-submit-button {
+    flex: 0
+}
+
+.nxt-newsstyle-3 .nxt-submit-button .nxt-submit {
+    min-height: 44px
+}

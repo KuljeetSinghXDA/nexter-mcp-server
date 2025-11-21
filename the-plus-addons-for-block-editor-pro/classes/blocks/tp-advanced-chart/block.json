@@ -1,0 +1,504 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-advanced-chart",
+	"version": "0.1.0",
+	"title": "Advanced Chart",
+	"category": "tpgb",
+	"description": "Show your complex data with detailed charts and analytics for better understanding",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "chartType": {
+            "type": "string",
+            "default": "line"
+        },
+        "barType": {
+            "type": "string",
+            "default": "horizontal"
+        },
+        "pieType": {
+            "type": "string",
+            "default": "doughnut"
+        },
+        "labelValue": {
+            "type": "string",
+            "default": "Jan | Feb | Mar"
+        },
+        "dataBox": {
+            "type": "array",
+            "repeaterField": [
+                {
+                    "label": {
+                        "type": "string",
+                        "default": "Label"
+                    },
+                    "data": {
+                        "type": "string",
+                        "default": "0|25|42"
+                    },
+                    "multiDot": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "fillBG": {
+                        "type": "string",
+                        "default": "#ffff99"
+                    },
+                    "bdrColor": {
+                        "type": "string",
+                        "default": "#ffff00"
+                    },
+                    "singleDot": {
+                        "type": "string",
+                        "default": "#ffff00"
+                    },
+                    "multiDotBG": {
+                        "type": "string",
+                        "default": "#f7d78299 | #6fc78499 | #8072fc99"
+                    },
+                    "multiBdr": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "dotBColor": {
+                        "type": "string",
+                        "default": "#ffff99"
+                    },
+                    "dotMultiBColor": {
+                        "type": "string",
+                        "default": "#f7d782 | #6fc784 | #8072fc"
+                    },
+                    "fillTgl": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "bDashTgl": {
+                        "type": "boolean",
+                        "default": false
+                    }
+                }
+            ],
+            "default": [
+                {
+                    "_key": "0",
+                    "label": "Jan",
+                    "data": "25|15|30",
+                    "fillBG": "#ff9999",
+                    "bdrColor": "#ff0000",
+                    "multiDot": false,
+                    "singleDot": "#ff9999",
+                    "multiDotBG": "#f7d78299 | #6fc78499 | #8072fc99",
+                    "multiBdr": false,
+                    "dotBColor": "#ff0000",
+                    "dotMultiBColor": "#f7d782 | #6fc784 | #8072fc"
+                },
+                {
+                    "_key": "1",
+                    "label": "Feb",
+                    "data": "12|18|28",
+                    "fillBG": "#99ff99",
+                    "bdrColor": "#00ff00",
+                    "multiDot": false,
+                    "singleDot": "#99ff99",
+                    "multiDotBG": "#f7d78299 | #6fc78499 | #8072fc99",
+                    "multiBdr": false,
+                    "dotBColor": "#00ff00",
+                    "dotMultiBColor": "#f7d782 | #6fc784 | #8072fc"
+                },
+                {
+                    "_key": "2",
+                    "label": "Mar",
+                    "data": "11|20|40",
+                    "fillBG": "#9999ff",
+                    "bdrColor": "#0000ff",
+                    "multiDot": false,
+                    "singleDot": "#9999ff",
+                    "multiDotBG": "#f7d78299 | #6fc78499 | #8072fc99",
+                    "multiBdr": false,
+                    "dotBColor": "#0000ff",
+                    "dotMultiBColor": "#f7d782 | #6fc784 | #8072fc"
+                }
+            ]
+        },
+        "aloneData": {
+            "type": "string",
+            "default": "10 | 15 | 20"
+        },
+        "aloneBG": {
+            "type": "string",
+            "default": "#f7d782 | #6fc784 | #8072fc"
+        },
+        "aloneBdr": {
+            "type": "string",
+            "default": "#f7d78299 | #6fc78499 | #8072fc99"
+        },
+        "dntDataBox": {
+            "type": "array",
+            "repeaterField": [
+                {
+                    "dntLabel": {
+                        "type": "string",
+                        "default": "Label"
+                    },
+                    "dntData": {
+                        "type": "string",
+                        "default": "0 | 25 | 42"
+                    },
+                    "dntBG": {
+                        "type": "string",
+                        "default": "#ff5a6e99 | #8072fc99 | #6fc78499"
+                    },
+                    "dntBdr": {
+                        "type": "string",
+                        "default": "#000000 | #000000 | #000000"
+                    }
+                }
+            ],
+            "default": [
+                {
+                    "_key": "0",
+                    "dntLabel": "Jan",
+                    "dntData": "25 | 15 | 30",
+                    "dntBG": "#ff5a6e99 | #8072fc99 | #6fc78499",
+                    "dntBdr": "#000000 | #000000 | #000000"
+                },
+                {
+                    "_key": "1",
+                    "dntLabel": "Feb",
+                    "dntData": "12 | 18 | 28",
+                    "dntBG": "#f7d78299 | #6fc78499 | #8072fc99",
+                    "dntBdr": "#40e0d0 | #40e0d0 | #40e0d0"
+                },
+                {
+                    "_key": "2",
+                    "dntLabel": "Mar",
+                    "dntData": "11 | 20 | 40",
+                    "dntBG": "#71d1dc99 | #8072fc99 | #ff5a6e99",
+                    "dntBdr": "#000000 | #000000 | #000000"
+                }
+            ]
+        },
+        "bblDataBox": {
+            "type": "array",
+            "repeaterField": [
+                {
+                    "bblLabel": {
+                        "type": "string",
+                        "default": "Label"
+                    },
+                    "bblData": {
+                        "type": "string",
+                        "default": "[23|34|28][8|16|24][4|12|18]"
+                    },
+                    "bblMultiBG": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "bblDotBG": {
+                        "type": "string",
+                        "default": "#ff4f0f99"
+                    },
+                    "bblMultiDotBG": {
+                        "type": "string",
+                        "default": "#ff4f0f99 | #6fc78499 | #8072fc99"
+                    },
+                    "bblMultiBdr": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "bblBColor": {
+                        "type": "string",
+                        "default": "#ff4f0f"
+                    },
+                    "bblMultiBColor": {
+                        "type": "string",
+                        "default": "#f7d78299 | #6fc78499 | #8072fc99"
+                    }
+                }
+            ],
+            "default": [
+                {
+                    "_key": "0",
+                    "bblLabel": "Jan",
+                    "bblData": "[5 | 15 | 15] [10 | 18 | 12] [7 | 14 | 14]",
+                    "bblDotBG": "#f7d78299",
+                    "bblBColor": "#f7d782",
+                    "bblMultiBG": false,
+                    "bblMultiDotBG": "#f7d78299 | #6fc78499 | #8072fc99",
+                    "bblMultiBdr": false,
+                    "bblMultiBColor": "#f7d782 | #6fc784 | #8072fc"
+                },
+                {
+                    "_key": "1",
+                    "bblLabel": "Feb",
+                    "bblData": "[7 | 10 | 16] [15 | 14 | 18] [15 | 17 | 12]",
+                    "bblDotBG": "#6fc78499",
+                    "bblBColor": "#6fc784",
+                    "bblMultiBG": false,
+                    "bblMultiDotBG": "#f7d78299 | #6fc78499 | #8072fc99",
+                    "bblMultiBdr": false,
+                    "bblMultiBColor": "#f7d782 | #6fc784 | #8072fc"
+                },
+                {
+                    "_key": "2",
+                    "bblLabel": "Mar",
+                    "bblData": "[9 | 20 | 12] [8 | 16 | 16] [14 | 24 | 20]",
+                    "bblDotBG": "#8072fc99",
+                    "bblBColor": "#8072fc",
+                    "bblMultiBG": false,
+                    "bblMultiDotBG": "#f7d78299 | #6fc78499 | #8072fc99",
+                    "bblMultiBdr": false,
+                    "bblMultiBColor": "#f7d782 | #6fc784 | #8072fc"
+                }
+            ]
+        },
+        "barSize": {
+            "type": "string",
+            "default": "30",
+            "scopy": true
+        },
+        "barSpace": {
+            "type": "string",
+            "default": "40",
+            "scopy": true
+        },
+        "gridLine": {
+            "type": "boolean",
+            "default": true,
+            "scopy": true
+        },
+        "gridXColor": {
+            "type": "string",
+            "default": "rgba(0,0,0,0.5)",
+            "scopy": true
+        },
+        "zeroXLineColor": {
+            "type": "string",
+            "default": "rgba(0,0,0,0.25)",
+            "scopy": true
+        },
+        "gridYColor": {
+            "type": "string",
+            "default": "rgba(0,0,0,0.5)",
+            "scopy": true
+        },
+        "zeroYLineColor": {
+            "type": "string",
+            "default": "rgba(0,0,0,0.25)",
+            "scopy": true
+        },
+        "drawBdrX": {
+            "type": "boolean",
+            "default": true,
+            "scopy": true
+        },
+        "drawBdrXChart": {
+            "type": "boolean",
+            "default": true,
+            "scopy": true
+        },
+        "xPrePostfix": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "xPreFixText": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "xPostFixText": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "drawBdrY": {
+            "type": "boolean",
+            "default": true,
+            "scopy": true
+        },
+        "drawBdrYChart": {
+            "type": "boolean",
+            "default": true,
+            "scopy": true
+        },
+        "yPrePostfix": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "yPreFixText": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "yPostFixText": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "labels": {
+            "type": "boolean",
+            "default": true,
+            "scopy": true
+        },
+        "labelColor": {
+            "type": "string",
+            "default": "#000000",
+            "scopy": true
+        },
+        "labelSize": {
+            "type": "string",
+            "default": "12",
+            "scopy": true
+        },
+        "legends": {
+            "type": "boolean",
+            "default": true,
+            "scopy": true
+        },
+        "legendColor": {
+            "type": "string",
+            "default": "#000000",
+            "scopy": true
+        },
+        "legendSize": {
+            "type": "string",
+            "default": "12",
+            "scopy": true
+        },
+        "legendPos": {
+            "type": "string",
+            "default": "top",
+            "scopy": true
+        },
+        "legendAlign": {
+            "type": "string",
+            "default": "center",
+            "scopy": true
+        },
+        "smooth": {
+            "type": "boolean",
+            "default": true,
+            "scopy": true
+        },
+        "tensionS": {
+            "type": "string",
+            "default": "0.4",
+            "scopy": true
+        },
+        "cPointStyle": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "pointStyle": {
+            "type": "string",
+            "default": "circle",
+            "scopy": true
+        },
+        "pointBG": {
+            "type": "string",
+            "default": "#ff5a6e99",
+            "scopy": true
+        },
+        "pointNmlSize": {
+            "type": "string",
+            "default": "12",
+            "scopy": true
+        },
+        "pointHvrSize": {
+            "type": "string",
+            "default": "14",
+            "scopy": true
+        },
+        "pointBColor": {
+            "type": "string",
+            "default": "#ff5a6e99",
+            "scopy": true
+        },
+        "pointBWidth": {
+            "type": "string",
+            "default": "1",
+            "scopy": true
+        },
+        "tooltip": {
+            "type": "boolean",
+            "default": true,
+            "scopy": true
+        },
+        "tipEvent": {
+            "type": "string",
+            "default": "hover",
+            "scopy": true
+        },
+        "tipFontSize": {
+            "type": "string",
+            "default": "12",
+            "scopy": true
+        },
+        "tipTitleColor": {
+            "type": "string",
+            "default": "#fff",
+            "scopy": true
+        },
+        "bodyFontColor": {
+            "type": "string",
+            "default": "#fff",
+            "scopy": true
+        },
+        "tooltipBG": {
+            "type": "string",
+            "default": "#ff5a6e99",
+            "scopy": true
+        },
+        "mAspctRatio": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "chartHeight": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "mAspctRatio",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} { height: {{chartHeight}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "animation": {
+            "type": "string",
+            "default": "easeOutQuart",
+            "scopy": true
+        },
+        "anDuration": {
+            "type": "string",
+            "default": "1000",
+            "scopy": true
+        },
+        "showBlockContent" :{
+            "type": "boolean",
+            "default": true
+        }
+    }
+}

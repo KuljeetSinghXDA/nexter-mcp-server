@@ -1,0 +1,89 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-anything-carousel",
+	"version": "0.1.0",
+	"title": "Carousel Anything",
+	"category": "tpgb",
+	"description": "An effective way to display different images, videos, and other media in a sequence of slides",
+	"supports": {
+		"align": ["wide","full"],
+        "anchor" : true
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "carouselList": {
+            "type": "array",
+            "repeaterField": [
+                {
+                    "title": {
+                        "type": "string",
+                        "default": "Slide"
+                    },
+                    "blockTemp": {
+                        "type": "string",
+                        "default": "none"
+                    },
+                    "contentType": {
+                        "type": "string",
+                        "default": "template"
+                    },
+                    "backendVisi": {
+                        "type": "boolean",
+                        "default": false
+                    }
+                }
+            ],
+            "default": [
+                {
+                    "_key": "0",
+                    "title": "Slide",
+                    "blockTemp": "none",
+                    "backendVisi": false,
+                    "contentType": "template"
+                }
+            ]
+        },
+        "carouselId": {
+            "type": "string",
+            "default": ""
+        },
+        "caroslideType": {
+            "type": "string",
+            "default": "template"
+        },
+        "OverflowHid": {
+            "type": "boolean",
+            "default": false
+        },
+        "rmdOrder": {
+            "type": "boolean",
+            "default": false
+        },
+        "tpgbEqualHeight": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "equalUnqClass": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "rewindFade": {
+            "type": "boolean",
+            "default": true
+        },
+        "carType": {
+            "type": "string",
+            "default": "slide"
+        },
+        "showBlockContent" :{
+            "type": "boolean",
+            "default": true
+        }
+    }
+}

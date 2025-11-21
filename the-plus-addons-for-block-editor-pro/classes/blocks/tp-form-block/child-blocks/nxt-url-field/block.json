@@ -1,0 +1,111 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-form-url-field",
+	"version": "0.1.0",
+	"title": "Website URL",
+	"category": "tpgb",
+	"description": "Add a URL input field to the form.",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"anchor": true,
+		"align": ["wide", "full"]
+	},
+	"textdomain": "tpgb",
+	"ancestor": ["tpgb/tp-form-block"],
+	"attributes": {
+		"block_id": {
+			"type": "string",
+			"default": ""
+		},
+		"labelss": {
+			"type": "string",
+			"default": "Url"
+		},
+		"reqTgl": {
+			"type": "boolean",
+			"default": false
+		},
+		"placeholder": {
+			"type": "string",
+			"default": "Url"
+		},
+		"autoComplete": {
+			"type": "string",
+			"default": "off"
+		},
+		"inpSz": {
+			"type": "object",
+			"default": {
+				"md": "100",
+				"unit": "%"
+			},
+			"style": [
+				{
+					"selector": "{{PLUS_CLIENT_ID}} {margin:0; width: {{inpSz}}; } {{PLUS_CLIENT_ID}}[data-type='tpgb/tp-form-url-field'].nxt-url-field{width:100%} {{PLUS_CLIENT_ID}}~.block-editor-block-list__block.wp-block:has(.nxt-btn-inline) {flex: 0; margin-bottom:4px !important;}",
+					"backend": true
+				},
+				{
+					"selector": "{{PLUS_WRAP}}.nxt-url-field {width: {{inpSz}}; } {{PLUS_WRAP}}~.nxt-submit-button.nxt-btn-inline{flex: 0;}",
+					"backend": false
+				}
+			]
+		},
+		"hlpTxt": {
+			"type": "boolean",
+			"default": false
+		},
+		"desctxt": {
+			"type": "string",
+			"default": "Description"
+		},
+		"descPoss": {
+			"type": "string",
+			"default": "top"
+		},
+		"urlIconType": {
+			"type": "string",
+			"default": "none"
+		},
+		"urlIcons": {
+			"type": "string",
+			"default": ""
+		},
+		"urlImage": {
+			"type": "object",
+			"default": {
+				"url": "",
+				"Id": ""
+			}
+		},
+		"error": {
+			"type": "string",
+			"default": "This field is required."
+		},
+		"icnClr": {
+			"type": "string",
+			"default": "",
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}} .nxt-url-input .nxt-input-container .nxt-placeholder-icon{ color: {{icnClr}}; }"
+				}
+			],
+			"scopy": true
+		},
+		"hvrIcnClr": {
+			"type": "string",
+			"default": "",
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}} .nxt-url-input .nxt-input-container:hover .nxt-placeholder-icon{ color: {{hvrIcnClr}}; }"
+				}
+			],
+			"scopy": true
+		},
+        "uniqueid": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}

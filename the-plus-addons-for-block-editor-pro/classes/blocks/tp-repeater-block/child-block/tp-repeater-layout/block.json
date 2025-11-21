@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-repeater-template",
+	"version": "0.1.0",
+	"title": "Repeater Inner",
+	"category": "tpgb",
+	"apiVersion": 3,
+	"description": "The Repeater Block allows you to add and manage repeatable content like FAQs, testimonials, or team profiles with ease.",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide", "full"]
+	},
+	"textdomain": "tpgb",
+	"attributes": {
+		"block_id": {
+			"type": "string",
+			"default": ""
+		},
+
+		"postOpt": {
+			"type": "object",
+			"default": {
+				"value": "",
+				"label": ""
+			}
+		},
+		"repField": {
+			"type": "string",
+			"default": ""
+		},
+		"childSybfield": {
+			"type": "number",
+			"default": 0
+		},
+		"selectedLayout": {
+			"type": "string",
+			"default": ""
+		}
+	},
+
+	"providesContext": {
+		"tpgb/dynamicRowIndex": "childSybfield"
+	},
+	"parent": ["tpgb/tp-repeater-block"],
+	"usesContext": ["tpgb/dynamicRepField", "tpgb/dynamicPost"]
+}

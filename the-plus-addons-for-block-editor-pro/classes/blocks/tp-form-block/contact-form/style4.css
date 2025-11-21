@@ -1,0 +1,30 @@
+.tp-form-block.nxt-style-4 .nxt-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: end
+}
+
+.nxt-style-4 .nxt-date-label,.nxt-style-4 .nxt-email-label,.nxt-style-4 .nxt-message-label,.nxt-style-4 .nxt-name-label,.nxt-style-4 .nxt-number-label,.nxt-style-4 .nxt-time-label,.nxt-style-4 .nxt-url-label {
+    position: absolute;
+    opacity: 0;
+    transition: all .3s ease;
+    pointer-events: none
+}
+
+.nxt-style-4 .nxt-check-title-label,.nxt-style-4 .nxt-option-label,.nxt-style-4 .nxt-phone-label,.nxt-style-4 .nxt-radio-title-label {
+    display: none
+}
+
+.nxt-style-4 .nxt-url-input .nxt-url-richtext:focus {
+    border: 0;
+    box-shadow: none;
+    outline: 0
+}
+
+.nxt-style-4 .nxt-date-input .nxt-date-richtext:focus,.nxt-style-4 .nxt-message-richtext:focus,.nxt-style-4 .nxt-option-container .nxt-option-field:focus,.nxt-style-4 .nxt-time-input .nxt-time-richtext:focus {
+    box-shadow: none;
+    border: 1px solid #8f8f8fa6;
+    outline-width: 0;
+    outline-style: none
+}

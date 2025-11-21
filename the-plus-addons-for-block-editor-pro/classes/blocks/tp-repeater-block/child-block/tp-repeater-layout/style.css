@@ -1,0 +1,26 @@
+.nxt-repeater-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	padding: 1rem;
+	list-style: none;
+	margin: 0;
+}
+
+.nxt-repeater-container .nxt-grid-columns {
+	overflow: hidden;
+	padding: 0.75rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.nxt-repeater-container .nxt-grid-columns .wp-block-tpgb-tp-heading,.tpgb-dynamic-heading {
+	margin: 0;
+	width: 100%;
+}
+.nxt-repeater-block,.nxt-repeater-block .tpgb-accordion{
+    display: block;
+    width: 100%;
+}

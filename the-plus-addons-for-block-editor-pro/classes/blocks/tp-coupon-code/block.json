@@ -1,0 +1,3660 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-coupon-code",
+	"version": "0.1.0",
+	"title": "Coupon Code",
+	"category": "tpgb",
+	"description": "Increase your conversion using coupons, offers, promo code and discounts.",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "couponType": {
+            "type": "string",
+            "default": "standard"
+        },
+        "standardStyle": {
+            "type": "string",
+            "default": "style-1"
+        },
+        "directionHint": {
+            "type": "boolean",
+            "default": false
+        },
+        "couponText": {
+            "type": "string",
+            "default": "Show Code"
+        },
+        "redirectLink": {
+            "type": "object",
+            "default": {
+                "url": "",
+                "target": false,
+                "nofollow": false
+            }
+        },
+        "codeArrow": {
+            "type": "boolean",
+            "default": false
+        },
+        "codecopyIcn": {
+            "type": "boolean",
+            "default": false
+        },
+        "couponCode": {
+            "type": "string",
+            "default": "PO-SI-MY-TH-007"
+        },
+        "actionType": {
+            "type": "string",
+            "default": "click"
+        },
+        "popupTitle": {
+            "type": "string",
+            "default": "Here is your coupon code"
+        },
+        "popupDesc": {
+            "type": "string",
+            "default": "Use code on site"
+        },
+        "copyBtnText": {
+            "type": "string",
+            "default": "Copy Code"
+        },
+        "afterCopyText": {
+            "type": "string",
+            "default": "Copied!"
+        },
+        "visitBtnText": {
+            "type": "string",
+            "default": "Visit Site"
+        },
+        "standardConAlign": {
+            "type": "object",
+             "default": {
+                "md": "center"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "standardConAlign",
+                        "relation": "==",
+                        "value": "left"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-1 .coupon-text, {{PLUS_WRAP}} .coupon-code-inner.style-2 .coupon-text, {{PLUS_WRAP}} .coupon-code-inner.style-3 .coupon-text { justify-content: flex-start; }"
+                },
+                {
+                    "condition": [{
+                        "key": "standardConAlign",
+                        "relation": "==",
+                        "value": "center"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-1 .coupon-text, {{PLUS_WRAP}} .coupon-code-inner.style-2 .coupon-text, {{PLUS_WRAP}} .coupon-code-inner.style-3 .coupon-text { justify-content: center; }"
+                },
+                {
+                    "condition": [{
+                        "key": "standardConAlign",
+                        "relation": "==",
+                        "value": "right"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-1 .coupon-text, {{PLUS_WRAP}} .coupon-code-inner.style-2 .coupon-text, {{PLUS_WRAP}} .coupon-code-inner.style-3 .coupon-text { justify-content: flex-end; }"
+                },
+                {
+                    "selector": "{{PLUS_WRAP}} .coupon-btn-link, {{PLUS_WRAP}} .coupon-btn-link .coupon-text{ text-align: {{standardConAlign}}; }"
+                },
+                {
+                    "condition": [{
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "click"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .full-code-text{ text-align: {{standardConAlign}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "standardAlign": {
+            "type": "object",
+            "default": {
+                "md": "center"
+            },
+            "style": [{
+                "selector": "{{PLUS_WRAP}}.tpgb-coupon-code { text-align: {{standardAlign}}; }"
+            }],
+            "scopy": true
+        },
+        "saveCookie": {
+            "type": "boolean",
+            "default": false
+        },
+        "hideLink": {
+            "type": "boolean",
+            "default": false
+        },
+        "linkMaskText": {
+            "type": "string",
+            "default": ""
+        },
+        "maskLinkList": {
+            "type": "array",
+            "repeaterField": [{
+                "label": {
+                    "type": "string",
+                    "default": "Label"
+                },
+                "linkUrl": {
+                    "type": "object",
+                    "default": {
+                        "url": "#",
+                        "target": "",
+                        "nofollow": ""
+                    }
+                }
+            }],
+            "default": [{
+                "_key": "0",
+                "label": "Wordpress",
+                "linkUrl": {
+                    "url": "#",
+                    "target": "",
+                    "nofollow": ""
+                }
+            }]
+        },
+        "tabReverse": {
+            "type": "boolean",
+            "default": false
+        },
+        "fillPercent": {
+            "type": "string",
+            "default": "70"
+        },
+        "scratchWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": [
+                        "scratch",
+                        "slideOut",
+                        "peel"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}}.tpgb-coupon-code.coupon-code-scratch, {{PLUS_WRAP}}.tpgb-coupon-code.coupon-code-slideOut, {{PLUS_WRAP}}.tpgb-coupon-code.coupon-code-peel{ max-width: {{scratchWidth}}; }"
+            }],
+            "scopy": true
+        },
+        "scratchHeight": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": [
+                        "scratch",
+                        "slideOut",
+                        "peel"
+                    ]
+                }],
+                "selector": "{{PLUS_WRAP}}.tpgb-coupon-code.coupon-code-scratch, {{PLUS_WRAP}}.tpgb-coupon-code.coupon-code-slideOut, {{PLUS_WRAP}}.tpgb-coupon-code.coupon-code-peel{ height: {{scratchHeight}}; }"
+            }],
+            "scopy": true
+        },
+        "slideDirection": {
+            "type": "string",
+            "default": "left"
+        },
+        "frontContentType": {
+            "type": "string",
+            "default": "default"
+        },
+        "frontContent": {
+            "type": "string",
+            "default": "Front Content"
+        },
+        "frontTemp": {
+            "type": "string",
+            "default": ""
+        },
+        "backendVisi": {
+            "type": "boolean",
+            "default": false
+        },
+        "froajaxbase": {
+            "type": "string",
+            "default": ""
+        },
+        "backajaxbase": {
+            "type": "string",
+            "default": ""
+        },
+        "backContentType": {
+            "type": "string",
+            "default": "default"
+        },
+        "backTitle": {
+            "type": "string",
+            "default": "Back Title"
+        },
+        "backDesc": {
+            "type": "string",
+            "default": "Back Description"
+        },
+        "backTemp": {
+            "type": "string",
+            "default": ""
+        },
+        "backtempVisi": {
+            "type": "boolean",
+            "default": false
+        },
+        "contentBorder": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "sm": [],
+                    "xs": [],
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "!=",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} .coupon-front-side, {{PLUS_WRAP}} .coupon-back-side"
+            }],
+            "scopy": true
+        },
+        "contentBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "!=",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} .coupon-front-side, {{PLUS_WRAP}} .coupon-back-side{border-radius: {{contentBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "frontTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "!=",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "frontContentType",
+                        "relation": "==",
+                        "value": "default"
+                    },
+                    {
+                        "key": "frontContent",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} h3.coupon-front-content"
+            }],
+            "scopy": true
+        },
+        "frontColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "!=",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "frontContentType",
+                        "relation": "==",
+                        "value": "default"
+                    },
+                    {
+                        "key": "frontContent",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} h3.coupon-front-content{ color: {{frontColor}}; }"
+            }],
+            "scopy": true
+        },
+        "frontBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "!=",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} .coupon-front-side"
+            }],
+            "scopy": true
+        },
+        "backTitleTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "!=",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "backContentType",
+                        "relation": "==",
+                        "value": "default"
+                    },
+                    {
+                        "key": "backTitle",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} h3.coupon-back-title"
+            }],
+            "scopy": true
+        },
+        "backTitleColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "!=",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "backContentType",
+                        "relation": "==",
+                        "value": "default"
+                    },
+                    {
+                        "key": "backTitle",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} h3.coupon-back-title{ color: {{backTitleColor}}; }"
+            }],
+            "scopy": true
+        },
+        "backDescTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "!=",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "backContentType",
+                        "relation": "==",
+                        "value": "default"
+                    },
+                    {
+                        "key": "backDesc",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} h3.coupon-back-description"
+            }],
+            "scopy": true
+        },
+        "backDescColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "!=",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "backContentType",
+                        "relation": "==",
+                        "value": "default"
+                    },
+                    {
+                        "key": "backDesc",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} h3.coupon-back-description{ color: {{backDescColor}}; }"
+            }],
+            "scopy": true
+        },
+        "backBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "!=",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} .coupon-back-side"
+            }],
+            "scopy": true
+        },
+        "buttonTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} .coupon-code-inner .coupon-text"
+            }],
+            "scopy": true
+        },
+        "btnWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "%"
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .coupon-code-inner{ width: {{btnWidth}}; }"
+                },
+                {
+                    "condition": [{
+                            "key": "couponType",
+                            "relation": "==",
+                            "value": "standard"
+                        },
+                        {
+                            "key": "actionType",
+                            "relation": "==",
+                            "value": "click"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.action-click .full-code-text{ width: {{btnWidth}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "btnPadding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                    "condition": [{
+                            "key": "couponType",
+                            "relation": "==",
+                            "value": "standard"
+                        },
+                        {
+                            "key": "standardStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-2",
+                                "style-3"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .coupon-btn-link, {{PLUS_WRAP}} .coupon-text{padding: {{btnPadding}};}"
+                },
+                {
+                    "condition": [{
+                            "key": "couponType",
+                            "relation": "==",
+                            "value": "standard"
+                        },
+                        {
+                            "key": "standardStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-4",
+                                "style-5"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .coupon-btn-link .coupon-text {padding: {{btnPadding}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "arrowNColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "standardStyle",
+                        "relation": "==",
+                        "value": "style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-1::before{ border-left-color: {{arrowNColor}}; } {{PLUS_WRAP}} .coupon-code-inner.style-1::after{ border-right-color: {{arrowNColor}}; }"
+            }],
+            "scopy": true
+        },
+        "arrowHColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "standardStyle",
+                        "relation": "==",
+                        "value": "style-1"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-1:hover::before{ border-left-color: {{arrowHColor}}; } {{PLUS_WRAP}} .coupon-code-inner.style-1:hover::after{ border-right-color: {{arrowHColor}}; }"
+            }],
+            "scopy": true
+        },
+        "buttonNColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} .coupon-code-inner .coupon-text{ color: {{buttonNColor}}; }"
+            }],
+            "scopy": true
+        },
+        "buttonHColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} .coupon-code-inner .coupon-btn-link:hover .coupon-text{ color: {{buttonHColor}}; }"
+            }],
+            "scopy": true
+        },
+        "btns2NmlBG": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "standardStyle",
+                    "relation": "==",
+                    "value": "style-2"
+                }],
+                "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-2 .coupon-text{ background: {{btns2NmlBG}}; } {{PLUS_WRAP}} .coupon-code-inner.style-2 .coupon-text::after{ border-left-color: {{btns2NmlBG}}; }"
+            }],
+            "scopy": true
+        },
+        "btns2Nbdr": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "standardStyle",
+                    "relation": "==",
+                    "value": "style-2"
+                }],
+                "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-2 .coupon-text::after{ border-left-color: {{btns2Nbdr}}; }"
+            }],
+            "scopy": true
+        },
+        "btns2HvrBG": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "standardStyle",
+                    "relation": "==",
+                    "value": "style-2"
+                }],
+                "selector": "{{PLUS_WRAP}} .style-2 .coupon-btn-link:hover .coupon-text{ background: {{btns2HvrBG}}; } {{PLUS_WRAP}} .style-2 .coupon-btn-link:hover .coupon-text::after{ border-left-color: {{btns2HvrBG}}; }"
+            }],
+            "scopy": true
+        },
+        "btns2Hbdr": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "standardStyle",
+                    "relation": "==",
+                    "value": "style-2"
+                }],
+                "selector": "{{PLUS_WRAP}} .style-2 .coupon-btn-link:hover .coupon-text::after{ border-left-color: {{btns2Hbdr}}; }"
+            }],
+            "scopy": true
+        },
+        "btnScratchNColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "standardStyle",
+                    "relation": "==",
+                    "value": "style-5"
+                }],
+                "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-5 .coupon-btn-link::after{ border-bottom-color: {{btnScratchNColor}}; }"
+            }],
+            "scopy": true
+        },
+        "btnScratchHColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "standardStyle",
+                    "relation": "==",
+                    "value": "style-5"
+                }],
+                "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-5 .coupon-btn-link:hover::after{ border-bottom-color: {{btnScratchHColor}}; }"
+            }],
+            "scopy": true
+        },
+        "buttonNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "standardStyle",
+                        "relation": "==",
+                        "value": "style-1"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-1 .coupon-text"
+                },
+                {
+                    "condition": [{
+                        "key": "standardStyle",
+                        "relation": "==",
+                        "value": "style-3"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-3 .coupon-text"
+                },
+                {
+                    "condition": [{
+                        "key": "standardStyle",
+                        "relation": "==",
+                        "value": [
+                            "style-4",
+                            "style-5"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-4 .coupon-btn-link, {{PLUS_WRAP}} .coupon-code-inner.style-5 .coupon-btn-link"
+                }
+            ],
+            "scopy": true
+        },
+        "buttonHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "standardStyle",
+                        "relation": "==",
+                        "value": "style-1"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .style-1 .coupon-btn-link:hover .coupon-text"
+                },
+                {
+                    "condition": [{
+                        "key": "standardStyle",
+                        "relation": "==",
+                        "value": "style-3"
+                    }],
+                    "selector": "{{PLUS_WRAP}} .style-3 .coupon-btn-link:hover .coupon-text"
+                },
+                {
+                    "condition": [{
+                        "key": "standardStyle",
+                        "relation": "==",
+                        "value": [
+                            "style-4",
+                            "style-5"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-4 .coupon-btn-link:hover, {{PLUS_WRAP}} .coupon-code-inner.style-5 .coupon-btn-link:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "btnNmlBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "standardStyle",
+                        "relation": "!=",
+                        "value": [
+                            "style-4",
+                            "style-5"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .coupon-btn-link"
+                },
+                {
+                    "condition": [{
+                        "key": "standardStyle",
+                        "relation": "==",
+                        "value": [
+                            "style-4",
+                            "style-5"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-4 .coupon-btn-link, {{PLUS_WRAP}} .coupon-code-inner.style-5 .coupon-btn-link"
+                }
+            ],
+            "scopy": true
+        },
+        "btnHvrBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                    "condition": [{
+                        "key": "standardStyle",
+                        "relation": "!=",
+                        "value": [
+                            "style-4",
+                            "style-5"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .coupon-btn-link:hover"
+                },
+                {
+                    "condition": [{
+                        "key": "standardStyle",
+                        "relation": "==",
+                        "value": [
+                            "style-4",
+                            "style-5"
+                        ]
+                    }],
+                    "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-4 .coupon-btn-link:hover, {{PLUS_WRAP}} .coupon-code-inner.style-5 .coupon-btn-link:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "btnNmlBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                    "condition": [{
+                            "key": "couponType",
+                            "relation": "==",
+                            "value": "standard"
+                        },
+                        {
+                            "key": "standardStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-3"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .coupon-btn-link, {{PLUS_WRAP}} .coupon-btn-link .coupon-text{border-radius: {{btnNmlBRadius}};}"
+                },
+                {
+                    "condition": [{
+                            "key": "couponType",
+                            "relation": "==",
+                            "value": "standard"
+                        },
+                        {
+                            "key": "standardStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-2",
+                                "style-4",
+                                "style-5"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .coupon-btn-link{border-radius: {{btnNmlBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "btnHvrBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                    "condition": [{
+                            "key": "couponType",
+                            "relation": "==",
+                            "value": "standard"
+                        },
+                        {
+                            "key": "standardStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-1",
+                                "style-3"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .coupon-btn-link:hover, {{PLUS_WRAP}} .coupon-btn-link:hover .coupon-text{border-radius: {{btnHvrBRadius}};}"
+                },
+                {
+                    "condition": [{
+                            "key": "couponType",
+                            "relation": "==",
+                            "value": "standard"
+                        },
+                        {
+                            "key": "standardStyle",
+                            "relation": "==",
+                            "value": [
+                                "style-2",
+                                "style-4",
+                                "style-5"
+                            ]
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .coupon-btn-link:hover{border-radius: {{btnHvrBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "btnNBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} .coupon-btn-link"
+            }],
+            "scopy": true
+        },
+        "btnHBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} .coupon-btn-link:hover"
+            }],
+            "scopy": true
+        },
+        "btnIconWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "standardStyle",
+                        "relation": "==",
+                        "value": [
+                            "style-4",
+                            "style-5"
+                        ]
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-4 .coupon-icon, {{PLUS_WRAP}} .coupon-code-inner.style-5 .coupon-icon{ width: {{btnIconWidth}}; height: {{btnIconWidth}}; }"
+            }],
+            "scopy": true
+        },
+        "btnIconSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "standardStyle",
+                        "relation": "==",
+                        "value": [
+                            "style-4",
+                            "style-5"
+                        ]
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-4 .coupon-icon .tpgb-scissors, {{PLUS_WRAP}} .coupon-code-inner.style-5 .coupon-icon .tpgb-scissors{ width: {{btnIconSize}}; }"
+            }],
+            "scopy": true
+        },
+        "btnIconNColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "standardStyle",
+                        "relation": "==",
+                        "value": [
+                            "style-4",
+                            "style-5"
+                        ]
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-4 .coupon-icon .tpgb-scissors > path, {{PLUS_WRAP}} .coupon-code-inner.style-5 .coupon-icon .tpgb-scissors > path{ fill: {{btnIconNColor}}; }"
+            }],
+            "scopy": true
+        },
+        "btnIconHColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "standardStyle",
+                        "relation": "==",
+                        "value": [
+                            "style-4",
+                            "style-5"
+                        ]
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-4 .coupon-btn-link:hover .coupon-icon .tpgb-scissors > path, {{PLUS_WRAP}} .coupon-code-inner.style-5 .coupon-btn-link:hover .coupon-icon .tpgb-scissors > path{ fill: {{btnIconHColor}}; }"
+            }],
+            "scopy": true
+        },
+        "btnIconNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "standardStyle",
+                        "relation": "==",
+                        "value": [
+                            "style-4",
+                            "style-5"
+                        ]
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-4 .coupon-icon, {{PLUS_WRAP}} .coupon-code-inner.style-5 .coupon-icon"
+            }],
+            "scopy": true
+        },
+        "btnIconHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "standardStyle",
+                        "relation": "==",
+                        "value": [
+                            "style-4",
+                            "style-5"
+                        ]
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-code-inner.style-4 .coupon-btn-link:hover .coupon-icon, {{PLUS_WRAP}} .coupon-code-inner.style-5 .coupon-btn-link:hover .coupon-icon"
+            }],
+            "scopy": true
+        },
+        "cCodeTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} span.full-code-text"
+            }],
+            "scopy": true
+        },
+        "cCodePadding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} span.full-code-text{ padding: {{cCodePadding}}; }"
+            }],
+            "scopy": true
+        },
+        "cCodeNColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} span.full-code-text{ color: {{cCodeNColor}}; }"
+            }],
+            "scopy": true
+        },
+        "cCodeHColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} span.full-code-text:hover{ color: {{cCodeHColor}}; }"
+            }],
+            "scopy": true
+        },
+        "cCArrowNColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} .full-code-text.code-arrow::before{ border-left-color: {{cCArrowNColor}}; } {{PLUS_WRAP}} .full-code-text.code-arrow::after{ border-right-color: {{cCArrowNColor}}; }"
+            }],
+            "scopy": true
+        },
+        "cCArrowHColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} .full-code-text.code-arrow:hover::before{ border-left-color: {{cCArrowHColor}}; } {{PLUS_WRAP}} .full-code-text.code-arrow:hover::after{ border-right-color: {{cCArrowHColor}}; }"
+            }],
+            "scopy": true
+        },
+        "cCodeNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} span.full-code-text"
+            }],
+            "scopy": true
+        },
+        "cCodeHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} span.full-code-text:hover"
+            }],
+            "scopy": true
+        },
+        "cCodeNmlBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} span.full-code-text"
+            }],
+            "scopy": true
+        },
+        "cCodeHvrBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} span.full-code-text:hover"
+            }],
+            "scopy": true
+        },
+        "cCodeNmlBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} span.full-code-text{border-radius: {{cCodeNmlBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "cCodeHvrBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} span.full-code-text:hover{border-radius: {{cCodeHvrBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "cCodeNBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} span.full-code-text"
+            }],
+            "scopy": true
+        },
+        "cCodeHBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                    "key": "couponType",
+                    "relation": "==",
+                    "value": "standard"
+                }],
+                "selector": "{{PLUS_WRAP}} span.full-code-text:hover"
+            }],
+            "scopy": true
+        },
+        "modalWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal{ max-width: {{modalWidth}}; }"
+            }],
+            "scopy": true
+        },
+        "modalHeight": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal{ max-height: {{modalHeight}}; }"
+            }],
+            "scopy": true
+        },
+        "modalPadding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal{ padding: {{modalPadding}}; }"
+            }],
+            "scopy": true
+        },
+        "modalNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal"
+            }],
+            "scopy": true
+        },
+        "modalHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal:hover"
+            }],
+            "scopy": true
+        },
+        "modalNmlBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal"
+            }],
+            "scopy": true
+        },
+        "modalHvrBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal:hover"
+            }],
+            "scopy": true
+        },
+        "modalNmlBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal{border-radius: {{modalNmlBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "modalHvrBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal:hover{border-radius: {{modalHvrBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "modalNBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal"
+            }],
+            "scopy": true
+        },
+        "modalHBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal:hover"
+            }],
+            "scopy": true
+        },
+        "onScrollBar": {
+            "type": "boolean",
+            "default": false
+        },
+        "scrollBarWidth": {
+            "type": "object",
+            "default": {
+                "md": "10",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "onScrollBar",
+                        "relation": "==",
+                        "value": true
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal::-webkit-scrollbar{ width: {{scrollBarWidth}}; }"
+            }],
+            "scopy": true
+        },
+        "thumbBG": {
+            "type": "object",
+            "default": {
+                "openBg": 1,
+                "bgType": "color",
+                "bgDefaultColor": "#ff844a"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "onScrollBar",
+                        "relation": "==",
+                        "value": true
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal::-webkit-scrollbar-thumb"
+            }],
+            "scopy": true
+        },
+        "thumbRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "10",
+                    "right": "10",
+                    "bottom": "10",
+                    "left": "10"
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "onScrollBar",
+                        "relation": "==",
+                        "value": true
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal::-webkit-scrollbar-thumb{border-radius: {{thumbRadius}};}"
+            }],
+            "scopy": true
+        },
+        "thumbShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "onScrollBar",
+                        "relation": "==",
+                        "value": true
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal::-webkit-scrollbar-thumb"
+            }],
+            "scopy": true
+        },
+        "trackBG": {
+            "type": "object",
+            "default": {
+                "openBg": 1,
+                "bgType": "color",
+                "bgDefaultColor": "#6f1ef150"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "onScrollBar",
+                        "relation": "==",
+                        "value": true
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal::-webkit-scrollbar-track"
+            }],
+            "scopy": true
+        },
+        "trackRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "10",
+                    "right": "10",
+                    "bottom": "10",
+                    "left": "10"
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "onScrollBar",
+                        "relation": "==",
+                        "value": true
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal::-webkit-scrollbar-track{border-radius: {{trackRadius}};}"
+            }],
+            "scopy": true
+        },
+        "trackShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "onScrollBar",
+                        "relation": "==",
+                        "value": true
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .ccd-main-modal::-webkit-scrollbar-track"
+            }],
+            "scopy": true
+        },
+        "cIconWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-ccd-closebtn{ width: {{cIconWidth}}; height: {{cIconWidth}}; }"
+            }],
+            "scopy": true
+        },
+        "cIconSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-ccd-closebtn{ font-size: {{cIconSize}}; }"
+            }],
+            "scopy": true
+        },
+        "cIconNColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-ccd-closebtn{ color: {{cIconNColor}}; }"
+            }],
+            "scopy": true
+        },
+        "cIconHColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-ccd-closebtn:hover{ color: {{cIconHColor}}; }"
+            }],
+            "scopy": true
+        },
+        "cIconNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-ccd-closebtn"
+            }],
+            "scopy": true
+        },
+        "cIconHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-ccd-closebtn:hover"
+            }],
+            "scopy": true
+        },
+        "cIconNmlBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-ccd-closebtn"
+            }],
+            "scopy": true
+        },
+        "cIconHvrBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-ccd-closebtn:hover"
+            }],
+            "scopy": true
+        },
+        "cIconNmlBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-ccd-closebtn{border-radius: {{cIconNmlBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "cIconHvrBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-ccd-closebtn:hover{border-radius: {{cIconHvrBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "cIconNBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-ccd-closebtn"
+            }],
+            "scopy": true
+        },
+        "cIconHBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .tpgb-ccd-closebtn:hover"
+            }],
+            "scopy": true
+        },
+        "titleTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupTitle",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-title"
+            }],
+            "scopy": true
+        },
+        "titlePadd": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-title{ padding: {{titlePadd}}; }"
+            }],
+            "scopy": true
+        },
+        "titleNColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupTitle",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-title{ color: {{titleNColor}}; }"
+            }],
+            "scopy": true
+        },
+        "titleHColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupTitle",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-title:hover{ color: {{titleHColor}}; }"
+            }],
+            "scopy": true
+        },
+        "titleNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupTitle",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-title"
+            }],
+            "scopy": true
+        },
+        "titleHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupTitle",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-title:hover"
+            }],
+            "scopy": true
+        },
+        "titleNmlBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupTitle",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-title"
+            }],
+            "scopy": true
+        },
+        "titleHvrBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupTitle",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-title:hover"
+            }],
+            "scopy": true
+        },
+        "titleNmlBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupTitle",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-title{border-radius: {{titleNmlBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "titleHvrBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupTitle",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-title:hover{border-radius: {{titleHvrBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "descTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupDesc",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-desc"
+            }],
+            "scopy": true
+        },
+        "descPadd": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-desc{ padding: {{descPadd}}; }"
+            }],
+            "scopy": true
+        },
+        "descMar": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-desc{ margin: {{descMar}}; }"
+            }],
+            "scopy": true
+        },
+        "copyBtnNColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "copyBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .copy-code-btn{ color: {{copyBtnNColor}}; }"
+            }],
+            "scopy": true
+        },
+        "descNColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupDesc",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-desc{ color: {{descNColor}}; }"
+            }],
+            "scopy": true
+        },
+        "descHColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupDesc",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-desc:hover{ color: {{descHColor}}; }"
+            }],
+            "scopy": true
+        },
+        "descNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupDesc",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-desc"
+            }],
+            "scopy": true
+        },
+        "descHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupDesc",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-desc:hover"
+            }],
+            "scopy": true
+        },
+        "descNmlBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupDesc",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-desc"
+            }],
+            "scopy": true
+        },
+        "descHvrBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupDesc",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-desc:hover"
+            }],
+            "scopy": true
+        },
+        "descNmlBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupDesc",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-desc{border-radius: {{descNmlBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "descHvrBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "popupDesc",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-content .content-desc:hover{border-radius: {{descHvrBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "copyBtnTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "copyBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .copy-code-btn"
+            }],
+            "scopy": true
+        },
+        "copyBtnPadd": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-code-modal .copy-code-btn{ padding: {{copyBtnPadd}}; }"
+            }],
+            "scopy": true
+        },
+        "copyBtnMar": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .popup-code-modal .copy-code-btn{ margin: {{copyBtnMar}}; }"
+            }],
+            "scopy": true
+        },
+        "copyBtnHColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "copyBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .copy-code-btn:hover{ color: {{copyBtnHColor}}; }"
+            }],
+            "scopy": true
+        },
+        "copyBtnNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "copyBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .copy-code-btn"
+            }],
+            "scopy": true
+        },
+        "copyBtnHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "copyBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .copy-code-btn:hover"
+            }],
+            "scopy": true
+        },
+        "copyBtnNmlBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "copyBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .copy-code-btn"
+            }],
+            "scopy": true
+        },
+        "copyBtnHvrBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "copyBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .copy-code-btn:hover"
+            }],
+            "scopy": true
+        },
+        "copyBtnNBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "copyBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .copy-code-btn{border-radius: {{copyBtnNBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "copyBtnHBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "copyBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .copy-code-btn:hover{border-radius: {{copyBtnHBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "copyBtnNBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "copyBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .copy-code-btn"
+            }],
+            "scopy": true
+        },
+        "copyBtnHBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "copyBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .copy-code-btn:hover"
+            }],
+            "scopy": true
+        },
+        "visitBtnTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "visitBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-store-visit .store-visit-link"
+            }],
+            "scopy": true
+        },
+        "visitBtnPadd": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-store-visit .store-visit-link{ padding: {{visitBtnPadd}}; }"
+            }],
+            "scopy": true
+        },
+        "visitBtnMar": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-store-visit .store-visit-link{ margin: {{visitBtnMar}}; }"
+            }],
+            "scopy": true
+        },
+        "visitBtnNColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "visitBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-store-visit .store-visit-link{ color: {{visitBtnNColor}}; }"
+            }],
+            "scopy": true
+        },
+        "visitBtnHColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "visitBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-store-visit .store-visit-link:hover{ color: {{visitBtnHColor}}; }"
+            }]
+        },
+        "visitBtnNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "visitBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-store-visit .store-visit-link"
+            }],
+            "scopy": true
+        },
+        "visitBtnHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "visitBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-store-visit .store-visit-link:hover"
+            }],
+            "scopy": true
+        },
+        "visitBtnNmlBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "visitBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-store-visit .store-visit-link"
+            }],
+            "scopy": true
+        },
+        "visitBtnHvrBdr": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "visitBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-store-visit .store-visit-link:hover"
+            }],
+            "scopy": true
+        },
+        "visitBtnNBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "visitBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-store-visit .store-visit-link{border-radius: {{visitBtnNBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "visitBtnHBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "visitBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-store-visit .store-visit-link:hover{border-radius: {{visitBtnHBRadius}};}"
+            }],
+            "scopy": true
+        },
+        "visitBtnNBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "visitBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-store-visit .store-visit-link"
+            }],
+            "scopy": true
+        },
+        "visitBtnHBShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    },
+                    {
+                        "key": "visitBtnText",
+                        "relation": "!=",
+                        "value": ""
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .coupon-store-visit .store-visit-link:hover"
+            }],
+            "scopy": true
+        },
+        "mdlOvColor": {
+            "type": "string",
+            "default": "",
+            "style": [{
+                "condition": [{
+                        "key": "couponType",
+                        "relation": "==",
+                        "value": "standard"
+                    },
+                    {
+                        "key": "actionType",
+                        "relation": "==",
+                        "value": "popup"
+                    }
+                ],
+                "selector": "{{PLUS_WRAP}} .copy-code-wrappar::after{ background-color: {{mdlOvColor}}; }"
+            }]
+        },
+        "ovBackFilt": {
+            "type": "boolean",
+            "default": false
+        },
+        "backBlur": {
+            "type": "string",
+            "default": ""
+        },
+        "backGscale": {
+            "type": "string",
+            "default": ""
+        },
+        "showBlockContent" :{
+            "type": "boolean",
+            "default": true
+        }
+    }
+}

@@ -1,0 +1,78 @@
+.nxt-newsstyle-1 .nxt-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: end
+}
+
+.nxt-newsstyle-1 .nxt-input-container,.nxt-newsstyle-1 .nxt-input-wrapper {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box
+}
+
+.nxt-newsstyle-1 .nxt-input-wrapper {
+    gap: 8px;
+    width: 100%
+}
+
+.nxt-newsstyle-1 .nxt-country-dropdown {
+    outline: 0
+}
+
+.nxt-newsstyle-1 .nxt-email-richtext {
+    padding: 10px;
+    outline: 0
+}
+
+.nxt-newsstyle-1 .nxt-phone-richtext {
+    outline: 0
+}
+
+.nxt-newsstyle-1 .nxt-date-label,.nxt-newsstyle-1 .nxt-message-label,.nxt-newsstyle-1 .nxt-option-label {
+    font-size: 14px;
+    font-weight: 700;
+    position: absolute;
+    top: -6px;
+    z-index: 10;
+    left: 10px;
+    line-height: 1;
+    background: #fff;
+
+}
+
+.nxt-newsstyle-1 .nxt-time-label {
+    position: absolute;
+    top: -9px;
+    left: 10px;
+    line-height: 1;
+    background: #fff;
+
+}
+
+.nxt-newsstyle-1 .nxt-name-label,.nxt-newsstyle-1 .nxt-url-label{
+    position: absolute;
+    top: -4px;
+    left: 10px;
+    line-height: 1;
+    background: #fff;
+}
+
+.nxt-newsstyle-1 .nxt-submit-button {
+    flex: 0
+}
+
+.nxt-newsstyle-1 .nxt-submit-button .nxt-submit {
+    min-height: 44px
+}
+
+.nxt-newsstyle-1 .nxt-email-label,.nxt-newsstyle-1 .nxt-number-label,.nxt-newsstyle-1 .nxt-phone-label {
+    font-size: 14px;
+    font-weight: 700;
+    position: absolute;
+    top: -1px;
+    z-index: 10;
+    left: 10px;
+    line-height: 1;
+    background: #fff;
+}

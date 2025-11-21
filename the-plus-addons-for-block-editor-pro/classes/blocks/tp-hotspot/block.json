@@ -1,0 +1,905 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-hotspot",
+	"version": "0.1.0",
+	"title": "Hotspot",
+	"category": "tpgb",
+	"description": "Make your images interactive, and display more details for your viewers.",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "hotspotImage": {
+            "type": "object",
+            "default": {
+                "url": ""
+            }
+        },
+        "imageSize": {
+            "type": "string",
+            "default": "full"
+        },
+        "pinlistRepeater": {
+            "type": "array",
+            "repeaterField": [
+                {
+                    "pinType": {
+                        "type": "string",
+                        "default": "icon"
+                    },
+                    "pinIconType": {
+                        "type": "string",
+                        "default": "font_awesome"
+                    },
+                    "pinIcon": {
+                        "type": "string",
+                        "default": "fas fa-plus"
+                    },
+                    "pinImage": {
+                        "type": "object",
+                        "default" : {
+                            "url" : ""
+                        }
+                    },
+                    "pinText": {
+                        "type": "string",
+                        "default": "Pin"
+                    },
+                    "DleftAuto": {
+                        "type": "boolean",
+                        "default": true
+                    },
+                    "DrightAuto": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "DtopAuto": {
+                        "type": "boolean",
+                        "default": true
+                    },
+                    "DbottomAuto": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "TabRespo": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "itemTooltip": {
+                        "type": "boolean",
+                        "default": true
+                    },
+                    "tooltipContentType": {
+                        "type": "string",
+                        "default": "text"
+                    },
+                    "tooltipText": {
+                        "type": "string",
+                        "default": "Your content will be here."
+                    },
+                    "piniconColor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .pin-hotspot-wrapper .pin-icon{color:{{piniconColor}};}"
+                            }
+                        ]
+                    },
+                    "pinBgcolor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .pin-hotspot-wrapper .pin-content {background:{{pinBgcolor}};}"
+                            }
+                        ]
+                    },
+                    "piniconHvrColor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .pin-hotspot-wrapper:hover .pin-icon {color:{{piniconHvrColor}};}"
+                            }
+                        ]
+                    },
+                    "pinHvrBgcolor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .pin-hotspot-wrapper:hover .pin-content{background:{{pinHvrBgcolor}};}"
+                            }
+                        ]
+                    },
+                    "leftPos": {
+                        "type": "string",
+                        "default": 20,
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "DleftAuto",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} {left:{{leftPos}}%;}"
+                            }
+                        ]
+                    },
+                    "righttPos": {
+                        "type": "string",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "DrightAuto",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} {right:{{righttPos}}%;}"
+                            }
+                        ]
+                    },
+                    "topPos": {
+                        "type": "string",
+                        "default": 25,
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "DtopAuto",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} {top:{{topPos}}%;}"
+                            }
+                        ]
+                    },
+                    "bottomPos": {
+                        "type": "string",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "DbottomAuto",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} {bottom:{{bottomPos}}%;}"
+                            }
+                        ]
+                    },
+                    "TleftPos": {
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "TabRespo",
+                                        "relation": "==",
+                                        "value": true
+                                    },
+                                    {
+                                        "key": "TleftAuto",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "@media (max-width:1024px){ {{PLUS_WRAP}} {{TP_REPEAT_ID}} {left:{{TleftPos}}%;} }"
+                            }
+                        ]
+                    },
+                    "TtopPos": {
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "TabRespo",
+                                        "relation": "==",
+                                        "value": true
+                                    },
+                                    {
+                                        "key": "TtopAuto",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "@media (max-width:1024px){ {{PLUS_WRAP}} {{TP_REPEAT_ID}} {top:{{TtopPos}}%;} }"
+                            }
+                        ]
+                    },
+                    "TrightPos": {
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "TabRespo",
+                                        "relation": "==",
+                                        "value": true
+                                    },
+                                    {
+                                        "key": "TrightAuto",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "@media (max-width:1024px){ {{PLUS_WRAP}} {{TP_REPEAT_ID}} {right:{{TrightPos}}%;} }"
+                            }
+                        ]
+                    },
+                    "TbottomPos": {
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "TabRespo",
+                                        "relation": "==",
+                                        "value": true
+                                    },
+                                    {
+                                        "key": "TbottomAuto",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "@media (max-width:1024px){ {{PLUS_WRAP}} {{TP_REPEAT_ID}} {bottom:{{TbottomPos}}%;} }"
+                            }
+                        ]
+                    },
+                    "MleftPos": {
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "MobRespo",
+                                        "relation": "==",
+                                        "value": true
+                                    },
+                                    {
+                                        "key": "MleftAuto",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "@media (max-width: 1024px){.text-center{text-align: center;}}@media (max-width:767px) { {{PLUS_WRAP}} {{TP_REPEAT_ID}} {left:{{MleftPos}}%;} }"
+                            }
+                        ]
+                    },
+                    "MrightPos": {
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "MobRespo",
+                                        "relation": "==",
+                                        "value": true
+                                    },
+                                    {
+                                        "key": "MrightAuto",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "@media (max-width: 1024px){.text-center{text-align: center;}}@media (max-width:767px) { {{PLUS_WRAP}} {{TP_REPEAT_ID}} {right:{{MrightPos}}%;} }"
+                            }
+                        ]
+                    },
+                    "MtopPos": {
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "MobRespo",
+                                        "relation": "==",
+                                        "value": true
+                                    },
+                                    {
+                                        "key": "MtopAuto",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "@media (max-width: 1024px){.text-center{text-align: center;}}@media (max-width:767px) { {{PLUS_WRAP}} {{TP_REPEAT_ID}} {top:{{MtopPos}}%;} }"
+                            }
+                        ]
+                    },
+                    "MbottomPos": {
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "MobRespo",
+                                        "relation": "==",
+                                        "value": true
+                                    },
+                                    {
+                                        "key": "MbottomAuto",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "@media (max-width: 1024px){.text-center{text-align: center;}}@media (max-width:767px) { {{PLUS_WRAP}} {{TP_REPEAT_ID}} {bottom:{{MbottomPos}}%;} }"
+                            }
+                        ]
+                    },
+                    "toltipAlign": {
+                        "type": "string",
+                        "default": "center",
+                        "style": [
+                            {
+                                "selector": " {{PLUS_WRAP}} {{TP_REPEAT_ID}} .tippy-box .tippy-content{text-align: {{toltipAlign}} }"
+                            }
+                        ]
+                    },
+                    "tooltipTypo": {
+                        "type": "object",
+                        "default": {
+                            "openTypography": 0
+                        },
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .tippy-box .tippy-content"
+                            }
+                        ]
+                    },
+                    "tooltipColor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .tippy-box .tippy-content{color:{{tooltipColor}};}"
+                            }
+                        ]
+                    },
+                    "contEffect": {
+                        "type": "string",
+                        "default": "normal_drop_waves"
+                    },
+                    "pinimgSize": {
+                        "type": "string",
+                        "default": "full"
+                    },
+                    "tipInteractive": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "followCursor": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "tipPlacement": {
+                        "type": "string",
+                        "default": "top"
+                    },
+                    "tipArrow": {
+                        "type": "boolean",
+                        "default": true
+                    },
+                    "tipTriggers": {
+                        "type": "string",
+                        "default": "mouseenter"
+                    },
+                    "tipTheme": {
+                        "type": "string",
+                        "default": "light"
+                    },
+                    "tipMaxWidth": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}}.tpgb-hotspot {{TP_REPEAT_ID}} .tippy-box{width : {{tipMaxWidth}}px; max-width : {{tipMaxWidth}}px; }  "
+                            }
+                        ]
+                    },
+                    "tiprespo": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "tiptabWidth": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "tiprespo",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "@media (max-width:1024px){ {{PLUS_WRAP}}.tpgb-hotspot {{TP_REPEAT_ID}} .tippy-box{width : {{tiptabWidth}}px; max-width : {{tiptabWidth}}px; } } "
+                            }
+                        ]
+                    },
+                    "tipmobWidth": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "tiprespo",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "@media (max-width: 1024px){.text-center{text-align: center;}}@media (max-width:767px) { {{PLUS_WRAP}}.tpgb-hotspot {{TP_REPEAT_ID}} .tippy-box{width : {{tipmobWidth}}px; max-width : {{tipmobWidth}}px; } } "
+                            }
+                        ]
+                    },
+                    "tipArrowColor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "tipPlacement",
+                                        "relation": "==",
+                                        "value": [
+                                            "top",
+                                            "top-start",
+                                            "top-end"
+                                        ]
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .tippy-box .tippy-arrow:before{color: {{tipArrowColor}}; border-top-color: {{tipArrowColor}}; }"
+                            },
+                            {
+                                "condition": [
+                                    {
+                                        "key": "tipPlacement",
+                                        "relation": "==",
+                                        "value": [
+                                            "right",
+                                            "right-start",
+                                            "right-end"
+                                        ]
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .tippy-box .tippy-arrow:before{color: {{tipArrowColor}}; border-right-color: {{tipArrowColor}}; }"
+                            },
+                            {
+                                "condition": [
+                                    {
+                                        "key": "tipPlacement",
+                                        "relation": "==",
+                                        "value": [
+                                            "bottom",
+                                            "bottom-start",
+                                            "bottom-end"
+                                        ]
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .tippy-box .tippy-arrow:before{color: {{tipArrowColor}}; border-bottom-color: {{tipArrowColor}}; }"
+                            },
+                            {
+                                "condition": [
+                                    {
+                                        "key": "tipPlacement",
+                                        "relation": "==",
+                                        "value": [
+                                            "left",
+                                            "left-start",
+                                            "left-end"
+                                        ]
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .tippy-box .tippy-arrow:before{color: {{tipArrowColor}}; border-left-color: {{tipArrowColor}}; }"
+                            }
+                        ]
+                    },
+                    "tipPadding": {
+                        "type": "object",
+                        "default": {
+                            "md": {
+                                "top": "",
+                                "bottom": "",
+                                "left": "",
+                                "right": ""
+                            },
+                            "unit": "px"
+                        },
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .tippy-box{padding: {{tipPadding}};}"
+                            }
+                        ]
+                    },
+                    "tipBorder": {
+                        "type": "object",
+                        "default": {
+                            "openBorder": 0,
+                            "type": "",
+                            "color": "",
+                            "width": {
+                                "md": {
+                                    "top": "1",
+                                    "left": "1",
+                                    "bottom": "1",
+                                    "right": "1"
+                                },
+                                "unit": "px"
+                            }
+                        },
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .tippy-box"
+                            }
+                        ]
+                    },
+                    "tipBorderRadius": {
+                        "type": "object",
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}}  .tippy-box{border-radius: {{tipBorderRadius}};}"
+                            }
+                        ]
+                    },
+                    "tipBg": {
+                        "type": "object",
+                        "default": {
+                            "openBg": 0,
+                            "bgType": "color"
+                        },
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}}  .tippy-box"
+                            }
+                        ]
+                    },
+                    "tipBoxShadow": {
+                        "default": {
+                            "openShadow": 0
+                        },
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .tippy-box"
+                            }
+                        ]
+                    },
+                    "pinUrl": {
+                        "type": "object",
+                        "default": {
+                            "url": "#",
+                            "target": "",
+                            "nofollow": ""
+                        }
+                    },
+                    "ariaLabel": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "waveColor": {
+                        "default": "#31313180",
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .normal_drop_waves:after,{{PLUS_WRAP}} {{TP_REPEAT_ID}} .image_drop_waves:after,{{PLUS_WRAP}} {{TP_REPEAT_ID}} .hover_drop_waves:after{ background : {{waveColor}}; } "
+                            }
+                        ]
+                    }
+                }
+            ],
+            "default": [
+                {
+                    "_key": "0",
+                    "pinType": "icon",
+                    "pinIconType": "font_awesome",
+                    "pinIcon": "fas fa-plus",
+                    "contEffect": "normal_drop_waves",
+                    "pinimgSize": "thumbnail",
+                    "tipPlacement": "top",
+                    "tipArrow": true,
+                    "tipTriggers": "mouseenter",
+                    "tipTheme": "light",
+                    "pinUrl": "#",
+                    "ariaLabel": "",
+                    "pinText": "Pin",
+                    "itemTooltip": true,
+                    "piniconColor": "",
+                    "pinBgcolor": "",
+                    "tooltipColor": "",
+                    "tooltipContentType": "text",
+                    "tooltipText": "Your content will be here.",
+                    "tooltipTypo": {
+                        "openTypography": 0
+                    },
+                    "tipBoxShadow": {
+                        "openShadow": 0
+                    },
+                    "tipBorder": {
+                        "openBorder": 0,
+                        "type": ""
+                    },
+                    "DleftAuto": true,
+                    "leftPos": 20,
+                    "topPos": 25,
+                    "DtopAuto": true,
+                    "waveColor": "#31313180",
+                    "tipArrowColor": "",
+                    "pinImage" :{ "url" : ""}
+                }
+            ]
+        },
+        "iconSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .pin-hotspot .pin-type-icon .pin-icon { font-size: {{iconSize}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "pinWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .pin-hotspot .pin-content.pin-type-icon { width: {{pinWidth}}; height: {{pinWidth}}; line-height: {{pinWidth}} }"
+                }
+            ],
+            "scopy": true
+        },
+        "pinRadius": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .pin-hotspot .pin-content.pin-type-icon,{{PLUS_WRAP}} .pin-hotspot-wrapper.normal_drop_waves:after,{{PLUS_WRAP}} .pin-hotspot-wrapper.image_drop_waves:after,{{PLUS_WRAP}} .pin-hotspot-wrapper.hover_drop_waves:after { border-radius : {{pinRadius}} }"
+                }
+            ],
+            "scopy": true
+        },
+        "pinBshadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .pin-hotspot .pin-content.pin-type-icon"
+                }
+            ],
+            "scopy": true
+        },
+        "pinHvrBshadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .pin-hotspot:hover .pin-content.pin-type-icon"
+                }
+            ],
+            "scopy": true
+        },
+        "imgSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .pin-hotspot .pin-type-image img.pin-icon { max-width: {{imgSize}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "pinimgWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .pin-hotspot .pin-content.pin-type-image { width: {{pinimgWidth}}; height: {{pinimgWidth}}; line-height: {{pinimgWidth}} }"
+                }
+            ],
+            "scopy": true
+        },
+        "pinimgRadius": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .pin-hotspot .pin-content.pin-type-image,{{PLUS_WRAP}} .pin-hotspot-wrapper.normal_drop_waves:after,{{PLUS_WRAP}} .pin-hotspot-wrapper.image_drop_waves:after,{{PLUS_WRAP}} .pin-hotspot-wrapper.hover_drop_waves:after { border-radius : {{pinimgRadius}} }"
+                }
+            ],
+            "scopy": true
+        },
+        "pinimgBshadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .pin-hotspot .pin-content.pin-type-image"
+                }
+            ],
+            "scopy": true
+        },
+        "pinimgHvrBshadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .pin-hotspot:hover .pin-content.pin-type-image"
+                }
+            ],
+            "scopy": true
+        },
+        "textTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .pin-hotspot .pin-content.pin-type-text .pin-icon"
+                }
+            ],
+            "scopy": true
+        },
+        "txtPadding": {
+            "type": "string",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .pin-hotspot .pin-content.pin-type-text { padding: {{txtPadding}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "txtRadius": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .pin-hotspot .pin-content.pin-type-text,{{PLUS_WRAP}} .pin-hotspot-wrapper.normal_drop_waves:after,{{PLUS_WRAP}} .pin-hotspot-wrapper.image_drop_waves:after,{{PLUS_WRAP}} .pin-hotspot-wrapper.hover_drop_waves:after { border-radius : {{txtRadius}} }"
+                }
+            ],
+            "scopy": true
+        },
+        "txtBshadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .pin-hotspot .pin-content.pin-type-text"
+                }
+            ],
+            "scopy": true
+        },
+        "txtHvrBshadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .pin-hotspot:hover .pin-content.pin-type-text"
+                }
+            ],
+            "scopy": true
+        },
+        "hveOverlay": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "hvrBgoverlay": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "hveOverlay",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-hotspot .tpgb-hotspot-inner.overlay-bg-color:after"
+                }
+            ],
+            "scopy": true
+        },
+        "transfoemcss": {
+            "type": "string",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .pin-hotspot:hover .pin-content{ transform : {{transfoemcss}} }"
+                }
+            ],
+            "scopy": true
+        },
+        "showBlockContent" :{
+            "type": "boolean",
+            "default": true
+        }
+    }
+}

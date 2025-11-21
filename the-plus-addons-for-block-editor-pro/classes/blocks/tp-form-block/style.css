@@ -1,0 +1,509 @@
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.nxt-style-1 .nxt-form,.nxt-style-1.block-editor-block-list__layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: end
+}
+
+.nxt-check-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.nxt-check-box,.nxt-message-input {
+    position: relative
+}
+
+.nxt-message-input,.nxt-option-container,.nxt-radio-box {
+    display: flex;
+    flex-direction: column
+}
+
+.nxt-number-input,.nxt-option-container,.nxt-radio-box {
+    position: relative
+}
+
+.nxt-check-box,.nxt-radio-box {
+    padding-top: 8px
+}
+
+.nxt-check-box-container,.nxt-date-input,.nxt-time-input, .nxt-email-input,.nxt-name-input,.nxt-phone-input,.nxt-url-input,.nxt-number-input,.nxt-option-container,.nxt-radio-box  {
+    display: flex;
+    flex-direction: column;
+    position: relative
+}
+
+.nxt-check-title-label,.nxt-date-label,.nxt-email-label,.nxt-message-label,.nxt-name-label,.nxt-number-label,.nxt-option-label,.nxt-phone-label,.nxt-radio-title-label,.nxt-time-label,.nxt-url-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    transition: all .3s ease-in-out
+}
+
+.nxt-input-container {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    transition: all .3s ease-in-out
+}
+
+.nxt-email-input .nxt-input-container .nxt-email-richtext,.nxt-name-input .nxt-input-container .nxt-name-richtext,.nxt-number-field .nxt-number-input .nxt-number-richtext,.nxt-url-field .nxt-url-input .nxt-url-richtext {
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 4px;
+    border-width: 0;
+    background-color: #fff;
+    width: 100%;
+    transition: all .3s ease-in-out;
+    background: 0 0;
+    min-height: 0px
+}
+
+.nxt-email-input .nxt-input-container .nxt-email-richtext,.nxt-email-input .nxt-input-container .nxt-email-richtext:focus,.nxt-name-input .nxt-input-container .nxt-name-richtext:focus {
+    outline: 0;
+    border: 0;
+    box-shadow: none
+}
+
+.nxt-input-wrapper,.nxt-message-input .nxt-message-richtext {
+    border: 1px solid #8f8f8fa6;
+    border-radius: 4px;
+    transition: all .3s ease-in-out
+}
+
+.nxt-message-input .nxt-message-richtext {
+    padding: 10px;
+    font-size: 14px;
+    min-height: 100px;
+    resize: vertical;
+    background-color: #fff
+}
+
+.nxt-input-wrapper {
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.nxt-input-wrapper .nxt-country-dropdown,.nxt-input-wrapper .nxt-phone-icon~.nxt-country-dropdown {
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    z-index: 2;
+    width: 100px;
+    transition: all .3s ease-in-out;
+    background: 0 0;
+    min-height: 0px;
+}
+
+.nxt-phone-input .nxt-input-wrapper .nxt-phone-icon~.nxt-phone-richtext,.nxt-phone-input .nxt-input-wrapper .nxt-phone-richtext {
+    border: 0;
+    border-radius: 4px;
+    z-index: 1;
+    line-height: 1.6;
+    font-size: 14px;
+    width: 100%;
+    transition: all .3s ease-in-out;
+    padding: 0;
+    background: 0 0;
+    min-height: 0px;
+}
+
+.nxt-submit,.nxt-submit:disabled,.nxt-submit:focus,.nxt-submit:hover {
+    display: flex;
+    border: 0;
+    background-color: #162d9e;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 1;
+    position: relative;
+    text-align: center;
+    min-width: 110px;
+    justify-content: center;
+    align-items: center
+}
+
+.nxt-radio-box {
+    gap: 5px;
+    border-radius: 8px
+}
+
+.nxt-accept-label,.nxt-check-label,.nxt-radio-label {
+    color: #000;
+    margin-bottom: 0;
+    display: inline-flex;
+    align-items: center;
+    transition: all .3s ease-in-out
+}
+
+.nxt-link-label {
+    transition: all .3s ease-in-out
+}
+
+.nxt-radio-box .nxt-radio-richtext {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    font-size: 16px;
+    border: 1px solid #8f8f8fa6;
+    border-radius: 50%;
+    margin-right: 10px;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    cursor: pointer
+}
+
+.nxt-accept-input .nxt-accept-richtext {
+    cursor: pointer
+}
+
+.nxt-radio-box input[type=radio]:checked,.nxt-radio-box input[type=radio]:checked:hover {
+    border: 1px solid #8f8f8fa6;
+    background-color: #fff
+}
+
+.nxt-radio-box input[type=radio]:checked:focus {
+    background-color: #fff
+}
+
+.nxt-radio-box .nxt-radio-richtext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #162d9e;
+    border: 1px solid #8f8f8fa6;
+    transform: translate(-50%,-50%) scale(0);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all .3s cubic-bezier(.12,.4,.29,1.46)
+}
+
+.nxt-radio-box .nxt-radio-richtext:checked::after {
+    transform: translate(-50%,-50%) scale(1);
+    opacity: 1
+}
+
+.nxt-check-box {
+    border-radius: 8px
+}
+
+.nxt-accept-label input[type=checkbox],.nxt-check-label input[type=checkbox] {
+    margin-right: 8px
+}
+
+.nxt-check-box .nxt-check-richtext {
+    padding: 0;
+    font-size: 16px;
+    border: 1px solid #8f8f8fa6;
+    border-radius: 4px;
+    transition: all .3s ease-in-out
+}
+
+.nxt-accept-input .nxt-accept-richtext,.nxt-check-box .nxt-check-richtext {
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    margin: 0 10px 0 0
+}
+
+.nxt-accept-input .nxt-accept-richtext::after,.nxt-check-box .nxt-check-richtext::after {
+    content: "";
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    border: solid #fff;
+    border-width: 0 2.5px 2.5px 0;
+    width: calc(20px - 70%);
+    height: calc(20px - 45%);
+    transform: translate(-50%,-50%) rotate(45deg) scale(0);
+    opacity: 0;
+    transition: transform .3s cubic-bezier(.12,.4,.29,1.46),opacity .3s ease
+}
+
+.nxt-accept-input .nxt-accept-richtext:checked::after,.nxt-check-box .nxt-check-richtext:checked::after {
+    transform: translate(-50%,-50%) rotate(45deg) scale(1);
+    opacity: 1
+}
+
+.nxt-accept-input .nxt-accept-richtext:checked,.nxt-accept-input .nxt-accept-richtext:checked:focus,.nxt-check-box .nxt-check-richtext:checked {
+    background-color: #162d9e
+}
+
+.nxt-accept-input .nxt-accept-richtext:checked::before,.nxt-check-box .nxt-check-richtext:checked::before,.nxt-radio-box .nxt-radio-richtext:checked::before {
+    content: none
+}
+
+.nxt-accept-input .nxt-accept-richtext:not(:checked)::after,.nxt-check-box .nxt-check-richtext:not(:checked)::after {
+    transform: translate(-50%,-50%) rotate(45deg) scale(0);
+    opacity: 0;
+    transition: none
+}
+
+.nxt-date-field .nxt-date-input .nxt-date-richtext,.nxt-option-container .nxt-option-field,.nxt-time-field .nxt-time-input .nxt-time-richtext {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #8f8f8fa6;
+    border-radius: 4px;
+    transition: all .3s ease-in-out;
+    line-height: 1.6;
+    background-color: #fff;
+    appearance: none;
+    min-height: 0px;
+}
+
+.nxt-option-container .nxt-option-field {
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23666' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding: 10px
+}
+
+.nxt-accept-input {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.nxt-accept-input .nxt-accept-richtext {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #8f8f8fa6;
+    border-radius: 4px;
+    transition: all .3s ease-in-out;
+    line-height: 2
+}
+
+.nxt-accept-richtext:focus {
+    border-color: #007bff;
+    outline: 0
+}
+
+.nxt-phone-icon,.nxt-placeholder-icon {
+    padding-left: 8px;
+    padding-right: 8px;
+    transition: all .3s ease-in-out;
+    z-index: 10
+}
+
+.nxt-button-svg {
+    display: flex;
+    align-items: center
+}
+
+.nxt-check-box.horizontal,.nxt-radio-box.horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px
+}
+
+.nxt-radio-box.vertical {
+    flex-direction: column;
+    gap: 8px
+}
+
+.nxt-time-label-container,.nxt-url-label-container {
+    display: flex;
+    align-items: center;
+    position: relative
+}
+
+.nxt-inner-icon {
+    font-size: 18px;
+    height: 18px
+}
+
+.nxt-name-richtext {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: 0;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box
+}
+
+.nxt-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain
+}
+
+.nxt-message-richtext::placeholder {
+    opacity: 1;
+    font: 400 1em Arial,sans-serif
+}
+
+
+.nxt-check-title-label.required::after,.nxt-date-label.required::after,.nxt-email-label.required::after,.nxt-message-label.required::after,.nxt-name-label.required::after,.nxt-number-label.required::after,.nxt-option-label.required::after,.nxt-phone-label.required::after,.nxt-radio-title-label.required::after,.nxt-time-label.required::after,.nxt-url-label.required::after {
+    content: "";
+    color: red;
+    margin-left: 4px
+}
+
+.nxt-error-checkbox,.nxt-error-date,.nxt-error-email,.nxt-error-number,.nxt-error-phone,.nxt-error-radiobox,.nxt-error-select,.nxt-error-show,.nxt-error-time,.nxt-error-url,.nxt-message-error {
+    color: red;
+    font-size: 14px
+}
+
+.nxt-input-wrapper .nxt-phone-richtext:focus,.nxt-number-field .nxt-number-input .nxt-number-richtext:focus,.nxt-url-input .nxt-url-richtext:focus {
+    border: 0;
+    box-shadow: none;
+    outline: 0
+}
+
+.nxt-check-box input[type=checkbox],.nxt-check-box input[type=checkbox]:checked,.nxt-date-input .nxt-date-richtext:focus,.nxt-message-richtext:focus,.nxt-option-container .nxt-option-field:focus,.nxt-radio-box input[type=radio],.nxt-radio-box input[type=radio]:checked:focus,.nxt-time-input .nxt-time-richtext:focus {
+    box-shadow: none;
+    border: 1px solid #8f8f8fa6;
+    outline: 0
+}
+
+.nxt-date-richtext:focus,.nxt-number-richtext:focus,.nxt-option-field:focus,.nxt-time-richtext:focus,.nxt-url-richtext:focus {
+    outline-width: 0;
+    outline-style: none
+}
+
+.nxt-input-wrapper .nxt-country-dropdown:focus {
+    box-shadow: none;
+    border: 0
+}
+
+.nxt-style-1 .nxt-message-input .nxt-message-richtext:focus {
+    outline: 0;
+    box-shadow: none
+}
+
+.nxt-help-text {
+    width: -webkit-fill-available
+}
+
+.nxt-submit-button {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    flex: 1 1 100%
+}
+
+.nxt-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 30px;
+    height: 30px;
+    z-index: 10;
+    opacity: 0;
+}
+
+.nxt-loader::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-top: 3px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite
+}
+
+.nxt-submit-button .nxt-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+    box-sizing: border-box;
+    padding: 8px 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    transition: all .3s ease-in-out
+}
+
+.tp-form-acceptance-button {
+    flex: 1 1 100%
+}
+
+.nxt-check-box.round .nxt-checkbox-list .nxt-check-richtext {
+    border-radius: 50%
+}
+
+.nxt-radio-box.square .nxt-checkbox-list .nxt-radio-richtext,.nxt-radio-box.square .nxt-radio-list .nxt-radio-richtext,.nxt-radio-box.square .nxt-radio-richtext:checked::after {
+    border-radius: 10px
+}
+
+.nxt-checkbox-list,.nxt-radio-list {
+    display: flex;
+    align-items: center
+}
+
+.tp-form-block input:-webkit-autofill,.tp-form-block input:-webkit-autofill:focus,.tp-form-block input:-webkit-autofill:hover,.tp-form-block select:-webkit-autofill,.tp-form-block textarea:-webkit-autofill {
+    box-shadow: 0 0 0 1000px transparent inset!important;
+    transition: background-color 9999s ease-in-out 0s!important
+}
+
+.nxt-message-richtext::-webkit-scrollbar {
+    opacity: 0;
+    visibility: hidden;
+    width: 8px
+}
+
+.nxt-message-richtext::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 10px
+}
+
+.nxt-submit-button.nxt-btn-inline .nxt-submit {
+    width: 100%
+}
+
+.nxt-date-field:has(.nxt-error-date:not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-form-option:has(.nxt-error-select:not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-number-field:has(.nxt-error-number:not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-time-field:has(.nxt-error-time:not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-url-field:has(.nxt-error-url:not(:empty))+.nxt-submit-button.nxt-btn-inline,.tp-form-checkbox-button:has(.nxt-error-checkbox:not(:empty))+.nxt-submit-button.nxt-btn-inline,.tp-form-email-field:has(.nxt-error-email:not(:empty))+.nxt-submit-button.nxt-btn-inline,.tp-form-message-field:has(.nxt-message-error:not(:empty))+.nxt-submit-button.nxt-btn-inline,.tp-form-name-field:has(.nxt-error-show:not(:empty))+.nxt-submit-button.nxt-btn-inline,.tp-form-phone-field:has(.nxt-error-phone:not(:empty))+.nxt-submit-button.nxt-btn-inline,.tp-form-radio-button:has(.nxt-error-radiobox:not(:empty))+.nxt-submit-button.nxt-btn-inline {
+    margin-bottom: 30px
+}
+
+.nxt-date-field:has(.nxt-date-input>.nxt-help-text:nth-child(3):not(:empty)):not(:has(.nxt-error-date:not(:empty)))+.nxt-submit-button.nxt-btn-inline,.nxt-form-option:has(.nxt-option-container>.nxt-help-text:nth-child(3):not(:empty)):not(:has(.nxt-error-select:not(:empty)))+.nxt-submit-button.nxt-btn-inline,.nxt-number-field:has(.nxt-number-input>.nxt-help-text:nth-child(3):not(:empty)):not(:has(.nxt-error-number:not(:empty)))+.nxt-submit-button.nxt-btn-inline,.nxt-time-field:has(.nxt-time-input>.nxt-help-text:nth-child(3):not(:empty)):not(:has(.nxt-error-time:not(:empty)))+.nxt-submit-button.nxt-btn-inline,.nxt-url-field:has(.nxt-url-input>.nxt-help-text:nth-child(3):not(:empty)):not(:has(.nxt-error-url:not(:empty)))+.nxt-submit-button.nxt-btn-inline,.tp-form-checkbox-button:has(.nxt-check-box>.nxt-help-text:nth-child(3):not(:empty)):not(:has(.nxt-error-checkbox:not(:empty)))+.nxt-submit-button.nxt-btn-inline,.tp-form-email-field:has(.nxt-email-input>.nxt-help-text:nth-child(3):not(:empty)):not(:has(.nxt-error-email:not(:empty)))+.nxt-submit-button.nxt-btn-inline,.tp-form-message-field:has(.nxt-message-input>.nxt-help-text:nth-child(3):not(:empty)):not(:has(.nxt-message-error:not(:empty)))+.nxt-submit-button.nxt-btn-inline,.tp-form-name-field:has(.nxt-name-input>.nxt-help-text:nth-child(3):not(:empty)):not(:has(.nxt-error-show:not(:empty)))+.nxt-submit-button.nxt-btn-inline,.tp-form-phone-field:has(.nxt-phone-input>.nxt-help-text:nth-child(3):not(:empty)):not(:has(.nxt-error-phone:not(:empty)))+.nxt-submit-button.nxt-btn-inline,.tp-form-radio-button:has(.nxt-radio-box>.nxt-help-text:nth-child(3):not(:empty)):not(:has(.nxt-error-radiobox:not(:empty)))+.nxt-submit-button.nxt-btn-inline {
+    margin-bottom: 40px
+}
+
+.nxt-date-field:has(.nxt-error-date:not(:empty)):has(.nxt-date-input>.nxt-help-text:nth-child(3):not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-form-option:has(.nxt-error-select:not(:empty)):has(.nxt-option-container>.nxt-help-text:nth-child(3):not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-number-field:has(.nxt-error-number:not(:empty)):has(.nxt-number-input>.nxt-help-text:nth-child(3):not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-time-field:has(.nxt-error-time:not(:empty)):has(.nxt-time-input>.nxt-help-text:nth-child(3):not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-url-field:has(.nxt-error-url:not(:empty)):has(.nxt-url-input>.nxt-help-text:nth-child(3):not(:empty))+.nxt-submit-button.nxt-btn-inline,.tp-form-checkbox-button:has(.nxt-error-checkbox:not(:empty)):has(.nxt-check-box>.nxt-help-text:nth-child(3):not(:empty))+.nxt-submit-button.nxt-btn-inline,.tp-form-email-field:has(.nxt-error-email:not(:empty)):has(.nxt-email-input>.nxt-help-text:nth-child(3):not(:empty))+.nxt-submit-button.nxt-btn-inline,.tp-form-message-field:has(.nxt-message-error:not(:empty)):has(.nxt-message-input>.nxt-help-text:nth-child(3):not(:empty))+.nxt-submit-button.nxt-btn-inline,.tp-form-name-field:has(.nxt-error-show:not(:empty)):has(.nxt-name-input>.nxt-help-text:nth-child(3):not(:empty))+.nxt-submit-button.nxt-btn-inline,.tp-form-phone-field:has(.nxt-error-phone:not(:empty)):has(.nxt-phone-input>.nxt-help-text:nth-child(3):not(:empty))+.nxt-submit-button.nxt-btn-inline,.tp-form-radio-button:has(.nxt-error-radiobox:not(:empty)):has(.nxt-radio-box>.nxt-help-text:nth-child(3):not(:empty))+.nxt-submit-button.nxt-btn-inline {
+    margin-bottom: 62px
+}
+
+.nxt-submit-button.nxt-btn-block .nxt-submit,.nxt-submit-button.nxt-btn-inline .nxt-submit {
+    min-height: 43px;
+    min-width: 0px
+}
+.nxt-submit-button .nxt-submit,.nxt-btn-inline .nxt-submit {
+    line-height: 1.8;
+    min-width: 0px
+}

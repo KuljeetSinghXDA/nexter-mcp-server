@@ -1,0 +1,1947 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-adv-typo",
+	"version": "0.1.0",
+	"title": "Advanced Typography",
+	"category": "tpgb",
+	"description": "Creative collection of typographies style to make your website copy attractive",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "typoListing": {
+            "type": "string",
+            "default": "normal"
+        },
+        "typoText": {
+            "type": "string",
+            "default": "Your Text Content"
+        },
+        "tTextLink": {
+            "type": "object",
+            "default": {
+                "url": "#",
+                "target": "",
+                "nofollow": ""
+            }
+        },
+        "textListing": {
+            "type": "array",
+            "repeaterField": [
+                {
+                    "lText": {
+                        "type": "string",
+                        "default": "Your Text Content"
+                    },
+                    "linkUrl": {
+                        "type": "object",
+                        "default": {
+                            "url": "#",
+                            "target": "",
+                            "nofollow": ""
+                        }
+                    },
+                    "ariaLabel": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "strokeFill": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "strokeWidth": {
+                        "type": "object",
+                        "default": {
+                            "md": "",
+                            "unit": "px"
+                        },
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "strokeFill",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text { -webkit-text-stroke-width: {{strokeWidth}}; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "gradientTgl": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "strokeNColor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "strokeFill",
+                                        "relation": "==",
+                                        "value": true
+                                    },
+                                    {
+                                        "key": "gradientTgl",
+                                        "relation": "!=",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text{ -webkit-text-stroke-color: {{strokeNColor}}; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "strokeHColor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "strokeFill",
+                                        "relation": "==",
+                                        "value": true
+                                    },
+                                    {
+                                        "key": "gradientTgl",
+                                        "relation": "!=",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text:hover{ -webkit-text-stroke-color: {{strokeHColor}}; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "strokeNGColor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "strokeFill",
+                                        "relation": "==",
+                                        "value": true
+                                    },
+                                    {
+                                        "key": "gradientTgl",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text{ background: {{strokeNGColor}}; -webkit-background-clip: text;-webkit-text-stroke-color: transparent; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "strokeHGColor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "strokeFill",
+                                        "relation": "==",
+                                        "value": true
+                                    },
+                                    {
+                                        "key": "gradientTgl",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text:hover{ background: {{strokeHGColor}}; -webkit-background-clip: text;-webkit-text-stroke-color: transparent; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "fillNColor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "strokeFill",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text{ -webkit-text-fill-color: {{fillNColor}}; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "fillHColor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "strokeFill",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text:hover{ -webkit-text-fill-color: {{fillHColor}}; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "blendMode": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "blendVariation": {
+                        "type": "string",
+                        "default": "color",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "blendMode",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text{ mix-blend-mode: {{blendVariation}}; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "knockoutText": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "koTextBG": {
+                        "type": "object",
+                        "default": {
+                            "openBg": 0
+                        },
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "knockoutText",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "onHoverImg": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "hoverImg": {
+                        "type": "object",
+                        "default": {
+                            "url": ""
+                        }
+                    },
+                    "hoverStyle": {
+                        "type": "string",
+                        "default": "1"
+                    },
+                    "marquee": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "marqueeType": {
+                        "type": "string",
+                        "default": "default"
+                    },
+                    "marqueeDir": {
+                        "type": "string",
+                        "default": "left"
+                    },
+                    "marqueeBeh": {
+                        "type": "string",
+                        "default": "initial"
+                    },
+                    "marqueeLoop": {
+                        "type": "string",
+                        "default": -1
+                    },
+                    "marqueeScroll": {
+                        "type": "string",
+                        "default": 6
+                    },
+                    "marqueeAni": {
+                        "type": "string",
+                        "default": 3
+                    },
+                    "marqueeTwidth": {
+                        "type": "object",
+                        "default": {
+                            "md": "",
+                            "unit": "px"
+                        },
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "marqueeType",
+                                        "relation": "==",
+                                        "value": "default"
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} marquee { width: {{marqueeTwidth}}; max-width: {{marqueeTwidth}}; white-space: nowrap; }"
+                            },
+                            {
+                                "condition": [
+                                    {
+                                        "key": "marqueeType",
+                                        "relation": "==",
+                                        "value": "on_transition"
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} {  width: {{marqueeTwidth}}; max-width: {{marqueeTwidth}}; display: inline-block; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "contiAnimation": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "aniEffect": {
+                        "type": "string",
+                        "default": "pulse"
+                    },
+                    "aniOnHover": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "aniDurTime": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "contiAnimation",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .image-pulse, {{PLUS_WRAP}} {{TP_REPEAT_ID}} .hover_pulse:hover, {{PLUS_WRAP}} {{TP_REPEAT_ID}} .image-floating, {{PLUS_WRAP}} {{TP_REPEAT_ID}} .hover_floating:hover, {{PLUS_WRAP}} {{TP_REPEAT_ID}} .image-tossing, {{PLUS_WRAP}} {{TP_REPEAT_ID}} .hover_tossing:hover { animation-duration: {{aniDurTime}}s; -webkit-animation-duration: {{aniDurTime}}s; }"
+                            }
+                        ]
+                    },
+                    "advUnderline": {
+                        "type": "string",
+                        "default": "none"
+                    },
+                    "overlayStyle": {
+                        "type": "string",
+                        "default": "style-1"
+                    },
+                    "nLineType": {
+                        "type": "string",
+                        "default": "none",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "advUnderline",
+                                        "relation": "==",
+                                        "value": "classic"
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text{ text-decoration-line: {{nLineType}}; }"
+                            }
+                        ]
+                    },
+                    "hLineType": {
+                        "type": "string",
+                        "default": "none",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "advUnderline",
+                                        "relation": "==",
+                                        "value": "classic"
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text:hover{ text-decoration-line: {{hLineType}}; }"
+                            }
+                        ]
+                    },
+                    "nLineStyle": {
+                        "type": "string",
+                        "default": "none",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "nLineType",
+                                        "relation": "!=",
+                                        "value": "none"
+                                    },
+                                    {
+                                        "key": "advUnderline",
+                                        "relation": "==",
+                                        "value": "classic"
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text{ text-decoration-style: {{nLineStyle}}; }"
+                            }
+                        ]
+                    },
+                    "hLineStyle": {
+                        "type": "string",
+                        "default": "none",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "hLineType",
+                                        "relation": "!=",
+                                        "value": "none"
+                                    },
+                                    {
+                                        "key": "advUnderline",
+                                        "relation": "==",
+                                        "value": "classic"
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text:hover{ text-decoration-style: {{hLineStyle}}; }"
+                            }
+                        ]
+                    },
+                    "nLineColor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "nLineType",
+                                        "relation": "!=",
+                                        "value": "none"
+                                    },
+                                    {
+                                        "key": "advUnderline",
+                                        "relation": "==",
+                                        "value": "classic"
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text{ text-decoration-color: {{nLineColor}}; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "hLineColor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "hLineType",
+                                        "relation": "!=",
+                                        "value": "none"
+                                    },
+                                    {
+                                        "key": "advUnderline",
+                                        "relation": "==",
+                                        "value": "classic"
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text:hover{ text-decoration-color: {{hLineColor}}; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "ovBottomOff": {
+                        "type": "object",
+                        "default": {
+                            "md": "",
+                            "unit": "px"
+                        },
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "advUnderline",
+                                        "relation": "==",
+                                        "value": "overlay"
+                                    },
+                                    {
+                                        "key": "overlayStyle",
+                                        "relation": "==",
+                                        "value": "style-1"
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-1:before { bottom: {{ovBottomOff}}; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "ovLineNHeight": {
+                        "type": "object",
+                        "default": {
+                            "md": "",
+                            "unit": "px"
+                        },
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "advUnderline",
+                                        "relation": "==",
+                                        "value": "overlay"
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-1:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-2:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-3:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-4:before,{{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-4:hover:after, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-5:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-6:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-7:before { height: {{ovLineNHeight}}; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "ovLineHHeight": {
+                        "type": "object",
+                        "default": {
+                            "md": "",
+                            "unit": "px"
+                        },
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "advUnderline",
+                                        "relation": "==",
+                                        "value": "overlay"
+                                    },
+                                    {
+                                        "key": "overlayStyle",
+                                        "relation": "!=",
+                                        "value": "style-7"
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-1:hover:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-2:hover:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-3:hover:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-4:hover:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-4:hover:after, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-5:hover:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-6:hover:before { height: {{ovLineHHeight}}; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "ovLineNBG": {
+                        "type": "object",
+                        "default": {
+                            "openBg": 0
+                        },
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "advUnderline",
+                                        "relation": "==",
+                                        "value": "overlay"
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-1:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-2:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-3:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-4:before,{{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-4:hover:after, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-5:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-6:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-7:before"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "ovLineHBG": {
+                        "type": "object",
+                        "default": {
+                            "openBg": 0
+                        },
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "advUnderline",
+                                        "relation": "==",
+                                        "value": "overlay"
+                                    },
+                                    {
+                                        "key": "overlayStyle",
+                                        "relation": "!=",
+                                        "value": "style-7"
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-1:hover:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-2:hover:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-3:hover:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-4:hover:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-4:hover:after, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-5:hover:before, {{PLUS_WRAP}} {{TP_REPEAT_ID}}.overlay-style-6:hover:before"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "textTypo": {
+                        "type": "object",
+                        "default": {
+                            "openTypography": 0,
+                            "size": {
+                                "md": "",
+                                "unit": "px"
+                            }
+                        },
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} .tpgb-adv-list-typo {{TP_REPEAT_ID}} .list-typo-text"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "textPadding": {
+                        "type": "object",
+                        "default": {
+                            "md": {
+                                "top": "",
+                                "right": "",
+                                "bottom": "",
+                                "left": ""
+                            },
+                            "unit": "px"
+                        },
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} .tpgb-adv-list-typo {{TP_REPEAT_ID}} .list-typo-text {padding: {{textPadding}};}"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "advTextStyle": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "advTextWidth": {
+                        "type": "object",
+                        "default": {
+                            "md": "",
+                            "unit": "px"
+                        },
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "advTextStyle",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} { max-width: {{advTextWidth}}; width: {{advTextWidth}}; } {{PLUS_WRAP}} {{TP_REPEAT_ID}} { white-space: nowrap; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "advTextHZalign": {
+                        "type": "object",
+                        "default": {
+                            "md": "",
+                            "unit": "px"
+                        },
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "advTextStyle",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} { left: {{advTextHZalign}}; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "advTextVRalign": {
+                        "type": "object",
+                        "default": {
+                            "md": "",
+                            "unit": "px"
+                        },
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "advTextStyle",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} { bottom: {{advTextVRalign}}; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "textNColor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "textGradNtgl",
+                                        "relation": "!=",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text{ color: {{textNColor}}; } {{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text.bg_based_text{ -webkit-text-fill-color: {{textNColor}}; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "textHColor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "textGradHtgl",
+                                        "relation": "!=",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text:hover { color: {{textHColor}}; } {{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text.bg_based_text:hover { -webkit-text-fill-color: {{textHColor}}; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "textGradNtgl": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "textNGcolor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "textGradNtgl",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text { background: {{textNGcolor}}; background-color: transparent; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "textGradHtgl": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "textHGcolor": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "condition": [
+                                    {
+                                        "key": "textGradHtgl",
+                                        "relation": "==",
+                                        "value": true
+                                    }
+                                ],
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text:hover { background: {{textHGcolor}}; background-color: transparent; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "textNshadow": {
+                        "type": "object",
+                        "default": {
+                            "openShadow": 0,
+                            "typeShadow": "text-shadow"
+                        },
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "textHshadow": {
+                        "type": "object",
+                        "default": {
+                            "openShadow": 0,
+                            "typeShadow": "text-shadow"
+                        },
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text:hover"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "textNFilter": {
+                        "type": "object",
+                        "default": {
+                            "openFilter": false
+                        },
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "textHFilter": {
+                        "type": "object",
+                        "default": {
+                            "openFilter": false
+                        },
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text:hover"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "transNcss": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text { -webkit-transform: {{transNcss}}; -ms-transform: {{transNcss}}; -moz-transform: {{transNcss}}; transform: {{transNcss}}; transform-style: preserve-3d; -ms-transform-style: preserve-3d; -moz-transform-style: preserve-3d; -webkit-transform-style: preserve-3d; display: inline-block; }"
+                            }
+                        ],
+                        "scopy": true
+                    },
+                    "transHcss": {
+                        "type": "string",
+                        "default": "",
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}} .list-typo-text:hover { -webkit-transform: {{transHcss}};-ms-transform: {{transHcss}}; -moz-transform: {{transHcss}}; transform: {{transHcss}}; transform-style: preserve-3d; -ms-transform-style: preserve-3d; -moz-transform-style: preserve-3d; -webkit-transform-style: preserve-3d; display: inline-block; }"
+                            }
+                        ],
+                        "scopy": true
+                    }
+                }
+            ],
+            "default": [
+                {
+                    "_key": "0",
+                    "lText": "Your Text Content",
+                    "linkUrl": {
+                        "url": "#",
+                        "target": "",
+                        "nofollow": ""
+                    },
+                    "ariaLabel": "",
+                    "gradientTgl": false,
+                    "blendMode": false,
+                    "blendVariation": "normal",
+                    "knockoutText": false,
+                    "onHoverImg": false,
+                    "hoverImg": { "url" : ""},
+                    "hoverStyle": "1",
+                    "marquee": false,
+                    "marqueeType": "default",
+                    "marqueeDir": "left",
+                    "marqueeBeh": "initial",
+                    "marqueeLoop": "-1",
+                    "marqueeScroll": "",
+                    "marqueeAni": "",
+                    "marqueeTwidth": "",
+                    "contiAnimation": false,
+                    "aniEffect": "pulse",
+                    "aniOnHover": false,
+                    "aniDurTime": "",
+                    "advUnderline": "none",
+                    "overlayStyle": "style-1",
+                    "nLineType": "none",
+                    "nLineStyle": "solid",
+                    "hLineType": "none",
+                    "hLineStyle": "solid",
+                    "textNshadow": {
+                        "typeShadow": "text-shadow"
+                    },
+                    "textHshadow": {
+                        "typeShadow": "text-shadow"
+                    }
+                }
+            ]
+        },
+        "textAlign": {
+            "type": "object",
+            "default": {
+                "md": "left"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} { text-align: {{textAlign}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "textMode": {
+            "type": "string",
+            "default": "unset",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "textMode",
+                            "relation": "!=",
+                            "value": "unset"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block { max-block-size: max-content; writing-mode: {{textMode}}; -webkit-writing-mode: {{textMode}}; -ms-writing-mode: {{textMode}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "verLetters": {
+            "type": "boolean",
+            "default": false,
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "verLetters",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block { text-orientation: upright; }"
+                }
+            ],
+            "scopy": true
+        },
+        "textDirection": {
+            "type": "string",
+            "default": "initial",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "textDirection",
+                            "relation": "!=",
+                            "value": "initial"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block { unicode-bidi: bidi-override; direction: {{textDirection}} }"
+                }
+            ],
+            "scopy": true
+        },
+        "cirTextEn": {
+            "type": "boolean",
+            "default": false
+        },
+        "customRadius": {
+            "type": "string",
+            "default": ""
+        },
+        "revDirection": {
+            "type": "boolean",
+            "default": false
+        },
+        "blendMode": {
+            "type": "boolean",
+            "default": false
+        },
+        "blendVariation": {
+            "type": "string",
+            "default": "normal",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "blendMode",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block.typo_bg_based_text{ mix-blend-mode: {{blendVariation}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "knockoutText": {
+            "type": "boolean",
+            "default": false
+        },
+        "koTextBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "image"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "knockoutText",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block"
+                }
+            ],
+            "scopy": true
+        },
+        "onHoverImg": {
+            "type": "boolean",
+            "default": false
+        },
+        "hoverImg": {
+            "type": "object",
+            "default": {
+                "url": ""
+            }
+        },
+        "hoverStyle": {
+            "type": "string",
+            "default": "1"
+        },
+        "marquee": {
+            "type": "boolean",
+            "default": false
+        },
+        "marqueeType": {
+            "type": "string",
+            "default": "default"
+        },
+        "marqueeDir": {
+            "type": "string",
+            "default": "left"
+        },
+        "marqueeBeh": {
+            "type": "string",
+            "default": "initial"
+        },
+        "marqueeLoop": {
+            "type": "string",
+            "default": -1
+        },
+        "marqueeScroll": {
+            "type": "string",
+            "default": 6
+        },
+        "marqueeAni": {
+            "type": "string",
+            "default": 3
+        },
+        "marqueeTwidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "marqueeType",
+                            "relation": "==",
+                            "value": "default"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} marquee { width: {{marqueeTwidth}}; max-width: {{marqueeTwidth}}; white-space: nowrap; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "marqueeType",
+                            "relation": "==",
+                            "value": "on_transition"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-single-typo {  width: {{marqueeTwidth}}; max-width: {{marqueeTwidth}}; display: inline-block; }"
+                }
+            ],
+            "scopy": true
+        },
+        "textTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-single-typo .text-content-block"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "multiple"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-list-typo .list-typo-text"
+                }
+            ],
+            "scopy": true
+        },
+        "textPadding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-single-typo .text-content-block {padding: {{textPadding}};}"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "multiple"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-list-typo .list-typo-text {padding: {{textPadding}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "textNColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        },
+                        {
+                            "key": "textGradNtgl",
+                            "relation": "!=",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block{ color: {{textNColor}}; } {{PLUS_WRAP}} .text-content-block.bg_based_text{ -webkit-text-fill-color: {{textNColor}}; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "multiple"
+                        },
+                        {
+                            "key": "textGradNtgl",
+                            "relation": "!=",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .list-typo-text{ color: {{textNColor}}; } {{PLUS_WRAP}} .list-typo-text.bg_based_text{ -webkit-text-fill-color: {{textNColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "textGradNtgl": {
+            "type": "boolean",
+            "default": false
+        },
+        "textNGcolor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        },
+                        {
+                            "key": "textGradNtgl",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block { background: {{textNGcolor}}; background-color: transparent; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "multiple"
+                        },
+                        {
+                            "key": "textGradNtgl",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .list-typo-text { background: {{textNGcolor}}; background-color: transparent; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "textGradNtgl",
+                            "relation": "==",
+                            "value": true
+                        },
+                        {
+                            "key": "cirTextEn",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block > div > span { background: {{textNGcolor}}; background-color: transparent; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }"
+                }
+            ],
+            "scopy": true
+        },
+        "textNshadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "typeShadow": "text-shadow"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "multiple"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .list-typo-text"
+                }
+            ],
+            "scopy": true
+        },
+        "textNFilter": {
+            "type": "object",
+            "default": {
+                "openFilter": false
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "multiple"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .list-typo-text"
+                }
+            ],
+            "scopy": true
+        },
+        "transNcss": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block { -webkit-transform: {{transNcss}}; -ms-transform: {{transNcss}}; -moz-transform: {{transNcss}}; transform: {{transNcss}}; transform-style: preserve-3d;-ms-transform-style: preserve-3d;-moz-transform-style: preserve-3d;-webkit-transform-style: preserve-3d; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "multiple"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .list-typo-text { -webkit-transform: {{transNcss}}; -ms-transform: {{transNcss}}; -moz-transform: {{transNcss}}; transform: {{transNcss}}; transform-style: preserve-3d;-ms-transform-style: preserve-3d;-moz-transform-style: preserve-3d;-webkit-transform-style: preserve-3d; }"
+                }
+            ],
+            "scopy": true
+        },
+        "transHcss": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block:hover { -webkit-transform: {{transHcss}};-ms-transform: {{transHcss}}; -moz-transform: {{transHcss}}; transform: {{transHcss}};  }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "multiple"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .list-typo-text:hover { -webkit-transform: {{transHcss}};-ms-transform: {{transHcss}}; -moz-transform: {{transHcss}}; transform: {{transHcss}};  }"
+                }
+            ],
+            "scopy": true
+        },
+        "transOrigin": {
+            "type": "string",
+            "default": "center",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block { transform-origin: {{transOrigin}};  }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "multiple"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .list-typo-text:hover { transform-origin: {{transOrigin}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "textHColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        },
+                        {
+                            "key": "textGradHtgl",
+                            "relation": "!=",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block:hover { color: {{textHColor}}; } {{PLUS_WRAP}} .text-content-block.bg_based_text{ -webkit-text-fill-color: {{textHColor}}; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "multiple"
+                        },
+                        {
+                            "key": "textGradHtgl",
+                            "relation": "!=",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .list-typo-text:hover { color: {{textHColor}}; } {{PLUS_WRAP}} .list-typo-text.bg_based_text{ -webkit-text-fill-color: {{textHColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "textGradHtgl": {
+            "type": "boolean",
+            "default": false
+        },
+        "textHGcolor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        },
+                        {
+                            "key": "textGradHtgl",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block:hover { background: {{textHGcolor}}; background-color: transparent; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "multiple"
+                        },
+                        {
+                            "key": "textGradHtgl",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .list-typo-text:hover { background: {{textHGcolor}}; background-color: transparent; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }"
+                }
+            ],
+            "scopy": true
+        },
+        "textHshadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "typeShadow": "text-shadow"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block:hover"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "multiple"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .list-typo-text:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "textHFilter": {
+            "type": "object",
+            "default": {
+                "openFilter": false
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block:hover"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "multiple"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .list-typo-text:hover"
+                }
+            ],
+            "scopy": true
+        },
+        "strokeFill": {
+            "type": "boolean",
+            "default": false
+        },
+        "strokeWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        },
+                        {
+                            "key": "strokeFill",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block.typo_stroke, {{PLUS_WRAP}} .text-content-block.typo_stroke span { -webkit-text-stroke-width: {{strokeWidth}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "strokeNGrad": {
+            "type": "boolean",
+            "default": false
+        },
+        "strokeNcolor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        },
+                        {
+                            "key": "strokeFill",
+                            "relation": "==",
+                            "value": true
+                        },
+                        {
+                            "key": "strokeNGrad",
+                            "relation": "==",
+                            "value": false
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block.typo_stroke, {{PLUS_WRAP}} .text-content-block.typo_stroke span { -webkit-text-stroke-color: {{strokeNcolor}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "strokeNGcolor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        },
+                        {
+                            "key": "strokeFill",
+                            "relation": "==",
+                            "value": true
+                        },
+                        {
+                            "key": "strokeNGrad",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block.typo_stroke, {{PLUS_WRAP}} .text-content-block.typo_stroke span { background: {{strokeNGcolor}}; background-color: transparent; -webkit-background-clip: text; -webkit-text-stroke-color: transparent; }"
+                }
+            ],
+            "scopy": true
+        },
+        "fillNcolor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        },
+                        {
+                            "key": "strokeFill",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block.typo_stroke, {{PLUS_WRAP}} .text-content-block.typo_stroke span { -webkit-text-fill-color: {{fillNcolor}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "strokeHGrad": {
+            "type": "boolean",
+            "default": false
+        },
+        "strokeHcolor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        },
+                        {
+                            "key": "strokeFill",
+                            "relation": "==",
+                            "value": true
+                        },
+                        {
+                            "key": "strokeHGrad",
+                            "relation": "==",
+                            "value": false
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block.typo_stroke:hover, {{PLUS_WRAP}} .text-content-block.typo_stroke:hover span { -webkit-text-stroke-color: {{strokeHcolor}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "strokeHGcolor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        },
+                        {
+                            "key": "strokeFill",
+                            "relation": "==",
+                            "value": true
+                        },
+                        {
+                            "key": "strokeHGrad",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block.typo_stroke:hover, {{PLUS_WRAP}} .text-content-block.typo_stroke:hover span { background: {{strokeHGcolor}}; background-color: transparent; -webkit-background-clip: text; -webkit-text-stroke-color: transparent; }"
+                }
+            ],
+            "scopy": true
+        },
+        "fillHcolor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "typoListing",
+                            "relation": "==",
+                            "value": "normal"
+                        },
+                        {
+                            "key": "strokeFill",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block.typo_stroke:hover, {{PLUS_WRAP}} .text-content-block.typo_stroke:hover span { -webkit-text-fill-color: {{fillHcolor}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "advUnderline": {
+            "type": "string",
+            "default": "none"
+        },
+        "overlayStyle": {
+            "type": "string",
+            "default": "style-1"
+        },
+        "nLineType": {
+            "type": "string",
+            "default": "none",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "advUnderline",
+                            "relation": "==",
+                            "value": "classic"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block{ text-decoration-line: {{nLineType}}; }"
+                }
+            ]
+        },
+        "hLineType": {
+            "type": "string",
+            "default": "none",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "advUnderline",
+                            "relation": "==",
+                            "value": "classic"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block:hover{ text-decoration-line: {{hLineType}}; }"
+                }
+            ]
+        },
+        "nLineStyle": {
+            "type": "string",
+            "default": "none",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "nLineType",
+                            "relation": "!=",
+                            "value": "none"
+                        },
+                        {
+                            "key": "advUnderline",
+                            "relation": "==",
+                            "value": "classic"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block{ text-decoration-style: {{nLineStyle}}; }"
+                }
+            ]
+        },
+        "hLineStyle": {
+            "type": "string",
+            "default": "none",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "hLineType",
+                            "relation": "!=",
+                            "value": "none"
+                        },
+                        {
+                            "key": "advUnderline",
+                            "relation": "==",
+                            "value": "classic"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block:hover{ text-decoration-style: {{hLineStyle}}; }"
+                }
+            ]
+        },
+        "nLineColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "nLineType",
+                            "relation": "!=",
+                            "value": "none"
+                        },
+                        {
+                            "key": "advUnderline",
+                            "relation": "==",
+                            "value": "classic"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block{ text-decoration-color: {{nLineColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "hLineColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "hLineType",
+                            "relation": "!=",
+                            "value": "none"
+                        },
+                        {
+                            "key": "advUnderline",
+                            "relation": "==",
+                            "value": "classic"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .text-content-block:hover{ text-decoration-color: {{hLineColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "ovBottomOff": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "advUnderline",
+                            "relation": "==",
+                            "value": "overlay"
+                        },
+                        {
+                            "key": "overlayStyle",
+                            "relation": "==",
+                            "value": "style-1"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-1:before { bottom: {{ovBottomOff}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "ovLineNHeight": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "advUnderline",
+                            "relation": "==",
+                            "value": "overlay"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-1:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-2:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-3:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-4:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-4:hover:after, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-5:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-6:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-7:before { height: {{ovLineNHeight}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "ovLineHHeight": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "advUnderline",
+                            "relation": "==",
+                            "value": "overlay"
+                        },
+                        {
+                            "key": "overlayStyle",
+                            "relation": "!=",
+                            "value": "style-7"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-1:hover:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-2:hover:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-3:hover:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-4:hover:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-4:hover:after, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-5:hover:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-6:hover:before { height: {{ovLineHHeight}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "ovLineNBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "advUnderline",
+                            "relation": "==",
+                            "value": "overlay"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-1:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-2:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-3:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-4:before,{{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-4:hover:after, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-5:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-6:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-7:before"
+                }
+            ],
+            "scopy": true
+        },
+        "ovLineHBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "advUnderline",
+                            "relation": "==",
+                            "value": "overlay"
+                        },
+                        {
+                            "key": "overlayStyle",
+                            "relation": "!=",
+                            "value": "style-7"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-1:hover:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-2:hover:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-3:hover:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-4:hover:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-4:hover:after, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-5:hover:before, {{PLUS_WRAP}} .tpgb-adv-single-typo.overlay-style-6:hover:before"
+                }
+            ],
+            "scopy": true
+        },
+        "isRptBlock": {
+			"type": "boolean",
+			"default": false
+        },
+        "showBlockContent" :{
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "usesContext": [ "postId", "postType", "queryId", "tpgb/dynamicSubFieldData", "tpgb/dynamicRowIndex", "tpgb/dynamicPost", "tpgb/dynamicRepField" ]
+}

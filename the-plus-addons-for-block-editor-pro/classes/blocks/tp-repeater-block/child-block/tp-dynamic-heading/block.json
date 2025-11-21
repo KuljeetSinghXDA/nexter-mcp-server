@@ -1,0 +1,84 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-dynamic-heading",
+	"version": "0.1.0",
+	"title": "Dynamic HTML",
+	"category": "tpgb",
+	"apiVersion": 3,
+	"description": "Dynamic HTML adjust content based on context, user interaction, or data, providing personalized and flexible text display on websites.",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide", "full"]
+	},
+	"textdomain": "tpgb",
+	"attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+		"textValue": {
+			"type": "string",
+			"default": "Add Your HTML Content Here"
+		},
+		"hAlign": {
+			"type": "object",
+			"default": {
+				"md": "left",
+				"sm": "",
+				"xs": ""
+			},
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}}{ text-align: {{hAlign}}; }"
+				}
+			]
+		},
+		"hColor": {
+			"type": "string",
+			"default": "",
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}}.tpgb-dynamic-heading { color: {{hColor}}; }"
+				}
+			],
+			"scopy": true
+		},
+        "hvrHColor": {
+			"type": "string",
+			"default": "",
+			"style": [
+				{
+                    "selector": "{{PLUS_WRAP}}.tpgb-dynamic-heading:hover { color: {{hvrHColor}}; }"
+				}
+			],
+			"scopy": true
+		},
+		"hTypo": {
+			"type": "object",
+			"default": {
+				"openTypography": 0,
+				"size": {
+					"md": "",
+					"unit": "px"
+				}
+			},
+			"style": [
+				{
+					"selector": "{{PLUS_WRAP}}.tpgb-dynamic-heading"
+				}
+			],
+			"scopy": true
+		}
+         
+	},
+	"parent": ["tpgb/tp-repeater-template"],
+	"usesContext": [
+		"tpgb/dynamicRepField",
+		"tpgb/dynamicPost",
+		"tpgb/dynamicSubFieldData",
+		"tpgb/dynamicRowIndex"
+	],
+	"ancestor": ["tpgb/tp-repeater-template"]
+}

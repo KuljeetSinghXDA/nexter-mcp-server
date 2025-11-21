@@ -1,0 +1,44 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "name": "tpgb/tp-security-field",
+    "version": "0.1.0",
+    "title": "Security Code",
+    "category": "tpgb",
+    "description": "Add security code to your form.",
+    "example": {
+        "attributes": {}
+    },
+    "supports": {
+        "anchor": true,
+        "align": [
+            "wide",
+            "full"
+        ]
+    },
+    "textdomain": "tpgb",
+    "ancestor": [
+        "tpgb/tp-form-block"
+    ],
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "securityOptions": {
+            "type": "string",
+            "default": ""
+        },
+        "captchaOptions": {
+            "type": "string",
+            "default": ""
+        },
+        "cloudSecretKey": {
+            "type": "string",
+            "default": ""
+        },
+        "cloudSiteKey": {
+            "type": "string",
+            "default": ""
+        }
+    }
+}

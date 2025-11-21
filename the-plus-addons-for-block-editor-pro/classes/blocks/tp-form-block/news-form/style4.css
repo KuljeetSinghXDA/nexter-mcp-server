@@ -1,0 +1,53 @@
+.nxt-newsstyle-4 .nxt-form {
+    display: flex;
+    gap: 16px
+}
+
+.nxt-newsstyle-4 .nxt-submit-container {
+    flex-shrink: 0;
+    display: flex;
+    padding: 2px 0 0
+}
+
+.nxt-newsstyle-4 .nxt-submit-container .nxt-submit {
+    background-color: #162d9e;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 15px 30px
+}
+
+.nxt-newsstyle-4 .nxt-date-input,.nxt-newsstyle-4 .nxt-email-input,.nxt-newsstyle-4 .nxt-message-input,.nxt-newsstyle-4 .nxt-number-input,.nxt-newsstyle-4 .nxt-phone-input,.nxt-newsstyle-4 .nxt-time-input,.nxt-newsstyle-4 .nxt-url-input {
+    width: 100%
+}
+
+.nxt-newsstyle-4 .nxt-date-input .nxt-date-richtext,.nxt-newsstyle-4 .nxt-message-input .nxt-message-richtext,.nxt-newsstyle-4 .nxt-time-input .nxt-time-richtext {
+    padding: 13.4px
+}
+
+.nxt-newsstyle-4 .nxt-form .nxt-input-container, .nxt-newsstyle-4 .nxt-form .nxt-input-wrapper {
+    margin-top: 0px;
+}
+
+.nxt-newsstyle-4 .nxt-form .nxt-input-container, .nxt-newsstyle-4 .nxt-form .nxt-input-wrapper {
+    margin-top: 0px;
+}
+
+.nxt-newsstyle-4 .nxt-phone-input .nxt-phone-richtext {
+    padding-left: 70px
+}
+
+.nxt-newsstyle-4 .nxt-date-label,.nxt-newsstyle-4 .nxt-email-label,.nxt-newsstyle-4 .nxt-message-label,.nxt-newsstyle-4 .nxt-name-label,.nxt-newsstyle-4 .nxt-number-label,.nxt-newsstyle-4 .nxt-phone-label,.nxt-newsstyle-4 .nxt-time-label,.nxt-newsstyle-4 .nxt-url-label {
+    display: none;
+    transition: all .3s ease;
+    pointer-events: none
+}
+
+.nxt-newsstyle-4 .nxt-phone-input .nxt-input-wrapper .nxt-country-dropdown {
+    top: 20px
+}
+
+.nxt-newsstyle-4 .nxt-form .nxt-date-field:has(.nxt-date-input>:nth-child(2).nxt-help-text:not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-newsstyle-4 .nxt-form .nxt-form-option:has(.nxt-option-input>:nth-child(2).nxt-help-text:not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-newsstyle-4 .nxt-form .nxt-number-field:has(.nxt-number-input>:nth-child(2).nxt-help-text:not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-newsstyle-4 .nxt-form .nxt-time-field:has(.nxt-time-input>:nth-child(2).nxt-help-text:not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-newsstyle-4 .nxt-form .nxt-url-field:has(.nxt-url-input>:nth-child(2).nxt-help-text:not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-newsstyle-4 .nxt-form .tp-form-checkbox-button:has(.nxt-checkbox-input>:nth-child(2).nxt-help-text:not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-newsstyle-4 .nxt-form .tp-form-email-field:has(.nxt-email-input>:nth-child(2).nxt-help-text:not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-newsstyle-4 .nxt-form .tp-form-message-field:has(.nxt-message-input>:nth-child(2).nxt-help-text:not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-newsstyle-4 .nxt-form .tp-form-name-field:has(.nxt-name-input>:nth-child(2).nxt-help-text:not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-newsstyle-4 .nxt-form .tp-form-phone-field:has(.nxt-phone-input>:nth-child(2).nxt-help-text:not(:empty))+.nxt-submit-button.nxt-btn-inline,.nxt-newsstyle-4 .nxt-form .tp-form-radio-button:has(.nxt-radio-input>:nth-child(2).nxt-help-text:not(:empty))+.nxt-submit-button.nxt-btn-inline {
+    margin-top: 31px!important
+}

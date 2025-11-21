@@ -1,0 +1,1534 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-process-steps",
+	"version": "0.1.0",
+	"title": "Process Steps",
+	"category": "tpgb",
+	"description": "Add Process/ Steps with unique variation using step indicator styles",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "style": {
+            "type": "string",
+            "default": "style-1"
+        },
+        "displayCounter": {
+            "type": "boolean",
+            "default": false
+        },
+        "counterStyle": {
+            "type": "string",
+            "default": "number_normal"
+        },
+        "vertOnTablet": {
+            "type": "boolean",
+            "default": false
+        },
+        "nmlLoutMobile": {
+            "type": "boolean",
+            "default": false
+        },
+        "imgSt2Align": {
+            "type": "string",
+            "default": "center"
+        },
+        "cntntSt2Align": {
+            "type": "string",
+            "default": "center"
+        },
+        "specialBG": {
+            "type": "boolean",
+            "default": false
+        },
+        "dfltActive": {
+            "type": "string",
+            "default": "none"
+        },
+        "processSteps": {
+            "type": "array",
+            "repeaterField": [
+                {
+                    "title": {
+                        "type": "string",
+                        "default": "Next Step"
+                    },
+                    "desc": {
+                        "type": "string",
+                        "default": "It`s a step description, Which will be changed with your required text content over here. Add content you want to add over here."
+                    },
+                    "selectIcon": {
+                        "type": "string",
+                        "default": "icon"
+                    },
+                    "fontAwesomeIcon": {
+                        "type": "string",
+                        "default": "fas fa-star"
+                    },
+                    "stepImage": {
+                        "type": "object",
+                        "default": {
+                            "url": ""
+                        }
+                    },
+                    "imageSize": {
+                        "type": "string",
+                        "default": "thumbnail"
+                    },
+                    "stepText": {
+                        "type": "string",
+                        "default": "The Plus"
+                    },
+                    "linkUrl": {
+                        "type": "object",
+                        "default": []
+                    },
+                    "customText": {
+                        "type": "string",
+                        "default": "step"
+                    },
+                    "iconNormalBG": {
+                        "type": "object",
+                        "default": {
+                            "openBg": 0,
+                            "bgType": "color"
+                        },
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}}.tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-icon-img"
+                            }
+                        ]
+                    },
+                    "iconHoverBG": {
+                        "type": "object",
+                        "default": {
+                            "openBg": 0,
+                            "bgType": "color"
+                        },
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}} {{TP_REPEAT_ID}}.tpgb-p-s-wrap:hover .tp-ps-left-imt .tp-ps-icon-img , {{PLUS_WRAP}} {{TP_REPEAT_ID}}.tpgb-p-s-wrap.active .tp-ps-left-imt .tp-ps-icon-img"
+                            }
+                        ]
+                    },
+                    "contentHeight": {
+                        "type": "object",
+                        "default": {
+                            "md": "",
+                            "unit": "px"
+                        },
+                        "style": [
+                            {
+                                "selector": "{{PLUS_WRAP}}.tpgb-process-steps.style-1 .tpgb-p-s-wrap{{TP_REPEAT_ID}} .tp-ps-left-imt:after , {{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap{{TP_REPEAT_ID}} { min-height: {{contentHeight}};}"
+                            }
+                        ],
+                        "scopy": true
+                    }
+                }
+            ],
+            "default": [
+                {
+                    "_key": "0",
+                    "title": "Step 1",
+                    "desc": "Begin with your self. Improve, Learn, discover and become master with complete self-discipline.",
+                    "selectIcon": "icon",
+                    "fontAwesomeIcon": "fas fa-chess-king",
+                    "stepImage": {
+                        "url": ""
+                    },
+                    "imageSize": "thumbnail",
+                    "stepText": "The Plus",
+                    "linkUrl": {
+                        "url": "",
+                        "target": "",
+                        "nofollow": ""
+                    },
+                    "customText": "step"
+                },
+                {
+                    "_key": "1",
+                    "title": "Step 2",
+                    "desc": "Now, It’s time to share and help others. Spread all your have learned to others and help them get free.",
+                    "selectIcon": "icon",
+                    "fontAwesomeIcon": "fas fa-bullhorn",
+                    "stepImage": {
+                        "url": ""
+                    },
+                    "imageSize": "thumbnail",
+                    "stepText": "The Plus",
+                    "linkUrl": {
+                        "url": "",
+                        "target": "",
+                        "nofollow": ""
+                    },
+                    "customText": "step"
+                }
+            ]
+        },
+        "carouselToggle": {
+            "type": "boolean",
+            "default": false
+        },
+        "carouselID": {
+            "type": "string",
+            "default": ""
+        },
+        "carouselEffect": {
+            "type": "string",
+            "default": "con_pro_hover"
+        },
+        "titleTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-pro-step-title"
+                }
+            ],
+            "scopy": true
+        },
+        "titleNmlColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-pro-step-title{ color: {{titleNmlColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "titleHvrColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover .tp-pro-step-title,{{PLUS_WRAP}} .tpgb-p-s-wrap.active .tp-pro-step-title{ color: {{titleHvrColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "titleTopSpace": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-pro-step-title{ margin-top: {{titleTopSpace}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "descTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-pro-step-desc"
+                }
+            ],
+            "scopy": true
+        },
+        "descNmlColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-pro-step-desc{ color: {{descNmlColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "descHvrColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover .tp-pro-step-desc,{{PLUS_WRAP}} .tpgb-p-s-wrap.active .tp-pro-step-desc{ color: {{descHvrColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "descTopSpace": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-pro-step-desc{ margin-top: {{descTopSpace}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "iconSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-icon-img { font-size: {{iconSize}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "iconNmlColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-icon-img { color: {{iconNmlColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "iconHvrColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover .tp-ps-left-imt .tp-ps-icon-img , {{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap.active .tp-ps-left-imt .tp-ps-icon-img { color: {{iconHvrColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "imgSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-icon-img{ width: {{imgSize}}; height: {{imgSize}}; line-height: {{imgSize}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "imgBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-icon-img{border-radius: {{imgBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "textTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-text"
+                }
+            ],
+            "scopy": true
+        },
+        "textNmlColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-text{ color: {{textNmlColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "textHvrColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover .tp-ps-text,{{PLUS_WRAP}} .tpgb-p-s-wrap.active .tp-ps-text{ color: {{textHvrColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "bgSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-icon-img { width: {{bgSize}}; height: {{bgSize}}; }  {{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-special-bg:after { width: calc({{bgSize}} + 20px); height: calc({{bgSize}} + 20px); } {{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-special-bg:before { width: calc({{bgSize}} + 40px); height: calc({{bgSize}} + 40px); } {{PLUS_WRAP}}.tpgb-process-steps.style-1 .tpgb-p-s-wrap .tp-ps-left-imt:after ,{{PLUS_WRAP}}.tpgb-process-steps.style-2 .tpgb-p-s-wrap .tp-ps-left-imt:after { left: calc(({{bgSize}} \/2) - {{sepBSize}}); } {{PLUS_WRAP}}.tpgb-process-steps.style-1 .tpgb-p-s-wrap .tp-ps-left-imt { margin-right: calc({{bgSize}} \/1.3); } {{PLUS_WRAP}}.tpgb-process-steps.style-1 .tpgb-p-s-wrap .tp-ps-right-content { width: calc(100% - ({{bgSize}} * 2)); }"
+                }
+            ],
+            "scopy": true
+        },
+        "contentHeight": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps.style-1 .tpgb-p-s-wrap .tp-ps-left-imt:after , {{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap{ min-height: {{contentHeight}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "normalBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-icon-img "
+                }
+            ],
+            "scopy": true
+        },
+        "hoverBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap:hover .tp-ps-left-imt .tp-ps-icon-img ,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap.active .tp-ps-left-imt .tp-ps-icon-img"
+                }
+            ],
+            "scopy": true
+        },
+        "bgNmlB": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-icon-img"
+                }
+            ],
+            "scopy": true
+        },
+        "bgHvrB": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap:hover .tp-ps-left-imt .tp-ps-icon-img , {{PLUS_WRAP}} .tpgb-p-s-wrap.active .tp-ps-left-imt .tp-ps-icon-img"
+                }
+            ],
+            "scopy": true
+        },
+        "nmlBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-icon-img{border-radius: {{nmlBRadius}};} "
+                }
+            ],
+            "scopy": true
+        },
+        "hvrBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover .tp-ps-left-imt .tp-ps-icon-img,{{PLUS_WRAP}} .tpgb-p-s-wrap.active .tp-ps-left-imt .tp-ps-icon-img{border-radius: {{hvrBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "nmlBGShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-icon-img"
+                }
+            ],
+            "scopy": true
+        },
+        "hvrBGShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover .tp-ps-left-imt .tp-ps-icon-img , {{PLUS_WRAP}} .tpgb-p-s-wrap.active .tp-ps-left-imt .tp-ps-icon-img"
+                }
+            ],
+            "scopy": true
+        },
+        "transformNmlCSS": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-icon-img .tp-ps-text , {{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-icon-img .tp-icon-img , {{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-icon-img i{ transform: {{transformNmlCSS}}; -ms-transform: {{transformNmlCSS}}; -moz-transform: {{transformNmlCSS}}; -webkit-transform: {{transformNmlCSS}}; transform-style: preserve-3d;-ms-transform-style: preserve-3d;-moz-transform-style: preserve-3d;-webkit-transform-style: preserve-3d;-webkit-transition: all .3s ease-in-out; -moz-transition: all .3s ease-in-out;-o-transition: all .3s ease-in-out;transition: all .3s ease-in-out; }"
+                }
+            ],
+            "scopy": true
+        },
+        "transformHvrCSS": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover .tp-ps-icon-img .tp-ps-text , {{PLUS_WRAP}} .tpgb-p-s-wrap:hover .tp-ps-icon-img .tp-icon-img , {{PLUS_WRAP}} .tpgb-p-s-wrap:hover .tp-ps-icon-img i , {{PLUS_WRAP}} .tpgb-p-s-wrap.active .tp-ps-icon-img .tp-ps-text , {{PLUS_WRAP}} .tpgb-p-s-wrap.active .tp-ps-icon-img .tp-icon-img , {{PLUS_WRAP}} .tpgb-p-s-wrap.active .tp-ps-icon-img i{ transform: {{transformHvrCSS}}; -ms-transform: {{transformHvrCSS}}; -moz-transform: {{transformHvrCSS}}; -webkit-transform: {{transformHvrCSS}}; transform-style: preserve-3d;-ms-transform-style: preserve-3d;-moz-transform-style: preserve-3d;-webkit-transform-style: preserve-3d;-webkit-transition: all .3s ease-in-out; -moz-transition: all .3s ease-in-out;-o-transition: all .3s ease-in-out;transition: all .3s ease-in-out; }"
+                }
+            ],
+            "scopy": true
+        },
+        "nmlOverlay": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-icon-img{ box-shadow: {{nmlOverlay}} 0 0 0 100px inset; }"
+                }
+            ],
+            "scopy": true
+        },
+        "hvrOverlay": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover .tp-ps-left-imt .tp-ps-icon-img , {{PLUS_WRAP}} .tpgb-p-s-wrap.active .tp-ps-left-imt .tp-ps-icon-img{ box-shadow: {{hvrOverlay}} 0 0 0 100px inset; }"
+                }
+            ],
+            "scopy": true
+        },
+        "bType": {
+            "type": "string",
+            "default": "solid",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "bType",
+                            "relation": "!=",
+                            "value": "custom"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps.style-1 .tpgb-p-s-wrap .tp-ps-left-imt:after,{{PLUS_WRAP}}.tpgb-process-steps.style-2 .tp-ps-left-imt:before,{{PLUS_WRAP}}.tpgb-process-steps.style-2 .tp-ps-left-imt:after{ border-style: {{bType}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "sepNmlColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "bType",
+                            "relation": "!=",
+                            "value": "custom"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps.style-1 .tpgb-p-s-wrap .tp-ps-left-imt:after,{{PLUS_WRAP}}.tpgb-process-steps.style-2 .tp-ps-left-imt:before,{{PLUS_WRAP}}.tpgb-process-steps.style-2 .tp-ps-left-imt:after{ border-color: {{sepNmlColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "sepBSize": {
+            "type": "object",
+            "default": {
+                "md": "1",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "bType",
+                            "relation": "!=",
+                            "value": "custom"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps.style-1 .tp-ps-left-imt:after,{{PLUS_WRAP}}.tpgb-process-steps.style-2 .tp-ps-left-imt:before ,{{PLUS_WRAP}}.tpgb-process-steps.style-2 .tp-ps-left-imt:after{ border-width: {{sepBSize}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "sepSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "style",
+                            "relation": "==",
+                            "value": "style-2"
+                        },
+                        {
+                            "key": "bType",
+                            "relation": "!=",
+                            "value": "custom"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps.style-2 .tpgb-p-s-wrap .tp-ps-left-imt:before{ width: {{sepSize}} !important;  right : calc( (-{{sepSize}}\/2) - 10px ) !important;}"
+                }
+            ],
+            "scopy": true
+        },
+        "sepHvrColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps.style-1 .tpgb-p-s-wrap:hover .tp-ps-left-imt:after,{{PLUS_WRAP}}.tpgb-process-steps.style-1 .tpgb-p-s-wrap.active .tp-ps-left-imt:after,{{PLUS_WRAP}}.tpgb-process-steps.style-2 .tpgb-p-s-wrap:hover .tp-ps-left-imt:before,{{PLUS_WRAP}}.tpgb-process-steps.style-2 .tpgb-p-s-wrap.active .tp-ps-left-imt:before{ border-color: {{sepHvrColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "customImg": {
+            "type": "object",
+            "default": {
+                "url": ""
+            }
+        },
+        "sepOffset": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "bType",
+                            "relation": "==",
+                            "value": "custom"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps.style-1.tp_ps_sep_img .tp-sep-custom-img-inner,{{PLUS_WRAP}}.tpgb-process-steps.style-2.tp_ps_sep_img .tp-sep-custom-img-inner{ left: {{sepOffset}}; position:relative;}"
+                }
+            ],
+            "scopy": true
+        },
+        "imgMaxSize": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "style",
+                            "relation": "==",
+                            "value": "style-1"
+                        },
+                        {
+                            "key": "bType",
+                            "relation": "==",
+                            "value": "custom"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps.style-1.tp_ps_sep_img .tp-sep-custom-img-inner{ max-height: {{imgMaxSize}};}"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "style",
+                            "relation": "==",
+                            "value": "style-2"
+                        },
+                        {
+                            "key": "bType",
+                            "relation": "==",
+                            "value": "custom"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps.style-2.tp_ps_sep_img .tp-sep-custom-img-inner{ width: {{imgMaxSize}};max-width: {{imgMaxSize}};height:auto;}"
+                }
+            ],
+            "scopy": true
+        },
+        "sepBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "bType",
+                            "relation": "==",
+                            "value": "custom"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps.style-1.tp_ps_sep_img .tp-sep-custom-img-inner , {{PLUS_WRAP}}.tpgb-process-steps.style-2.tp_ps_sep_img .tp-sep-custom-img-inner{border-radius: {{sepBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "counterPadding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "counterStyle",
+                            "relation": "==",
+                            "value": "dc_custom_text"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-dc.dc_custom_text .ds_custom_text_label{padding: {{counterPadding}};} "
+                }
+            ],
+            "scopy": true
+        },
+        "counterLeftSpace": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "displayCounter",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-dc{ margin-left: {{counterLeftSpace}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "counterTopSpace": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "displayCounter",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-dc{ margin-top: {{counterTopSpace}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "counterTypo": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "displayCounter",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-dc:after ,{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-dc.dc_custom_text .ds_custom_text_label"
+                }
+            ],
+            "scopy": true
+        },
+        "counterNmlColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "displayCounter",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-dc:after,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap .tp-ps-dc.dc_custom_text .ds_custom_text_label{ color: {{counterNmlColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "counterHvrColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "displayCounter",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap:hover .tp-ps-left-imt .tp-ps-dc:after,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap:hover .tp-ps-dc.dc_custom_text .ds_custom_text_label ,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap.active .tp-ps-left-imt .tp-ps-dc:after,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap.active .tp-ps-dc.dc_custom_text .ds_custom_text_label{ color: {{counterHvrColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "counterNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "displayCounter",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-dc:after,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap .tp-ps-dc.dc_custom_text .ds_custom_text_label"
+                }
+            ],
+            "scopy": true
+        },
+        "counterHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "displayCounter",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap:hover .tp-ps-left-imt .tp-ps-dc:after,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap:hover .tp-ps-dc.dc_custom_text .ds_custom_text_label ,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap.active .tp-ps-left-imt .tp-ps-dc:after,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap.active .tp-ps-dc.dc_custom_text .ds_custom_text_label"
+                }
+            ],
+            "scopy": true
+        },
+        "counterNmlB": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "displayCounter",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-dc:after,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap .tp-ps-dc.dc_custom_text .ds_custom_text_label"
+                }
+            ],
+            "scopy": true
+        },
+        "counterHvrB": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "displayCounter",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap:hover .tp-ps-left-imt .tp-ps-dc:after,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap:hover .tp-ps-dc.dc_custom_text .ds_custom_text_label ,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap.active .tp-ps-left-imt .tp-ps-dc:after,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap.active .tp-ps-dc.dc_custom_text .ds_custom_text_label"
+                }
+            ],
+            "scopy": true
+        },
+        "counterNmlBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "displayCounter",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-dc:after,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap .tp-ps-dc.dc_custom_text .ds_custom_text_label{border-radius: {{counterNmlBRadius}};} "
+                }
+            ],
+            "scopy": true
+        },
+        "counterHvrBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "displayCounter",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap:hover .tp-ps-left-imt .tp-ps-dc:after,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap:hover .tp-ps-dc.dc_custom_text .ds_custom_text_label ,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap.active .tp-ps-left-imt .tp-ps-dc:after,{{PLUS_WRAP}}.tpgb-process-steps .tpgb-p-s-wrap.active .tp-ps-dc.dc_custom_text .ds_custom_text_label{border-radius: {{counterHvrBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "counterNmlShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "displayCounter",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-left-imt .tp-ps-dc:after,{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-dc.dc_custom_text .ds_custom_text_label"
+                }
+            ],
+            "scopy": true
+        },
+        "counterHvrShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "displayCounter",
+                            "relation": "==",
+                            "value": true
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover .tp-ps-left-imt .tp-ps-dc:after,{{PLUS_WRAP}} .tpgb-p-s-wrap:hover .tp-ps-dc.dc_custom_text .ds_custom_text_label ,{{PLUS_WRAP}} .tpgb-p-s-wrap.active .tp-ps-left-imt .tp-ps-dc:after,{{PLUS_WRAP}} .tpgb-p-s-wrap.active .tp-ps-dc.dc_custom_text .ds_custom_text_label"
+                }
+            ],
+            "scopy": true
+        },
+        "contentPadding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-right-content{padding: {{contentPadding}};} "
+                }
+            ],
+            "scopy": true
+        },
+        "contentSt2Margin": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "style",
+                            "relation": "==",
+                            "value": "style-2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-right-content{margin: {{contentSt2Margin}};} "
+                }
+            ],
+            "scopy": true
+        },
+        "contentMargin": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "style",
+                            "relation": "==",
+                            "value": "style-1"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.tpgb-process-steps.style-1 .tpgb-p-s-wrap .tp-ps-left-imt{ margin-right: {{contentMargin}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "contentNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-right-content"
+                }
+            ],
+            "scopy": true
+        },
+        "contentHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover .tp-ps-right-content , {{PLUS_WRAP}} .tpgb-p-s-wrap.active .tp-ps-right-content"
+                }
+            ],
+            "scopy": true
+        },
+        "contentNmlB": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-right-content"
+                }
+            ],
+            "scopy": true
+        },
+        "contentHvrB": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover .tp-ps-right-content , {{PLUS_WRAP}} .tpgb-p-s-wrap.active .tp-ps-right-content"
+                }
+            ],
+            "scopy": true
+        },
+        "contentNmlBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-right-content{border-radius: {{contentNmlBRadius}};} "
+                }
+            ],
+            "scopy": true
+        },
+        "contentHvrBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover .tp-ps-right-content{border-radius: {{contentHvrBRadius}};}  {{PLUS_WRAP}} .tpgb-p-s-wrap.active .tp-ps-right-content{border-radius: {{contentHvrBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "contentNmlShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap .tp-ps-right-content"
+                }
+            ],
+            "scopy": true
+        },
+        "contentHvrShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover .tp-ps-right-content, {{PLUS_WRAP}} .tpgb-p-s-wrap.active .tp-ps-right-content"
+                }
+            ],
+            "scopy": true
+        },
+        "repPadding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "style",
+                            "relation": "==",
+                            "value": "style-1"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap {padding: {{repPadding}};} "
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "style",
+                            "relation": "==",
+                            "value": "style-2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.style-2 .tpgb-p-s-wrap {padding: {{repPadding}};} "
+                }
+            ],
+            "scopy": true
+        },
+        "repMargin": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "style",
+                            "relation": "==",
+                            "value": "style-1"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap {margin: {{repMargin}};} "
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "style",
+                            "relation": "==",
+                            "value": "style-2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}}.style-2 .tpgb-p-s-wrap {margin: {{repMargin}};} "
+                }
+            ],
+            "scopy": true
+        },
+        "repNmlBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap"
+                }
+            ],
+            "scopy": true
+        },
+        "repHvrBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover, {{PLUS_WRAP}} .tpgb-p-s-wrap.active"
+                }
+            ],
+            "scopy": true
+        },
+        "repNmlB": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap"
+                }
+            ],
+            "scopy": true
+        },
+        "repHvrB": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover, {{PLUS_WRAP}} .tpgb-p-s-wrap.active"
+                }
+            ],
+            "scopy": true
+        },
+        "repNmlBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap {border-radius: {{repNmlBRadius}};} "
+                }
+            ],
+            "scopy": true
+        },
+        "repHvrBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover {border-radius: {{contentHvrBRadius}};} {{PLUS_WRAP}} .tpgb-p-s-wrap.active {border-radius: {{repHvrBRadius}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "repNmlShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap"
+                }
+            ],
+            "scopy": true
+        },
+        "repHvrShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "selector": "{{PLUS_WRAP}} .tpgb-p-s-wrap:hover, {{PLUS_WRAP}} .tpgb-p-s-wrap.active"
+                }
+            ],
+            "scopy": true
+        },
+        "tpgbEqualHeight": {
+            "type": "boolean",
+            "default": false,
+            "scopy": true
+        },
+        "equalUnqClass": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "showBlockContent" :{
+            "type": "boolean",
+            "default": true
+        }
+    }
+}

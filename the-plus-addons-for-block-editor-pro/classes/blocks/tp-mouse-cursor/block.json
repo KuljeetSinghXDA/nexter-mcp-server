@@ -1,0 +1,1089 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "tpgb/tp-mouse-cursor",
+	"version": "0.1.0",
+	"title": "Mouse Cursor",
+	"category": "tpgb",
+	"description": "Customize your mouse cursor with custom upload animation or images.",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"align": ["wide","full"]
+	},
+	"textdomain": "tpgb",
+    "attributes": {
+        "block_id": {
+            "type": "string",
+            "default": ""
+        },
+        "backVis": {
+            "type": "boolean",
+            "default": true
+        },
+        "cursorEffect": {
+            "type": "string",
+            "default": "mc-body"
+        },
+        "cursorType": {
+            "type": "string",
+            "default": "mouse-cursor-icon"
+        },
+        "curIconType": {
+            "type": "string",
+            "default": "icon-predefine"
+        },
+        "curPreIcon": {
+            "type": "string",
+            "default": "crosshair"
+        },
+        "circleCursorType": {
+            "type": "string",
+            "default": "cursor-predefine"
+        },
+        "mcCursorSymbol": {
+            "type": "string",
+            "default": "crosshair",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-follow-circle{ cursor: {{mcCursorSymbol}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circleStyle": {
+            "type": "string",
+            "default": "mc-cs1"
+        },
+        "mcPointerCirIcon": {
+            "type": "object",
+            "default": { "url" : ""}
+        },
+        "mcPointerIcon": {
+            "type": "object",
+            "default": { "url" : ""}
+        },
+        "iconMaxWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-image"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-pointer-follow { max-width: {{iconMaxWidth}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "circleMaxWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "!=",
+                            "value": "mc-body"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-follow-circle { max-width: {{circleMaxWidth}}; width: {{circleMaxWidth}};}"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "==",
+                            "value": "mc-body"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "!=",
+                            "value": "mc-cs2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-follow-circle { max-width: {{circleMaxWidth}}; width: {{circleMaxWidth}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "circleMaxHeight": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "!=",
+                            "value": "mc-body"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-follow-circle { max-height: {{circleMaxHeight}}; height: {{circleMaxHeight}};}"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "==",
+                            "value": "mc-body"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "!=",
+                            "value": "mc-cs2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-follow-circle { max-height: {{circleMaxHeight}}; height: {{circleMaxHeight}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "firstCircleSize": {
+            "type": "string",
+            "default": "50"
+        },
+        "secondCircleSize": {
+            "type": "string",
+            "default": "30"
+        },
+        "pointerText": {
+            "type": "string",
+            "default": "Follow Text"
+        },
+        "pointLeftOffset": {
+            "type": "string",
+            "default": "10"
+        },
+        "pointTopOffset": {
+            "type": "string",
+            "default": "10"
+        },
+        "circleZindex": {
+            "type": "string",
+            "default": "99",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-follow-circle{ z-index: {{circleZindex}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "mcClick": {
+            "type": "boolean",
+            "default": false
+        },
+        "mcClickIcon": {
+            "type": "object",
+            "default": {"url" : ""}
+        },
+        "mcClickText": {
+            "type": "string",
+            "default": "See More"
+        },
+        "listTagHover": {
+            "type": "string",
+            "default": "a"
+        },
+        "textTyp": {
+            "type": "object",
+            "default": {
+                "openTypography": 0,
+                "size": {
+                    "md": "",
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "!=",
+                            "value": "mc-block"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-text"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-pointer-follow-text"
+                }
+            ],
+            "scopy": true
+        },
+        "textColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "!=",
+                            "value": "mc-block"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-text"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-pointer-follow-text{ color: {{textColor}}; }"
+                }
+            ]
+        },
+        "textMWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "!=",
+                            "value": "mc-block"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-text"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-pointer-follow-text{ max-width: {{textMWidth}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "textPadding": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "!=",
+                            "value": "mc-block"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-text"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-pointer-follow-text{padding: {{textPadding}};} "
+                }
+            ],
+            "scopy": true
+        },
+        "textBG": {
+            "type": "object",
+            "default": {
+                "openBg": 0,
+                "bgType": "color",
+                "bgDefaultColor": "",
+                "bgGradient": {
+                    "color1": "#16d03e",
+                    "color2": "#1f91f3",
+                    "type": "linear",
+                    "direction": "90",
+                    "start": 5,
+                    "stop": 80,
+                    "radial": "center",
+                    "clip": false
+                },
+                "overlayBg": "",
+                "overlayBgOpacity": "",
+                "bgGradientOpacity": ""
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "!=",
+                            "value": "mc-block"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-text"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-pointer-follow-text"
+                }
+            ],
+            "scopy": true
+        },
+        "textBorder": {
+            "type": "object",
+            "default": {
+                "openBorder": 0,
+                "type": "",
+                "color": "",
+                "width": {
+                    "md": {
+                        "top": "1",
+                        "left": "1",
+                        "bottom": "1",
+                        "right": "1"
+                    },
+                    "unit": "px"
+                }
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "!=",
+                            "value": "mc-block"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-text"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-pointer-follow-text"
+                }
+            ],
+            "scopy": true
+        },
+        "textBRadius": {
+            "type": "object",
+            "default": {
+                "md": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "!=",
+                            "value": "mc-block"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-text"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-pointer-follow-text{border-radius: {{textBRadius}};} "
+                }
+            ],
+            "scopy": true
+        },
+        "textBoxShadow": {
+            "type": "object",
+            "default": {
+                "openShadow": 0,
+                "inset": 0,
+                "horizontal": 0,
+                "vertical": 4,
+                "blur": 8,
+                "spread": 0,
+                "color": "rgba(0,0,0,0.40)"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "!=",
+                            "value": "mc-block"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-text"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-pointer-follow-text"
+                }
+            ],
+            "scopy": true
+        },
+        "textBlockSize": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "textBlockColor": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "textBlockWidth": {
+            "type": "string",
+            "default": "",
+            "scopy": true
+        },
+        "circleCNmlBG": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-custom"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-follow-circle{ background-color: {{circleCNmlBG}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "crclMixBMode": {
+            "type": "string",
+            "default": "difference",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "==",
+                            "value": "mc-cs3"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}},{{PLUS_WRAP}} .tpgb-cursor-follow-circle{mix-blend-mode: {{crclMixBMode}};}"
+                }
+            ],
+            "scopy": true
+        },
+        "circleNmlBG": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "!=",
+                            "value": "mc-cs2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-follow-circle{ background-color: {{circleNmlBG}}; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "==",
+                            "value": "mc-cs2"
+                        },
+                        {
+                            "key": "cursorEffect",
+                            "relation": "!=",
+                            "value": "mc-body"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-follow-circle{ background-color: {{circleNmlBG}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circleOpacity": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "==",
+                            "value": "mc-cs1"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-follow-circle{ opacity: {{circleOpacity}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circles2NmlColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "==",
+                            "value": "mc-body"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "==",
+                            "value": "mc-cs2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-mc-svg-circle .tpgb-mc-circle-st1{ stroke: {{circles2NmlColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circles2StrokeNWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "==",
+                            "value": "mc-body"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "==",
+                            "value": "mc-cs2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-mc-svg-circle .tpgb-mc-circle-st1{ stroke-width: {{circles2StrokeNWidth}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circles2NmlFill": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "==",
+                            "value": "mc-body"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "==",
+                            "value": "mc-cs2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-mc-svg-circle .tpgb-mc-circle-st1{ fill: {{circles2NmlFill}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circlecs2NPrgrssColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "==",
+                            "value": "mc-body"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "==",
+                            "value": "mc-cs2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-mc-svg-circle .tpgb-mc-circle-progress-bar{ stroke: {{circlecs2NPrgrssColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circles2NPrgrssWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "==",
+                            "value": "mc-body"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "==",
+                            "value": "mc-cs2"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-mc-svg-circle .tpgb-mc-circle-progress-bar{ stroke-width: {{circles2NPrgrssWidth}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circleTansNmlCss": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-follow-circle{ transform: {{circleTansNmlCss}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circleNmlTranDur": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        }
+                    ],
+                    "selector": "{{PLUS_WRAP}} .tpgb-cursor-follow-circle{ transition: transform {{circleNmlTranDur}}s ease, background {{circleNmlTranDur}}s ease; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circleHvrBG": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "!=",
+                            "value": "mc-cs2"
+                        }
+                    ],
+                    "selector": ".tpgb-mouse-hover-active {{PLUS_WRAP}} .tpgb-cursor-follow-circle{ background-color: {{circleHvrBG}}; }"
+                },
+                {
+                    "condition": [
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "==",
+                            "value": "mc-cs2"
+                        },
+                        {
+                            "key": "cursorEffect",
+                            "relation": "!=",
+                            "value": "mc-body"
+                        }
+                    ],
+                    "selector": ".tpgb-mouse-hover-active {{PLUS_WRAP}} .tpgb-cursor-follow-circle{ background-color: {{circleHvrBG}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circles2HvrColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "==",
+                            "value": "mc-body"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "==",
+                            "value": "mc-cs2"
+                        }
+                    ],
+                    "selector": ".tpgb-mouse-hover-active {{PLUS_WRAP}} .tpgb-mc-svg-circle .tpgb-mc-circle-st1{ stroke: {{circles2HvrColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circles2StrokeHWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "==",
+                            "value": "mc-body"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "==",
+                            "value": "mc-cs2"
+                        }
+                    ],
+                    "selector": ".tpgb-mouse-hover-active {{PLUS_WRAP}} .tpgb-mc-svg-circle .tpgb-mc-circle-st1{ stroke-width: {{circles2StrokeHWidth}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circles2HvrFill": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "==",
+                            "value": "mc-body"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "==",
+                            "value": "mc-cs2"
+                        }
+                    ],
+                    "selector": ".tpgb-mouse-hover-active {{PLUS_WRAP}} .tpgb-mc-svg-circle .tpgb-mc-circle-st1{ fill: {{circles2HvrFill}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circlecs2HPrgrssColor": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "==",
+                            "value": "mc-body"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "==",
+                            "value": "mc-cs2"
+                        }
+                    ],
+                    "selector": ".tpgb-mouse-hover-active {{PLUS_WRAP}} .tpgb-mc-svg-circle .tpgb-mc-circle-progress-bar{ stroke: {{circlecs2HPrgrssColor}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circles2HPrgrssWidth": {
+            "type": "object",
+            "default": {
+                "md": "",
+                "unit": "px"
+            },
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorEffect",
+                            "relation": "==",
+                            "value": "mc-body"
+                        },
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        },
+                        {
+                            "key": "circleStyle",
+                            "relation": "==",
+                            "value": "mc-cs2"
+                        }
+                    ],
+                    "selector": ".tpgb-mouse-hover-active {{PLUS_WRAP}} .tpgb-mc-svg-circle .tpgb-mc-circle-progress-bar{ stroke-width: {{circles2HPrgrssWidth}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circleTansHvrCss": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        }
+                    ],
+                    "selector": ".tpgb-mouse-hover-active {{PLUS_WRAP}} .tpgb-cursor-follow-circle{ transform: {{circleTansHvrCss}}; }"
+                }
+            ],
+            "scopy": true
+        },
+        "circleHvrTranDur": {
+            "type": "string",
+            "default": "",
+            "style": [
+                {
+                    "condition": [
+                        {
+                            "key": "cursorType",
+                            "relation": "==",
+                            "value": "mouse-follow-circle"
+                        },
+                        {
+                            "key": "circleCursorType",
+                            "relation": "==",
+                            "value": "cursor-predefine"
+                        }
+                    ],
+                    "selector": ".tpgb-mouse-hover-active {{PLUS_WRAP}} .tpgb-cursor-follow-circle{ transition: transform {{circleHvrTranDur}}s ease, background {{circleHvrTranDur}}s ease; }"
+                }
+            ],
+            "scopy": true
+        },
+        "showBlockContent" :{
+            "type": "boolean",
+            "default": true
+        }
+    }
+}
