@@ -88,25 +88,31 @@ export function logError(context: string, error: Error | any, additionalInfo?: a
 }
 
 // Remove sensitive data from logs
-function sanitizeArgs(args: any): any {
+function sanitizeArgs(args: any, seen: WeakSet<object> = new WeakSet()): any {
   if (!args || typeof args !== 'object') return args;
-  
+
+  // Prevent circular references from causing stack overflow
+  if (seen.has(args)) {
+    return '[Circular Reference]';
+  }
+  seen.add(args);
+
   const sanitized = { ...args };
   const sensitiveKeys = ['password', 'token', 'secret', 'apiKey', 'api_key', 'WP_APP_PASSWORD'];
-  
+
   for (const key of sensitiveKeys) {
     if (sanitized[key]) {
       sanitized[key] = '***REDACTED***';
     }
   }
-  
+
   // Recursive sanitization for nested objects
   for (const [key, value] of Object.entries(sanitized)) {
     if (value && typeof value === 'object') {
-      sanitized[key] = sanitizeArgs(value);
+      sanitized[key] = sanitizeArgs(value, seen);
     }
   }
-  
+
   return sanitized;
 }
 
