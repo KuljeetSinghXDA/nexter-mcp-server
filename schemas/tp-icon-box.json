@@ -1,0 +1,150 @@
+{
+  "blockName": "tpgb/tp-icon-box",
+  "version": "1.0.0",
+  "title": "Icon",
+  "category": "content",
+  "description": "Display icons with customizable styling including Font Awesome icons or SVG images. Supports three display modes (default, stacked, framed), alignment, linking, and hover effects. Perfect for visual accents and icon displays.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "icon": {
+      "type": "string",
+      "default": "fontAwesome",
+      "enum": ["fontAwesome", "svg"],
+      "description": "Icon type: Font Awesome or custom SVG"
+    },
+    "fIcon": {
+      "type": "string",
+      "default": "fas fa-star",
+      "description": "Font Awesome icon class"
+    },
+    "isvg": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Custom SVG icon upload"
+    },
+    "iAlign": {
+      "type": "object",
+      "default": {"md": "left", "sm": "", "xs": ""},
+      "description": "Icon alignment (left, center, right)",
+      "responsive": true
+    },
+    "anchor": {
+      "type": "string",
+      "description": "HTML anchor ID for direct linking"
+    },
+    "iview": {
+      "type": "string",
+      "default": "default",
+      "enum": ["default", "stacked", "framed"],
+      "description": "Icon display style: default (icon only), stacked (with background circle/square), framed (with border)"
+    },
+    "iLink": {
+      "type": "object",
+      "default": {"url": "", "target": "", "nofollow": ""},
+      "description": "Optional link for the icon"
+    },
+    "iColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (default view), background color (stacked view), or icon+border color (framed view)"
+    },
+    "ihColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon hover color"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "fIcon",
+      "isvg",
+      "iAlign",
+      "iLink",
+      "iColor",
+      "ihColor",
+      "anchor"
+    ],
+    "requiresValidation": [
+      "icon",
+      "iview"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Icon font library (Font Awesome)",
+    "SVG styling",
+    "Icon view styles (default/stacked/framed)",
+    "Hover transition effects"
+  ],
+  "commonUseCases": [
+    "Feature icons",
+    "Service icons",
+    "Social media icons",
+    "Decorative icons",
+    "List item bullets",
+    "Call-out icons",
+    "Navigation icons"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-icon-box",
+    "tpgb/tp-infobox",
+    "tpgb/tp-social-icons",
+    "tpgb/tp-button"
+  ],
+  "capabilities": [
+    "Font Awesome icon support",
+    "Custom SVG upload",
+    "Three display modes (default/stacked/framed)",
+    "Responsive alignment",
+    "Optional linking",
+    "Custom colors (normal and hover)",
+    "Anchor link support"
+  ],
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple icon with default view",
+      "attributes": {
+        "block_id": "a1b2",
+        "icon": "fontAwesome",
+        "fIcon": "fas fa-heart",
+        "iview": "default",
+        "iAlign": {"md": "center"},
+        "iColor": "#e74c3c"
+      }
+    },
+    {
+      "description": "Stacked icon with background",
+      "attributes": {
+        "block_id": "c3d4",
+        "fIcon": "fas fa-check",
+        "iview": "stacked",
+        "iColor": "#27ae60"
+      }
+    },
+    {
+      "description": "Linked framed icon",
+      "attributes": {
+        "block_id": "e5f6",
+        "fIcon": "fas fa-external-link-alt",
+        "iview": "framed",
+        "iLink": {"url": "https://example.com", "target": "_blank"},
+        "iColor": "#3498db",
+        "ihColor": "#2980b9"
+      }
+    }
+  ]
+}

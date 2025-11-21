@@ -1,0 +1,208 @@
+{
+  "blockName": "tpgb/tp-infobox",
+  "version": "1.0.0",
+  "title": "Infobox",
+  "category": "content",
+  "description": "Feature box with icon/image, title, description, and optional button. Multiple style variants for showcasing services, features, or information in an organized and visually appealing way. Supports pin/badge text and carousel button integration.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "layoutType": {
+      "type": "string",
+      "default": "listing",
+      "description": "Layout type"
+    },
+    "styleType": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Visual style variant for info box"
+    },
+    "Alignment": {
+      "type": "object",
+      "default": {"md": "center"},
+      "description": "Content alignment (left, center, right)",
+      "responsive": true
+    },
+    "Title": {
+      "type": "string",
+      "default": "Amazing Feature",
+      "description": "Info box title/heading"
+    },
+    "Description": {
+      "type": "string",
+      "default": "",
+      "description": "Info box description text"
+    },
+    "iconType": {
+      "type": "string",
+      "default": "icon",
+      "enum": ["none", "icon", "image", "svg", "text"],
+      "description": "Icon/image type: Font Awesome icon, image, SVG, or text"
+    },
+    "IconName": {
+      "type": "string",
+      "default": "fab fa-angellist",
+      "description": "Font Awesome icon class"
+    },
+    "textIcon": {
+      "type": "string",
+      "default": "",
+      "description": "Text to display as icon (e.g., '01', 'A')"
+    },
+    "imageName": {
+      "type": "object",
+      "default": [],
+      "description": "Image upload for icon area"
+    },
+    "svgIcon": {
+      "type": "object",
+      "default": [],
+      "description": "SVG icon upload"
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "full",
+      "description": "Image size"
+    },
+    "dispPinText": {
+      "type": "boolean",
+      "default": false,
+      "description": "Display pin/badge text (e.g., 'New', 'Popular')"
+    },
+    "pinText": {
+      "type": "string",
+      "default": "New",
+      "description": "Pin/badge text content"
+    },
+    "IBoxLink": {
+      "type": "object",
+      "default": {"url": "", "target": "", "nofollow": ""},
+      "description": "Optional link for entire info box"
+    },
+    "IBoxLinkTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable info box linking"
+    },
+    "carouselBtn": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show carousel/CTA button"
+    },
+    "carBtnStyle": {
+      "type": "string",
+      "default": "",
+      "description": "Carousel button style"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "Title",
+      "Description",
+      "IconName",
+      "textIcon",
+      "imageName",
+      "Alignment",
+      "pinText",
+      "dispPinText",
+      "IBoxLink"
+    ],
+    "requiresValidation": [
+      "styleType",
+      "iconType",
+      "IBoxLinkTgl",
+      "carouselBtn",
+      "carBtnStyle"
+    ],
+    "dangerous": [
+      "block_id",
+      "layoutType"
+    ]
+  },
+  "styleDependencies": [
+    "Infobox style CSS (multiple variants)",
+    "Icon font library (Font Awesome)",
+    "Pin/badge styling",
+    "Button styling (if enabled)",
+    "Hover effects"
+  ],
+  "commonUseCases": [
+    "Service feature boxes",
+    "Product feature highlights",
+    "Benefits showcase",
+    "Step-by-step guides",
+    "Icon-based content blocks",
+    "Feature comparison items",
+    "Call-out boxes"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-icon-box",
+    "tpgb/tp-button",
+    "tpgb/tp-heading-title",
+    "tpgb/tp-flipbox"
+  ],
+  "capabilities": [
+    "Multiple style variants",
+    "Icon/image/SVG/text support",
+    "Title and description",
+    "Pin/badge text",
+    "Entire box linking",
+    "Optional CTA button",
+    "Responsive alignment",
+    "Dynamic content support via context"
+  ],
+  "usesContext": [
+    "postId",
+    "postType",
+    "queryId",
+    "tpgb/dynamicSubFieldData",
+    "tpgb/dynamicRowIndex",
+    "tpgb/dynamicPost",
+    "tpgb/dynamicRepField"
+  ],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple feature box with icon",
+      "attributes": {
+        "block_id": "a1b2",
+        "styleType": "style-1",
+        "Title": "Fast Performance",
+        "Description": "Optimized for speed and efficiency",
+        "iconType": "icon",
+        "IconName": "fas fa-rocket",
+        "Alignment": {"md": "center"}
+      }
+    },
+    {
+      "description": "Info box with badge and link",
+      "attributes": {
+        "block_id": "c3d4",
+        "Title": "Premium Feature",
+        "Description": "Exclusive access to advanced tools",
+        "dispPinText": true,
+        "pinText": "New",
+        "IBoxLinkTgl": true,
+        "IBoxLink": {"url": "/premium", "target": "_self"}
+      }
+    },
+    {
+      "description": "Number-based info box",
+      "attributes": {
+        "block_id": "e5f6",
+        "Title": "Step One",
+        "Description": "Start by creating your account",
+        "iconType": "text",
+        "textIcon": "01"
+      }
+    }
+  ]
+}
