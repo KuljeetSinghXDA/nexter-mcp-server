@@ -12,7 +12,6 @@ import { SchemaLoader } from '../services/schema-loader.js';
 import { logger, logToolCall } from '../utils/logger.js';
 import { preprocessBlocks } from '../utils/block-formatter.js';
 import { validateBlocks, validateAndFix } from '../utils/input-validator.js';
-import { StructuredError } from '../types/errors.js';
 
 export function registerTools(
   server: Server,
@@ -702,7 +701,7 @@ async function handleSearchContent(args: any, wpClient: WordPressClient) {
 async function handleEditContent(
   args: any,
   wpClient: WordPressClient,
-  schemaLoader: SchemaLoader
+  _schemaLoader: SchemaLoader
 ) {
   const postId = args.post_id;
   const operations = args.operations;
@@ -717,21 +716,24 @@ async function handleEditContent(
   // Apply each operation
   for (const op of operations) {
     switch (op.operation) {
-      case 'modify_block':
+      case 'modify_block': {
         blocks = modifyBlockAttributes(blocks, op.block_id, op.new_attrs);
         changeLog.push(`Modified block ${op.block_id}`);
         break;
+      }
 
-      case 'add_block':
+      case 'add_block': {
         const position = op.target_position ?? blocks.length;
         blocks = insertBlock(blocks, position, op.new_block);
         changeLog.push(`Added ${op.new_block.blockName} at position ${position}`);
         break;
+      }
 
-      case 'remove_block':
+      case 'remove_block': {
         blocks = removeBlock(blocks, op.block_id);
         changeLog.push(`Removed block ${op.block_id}`);
         break;
+      }
 
       default:
         return {
@@ -789,7 +791,7 @@ async function handleEditContent(
   };
 }
 
-async function handleValidateContent(args: any, wpClient: WordPressClient) {
+async function handleValidateContent(args: any, _wpClient: WordPressClient) {
   const blocks = args.blocks;
   const strict = args.strict || false;
   const autoFix = args.auto_fix || false;

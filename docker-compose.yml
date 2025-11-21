@@ -18,11 +18,7 @@ services:
       - PORT=3000
       - LOG_LEVEL=${LOG_LEVEL:-info}
       - MCP_TRANSPORT=${MCP_TRANSPORT:-http}
-      
-      # Performance (Optional - have defaults)
-      - CACHE_TTL=${CACHE_TTL:-3600}
-      - MAX_CONCURRENT_REQUESTS=${MAX_CONCURRENT_REQUESTS:-50}
-      
+
       # WordPress API (Optional - have defaults)
       - WP_API_TIMEOUT=${WP_API_TIMEOUT:-30000}
       - WP_API_RETRY_ATTEMPTS=${WP_API_RETRY_ATTEMPTS:-3}

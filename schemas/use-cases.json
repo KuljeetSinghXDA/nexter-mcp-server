@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-11-21",
+  "description": "Common block patterns and combinations for typical use cases",
+  "useCases": {
+    "hero-section": {
+      "description": "Hero section with heading, subheading, CTA button, and background",
+      "blocks": []
+    },
+    "testimonial-section": {
+      "description": "Customer testimonials with quotes, images, and ratings",
+      "blocks": []
+    },
+    "faq-section": {
+      "description": "Frequently asked questions with accordions or toggles",
+      "blocks": []
+    },
+    "pricing-section": {
+      "description": "Pricing tables or cards with features and CTA buttons",
+      "blocks": []
+    },
+    "cta-section": {
+      "description": "Call-to-action section with button and supporting text",
+      "blocks": []
+    },
+    "team-section": {
+      "description": "Team member profiles with photos and descriptions",
+      "blocks": []
+    },
+    "blog-post": {
+      "description": "Standard blog post layout with heading, content, and images",
+      "blocks": []
+    },
+    "landing-page": {
+      "description": "Complete landing page with hero, features, testimonials, and CTA",
+      "blocks": []
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-11-21",
+  "description": "Nexter blocks organized by category",
+  "categories": {
+    "content": {
+      "description": "Text, headings, paragraphs, and content display blocks",
+      "blocks": []
+    },
+    "layout": {
+      "description": "Containers, rows, columns, and structural blocks",
+      "blocks": []
+    },
+    "interactive": {
+      "description": "Tabs, accordions, toggles, and interactive elements",
+      "blocks": []
+    },
+    "media": {
+      "description": "Images, videos, galleries, and media blocks",
+      "blocks": []
+    },
+    "marketing": {
+      "description": "Call-to-action, testimonials, pricing, and conversion blocks",
+      "blocks": []
+    },
+    "social": {
+      "description": "Social media, sharing, and social proof blocks",
+      "blocks": []
+    },
+    "forms": {
+      "description": "Form elements, inputs, and form-related blocks",
+      "blocks": []
+    },
+    "navigation": {
+      "description": "Menus, breadcrumbs, and navigation blocks",
+      "blocks": []
+    },
+    "advanced": {
+      "description": "Custom code, animations, and advanced functionality blocks",
+      "blocks": []
+    }
+  }
+}
