@@ -1,0 +1,206 @@
+{
+  "blockName": "tpgb/tp-heading",
+  "version": "1.0.0",
+  "title": "Heading",
+  "category": "content",
+  "description": "Add titles and headings with style. Simple heading block with typography, colors, text effects, and positioning. Features text stroke, shadow, mix-blend modes, and link support. Perfect for page titles, section headers, and styled text. Free version with essential heading controls.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": ".tp-core-heading",
+      "default": "Add Your Heading Text Here",
+      "description": "Heading text content"
+    },
+    "tLink": {
+      "type": "object",
+      "default": {"url": "", "target": "", "nofollow": ""},
+      "description": "Heading link URL (makes heading clickable)"
+    },
+    "tTag": {
+      "type": "string",
+      "default": "h3",
+      "enum": ["h1", "h2", "h3", "h4", "h5", "h6", "p", "div", "span"],
+      "description": "HTML tag for semantic structure"
+    },
+    "tColor": {
+      "type": "string",
+      "default": "",
+      "description": "Heading text color"
+    },
+    "tTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Heading typography settings"
+    },
+    "tAlign": {
+      "type": "object",
+      "default": {"md": "left", "sm": "", "xs": ""},
+      "enum": ["left", "center", "right"],
+      "description": "Text alignment",
+      "responsive": true
+    },
+    "tStroke": {
+      "type": "object",
+      "groupField": [
+        {
+          "tstWidth": {
+            "type": "object",
+            "default": {"md": "", "unit": "px"},
+            "description": "Text stroke width",
+            "responsive": true
+          },
+          "tstColor": {
+            "type": "string",
+            "default": "",
+            "description": "Text stroke color"
+          }
+        }
+      ],
+      "default": {"tpgbReset": 0, "tstWidth": {"md": ""}, "tstColor": ""},
+      "description": "Text stroke effect (webkit-text-stroke)"
+    },
+    "tShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "typeShadow": "text-shadow", "horizontal": 2, "vertical": 3, "blur": 2, "color": "rgba(0,0,0,0.5)"},
+      "description": "Text shadow effect"
+    },
+    "tblendm": {
+      "type": "string",
+      "default": "",
+      "enum": ["", "normal", "multiply", "screen", "overlay", "darken", "lighten", "color-dodge", "color-burn", "difference", "exclusion", "hue", "saturation", "color", "luminosity"],
+      "description": "CSS mix-blend-mode for creative effects"
+    },
+    "anchor": {
+      "type": "string",
+      "description": "HTML anchor ID for linking"
+    },
+    "globalPosition": {
+      "type": "object",
+      "default": {"md": "", "sm": "", "xs": ""},
+      "enum": ["static", "relative", "absolute", "fixed"],
+      "description": "Global positioning mode",
+      "responsive": true
+    },
+    "glohoriOffset": {
+      "type": "object",
+      "default": {"md": "0", "unit": "px"},
+      "description": "Horizontal offset (left/right) for absolute/fixed positioning",
+      "responsive": true
+    },
+    "gloverticalOffset": {
+      "type": "object",
+      "default": {"md": "0", "unit": "px"},
+      "description": "Vertical offset (top/bottom) for absolute/fixed positioning",
+      "responsive": true
+    },
+    "isRptBlock": {
+      "type": "boolean",
+      "default": false,
+      "description": "Flag indicating if block is inside a repeater"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "title",
+      "tLink",
+      "tColor",
+      "tTypo",
+      "tAlign",
+      "tStroke",
+      "tShadow",
+      "anchor"
+    ],
+    "requiresValidation": [
+      "tTag",
+      "tblendm",
+      "globalPosition"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "CSS text-stroke properties",
+    "CSS text-shadow",
+    "CSS mix-blend-mode"
+  ],
+  "commonUseCases": [
+    "Page titles",
+    "Section headers",
+    "Hero headlines",
+    "Subheadings",
+    "Article titles",
+    "Feature titles",
+    "Styled text",
+    "Linked headings",
+    "SEO-optimized headings"
+  ],
+  "relatedBlocks": [
+    "core/heading",
+    "core/paragraph",
+    "tpgb/tp-adv-typo"
+  ],
+  "capabilities": [
+    "Rich text heading content",
+    "9 HTML tag options (h1-h6, p, div, span)",
+    "Optional link URL with target and nofollow",
+    "Typography controls",
+    "Text color",
+    "3 alignment options",
+    "Text stroke effect (webkit-text-stroke)",
+    "Text shadow",
+    "14 mix-blend-mode options",
+    "HTML anchor support",
+    "Global positioning (static/relative/absolute/fixed)",
+    "Offset controls for positioned elements",
+    "Repeater block integration",
+    "Responsive controls",
+    "Dynamic data context support"
+  ],
+  "usesContext": ["postId", "postType", "queryId", "tpgb/dynamicSubFieldData", "tpgb/dynamicRowIndex", "tpgb/dynamicPost", "tpgb/dynamicRepField"],
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple page title",
+      "attributes": {
+        "block_id": "a1b2",
+        "title": "Welcome to Our Website",
+        "tTag": "h1",
+        "tAlign": {"md": "center"},
+        "tColor": "#2c3e50"
+      }
+    },
+    {
+      "description": "Heading with text stroke effect",
+      "attributes": {
+        "block_id": "c3d4",
+        "title": "Creative Typography",
+        "tTag": "h2",
+        "tStroke": {"tpgbReset": 1, "tstWidth": {"md": "2", "unit": "px"}, "tstColor": "#667eea"},
+        "tColor": "transparent"
+      }
+    },
+    {
+      "description": "Linked heading with shadow",
+      "attributes": {
+        "block_id": "e5f6",
+        "title": "Learn More",
+        "tTag": "h3",
+        "tLink": {"url": "/about", "target": "", "nofollow": ""},
+        "tShadow": {"openShadow": 1, "horizontal": 2, "vertical": 2, "blur": 4, "color": "rgba(0,0,0,0.3)"}
+      }
+    }
+  ]
+}

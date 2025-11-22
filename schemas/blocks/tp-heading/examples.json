@@ -1,0 +1,148 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-heading",
+  "title": "Heading - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "name": "Simple page title",
+      "description": "Basic centered H1 title for page header",
+      "attributes": {
+        "block_id": "a1b2",
+        "title": "Welcome to Our Website",
+        "tTag": "h1",
+        "tAlign": {"md": "center"},
+        "tColor": "#2c3e50"
+      },
+      "useCase": "Page titles, hero headlines"
+    },
+    {
+      "name": "Section heading with custom typography",
+      "description": "H2 section header with custom font and responsive sizing",
+      "attributes": {
+        "block_id": "b2c3",
+        "title": "Our Services",
+        "tTag": "h2",
+        "tTypo": {
+          "openTypography": 1,
+          "fontFamily": "Poppins",
+          "fontWeight": "600",
+          "fontSize": {"md": "36", "sm": "28", "xs": "24", "unit": "px"},
+          "lineHeight": {"md": "1.3", "unit": ""}
+        },
+        "tColor": "#1a202c"
+      },
+      "useCase": "Section headers, feature block titles"
+    },
+    {
+      "name": "Heading with text stroke effect",
+      "description": "Creative hollow/outlined text effect",
+      "attributes": {
+        "block_id": "c3d4",
+        "title": "Creative Typography",
+        "tTag": "h2",
+        "tStroke": {
+          "tpgbReset": 1,
+          "tstWidth": {"md": "2", "unit": "px"},
+          "tstColor": "#667eea"
+        },
+        "tColor": "transparent",
+        "tTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "48", "unit": "px"},
+          "fontWeight": "700"
+        }
+      },
+      "useCase": "Creative headlines, modern design, brand headers"
+    },
+    {
+      "name": "Linked heading with shadow",
+      "description": "Clickable heading with subtle text shadow",
+      "attributes": {
+        "block_id": "e5f6",
+        "title": "Learn More",
+        "tTag": "h3",
+        "tLink": {
+          "url": "/about",
+          "target": "",
+          "nofollow": ""
+        },
+        "tShadow": {
+          "openShadow": 1,
+          "typeShadow": "text-shadow",
+          "horizontal": 2,
+          "vertical": 2,
+          "blur": 4,
+          "color": "rgba(0,0,0,0.3)"
+        },
+        "tColor": "#667eea"
+      },
+      "useCase": "Linked section headers, clickable CTAs, navigation headings"
+    },
+    {
+      "name": "Hero heading with blend mode",
+      "description": "Large hero title with mix-blend-mode overlay effect",
+      "attributes": {
+        "block_id": "f7g8",
+        "title": "UNLEASH YOUR POTENTIAL",
+        "tTag": "h1",
+        "tTypo": {
+          "openTypography": 1,
+          "fontFamily": "Montserrat",
+          "fontWeight": "900",
+          "fontSize": {"md": "72", "sm": "48", "xs": "32", "unit": "px"},
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "2", "unit": "px"}
+        },
+        "tAlign": {"md": "center"},
+        "tColor": "#ffffff",
+        "tblendm": "overlay"
+      },
+      "useCase": "Hero sections over background images, dramatic headings"
+    },
+    {
+      "name": "SEO-optimized H1 with anchor",
+      "description": "Primary H1 heading with anchor ID for navigation",
+      "attributes": {
+        "block_id": "g9h0",
+        "title": "Complete Guide to Digital Marketing",
+        "tTag": "h1",
+        "anchor": "main-heading",
+        "tTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "42", "sm": "32", "xs": "26", "unit": "px"},
+          "fontWeight": "700",
+          "lineHeight": {"md": "1.2", "unit": ""}
+        }
+      },
+      "useCase": "Article titles, blog post headings, SEO pages"
+    }
+  ],
+  "commonPatterns": {
+    "pageTitle": {
+      "tTag": "h1",
+      "tAlign": {"md": "center"},
+      "tTypo": {
+        "openTypography": 1,
+        "fontSize": {"md": "48", "sm": "36", "xs": "28", "unit": "px"},
+        "fontWeight": "700"
+      }
+    },
+    "sectionHeader": {
+      "tTag": "h2",
+      "tTypo": {
+        "openTypography": 1,
+        "fontSize": {"md": "32", "sm": "26", "xs": "22", "unit": "px"},
+        "fontWeight": "600"
+      }
+    },
+    "subheading": {
+      "tTag": "h3",
+      "tTypo": {
+        "openTypography": 1,
+        "fontSize": {"md": "24", "sm": "20", "xs": "18", "unit": "px"},
+        "fontWeight": "500"
+      }
+    }
+  }
+}
