@@ -2,49 +2,491 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-form-url-field",
   "title": "Website URL - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for URL input fields with validation, icons, and responsive layouts",
   "examples": [
     {
-      "description": "Simple website URL field",
+      "name": "Company Website (Required, Autocomplete)",
+      "description": "Standard company website field with browser autocomplete enabled for URL suggestions",
+      "visualDescription": "Clean URL input field with 'https://' placeholder, browser provides URL autocomplete suggestions from history/bookmarks",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
-        "labelss": "Website",
-        "placeholder": "https://example.com",
+        "block_id": "uf001",
+        "labelss": "Company Website",
+        "placeholder": "https://www.example.com",
         "reqTgl": true,
+        "autoComplete": "url",
+        "error": "Please enter a valid company website URL.",
+        "uniqueid": "company_website",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Business registration forms, partner applications, vendor submissions, company directories",
+      "validationRules": {
+        "reqTgl": "Required field - user must enter a URL",
+        "autoComplete": "Set to 'url' for browser autocomplete (suggests previously entered URLs)",
+        "format": "Browser validates URL format (must include protocol like https://)"
+      },
+      "bestPractices": [
+        "Use autoComplete='url' to help users quickly fill in their website",
+        "Include protocol (https://) in placeholder to guide users",
+        "Use descriptive error messages that specify 'valid URL' required"
+      ]
+    },
+    {
+      "name": "Personal Portfolio with FontAwesome Icon (Purple Theme)",
+      "description": "Portfolio URL field with link icon, purple color scheme, and optional submission",
+      "visualDescription": "URL input with purple link icon (fas fa-link) on the left, darker purple on hover, icon changes color smoothly",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "uf002",
+        "labelss": "Portfolio URL",
+        "placeholder": "Your portfolio website",
+        "reqTgl": false,
+        "autoComplete": "url",
+        "urlIconType": "fontAwesome",
+        "urlIcons": "fas fa-link",
+        "icnClr": "#667eea",
+        "hvrIcnClr": "#764ba2",
+        "uniqueid": "portfolio_url",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Job applications, freelancer profiles, designer submissions, creative portfolios",
+      "iconDetails": {
+        "urlIconType": "fontAwesome - Use Font Awesome icons",
+        "urlIcons": "FontAwesome class name (e.g., 'fas fa-link', 'fas fa-globe', 'fas fa-briefcase')",
+        "icnClr": "Normal state icon color (#667eea - purple)",
+        "hvrIcnClr": "Hover state icon color (#764ba2 - darker purple)"
+      },
+      "warnings": [
+        "urlIconType must be set to 'fontAwesome' before urlIcons will work",
+        "Font Awesome must be loaded (TPGB includes it by default)",
+        "Icon appears inside input field on the left side"
+      ]
+    },
+    {
+      "name": "LinkedIn Profile with Help Text (Social Recruiting)",
+      "description": "LinkedIn URL field with LinkedIn icon, bottom-positioned help text explaining URL format",
+      "visualDescription": "Input field with blue LinkedIn icon, help text below field showing example URL format, icon is LinkedIn brand color",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "uf003",
+        "labelss": "LinkedIn Profile",
+        "placeholder": "https://linkedin.com/in/username",
+        "reqTgl": false,
+        "autoComplete": "url",
+        "hlpTxt": true,
+        "desctxt": "Enter your complete LinkedIn profile URL (e.g., https://linkedin.com/in/johndoe)",
+        "descPoss": "bottom",
+        "urlIconType": "fontAwesome",
+        "urlIcons": "fab fa-linkedin",
+        "icnClr": "#0077B5",
+        "hvrIcnClr": "#005582",
+        "uniqueid": "linkedin_url",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Job applications, professional networking, recruitment forms, speaker submissions",
+      "helpTextDetails": {
+        "hlpTxt": "true - Enable help text",
+        "desctxt": "Help text content with URL format example",
+        "descPoss": "top or bottom - Position of help text relative to input field"
+      },
+      "bestPractices": [
+        "Use brand colors for social media icons (LinkedIn #0077B5)",
+        "Provide URL format examples in help text to reduce errors",
+        "Position help text at bottom (descPoss: 'bottom') to not obscure label"
+      ]
+    },
+    {
+      "name": "GitHub Repository (Developer Context, Code Icon)",
+      "description": "GitHub repository URL field with code icon for developer/technical forms",
+      "visualDescription": "Dark-themed input with GitHub icon (code branch), gray color scheme matching GitHub branding",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "uf004",
+        "labelss": "GitHub Repository",
+        "placeholder": "https://github.com/username/repo",
+        "reqTgl": false,
+        "autoComplete": "url",
+        "hlpTxt": true,
+        "desctxt": "Link to your public GitHub repository or portfolio",
+        "descPoss": "top",
+        "urlIconType": "fontAwesome",
+        "urlIcons": "fab fa-github",
+        "icnClr": "#24292e",
+        "hvrIcnClr": "#000000",
+        "uniqueid": "github_url",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Developer job applications, open source contributions, technical assessments, coding bootcamp applications",
+      "platformSpecific": {
+        "GitHub": "Use 'fab fa-github' icon with #24292e color",
+        "GitLab": "Use 'fab fa-gitlab' icon with #FC6D26 color",
+        "Bitbucket": "Use 'fab fa-bitbucket' icon with #0052CC color"
+      }
+    },
+    {
+      "name": "YouTube Channel URL (Content Creator Application)",
+      "description": "YouTube channel field with video icon and subscriber count context in help text",
+      "visualDescription": "Red YouTube-themed input with play icon, help text requesting channel statistics",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "uf005",
+        "labelss": "YouTube Channel",
+        "placeholder": "https://youtube.com/@username",
+        "reqTgl": true,
+        "autoComplete": "url",
+        "hlpTxt": true,
+        "desctxt": "Provide your YouTube channel URL (we'll review your content and subscriber count)",
+        "descPoss": "bottom",
+        "urlIconType": "fontAwesome",
+        "urlIcons": "fab fa-youtube",
+        "icnClr": "#FF0000",
+        "hvrIcnClr": "#CC0000",
+        "error": "Please enter your YouTube channel URL to proceed.",
+        "uniqueid": "youtube_url",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Influencer partnerships, brand collaborations, content creator networks, sponsorship applications",
+      "socialPlatforms": {
+        "YouTube": "fab fa-youtube (#FF0000)",
+        "TikTok": "fab fa-tiktok (#000000)",
+        "Instagram": "fab fa-instagram (#E4405F)",
+        "Twitter/X": "fab fa-twitter (#1DA1F2)",
+        "Facebook": "fab fa-facebook (#1877F2)"
+      }
+    },
+    {
+      "name": "Product Landing Page (50% Width, Multi-Column)",
+      "description": "Product landing page URL in 50% width layout for side-by-side form fields",
+      "visualDescription": "Half-width input field (desktop) that stacks to full width on mobile, globe icon, part of multi-column form layout",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "uf006",
+        "labelss": "Product Landing Page",
+        "placeholder": "https://",
+        "reqTgl": false,
+        "autoComplete": "url",
+        "urlIconType": "fontAwesome",
+        "urlIcons": "fas fa-globe",
+        "icnClr": "#4F46E5",
+        "hvrIcnClr": "#4338CA",
+        "uniqueid": "product_url",
+        "inpSz": {
+          "md": "50",
+          "sm": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Product submissions, marketplace listings, affiliate programs, SaaS directories",
+      "responsiveLayout": {
+        "md": "50% - Half width on desktop (pair with another 50% field)",
+        "sm": "100% - Full width on tablet and mobile (stacks vertically)",
+        "unit": "% - Percentage-based for fluid layouts"
+      },
+      "layoutNotes": [
+        "Use 50% width to create two-column forms (Product URL + Documentation URL)",
+        "Mobile automatically stacks to 100% for better UX",
+        "Pair with another 50% width field for balanced layout"
+      ]
+    },
+    {
+      "name": "Blog/RSS Feed URL with Custom Image Icon",
+      "description": "Blog/RSS feed field using custom image icon instead of FontAwesome",
+      "visualDescription": "Input field with custom RSS feed icon image (32x32px), image appears before input text",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "uf007",
+        "labelss": "Blog RSS Feed",
+        "placeholder": "https://yourblog.com/feed",
+        "reqTgl": false,
+        "autoComplete": "url",
+        "hlpTxt": true,
+        "desctxt": "Enter your blog's RSS feed URL (usually /feed or /rss)",
+        "descPoss": "bottom",
+        "urlIconType": "image",
+        "urlImage": {
+          "url": "https://example.com/wp-content/uploads/rss-icon.png",
+          "Id": "1234"
+        },
+        "uniqueid": "blog_rss",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Blog directories, RSS aggregators, content syndication, podcast submissions",
+      "customIconDetails": {
+        "urlIconType": "image - Use custom uploaded image as icon",
+        "urlImage.url": "Full URL to uploaded image",
+        "urlImage.Id": "WordPress media library attachment ID",
+        "recommendedSize": "32x32px or 64x64px square PNG/SVG with transparency"
+      },
+      "warnings": [
+        "urlIconType must be set to 'image' for urlImage to work",
+        "Upload icon through WordPress Media Library first",
+        "Use square images (1:1 ratio) for best results",
+        "Transparent background PNG or SVG recommended"
+      ]
+    },
+    {
+      "name": "Reference/Documentation Link (40% Width, Inline Submit)",
+      "description": "Optional reference URL field in compact inline layout with submit button",
+      "visualDescription": "Compact 40% width input with external link icon, designed to sit alongside inline submit button (remaining 60% space)",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "uf008",
+        "labelss": "Documentation Link",
+        "placeholder": "https://docs.example.com",
+        "reqTgl": false,
+        "autoComplete": "url",
+        "urlIconType": "fontAwesome",
+        "urlIcons": "fas fa-external-link-alt",
+        "icnClr": "#6B7280",
+        "hvrIcnClr": "#374151",
+        "uniqueid": "docs_url",
+        "inpSz": {
+          "md": "40",
+          "sm": "70",
+          "xs": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Technical submissions, API integrations, plugin/theme submissions, open source projects",
+      "responsiveInlineLayout": {
+        "md": "40% - Compact on desktop, leaves 60% for submit button",
+        "sm": "70% - Larger on tablet, 30% for button",
+        "xs": "100% - Full width on mobile, button stacks below",
+        "pattern": "URL field + inline submit button"
+      },
+      "relatedBlocks": [
+        "Pair with nxt-submit-button (isInline: true, inpSz: 60%/30%)"
+      ]
+    }
+  ],
+
+  "commonPatterns": [
+    {
+      "name": "Simple Required URL",
+      "description": "Basic required URL field with autocomplete",
+      "attributes": {
+        "reqTgl": true,
+        "autoComplete": "url",
+        "placeholder": "https://example.com"
+      }
+    },
+    {
+      "name": "Social Media Profile",
+      "description": "Optional social URL with platform-specific icon and colors",
+      "attributes": {
+        "reqTgl": false,
+        "urlIconType": "fontAwesome",
+        "urlIcons": "fab fa-{platform}",
+        "icnClr": "{platform-brand-color}",
         "autoComplete": "url"
       }
     },
     {
-      "description": "Portfolio link with icon",
+      "name": "With Help Text Guidance",
+      "description": "URL field with format examples in help text",
       "attributes": {
-        "block_id": "c3d4",
-        "labelss": "Portfolio URL",
-        "urlIconType": "fontAwesome",
-        "urlIcons": "fas fa-link",
-        "placeholder": "Your portfolio website",
-        "reqTgl": false,
-        "icnClr": "#667eea",
-        "hvrIcnClr": "#764ba2"
+        "hlpTxt": true,
+        "desctxt": "Enter URL format: https://example.com/path",
+        "descPoss": "bottom"
       }
     },
     {
-      "description": "Social media profile with help text",
+      "name": "Multi-Column Layout (50/50)",
+      "description": "Two URL fields side by side on desktop",
       "attributes": {
-        "block_id": "e5f6",
-        "labelss": "LinkedIn Profile",
-        "placeholder": "https://linkedin.com/in/username",
-        "hlpTxt": true,
-        "desctxt": "Enter your complete LinkedIn profile URL",
-        "descPoss": "bottom",
-        "urlIconType": "fontAwesome",
-        "urlIcons": "fab fa-linkedin",
-        "reqTgl": false
+        "inpSz": {
+          "md": "50",
+          "sm": "100",
+          "unit": "%"
+        }
       }
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
+
+  "validationRules": {
+    "labelss": "Required string - Field label text",
+    "placeholder": "Optional string - Suggested URL format (include https:// for clarity)",
+    "reqTgl": "Boolean - true for required fields, false for optional",
+    "autoComplete": "String - 'url' enables browser autocomplete, 'off' disables",
+    "urlIconType": "String - 'none', 'fontAwesome', or 'image'",
+    "urlIcons": "String - FontAwesome class (requires urlIconType: 'fontAwesome')",
+    "urlImage": "Object - {url, Id} for custom image (requires urlIconType: 'image')",
+    "inpSz.md": "String - Desktop width (recommended: 100, 50, 40, 33 for columns)",
+    "inpSz.sm": "String - Tablet width (recommended: 100, 50)",
+    "inpSz.xs": "String - Mobile width (recommended: 100 for stacking)",
+    "uniqueid": "String - Unique form field identifier for submission data"
+  },
+
+  "warnings": [
+    "Browser URL validation only checks format (protocol://domain), not if URL actually exists",
+    "Users can enter fake/invalid URLs even with validation (http://fake.example.com passes)",
+    "URL fields do NOT verify SSL certificates or check if site is live",
+    "autoComplete='url' exposes user's browsing history (privacy consideration)",
+    "urlIconType must be set before urlIcons or urlImage will work",
+    "Custom image icons (urlImage) require uploading to WordPress Media Library first",
+    "Icon colors (icnClr, hvrIcnClr) only work with fontAwesome icons, not image icons",
+    "Don't use URL fields for email addresses (use nxt-email-field instead)",
+    "Don't require protocol (https://) in placeholder if users typically omit it",
+    "Mobile Safari may auto-capitalize first letter of URL (add autocapitalize='none' via custom CSS)"
+  ],
+
+  "commonMistakes": [
+    "Setting urlIcons without urlIconType='fontAwesome' (icon won't display)",
+    "Using wrong Font Awesome prefix (fas=solid, fab=brands, far=regular)",
+    "Forgetting to include protocol in placeholder (use 'https://example.com' not 'example.com')",
+    "Not setting autoComplete='url' for better UX (browser autocomplete helps users)",
+    "Using percentage widths that don't add up to 100% in multi-column layouts",
+    "Setting reqTgl=true for optional social media fields (frustrates users who don't have accounts)",
+    "Using generic error message 'This field is required' instead of 'Please enter a valid URL'",
+    "Not providing URL format examples in help text (users enter wrong formats)",
+    "Using custom image icons that are too large (>64px causes layout issues)",
+    "Not testing responsive breakpoints (md/sm/xs) on actual devices"
+  ],
+
+  "bestPractices": [
+    "Always set autoComplete='url' unless privacy is a concern (helps users fill forms faster)",
+    "Include protocol (https://) in placeholder text to guide users",
+    "Use platform-specific brand colors for social media URL fields (LinkedIn #0077B5, GitHub #24292e)",
+    "Provide URL format examples in help text (hlpTxt + desctxt) to reduce errors",
+    "Use descriptive error messages: 'Please enter a valid website URL' instead of 'Required field'",
+    "For optional fields, use reqTgl=false to avoid forcing users to have every social profile",
+    "Use 50% width (inpSz.md: 50) for paired URL fields (Website + Portfolio side by side)",
+    "Always set inpSz.xs to 100 for mobile devices (stacks fields vertically)",
+    "Choose appropriate icons: fas fa-globe (website), fas fa-link (portfolio), fab fa-{platform} (social)",
+    "Use image icons only for custom branding (FontAwesome is faster and scales better)",
+    "Test URL validation with edge cases (http vs https, www vs non-www, trailing slashes)",
+    "Consider using uniqueid that matches the URL purpose ('linkedin_url', 'github_url') for backend processing",
+    "For developer forms, use dark icon colors (#24292e GitHub, #000000 for tech)",
+    "For business forms, use professional blues/purples (#667eea, #4F46E5)",
+    "Combine with nxt-hidden-field to track URL referrer source for analytics"
+  ],
+
+  "accessibilityNotes": [
+    "Label (labelss) is required for screen readers to identify URL input purpose",
+    "Placeholder is NOT a replacement for label (placeholders disappear on input)",
+    "Use descriptive labels: 'Company Website' not just 'URL'",
+    "Help text (desctxt) provides additional context for assistive technology",
+    "Error messages (error attribute) are announced by screen readers when validation fails",
+    "Icons should be decorative only (screen readers focus on label + help text)",
+    "Ensure sufficient color contrast for icon colors (icnClr) - minimum 4.5:1 ratio",
+    "Don't rely on icon color alone to convey meaning (use label text)",
+    "autoComplete='url' helps users with motor disabilities by reducing typing",
+    "Large touch targets on mobile (minimum 44x44px) - default TPGB styling handles this"
+  ],
+
+  "performanceConsiderations": [
+    "FontAwesome icons are lighter than custom images (vector vs raster)",
+    "If using multiple custom image icons, combine into CSS sprite for fewer HTTP requests",
+    "Browser URL validation is instant (no server round trip)",
+    "autoComplete='url' loads URLs from browser history (no backend query needed)",
+    "Large custom icon images slow down form rendering - optimize to <10KB",
+    "Use SVG for custom icons instead of PNG for better scaling and smaller file size"
+  ],
+
+  "iconLibraryReference": {
+    "FontAwesome": {
+      "Website/Generic": ["fas fa-globe", "fas fa-link", "fas fa-external-link-alt"],
+      "Social Media Brands": {
+        "LinkedIn": "fab fa-linkedin (#0077B5)",
+        "GitHub": "fab fa-github (#24292e)",
+        "Twitter/X": "fab fa-twitter (#1DA1F2)",
+        "Facebook": "fab fa-facebook (#1877F2)",
+        "Instagram": "fab fa-instagram (#E4405F)",
+        "YouTube": "fab fa-youtube (#FF0000)",
+        "TikTok": "fab fa-tiktok (#000000)",
+        "Pinterest": "fab fa-pinterest (#E60023)",
+        "Reddit": "fab fa-reddit (#FF4500)"
+      },
+      "Developer Platforms": {
+        "GitHub": "fab fa-github (#24292e)",
+        "GitLab": "fab fa-gitlab (#FC6D26)",
+        "Bitbucket": "fab fa-bitbucket (#0052CC)",
+        "Stack Overflow": "fab fa-stack-overflow (#F58025)",
+        "CodePen": "fab fa-codepen (#000000)"
+      },
+      "Content Platforms": {
+        "Medium": "fab fa-medium (#000000)",
+        "WordPress": "fab fa-wordpress (#21759B)",
+        "Behance": "fab fa-behance (#1769FF)",
+        "Dribbble": "fab fa-dribbble (#EA4C89)"
+      }
     }
-  }
+  },
+
+  "useCaseSpecificTips": {
+    "JobApplications": {
+      "tip": "Include Portfolio + LinkedIn + GitHub as separate optional URL fields",
+      "layout": "Use 50% width for Portfolio + LinkedIn side by side, GitHub full width below",
+      "icons": "Use platform-specific brand icons and colors for instant recognition"
+    },
+    "BusinessDirectories": {
+      "tip": "Require company website (reqTgl: true) but make social media optional",
+      "validation": "Use autoComplete='url' to help users fill business info faster",
+      "helpText": "Explain that website should be primary business domain, not social media link"
+    },
+    "ContentCreatorNetworks": {
+      "tip": "Include multiple social platform URL fields with platform icons",
+      "layout": "Two 50% width fields per row (YouTube + Instagram, TikTok + Twitter)",
+      "context": "Use help text to request follower/subscriber counts or engagement stats"
+    },
+    "DeveloperCommunities": {
+      "tip": "GitHub required, portfolio + LinkedIn optional",
+      "icons": "Use dark theme colors (#24292e, #000000) to match developer aesthetic",
+      "validation": "Validate GitHub URL format (github.com/username or github.com/username/repo)"
+    },
+    "MarketplaceSubmissions": {
+      "tip": "Product landing page required, demo/documentation URLs optional",
+      "layout": "Use 50% for Product URL + Demo URL side by side",
+      "helpText": "Explain that URLs will be publicly displayed on marketplace listing"
+    }
+  },
+
+  "integrationExamples": [
+    {
+      "name": "URL Validation with Custom JavaScript",
+      "description": "Add custom frontend validation to check URL format beyond browser defaults",
+      "code": "// Check if URL starts with https:// and has valid domain\nconst urlInput = document.querySelector('[name=\"company_website\"]');\nurlInput.addEventListener('blur', function() {\n  const url = this.value;\n  if (url && !url.match(/^https:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b/)) {\n    this.setCustomValidity('Please enter a valid HTTPS URL');\n  } else {\n    this.setCustomValidity('');\n  }\n});"
+    },
+    {
+      "name": "Auto-Add Protocol",
+      "description": "Automatically prepend https:// if user omits protocol",
+      "code": "// Auto-add https:// if missing\nconst urlInput = document.querySelector('[name=\"portfolio_url\"]');\nurlInput.addEventListener('blur', function() {\n  const url = this.value.trim();\n  if (url && !url.match(/^https?:\\/\\//)) {\n    this.value = 'https://' + url;\n  }\n});"
+    },
+    {
+      "name": "Backend URL Validation (PHP)",
+      "description": "Server-side validation to verify URL exists and is accessible",
+      "code": "// Validate URL on form submission\nfunction validate_url_field($url) {\n  // Check format\n  if (!filter_var($url, FILTER_VALIDATE_URL)) {\n    return new WP_Error('invalid_url', 'Please enter a valid URL');\n  }\n  \n  // Check if URL is accessible (optional, can be slow)\n  $headers = @get_headers($url);\n  if (!$headers || strpos($headers[0], '200') === false) {\n    return new WP_Error('unreachable_url', 'URL is not accessible');\n  }\n  \n  return true;\n}"
+    },
+    {
+      "name": "Extract Domain from URL",
+      "description": "Parse submitted URL to extract and store domain separately",
+      "code": "// Extract domain from URL for database indexing\nfunction extract_domain($url) {\n  $parsed = parse_url($url);\n  return $parsed['host'] ?? '';\n}\n\n// Usage in form submission handler\n$company_url = $_POST['company_website'];\n$company_domain = extract_domain($company_url);\n// Store both full URL and domain for search/filtering"
+    }
+  ],
+
+  "relatedBlocks": [
+    "nxt-submit-button - Pair with inline submit for newsletter/quick forms",
+    "nxt-email-field - Often used together for contact forms (Email + Website)",
+    "nxt-name-field - Common trio: Name + Email + Website for business contacts",
+    "nxt-hidden-field - Track URL referrer source for analytics",
+    "tp-form-block - Parent form container with form actions"
+  ]
 }
