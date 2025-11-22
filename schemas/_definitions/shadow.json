@@ -1,0 +1,226 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "definitions://shadow",
+  "title": "Shadow Definition",
+  "description": "Complete shadow object structure for both box-shadow and text-shadow effects",
+  "type": "object",
+  "structure": {
+    "openShadow": {
+      "type": "number",
+      "enum": [0, 1],
+      "default": 0,
+      "description": "Toggle to enable shadow (0 = disabled, 1 = enabled)"
+    },
+    "typeShadow": {
+      "type": "string",
+      "enum": ["box-shadow", "text-shadow"],
+      "default": "box-shadow",
+      "description": "Type of shadow (text-shadow for text, box-shadow for elements)",
+      "note": "Often omitted, inferred from attribute name (*Bshadow = box, *Shadow on text = text)"
+    },
+    "inset": {
+      "type": "number",
+      "enum": [0, 1],
+      "default": 0,
+      "description": "Inset shadow (inner shadow) - box-shadow only",
+      "condition": "typeShadow === 'box-shadow' || typeShadow undefined"
+    },
+    "horizontal": {
+      "type": ["string", "number"],
+      "default": 0,
+      "description": "Horizontal offset (positive = right, negative = left)"
+    },
+    "vertical": {
+      "type": ["string", "number"],
+      "default": 4,
+      "description": "Vertical offset (positive = down, negative = up)"
+    },
+    "blur": {
+      "type": ["string", "number"],
+      "default": 8,
+      "description": "Blur radius (larger = softer shadow)"
+    },
+    "spread": {
+      "type": ["string", "number"],
+      "default": 0,
+      "description": "Spread radius (expand/contract shadow) - box-shadow only",
+      "condition": "typeShadow === 'box-shadow' || typeShadow undefined"
+    },
+    "color": {
+      "type": "string",
+      "default": "rgba(0,0,0,0.40)",
+      "description": "Shadow color (rgba recommended for opacity control)"
+    }
+  },
+  "shadowTypes": {
+    "boxShadow": {
+      "description": "Element shadow (cards, containers, buttons)",
+      "cssProperty": "box-shadow",
+      "format": "[inset] horizontal vertical blur spread color",
+      "example": "0 4px 8px 0 rgba(0,0,0,0.4)"
+    },
+    "textShadow": {
+      "description": "Text shadow (headings, labels)",
+      "cssProperty": "text-shadow",
+      "format": "horizontal vertical blur color",
+      "example": "2px 3px 2px rgba(0,0,0,0.5)",
+      "note": "No inset or spread for text shadows"
+    }
+  },
+  "commonPatterns": {
+    "noShadow": {
+      "description": "Shadow disabled",
+      "value": {
+        "openShadow": 0
+      }
+    },
+    "subtleBoxShadow": {
+      "description": "Subtle elevation shadow for cards",
+      "value": {
+        "openShadow": 1,
+        "inset": 0,
+        "horizontal": 0,
+        "vertical": 2,
+        "blur": 4,
+        "spread": 0,
+        "color": "rgba(0,0,0,0.1)"
+      }
+    },
+    "mediumBoxShadow": {
+      "description": "Medium elevation (hover state)",
+      "value": {
+        "openShadow": 1,
+        "inset": 0,
+        "horizontal": 0,
+        "vertical": 8,
+        "blur": 16,
+        "spread": 0,
+        "color": "rgba(0,0,0,0.15)"
+      }
+    },
+    "strongBoxShadow": {
+      "description": "Strong elevation (modals, popovers)",
+      "value": {
+        "openShadow": 1,
+        "inset": 0,
+        "horizontal": 0,
+        "vertical": 16,
+        "blur": 32,
+        "spread": 0,
+        "color": "rgba(0,0,0,0.25)"
+      }
+    },
+    "insetShadow": {
+      "description": "Inner shadow (pressed/inset appearance)",
+      "value": {
+        "openShadow": 1,
+        "inset": 1,
+        "horizontal": 0,
+        "vertical": 2,
+        "blur": 4,
+        "spread": 0,
+        "color": "rgba(0,0,0,0.2)"
+      }
+    },
+    "coloredShadow": {
+      "description": "Colored shadow for brand emphasis",
+      "value": {
+        "openShadow": 1,
+        "inset": 0,
+        "horizontal": 0,
+        "vertical": 4,
+        "blur": 12,
+        "spread": 0,
+        "color": "rgba(111,20,241,0.3)"
+      }
+    },
+    "textShadowSubtle": {
+      "description": "Subtle text shadow for readability",
+      "value": {
+        "openShadow": 1,
+        "typeShadow": "text-shadow",
+        "horizontal": 1,
+        "vertical": 1,
+        "blur": 2,
+        "color": "rgba(0,0,0,0.3)"
+      }
+    },
+    "textShadowStrong": {
+      "description": "Strong text shadow for overlay text",
+      "value": {
+        "openShadow": 1,
+        "typeShadow": "text-shadow",
+        "horizontal": 2,
+        "vertical": 3,
+        "blur": 4,
+        "color": "rgba(0,0,0,0.7)"
+      }
+    },
+    "glowEffect": {
+      "description": "Glow effect (0 offset, high blur)",
+      "value": {
+        "openShadow": 1,
+        "horizontal": 0,
+        "vertical": 0,
+        "blur": 20,
+        "spread": 0,
+        "color": "rgba(111,20,241,0.6)"
+      }
+    }
+  },
+  "usageGuidelines": {
+    "whenToUse": [
+      "Box-shadow: Cards, buttons, containers, images - any element needing depth",
+      "Text-shadow: Headings, labels, text on image backgrounds for readability",
+      "Elevation hierarchy: Different shadow strengths indicate different levels",
+      "Hover states: Increase shadow on hover for interactivity feedback"
+    ],
+    "aiTriggerKeywords": [
+      "shadow",
+      "drop shadow",
+      "box shadow",
+      "text shadow",
+      "elevation",
+      "depth",
+      "glow",
+      "3d effect",
+      "lifted",
+      "floating"
+    ],
+    "bestPractices": [
+      "Always set openShadow to 1 when customizing shadow",
+      "Use rgba colors for shadows to control opacity independently",
+      "Vertical offset typically larger than horizontal for natural lighting",
+      "Blur radius should be 2-4x the vertical offset for realistic shadows",
+      "Keep spread at 0 for most natural shadows",
+      "Use subtle shadows (0.1-0.2 alpha) for light themes",
+      "Use darker shadows (0.3-0.5 alpha) for strong emphasis",
+      "Combine with hover states: subtle default, stronger on hover"
+    ],
+    "shadowLevels": [
+      "Level 1 (subtle): vertical 2px, blur 4px, alpha 0.1",
+      "Level 2 (default): vertical 4px, blur 8px, alpha 0.15",
+      "Level 3 (medium): vertical 8px, blur 16px, alpha 0.2",
+      "Level 4 (high): vertical 16px, blur 32px, alpha 0.25",
+      "Level 5 (modal): vertical 24px, blur 48px, alpha 0.3"
+    ],
+    "accessibility": [
+      "Don't rely solely on shadows for meaning (use borders/colors too)",
+      "Ensure sufficient contrast when using text shadows",
+      "Test shadows in both light and dark modes"
+    ]
+  },
+  "attributeNamingPatterns": [
+    "*Bshadow",
+    "*BoxShadow",
+    "*Shadow",
+    "*shadow",
+    "titleBshadow",
+    "cardShadow",
+    "btnShadow",
+    "contentShadow",
+    "tShadow"
+  ],
+  "occurrences": "~180 (estimated across all blocks with shadows)",
+  "affectedBlocks": "Most visible blocks (containers, cards, buttons, images, headings, etc.)"
+}

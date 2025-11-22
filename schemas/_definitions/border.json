@@ -1,0 +1,213 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "definitions://border",
+  "title": "Border Definition",
+  "description": "Complete border object structure for all sides with responsive support",
+  "type": "object",
+  "structure": {
+    "openBorder": {
+      "type": "number",
+      "enum": [0, 1],
+      "default": 0,
+      "description": "Toggle to enable custom border (0 = no border, 1 = enabled)"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["solid", "dashed", "dotted", "double", "groove", "ridge", "inset", "outset", "none"],
+      "default": "solid",
+      "description": "Border style type"
+    },
+    "width": {
+      "type": "object",
+      "description": "Border width for each side with responsive breakpoints",
+      "properties": {
+        "md": {
+          "type": "object",
+          "properties": {
+            "top": {"type": ["string", "number"], "default": "1"},
+            "right": {"type": ["string", "number"], "default": "1"},
+            "bottom": {"type": ["string", "number"], "default": "1"},
+            "left": {"type": ["string", "number"], "default": "1"}
+          }
+        },
+        "sm": {
+          "type": "object",
+          "properties": {
+            "top": {"type": ["string", "number"], "default": ""},
+            "right": {"type": ["string", "number"], "default": ""},
+            "bottom": {"type": ["string", "number"], "default": ""},
+            "left": {"type": ["string", "number"], "default": ""}
+          }
+        },
+        "xs": {
+          "type": "object",
+          "properties": {
+            "top": {"type": ["string", "number"], "default": ""},
+            "right": {"type": ["string", "number"], "default": ""},
+            "bottom": {"type": ["string", "number"], "default": ""},
+            "left": {"type": ["string", "number"], "default": ""}
+          }
+        },
+        "unit": {
+          "type": "string",
+          "default": "px"
+        }
+      },
+      "default": {
+        "md": {"top": "1", "right": "1", "bottom": "1", "left": "1"},
+        "unit": "px"
+      }
+    },
+    "color": {
+      "type": "string",
+      "default": "#d3d3d3",
+      "description": "Border color (hex, rgba, or CSS color name)"
+    },
+    "hoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Border color on hover state"
+    }
+  },
+  "relatedAttributes": {
+    "borderRadius": {
+      "$ref": "definitions://responsive-border-radius",
+      "description": "Usually defined as separate attribute (e.g., *Bradius, *BorderRadius)"
+    }
+  },
+  "commonPatterns": {
+    "noBorder": {
+      "description": "Border disabled",
+      "value": {
+        "openBorder": 0
+      }
+    },
+    "allSidesSolid": {
+      "description": "1px solid border on all sides",
+      "value": {
+        "openBorder": 1,
+        "type": "solid",
+        "width": {
+          "md": {"top": "1", "right": "1", "bottom": "1", "left": "1"},
+          "unit": "px"
+        },
+        "color": "#e0e0e0"
+      }
+    },
+    "bottomOnly": {
+      "description": "Border only on bottom (underline effect)",
+      "value": {
+        "openBorder": 1,
+        "type": "solid",
+        "width": {
+          "md": {"top": "0", "right": "0", "bottom": "2", "left": "0"},
+          "unit": "px"
+        },
+        "color": "#6f14f1"
+      }
+    },
+    "thickDashed": {
+      "description": "Thick dashed border",
+      "value": {
+        "openBorder": 1,
+        "type": "dashed",
+        "width": {
+          "md": {"top": "3", "right": "3", "bottom": "3", "left": "3"},
+          "unit": "px"
+        },
+        "color": "#999999"
+      }
+    },
+    "cardBorder": {
+      "description": "Subtle border for card elements",
+      "value": {
+        "openBorder": 1,
+        "type": "solid",
+        "width": {
+          "md": {"top": "1", "right": "1", "bottom": "1", "left": "1"},
+          "unit": "px"
+        },
+        "color": "rgba(0,0,0,0.1)"
+      }
+    },
+    "buttonBorder": {
+      "description": "Button border with hover state",
+      "value": {
+        "openBorder": 1,
+        "type": "solid",
+        "width": {
+          "md": {"top": "2", "right": "2", "bottom": "2", "left": "2"},
+          "unit": "px"
+        },
+        "color": "#6f14f1",
+        "hoverColor": "#5910c4"
+      }
+    },
+    "leftAccent": {
+      "description": "Left accent border (common in cards/quotes)",
+      "value": {
+        "openBorder": 1,
+        "type": "solid",
+        "width": {
+          "md": {"top": "0", "right": "0", "bottom": "0", "left": "4"},
+          "unit": "px"
+        },
+        "color": "#6f14f1"
+      }
+    }
+  },
+  "usageGuidelines": {
+    "whenToUse": [
+      "Containers, cards, buttons, inputs, images - any element needing visual separation",
+      "Creating dividers and separators",
+      "Highlighting or framing content",
+      "Button outlines and hover effects"
+    ],
+    "aiTriggerKeywords": [
+      "border",
+      "outline",
+      "frame",
+      "divider",
+      "separator",
+      "edge",
+      "stroke",
+      "underline border",
+      "border color",
+      "border width"
+    ],
+    "bestPractices": [
+      "Always set openBorder to 1 when customizing borders",
+      "Use subtle colors for borders (rgba with low alpha works well)",
+      "Combine with border-radius for rounded corners",
+      "Use 0 width on sides where no border is desired",
+      "Test border contrast for accessibility",
+      "Consider box-shadow as alternative to borders for depth"
+    ],
+    "commonCombinations": [
+      "Border + Border Radius: Rounded cards, buttons",
+      "Border + Box Shadow: Elevated cards with definition",
+      "Bottom Border Only: Section dividers, nav underlines",
+      "Left/Right Border: Quote blocks, sidebar accents"
+    ]
+  },
+  "attributeNamingPatterns": [
+    "*Border",
+    "*border",
+    "titleBorder",
+    "descBorder",
+    "cardBorder",
+    "btnBorder",
+    "contentBorder",
+    "containerBorder"
+  ],
+  "borderRadiusPatterns": [
+    "*Bradius",
+    "*BorderRadius",
+    "*Radius",
+    "titleBradius",
+    "cardRadius",
+    "btnBradius"
+  ],
+  "occurrences": "~150 (estimated for border, ~150 for borderRadius)",
+  "affectedBlocks": "Most visible blocks (containers, buttons, cards, forms, images, etc.)"
+}

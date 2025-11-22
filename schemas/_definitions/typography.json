@@ -1,0 +1,186 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "definitions://typography",
+  "title": "Typography Definition",
+  "description": "Complete typography object structure used across all Nexter blocks for text styling",
+  "type": "object",
+  "structure": {
+    "openTypography": {
+      "type": "number",
+      "enum": [0, 1],
+      "default": 0,
+      "description": "Toggle to enable custom typography (0 = disabled, 1 = enabled)"
+    },
+    "fontFamily": {
+      "type": "string",
+      "default": "",
+      "description": "Font family name (Google Fonts, system fonts, or custom fonts)",
+      "examples": ["Roboto", "Arial", "Inter", "Poppins"]
+    },
+    "fontWeight": {
+      "type": "string",
+      "enum": ["100", "200", "300", "400", "500", "600", "700", "800", "900", "normal", "bold"],
+      "default": "400",
+      "description": "Font weight for the text"
+    },
+    "fontSize": {
+      "$ref": "definitions://responsive-unit",
+      "description": "Font size with responsive breakpoints"
+    },
+    "lineHeight": {
+      "$ref": "definitions://responsive-unit",
+      "description": "Line height with responsive breakpoints"
+    },
+    "letterSpacing": {
+      "$ref": "definitions://responsive-unit",
+      "description": "Letter spacing with responsive breakpoints"
+    },
+    "textTransform": {
+      "type": "string",
+      "enum": ["none", "uppercase", "lowercase", "capitalize"],
+      "default": "none",
+      "description": "Text transformation style"
+    },
+    "textDecoration": {
+      "type": "string",
+      "enum": ["none", "underline", "overline", "line-through"],
+      "default": "none",
+      "description": "Text decoration style"
+    },
+    "fontStyle": {
+      "type": "string",
+      "enum": ["normal", "italic", "oblique"],
+      "default": "normal",
+      "description": "Font style"
+    }
+  },
+  "commonPatterns": {
+    "disabled": {
+      "description": "Typography not customized (uses theme defaults)",
+      "value": {
+        "openTypography": 0
+      }
+    },
+    "basicEnabled": {
+      "description": "Typography enabled with minimal customization",
+      "value": {
+        "openTypography": 1,
+        "fontSize": {
+          "md": "16",
+          "unit": "px"
+        }
+      }
+    },
+    "heroHeading": {
+      "description": "Large, bold heading for hero sections",
+      "value": {
+        "openTypography": 1,
+        "fontFamily": "Poppins",
+        "fontWeight": "700",
+        "fontSize": {
+          "md": "48",
+          "sm": "36",
+          "xs": "28",
+          "unit": "px"
+        },
+        "lineHeight": {
+          "md": "1.2",
+          "unit": ""
+        },
+        "letterSpacing": {
+          "md": "-0.5",
+          "unit": "px"
+        }
+      }
+    },
+    "bodyText": {
+      "description": "Standard body text typography",
+      "value": {
+        "openTypography": 1,
+        "fontFamily": "Inter",
+        "fontWeight": "400",
+        "fontSize": {
+          "md": "16",
+          "sm": "15",
+          "xs": "14",
+          "unit": "px"
+        },
+        "lineHeight": {
+          "md": "1.6",
+          "unit": ""
+        }
+      }
+    },
+    "buttonText": {
+      "description": "Uppercase, bold button text",
+      "value": {
+        "openTypography": 1,
+        "fontWeight": "600",
+        "fontSize": {
+          "md": "14",
+          "unit": "px"
+        },
+        "textTransform": "uppercase",
+        "letterSpacing": {
+          "md": "1",
+          "unit": "px"
+        }
+      }
+    },
+    "smallLabel": {
+      "description": "Small label or caption text",
+      "value": {
+        "openTypography": 1,
+        "fontSize": {
+          "md": "12",
+          "unit": "px"
+        },
+        "textTransform": "uppercase",
+        "letterSpacing": {
+          "md": "0.5",
+          "unit": "px"
+        }
+      }
+    }
+  },
+  "usageGuidelines": {
+    "whenToUse": [
+      "Any block with text content (headings, paragraphs, buttons, labels)",
+      "When you need consistent typography across different screen sizes",
+      "To match brand typography guidelines"
+    ],
+    "aiTriggerKeywords": [
+      "font",
+      "typography",
+      "text style",
+      "heading size",
+      "font size",
+      "bold",
+      "italic",
+      "uppercase",
+      "letter spacing",
+      "line height",
+      "font family",
+      "text appearance"
+    ],
+    "bestPractices": [
+      "Always set openTypography to 1 when customizing any typography field",
+      "Use responsive font sizes for better mobile experience",
+      "Maintain readability with appropriate line-height (1.4-1.8 for body text)",
+      "Use unitless values for line-height when possible",
+      "Keep letter-spacing subtle (±2px max)"
+    ]
+  },
+  "attributeNamingPatterns": [
+    "*Typo",
+    "*Typography",
+    "titleTypo",
+    "descTypo",
+    "btnTypo",
+    "labelTypo",
+    "textTypo",
+    "contentTypo"
+  ],
+  "occurrences": 292,
+  "affectedBlocks": "All text-based blocks (headings, paragraphs, buttons, accordions, tabs, etc.)"
+}
