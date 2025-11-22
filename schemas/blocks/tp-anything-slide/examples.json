@@ -2,15 +2,368 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-anything-slide",
   "title": "Slide Inner - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Child slide container for tp-anything-carousel. Each slide holds custom content blocks.",
+
   "examples": [
     {
-      "description": "Basic slide container",
+      "name": "Simple Image Slide",
+      "description": "Single image slide in carousel",
+      "visualDescription": "Centered product image with white background, clean presentation",
+      "complexity": "simple",
       "attributes": {
-        "key": "slide-1",
-        "itemId": "carousel-item-001"
-      }
+        "key": "0",
+        "itemId": "product-slide-1"
+      },
+      "parentBlock": "tpgb/tp-anything-carousel",
+      "childContent": [
+        "tp-image block with product photo"
+      ],
+      "useCase": "Product galleries, image showcases",
+      "notes": [
+        "key='0' matches carouselList[0]._key in parent carousel",
+        "itemId is unique identifier for this specific slide instance",
+        "Parent carousel controls transitions, this block just holds content"
+      ]
+    },
+
+    {
+      "name": "Hero Slide with Full Layout",
+      "description": "Full-width hero banner slide with heading, text, and CTA",
+      "visualDescription": "Full-width hero section with gradient background, large white heading, paragraph, and prominent button",
+      "complexity": "medium",
+      "attributes": {
+        "key": "1",
+        "itemId": "hero-slide-2"
+      },
+      "parentBlock": "tpgb/tp-anything-carousel",
+      "childContent": [
+        "tp-container (full-width with background gradient)",
+        "  └─ tp-row",
+        "      └─ tp-column (centered content)",
+        "          ├─ tp-heading (h1, 48px, white)",
+        "          ├─ tp-pro-paragraph (18px, white)",
+        "          └─ tp-button (CTA button)"
+      ],
+      "useCase": "Hero carousels, banner rotations, homepage headers",
+      "notes": [
+        "key='1' for second slide in carousel",
+        "Use tp-container for full-width backgrounds",
+        "Ensure content works well with carousel fade/slide transitions",
+        "Keep text concise (users may skip slides quickly)"
+      ]
+    },
+
+    {
+      "name": "Testimonial Slide",
+      "description": "Customer testimonial card with quote and avatar",
+      "visualDescription": "White card with customer quote in italics, 5-star rating, customer name and company, circular avatar photo",
+      "complexity": "medium",
+      "attributes": {
+        "key": "2",
+        "itemId": "testimonial-slide-3"
+      },
+      "parentBlock": "tpgb/tp-anything-carousel",
+      "childContent": [
+        "tp-container (white background, padding, border radius, shadow)",
+        "  └─ tp-row",
+        "      └─ tp-column",
+        "          ├─ tp-image (circular avatar, 80px)",
+        "          ├─ tp-pro-paragraph (italic quote, 16px)",
+        "          ├─ tp-heading (customer name, h4, bold)",
+        "          └─ tp-pro-paragraph (company, 14px, gray)"
+      ],
+      "useCase": "Testimonial carousels, client reviews, case studies",
+      "notes": [
+        "Parent carousel typically has tpgbEqualHeight=true for testimonials",
+        "Use consistent padding/margins across all testimonial slides",
+        "Keep quotes to 2-3 sentences for readability",
+        "Avatar images should be same dimensions (square, e.g., 200x200px)"
+      ]
+    },
+
+    {
+      "name": "Product Card Slide",
+      "description": "E-commerce product card with image, title, price, rating",
+      "visualDescription": "Product image on white background, product title below, price in purple, 4.5-star rating, 'Add to Cart' button",
+      "complexity": "medium",
+      "attributes": {
+        "key": "3",
+        "itemId": "product-card-4"
+      },
+      "parentBlock": "tpgb/tp-anything-carousel",
+      "childContent": [
+        "tp-container (white background, border, hover shadow transition)",
+        "  └─ tp-row",
+        "      └─ tp-column",
+        "          ├─ tp-image (product photo, 300x300px)",
+        "          ├─ tp-heading (product name, h3, 18px)",
+        "          ├─ tp-pro-paragraph (price, 24px, purple, bold)",
+        "          ├─ [Star rating element]",
+        "          └─ tp-button ('Add to Cart', purple background)"
+      ],
+      "useCase": "Product carousels, featured products, upsells, related items",
+      "notes": [
+        "Parent carousel often uses OverflowHid=true for clean edges",
+        "Use equal height (parent: tpgbEqualHeight=true) for uniform card sizing",
+        "Product images should be same aspect ratio (square recommended)",
+        "Consider lazy loading for product images (performance)"
+      ]
+    },
+
+    {
+      "name": "Blog Post Slide",
+      "description": "Blog post card with featured image, title, excerpt, read more",
+      "visualDescription": "Featured image at top, blog title in bold, 2-line excerpt preview, 'Read More' link in purple",
+      "complexity": "medium",
+      "attributes": {
+        "key": "4",
+        "itemId": "blog-post-5"
+      },
+      "parentBlock": "tpgb/tp-anything-carousel",
+      "childContent": [
+        "tp-container (white background, border radius, shadow)",
+        "  └─ tp-row",
+        "      └─ tp-column",
+        "          ├─ tp-image (featured image, 16:9 ratio)",
+        "          ├─ [Category badge]",
+        "          ├─ tp-heading (post title, h3, 20px, 2-line clamp)",
+        "          ├─ [Date + Author]",
+        "          ├─ tp-pro-paragraph (excerpt, 14px, 3-line clamp, gray)",
+        "          └─ tp-button ('Read More →', outline style)"
+      ],
+      "useCase": "Blog carousels, news feeds, article showcases",
+      "notes": [
+        "Use line clamping for title (2 lines) and excerpt (3 lines) for equal height",
+        "Parent carousel: tpgbEqualHeight=true + equalUnqClass='blog-carousel'",
+        "Featured images must be same aspect ratio (16:9 recommended)",
+        "Keep excerpts to 120-150 characters max"
+      ]
+    },
+
+    {
+      "name": "Feature Highlight Slide",
+      "description": "Service/feature card with icon, heading, description",
+      "visualDescription": "Purple gradient background, white FontAwesome icon (64px), white heading, white description text, centered alignment",
+      "complexity": "simple",
+      "attributes": {
+        "key": "5",
+        "itemId": "feature-slide-6"
+      },
+      "parentBlock": "tpgb/tp-anything-carousel",
+      "childContent": [
+        "tp-container (gradient background, padding)",
+        "  └─ tp-row",
+        "      └─ tp-column (centered alignment)",
+        "          ├─ [FontAwesome icon, 64px, white]",
+        "          ├─ tp-heading (feature name, h3, white, 24px)",
+        "          └─ tp-pro-paragraph (description, white, 16px)"
+      ],
+      "useCase": "Feature showcases, service highlights, capability overviews",
+      "notes": [
+        "Parent carousel may use rmdOrder=true for randomized features",
+        "Use consistent icon sizes across all feature slides",
+        "Keep descriptions to 1-2 sentences",
+        "Ensure sufficient contrast (white text on dark/purple backgrounds)"
+      ]
+    },
+
+    {
+      "name": "Team Member Slide",
+      "description": "Team member card with photo, name, role, social links",
+      "visualDescription": "Team member photo (grayscale), name below in bold, role in gray, social media icon links (LinkedIn, Twitter)",
+      "complexity": "medium",
+      "attributes": {
+        "key": "6",
+        "itemId": "team-member-7"
+      },
+      "parentBlock": "tpgb/tp-anything-carousel",
+      "childContent": [
+        "tp-container (white background, border radius, hover effect)",
+        "  └─ tp-row",
+        "      └─ tp-column (centered alignment)",
+        "          ├─ tp-image (headshot, 300x300px, circular or square)",
+        "          ├─ tp-heading (full name, h4, 20px)",
+        "          ├─ tp-pro-paragraph (job title, 14px, gray)",
+        "          └─ [Social media icon links]"
+      ],
+      "useCase": "Team carousels, leadership showcases, staff directories",
+      "notes": [
+        "Parent carousel: tpgbEqualHeight=true for consistent card heights",
+        "All headshots should be same dimensions and style (color vs grayscale)",
+        "Consider hover effect revealing bio or additional info",
+        "Social icons should be consistent size (24-32px)"
+      ]
+    },
+
+    {
+      "name": "Complex Slide with Template Content",
+      "description": "Slide loading content from WordPress block template",
+      "visualDescription": "Content loaded from saved template, could be any layout defined in WordPress",
+      "complexity": "advanced",
+      "attributes": {
+        "key": "7",
+        "itemId": "template-slide-8"
+      },
+      "parentBlock": "tpgb/tp-anything-carousel (with caroslideType='template')",
+      "childContent": [
+        "Content loaded from saved WordPress block template/pattern",
+        "Template ID defined in parent's carouselList[7].blockTemp"
+      ],
+      "useCase": "Reusable slide layouts, CMS-managed content, multi-site carousels",
+      "notes": [
+        "Parent carousel must have caroslideType='template'",
+        "Parent's carouselList item must have contentType='template' and blockTemp='template-id'",
+        "tp-anything-slide just holds the template content",
+        "Template can be edited separately and updates all instances"
+      ]
     }
   ],
-  "commonPatterns": {}
+
+  "commonPatterns": {
+    "keyPattern": {
+      "description": "The 'key' attribute must match parent carousel's carouselList._key",
+      "example": "Parent has carouselList: [{_key: '0'}, {_key: '1'}, {_key: '2'}], slides have key: '0', '1', '2'",
+      "important": "Keys must be sequential strings (0, 1, 2...) for proper carousel functionality"
+    },
+    "itemIdPattern": {
+      "description": "Unique identifier for this slide instance",
+      "format": "descriptive-name-number (e.g., 'product-slide-1', 'hero-banner-2')",
+      "important": "Must be unique across all slides in carousel"
+    },
+    "contentStructure": {
+      "simple": "Single block (tp-image, tp-heading)",
+      "standard": "Container → Row → Column → Content blocks",
+      "complex": "Container → Row → Multiple columns with various blocks",
+      "template": "Content loaded from saved WordPress template"
+    },
+    "parentChildRelationship": {
+      "parent": "tp-anything-carousel controls carousel settings, transitions, navigation",
+      "child": "tp-anything-slide is just a content container, no carousel logic",
+      "communication": "Parent's carouselList[n]._key must match child's key attribute",
+      "count": "Number of slides = number of items in parent's carouselList array"
+    }
+  },
+
+  "validationRules": {
+    "key": "Required, must be string matching parent's carouselList._key (use '0', '1', '2'...)",
+    "itemId": "Optional but recommended, must be unique string identifier",
+    "parentRequired": "MUST be child of tpgb/tp-anything-carousel block"
+  },
+
+  "warnings": [
+    "CRITICAL: key must match parent carousel's carouselList[n]._key exactly",
+    "CRITICAL: Must be direct child of tp-anything-carousel block (won't work standalone)",
+    "itemId should be unique across all slides (prevents ID conflicts)",
+    "Don't use duplicate keys (causes carousel to malfunction)",
+    "Parent carousel must exist before adding slides",
+    "Number of tp-anything-slide blocks should match parent's carouselList length",
+    "Deleting slide doesn't auto-update parent's carouselList (manual cleanup needed)",
+    "Heavy content in slides (videos, large images) impacts carousel performance",
+    "Slide content should work well with parent's transition type (fade vs slide)",
+    "Parent's tpgbEqualHeight affects ALL slides (ensure consistent content structure)"
+  ],
+
+  "commonMistakes": [
+    "Setting key that doesn't exist in parent's carouselList (slide won't appear)",
+    "Using number for key instead of string (use '0', not 0)",
+    "Creating tp-anything-slide without parent carousel (block won't work)",
+    "Forgetting to update key after duplicating slide (causes duplicate key errors)",
+    "Using itemId that's not unique (ID conflicts in HTML)",
+    "Adding more slides than carouselList items in parent (extra slides won't render)",
+    "Not keeping content consistent across slides when parent has tpgbEqualHeight=true",
+    "Using auto-playing videos in slides (conflicts with carousel transitions)",
+    "Overloading slides with content (keep it concise for carousel context)",
+    "Forgetting that parent controls all carousel behavior (can't change from child)"
+  ],
+
+  "bestPractices": [
+    "Always use sequential string keys ('0', '1', '2', '3'...) for clarity",
+    "Use descriptive itemId values (e.g., 'product-slide-1', 'testimonial-john-doe')",
+    "Keep slide content concise (users may skip slides quickly in carousel)",
+    "Use consistent content structure across all slides (helps with equal height)",
+    "Wrap content in tp-container for backgrounds, padding, and styling",
+    "Use tp-row and tp-column for responsive layouts",
+    "Optimize images for web (WebP format, appropriate dimensions)",
+    "Keep text readable (sufficient size, contrast, line height)",
+    "Ensure interactive elements (buttons, links) are touch-friendly on mobile",
+    "Test slides with different content lengths to verify equal height behavior",
+    "Don't nest carousels (carousel inside carousel causes issues)",
+    "Use template mode (parent: caroslideType='template') for reusable slide layouts",
+    "Coordinate with parent carousel settings (transition type, equal height, etc.)",
+    "For hero slides, use tp-container with full-width backgrounds",
+    "For card-based slides (products, testimonials), use consistent padding and borders",
+    "Limit text to 2-3 lines for headings, 3-4 lines for paragraphs",
+    "Use lazy loading for images (especially in product carousels)",
+    "Test on mobile devices (slide content must be readable on small screens)"
+  ],
+
+  "layoutPatterns": {
+    "singleImage": {
+      "structure": "tp-image only",
+      "useCase": "Simple image galleries, product photos",
+      "notes": "Ensure images same aspect ratio for clean carousel"
+    },
+    "heroLayout": {
+      "structure": "tp-container (full-width bg) → tp-row → tp-column → heading + paragraph + button",
+      "useCase": "Hero carousels, banner rotations",
+      "notes": "Use fade transition (parent: carType='fade') for smooth effect"
+    },
+    "cardLayout": {
+      "structure": "tp-container (card styling) → tp-row → tp-column → content blocks",
+      "useCase": "Testimonials, products, blog posts",
+      "notes": "Parent should have tpgbEqualHeight=true for uniform cards"
+    },
+    "twoColumnSlide": {
+      "structure": "tp-container → tp-row → tp-column (50%) + tp-column (50%)",
+      "useCase": "Feature comparisons, before/after, image + text combos",
+      "notes": "Ensure columns stack properly on mobile"
+    },
+    "centeredContent": {
+      "structure": "tp-container (centered) → tp-row → tp-column (centered) → icon + heading + text",
+      "useCase": "Feature highlights, service showcases",
+      "notes": "Works well with gradient backgrounds"
+    }
+  },
+
+  "accessibilityNotes": [
+    "Use semantic headings in slide content (h2, h3, h4 in proper hierarchy)",
+    "Ensure sufficient color contrast (WCAG 2.1 AA: 4.5:1 for text, 3:1 for large text)",
+    "Provide alt text for all images in slides",
+    "Make buttons/links keyboard accessible (proper focus states)",
+    "Don't rely solely on color to convey information",
+    "Ensure text is readable (minimum 16px for body text)",
+    "Test with screen readers (ensure content is announced in logical order)",
+    "Avoid text over images without sufficient contrast or overlay",
+    "Use descriptive link text ('Learn More About Our Services', not 'Click Here')",
+    "Ensure carousel navigation is keyboard accessible (parent tp-carousel-remote)",
+    "Don't auto-advance slides (user should control navigation)",
+    "Provide clear indication of which slide is active",
+    "Ensure touch targets are at least 44x44px on mobile"
+  ],
+
+  "performanceConsiderations": [
+    "Lazy load images in slides (especially important for carousels with many slides)",
+    "Optimize images (WebP format, correct dimensions, compressed)",
+    "Avoid auto-playing videos in slides (heavy on resources)",
+    "Keep slide content lightweight (avoid embedding large iframes, maps)",
+    "Use CSS animations instead of JavaScript where possible",
+    "Limit number of slides to 20 or fewer (parent validation)",
+    "Test on mobile devices (carousels can be resource-intensive)",
+    "Consider using template mode for large-scale carousels (better caching)",
+    "Avoid heavy fonts or too many font variations in slides",
+    "Monitor cumulative layout shift (CLS) when slides load"
+  ],
+
+  "relatedBlocks": [
+    "tpgb/tp-anything-carousel - Parent carousel container (REQUIRED)",
+    "tpgb/tp-carousel-remote - External navigation controls",
+    "tpgb/tp-container - Common slide wrapper for backgrounds/styling",
+    "tpgb/tp-row - Layout structure within slides",
+    "tpgb/tp-column - Column layout within slides",
+    "tpgb/tp-heading - Slide headings",
+    "tpgb/tp-pro-paragraph - Slide text content",
+    "tpgb/tp-image - Slide images",
+    "tpgb/tp-button - Slide CTAs",
+    "tpgb/tp-testimonials - Testimonial content"
+  ]
 }

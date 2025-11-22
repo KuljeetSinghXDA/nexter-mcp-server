@@ -2,35 +2,60 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-anything-carousel",
   "title": "Carousel Anything - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Parent carousel container supporting slide/fade transitions, remote control, and flexible content",
+
   "examples": [
     {
-      "description": "Simple 3-slide testimonial carousel",
+      "name": "Simple Image Carousel (3 Slides)",
+      "description": "Basic image carousel with slide transition",
+      "visualDescription": "Horizontal sliding carousel with 3 image slides, smooth transitions between slides",
+      "complexity": "simple",
       "attributes": {
         "block_id": "a1b2",
         "carType": "slide",
         "carouselList": [
           {
             "_key": "0",
-            "title": "Testimonial 1",
-            "contentType": "content"
+            "title": "Product Image 1",
+            "contentType": "content",
+            "blockTemp": "none",
+            "backendVisi": false
           },
           {
             "_key": "1",
-            "title": "Testimonial 2",
-            "contentType": "content"
+            "title": "Product Image 2",
+            "contentType": "content",
+            "blockTemp": "none",
+            "backendVisi": false
           },
           {
             "_key": "2",
-            "title": "Testimonial 3",
-            "contentType": "content"
+            "title": "Product Image 3",
+            "contentType": "content",
+            "blockTemp": "none",
+            "backendVisi": false
           }
         ],
         "tpgbEqualHeight": true
-      }
+      },
+      "childBlocks": [
+        "Each carouselList item corresponds to one tp-anything-slide child block",
+        "tp-anything-slide blocks contain actual content (images, text, buttons, etc.)"
+      ],
+      "useCase": "Product galleries, image showcases, photo albums",
+      "notes": [
+        "carType='slide' enables horizontal sliding transition",
+        "tpgbEqualHeight=true ensures all slides have same height",
+        "_key must be unique for each slide (0, 1, 2...)",
+        "contentType='content' means slides use Gutenberg blocks"
+      ]
     },
+
     {
-      "description": "Fade transition carousel with remote control",
+      "name": "Hero Banner Carousel with Fade Transition",
+      "description": "Full-width hero carousel with smooth fade effect",
+      "visualDescription": "Full-width hero banners that fade in/out smoothly, no sliding motion, continuous rewind from last to first slide",
+      "complexity": "simple",
       "attributes": {
         "block_id": "c3d4",
         "carType": "fade",
@@ -39,50 +64,516 @@
         "carouselList": [
           {
             "_key": "0",
-            "title": "Hero 1"
+            "title": "Hero Banner 1",
+            "contentType": "content",
+            "backendVisi": false
           },
           {
             "_key": "1",
-            "title": "Hero 2"
-          }
-        ]
-      }
-    },
-    {
-      "description": "Product showcase with overflow hidden",
-      "attributes": {
-        "block_id": "e5f6",
-        "carType": "slide",
-        "OverflowHid": true,
-        "tpgbEqualHeight": true,
-        "equalUnqClass": "product-carousel"
-      }
-    },
-    {
-      "description": "Random order content slider",
-      "attributes": {
-        "block_id": "g7h8",
-        "rmdOrder": true,
-        "carouselList": [
-          {
-            "_key": "0",
-            "title": "Feature 1"
-          },
-          {
-            "_key": "1",
-            "title": "Feature 2"
+            "title": "Hero Banner 2",
+            "contentType": "content",
+            "backendVisi": false
           },
           {
             "_key": "2",
-            "title": "Feature 3"
+            "title": "Hero Banner 3",
+            "contentType": "content",
+            "backendVisi": false
+          }
+        ],
+        "tpgbEqualHeight": true
+      },
+      "childBlocks": [
+        "tp-anything-slide with full-width tp-container backgrounds",
+        "Each slide typically has heading + paragraph + button"
+      ],
+      "relatedBlocks": [
+        "tp-carousel-remote for prev/next buttons and dot navigation"
+      ],
+      "useCase": "Homepage hero sections, featured promotions, announcement banners",
+      "notes": [
+        "carType='fade' creates crossfade transition instead of sliding",
+        "rewindFade=true enables smooth fade when looping from last to first",
+        "carouselId connects to tp-carousel-remote for external navigation",
+        "Fade transition works best for full-width hero banners"
+      ]
+    },
+
+    {
+      "name": "Testimonial Carousel with Remote Control",
+      "description": "Customer testimonials with external navigation controls",
+      "visualDescription": "Customer testimonial cards sliding horizontally, controlled by separate prev/next buttons and dot indicators placed outside carousel",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "e5f6",
+        "carType": "slide",
+        "carouselId": "testimonial-carousel",
+        "tpgbEqualHeight": true,
+        "equalUnqClass": "testimonial-carousel-eq",
+        "carouselList": [
+          {
+            "_key": "0",
+            "title": "John Doe Testimonial",
+            "contentType": "content",
+            "backendVisi": false
+          },
+          {
+            "_key": "1",
+            "title": "Jane Smith Testimonial",
+            "contentType": "content",
+            "backendVisi": false
+          },
+          {
+            "_key": "2",
+            "title": "Mike Johnson Testimonial",
+            "contentType": "content",
+            "backendVisi": false
           },
           {
             "_key": "3",
-            "title": "Feature 4"
+            "title": "Sarah Williams Testimonial",
+            "contentType": "content",
+            "backendVisi": false
+          },
+          {
+            "_key": "4",
+            "title": "David Brown Testimonial",
+            "contentType": "content",
+            "backendVisi": false
           }
         ]
-      }
+      },
+      "childBlocks": [
+        "tp-anything-slide with tp-testimonials block inside",
+        "Or custom layout: image + quote + name + rating"
+      ],
+      "relatedBlocks": [
+        "tp-carousel-remote with carouselId='testimonial-carousel'",
+        "tp-carousel-remote can be placed anywhere on page (above, below, sidebar)"
+      ],
+      "useCase": "Customer testimonials, client reviews, case studies, success stories",
+      "notes": [
+        "carouselId='testimonial-carousel' must match tp-carousel-remote's carouselId",
+        "equalUnqClass provides unique identifier for equal height calculation",
+        "tpgbEqualHeight ensures all testimonial cards have same height",
+        "Remote control allows flexible positioning of navigation elements"
+      ]
+    },
+
+    {
+      "name": "Product Showcase with Overflow Hidden",
+      "description": "Product carousel with clipped overflow for clean edges",
+      "visualDescription": "Product cards sliding horizontally, overflow hidden so only visible slides show, creates clean edge cutoff for partial slides",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "g7h8",
+        "carType": "slide",
+        "OverflowHid": true,
+        "tpgbEqualHeight": true,
+        "equalUnqClass": "product-showcase",
+        "carouselId": "product-carousel",
+        "carouselList": [
+          {
+            "_key": "0",
+            "title": "Product 1",
+            "contentType": "content"
+          },
+          {
+            "_key": "1",
+            "title": "Product 2",
+            "contentType": "content"
+          },
+          {
+            "_key": "2",
+            "title": "Product 3",
+            "contentType": "content"
+          },
+          {
+            "_key": "3",
+            "title": "Product 4",
+            "contentType": "content"
+          },
+          {
+            "_key": "4",
+            "title": "Product 5",
+            "contentType": "content"
+          },
+          {
+            "_key": "5",
+            "title": "Product 6",
+            "contentType": "content"
+          }
+        ]
+      },
+      "childBlocks": [
+        "tp-anything-slide with product image, title, price, add-to-cart button"
+      ],
+      "useCase": "E-commerce product carousels, featured products, related items, upsells",
+      "notes": [
+        "OverflowHid=true hides slides outside viewport (clean edges)",
+        "Without OverflowHid, partial slides peek on edges",
+        "Use OverflowHid for professional, contained carousel look",
+        "Typically shows 3-4 products at a time on desktop"
+      ]
+    },
+
+    {
+      "name": "Random Order Content Slider",
+      "description": "Feature carousel with randomized slide order on page load",
+      "visualDescription": "Feature highlights in random order each time page loads, keeping content fresh and dynamic",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "i9j0",
+        "carType": "slide",
+        "rmdOrder": true,
+        "carouselId": "feature-carousel",
+        "carouselList": [
+          {
+            "_key": "0",
+            "title": "Feature: Advanced Analytics"
+          },
+          {
+            "_key": "1",
+            "title": "Feature: Team Collaboration"
+          },
+          {
+            "_key": "2",
+            "title": "Feature: Cloud Storage"
+          },
+          {
+            "_key": "3",
+            "title": "Feature: Security"
+          },
+          {
+            "_key": "4",
+            "title": "Feature: 24/7 Support"
+          },
+          {
+            "_key": "5",
+            "title": "Feature: Mobile Apps"
+          }
+        ]
+      },
+      "childBlocks": [
+        "tp-anything-slide with feature icon, heading, description"
+      ],
+      "useCase": "Feature highlights, service showcases, rotating promotions, dynamic content",
+      "notes": [
+        "rmdOrder=true randomizes slide order on each page load",
+        "Great for showcasing different features to different visitors",
+        "Keeps content feeling fresh even with static slides",
+        "Order changes client-side (not cached)"
+      ]
+    },
+
+    {
+      "name": "Template-Based Carousel",
+      "description": "Carousel using saved block templates for slide content",
+      "visualDescription": "Carousel where each slide loads content from a saved WordPress block template/pattern",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "k1l2",
+        "carType": "slide",
+        "caroslideType": "template",
+        "tpgbEqualHeight": false,
+        "carouselList": [
+          {
+            "_key": "0",
+            "title": "Template Slide 1",
+            "contentType": "template",
+            "blockTemp": "template-id-123",
+            "backendVisi": true
+          },
+          {
+            "_key": "1",
+            "title": "Template Slide 2",
+            "contentType": "template",
+            "blockTemp": "template-id-456",
+            "backendVisi": true
+          },
+          {
+            "_key": "2",
+            "title": "Template Slide 3",
+            "contentType": "template",
+            "blockTemp": "template-id-789",
+            "backendVisi": true
+          }
+        ]
+      },
+      "childBlocks": [
+        "tp-anything-slide blocks load content from saved templates"
+      ],
+      "useCase": "Reusable slide layouts, CMS-managed content, multi-site carousels with shared templates",
+      "notes": [
+        "caroslideType='template' enables template mode",
+        "blockTemp is the template ID from WordPress",
+        "contentType='template' for each slide using templates",
+        "backendVisi=true shows template preview in editor",
+        "Templates can be managed separately and reused across carousels"
+      ]
+    },
+
+    {
+      "name": "Equal Height Carousel with Custom Class",
+      "description": "Multi-slide carousel with equal height and custom JavaScript hooks",
+      "visualDescription": "Card-based carousel where all cards maintain equal height even with varying content, custom class for JavaScript targeting",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "m3n4",
+        "carType": "slide",
+        "tpgbEqualHeight": true,
+        "equalUnqClass": "custom-carousel-eq-height",
+        "carouselId": "blog-carousel",
+        "carouselList": [
+          {
+            "_key": "0",
+            "title": "Blog Post 1 - Short Content"
+          },
+          {
+            "_key": "1",
+            "title": "Blog Post 2 - Medium Content"
+          },
+          {
+            "_key": "2",
+            "title": "Blog Post 3 - Long Content with Multiple Paragraphs"
+          },
+          {
+            "_key": "3",
+            "title": "Blog Post 4 - Short Content"
+          }
+        ]
+      },
+      "childBlocks": [
+        "tp-anything-slide with blog post excerpt, featured image, read more button"
+      ],
+      "useCase": "Blog post carousels, news feeds, article showcases, content grids",
+      "notes": [
+        "tpgbEqualHeight=true ensures all slides have same height",
+        "equalUnqClass='custom-carousel-eq-height' provides unique class for targeting",
+        "Equal height prevents layout shifts when slides have different content length",
+        "Custom class useful for additional JavaScript functionality or CSS styling"
+      ]
+    },
+
+    {
+      "name": "Complete Carousel with All Features",
+      "description": "Full-featured carousel showcasing all capabilities",
+      "visualDescription": "Professional carousel with fade transitions, equal height slides, remote control connection, overflow hidden, custom unique class for advanced customization",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "o5p6",
+        "carType": "fade",
+        "rewindFade": true,
+        "OverflowHid": true,
+        "tpgbEqualHeight": true,
+        "equalUnqClass": "showcase-carousel",
+        "carouselId": "showcase-carousel",
+        "rmdOrder": false,
+        "caroslideType": "content",
+        "showBlockContent": true,
+        "carouselList": [
+          {
+            "_key": "0",
+            "title": "Showcase 1",
+            "contentType": "content",
+            "blockTemp": "none",
+            "backendVisi": false
+          },
+          {
+            "_key": "1",
+            "title": "Showcase 2",
+            "contentType": "content",
+            "blockTemp": "none",
+            "backendVisi": false
+          },
+          {
+            "_key": "2",
+            "title": "Showcase 3",
+            "contentType": "content",
+            "blockTemp": "none",
+            "backendVisi": false
+          },
+          {
+            "_key": "3",
+            "title": "Showcase 4",
+            "contentType": "content",
+            "blockTemp": "none",
+            "backendVisi": false
+          },
+          {
+            "_key": "4",
+            "title": "Showcase 5",
+            "contentType": "content",
+            "blockTemp": "none",
+            "backendVisi": false
+          }
+        ]
+      },
+      "childBlocks": [
+        "tp-anything-slide with complex layouts (container + row + columns)",
+        "Each slide can have unique design while maintaining equal height"
+      ],
+      "relatedBlocks": [
+        "tp-carousel-remote with carouselId='showcase-carousel'",
+        "tp-carousel-remote can show prev/next buttons, dot indicators, and pagination (1/5)"
+      ],
+      "useCase": "Premium showcases, portfolio highlights, case study carousels, feature comparisons",
+      "notes": [
+        "Combines all carousel features for maximum flexibility",
+        "carType='fade' + rewindFade=true for smooth continuous fading",
+        "OverflowHid=true for clean edges",
+        "tpgbEqualHeight=true + equalUnqClass for equal height calculations",
+        "carouselId connects to external navigation controls",
+        "showBlockContent=true ensures slides are visible (set false to hide)"
+      ]
     }
   ],
-  "commonPatterns": {}
+
+  "commonPatterns": {
+    "carTypeGuide": {
+      "slide": "Horizontal sliding transition (default, most common)",
+      "fade": "Crossfade transition (best for hero banners, full-width slides)"
+    },
+    "contentTypeGuide": {
+      "content": "Slides use Gutenberg blocks (tp-anything-slide child blocks)",
+      "template": "Slides load from saved WordPress block templates"
+    },
+    "carouselListStructure": {
+      "_key": "Unique identifier (0, 1, 2...), must be unique per slide",
+      "title": "Slide title (for reference, not displayed)",
+      "contentType": "content or template",
+      "blockTemp": "Template ID (when contentType='template'), 'none' for content mode",
+      "backendVisi": "true to show template preview in editor, false to hide"
+    },
+    "equalHeightSystem": {
+      "tpgbEqualHeight": "Enable equal height calculation across all slides",
+      "equalUnqClass": "Custom class for unique equal height group (multiple carousels on page)",
+      "recommended": "Always use tpgbEqualHeight=true for card-based carousels"
+    },
+    "remoteControlConnection": {
+      "setup": "Set carouselId on carousel, match it in tp-carousel-remote block",
+      "example": "carousel: carouselId='product-carousel', remote: carouselId='product-carousel'",
+      "flexibility": "Remote can be placed anywhere (above, below, sidebar, fixed position)"
+    }
+  },
+
+  "validationRules": {
+    "block_id": "Required, unique 4-character hex identifier",
+    "carouselList": "Required, minimum 1 slide (array of slide objects)",
+    "carouselList._key": "Required for each slide, must be unique (use 0, 1, 2...)",
+    "carouselList.title": "Required for each slide (reference only)",
+    "carouselList.contentType": "Required, must be 'content' or 'template'",
+    "carouselList.blockTemp": "Required when contentType='template', must be valid template ID",
+    "carType": "Required, must be 'slide' or 'fade'",
+    "carouselId": "Optional, but required if using tp-carousel-remote",
+    "equalUnqClass": "Optional, recommended when tpgbEqualHeight=true and multiple carousels on page",
+    "caroslideType": "Optional, defaults to 'template' (set 'content' for Gutenberg blocks)",
+    "rewindFade": "Optional, only applies when carType='fade'",
+    "OverflowHid": "Optional, boolean (true/false)",
+    "rmdOrder": "Optional, boolean (true/false)",
+    "tpgbEqualHeight": "Optional, boolean (true/false)",
+    "backendVisi": "Optional per slide, boolean (true/false)",
+    "showBlockContent": "Optional, boolean (true/false), defaults to true"
+  },
+
+  "warnings": [
+    "CRITICAL: Each slide's _key must be unique (use sequential numbers: 0, 1, 2, 3...)",
+    "CRITICAL: carouselId must match exactly in both tp-anything-carousel and tp-carousel-remote",
+    "Don't mix contentType values in same carousel (all 'content' or all 'template', not both)",
+    "blockTemp='none' when contentType='content' (templates not used)",
+    "rewindFade only works when carType='fade' (ignored for slide type)",
+    "tpgbEqualHeight requires JavaScript, ensure equal height script is loaded",
+    "equalUnqClass is case-sensitive, use same exact string in related CSS/JS",
+    "Minimum 1 slide required in carouselList, recommended 3+ for carousel effect",
+    "OverflowHid=true can clip navigation arrows if positioned inside carousel",
+    "rmdOrder randomizes on page load (not cached, changes each visit)",
+    "Template mode requires valid template IDs that exist in WordPress",
+    "backendVisi=true can slow editor performance with many slides (use false for production)",
+    "Don't delete block_id (breaks carousel functionality)",
+    "Large number of slides (20+) can impact performance, consider pagination",
+    "When using fade transition, ensure slides have same dimensions for smooth effect",
+    "Remote control requires carouselId to be set on carousel first"
+  ],
+
+  "commonMistakes": [
+    "Forgetting to set unique _key for each slide (causes duplicate key errors)",
+    "Setting carouselId on remote but not on carousel (remote won't connect)",
+    "Using different carouselId values (typo causes remote to not work)",
+    "Setting tpgbEqualHeight=true without understanding equal height applies to ALL slides",
+    "Using OverflowHid=true and wondering why navigation arrows are clipped",
+    "Setting rewindFade=true on carType='slide' (has no effect)",
+    "Mixing contentType='content' and 'template' in same carousel (causes rendering issues)",
+    "Setting blockTemp with contentType='content' (template ignored)",
+    "Not setting equalUnqClass when multiple carousels on page with tpgbEqualHeight=true (all carousels share same equal height calculation)",
+    "Using rmdOrder=true and expecting consistent order (order changes each page load)",
+    "Setting backendVisi=true for all slides in large carousels (editor becomes slow)",
+    "Creating carousel with only 1 slide (technically works but pointless)",
+    "Deleting slides without updating remaining _key values (can cause gaps)",
+    "Not testing fade transition with different slide heights (looks bad)",
+    "Setting showBlockContent=false and wondering why carousel is empty"
+  ],
+
+  "bestPractices": [
+    "Always use sequential _key values (0, 1, 2, 3...) for clarity",
+    "Set tpgbEqualHeight=true for card-based layouts (testimonials, products, blog posts)",
+    "Use equalUnqClass when multiple carousels on same page to isolate equal height calculations",
+    "Set carouselId even if not using remote initially (easier to add navigation later)",
+    "Use descriptive carouselId values (e.g., 'product-carousel', 'testimonial-slider')",
+    "For hero banners, use carType='fade' + rewindFade=true for smooth continuous loop",
+    "For product/content carousels, use carType='slide' for horizontal sliding",
+    "Set OverflowHid=true for clean, professional carousel edges",
+    "Set OverflowHid=false if navigation arrows are positioned inside carousel",
+    "Use rmdOrder=true for content that benefits from randomization (features, testimonials)",
+    "Use contentType='content' for custom slide layouts (most common)",
+    "Use contentType='template' for reusable slide layouts across multiple carousels",
+    "Set backendVisi=false for better editor performance (preview slides individually)",
+    "Aim for 3-6 slides for optimal user experience (not too few, not overwhelming)",
+    "For product carousels, show 3-4 products on desktop, 2 on tablet, 1 on mobile",
+    "Test carousel with varying content lengths to ensure equal height works correctly",
+    "Always pair carousel with tp-carousel-remote for better UX (prev/next/dots)",
+    "Use descriptive slide titles for easier content management",
+    "Keep slide content concise (long content doesn't work well in carousels)",
+    "Consider accessibility: ensure keyboard navigation works, add ARIA labels to remote"
+  ],
+
+  "accessibilityNotes": [
+    "Use tp-carousel-remote with proper ARIA labels (pAriaLabel, nAriaLabel)",
+    "Ensure slides are keyboard accessible (tab through interactive elements)",
+    "Don't rely solely on carousel navigation (users may miss content)",
+    "Provide alternative access to carousel content (e.g., 'View All' link)",
+    "Test with screen readers (ensure slides are announced correctly)",
+    "Use semantic HTML in slide content (headings, paragraphs, buttons)",
+    "Ensure sufficient color contrast in slide content (WCAG 2.1 AA minimum)",
+    "Don't auto-play carousels (annoying for screen reader users)",
+    "Provide pause/play controls if carousel auto-advances",
+    "Ensure touch gestures work on mobile (swipe to navigate)",
+    "Test keyboard navigation (arrow keys, tab, enter)",
+    "Add visible focus indicators to interactive elements",
+    "Ensure carousel doesn't trap keyboard focus",
+    "Use descriptive link text in slides (avoid 'Read More', use 'Read More About X')"
+  ],
+
+  "performanceConsiderations": [
+    "Lazy load images in slides (especially for product carousels with many images)",
+    "Set backendVisi=false to improve editor performance",
+    "Limit slides to 20 or fewer for optimal performance",
+    "Use optimized images (WebP format, appropriate dimensions)",
+    "Avoid heavy animations in slide content (conflicts with carousel transitions)",
+    "Consider pagination for very large datasets (instead of 50+ slide carousel)",
+    "Minify CSS/JS for carousel functionality",
+    "Test on mobile devices (carousels can be resource-intensive)",
+    "Avoid nested carousels (carousel inside carousel causes performance issues)",
+    "Use content='content' instead of 'template' when possible (templates add overhead)",
+    "Cache carousel HTML when using template mode"
+  ],
+
+  "relatedBlocks": [
+    "tpgb/tp-anything-slide - Child slide container (required)",
+    "tpgb/tp-carousel-remote - External navigation controls (optional)",
+    "tpgb/tp-container - Common slide background container",
+    "tpgb/tp-heading - Slide headings",
+    "tpgb/tp-image - Slide images",
+    "tpgb/tp-button - Slide CTAs",
+    "tpgb/tp-testimonials - For testimonial carousels"
+  ]
 }
