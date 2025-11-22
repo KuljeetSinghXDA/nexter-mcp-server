@@ -2,34 +2,218 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-switcher",
   "title": "Switcher - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Toggle between two content states with single button. Common for pricing (monthly/yearly), comparisons (before/after), or A/B content display. Supports 4 visual styles.",
+
   "examples": [
     {
-      "description": "Simple pricing switcher (monthly/yearly)",
+      "name": "Pricing Switcher - Monthly/Yearly (Style 1)",
+      "description": "Toggle pricing display between monthly and yearly plans",
+      "visualDescription": "Toggle switch with 'Monthly' and 'Yearly' labels. Style-1: iOS-style sliding toggle. Active label highlighted. Clicking switches pricing tables below. Center-aligned. Common for SaaS pricing pages.",
+      "complexity": "simple",
+      "useCase": "Pricing tables (monthly/yearly), subscription plans, billing cycles",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "sw001",
         "title1": "Monthly",
         "title2": "Yearly",
+        "source1": "content",
+        "source2": "content",
+        "desc1": "<p>Monthly billing: $29/month billed monthly. Cancel anytime.</p>",
+        "desc2": "<p>Yearly billing: $290/year (save $58!). Billed annually.</p>",
+        "showBtn": true,
         "switchStyle": "style-1",
         "switchalign": "text-center"
-      },
-      "innerBlocks": [
-        {
-          "blockName": "tpgb/tp-switch-inner",
-          "attrs": {
-            "block_id": "c3d4",
-            "index": 0
+      }
+    },
+
+    {
+      "name": "Before/After Comparison Switcher",
+      "description": "Toggle between before and after states",
+      "visualDescription": "Switch between 'Before' and 'After' content. Shows transformation, results, or changes. Style-2: Rounded toggle with labels inside. Useful for portfolio, testimonials, case studies.",
+      "complexity": "simple",
+      "useCase": "Portfolio transformations, case studies, before/after photos, results showcase",
+      "attributes": {
+        "block_id": "sw002",
+        "title1": "Before",
+        "title2": "After",
+        "source1": "content",
+        "source2": "content",
+        "desc1": "<p>Before renovation: outdated kitchen, old appliances, poor lighting.</p>",
+        "desc2": "<p>After renovation: modern design, new appliances, perfect lighting. Total transformation!</p>",
+        "showBtn": true,
+        "switchStyle": "style-2",
+        "switchalign": "text-left"
+      }
+    },
+
+    {
+      "name": "Feature Comparison Switcher (Style 3)",
+      "description": "Toggle between two product/plan feature lists",
+      "visualDescription": "Style-3: Tab-like buttons side by side. 'Basic' vs 'Pro' features. Clicking tab shows different feature list. Clean, professional appearance. Good for plan comparisons.",
+      "complexity": "simple",
+      "useCase": "Plan comparisons, feature toggles, product variations",
+      "attributes": {
+        "block_id": "sw003",
+        "title1": "Basic",
+        "title2": "Pro",
+        "source1": "content",
+        "source2": "content",
+        "desc1": "<ul><li>5 projects</li><li>10GB storage</li><li>Email support</li></ul>",
+        "desc2": "<ul><li>Unlimited projects</li><li>100GB storage</li><li>Priority support</li><li>Advanced analytics</li></ul>",
+        "showBtn": true,
+        "switchStyle": "style-3",
+        "switchalign": "text-center",
+        "switchWidth": {
+          "md": "400",
+          "sm": "300",
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "Content Toggle with Templates (Style 4)",
+      "description": "Switch between two reusable block templates",
+      "visualDescription": "Style-4: Underline indicator style. Toggle between complex reusable blocks (not simple text). Each side can load entire saved template. Powerful for complex layouts.",
+      "complexity": "medium",
+      "useCase": "Complex content switching, template-based content, reusable layouts",
+      "attributes": {
+        "block_id": "sw004",
+        "title1": "Individual Plans",
+        "title2": "Team Plans",
+        "source1": "template",
+        "source2": "template",
+        "blockTemp1": "pricing-individual-template",
+        "blockTemp2": "pricing-team-template",
+        "showBtn": true,
+        "switchStyle": "style-4",
+        "switchalign": "text-center",
+        "switchWidth": {
+          "md": "500",
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "Styled Switcher - Purple Theme",
+      "description": "Fully styled switcher with custom colors and typography",
+      "visualDescription": "Purple gradient theme. Toggle switch: white text on purple gradient. Active label: darker purple. Switch slider: white circle on purple track. Matches brand colors. 16px uppercase labels with letter-spacing.",
+      "complexity": "advanced",
+      "useCase": "Branded sections, custom designs, themed pages",
+      "attributes": {
+        "block_id": "sw005",
+        "title1": "Personal",
+        "title2": "Business",
+        "source1": "content",
+        "source2": "content",
+        "desc1": "<p>Personal plan: Perfect for individuals. $9/month.</p>",
+        "desc2": "<p>Business plan: For growing teams. $49/month.</p>",
+        "showBtn": true,
+        "switchStyle": "style-1",
+        "switchalign": "text-center",
+        "labTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "16",
+            "unit": "px"
+          },
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "0.5",
+            "unit": "px"
           }
         },
-        {
-          "blockName": "tpgb/tp-switch-inner",
-          "attrs": {
-            "block_id": "e5f6",
-            "index": 1
-          }
-        }
-      ]
+        "switchColor": "#ffffff",
+        "switchHvrColor": "#f0f0f0",
+        "switchActColor": "#ffffff",
+        "toggleBgColor": "#667eea",
+        "dotColor": "#ffffff"
+      }
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "block_id": "Required. Unique identifier.",
+    "title1": "Required. Label for first switch option. Default: 'Switch 1'.",
+    "title2": "Required. Label for second switch option. Default: 'Switch 2'.",
+    "source1": "Values: 'content' (uses desc1), 'template' (uses blockTemp1). Default: 'content'.",
+    "source2": "Values: 'content' (uses desc2), 'template' (uses blockTemp2). Default: 'content'.",
+    "desc1": "Required when source1: 'content'. HTML content for first option.",
+    "desc2": "Required when source2: 'content'. HTML content for second option.",
+    "blockTemp1": "Required when source1: 'template'. Reusable block ID for first option.",
+    "blockTemp2": "Required when source2: 'template'. Reusable block ID for second option.",
+    "showBtn": "Boolean. Show/hide toggle button. Default: true. If false, content is static.",
+    "switchStyle": "Values: 'style-1' (iOS toggle), 'style-2' (rounded), 'style-3' (tabs), 'style-4' (underline). Default: 'style-1'.",
+    "switchalign": "Text alignment. Values: 'text-left', 'text-center', 'text-right'. Default: 'text-left'.",
+    "switchWidth": "Responsive object. Max-width for style-3 and style-4 toggles. Recommended: 300-500px."
+  },
+
+  "warnings": [
+    "CRITICAL: Never modify block_id - breaks switcher.",
+    "source: 'template' requires blockTemp to be valid reusable block ID.",
+    "showBtn: false makes switcher non-interactive (always shows first option).",
+    "switchStyle: 'style-3'/'style-4' require switchWidth to be set for proper appearance.",
+    "Empty desc1/desc2 when source: 'content' creates blank content area.",
+    "Very different content heights between options can cause layout jump when switching."
+  ],
+
+  "commonMistakes": [
+    "Forgetting to set blockTemp when using source: 'template' (content doesn't load)",
+    "Not providing desc when source: 'content' (blank switcher)",
+    "Setting switchWidth too narrow on style-3/style-4 (text overflow)",
+    "Using very long title1/title2 text (breaks toggle layout)",
+    "Not testing both switch states (only testing default)",
+    "Forgetting showBtn: true (switcher appears but doesn't toggle)"
+  ],
+
+  "bestPractices": [
+    "Title length: 1-2 words for clean toggle appearance",
+    "Content height: Keep similar heights for smooth switching",
+    "Use style-1/style-2 for pricing toggles (modern, familiar pattern)",
+    "Use style-3/style-4 for feature comparisons (tab-like clarity)",
+    "switchWidth for style-3/style-4: 300-500px for comfortable labels",
+    "Label spacing: 10-20px (labSpacebet) for style-1/style-2",
+    "Align center for pricing, left for content comparisons",
+    "Test both options have content - empty states confuse users",
+    "Use templates (source: 'template') for complex pricing tables",
+    "Color contrast: Ensure labels readable in both active/inactive states"
+  ],
+
+  "layoutContext": {
+    "parentBlocks": "Can be used in any container",
+    "childBlocks": "Can use tp-switch-inner child blocks OR desc1/desc2 inline content",
+    "htmlStructure": "<div class='tpgb-switch-wrap'><div class='switch-toggle-wrap'><button class='switcher-button'>toggle</button></div><div class='switch-content-wrap'>content</div></div>",
+    "switchingBehavior": "Clicking toggle hides one content, shows other. No animation by default (instant switch).",
+    "styleVariations": "style-1 = iOS toggle, style-2 = rounded toggle, style-3 = tabs, style-4 = underline tabs"
+  },
+
+  "relatedBlocks": {
+    "tp-switch-inner": "Child block for switcher content (alternative to desc1/desc2)",
+    "tp-tabs-tours": "Multi-tab navigation (3+ options, more complex)",
+    "tp-accordion": "Collapsible content (different UX pattern)",
+    "tp-pricing-table": "Often used inside switcher for pricing toggles"
+  },
+
+  "useCasePatterns": {
+    "pricingToggle": {
+      "description": "Common monthly/yearly pricing switcher",
+      "title1": "Monthly",
+      "title2": "Yearly",
+      "switchStyle": "style-1",
+      "switchalign": "text-center"
+    },
+    "beforeAfter": {
+      "description": "Transformation showcase",
+      "title1": "Before",
+      "title2": "After",
+      "switchStyle": "style-2"
+    },
+    "planComparison": {
+      "description": "Feature list comparison",
+      "title1": "Basic",
+      "title2": "Pro",
+      "switchStyle": "style-3"
+    }
+  }
 }
