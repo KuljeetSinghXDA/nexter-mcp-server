@@ -2,75 +2,61 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-expand",
   "title": "Expand - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for Read More/Read Less functionality",
   "examples": [
     {
-      "description": "Simple 'Read More' for blog excerpt",
+      "name": "Simple Read More - Blog Excerpt",
+      "description": "Basic read more/less toggle for blog post excerpts",
+      "visualDescription": "150px height limit with 'Read More' button at bottom-left, angle-down/up icons, smooth 300ms expansion",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "exp001",
         "title": "",
+        "contentSource": "customContent",
+        "content": "Earth is the third planet from the Sun and the only astronomical object known to harbour life. According to radiometric dating estimation and other evidence, Earth formed over 4.5 billion years ago. Earth's gravity interacts with other objects in space, especially the Sun and the Moon, which is Earth's only natural satellite. Earth orbits around the Sun in about 365.25 days.<br/><br/>Earth's axis of rotation is tilted with respect to its orbital plane, producing seasons on Earth. The gravitational interaction between Earth and the Moon causes tides, stabilises Earth's orientation on its axis, and gradually slows its rotation.",
         "expandText": "Read More",
         "collapseText": "Read Less",
+        "readMoreIcon": "fas fa-angle-down",
+        "collapseIcon": "fas fa-angle-up",
+        "iconPosition": "before",
         "contentMaxHeight": {
           "md": "150",
+          "sm": "120",
+          "xs": "100",
           "unit": "px"
         },
         "toggleAlignment": "left",
-        "transDuration": "300"
-      }
+        "transDuration": "300",
+        "contentExpandDir": "above"
+      },
+      "useCase": "Blog post teasers, article excerpts, news summaries"
     },
     {
-      "description": "Product description with custom icon",
+      "name": "Product Description with Gradient Fade",
+      "description": "Product details with custom gradient overlay fade effect",
+      "visualDescription": "100px visible content with 80px white gradient fade-out, centered 'View Full Details' button, chevron icons, 400ms smooth animation",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "c3d4",
-        "title": "Product Details",
-        "titleTag": "h3",
+        "block_id": "exp002",
+        "title": "Product Specifications",
+        "titleTag": "h4",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "18", "sm": "16", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase"
+        },
+        "titleColor": "#333333",
+        "contentSource": "customContent",
+        "content": "<p>Professional-grade noise cancelling headphones with advanced features:</p><ul><li>40mm drivers with Hi-Res Audio certification</li><li>30-hour battery life with quick charging</li><li>Adaptive noise cancelling technology</li><li>Multi-point Bluetooth 5.2 connectivity</li><li>Foldable design with carrying case</li><li>Touch controls and voice assistant support</li><li>Premium comfort padding for all-day wear</li></ul>",
         "expandText": "View Full Details",
+        "collapseText": "Hide Details",
         "readMoreIcon": "fas fa-chevron-down",
         "collapseIcon": "fas fa-chevron-up",
+        "iconPosition": "after",
         "contentMaxHeight": {
           "md": "100",
-          "unit": "px"
-        },
-        "customOpacity": true,
-        "opacityColor": "#ffffff"
-      }
-    },
-    {
-      "description": "FAQ answer with extra 'Contact Us' button",
-      "attributes": {
-        "block_id": "e5f6",
-        "expandText": "Show Answer",
-        "collapseText": "Hide Answer",
-        "extraButton": true,
-        "extraButtonText": "Contact Support",
-        "extraButtonLink": {
-          "url": "/contact",
-          "target": ""
-        },
-        "toggleAlignment": "center"
-      }
-    },
-    {
-      "description": "Team bio with template content",
-      "attributes": {
-        "block_id": "g7h8",
-        "contentSource": "template",
-        "templates": "team-bio-template",
-        "title": "About John Doe",
-        "titleTag": "h4",
-        "expandText": "Read Full Bio",
-        "collapseText": "Show Less",
-        "iconPosition": "after"
-      }
-    },
-    {
-      "description": "Recipe with gradient overlay",
-      "attributes": {
-        "block_id": "i9j0",
-        "title": "Full Recipe",
-        "contentMaxHeight": {
-          "md": "200",
+          "sm": "80",
           "unit": "px"
         },
         "customOpacity": true,
@@ -78,16 +64,737 @@
           "md": "80",
           "unit": "px"
         },
-        "opacityColor": "#f9f9f9",
-        "expandText": "Show Full Recipe",
+        "opacityColor": "#ffffff",
         "toggleAlignment": "center",
         "transDuration": "400"
-      }
+      },
+      "useCase": "E-commerce product pages, specification lists, feature descriptions"
+    },
+    {
+      "name": "FAQ Answer with Contact Button",
+      "description": "FAQ answer with both expand/collapse toggle and extra 'Contact Support' button",
+      "visualDescription": "Center-aligned buttons, 'Show Answer' toggle on left, 'Contact Support' link button on right, purple accent color",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "exp003",
+        "title": "",
+        "contentSource": "customContent",
+        "content": "<p>Our return policy allows for returns within 30 days of purchase. Items must be in original condition with tags attached. Here's the complete process:</p><ol><li>Log into your account and go to Orders</li><li>Select the item you want to return</li><li>Choose a reason for return</li><li>Print the prepaid shipping label</li><li>Pack the item securely</li><li>Drop off at any carrier location</li><li>Refund will be processed within 5-7 business days after we receive your return</li></ol><p>Exceptions: Final sale items, personalized products, and digital downloads are not eligible for returns.</p>",
+        "expandText": "Show Answer",
+        "collapseText": "Hide Answer",
+        "readMoreIcon": "fas fa-plus",
+        "collapseIcon": "fas fa-minus",
+        "iconPosition": "before",
+        "contentMaxHeight": {
+          "md": "0",
+          "unit": "px"
+        },
+        "extraButton": true,
+        "extraButtonText": "Contact Support",
+        "extraButtonLink": {
+          "url": "/contact",
+          "target": "",
+          "nofollow": ""
+        },
+        "extraButtonIcon": "fas fa-envelope",
+        "toggleAlignment": "center",
+        "toggleBtnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"},
+          "fontWeight": "500"
+        },
+        "toggleBtnColor": "#6f14f1",
+        "toggleBtnBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "transparent"
+        },
+        "toggleBtnBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#6f14f1",
+          "width": {
+            "md": {"top": "2", "right": "2", "bottom": "2", "left": "2"},
+            "unit": "px"
+          }
+        },
+        "extraBtnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"},
+          "fontWeight": "500"
+        },
+        "extraBtnColor": "#ffffff",
+        "extraBtnBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#6f14f1"
+        }
+      },
+      "useCase": "FAQ sections, support documentation, help centers, customer service pages"
+    },
+    {
+      "name": "Team Bio with Template Content",
+      "description": "Team member biography using reusable block template",
+      "visualDescription": "H4 title 'About John Doe', template-based content, 'Read Full Bio' with icon after text, left-aligned",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "exp004",
+        "title": "About John Doe",
+        "titleTag": "h4",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "20", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "titleColor": "#1a1a1a",
+        "titleAlign": "left",
+        "contentSource": "template",
+        "templates": "team-bio-template-123",
+        "backendVisi": true,
+        "expandText": "Read Full Bio",
+        "collapseText": "Show Less",
+        "readMoreIcon": "fas fa-arrow-right",
+        "collapseIcon": "fas fa-arrow-up",
+        "iconPosition": "after",
+        "contentMaxHeight": {
+          "md": "120",
+          "unit": "px"
+        },
+        "toggleAlignment": "left",
+        "transDuration": "300"
+      },
+      "useCase": "Team pages, author bios, staff directories, about us sections"
+    },
+    {
+      "name": "Long Article with Responsive Height Limits",
+      "description": "Long-form content with different height limits per breakpoint",
+      "visualDescription": "300px desktop, 200px tablet, 150px mobile, gradient fade overlay, centered 'Continue Reading' button",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "exp005",
+        "title": "The Complete Guide to WordPress Development",
+        "titleTag": "h3",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "24", "sm": "20", "xs": "18", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "titleColor": "#222222",
+        "titleAlign": "center",
+        "contentSource": "customContent",
+        "content": "<p>WordPress powers over 40% of all websites on the internet, making it the most popular content management system (CMS) in the world. Whether you're building a simple blog or a complex enterprise application, WordPress provides the flexibility and tools you need.</p><h4>Getting Started with WordPress</h4><p>To begin your WordPress journey, you'll need to understand the core concepts: themes, plugins, posts, and pages. Each component plays a crucial role in creating a successful website.</p><h4>Theme Development</h4><p>WordPress themes control the visual presentation of your site. Modern theme development involves HTML, CSS, JavaScript, and PHP. The block editor (Gutenberg) has revolutionized theme development with block-based templates.</p><h4>Plugin Development</h4><p>Plugins extend WordPress functionality. From simple contact forms to complex e-commerce solutions, plugins are the backbone of WordPress customization. Learning to develop plugins opens endless possibilities.</p>",
+        "contentMaxHeight": {
+          "md": "300",
+          "sm": "200",
+          "xs": "150",
+          "unit": "px"
+        },
+        "customOpacity": true,
+        "opacityHeight": {
+          "md": "100",
+          "sm": "80",
+          "xs": "60",
+          "unit": "px"
+        },
+        "opacityColor": "#f9f9f9",
+        "expandText": "Continue Reading",
+        "collapseText": "Collapse Article",
+        "readMoreIcon": "fas fa-book-open",
+        "collapseIcon": "fas fa-book",
+        "iconPosition": "before",
+        "toggleAlignment": "center",
+        "toggleWidth": {
+          "md": "200",
+          "unit": "px"
+        },
+        "toggleBtnPadding": {
+          "md": {"top": "12", "right": "24", "bottom": "12", "left": "24"},
+          "unit": "px"
+        },
+        "toggleBtnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "toggleBtnColor": "#ffffff",
+        "toggleBtnBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#0073aa"
+        },
+        "toggleBtnBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#0073aa",
+          "width": {
+            "md": {"top": "2", "right": "2", "bottom": "2", "left": "2"},
+            "unit": "px"
+          }
+        },
+        "toggleBtnBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(0,115,170,0.3)"
+        },
+        "transDuration": "500"
+      },
+      "useCase": "Long-form articles, tutorials, documentation, educational content"
+    },
+    {
+      "name": "Recipe Instructions - Centered Toggle",
+      "description": "Recipe with step-by-step instructions, centered expand button",
+      "visualDescription": "200px visible content, white gradient overlay, centered 'Show Full Recipe' button, 400ms smooth transition",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "exp006",
+        "title": "Chocolate Chip Cookie Recipe",
+        "titleTag": "h3",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "22", "unit": "px"},
+          "fontWeight": "700",
+          "fontFamily": "Georgia"
+        },
+        "titleColor": "#8B4513",
+        "titleAlign": "center",
+        "contentSource": "customContent",
+        "content": "<h4>Ingredients:</h4><ul><li>2¼ cups all-purpose flour</li><li>1 tsp baking soda</li><li>1 tsp salt</li><li>1 cup butter, softened</li><li>¾ cup granulated sugar</li><li>¾ cup packed brown sugar</li><li>2 eggs</li><li>2 tsp vanilla extract</li><li>2 cups chocolate chips</li></ul><h4>Instructions:</h4><ol><li>Preheat oven to 375°F (190°C)</li><li>Mix flour, baking soda, and salt in a bowl</li><li>Beat butter and sugars until creamy</li><li>Add eggs and vanilla, beat well</li><li>Gradually blend in flour mixture</li><li>Stir in chocolate chips</li><li>Drop rounded tablespoons onto ungreased cookie sheets</li><li>Bake 9-11 minutes until golden brown</li><li>Cool on baking sheet for 2 minutes</li><li>Remove to wire rack to cool completely</li></ol>",
+        "contentMaxHeight": {
+          "md": "200",
+          "sm": "150",
+          "unit": "px"
+        },
+        "customOpacity": true,
+        "opacityHeight": {
+          "md": "80",
+          "unit": "px"
+        },
+        "opacityColor": "#fffaf0",
+        "expandText": "Show Full Recipe",
+        "collapseText": "Hide Recipe",
+        "readMoreIcon": "fas fa-utensils",
+        "collapseIcon": "fas fa-times",
+        "iconPosition": "before",
+        "toggleAlignment": "center",
+        "transDuration": "400"
+      },
+      "useCase": "Recipe blogs, cooking websites, food documentation, instruction lists"
+    },
+    {
+      "name": "Terms & Conditions - Custom Icons",
+      "description": "Legal text with custom expand/collapse icons and styling",
+      "visualDescription": "Right-aligned 'View Terms' button with plus/minus icons, 250px height limit, gray color scheme",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "exp007",
+        "title": "Terms & Conditions",
+        "titleTag": "h4",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "titleColor": "#555555",
+        "contentSource": "customContent",
+        "content": "<p><strong>1. Acceptance of Terms</strong><br/>By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.</p><p><strong>2. Use License</strong><br/>Permission is granted to temporarily download one copy of the materials on our website for personal, non-commercial transitory viewing only.</p><p><strong>3. Disclaimer</strong><br/>The materials on our website are provided on an 'as is' basis. We make no warranties, expressed or implied, and hereby disclaim all other warranties.</p><p><strong>4. Limitations</strong><br/>In no event shall our company be liable for any damages arising out of the use or inability to use the materials on our website.</p>",
+        "contentMaxHeight": {
+          "md": "250",
+          "unit": "px"
+        },
+        "expandText": "View Terms",
+        "collapseText": "Hide Terms",
+        "readMoreIcon": "fas fa-plus-circle",
+        "collapseIcon": "fas fa-minus-circle",
+        "iconPosition": "before",
+        "toggleAlignment": "right",
+        "toggleIconSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "toggleIconColor": "#666666",
+        "toggleBtnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "13", "unit": "px"},
+          "fontWeight": "500",
+          "textTransform": "uppercase"
+        },
+        "toggleBtnColor": "#666666",
+        "toggleBtnColorH": "#333333",
+        "transDuration": "250"
+      },
+      "useCase": "Legal pages, privacy policies, terms of service, disclaimers, footer content"
+    },
+    {
+      "name": "Privacy Policy - Styled Button",
+      "description": "Privacy policy with fully styled expand button and hover effects",
+      "visualDescription": "Purple gradient button with shadow, white text, rounded corners, hover color change, left-aligned",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "exp008",
+        "title": "Privacy Policy Summary",
+        "titleTag": "h3",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "24", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "titleColor": "#1a1a1a",
+        "titleMargin": {
+          "md": {"bottom": "20"},
+          "unit": "px"
+        },
+        "contentSource": "customContent",
+        "content": "<p>We value your privacy and are committed to protecting your personal information. This privacy policy explains how we collect, use, and safeguard your data.</p><h4>Information We Collect</h4><p>We collect information you provide directly to us, including name, email address, and usage data. We also automatically collect certain information about your device when you use our services.</p><h4>How We Use Your Information</h4><p>We use the information we collect to provide, maintain, and improve our services, communicate with you, and protect our users.</p><h4>Data Security</h4><p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, or destruction.</p>",
+        "contentMaxHeight": {
+          "md": "180",
+          "unit": "px"
+        },
+        "customOpacity": true,
+        "opacityHeight": {
+          "md": "60",
+          "unit": "px"
+        },
+        "opacityColor": "#ffffff",
+        "expandText": "Read Full Policy",
+        "collapseText": "Collapse",
+        "readMoreIcon": "fas fa-shield-alt",
+        "collapseIcon": "fas fa-chevron-up",
+        "iconPosition": "before",
+        "toggleAlignment": "left",
+        "toggleBtnPadding": {
+          "md": {"top": "15", "right": "30", "bottom": "15", "left": "30"},
+          "unit": "px"
+        },
+        "toggleBtnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "fontWeight": "600",
+          "letterSpacing": {"md": "0.3", "unit": "px"}
+        },
+        "toggleBtnColor": "#ffffff",
+        "toggleBtnColorH": "#ffffff",
+        "toggleBtnBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "toggleBtnBgH": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#764ba2", "position": 0},
+              {"color": "#667eea", "position": 100}
+            ]
+          }
+        },
+        "toggleBtnBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "transparent",
+          "width": {
+            "md": {"top": "0", "right": "0", "bottom": "0", "left": "0"},
+            "unit": "px"
+          }
+        },
+        "toggleBtnBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(102,126,234,0.4)"
+        },
+        "toggleBtnBoxShadowH": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 6,
+          "blur": 16,
+          "spread": 0,
+          "color": "rgba(118,75,162,0.5)"
+        },
+        "toggleIconSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "toggleIconOffsetBefore": {
+          "md": "10",
+          "unit": "px"
+        },
+        "transDuration": "350"
+      },
+      "useCase": "Privacy policies, GDPR notices, data protection pages, compliance documentation"
+    },
+    {
+      "name": "Content Expands Below Toggle (contentExpandDir: above)",
+      "description": "Content expands upward, toggle button stays at bottom",
+      "visualDescription": "'Read More' button at bottom, content expands upward when clicked, button position remains fixed",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "exp009",
+        "title": "",
+        "contentSource": "customContent",
+        "content": "<p>This content will expand upward from the toggle button. This is useful when you want the toggle button to remain in a fixed position at the bottom of a section, while additional content appears above it.</p><p>Common use cases include footer widgets, sidebar information boxes, or sticky bottom sections where you want the button to stay visible.</p>",
+        "contentMaxHeight": {
+          "md": "80",
+          "unit": "px"
+        },
+        "expandText": "Read More",
+        "collapseText": "Read Less",
+        "readMoreIcon": "fas fa-angle-up",
+        "collapseIcon": "fas fa-angle-down",
+        "iconPosition": "before",
+        "contentExpandDir": "above",
+        "toggleAlignment": "left",
+        "transDuration": "300"
+      },
+      "useCase": "Footer sections, sidebar widgets, sticky bottom content, card footers"
+    },
+    {
+      "name": "Advanced Styled - All Features Combined",
+      "description": "Showcase of all tp-expand features: custom title, gradient overlay, styled button, extra button, custom icons",
+      "visualDescription": "Teal title, 120px content with gradient fade, purple gradient 'Expand Content' button with shadow and icon, separate orange 'Download PDF' button, center-aligned, smooth transitions",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "exp010",
+        "title": "Annual Report 2024",
+        "titleTag": "h3",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "26", "sm": "22", "xs": "20", "unit": "px"},
+          "fontWeight": "700",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "titleColor": "#008080",
+        "titleAlign": "center",
+        "titleMargin": {
+          "md": {"bottom": "25"},
+          "unit": "px"
+        },
+        "contentSource": "customContent",
+        "content": "<p><strong>Executive Summary:</strong> Our company achieved record growth in 2024 with 45% revenue increase and expansion into 12 new markets.</p><h4>Financial Highlights</h4><ul><li>Revenue: $125M (+45% YoY)</li><li>Net profit: $28M (+52% YoY)</li><li>Customer base: 50,000+ (+30% YoY)</li><li>Employee count: 450 (+25% YoY)</li></ul><h4>Key Achievements</h4><ul><li>Launched 15 new products</li><li>Opened 8 regional offices</li><li>Achieved carbon neutrality</li><li>Won 6 industry awards</li></ul><h4>Looking Forward</h4><p>2025 goals include expanding to Asia-Pacific markets, doubling our R&D investment, and achieving 100% renewable energy operations.</p>",
+        "contentMaxHeight": {
+          "md": "120",
+          "sm": "100",
+          "xs": "80",
+          "unit": "px"
+        },
+        "customOpacity": true,
+        "opacityHeight": {
+          "md": "70",
+          "sm": "60",
+          "xs": "50",
+          "unit": "px"
+        },
+        "opacityColor": "#f5f5f5",
+        "expandText": "Expand Full Report",
+        "collapseText": "Collapse Report",
+        "readMoreIcon": "fas fa-chart-line",
+        "collapseIcon": "fas fa-compress-alt",
+        "iconPosition": "before",
+        "extraButton": true,
+        "extraButtonText": "Download PDF",
+        "extraButtonLink": {
+          "url": "/reports/annual-2024.pdf",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "ariaLabelEb": "Download Annual Report 2024 PDF",
+        "extraButtonIcon": "fas fa-file-pdf",
+        "toggleAlignment": "center",
+        "toggleWidth": {
+          "md": "220",
+          "unit": "px"
+        },
+        "toggleBtnMargin": {
+          "md": {"top": "20", "right": "10", "bottom": "0", "left": "0"},
+          "unit": "px"
+        },
+        "toggleBtnPadding": {
+          "md": {"top": "14", "right": "28", "bottom": "14", "left": "28"},
+          "unit": "px"
+        },
+        "toggleBtnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "toggleBtnColor": "#ffffff",
+        "toggleBtnColorH": "#ffffff",
+        "toggleBtnBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 90,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "toggleBtnBgH": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 90,
+            "gradientColor": [
+              {"color": "#764ba2", "position": 0},
+              {"color": "#667eea", "position": 100}
+            ]
+          }
+        },
+        "toggleBtnBorder": {
+          "openBorder": 0
+        },
+        "toggleBtnBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 15,
+          "spread": 0,
+          "color": "rgba(102,126,234,0.4)"
+        },
+        "toggleBtnBoxShadowH": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 6,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(102,126,234,0.5)"
+        },
+        "toggleIconSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "toggleIconOffsetBefore": {
+          "md": "10",
+          "unit": "px"
+        },
+        "extraButtonMargin": {
+          "md": {"top": "20", "right": "0", "bottom": "0", "left": "10"},
+          "unit": "px"
+        },
+        "extraBtnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "extraBtnColor": "#ffffff",
+        "extraBtnColorH": "#ffffff",
+        "extraBtnBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ff6b35"
+        },
+        "extraBtnBgH": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#e55a2b"
+        },
+        "extraBtnBorder": {
+          "openBorder": 0
+        },
+        "extraBtnBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(255,107,53,0.4)"
+        },
+        "extraToggleIconSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "extraTIconOffsetAfter": {
+          "md": "8",
+          "unit": "px"
+        },
+        "descTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "lineHeight": {"md": "1.7", "unit": "em"}
+        },
+        "descColor": "#444444",
+        "transDuration": "450"
+      },
+      "useCase": "Annual reports, whitepapers, case studies, downloadable content sections"
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
+  "validationRules": {
+    "block_id": "Required, unique identifier for the block",
+    "contentSource": "Required, must be 'customContent' or 'template'",
+    "content": "Required when contentSource='customContent', HTML string",
+    "templates": "Required when contentSource='template', reusable block ID",
+    "contentMaxHeight": "Recommended 80-300px for optimal UX, responsive object",
+    "expandText": "Required, default 'Read More', max 30 characters recommended",
+    "collapseText": "Required, default 'Read Less', max 30 characters recommended",
+    "readMoreIcon": "FontAwesome class string (e.g., 'fas fa-angle-down')",
+    "collapseIcon": "FontAwesome class string (e.g., 'fas fa-angle-up')",
+    "iconPosition": "Must be 'before' or 'after'",
+    "toggleAlignment": "Must be 'left', 'center', or 'right'",
+    "contentExpandDir": "Must be 'above' (default, content expands upward) or custom",
+    "transDuration": "String number, 200-500ms recommended for smooth UX",
+    "customOpacity": "Boolean, enables gradient overlay fade effect",
+    "opacityHeight": "Only used if customOpacity=true, height of gradient",
+    "opacityColor": "Only used if customOpacity=true, bottom color of gradient",
+    "extraButton": "Boolean, enables secondary action button",
+    "extraButtonLink": "Required if extraButton=true, object with url/target/nofollow"
+  },
+  "warnings": [
+    "NEVER modify block_id - it's the unique identifier",
+    "contentSource='template' requires valid templates ID or block won't render",
+    "contentMaxHeight too small (<50px) creates poor UX, users can't read content",
+    "contentMaxHeight too large (>500px) defeats purpose of expand functionality",
+    "Setting customOpacity=true without opacityColor creates invisible gradient",
+    "extraButton=true without extraButtonLink.url creates broken link",
+    "transDuration >1000ms feels sluggish, <100ms feels abrupt",
+    "Empty expandText or collapseText creates buttons with no label (accessibility issue)",
+    "iconPosition affects spacing - always set toggleIconOffsetBefore or toggleIconOffsetAfter",
+    "contentExpandDir='above' is unusual - content expands upward from button position"
+  ],
+  "commonMistakes": [
+    "Forgetting to set openTypography: 1 before setting titleTypo or toggleBtnTypo values",
+    "Using contentSource='template' but not providing templates ID",
+    "Setting extraButton=true but forgetting to configure extraButtonLink",
+    "Not providing customOpacity gradient but expecting fade effect",
+    "Using px units for font sizes (prefer rem/em for accessibility)",
+    "Not testing responsive contentMaxHeight values on mobile (xs breakpoint)",
+    "Setting contentMaxHeight=0 for FAQ pattern but forgetting to hide content initially",
+    "Copying readMoreIcon/collapseIcon from examples without verifying FontAwesome class exists",
+    "Not considering ARIA labels (ariaLabel, ariaLabelEb) for screen readers",
+    "Using very long expandText/collapseText that breaks layout on mobile"
+  ],
+  "bestPractices": [
+    "Use contentMaxHeight between 100-250px for optimal user experience",
+    "Enable customOpacity gradient for visual indication of hidden content",
+    "Set responsive contentMaxHeight (md/sm/xs) for better mobile experience",
+    "Use semantic titleTag (h2-h4) for SEO and accessibility",
+    "Keep expandText/collapseText concise (2-3 words: 'Read More', 'Show Less')",
+    "Use meaningful ARIA labels for screen reader accessibility",
+    "Match icon semantics (angle-down for expand, angle-up for collapse)",
+    "Set transDuration 300-400ms for smooth, professional animations",
+    "Use extraButton sparingly - only when secondary action truly needed",
+    "Test with real content length - ensure gradient fade doesn't cut mid-sentence",
+    "For FAQ sections: set contentMaxHeight=0 to hide all content initially",
+    "For blog excerpts: show 2-3 lines (100-150px) to give content preview",
+    "Center-align toggle buttons for symmetric layouts",
+    "Left-align for sidebar widgets and compact layouts",
+    "Use contentExpandDir='above' only when button must stay at bottom (footer, sticky sections)"
+  ],
+  "layoutContext": {
+    "expandBehavior": "Content height animates from contentMaxHeight to full height when toggle clicked",
+    "collapseBehavior": "Content height animates back to contentMaxHeight when collapse clicked",
+    "gradientOverlay": "If customOpacity=true, CSS ::after pseudo-element creates gradient from transparent to opacityColor over opacityHeight",
+    "contentExpandDir": "'above' (default) expands content upward, toggle button stays at bottom; other values may expand downward",
+    "toggleButtonLayout": "Flexbox container with justify-content based on toggleAlignment (left/center/right)",
+    "extraButtonLayout": "If extraButton=true, both buttons display side-by-side in same flex container",
+    "iconPositioning": "iconPosition='before' adds icon before text with margin-right offset, 'after' adds after with margin-left",
+    "responsiveBehavior": "contentMaxHeight, typography, spacing all respect md/sm/xs breakpoints",
+    "backendVisi": "If true, template content visible in editor (useful for previewing template-based content)"
+  },
+  "performanceConsiderations": [
+    "Template content (contentSource='template') adds database query - use sparingly",
+    "Very long content strings increase block save time - consider template approach",
+    "transDuration >500ms can feel sluggish on slower devices",
+    "Multiple expand blocks on single page - limit to 5-8 for performance",
+    "Gradient overlay (customOpacity) adds CSS ::after element - minimal performance impact"
+  ],
+  "accessibilityNotes": [
+    "Always set ariaLabel for toggle button screen reader context",
+    "If using extraButton, set ariaLabelEb for secondary button context",
+    "Use semantic titleTag (h2-h6) for proper heading hierarchy",
+    "Ensure expandText/collapseText are descriptive ('Read More' better than 'More')",
+    "Color contrast: ensure toggleBtnColor vs toggleBtnBg meets WCAG AA (4.5:1 ratio)",
+    "Icon-only buttons are inaccessible - always include text with icons",
+    "Test keyboard navigation - toggle button must be focusable and activate on Enter/Space"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-accordion - For multiple expandable sections with titles",
+    "tpgb/tp-tabs-tours - For switching between multiple content panels",
+    "tpgb/tp-switcher - For A/B toggle between two content states",
+    "tpgb/tp-pro-paragraph - For static content without expand functionality"
+  ],
+  "contentSourcePatterns": {
+    "customContent": {
+      "description": "Inline HTML content stored in 'content' attribute",
+      "pros": ["Fast rendering", "No database query", "Easy to edit inline"],
+      "cons": ["Increases block JSON size", "Not reusable across blocks"],
+      "bestFor": "Unique content specific to this block instance"
+    },
+    "template": {
+      "description": "Reusable block content referenced by 'templates' ID",
+      "pros": ["Reusable across multiple blocks", "Centralized content management", "Smaller block JSON"],
+      "cons": ["Requires database query", "More complex setup"],
+      "bestFor": "Repeated content patterns (team bios, product specs, legal text)"
     }
-  }
+  },
+  "useCasePatterns": [
+    {
+      "pattern": "blogExcerpt",
+      "description": "Blog post teaser with 'Read More' link",
+      "attributes": {
+        "contentMaxHeight": {"md": "150", "sm": "120", "xs": "100", "unit": "px"},
+        "expandText": "Read More",
+        "collapseText": "Read Less",
+        "toggleAlignment": "left",
+        "transDuration": "300"
+      }
+    },
+    {
+      "pattern": "faqAnswer",
+      "description": "FAQ answer initially hidden, revealed on click",
+      "attributes": {
+        "contentMaxHeight": {"md": "0", "unit": "px"},
+        "expandText": "Show Answer",
+        "collapseText": "Hide Answer",
+        "readMoreIcon": "fas fa-plus",
+        "collapseIcon": "fas fa-minus",
+        "toggleAlignment": "left"
+      }
+    },
+    {
+      "pattern": "productDescription",
+      "description": "E-commerce product details with gradient fade",
+      "attributes": {
+        "contentMaxHeight": {"md": "100", "sm": "80", "unit": "px"},
+        "customOpacity": true,
+        "opacityHeight": {"md": "80", "unit": "px"},
+        "opacityColor": "#ffffff",
+        "expandText": "View Full Details",
+        "toggleAlignment": "center"
+      }
+    },
+    {
+      "pattern": "legalText",
+      "description": "Terms, privacy policy, disclaimers",
+      "attributes": {
+        "contentMaxHeight": {"md": "200", "unit": "px"},
+        "expandText": "View Full Terms",
+        "collapseText": "Hide Terms",
+        "toggleAlignment": "right",
+        "toggleBtnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "13", "unit": "px"},
+          "textTransform": "uppercase"
+        }
+      }
+    }
+  ]
 }
