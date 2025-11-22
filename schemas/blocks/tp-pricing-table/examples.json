@@ -2,52 +2,938 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-pricing-table",
   "title": "Pricing Table - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for pricing plans",
   "examples": [
     {
-      "description": "Basic pricing table with discount",
+      "name": "Basic Pricing Plan - Style 1",
+      "description": "Simple pricing table with title, price, features list, and button",
+      "visualDescription": "Centered layout, $49/month price, 5 features with checkmark icons, purple 'Get Started' button",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
-        "title": "Premium Plan",
+        "block_id": "pricing001",
+        "style": "style-1",
+        "titleStyle": "style-1",
+        "title": "Professional",
         "subTitle": "For Growing Teams",
+        "titleAlign": {"md": "center"},
+        "iconType": "none",
+        "priceStyle": "style-1",
         "preText": "$",
         "priceValue": "49",
         "postText": "/month",
-        "disPrePrice": true,
-        "prevPriceValue": "79",
-        "titleAlign": {
-          "md": "center"
-        },
-        "priceAlign": {
-          "md": "center"
-        }
-      }
-    },
-    {
-      "description": "Pricing table with feature list",
-      "attributes": {
-        "block_id": "c3d4",
-        "title": "Enterprise",
+        "priceAlign": {"md": "center"},
+        "disPrePrice": false,
         "contentStyle": "stylish",
+        "conListStyle": "style-1",
         "stylishList": [
           {
-            "listDesc": "Unlimited Users",
-            "listIcon": "fas fa-check",
-            "showIcon": true
+            "_key": "0",
+            "listDesc": "Up to 10 team members",
+            "iconStore": "fas fa-check-circle",
+            "iconNmlColor": "#667eea"
           },
           {
-            "listDesc": "Priority Support",
-            "listIcon": "fas fa-check",
-            "showIcon": true
+            "_key": "1",
+            "listDesc": "100GB storage",
+            "iconStore": "fas fa-check-circle",
+            "iconNmlColor": "#667eea"
           },
           {
-            "listDesc": "Custom Integration",
-            "listIcon": "fas fa-check",
-            "showIcon": true
+            "_key": "2",
+            "listDesc": "Priority email support",
+            "iconStore": "fas fa-check-circle",
+            "iconNmlColor": "#667eea"
+          },
+          {
+            "_key": "3",
+            "listDesc": "Advanced analytics",
+            "iconStore": "fas fa-check-circle",
+            "iconNmlColor": "#667eea"
+          },
+          {
+            "_key": "4",
+            "listDesc": "Custom integrations",
+            "iconStore": "fas fa-check-circle",
+            "iconNmlColor": "#667eea"
           }
-        ]
-      }
+        ],
+        "readMoreToggle": false,
+        "ctaText": "",
+        "disRibbon": false,
+        "extbtnPosition": "top",
+        "extBtnAlignment": {"md": "center"}
+      },
+      "useCase": "SaaS pricing pages, subscription plans, service packages",
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-button",
+          "attrs": {
+            "block_id": "btn001",
+            "btnText": "Get Started",
+            "btnLink": {"url": "/signup", "target": "", "nofollow": ""},
+            "btnBgType": "color",
+            "btnBgColor": "#667eea",
+            "btnTextColor": "#ffffff",
+            "btnPadding": {"md": {"top": "14", "right": "32", "bottom": "14", "left": "32"}, "unit": "px"},
+            "btnBorderRadius": {"md": {"top": "6", "right": "6", "bottom": "6", "left": "6"}, "unit": "px"}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Popular Plan with Ribbon - Discount Price",
+      "description": "Featured pricing plan with 'Popular' ribbon badge and crossed-out original price",
+      "visualDescription": "Purple 'Popular' ribbon on top-right, crossed-out $99 original price, $49 sale price, 8 features, gradient button",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "pricing002",
+        "style": "style-2",
+        "titleStyle": "style-1",
+        "title": "Business",
+        "subTitle": "Most Popular Choice",
+        "titleAlign": {"md": "center"},
+        "iconType": "icon",
+        "iconStore": "fas fa-rocket",
+        "iconSize": {"md": "48", "unit": "px"},
+        "iconWidth": {"md": "100", "unit": "px"},
+        "iconStyle": "rounded",
+        "icnNmlColor": "#ffffff",
+        "icnNormalBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "priceStyle": "style-2",
+        "preText": "$",
+        "priceValue": "49",
+        "postText": "/month",
+        "priceAlign": {"md": "center"},
+        "disPrePrice": true,
+        "prevPreText": "$",
+        "prevPriceValue": "99",
+        "prevPostText": "/month",
+        "contentStyle": "stylish",
+        "conListStyle": "style-2",
+        "stylishList": [
+          {
+            "_key": "0",
+            "listDesc": "Unlimited team members",
+            "iconStore": "fas fa-check",
+            "iconNmlColor": "#667eea"
+          },
+          {
+            "_key": "1",
+            "listDesc": "500GB storage",
+            "iconStore": "fas fa-check",
+            "iconNmlColor": "#667eea"
+          },
+          {
+            "_key": "2",
+            "listDesc": "24/7 phone & chat support",
+            "iconStore": "fas fa-check",
+            "iconNmlColor": "#667eea"
+          },
+          {
+            "_key": "3",
+            "listDesc": "Advanced reporting",
+            "iconStore": "fas fa-check",
+            "iconNmlColor": "#667eea"
+          },
+          {
+            "_key": "4",
+            "listDesc": "API access",
+            "iconStore": "fas fa-check",
+            "iconNmlColor": "#667eea"
+          },
+          {
+            "_key": "5",
+            "listDesc": "White-label options",
+            "iconStore": "fas fa-check",
+            "iconNmlColor": "#667eea"
+          },
+          {
+            "_key": "6",
+            "listDesc": "Priority feature requests",
+            "iconStore": "fas fa-check",
+            "iconNmlColor": "#667eea"
+          },
+          {
+            "_key": "7",
+            "listDesc": "Dedicated account manager",
+            "iconStore": "fas fa-check",
+            "iconNmlColor": "#667eea"
+          }
+        ],
+        "disRibbon": true,
+        "ribbonStyle": "style-1",
+        "ribbonText": "Popular",
+        "extbtnPosition": "top",
+        "extBtnAlignment": {"md": "center"}
+      },
+      "useCase": "Recommended plans, featured pricing tiers, sale/discount promotions"
+    },
+    {
+      "name": "Enterprise Plan - Custom Icon with Tooltip Features",
+      "description": "High-tier plan with custom icon, tooltip explanations on features, and CTA text",
+      "visualDescription": "Blue shield icon in square background, 'Contact Sales' price, features with info icons showing tooltips on hover, custom CTA text above button",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "pricing003",
+        "style": "style-3",
+        "titleStyle": "style-2",
+        "title": "Enterprise",
+        "subTitle": "For Large Organizations",
+        "titleAlign": {"md": "center"},
+        "iconType": "icon",
+        "iconStore": "fas fa-shield-alt",
+        "iconSize": {"md": "56", "unit": "px"},
+        "iconWidth": {"md": "120", "unit": "px"},
+        "iconStyle": "square",
+        "icnNmlColor": "#0f4c81",
+        "icnNormalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#e8f4f8"
+        },
+        "nmlBColor": "#0f4c81",
+        "nmlIcnBRadius": {"md": {"top": "12", "right": "12", "bottom": "12", "left": "12"}, "unit": "px"},
+        "priceStyle": "style-1",
+        "preText": "",
+        "priceValue": "Contact Sales",
+        "postText": "",
+        "priceAlign": {"md": "center"},
+        "disPrePrice": false,
+        "contentStyle": "stylish",
+        "conListStyle": "style-1",
+        "stylishList": [
+          {
+            "_key": "0",
+            "listDesc": "Unlimited everything",
+            "iconStore": "fas fa-infinity",
+            "iconNmlColor": "#0f4c81",
+            "eIcnToggle": true,
+            "eIconStore": "fas fa-question-circle",
+            "eIconNColor": "#cccccc",
+            "tooltipText": "No limits on users, storage, or features",
+            "tooltipColor": "#ffffff"
+          },
+          {
+            "_key": "1",
+            "listDesc": "Custom SLA agreements",
+            "iconStore": "fas fa-file-contract",
+            "iconNmlColor": "#0f4c81",
+            "eIcnToggle": true,
+            "eIconStore": "fas fa-info-circle",
+            "eIconNColor": "#cccccc",
+            "tooltipText": "Tailored service level agreements for your business",
+            "tooltipColor": "#ffffff"
+          },
+          {
+            "_key": "2",
+            "listDesc": "On-premise deployment",
+            "iconStore": "fas fa-server",
+            "iconNmlColor": "#0f4c81",
+            "eIcnToggle": true,
+            "eIconStore": "fas fa-info-circle",
+            "eIconNColor": "#cccccc",
+            "tooltipText": "Deploy on your own infrastructure for maximum control",
+            "tooltipColor": "#ffffff"
+          },
+          {
+            "_key": "3",
+            "listDesc": "SSO & SAML integration",
+            "iconStore": "fas fa-shield-halved",
+            "iconNmlColor": "#0f4c81"
+          },
+          {
+            "_key": "4",
+            "listDesc": "Dedicated infrastructure",
+            "iconStore": "fas fa-database",
+            "iconNmlColor": "#0f4c81"
+          },
+          {
+            "_key": "5",
+            "listDesc": "Custom training & onboarding",
+            "iconStore": "fas fa-graduation-cap",
+            "iconNmlColor": "#0f4c81"
+          }
+        ],
+        "ctaText": "Need a custom solution? Our enterprise team is here to help.",
+        "ctaAlign": {"md": "center"},
+        "disRibbon": false,
+        "extbtnPosition": "top",
+        "extBtnAlignment": {"md": "center"}
+      },
+      "useCase": "Enterprise sales, custom pricing, high-touch sales processes"
+    },
+    {
+      "name": "Starter Plan - WYSIWYG Content Style",
+      "description": "Entry-level plan with WYSIWYG content area instead of feature list",
+      "visualDescription": "Simple layout, $19/month, WYSIWYG content block with custom HTML, green theme",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "pricing004",
+        "style": "style-1",
+        "titleStyle": "style-1",
+        "title": "Starter",
+        "subTitle": "Perfect for Individuals",
+        "titleAlign": {"md": "center"},
+        "iconType": "icon",
+        "iconStore": "fas fa-user",
+        "iconSize": {"md": "36", "unit": "px"},
+        "iconWidth": {"md": "80", "unit": "px"},
+        "iconStyle": "rounded",
+        "icnNmlColor": "#27ae60",
+        "icnNormalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#d5f4e6"
+        },
+        "priceStyle": "style-1",
+        "preText": "$",
+        "priceValue": "19",
+        "postText": "/month",
+        "priceAlign": {"md": "center"},
+        "disPrePrice": false,
+        "contentStyle": "wysiwyg",
+        "wyStyle": "style-1",
+        "wyContent": "<p><strong>Everything you need to get started:</strong></p><ul><li>1 user account</li><li>10GB storage</li><li>Email support (24h response)</li><li>Basic analytics</li><li>Mobile app access</li></ul><p style='text-align: center; margin-top: 20px;'><em>Cancel anytime. No credit card required for trial.</em></p>",
+        "disRibbon": false,
+        "extbtnPosition": "top",
+        "extBtnAlignment": {"md": "center"}
+      },
+      "useCase": "Entry-level plans, free trial offers, simple pricing structures"
+    },
+    {
+      "name": "Annual Plan - Read More Feature List",
+      "description": "Yearly subscription plan with collapsed feature list (show 5, expand to see all 12)",
+      "visualDescription": "$499/year price (save $89!), shows 5 features initially with '+ Show all options' link to reveal 7 more features",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "pricing005",
+        "style": "style-2",
+        "titleStyle": "style-1",
+        "title": "Annual Pro",
+        "subTitle": "Save $89 with yearly billing",
+        "titleAlign": {"md": "center"},
+        "iconType": "none",
+        "priceStyle": "style-2",
+        "preText": "$",
+        "priceValue": "499",
+        "postText": "/year",
+        "priceAlign": {"md": "center"},
+        "disPrePrice": true,
+        "prevPreText": "$",
+        "prevPriceValue": "588",
+        "prevPostText": "/year",
+        "contentStyle": "stylish",
+        "conListStyle": "style-1",
+        "stylishList": [
+          {
+            "_key": "0",
+            "listDesc": "Everything in Professional",
+            "iconStore": "fas fa-check-circle",
+            "iconNmlColor": "#667eea"
+          },
+          {
+            "_key": "1",
+            "listDesc": "Unlimited projects",
+            "iconStore": "fas fa-check-circle",
+            "iconNmlColor": "#667eea"
+          },
+          {
+            "_key": "2",
+            "listDesc": "1TB storage",
+            "iconStore": "fas fa-check-circle",
+            "iconNmlColor": "#667eea"
+          },
+          {
+            "_key": "3",
+            "listDesc": "Advanced security features",
+            "iconStore": "fas fa-check-circle",
+            "iconNmlColor": "#667eea"
+          },
+          {
+            "_key": "4",
+            "listDesc": "Custom branding",
+            "iconStore": "fas fa-check-circle",
+            "iconNmlColor": "#667eea"
+          },
+          {
+            "_key": "5",
+            "listDesc": "Webhook integrations",
+            "iconStore": "fas fa-plus-circle",
+            "iconNmlColor": "#999999"
+          },
+          {
+            "_key": "6",
+            "listDesc": "Export to PDF/CSV",
+            "iconStore": "fas fa-plus-circle",
+            "iconNmlColor": "#999999"
+          },
+          {
+            "_key": "7",
+            "listDesc": "Automated backups",
+            "iconStore": "fas fa-plus-circle",
+            "iconNmlColor": "#999999"
+          },
+          {
+            "_key": "8",
+            "listDesc": "Role-based permissions",
+            "iconStore": "fas fa-plus-circle",
+            "iconNmlColor": "#999999"
+          },
+          {
+            "_key": "9",
+            "listDesc": "Audit logs",
+            "iconStore": "fas fa-plus-circle",
+            "iconNmlColor": "#999999"
+          },
+          {
+            "_key": "10",
+            "listDesc": "Priority onboarding",
+            "iconStore": "fas fa-plus-circle",
+            "iconNmlColor": "#999999"
+          },
+          {
+            "_key": "11",
+            "listDesc": "Quarterly business reviews",
+            "iconStore": "fas fa-plus-circle",
+            "iconNmlColor": "#999999"
+          }
+        ],
+        "readMoreToggle": true,
+        "showListToggle": "5",
+        "readMoreText": "+ Show all 12 features",
+        "readLessText": "- Show less",
+        "disRibbon": true,
+        "ribbonStyle": "style-2",
+        "ribbonText": "Best Value",
+        "extbtnPosition": "top",
+        "extBtnAlignment": {"md": "center"}
+      },
+      "useCase": "Annual subscriptions, long feature lists, value-focused pricing"
+    },
+    {
+      "name": "Free Plan - Image Icon with Badge",
+      "description": "Free tier plan with custom image icon and 'Free Forever' ribbon",
+      "visualDescription": "Custom logo/image instead of icon, $0 price, limited features with X marks for unavailable, 'Free Forever' green ribbon",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "pricing006",
+        "style": "style-1",
+        "titleStyle": "style-1",
+        "title": "Free",
+        "subTitle": "Try Before You Buy",
+        "titleAlign": {"md": "center"},
+        "iconType": "img",
+        "imgStore": {
+          "url": "/wp-content/uploads/2024/free-plan-icon.png",
+          "id": "123"
+        },
+        "imgSize": {"md": "80", "unit": "px"},
+        "priceStyle": "style-1",
+        "preText": "$",
+        "priceValue": "0",
+        "postText": "/forever",
+        "priceAlign": {"md": "center"},
+        "disPrePrice": false,
+        "contentStyle": "stylish",
+        "conListStyle": "style-1",
+        "stylishList": [
+          {
+            "_key": "0",
+            "listDesc": "1 user",
+            "iconStore": "fas fa-check",
+            "iconNmlColor": "#27ae60"
+          },
+          {
+            "_key": "1",
+            "listDesc": "1GB storage",
+            "iconStore": "fas fa-check",
+            "iconNmlColor": "#27ae60"
+          },
+          {
+            "_key": "2",
+            "listDesc": "Basic features only",
+            "iconStore": "fas fa-check",
+            "iconNmlColor": "#27ae60"
+          },
+          {
+            "_key": "3",
+            "listDesc": "Community support",
+            "iconStore": "fas fa-check",
+            "iconNmlColor": "#27ae60"
+          },
+          {
+            "_key": "4",
+            "listDesc": "Advanced analytics",
+            "iconStore": "fas fa-times",
+            "iconNmlColor": "#e74c3c"
+          },
+          {
+            "_key": "5",
+            "listDesc": "Priority support",
+            "iconStore": "fas fa-times",
+            "iconNmlColor": "#e74c3c"
+          },
+          {
+            "_key": "6",
+            "listDesc": "API access",
+            "iconStore": "fas fa-times",
+            "iconNmlColor": "#e74c3c"
+          },
+          {
+            "_key": "7",
+            "listDesc": "Custom integrations",
+            "iconStore": "fas fa-times",
+            "iconNmlColor": "#e74c3c"
+          }
+        ],
+        "disRibbon": true,
+        "ribbonStyle": "style-1",
+        "ribbonText": "Free Forever",
+        "extbtnPosition": "top",
+        "extBtnAlignment": {"md": "center"}
+      },
+      "useCase": "Freemium models, trial plans, feature comparison with paid tiers"
+    },
+    {
+      "name": "Lifetime Deal - Style 3 with Hover Effects",
+      "description": "One-time payment plan with style-3 layout and hover color transitions",
+      "visualDescription": "Modern style-3 layout, $999 one-time price, hover effects on icon and text colors, orange theme",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "pricing007",
+        "style": "style-3",
+        "titleStyle": "style-2",
+        "title": "Lifetime",
+        "subTitle": "Pay Once, Use Forever",
+        "titleAlign": {"md": "center"},
+        "iconType": "icon",
+        "iconStore": "fas fa-crown",
+        "iconSize": {"md": "52", "unit": "px"},
+        "iconWidth": {"md": "110", "unit": "px"},
+        "iconStyle": "rounded",
+        "icnNmlColor": "#f39c12",
+        "icnHvrColor": "#e67e22",
+        "icnNormalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#fef5e7"
+        },
+        "icnHoverBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f9e79f"
+        },
+        "priceStyle": "style-2",
+        "preText": "$",
+        "priceValue": "999",
+        "postText": "one-time",
+        "priceAlign": {"md": "center"},
+        "disPrePrice": true,
+        "prevPreText": "$",
+        "prevPriceValue": "1999",
+        "prevPostText": "",
+        "contentStyle": "stylish",
+        "conListStyle": "style-2",
+        "stylishList": [
+          {
+            "_key": "0",
+            "listDesc": "All Pro features",
+            "iconStore": "fas fa-star",
+            "iconNmlColor": "#f39c12",
+            "iconHvrColor": "#e67e22"
+          },
+          {
+            "_key": "1",
+            "listDesc": "Lifetime updates",
+            "iconStore": "fas fa-infinity",
+            "iconNmlColor": "#f39c12",
+            "iconHvrColor": "#e67e22"
+          },
+          {
+            "_key": "2",
+            "listDesc": "No recurring fees",
+            "iconStore": "fas fa-ban",
+            "iconNmlColor": "#f39c12",
+            "iconHvrColor": "#e67e22"
+          },
+          {
+            "_key": "3",
+            "listDesc": "VIP support access",
+            "iconStore": "fas fa-headset",
+            "iconNmlColor": "#f39c12",
+            "iconHvrColor": "#e67e22"
+          },
+          {
+            "_key": "4",
+            "listDesc": "Early access to new features",
+            "iconStore": "fas fa-bolt",
+            "iconNmlColor": "#f39c12",
+            "iconHvrColor": "#e67e22"
+          }
+        ],
+        "titleNmlColor": "#f39c12",
+        "titleHvrColor": "#e67e22",
+        "priceNmlColor": "#2c3e50",
+        "priceHvrColor": "#f39c12",
+        "disRibbon": true,
+        "ribbonStyle": "style-3",
+        "ribbonText": "50% OFF",
+        "extbtnPosition": "top",
+        "extBtnAlignment": {"md": "center"}
+      },
+      "useCase": "Lifetime deals, one-time purchases, AppSumo-style promotions"
+    },
+    {
+      "name": "Agency Plan - All Styling Features",
+      "description": "Fully styled pricing table showcasing all typography, color, shadow, and hover options",
+      "visualDescription": "Complete custom styling: gradient icon background, custom typography for all elements, shadows, hover transitions, purple/blue theme",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "pricing008",
+        "style": "style-2",
+        "titleStyle": "style-1",
+        "title": "Agency",
+        "subTitle": "For Marketing & Design Agencies",
+        "titleAlign": {"md": "center"},
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "28", "sm": "24", "unit": "px"},
+          "fontWeight": "700",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "titleNmlColor": "#2c3e50",
+        "titleHvrColor": "#667eea",
+        "subTitleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "14", "unit": "px"},
+          "fontWeight": "500",
+          "fontStyle": "italic"
+        },
+        "subTitleNmlColor": "#7f8c8d",
+        "subTitleHvrColor": "#667eea",
+        "iconType": "icon",
+        "iconStore": "fas fa-briefcase",
+        "iconSize": {"md": "48", "unit": "px"},
+        "iconWidth": {"md": "100", "unit": "px"},
+        "iconStyle": "square",
+        "icnNmlColor": "#ffffff",
+        "icnHvrColor": "#ffffff",
+        "icnNormalBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "icnHoverBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#764ba2", "position": 0},
+              {"color": "#667eea", "position": 100}
+            ]
+          }
+        },
+        "nmlIcnBRadius": {"md": {"top": "12", "right": "12", "bottom": "12", "left": "12"}, "unit": "px"},
+        "nmlIcnShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 15,
+          "spread": 0,
+          "color": "rgba(102,126,234,0.4)"
+        },
+        "hvrIcnShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(118,75,162,0.5)"
+        },
+        "priceStyle": "style-2",
+        "preText": "$",
+        "priceValue": "199",
+        "postText": "/month",
+        "priceAlign": {"md": "center"},
+        "priceTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "56", "sm": "48", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "priceNmlColor": "#2c3e50",
+        "priceHvrColor": "#667eea",
+        "prefixTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "28", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "prefixNmlColor": "#667eea",
+        "postfixTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "18", "unit": "px"},
+          "fontWeight": "500"
+        },
+        "postfixNmlColor": "#7f8c8d",
+        "disPrePrice": true,
+        "prevPreText": "$",
+        "prevPriceValue": "299",
+        "prevPostText": "/month",
+        "prevPriceTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "20", "unit": "px"},
+          "textDecoration": "line-through"
+        },
+        "prevPriceNmlColor": "#e74c3c",
+        "prevPriceAlign": "top",
+        "contentStyle": "stylish",
+        "conListStyle": "style-2",
+        "stylishList": [
+          {
+            "_key": "0",
+            "listDesc": "Unlimited client projects",
+            "iconStore": "fas fa-check-double",
+            "iconNmlColor": "#667eea",
+            "iconHvrColor": "#764ba2"
+          },
+          {
+            "_key": "1",
+            "listDesc": "White-label everything",
+            "iconStore": "fas fa-check-double",
+            "iconNmlColor": "#667eea",
+            "iconHvrColor": "#764ba2"
+          },
+          {
+            "_key": "2",
+            "listDesc": "Client management portal",
+            "iconStore": "fas fa-check-double",
+            "iconNmlColor": "#667eea",
+            "iconHvrColor": "#764ba2"
+          },
+          {
+            "_key": "3",
+            "listDesc": "Reseller discounts",
+            "iconStore": "fas fa-check-double",
+            "iconNmlColor": "#667eea",
+            "iconHvrColor": "#764ba2"
+          },
+          {
+            "_key": "4",
+            "listDesc": "Dedicated success manager",
+            "iconStore": "fas fa-check-double",
+            "iconNmlColor": "#667eea",
+            "iconHvrColor": "#764ba2"
+          }
+        ],
+        "ctaText": "Join 500+ agencies growing faster with our platform",
+        "ctaAlign": {"md": "center"},
+        "disRibbon": true,
+        "ribbonStyle": "style-1",
+        "ribbonText": "Recommended",
+        "extbtnPosition": "top",
+        "extBtnAlignment": {"md": "center"}
+      },
+      "useCase": "Agency packages, white-label solutions, reseller programs"
     }
   ],
-  "commonPatterns": {}
+  "validationRules": {
+    "block_id": "Required, unique identifier for the pricing table",
+    "style": "Layout style: 'style-1', 'style-2', or 'style-3'",
+    "titleStyle": "Title section style: 'style-1' or 'style-2'",
+    "title": "Plan name (e.g., 'Professional', 'Enterprise')",
+    "subTitle": "Optional subtitle/tagline for the plan",
+    "iconType": "Must be 'none', 'icon', or 'img'",
+    "iconStore": "Required if iconType='icon', FontAwesome class (e.g., 'fas fa-rocket')",
+    "imgStore": "Required if iconType='img', object with url and id",
+    "priceStyle": "Price display style: 'style-1', 'style-2', or 'style-3'",
+    "preText": "Price prefix (usually currency symbol like '$')",
+    "priceValue": "Price amount or custom text (e.g., '49' or 'Contact Sales')",
+    "postText": "Price suffix (e.g., '/month', '/year', 'per user')",
+    "disPrePrice": "Boolean, show crossed-out previous price for discount",
+    "prevPriceValue": "Required if disPrePrice=true, original price before discount",
+    "contentStyle": "Feature display: 'stylish' (icon list) or 'wysiwyg' (HTML content)",
+    "stylishList": "Array of features with icons, required if contentStyle='stylish'",
+    "wyContent": "HTML content, required if contentStyle='wysiwyg'",
+    "readMoreToggle": "Boolean, enable collapsed feature list with expand link",
+    "showListToggle": "String number, how many features to show before collapse (e.g., '3', '5')",
+    "ctaText": "Optional call-to-action text above button",
+    "disRibbon": "Boolean, enable ribbon/badge (e.g., 'Popular', 'Best Value')",
+    "ribbonStyle": "Ribbon style: 'style-1', 'style-2', or 'style-3'",
+    "ribbonText": "Required if disRibbon=true, badge text",
+    "extbtnPosition": "Button position: 'top' or 'bottom'",
+    "extBtnAlignment": "Button alignment: responsive object (left/center/right)"
+  },
+  "warnings": [
+    "NEVER modify block_id - it's the unique identifier",
+    "iconType='icon' requires iconStore (FontAwesome class)",
+    "iconType='img' requires imgStore.url (image URL)",
+    "disPrePrice=true requires prevPriceValue or won't show discount",
+    "contentStyle='stylish' requires stylishList array or features won't display",
+    "contentStyle='wysiwyg' requires wyContent or content area will be empty",
+    "readMoreToggle=true requires showListToggle (number of visible items)",
+    "disRibbon=true requires ribbonText or ribbon will be empty",
+    "stylishList items need iconStore (FontAwesome class) to show icons",
+    "Empty title creates plan without header (usually unintentional)",
+    "priceValue can be text ('Contact Sales') instead of number for enterprise plans",
+    "Missing innerBlocks (button) creates pricing table without CTA",
+    "iconStyle='square' or 'rounded' requires background (icnNormalBG) to be visible",
+    "Tooltip features (eIcnToggle=true) require tooltipText to display"
+  ],
+  "commonMistakes": [
+    "Forgetting to set openTypography: 1 before setting typography values (titleTypo, priceTypo, etc.)",
+    "Using iconType='icon' but not providing iconStore FontAwesome class",
+    "Setting disPrePrice=true but forgetting prevPriceValue (discount won't show)",
+    "Creating feature list (stylishList) but leaving contentStyle='wysiwyg'",
+    "Not setting openBg: 1 before setting icnNormalBG gradient/color",
+    "Copying stylishList without updating _key values (should be unique: '0', '1', '2'...)",
+    "Using eIcnToggle=true (tooltip icon) but not providing tooltipText",
+    "Setting ribbonText but forgetting disRibbon=true (ribbon won't appear)",
+    "Using readMoreToggle=true without specifying showListToggle number",
+    "Creating too many features (15+) without readMoreToggle - creates overwhelming list",
+    "Not testing responsive typography sizes (md/sm/xs)",
+    "Using gradient backgrounds without proper contrast for text readability",
+    "Forgetting to add button as innerBlock (pricing table needs CTA)"
+  ],
+  "bestPractices": [
+    "Use 'Popular' or 'Best Value' ribbons to guide users to recommended plan",
+    "Show discount with prevPriceValue crossed out to emphasize savings",
+    "Limit visible features to 6-8, use readMoreToggle for longer lists",
+    "Use tooltips (eIcnToggle) sparingly - only for complex features needing explanation",
+    "Match icon colors to brand theme for cohesive design",
+    "Use style-2 or style-3 for featured/popular plans to differentiate visually",
+    "Set different hover colors (iconHvrColor, titleHvrColor) for interactive feedback",
+    "Use check icons (fas fa-check) for included features, X icons (fas fa-times) for excluded",
+    "Keep title concise (1-2 words: 'Pro', 'Enterprise') and use subTitle for details",
+    "Use responsive typography - smaller sizes on mobile (sm/xs breakpoints)",
+    "For enterprise plans: use 'Contact Sales' as priceValue instead of number",
+    "Add shadows (nmlIcnShadow, hvrIcnShadow) for depth and hover effects",
+    "Use gradient backgrounds (icnNormalBG) for modern, eye-catching designs",
+    "Include CTA text for context above button ('Most popular for growing teams')",
+    "Test hover states - colors and backgrounds should provide clear visual feedback",
+    "For free plans: use ribbonText='Free Forever' and green theme",
+    "For annual plans: emphasize savings with 'Save $XX' in subTitle",
+    "Use iconStyle='rounded' for friendly/approachable brands, 'square' for professional/corporate"
+  ],
+  "layoutContext": {
+    "styleVariations": "style-1 (standard vertical), style-2 (highlighted/featured), style-3 (compact top section)",
+    "iconPlacement": "Icon appears at top of pricing table, above title",
+    "titleSection": "Title + subTitle form header section, titleAlign controls both",
+    "priceSection": "Price displays with preText (prefix) + priceValue + postText (suffix)",
+    "previousPrice": "If disPrePrice=true, shows above main price with strikethrough",
+    "contentArea": "Either stylishList (icon + text features) or wyContent (HTML)",
+    "ribbonPlacement": "Ribbon displays at top-right corner (style-1), top-center (style-2), or diagonal (style-3)",
+    "buttonPosition": "extbtnPosition='top' shows button inside pricing table, 'bottom' shows below",
+    "hoverEffects": "Entire pricing table card typically has hover state affecting icons, title, price colors",
+    "readMoreCollapse": "Shows first N features (showListToggle), hides rest behind '+ Show all' link",
+    "tooltipBehavior": "eIcnToggle adds small info icon next to feature, shows tooltipText on hover",
+    "responsiveScaling": "Can use resposZoom with scaleZoomD/scaleZoomT/scaleZoomM for responsive scaling"
+  },
+  "stylingFeatures": {
+    "iconStyling": "iconSize, iconWidth, iconStyle (none/square/rounded), icnNmlColor, icnHvrColor, icnNormalBG, icnHoverBG, shadows, borders",
+    "titleStyling": "titleTypo (typography), titleNmlColor, titleHvrColor, titleAlign",
+    "subTitleStyling": "subTitleTypo, subTitleNmlColor, subTitleHvrColor",
+    "priceStyling": "priceTypo, priceNmlColor, priceHvrColor, priceAlign",
+    "prefixStyling": "prefixTypo, prefixNmlColor, prefixHvrColor (prefix = currency symbol)",
+    "postfixStyling": "postfixTypo, postfixNmlColor, postfixHvrColor (postfix = '/month')",
+    "prevPriceStyling": "prevPriceTypo, prevPriceNmlColor, prevPriceHvrColor, prevPriceAlign (discount price)",
+    "featureListStyling": "Per-item: iconStore, iconNmlColor, iconHvrColor, tooltipTypo, tooltipColor",
+    "ctaStyling": "ctaText uses separate styling, ctaAlign for alignment",
+    "ribbonStyling": "ribbonStyle determines visual style, ribbonText for content",
+    "hoverStates": "Most elements have normal + hover colors for interactive feedback"
+  },
+  "featureListPatterns": {
+    "standardChecklist": {
+      "description": "Simple feature list with checkmark icons",
+      "stylishListExample": [
+        {"listDesc": "Feature 1", "iconStore": "fas fa-check-circle", "iconNmlColor": "#667eea"},
+        {"listDesc": "Feature 2", "iconStore": "fas fa-check-circle", "iconNmlColor": "#667eea"}
+      ]
+    },
+    "includedExcluded": {
+      "description": "Mix of included (check) and excluded (X) features for comparison",
+      "stylishListExample": [
+        {"listDesc": "Basic features", "iconStore": "fas fa-check", "iconNmlColor": "#27ae60"},
+        {"listDesc": "Advanced features", "iconStore": "fas fa-times", "iconNmlColor": "#e74c3c"}
+      ]
+    },
+    "customIconsPerFeature": {
+      "description": "Different icon for each feature category",
+      "stylishListExample": [
+        {"listDesc": "Storage", "iconStore": "fas fa-database", "iconNmlColor": "#667eea"},
+        {"listDesc": "Support", "iconStore": "fas fa-headset", "iconNmlColor": "#667eea"},
+        {"listDesc": "Security", "iconStore": "fas fa-shield-alt", "iconNmlColor": "#667eea"}
+      ]
+    },
+    "featuresWithTooltips": {
+      "description": "Complex features with info icon tooltips",
+      "stylishListExample": [
+        {
+          "listDesc": "SSO Integration",
+          "iconStore": "fas fa-check",
+          "iconNmlColor": "#667eea",
+          "eIcnToggle": true,
+          "eIconStore": "fas fa-info-circle",
+          "eIconNColor": "#cccccc",
+          "tooltipText": "Single Sign-On with SAML 2.0 support",
+          "tooltipColor": "#ffffff"
+        }
+      ]
+    }
+  },
+  "relatedBlocks": [
+    "tpgb/tp-button - CTA button (add as innerBlock)",
+    "tpgb/tp-container - Wrap multiple pricing tables for comparison layout",
+    "tpgb/tp-row - Row container for side-by-side pricing tables",
+    "tpgb/tp-column - Column layout for 2-4 pricing tiers",
+    "tpgb/tp-heading - Section heading above pricing tables"
+  ],
+  "useCasePatterns": [
+    {
+      "pattern": "saasMonthlyAnnual",
+      "description": "SaaS with monthly and annual options",
+      "planStructure": ["Free", "Starter ($19/mo)", "Professional ($49/mo)", "Enterprise (Contact)"],
+      "ribbons": ["", "", "Popular", ""],
+      "features": "5-8 features per plan, check/X icons for comparison"
+    },
+    {
+      "pattern": "freemiumUpgrade",
+      "description": "Freemium model encouraging upgrades",
+      "planStructure": ["Free (Limited)", "Pro ($29/mo)", "Business ($99/mo)"],
+      "ribbons": ["Free Forever", "Most Popular", ""],
+      "features": "Show what Free lacks (X icons) to highlight Pro value"
+    },
+    {
+      "pattern": "tieredFeatures",
+      "description": "Each tier adds features incrementally",
+      "planStructure": ["Basic", "Standard (all Basic +)", "Premium (all Standard +)"],
+      "ribbons": ["", "Best Value", ""],
+      "features": "Use 'Everything in Basic +' pattern in higher tiers"
+    },
+    {
+      "pattern": "lifetimeDeal",
+      "description": "One-time payment promotion",
+      "planStructure": ["Lifetime Access ($499)"],
+      "ribbons": ["50% OFF - Limited Time"],
+      "features": "Emphasize 'No recurring fees', 'Lifetime updates'"
+    }
+  ]
 }
