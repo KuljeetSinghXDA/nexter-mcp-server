@@ -1,14 +1,480 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-testimonials",
-  "title": "Testimonials - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Testimonials - Production Examples & Patterns",
+  "description": "Comprehensive real-world examples with visual descriptions, validation rules, and common patterns",
+
   "examples": [
     {
-      "description": "Simple grid testimonials with ratings",
+      "name": "Simple Grid - Customer Reviews with Ratings",
+      "description": "Clean 3-column grid layout with star ratings, perfect for service reviews and customer feedback sections",
+      "visualDescription": "White cards with subtle shadow, 5-star ratings in golden yellow, author names in bold, company names in gray. Cards arranged in 3 columns on desktop, 2 on tablet, stacked on mobile.",
+      "complexity": "simple",
+      "useCase": "Service reviews, product testimonials, customer feedback sections, trust-building homepage sections",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "tm01",
         "telayout": "grid",
+        "style": "style-1",
+        "columns": {
+          "md": 4,
+          "sm": 6,
+          "xs": 12
+        },
+        "columnSpace": {
+          "md": {
+            "top": 15,
+            "right": 15,
+            "bottom": 15,
+            "left": 15
+          },
+          "unit": "px"
+        },
+        "rating": true,
+        "ItemRepeater": [
+          {
+            "_key": "rev1",
+            "testiTitle": "Sarah Johnson",
+            "designation": "CEO, TechCorp",
+            "content": "Outstanding service and support! The team went above and beyond to ensure our project was a success. Highly recommended for any business looking for quality solutions.",
+            "authorTitle": "Enterprise Client",
+            "avatar": {
+              "url": ""
+            },
+            "starRating": "5"
+          },
+          {
+            "_key": "rev2",
+            "testiTitle": "Michael Chen",
+            "designation": "Lead Designer",
+            "content": "Exceeded all expectations. The attention to detail and creative approach made our vision come to life. A pleasure to work with from start to finish.",
+            "authorTitle": "Design Agency",
+            "avatar": {
+              "url": ""
+            },
+            "starRating": "5"
+          },
+          {
+            "_key": "rev3",
+            "testiTitle": "Emma Davis",
+            "designation": "Founder, StartupHub",
+            "content": "Highly recommended! Fast delivery, professional communication, and excellent results. Will definitely use their services again.",
+            "authorTitle": "Startup Founder",
+            "avatar": {
+              "url": ""
+            },
+            "starRating": "4"
+          }
+        ],
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "sm": "16",
+            "xs": "16",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "titleNormalColor": "#1a1a1a",
+        "DesTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "sm": "13",
+            "xs": "12",
+            "unit": "px"
+          },
+          "fontWeight": "400"
+        },
+        "DesNormalColor": "#666666",
+        "contentTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "15",
+            "sm": "14",
+            "xs": "14",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          }
+        },
+        "contentNormalColor": "#444444",
+        "starSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "TopSpace": {
+          "md": "15",
+          "unit": "px"
+        },
+        "bottomSpc": {
+          "md": "10",
+          "unit": "px"
+        },
+        "betSpc": {
+          "md": "3",
+          "unit": "px"
+        },
+        "stoutLine": false,
+        "stnrmColor": "#ddd",
+        "strActColor": "#F3A30E",
+        "boxPadding": {
+          "md": {
+            "top": "30",
+            "right": "25",
+            "bottom": "30",
+            "left": "25"
+          },
+          "unit": "px"
+        },
+        "boxBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "boxBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 15,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.08)"
+        }
+      },
+      "relatedBlocks": ["tpgb/tp-heading", "tpgb/tp-container"],
+      "warnings": [
+        "Ensure rating: true is set to display star ratings",
+        "starRating values must be strings (\"0\" to \"5\"), not numbers"
+      ]
+    },
+
+    {
+      "name": "Carousel with Avatars - Team Testimonials",
+      "description": "Auto-sliding carousel with circular avatars, perfect for displaying client testimonials with photos",
+      "visualDescription": "Horizontal carousel with circular avatar images (80px), testimonial text below, author name and designation in purple accent color. Auto-slides every 5 seconds with smooth transitions.",
+      "complexity": "medium",
+      "useCase": "Homepage hero testimonials, client success stories, team member quotes, rotating reviews",
+      "attributes": {
+        "block_id": "tm02",
+        "telayout": "carousel",
+        "style": "style-1",
+        "rating": true,
+        "ItemRepeater": [
+          {
+            "_key": "car1",
+            "testiTitle": "Jennifer Martinez",
+            "designation": "Marketing Director",
+            "content": "This platform transformed our marketing strategy. We've seen a 300% increase in engagement and our team couldn't be happier with the results.",
+            "authorTitle": "B2B SaaS Company",
+            "avatar": {
+              "url": "/wp-content/uploads/avatars/jennifer.jpg"
+            },
+            "starRating": "5"
+          },
+          {
+            "_key": "car2",
+            "testiTitle": "David Anderson",
+            "designation": "Product Manager",
+            "content": "The best decision we made this year. Seamless integration, excellent support, and features that actually solve real problems.",
+            "authorTitle": "Tech Startup",
+            "avatar": {
+              "url": "/wp-content/uploads/avatars/david.jpg"
+            },
+            "starRating": "5"
+          },
+          {
+            "_key": "car3",
+            "testiTitle": "Lisa Thompson",
+            "designation": "E-commerce Owner",
+            "content": "Game changer for our online store. Sales increased by 45% in the first month alone. The ROI speaks for itself.",
+            "authorTitle": "Fashion E-commerce",
+            "avatar": {
+              "url": "/wp-content/uploads/avatars/lisa.jpg"
+            },
+            "starRating": "5"
+          }
+        ],
+        "imgMaxWidth": "80",
+        "imageBorderRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "imageBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 3,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.15)"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "20",
+            "sm": "18",
+            "xs": "16",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "titleNormalColor": "#667eea",
+        "DesTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontWeight": "400",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "0.5",
+            "unit": "px"
+          }
+        },
+        "DesNormalColor": "#999999",
+        "contentTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "sm": "15",
+            "xs": "14",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.7",
+            "unit": "em"
+          },
+          "fontStyle": "italic"
+        },
+        "contentNormalColor": "#333333",
+        "starSize": {
+          "md": "18",
+          "unit": "px"
+        },
+        "strActColor": "#FFD700",
+        "boxPadding": {
+          "md": {
+            "top": "40",
+            "right": "30",
+            "bottom": "40",
+            "left": "30"
+          },
+          "unit": "px"
+        }
+      },
+      "relatedBlocks": ["tpgb/tp-carousel"],
+      "warnings": [
+        "Carousel requires Swiper.js to be loaded",
+        "Avatar images should be square (1:1 ratio) for circular display",
+        "Use border-radius 50% for circular avatars"
+      ]
+    },
+
+    {
+      "name": "Style-1 with Speech Bubble Arrow",
+      "description": "Classic testimonial cards with speech bubble effect using arrow pointer, ideal for traditional quote displays",
+      "visualDescription": "White testimonial boxes with subtle shadow, featuring a downward-pointing triangle arrow below the quote box. Quote text in light gray box, author details below with small circular avatar.",
+      "complexity": "medium",
+      "useCase": "Classic testimonial sections, quote displays, customer feedback with traditional design",
+      "attributes": {
+        "block_id": "tm03",
+        "telayout": "grid",
+        "style": "style-1",
+        "styleLayout": "style-1",
+        "columns": {
+          "md": 6,
+          "sm": 6,
+          "xs": 12
+        },
+        "rating": false,
+        "ItemRepeater": [
+          {
+            "_key": "sp1",
+            "testiTitle": "Robert Williams",
+            "designation": "CTO, InnovateTech",
+            "content": "We've tried many solutions, but this one stands out for its reliability and ease of use. The support team is incredibly responsive and knowledgeable.",
+            "authorTitle": "Technology Leader",
+            "avatar": {
+              "url": "/wp-content/uploads/avatars/robert.jpg"
+            },
+            "starRating": ""
+          },
+          {
+            "_key": "sp2",
+            "testiTitle": "Amanda Cooper",
+            "designation": "Creative Director",
+            "content": "Absolutely love the flexibility and creative freedom this provides. It's become an essential tool in our daily workflow.",
+            "authorTitle": "Design Studio",
+            "avatar": {
+              "url": "/wp-content/uploads/avatars/amanda.jpg"
+            },
+            "starRating": ""
+          }
+        ],
+        "boxPadding": {
+          "md": {
+            "top": "25",
+            "right": "25",
+            "bottom": "25",
+            "left": "25"
+          },
+          "unit": "px"
+        },
+        "boxBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f8f9fa"
+        },
+        "arrowNormalColor": "#f8f9fa",
+        "boxBorderRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "boxBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.06)"
+        },
+        "boxBoxShadowHover": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 5,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.12)"
+        },
+        "arrowHoverColor": "#ffffff",
+        "boxBgHover": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "imgMaxWidth": "60",
+        "imageBorderRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        }
+      },
+      "relatedBlocks": ["tpgb/tp-blockquote"],
+      "warnings": [
+        "arrowNormalColor must match boxBg color for seamless speech bubble effect",
+        "arrowHoverColor must match boxBgHover color on hover state",
+        "Style-1 arrow only appears when styleLayout is 'style-1'"
+      ]
+    },
+
+    {
+      "name": "Style-2 with Custom Content Margins",
+      "description": "Testimonials with adjustable content spacing, useful for tight layouts or custom designs",
+      "visualDescription": "Compact testimonial cards with controlled content margins, optimized for sidebar or narrow column layouts. Dark text on light background with minimal spacing.",
+      "complexity": "medium",
+      "useCase": "Sidebar testimonials, narrow columns, widget areas, compact review sections",
+      "attributes": {
+        "block_id": "tm04",
+        "telayout": "grid",
+        "style": "style-2",
+        "styleLayout": "style-1",
+        "columns": {
+          "md": 12,
+          "sm": 12,
+          "xs": 12
+        },
+        "rating": true,
+        "ItemRepeater": [
+          {
+            "_key": "st2a",
+            "testiTitle": "Marcus Johnson",
+            "designation": "Operations Manager",
+            "content": "Streamlined our entire workflow. What used to take hours now takes minutes. The efficiency gains are remarkable.",
+            "authorTitle": "Manufacturing Company",
+            "avatar": {
+              "url": ""
+            },
+            "starRating": "5"
+          }
+        ],
+        "cntntMargin": {
+          "md": {
+            "top": "10",
+            "right": "0",
+            "bottom": "15",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "boxPadding": {
+          "md": {
+            "top": "20",
+            "right": "20",
+            "bottom": "20",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "boxBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e0e0e0",
+          "width": {
+            "md": {
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "contentTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.5",
+            "unit": "em"
+          }
+        }
+      },
+      "relatedBlocks": ["tpgb/tp-container"],
+      "warnings": [
+        "cntntMargin only applies when style is 'style-2'",
+        "Tight margins may cause text readability issues on mobile - test thoroughly"
+      ]
+    },
+
+    {
+      "name": "Style-3 with Bottom Border Accent",
+      "description": "Modern testimonial design with colored bottom border accent line for visual emphasis",
+      "visualDescription": "Clean white cards with a 3px purple accent line at the bottom. Minimal styling with focus on content, perfect for modern, professional websites.",
+      "complexity": "medium",
+      "useCase": "Modern corporate sites, professional service pages, SaaS landing pages, business portfolios",
+      "attributes": {
+        "block_id": "tm05",
+        "telayout": "grid",
+        "style": "style-3",
+        "styleLayout": "style-1",
         "columns": {
           "md": 4,
           "sm": 6,
@@ -17,81 +483,1069 @@
         "rating": true,
         "ItemRepeater": [
           {
-            "testiTitle": "Sarah Johnson",
-            "designation": "CEO, TechCorp",
-            "content": "Outstanding service and support!",
+            "_key": "st3a",
+            "testiTitle": "Victoria Zhang",
+            "designation": "Product Lead",
+            "content": "The perfect balance of power and simplicity. Our team was up and running in no time, and the results have been outstanding.",
+            "authorTitle": "SaaS Startup",
+            "avatar": {
+              "url": "/wp-content/uploads/avatars/victoria.jpg"
+            },
             "starRating": "5"
           },
           {
-            "testiTitle": "Michael Chen",
-            "designation": "Designer",
-            "content": "Exceeded all expectations.",
+            "_key": "st3b",
+            "testiTitle": "James Patterson",
+            "designation": "Business Owner",
+            "content": "ROI was immediate. The investment paid for itself in the first month. Couldn't be happier with the decision.",
+            "authorTitle": "Retail Business",
+            "avatar": {
+              "url": "/wp-content/uploads/avatars/james.jpg"
+            },
             "starRating": "5"
           },
           {
-            "testiTitle": "Emma Davis",
-            "designation": "Founder",
-            "content": "Highly recommended!",
+            "_key": "st3c",
+            "testiTitle": "Sophia Martinez",
+            "designation": "HR Director",
+            "content": "Transformed our hiring process. We're now able to find and onboard talent 3x faster than before.",
+            "authorTitle": "Enterprise HR",
+            "avatar": {
+              "url": "/wp-content/uploads/avatars/sophia.jpg"
+            },
             "starRating": "4"
           }
-        ]
-      }
+        ],
+        "bottomBorderColor": "#667eea",
+        "bottomBorderHoverColor": "#764ba2",
+        "boxPadding": {
+          "md": {
+            "top": "30",
+            "right": "25",
+            "bottom": "25",
+            "left": "25"
+          },
+          "unit": "px"
+        },
+        "boxBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "boxBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#f0f0f0",
+          "width": {
+            "md": {
+              "top": "1",
+              "right": "1",
+              "bottom": "3",
+              "left": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "boxhvrBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e0e0e0",
+          "width": {
+            "md": {
+              "top": "1",
+              "right": "1",
+              "bottom": "3",
+              "left": "1"
+            },
+            "unit": "px"
+          }
+        }
+      },
+      "relatedBlocks": ["tpgb/tp-heading"],
+      "warnings": [
+        "bottomBorderColor only applies when style is 'style-3' and styleLayout is 'style-1'",
+        "Bottom border width should be thicker (3-5px) to be visible as accent",
+        "Test contrast between border color and background for accessibility"
+      ]
     },
+
     {
-      "description": "Carousel testimonials with avatars",
+      "name": "Style-4 with Center Alignment",
+      "description": "Centered testimonial layout perfect for hero sections or full-width featured testimonials",
+      "visualDescription": "Large centered testimonial with centered text alignment, prominent quote text, large avatar above, and author details centered below. Ideal for single featured testimonials.",
+      "complexity": "medium",
+      "useCase": "Hero section testimonials, featured client quotes, landing page social proof, single prominent review",
       "attributes": {
-        "block_id": "c3d4",
-        "telayout": "carousel",
-        "style": "style-1",
+        "block_id": "tm06",
+        "telayout": "grid",
+        "style": "style-4",
+        "style4Alignment": "center",
+        "columns": {
+          "md": 12,
+          "sm": 12,
+          "xs": 12
+        },
         "rating": true,
         "ItemRepeater": [
           {
-            "testiTitle": "John Doe",
-            "designation": "MD at Orange",
-            "content": "Amazing product quality!",
+            "_key": "st4a",
+            "testiTitle": "Alexandra Bennett",
+            "designation": "CEO & Founder",
+            "content": "This is hands down the best investment we've made in our company's growth. The impact on our bottom line has been transformational. Our team productivity increased by 250%, and customer satisfaction scores are at an all-time high.",
+            "authorTitle": "Forbes 30 Under 30",
             "avatar": {
-              "url": "/avatar1.jpg"
+              "url": "/wp-content/uploads/avatars/alexandra-lg.jpg"
+            },
+            "starRating": "5"
+          }
+        ],
+        "imgMaxWidth": "120",
+        "imageBorderRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "imageBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 5,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.3)"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "24",
+            "sm": "20",
+            "xs": "18",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "titleNormalColor": "#1a1a1a",
+        "DesTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "sm": "14",
+            "xs": "13",
+            "unit": "px"
+          },
+          "fontWeight": "500",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "1",
+            "unit": "px"
+          }
+        },
+        "DesNormalColor": "#667eea",
+        "contentTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "20",
+            "sm": "18",
+            "xs": "16",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.8",
+            "unit": "em"
+          },
+          "fontWeight": "400",
+          "fontStyle": "italic"
+        },
+        "contentNormalColor": "#333333",
+        "starSize": {
+          "md": "24",
+          "unit": "px"
+        },
+        "betSpc": {
+          "md": "5",
+          "unit": "px"
+        },
+        "strActColor": "#FFD700",
+        "boxPadding": {
+          "md": {
+            "top": "60",
+            "right": "40",
+            "bottom": "60",
+            "left": "40"
+          },
+          "sm": {
+            "top": "40",
+            "right": "30",
+            "bottom": "40",
+            "left": "30"
+          },
+          "unit": "px"
+        }
+      },
+      "relatedBlocks": ["tpgb/tp-container"],
+      "warnings": [
+        "style4Alignment only applies when style is 'style-4'",
+        "Use single testimonial for style-4 centered layout (not multiple items)",
+        "Larger font sizes and spacing work best for featured testimonials"
+      ]
+    },
+
+    {
+      "name": "Grid with Content Height Limits and Read More",
+      "description": "Testimonials with controlled height and expandable read more/less functionality for long content",
+      "visualDescription": "Grid cards with 150px max content height, custom scrollbar on hover, and purple 'Read More' links. Content expands inline when clicked, showing full testimonial text.",
+      "complexity": "medium",
+      "useCase": "Long testimonials, detailed reviews, case study quotes, content-heavy feedback sections",
+      "attributes": {
+        "block_id": "tm07",
+        "telayout": "grid",
+        "style": "style-1",
+        "columns": {
+          "md": 4,
+          "sm": 6,
+          "xs": 12
+        },
+        "rating": true,
+        "descByLimit": "limit",
+        "descLimit": "150",
+        "redmorTxt": "Read Full Review",
+        "redlesTxt": "Show Less",
+        "contentHei": {
+          "md": "150",
+          "sm": "120",
+          "xs": "100",
+          "unit": "px"
+        },
+        "cntscrollOn": "on-hover",
+        "ItemRepeater": [
+          {
+            "_key": "rm1",
+            "testiTitle": "Dr. Elizabeth Morgan",
+            "designation": "Medical Director",
+            "content": "We evaluated dozens of solutions before choosing this one, and we couldn't be happier with our decision. The implementation was smooth, the training was comprehensive, and the ongoing support has been exceptional. Our staff adapted quickly, and we've seen measurable improvements in efficiency, patient satisfaction, and data accuracy. The ROI exceeded our projections in the first quarter alone. I would recommend this to any healthcare organization looking to modernize their operations.",
+            "authorTitle": "Healthcare Innovation Leader",
+            "avatar": {
+              "url": "/wp-content/uploads/avatars/elizabeth.jpg"
             },
             "starRating": "5"
           },
           {
-            "testiTitle": "Jane Smith",
-            "designation": "Marketing Director",
-            "content": "Best decision we made.",
+            "_key": "rm2",
+            "testiTitle": "Christopher Lee",
+            "designation": "Financial Controller",
+            "content": "The financial impact has been significant and immediate. We've reduced processing time by 60%, eliminated manual errors, and gained real-time visibility into our operations. The audit trail features alone saved us countless hours during our annual review. The security and compliance features give us peace of mind, and the reporting capabilities have transformed how we make strategic decisions.",
+            "authorTitle": "Fortune 500 Finance",
             "avatar": {
-              "url": "/avatar2.jpg"
+              "url": "/wp-content/uploads/avatars/christopher.jpg"
+            },
+            "starRating": "5"
+          },
+          {
+            "_key": "rm3",
+            "testiTitle": "Rachel Kim",
+            "designation": "UX Research Lead",
+            "content": "From a user experience perspective, this platform sets the gold standard. The interface is intuitive, the workflows are logical, and the learning curve is minimal. Our team conducted extensive testing, and the feedback from users has been overwhelmingly positive. The accessibility features demonstrate a genuine commitment to inclusive design.",
+            "authorTitle": "Design Excellence Award Winner",
+            "avatar": {
+              "url": "/wp-content/uploads/avatars/rachel.jpg"
             },
             "starRating": "5"
           }
-        ]
-      }
-    },
-    {
-      "description": "Testimonials with content limits and read more",
-      "attributes": {
-        "block_id": "e5f6",
-        "descByLimit": "limit",
-        "descLimit": "100",
-        "redmorTxt": "Show More",
-        "redlesTxt": "Show Less",
-        "contentHei": {
-          "md": "150",
+        ],
+        "tesSclWidth": {
+          "md": "6",
           "unit": "px"
+        },
+        "tesThumbBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "tesThumbBrs": {
+          "md": {
+            "top": "3",
+            "right": "3",
+            "bottom": "3",
+            "left": "3"
+          },
+          "unit": "px"
+        },
+        "tesTrackBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f0f0f0"
+        },
+        "readTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontWeight": "600",
+          "textTransform": "uppercase"
+        },
+        "readColor": "#667eea",
+        "readmhvrColor": "#764ba2"
+      },
+      "relatedBlocks": ["tpgb/tp-expand"],
+      "warnings": [
+        "descByLimit must be 'limit' to enable read more functionality",
+        "descLimit is character count (number), not pixels",
+        "contentHei creates scrollable area when content exceeds height",
+        "Read more/less requires JavaScript - ensure scripts are loaded",
+        "cntscrollOn controls scrollbar visibility: 'always' or 'on-hover'"
+      ]
+    },
+
+    {
+      "name": "Custom Star Icons with Outline Style",
+      "description": "Testimonials featuring custom star icons with outline (stroke) styling instead of filled stars",
+      "visualDescription": "Outlined star icons (stroke only, transparent fill) with custom icon font. Unfilled stars in light gray stroke, filled stars in golden orange stroke. Modern, minimalist rating display.",
+      "complexity": "advanced",
+      "useCase": "Modern rating displays, minimalist designs, custom branding with icon fonts, outlined icon styles",
+      "attributes": {
+        "block_id": "tm08",
+        "telayout": "grid",
+        "style": "style-1",
+        "columns": {
+          "md": 6,
+          "sm": 6,
+          "xs": 12
+        },
+        "rating": true,
+        "starIcon": "custom",
+        "sIcon": "fa-star",
+        "stoutLine": true,
+        "ItemRepeater": [
+          {
+            "_key": "cst1",
+            "testiTitle": "Nicole Rodriguez",
+            "designation": "Brand Strategist",
+            "content": "A unique and refreshing approach that sets them apart from competitors. The branding expertise is evident in every detail.",
+            "authorTitle": "Creative Agency",
+            "avatar": {
+              "url": ""
+            },
+            "starRating": "5"
+          },
+          {
+            "_key": "cst2",
+            "testiTitle": "Thomas Anderson",
+            "designation": "Tech Consultant",
+            "content": "Technical excellence combined with outstanding customer service. They understand both the technology and the business needs.",
+            "authorTitle": "Enterprise Consulting",
+            "avatar": {
+              "url": ""
+            },
+            "starRating": "4"
+          }
+        ],
+        "starSize": {
+          "md": "20",
+          "unit": "px"
+        },
+        "betSpc": {
+          "md": "4",
+          "unit": "px"
+        },
+        "stnrmColor": "#cccccc",
+        "strActColor": "#FF6B35",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "unit": "px"
+          },
+          "fontWeight": "600",
+          "letterSpacing": {
+            "md": "0.5",
+            "unit": "px"
+          }
+        },
+        "boxPadding": {
+          "md": {
+            "top": "30",
+            "right": "30",
+            "bottom": "30",
+            "left": "30"
+          },
+          "unit": "px"
+        },
+        "boxBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e0e0e0",
+          "width": {
+            "md": {
+              "top": "2",
+              "right": "2",
+              "bottom": "2",
+              "left": "2"
+            },
+            "unit": "px"
+          }
         }
+      },
+      "relatedBlocks": ["tpgb/tp-social-icons"],
+      "warnings": [
+        "starIcon must be 'custom' to use sIcon custom icon class",
+        "sIcon requires icon font library (FontAwesome, etc.) to be loaded",
+        "stoutLine: true applies -webkit-text-stroke (outline style)",
+        "stoutLine: false uses solid fill color",
+        "Outline stars may not display correctly in older browsers (IE11)",
+        "Test icon rendering across different devices and browsers"
+      ]
+    },
+
+    {
+      "name": "Full-Featured Premium Testimonials",
+      "description": "Complete showcase with all styling options: gradients, shadows, borders, hover effects, and responsive typography",
+      "visualDescription": "Premium cards with purple-to-indigo gradient backgrounds, white text, rounded corners, elevated shadows. On hover: deeper shadow, border color change, gradient shift. Fully responsive with mobile-optimized spacing.",
+      "complexity": "advanced",
+      "useCase": "Premium landing pages, high-conversion sales pages, showcase portfolios, luxury brand sites",
+      "attributes": {
+        "block_id": "tm09",
+        "telayout": "grid",
+        "style": "style-2",
+        "columns": {
+          "md": 4,
+          "sm": 6,
+          "xs": 12
+        },
+        "columnSpace": {
+          "md": {
+            "top": 20,
+            "right": 20,
+            "bottom": 20,
+            "left": 20
+          },
+          "sm": {
+            "top": 15,
+            "right": 15,
+            "bottom": 15,
+            "left": 15
+          },
+          "unit": "px"
+        },
+        "rating": true,
+        "ItemRepeater": [
+          {
+            "_key": "prm1",
+            "testiTitle": "Isabella Chen",
+            "designation": "Global VP of Sales",
+            "content": "This solution transformed our entire sales organization. The results speak for themselves - 180% revenue growth in 12 months.",
+            "authorTitle": "Enterprise Software Leader",
+            "avatar": {
+              "url": "/wp-content/uploads/avatars/isabella.jpg"
+            },
+            "starRating": "5"
+          },
+          {
+            "_key": "prm2",
+            "testiTitle": "Marcus Johnson",
+            "designation": "Chief Innovation Officer",
+            "content": "Forward-thinking technology that gives us a competitive edge. Our innovation cycle has accelerated dramatically.",
+            "authorTitle": "Fortune 100 Company",
+            "avatar": {
+              "url": "/wp-content/uploads/avatars/marcus.jpg"
+            },
+            "starRating": "5"
+          },
+          {
+            "_key": "prm3",
+            "testiTitle": "Sophia Williams",
+            "designation": "Head of Customer Success",
+            "content": "Our customer retention rates improved by 40% after implementation. The impact on NPS scores has been remarkable.",
+            "authorTitle": "SaaS Unicorn",
+            "avatar": {
+              "url": "/wp-content/uploads/avatars/sophia.jpg"
+            },
+            "starRating": "5"
+          }
+        ],
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "20",
+            "sm": "18",
+            "xs": "16",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "letterSpacing": {
+            "md": "0.5",
+            "unit": "px"
+          }
+        },
+        "titleNormalColor": "#ffffff",
+        "titleHoverColor": "#f0f0f0",
+        "DesTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "sm": "13",
+            "xs": "12",
+            "unit": "px"
+          },
+          "fontWeight": "500",
+          "textTransform": "uppercase"
+        },
+        "DesNormalColor": "rgba(255,255,255,0.8)",
+        "DesHoverColor": "#ffffff",
+        "contentTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "sm": "15",
+            "xs": "14",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.7",
+            "unit": "em"
+          }
+        },
+        "contentNormalColor": "rgba(255,255,255,0.95)",
+        "cntHovercolor": "#ffffff",
+        "starSize": {
+          "md": "18",
+          "sm": "16",
+          "xs": "14",
+          "unit": "px"
+        },
+        "strActColor": "#FFD700",
+        "stnrmColor": "rgba(255,255,255,0.3)",
+        "boxPadding": {
+          "md": {
+            "top": "40",
+            "right": "35",
+            "bottom": "40",
+            "left": "35"
+          },
+          "sm": {
+            "top": "30",
+            "right": "25",
+            "bottom": "30",
+            "left": "25"
+          },
+          "xs": {
+            "top": "25",
+            "right": "20",
+            "bottom": "25",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "boxBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#667eea",
+                "position": 0
+              },
+              {
+                "color": "#764ba2",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "boxBgHover": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#764ba2",
+                "position": 0
+              },
+              {
+                "color": "#667eea",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "boxBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "rgba(255,255,255,0.1)",
+          "width": {
+            "md": {
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "boxhvrBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "rgba(255,255,255,0.3)",
+          "width": {
+            "md": {
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "boxBorderRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "boxBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 10,
+          "blur": 30,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.3)"
+        },
+        "boxBoxShadowHover": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 15,
+          "blur": 40,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.5)"
+        },
+        "imgMaxWidth": "70",
+        "imageBorderRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "imageBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.3)"
+        }
+      },
+      "relatedBlocks": ["tpgb/tp-container", "tpgb/tp-heading"],
+      "warnings": [
+        "Gradient backgrounds require openBg: 1 and bgType: 'gradient'",
+        "Ensure text color contrast meets WCAG AA standards (white on gradient)",
+        "Test responsive font sizes across all breakpoints",
+        "Heavy shadows may impact performance on older devices",
+        "Gradient angle changes orientation (0=up, 90=right, 180=down, 270=left)"
+      ]
+    },
+
+    {
+      "name": "Minimalist Clean Design",
+      "description": "Ultra-minimal testimonials with no borders, subtle shadows, and focus on typography and whitespace",
+      "visualDescription": "Clean white background, generous whitespace, subtle text-only star ratings, sans-serif typography. No borders or backgrounds - pure content focus. Light gray dividers between testimonials.",
+      "complexity": "simple",
+      "useCase": "Minimalist websites, clean portfolios, modern blogs, content-focused pages, Scandinavian design",
+      "attributes": {
+        "block_id": "tm10",
+        "telayout": "grid",
+        "style": "style-1",
+        "columns": {
+          "md": 4,
+          "sm": 6,
+          "xs": 12
+        },
+        "columnSpace": {
+          "md": {
+            "top": 30,
+            "right": 30,
+            "bottom": 30,
+            "left": 30
+          },
+          "unit": "px"
+        },
+        "rating": true,
+        "ItemRepeater": [
+          {
+            "_key": "min1",
+            "testiTitle": "Anna Lindberg",
+            "designation": "Architect",
+            "content": "Beautifully simple. Exactly what we needed, nothing more, nothing less. The clarity of design is refreshing.",
+            "authorTitle": "Scandinavian Design Studio",
+            "avatar": {
+              "url": ""
+            },
+            "starRating": "5"
+          },
+          {
+            "_key": "min2",
+            "testiTitle": "Kai Nakamura",
+            "designation": "Product Designer",
+            "content": "Form follows function perfectly. Every element serves a purpose. This is design at its finest.",
+            "authorTitle": "Tokyo Design Collective",
+            "avatar": {
+              "url": ""
+            },
+            "starRating": "5"
+          },
+          {
+            "_key": "min3",
+            "testiTitle": "Elena Müller",
+            "designation": "UX Director",
+            "content": "The restraint shown here is admirable. No unnecessary flourishes, just pure, effective communication.",
+            "authorTitle": "Minimalist Design Agency",
+            "avatar": {
+              "url": ""
+            },
+            "starRating": "5"
+          }
+        ],
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "unit": "px"
+          },
+          "fontWeight": "600",
+          "letterSpacing": {
+            "md": "0.3",
+            "unit": "px"
+          }
+        },
+        "titleNormalColor": "#222222",
+        "DesTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "13",
+            "unit": "px"
+          },
+          "fontWeight": "400"
+        },
+        "DesNormalColor": "#888888",
+        "contentTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "15",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.8",
+            "unit": "em"
+          },
+          "fontWeight": "400"
+        },
+        "contentNormalColor": "#555555",
+        "starSize": {
+          "md": "14",
+          "unit": "px"
+        },
+        "betSpc": {
+          "md": "2",
+          "unit": "px"
+        },
+        "strActColor": "#222222",
+        "stnrmColor": "#dddddd",
+        "boxPadding": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "boxBg": {
+          "openBg": 0
+        },
+        "boxBorder": {
+          "openBorder": 0
+        },
+        "boxBoxShadow": {
+          "openShadow": 0
+        }
+      },
+      "relatedBlocks": ["tpgb/tp-pro-paragraph"],
+      "warnings": [
+        "No background or border styling - relies on parent container for layout",
+        "Ensure adequate spacing via columnSpace to separate testimonials",
+        "Test readability with minimal visual separation between items"
+      ]
+    }
+  ],
+
+  "validationRules": {
+    "block_id": {
+      "required": true,
+      "pattern": "^[a-z0-9]{4}$",
+      "description": "Must be 4-character lowercase alphanumeric (auto-generated)"
+    },
+    "telayout": {
+      "required": true,
+      "enum": ["carousel", "grid"],
+      "description": "Layout type affects available styling options"
+    },
+    "ItemRepeater": {
+      "required": true,
+      "minItems": 1,
+      "maxRecommended": 20,
+      "description": "At least 1 testimonial required. 20+ items may impact performance.",
+      "itemValidation": {
+        "testiTitle": "Author name (required for proper display)",
+        "designation": "Job title/role (recommended for credibility)",
+        "content": "Testimonial text (required, min 20 characters recommended)",
+        "starRating": "String value '0' to '5' (empty string = no rating for this item)",
+        "avatar.url": "Image URL (optional, recommended for personal touch)"
+      }
+    },
+    "columns": {
+      "conditionalRequired": "Required when telayout is 'grid'",
+      "responsive": true,
+      "validation": {
+        "md": "Desktop: 1-12 (Bootstrap grid system)",
+        "sm": "Tablet: 1-12",
+        "xs": "Mobile: typically 12 (full width)"
+      },
+      "recommendations": {
+        "3-column": {"md": 4, "sm": 6, "xs": 12},
+        "4-column": {"md": 3, "sm": 6, "xs": 12},
+        "2-column": {"md": 6, "sm": 6, "xs": 12}
+      }
+    },
+    "rating": {
+      "type": "boolean",
+      "description": "Must be true to display star ratings",
+      "dependency": "When true, starRating field values are shown"
+    },
+    "starIcon": {
+      "enum": ["default", "custom"],
+      "dependency": "When 'custom', sIcon must be set with valid icon class"
+    },
+    "descByLimit": {
+      "enum": ["default", "limit"],
+      "dependency": "When 'limit', descLimit specifies character count before read more"
+    },
+    "titleByLimit": {
+      "enum": ["default", "limit"],
+      "dependency": "When 'limit', titleLimit specifies character count"
+    },
+    "contentHei": {
+      "conditionalApplies": "Only when telayout is 'grid', or when telayout is 'carousel' and caroByheight is 'height'",
+      "responsive": true,
+      "description": "Creates scrollable content area when height is set"
+    },
+    "style": {
+      "description": "Visual style variant - affects HTML structure and CSS classes",
+      "values": {
+        "style-1": "Speech bubble with arrow (when styleLayout is 'style-1')",
+        "style-2": "Standard card with content margin control",
+        "style-3": "Card with bottom border accent line",
+        "style-4": "Centered layout with alignment control"
+      }
+    },
+    "style4Alignment": {
+      "conditionalApplies": "Only when style is 'style-4'",
+      "enum": ["left", "center", "right"],
+      "description": "Content alignment for style-4 layout"
+    },
+    "typography": {
+      "openTypography": {
+        "required": true,
+        "description": "Must be 1 to enable typography settings, 0 to disable"
+      },
+      "fontSize": {
+        "responsive": true,
+        "unit": "Typically 'px', can be 'em', 'rem', '%'"
+      }
+    }
+  },
+
+  "warnings": [
+    "Never modify block_id after creation - it's the unique identifier",
+    "starRating values must be strings ('0' to '5'), not numbers (0 to 5)",
+    "Empty starRating string ('') is valid and means no rating for that item",
+    "rating: false hides ALL star ratings even if starRating values are set",
+    "Carousel layout requires Swiper.js library to be loaded and initialized",
+    "columnSpace only applies when telayout is 'grid' (ignored for carousel)",
+    "contentHei scrolling only works for grid layout or carousel with caroByheight: 'height'",
+    "arrowNormalColor must match boxBg color for seamless speech bubble (style-1)",
+    "bottomBorderColor only applies to style-3 with styleLayout: 'style-1'",
+    "style4Alignment only affects style-4 layout",
+    "cntntMargin only applies to style-2 layout",
+    "Gradient backgrounds require openBg: 1 and bgType: 'gradient'",
+    "Border requires openBorder: 1 to be visible",
+    "Shadow requires openShadow: 1 to be visible",
+    "Typography requires openTypography: 1 to apply font settings",
+    "Custom star icons (starIcon: 'custom') require icon font library loaded",
+    "Outline stars (stoutLine: true) may not render in IE11 and older browsers",
+    "Read more functionality (descByLimit: 'limit') requires JavaScript",
+    "ItemRepeater items need unique _key values (auto-generated)",
+    "Maximum 50 testimonials recommended for performance",
+    "Avatar images should be square (1:1 ratio) for circular display",
+    "Test gradient + white text contrast for WCAG AA compliance",
+    "Responsive values cascade: md → sm → xs (missing values fall back to md)",
+    "Equal height feature (tpgbEqualHeight) may conflict with contentHei scrolling"
+  ],
+
+  "commonMistakes": [
+    "Setting starRating as number instead of string (use '5' not 5)",
+    "Forgetting to set rating: true when expecting star ratings to show",
+    "Setting openTypography: 0 then wondering why font settings don't apply",
+    "Setting openBg: 0 then setting background colors (openBg must be 1)",
+    "Using style-specific attributes without matching style value",
+    "Not testing responsive column values on actual mobile devices",
+    "Using too many testimonials (50+) causing performance issues",
+    "Forgetting to set caroByheight: 'height' for carousel content height limits",
+    "Setting cntscrollOn without setting contentHei (need height limit for scroll)",
+    "Using gradient backgrounds without testing text contrast",
+    "Setting columnSpace for carousel layout (only applies to grid)",
+    "Not providing fallback values for sm/xs breakpoints",
+    "Using non-square avatar images with circular border-radius (causes distortion)",
+    "Setting boxPadding in pixels that don't scale on mobile (test on xs)",
+    "Forgetting to set carouselId for remote carousel control",
+    "Using descByLimit: 'limit' without JavaScript support",
+    "Setting both contentHei and descByLimit (may conflict - choose one approach)",
+    "Not matching arrowNormalColor to boxBg color (breaks speech bubble illusion)"
+  ],
+
+  "relatedPatterns": [
+    {
+      "name": "Testimonials + Heading Section",
+      "description": "Common pattern: Heading block above testimonials with matching color scheme",
+      "blocks": ["tpgb/tp-heading", "tpgb/tp-testimonials"],
+      "layout": "Container → Heading (centered) → Testimonials (grid)"
+    },
+    {
+      "name": "Sidebar Testimonials",
+      "description": "Single column testimonials in sidebar or narrow container",
+      "configuration": {
+        "telayout": "grid",
+        "columns": {"md": 12, "sm": 12, "xs": 12},
+        "descByLimit": "limit",
+        "descLimit": "100"
       }
     },
     {
-      "description": "Style-4 testimonials with center alignment",
-      "attributes": {
-        "block_id": "g7h8",
+      "name": "Hero Section Featured Testimonial",
+      "description": "Single large testimonial as hero section social proof",
+      "configuration": {
         "style": "style-4",
         "style4Alignment": "center",
-        "rating": true,
-        "stoutLine": false,
-        "stnrmColor": "#ddd",
-        "stactColor": "#f5a623"
+        "telayout": "grid",
+        "columns": {"md": 12},
+        "ItemRepeater": "Single item only"
+      }
+    },
+    {
+      "name": "Alternating Layout with Images",
+      "description": "Testimonials alternating with large images in multi-section layout",
+      "blocks": ["tpgb/tp-container", "tpgb/tp-testimonials", "tpgb/tp-image"],
+      "pattern": "Repeating: Container(Row(Column[Testimonial] + Column[Image]))"
+    },
+    {
+      "name": "Carousel with Navigation Controls",
+      "description": "Testimonial carousel with external navigation/pagination",
+      "configuration": {
+        "telayout": "carousel",
+        "carouselId": "unique-id",
+        "relatedBlocks": "tp-carousel-remote-control or custom navigation"
+      }
+    },
+    {
+      "name": "Grid with Filter/Category Tabs",
+      "description": "Testimonials filtered by category using tabs",
+      "blocks": ["tpgb/tp-tabs-tours", "tpgb/tp-tab-item", "tpgb/tp-testimonials"],
+      "pattern": "Tabs → Tab Items (each containing filtered testimonials)"
+    },
+    {
+      "name": "Testimonials with Schema Markup",
+      "description": "SEO-enhanced testimonials with structured data for rich snippets",
+      "note": "Review schema markup should be added separately via schema blocks or custom code"
+    },
+    {
+      "name": "Mobile-First Stacked Design",
+      "description": "Full-width stacked testimonials optimized for mobile reading",
+      "configuration": {
+        "columns": {"md": 12, "sm": 12, "xs": 12},
+        "boxPadding": {
+          "md": {"top": 40, "right": 40, "bottom": 40, "left": 40},
+          "xs": {"top": 20, "right": 20, "bottom": 20, "left": 20}
+        }
       }
     }
   ],
-  "commonPatterns": {}
+
+  "performanceNotes": {
+    "recommendations": [
+      "Limit to 20 testimonials per block for optimal performance",
+      "Use lazy loading for avatar images (native loading='lazy' attribute)",
+      "Avoid heavy box shadows on mobile devices",
+      "Minimize use of gradients on lower-end devices",
+      "Test carousel autoplay performance with 10+ slides",
+      "Use content height limits (contentHei) for long testimonials to prevent layout shift",
+      "Optimize avatar image sizes (max 200x200px recommended)",
+      "Consider pagination for 50+ testimonials instead of single block"
+    ],
+    "carouselSpecific": [
+      "Swiper.js adds ~30KB to page weight",
+      "Autoplay impacts battery on mobile devices",
+      "Test touch gestures on actual mobile devices, not just emulators"
+    ]
+  },
+
+  "accessibilityNotes": {
+    "requirements": [
+      "Ensure color contrast meets WCAG AA (4.5:1 for normal text, 3:1 for large text)",
+      "Star ratings should include aria-label or sr-only text ('5 out of 5 stars')",
+      "Carousel should pause on hover and focus for accessibility",
+      "Read more/less buttons should be keyboard accessible",
+      "Avatar images should have alt text with author name",
+      "Ensure focus indicators are visible on interactive elements"
+    ],
+    "testing": [
+      "Test with screen readers (NVDA, JAWS, VoiceOver)",
+      "Verify keyboard navigation works for carousel and read more",
+      "Check contrast ratios with WebAIM Contrast Checker",
+      "Test with high contrast mode enabled"
+    ]
+  },
+
+  "responsiveStrategy": {
+    "breakpoints": {
+      "md": "Desktop (≥1024px typically)",
+      "sm": "Tablet (768px-1023px typically)",
+      "xs": "Mobile (<768px typically)"
+    },
+    "cascadeBehavior": "Values cascade down: md → sm → xs. If sm is not set, it uses md value. If xs is not set, it uses sm or md.",
+    "commonPatterns": {
+      "3to2to1": "3 columns desktop, 2 tablet, 1 mobile: {md: 4, sm: 6, xs: 12}",
+      "4to2to1": "4 columns desktop, 2 tablet, 1 mobile: {md: 3, sm: 6, xs: 12}",
+      "2to1to1": "2 columns desktop, 1 tablet, 1 mobile: {md: 6, sm: 12, xs: 12}"
+    },
+    "recommendations": [
+      "Always test on actual devices, not just browser resize",
+      "Reduce font sizes by 10-20% for mobile (xs breakpoint)",
+      "Increase line-height on mobile for better readability (1.6-1.8)",
+      "Reduce padding on mobile to maximize content space",
+      "Stack columns to full width on mobile (xs: 12) unless specifically needed",
+      "Test touch targets are minimum 44x44px on mobile",
+      "Reduce star size on mobile to prevent wrapping"
+    ]
+  }
 }
