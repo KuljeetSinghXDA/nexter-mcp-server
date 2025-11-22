@@ -1,0 +1,267 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-tabs-tours",
+  "title": "Tabs Tours - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "tabType": {
+      "type": "string",
+      "default": "",
+      "description": "Tab type variant"
+    },
+    "tablistRepeater": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Tab items with titles, content, icons, and templates",
+      "items": {
+        "tabTitle": {
+          "type": "string",
+          "default": "Tab",
+          "description": "Tab navigation title"
+        },
+        "contentType": {
+          "type": "string",
+          "default": "content",
+          "description": "Content source: 'content' or template"
+        },
+        "blockTemp": {
+          "type": "string",
+          "default": "",
+          "description": "Template ID for tab content"
+        },
+        "backendVisi": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show template in backend editor"
+        },
+        "tabDescription": {
+          "type": "string",
+          "default": "This is just dummy content. Put your relevant content over here.",
+          "description": "Tab content text"
+        },
+        "innerIcon": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show icon inside tab header"
+        },
+        "iconFonts": {
+          "type": "string",
+          "default": "font_awesome",
+          "description": "Icon library"
+        },
+        "iconImage": {
+          "type": "object",
+          "default": {
+            "url": ""
+          },
+          "description": "Custom icon image"
+        },
+        "iconimageSize": {
+          "type": "string",
+          "default": "full",
+          "description": "WordPress image size for icon"
+        },
+        "outerIcon": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show icon outside tab header"
+        },
+        "innericonName": {
+          "type": "string",
+          "default": "fas fa-home",
+          "description": "Inner Font Awesome icon class"
+        },
+        "outericonName": {
+          "type": "string",
+          "default": "fas fa-home",
+          "description": "Outer Font Awesome icon class"
+        },
+        "uniqueId": {
+          "type": "string",
+          "default": "",
+          "description": "Unique identifier for tab"
+        },
+        "ajaxbase": {
+          "type": "string",
+          "default": "",
+          "description": "AJAX base for dynamic loading"
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "tabTitle": "Tab 1",
+          "tabDescription": "This is just dummy content.",
+          "contentType": "content",
+          "innericonName": "fas fa-home"
+        },
+        {
+          "_key": "1",
+          "tabTitle": "Tab 2",
+          "tabDescription": "Enter your relevant content.",
+          "contentType": "content",
+          "innericonName": "fas fa-home"
+        }
+      ]
+    },
+    "tabLayout": {
+      "type": "string",
+      "default": "horizontal",
+      "enum": [
+        "horizontal",
+        "vertical"
+      ],
+      "description": "Tab navigation layout"
+    },
+    "swiperEffect": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable swiper slide effect for content"
+    },
+    "activeTab": {
+      "type": "string",
+      "default": "1",
+      "description": "Default active tab index"
+    },
+    "carouselId": {
+      "type": "string",
+      "default": "",
+      "description": "Unique carousel ID for remote control"
+    },
+    "iconwidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "fullwidthIcon": {
+      "type": "boolean",
+      "default": false,
+      "description": "Full width icon above text"
+    },
+    "hideToggle": {
+      "type": "object",
+      "default": {
+        "md": false
+      },
+      "description": "Hide tabs on responsive breakpoints",
+      "responsive": true
+    },
+    "vernavWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "tabCol": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable column layout for tabs"
+    },
+    "titleShow": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show tab titles"
+    },
+    "navequalwidth": {
+      "type": "boolean",
+      "default": false,
+      "description": "Equal width for all tabs"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Tab title color (normal)"
+    },
+    "titleActcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Tab title color (active/hover)"
+    },
+    "underline": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show animated underline for active tab"
+    },
+    "navSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "descBRedius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "navZoom": {
+      "type": "string",
+      "default": "1",
+      "description": "Tab scale transform (normal)"
+    },
+    "activenavZoom": {
+      "type": "string",
+      "default": "1",
+      "description": "Tab scale transform (active)"
+    },
+    "tabnavResp": {
+      "type": "string",
+      "default": "",
+      "description": "Responsive tab behavior"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "tablistRepeater",
+      "activeTab",
+      "iconSize",
+      "iconwidth",
+      "iconColor",
+      "iconActcolor",
+      "iconSpacing",
+      "titleColor",
+      "titleActcolor",
+      "ulineColor",
+      "tabMargin",
+      "tabPadding",
+      "navSpace",
+      "descMargin",
+      "descPadding",
+      "descColor",
+      "vernavWidth"
+    ],
+    "requiresValidation": [
+      "tabType",
+      "tabLayout",
+      "navPosition",
+      "swiperEffect",
+      "onhoverTab",
+      "carouselId",
+      "fullwidthIcon",
+      "hideToggle",
+      "VerticalAlign",
+      "navAlign",
+      "tabCol",
+      "titleShow",
+      "navequalwidth",
+      "underline"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": false
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-number-counter",
+  "title": "Number Counter - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple counter with icon",
+      "attributes": {
+        "block_id": "a1b2",
+        "style": "style-1",
+        "title": "Projects Completed",
+        "numValue": "500",
+        "startValue": "0",
+        "symbol": "+",
+        "iconType": "icon",
+        "iconStore": "fas fa-check-circle"
+      }
+    },
+    {
+      "description": "Revenue counter with prefix",
+      "attributes": {
+        "block_id": "c3d4",
+        "title": "Annual Revenue",
+        "numValue": "2500000",
+        "preSymbol": "$",
+        "numeration": "commas",
+        "iconType": "icon",
+        "iconStore": "fas fa-dollar-sign"
+      }
+    },
+    {
+      "description": "Percentage counter",
+      "attributes": {
+        "block_id": "e5f6",
+        "title": "Client Satisfaction",
+        "numValue": "98",
+        "symbol": "%",
+        "iconType": "icon",
+        "iconStore": "fas fa-smile",
+        "digitNmlColor": "#27ae60"
+      }
+    },
+    {
+      "description": "Years of experience with custom styling",
+      "attributes": {
+        "block_id": "g7h8",
+        "style": "style-2",
+        "style2Align": "text-left",
+        "title": "Years of Experience",
+        "numValue": "25",
+        "symbol": "+",
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f5f5f5"
+        },
+        "bgPadding": {
+          "md": {
+            "top": "30",
+            "right": "30",
+            "bottom": "30",
+            "left": "30"
+          },
+          "unit": "px"
+        }
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

@@ -1,0 +1,192 @@
+{
+  "blockName": "tpgb/tp-timeline-inner",
+  "version": "1.0.0",
+  "title": "Timeline Inner",
+  "category": "content",
+  "description": "Inner block for timeline items. Must be used as a child of tp-timeline. Showcase individual events, milestones, or updates in a chronological series. Features customizable content, icons, buttons, and pin styles. Perfect for company histories, project roadmaps, and event timelines.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "default": "",
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "className": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS class"
+    },
+    "index": {
+      "type": "number",
+      "default": "",
+      "description": "Timeline item index position"
+    },
+    "repetKey": {
+      "type": "string",
+      "default": "",
+      "description": "Repeater item unique key"
+    },
+    "RSAlign": {
+      "type": "string",
+      "default": "",
+      "description": "Responsive alignment inherited from parent"
+    },
+    "RPosition": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline position inherited from parent"
+    },
+    "layout": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline layout style inherited from parent"
+    },
+    "MLayout": {
+      "type": "boolean",
+      "default": false,
+      "description": "Mobile layout mode inherited from parent"
+    },
+    "RcAlign": {
+      "type": "string",
+      "default": "text-right",
+      "enum": ["text-left", "text-center", "text-right"],
+      "description": "Timeline item content alignment"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Timeline item visual style variant"
+    },
+    "RcTitle": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline item title"
+    },
+    "description": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline item description/content"
+    },
+    "Rnone": {
+      "type": "string",
+      "default": "",
+      "description": "Reserved attribute"
+    },
+    "PinStyle": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Timeline pin/marker style variant"
+    },
+    "RTitle": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline item secondary title"
+    },
+    "Ricon": {
+      "type": "string",
+      "default": "",
+      "description": "Font Awesome icon class for timeline marker"
+    },
+    "RButton": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show call-to-action button"
+    },
+    "RBtnText": {
+      "type": "string",
+      "default": "",
+      "description": "Button text (when RButton is true)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "RcTitle",
+      "description",
+      "RTitle",
+      "Ricon",
+      "RBtnText",
+      "RcAlign"
+    ],
+    "requiresValidation": [
+      "style",
+      "PinStyle",
+      "RButton",
+      "index"
+    ],
+    "dangerous": [
+      "block_id",
+      "repetKey"
+    ]
+  },
+  "styleDependencies": [
+    "Parent timeline (tp-timeline) styling system",
+    "Timeline connector lines",
+    "Pin/marker icon rendering",
+    "Content card styling",
+    "Button styling from parent"
+  ],
+  "commonUseCases": [
+    "Event milestones",
+    "Company history items",
+    "Project timeline steps",
+    "Product roadmap entries",
+    "Process steps",
+    "Career timeline events",
+    "Education history",
+    "Achievement timeline",
+    "Release notes",
+    "Version history",
+    "Story progression",
+    "Customer journey stages"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-timeline",
+    "tpgb/tp-process-steps"
+  ],
+  "capabilities": [
+    "Inner block for timeline parent",
+    "Customizable title and description",
+    "Secondary title field",
+    "Custom Font Awesome icon",
+    "Multiple pin styles",
+    "Optional CTA button",
+    "Content alignment control",
+    "Accepts inner blocks for rich content",
+    "Inherits parent layout settings",
+    "Responsive alignment"
+  ],
+  "usesContext": [],
+  "supports": {
+    "inserter": false,
+    "reusable": false,
+    "html": false
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": true,
+  "parentBlock": "tpgb/tp-timeline",
+  "examples": [
+    {
+      "description": "Basic timeline event with icon",
+      "attributes": {
+        "block_id": "a1b2",
+        "RcTitle": "Company Founded",
+        "description": "We started our journey with a vision to change the industry.",
+        "Ricon": "fas fa-rocket",
+        "PinStyle": "style-1",
+        "RcAlign": "text-left"
+      }
+    },
+    {
+      "description": "Timeline item with button CTA",
+      "attributes": {
+        "block_id": "c3d4",
+        "RcTitle": "Product Launch",
+        "RTitle": "Version 1.0",
+        "description": "Our flagship product was released to the public.",
+        "Ricon": "fas fa-star",
+        "RButton": true,
+        "RBtnText": "Learn More"
+      }
+    }
+  ]
+}

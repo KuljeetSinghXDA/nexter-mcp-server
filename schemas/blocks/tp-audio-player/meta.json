@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-audio-player",
+  "version": "1.0.0",
+  "title": "Audio Player",
+  "category": "media",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Stream audio files with a fully customizable audio player featuring 9 unique visual styles, playlist support, and extensive control customization. Perfect for podcasts, music albums, audio samples, so",
+  "keywords": [
+    "audio",
+    "music",
+    "podcast",
+    "audio player",
+    "sound"
+  ],
+  "useCases": [
+    "Music players",
+    "Podcasts",
+    "Audio files"
+  ]
+}

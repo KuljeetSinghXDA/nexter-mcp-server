@@ -1,0 +1,153 @@
+{
+  "blockName": "tpgb/tp-smooth-scroll",
+  "version": "1.0.0",
+  "title": "Smooth Scroll",
+  "category": "interactive",
+  "description": "Give your users premium smooth experience by adding a smooth scroll effect. Implements smooth scrolling animation for the entire page with customizable easing, speed, and behavior. Features multiple easing functions, infinite scroll, viewport control, and navigation support. Perfect for creating fluid, premium user experiences. Free version with comprehensive smooth scroll controls.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "className": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS class"
+    },
+    "aniTime": {
+      "type": "string",
+      "default": "2500",
+      "description": "Animation duration in milliseconds"
+    },
+    "stepSize": {
+      "type": "string",
+      "default": "500",
+      "description": "Scroll step size in pixels"
+    },
+    "tMult": {
+      "type": "string",
+      "default": "2",
+      "description": "Touchpad multiplier for scroll sensitivity"
+    },
+    "normalizeWheel": {
+      "type": "boolean",
+      "default": true,
+      "description": "Normalize wheel events across browsers"
+    },
+    "easing": {
+      "type": "string",
+      "default": "ease-out-cubic",
+      "enum": ["linear", "ease-in-quad", "ease-out-quad", "ease-in-out-quad", "ease-in-cubic", "ease-out-cubic", "ease-in-out-cubic", "ease-in-quart", "ease-out-quart", "ease-in-out-quart", "ease-in-quint", "ease-out-quint", "ease-in-out-quint"],
+      "description": "Easing function for scroll animation"
+    },
+    "infinite": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable infinite scroll loop"
+    },
+    "smNav": {
+      "type": "boolean",
+      "default": false,
+      "description": "Smooth scroll for navigation links"
+    },
+    "custEase": {
+      "type": "string",
+      "default": "",
+      "description": "Custom easing function CSS"
+    },
+    "viewport": {
+      "type": "string",
+      "default": "",
+      "description": "Custom viewport selector"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "aniTime",
+      "stepSize",
+      "tMult",
+      "custEase",
+      "viewport"
+    ],
+    "requiresValidation": [
+      "normalizeWheel",
+      "easing",
+      "infinite",
+      "smNav"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Smooth scroll JavaScript library",
+    "Wheel event normalization",
+    "Easing function implementation",
+    "Navigation link integration"
+  ],
+  "commonUseCases": [
+    "Premium smooth scrolling",
+    "Enhanced user experience",
+    "Fluid page navigation",
+    "Cinematic scroll effects",
+    "One-page website scrolling",
+    "Portfolio page animation",
+    "Landing page smoothness",
+    "Content showcase scrolling"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-progress-tracker"
+  ],
+  "capabilities": [
+    "Smooth scroll animation for entire page",
+    "13 easing function options",
+    "Custom animation duration",
+    "Adjustable step size",
+    "Touchpad sensitivity multiplier",
+    "Cross-browser wheel normalization",
+    "Infinite scroll loop option",
+    "Smooth navigation link scrolling",
+    "Custom easing function support",
+    "Custom viewport selector",
+    "Hardware-accelerated performance"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Basic smooth scroll with default settings",
+      "attributes": {
+        "block_id": "a1b2",
+        "easing": "ease-out-cubic",
+        "aniTime": "2500",
+        "normalizeWheel": true
+      }
+    },
+    {
+      "description": "Fast smooth scroll for quick navigation",
+      "attributes": {
+        "block_id": "c3d4",
+        "easing": "ease-out-quad",
+        "aniTime": "1000",
+        "stepSize": "800",
+        "smNav": true
+      }
+    },
+    {
+      "description": "Cinematic smooth scroll with slow easing",
+      "attributes": {
+        "block_id": "e5f6",
+        "easing": "ease-in-out-quint",
+        "aniTime": "3500",
+        "stepSize": "400",
+        "tMult": "1.5"
+      }
+    }
+  ]
+}

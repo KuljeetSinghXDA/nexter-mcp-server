@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-animated-service-boxes",
+  "version": "1.0.0",
+  "title": "Animated Service Boxes",
+  "category": "marketing",
+  "source": "pro",
+  "complexity": "advanced",
+  "description": "Showcase services and features with 8 distinct main styles and multiple sub-variations. Includes image accordion, sliding boxes, article boxes, info banners, hover sections, fancy boxes, service eleme",
+  "keywords": [
+    "service box",
+    "animated box",
+    "hover effect box"
+  ],
+  "useCases": [
+    "Animated service displays",
+    "Interactive features"
+  ]
+}

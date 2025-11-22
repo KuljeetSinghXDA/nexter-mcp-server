@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-draw-svg",
+  "title": "Draw SVG - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "alignment": {
+      "type": "string",
+      "default": "center",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "description": "SVG horizontal alignment"
+    },
+    "maxWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "strokeColor": {
+      "type": "string",
+      "default": "#8072fc",
+      "description": "SVG stroke/outline color"
+    },
+    "fillColor": {
+      "type": "string",
+      "default": "#000000",
+      "description": "SVG fill color (when fillToggle is enabled)"
+    },
+    "hoverDraw": {
+      "type": "string",
+      "default": "onScroll",
+      "enum": [
+        "onScroll",
+        "onHover",
+        "loop"
+      ],
+      "description": "Animation trigger: on scroll into view, on hover, or continuous loop"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "svgList",
+      "customSVG",
+      "alignment",
+      "maxWidth",
+      "strokeColor",
+      "fillColor",
+      "fillToggle",
+      "duration"
+    ],
+    "requiresValidation": [
+      "selectSvg",
+      "drawType",
+      "hoverDraw"
+    ]
+  },
+  "styleDependencies": [
+    "SVG path animation library (Vivus.js or similar)",
+    "Stroke dasharray/dashoffset CSS animations",
+    "Scroll trigger library for viewport detection"
+  ]
+}

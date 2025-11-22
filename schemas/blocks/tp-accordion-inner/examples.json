@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-accordion-inner",
+  "title": "Accordion Inner - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple accordion item with title and content",
+      "attributes": {
+        "block_id": "a1b2",
+        "title": "What is WordPress?",
+        "innerIcon": false
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "c3d4",
+            "content": "WordPress is a free and open-source content management system."
+          }
+        }
+      ]
+    },
+    {
+      "description": "Accordion item with custom icon",
+      "attributes": {
+        "block_id": "e5f6",
+        "title": "Pricing Information",
+        "innerIcon": true,
+        "innericonName": "fas fa-dollar-sign"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

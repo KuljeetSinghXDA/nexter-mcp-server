@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-preloader",
+  "title": "Preloader - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "imageSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "minDisplayTime": {
+      "type": "string",
+      "default": "1000",
+      "description": "Minimum display time in milliseconds"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#ffffff",
+      "description": "Preloader overlay background color"
+    },
+    "loaderColor": {
+      "type": "string",
+      "default": "#667eea",
+      "description": "Loader animation color (for prebuilt styles)"
+    },
+    "loaderSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "zIndex": {
+      "type": "string",
+      "default": "999999",
+      "description": "Z-index for overlay positioning"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "customImage",
+      "imageSize",
+      "loadingText",
+      "minDisplayTime",
+      "fadeOutDuration",
+      "triggerSelector",
+      "backgroundColor",
+      "loaderColor",
+      "loaderSize",
+      "zIndex"
+    ],
+    "requiresValidation": [
+      "loaderStyle",
+      "showText",
+      "showProgress",
+      "progressType",
+      "loaderTrigger"
+    ]
+  },
+  "styleDependencies": [
+    "CSS animations for spinner/loader effects",
+    "JavaScript for page load detection",
+    "Progress tracking JavaScript (when showProgress is true)",
+    "Fade out transitions",
+    "Full-screen overlay positioning"
+  ]
+}

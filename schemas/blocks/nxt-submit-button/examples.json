@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-submit-button",
+  "title": "Submit - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple submit button",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Send Message",
+        "btnAlign": "center"
+      }
+    },
+    {
+      "description": "Submit button with icon",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Subscribe",
+        "ButtonType": "fontAwesome",
+        "ButtonIcon": "fas fa-paper-plane",
+        "iconPos": "1",
+        "iconSz": {
+          "md": "20",
+          "unit": "px"
+        },
+        "icnClr": "#ffffff"
+      }
+    },
+    {
+      "description": "Inline submit for newsletter",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Join",
+        "isInline": true,
+        "ButtonType": "fontAwesome",
+        "ButtonIcon": "fas fa-arrow-right",
+        "btnSz": {
+          "md": "120",
+          "unit": "px"
+        }
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

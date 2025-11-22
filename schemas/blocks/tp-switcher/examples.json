@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-switcher",
+  "title": "Switcher - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple pricing switcher (monthly/yearly)",
+      "attributes": {
+        "block_id": "a1b2",
+        "title1": "Monthly",
+        "title2": "Yearly",
+        "switchStyle": "style-1",
+        "switchalign": "text-center"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "attrs": {
+            "block_id": "c3d4",
+            "index": 0
+          }
+        },
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "attrs": {
+            "block_id": "e5f6",
+            "index": 1
+          }
+        }
+      ]
+    }
+  ],
+  "commonPatterns": {}
+}

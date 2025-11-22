@@ -1,0 +1,309 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-accordion",
+  "title": "Accordion - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "accorType": {
+      "type": "string",
+      "default": "content",
+      "description": "Accordion content type"
+    },
+    "accordianList": {
+      "type": "array",
+      "default": [
+        {
+          "_key": "0",
+          "title": "Accordion 1",
+          "contentType": "content",
+          "desc": "This is just dummy content.",
+          "innerIcon": false,
+          "iconFonts": "font_awesome",
+          "innericonName": "fas fa-home",
+          "ajaxbase": ""
+        }
+      ],
+      "description": "Array of accordion items when using legacy repeater mode. Modern usage prefers innerBlocks (tp-accordion-inner) for each item",
+      "repeaterField": {
+        "title": {
+          "type": "string",
+          "description": "Accordion item title"
+        },
+        "desc": {
+          "type": "string",
+          "description": "Accordion item content"
+        },
+        "innerIcon": {
+          "type": "boolean",
+          "description": "Show icon in this item"
+        },
+        "UniqueId": {
+          "type": "string",
+          "description": "Unique identifier for this item"
+        },
+        "iconFonts": {
+          "type": "string",
+          "description": "Icon library (font_awesome)"
+        },
+        "innericonName": {
+          "type": "string",
+          "description": "Icon class name"
+        },
+        "contentType": {
+          "type": "string",
+          "description": "Content type (content/template)"
+        },
+        "blockTemp": {
+          "type": "string",
+          "description": "Block template ID"
+        },
+        "backendVisi": {
+          "type": "boolean",
+          "description": "Backend visibility"
+        },
+        "stepImage": {
+          "type": "string",
+          "description": "Step image URL for How-To schema"
+        },
+        "ajaxbase": {
+          "type": "string",
+          "description": "AJAX loading configuration"
+        }
+      }
+    },
+    "toggleIcon": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable open/close toggle icons (+ / -)"
+    },
+    "iconName": {
+      "type": "string",
+      "default": "fas fa-plus",
+      "description": "Icon for closed accordion state"
+    },
+    "ActiconName": {
+      "type": "string",
+      "default": "fas fa-minus",
+      "description": "Icon for active/open accordion state"
+    },
+    "titleTag": {
+      "type": "string",
+      "default": "h3",
+      "enum": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "div"
+      ],
+      "description": "HTML tag for accordion titles"
+    },
+    "titleAlign": {
+      "type": "string",
+      "default": "text-left",
+      "enum": [
+        "text-left",
+        "text-center",
+        "text-right"
+      ],
+      "description": "Text alignment for accordion titles"
+    },
+    "defaultAct": {
+      "type": "string",
+      "default": "",
+      "description": "Index of accordion item to be open by default (0-based)"
+    },
+    "onHvrtab": {
+      "type": "string",
+      "default": "click",
+      "enum": [
+        "click",
+        "hover"
+      ],
+      "description": "Accordion trigger method (click or hover)"
+    },
+    "atOneOpen": {
+      "type": "boolean",
+      "default": false,
+      "description": "Allow only one accordion item open at a time (auto-close others)"
+    },
+    "expCollBtn": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show expand all / collapse all button"
+    },
+    "collBtnPos": {
+      "type": "string",
+      "default": "before",
+      "enum": [
+        "before",
+        "after"
+      ],
+      "description": "Position of expand/collapse button relative to accordion items"
+    },
+    "collapseText": {
+      "type": "string",
+      "default": "Collapse All",
+      "description": "Text for collapse all button"
+    },
+    "expandText": {
+      "type": "string",
+      "default": "Expand All",
+      "description": "Text for expand all button"
+    },
+    "carouselId": {
+      "type": "string",
+      "default": "",
+      "description": "ID of carousel block to sync with this accordion"
+    },
+    "markupSch": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable How-To schema markup (for SEO)"
+    },
+    "howTotitle": {
+      "type": "string",
+      "default": "How To",
+      "description": "How-To schema title"
+    },
+    "howTodesc": {
+      "type": "string",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "description": "How-To schema description"
+    },
+    "howToimg": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "How-To schema image"
+    },
+    "howTostep": {
+      "type": "string",
+      "default": "Steps to configure the How-to Schema:",
+      "description": "How-To schema steps label"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Accordion title text color (default state)"
+    },
+    "titleActcolor": {
+      "type": "string",
+      "default": "#6f14f1",
+      "description": "Accordion title text color (active/open state)"
+    },
+    "titleHvrcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Accordion title text color (hover state)"
+    },
+    "titlePadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "accorBetspace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titleBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Border settings for accordion title (default state)",
+      "responsive": true
+    },
+    "titleBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titleActborder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Border settings for accordion title (active state)",
+      "responsive": true
+    },
+    "titleActBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titlebgType": {
+      "$ref": "definitions://background"
+    },
+    "titleBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "titleActbgtype": {
+      "$ref": "definitions://background"
+    },
+    "titleActBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "descBRedius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content visibility"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "accordianList",
+      "titleColor",
+      "titleActcolor",
+      "titleHvrcolor",
+      "descColor",
+      "inIconColor",
+      "tgiconColor",
+      "titlePadding",
+      "descPadding",
+      "descMargin",
+      "accorBetspace",
+      "collapseText",
+      "expandText",
+      "howTotitle",
+      "howTodesc"
+    ],
+    "requiresValidation": [
+      "titleTag",
+      "defaultAct",
+      "onHvrtab",
+      "atOneOpen",
+      "toggleIcon",
+      "iconName",
+      "ActiconName",
+      "expCollBtn",
+      "markupSch",
+      "carouselId"
+    ],
+    "dangerous": [
+      "block_id",
+      "accorType",
+      "iconAlign",
+      "innerBlocks structure"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": false
+}

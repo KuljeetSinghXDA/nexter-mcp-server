@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-row",
+  "title": "Row - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple 3-column row",
+      "attributes": {
+        "block_id": "a1b2",
+        "sectionWidth": "boxed",
+        "columns": 3,
+        "gutterSpace": {
+          "md": "20",
+          "unit": "px"
+        },
+        "columnPosition": "space-between",
+        "minHeight": {
+          "md": "400",
+          "unit": "px"
+        }
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-column",
+          "attrs": {
+            "block_id": "c3d4"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-column",
+          "attrs": {
+            "block_id": "e5f6"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-column",
+          "attrs": {
+            "block_id": "g7h8"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Full-width row with shape divider",
+      "attributes": {
+        "block_id": "i9j0",
+        "sectionWidth": "full",
+        "stretchRow": true,
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgColor": "#f5f5f5"
+        },
+        "shapeBottom": "wave",
+        "shapeBColor": "#ffffff",
+        "shapeBHeight": {
+          "md": "80",
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "description": "Pro: Row with video background",
+      "attributes": {
+        "block_id": "k1l2",
+        "sectionWidth": "full",
+        "deepBgopt": "bg_video",
+        "videosour": "youtube",
+        "youtubeId": "dQw4w9WgXcQ",
+        "videoloop": true,
+        "videoMute": true,
+        "minHeight": {
+          "md": "600",
+          "unit": "px"
+        }
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

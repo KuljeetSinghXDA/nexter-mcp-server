@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-mobile-menu",
+  "title": "Mobile Menu - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple bottom navigation bar (style-1)",
+      "attributes": {
+        "block_id": "a1b2",
+        "mmStyle": "style-1",
+        "posType": "fixed",
+        "fixPosType": "bottom",
+        "menu1Item": [
+          {
+            "textVal": "Home",
+            "iconStore": "fas fa-home",
+            "linkUrl": {
+              "url": "/"
+            }
+          },
+          {
+            "textVal": "Search",
+            "iconStore": "fas fa-search",
+            "linkUrl": {
+              "url": "/search"
+            }
+          },
+          {
+            "textVal": "Cart",
+            "iconStore": "fas fa-shopping-cart",
+            "linkUrl": {
+              "url": "/cart"
+            },
+            "pinText": "3"
+          },
+          {
+            "textVal": "Account",
+            "iconStore": "fas fa-user",
+            "linkUrl": {
+              "url": "/account"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Split menu with center action button (style-2)",
+      "attributes": {
+        "block_id": "c3d4",
+        "mmStyle": "style-2",
+        "posType": "fixed",
+        "fixPosType": "bottom",
+        "extraToggle": true,
+        "tglText": "Create",
+        "tglIconType": "icon",
+        "iconStore": "fas fa-plus-circle",
+        "contentType": "link",
+        "contentLink": {
+          "url": "/create"
+        }
+      }
+    },
+    {
+      "description": "Menu with page indicator and swiper",
+      "attributes": {
+        "block_id": "e5f6",
+        "displayMode": "swiper",
+        "pageIndicator": true,
+        "indiStyle": "line",
+        "indiPos": "indi-top"
+      }
+    },
+    {
+      "description": "Scroll-hiding menu with slide-out",
+      "attributes": {
+        "block_id": "g7h8",
+        "scrollOffsetTgl": true,
+        "scrollTopValue": "100",
+        "extraToggle": true,
+        "contentType": "template",
+        "tempList": "mobile-menu-template",
+        "toggleDirection": "right"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

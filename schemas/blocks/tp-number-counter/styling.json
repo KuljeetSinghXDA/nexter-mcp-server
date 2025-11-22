@@ -1,0 +1,242 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-number-counter",
+  "title": "Number Counter - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "style1Align": {
+      "type": "string",
+      "default": "text-center",
+      "enum": [
+        "text-left",
+        "text-center",
+        "text-right"
+      ],
+      "description": "Alignment for style-1"
+    },
+    "style2Align": {
+      "type": "string",
+      "default": "text-left",
+      "enum": [
+        "text-left",
+        "text-center",
+        "text-right"
+      ],
+      "description": "Alignment for style-2"
+    },
+    "numGap": {
+      "type": "string",
+      "default": "5",
+      "description": "Number increment step during animation"
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "thumbnail",
+      "description": "WordPress image size preset"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (normal state)"
+    },
+    "titleHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (hover state)"
+    },
+    "titleTopSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titleBottomSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "digitTypo": {
+      "$ref": "definitions://typography"
+    },
+    "digitNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Digit color (normal state)"
+    },
+    "digitHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Digit color (hover state)"
+    },
+    "digitTopSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "symbolTypo": {
+      "$ref": "definitions://typography"
+    },
+    "symbolNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Symbol color (normal state)"
+    },
+    "symbolHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Symbol color (hover state)"
+    },
+    "iconSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "icnNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal state)"
+    },
+    "icnHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (hover state)"
+    },
+    "icnNormalBG": {
+      "$ref": "definitions://background"
+    },
+    "icnHoverBG": {
+      "$ref": "definitions://background"
+    },
+    "nmlBColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon border color (normal state)"
+    },
+    "hvrBColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon border color (hover state)"
+    },
+    "nmlIcnBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "hvrIcnBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "nmlIcnShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "hvrIcnShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "imgWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "bgNmlBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "1",
+            "left": "1",
+            "bottom": "1",
+            "right": "1"
+          },
+          "unit": "px"
+        }
+      },
+      "description": "Background border (normal state)"
+    },
+    "bgHvrBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "1",
+            "left": "1",
+            "bottom": "1",
+            "right": "1"
+          },
+          "unit": "px"
+        }
+      },
+      "description": "Background border (hover state)"
+    },
+    "bgNmlBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "bgHvrBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "normalBG": {
+      "$ref": "definitions://background"
+    },
+    "hoverBG": {
+      "$ref": "definitions://background"
+    },
+    "bgNmlShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "bgHvrShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "bgPadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "svgmaxWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "svgstroColor": {
+      "type": "string",
+      "default": "#000000",
+      "description": "SVG stroke color"
+    },
+    "svgfillColor": {
+      "type": "string",
+      "default": "",
+      "description": "SVG fill color"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "title",
+      "numValue",
+      "startValue",
+      "symbol",
+      "preSymbol",
+      "titleTypo",
+      "titleNmlColor",
+      "titleHvrColor",
+      "digitTypo",
+      "digitNmlColor",
+      "digitHvrColor",
+      "symbolTypo",
+      "symbolNmlColor",
+      "symbolHvrColor",
+      "iconStore",
+      "iconSize",
+      "icnNmlColor",
+      "icnHvrColor",
+      "normalBG",
+      "hoverBG",
+      "bgPadding"
+    ],
+    "requiresValidation": [
+      "style",
+      "numGap",
+      "timeDelay",
+      "numeration",
+      "iconType",
+      "iconStyle",
+      "linkURL"
+    ]
+  },
+  "styleDependencies": [
+    "Counter animation JavaScript library",
+    "SVG draw animation library (for SVG icons)",
+    "Number formatting (commas/custom)"
+  ]
+}

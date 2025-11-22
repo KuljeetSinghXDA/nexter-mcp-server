@@ -1,0 +1,220 @@
+{
+  "blockName": "tpgb/tp-preloader",
+  "version": "1.0.0",
+  "title": "Preloader",
+  "category": "content",
+  "description": "Enhance user experience with elegant loading screens while page content loads. Features 12+ prebuilt animation styles, custom images/logos, progress bars, and loading text. Perfect for creating professional first impressions with animated spinners, pulse effects, or custom branding. Control display timing, triggers, and transition effects.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "loaderStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2", "style-3", "style-4", "style-5", "style-6", "style-7", "style-8", "style-9", "style-10", "style-11", "style-12", "custom"],
+      "description": "Preloader animation style (12 prebuilt + custom)"
+    },
+    "customImage": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Custom logo/image for preloader (when loaderStyle is 'custom')"
+    },
+    "imageSize": {
+      "type": "object",
+      "default": {"md": "100", "unit": "px"},
+      "description": "Custom image width/height",
+      "responsive": true
+    },
+    "loadingText": {
+      "type": "string",
+      "default": "Loading...",
+      "description": "Loading status text"
+    },
+    "showText": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show loading text"
+    },
+    "showProgress": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show progress bar or percentage"
+    },
+    "progressType": {
+      "type": "string",
+      "default": "bar",
+      "enum": ["bar", "percentage"],
+      "description": "Progress indicator type"
+    },
+    "minDisplayTime": {
+      "type": "string",
+      "default": "1000",
+      "description": "Minimum display time in milliseconds"
+    },
+    "fadeOutDuration": {
+      "type": "string",
+      "default": "500",
+      "description": "Fade out animation duration in milliseconds"
+    },
+    "loaderTrigger": {
+      "type": "string",
+      "default": "page-load",
+      "enum": ["page-load", "button-click", "scroll"],
+      "description": "When to show preloader"
+    },
+    "triggerSelector": {
+      "type": "string",
+      "default": "",
+      "description": "CSS selector for button-click trigger"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#ffffff",
+      "description": "Preloader overlay background color"
+    },
+    "loaderColor": {
+      "type": "string",
+      "default": "#667eea",
+      "description": "Loader animation color (for prebuilt styles)"
+    },
+    "loaderSize": {
+      "type": "object",
+      "default": {"md": "60", "unit": "px"},
+      "description": "Loader animation size",
+      "responsive": true
+    },
+    "zIndex": {
+      "type": "string",
+      "default": "999999",
+      "description": "Z-index for overlay positioning"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "customImage",
+      "imageSize",
+      "loadingText",
+      "minDisplayTime",
+      "fadeOutDuration",
+      "triggerSelector",
+      "backgroundColor",
+      "loaderColor",
+      "loaderSize",
+      "zIndex"
+    ],
+    "requiresValidation": [
+      "loaderStyle",
+      "showText",
+      "showProgress",
+      "progressType",
+      "loaderTrigger"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "CSS animations for spinner/loader effects",
+    "JavaScript for page load detection",
+    "Progress tracking JavaScript (when showProgress is true)",
+    "Fade out transitions",
+    "Full-screen overlay positioning"
+  ],
+  "commonUseCases": [
+    "Professional website loading screens",
+    "Portfolio site preloaders",
+    "Agency website intros",
+    "E-commerce page transitions",
+    "Heavy content pages (galleries, videos)",
+    "Branded loading experiences",
+    "SPA (Single Page Application) transitions",
+    "Form submission loading states",
+    "Media-heavy landing pages",
+    "Premium brand experiences"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-countdown",
+    "tpgb/tp-progress-bar",
+    "core/group"
+  ],
+  "capabilities": [
+    "13 total styles (12 prebuilt + custom image)",
+    "Custom logo/image support",
+    "Responsive loader and image sizing",
+    "Loading text customization",
+    "Toggle text visibility",
+    "Progress indicators (bar or percentage)",
+    "Minimum display time control",
+    "Fade out animation duration",
+    "3 trigger types (page load, button click, scroll)",
+    "Custom CSS selector triggering",
+    "Full background color customization",
+    "Loader color control for prebuilt styles",
+    "Custom z-index positioning",
+    "Typography controls for loading text",
+    "Progress bar styling",
+    "Transition effects",
+    "Mobile responsive"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple spinner with text",
+      "attributes": {
+        "block_id": "a1b2",
+        "loaderStyle": "style-1",
+        "loadingText": "Please wait...",
+        "showText": true,
+        "loaderColor": "#667eea",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    {
+      "description": "Custom logo preloader with progress bar",
+      "attributes": {
+        "block_id": "c3d4",
+        "loaderStyle": "custom",
+        "customImage": {"url": "/logo.svg"},
+        "imageSize": {"md": "120", "unit": "px"},
+        "showProgress": true,
+        "progressType": "bar",
+        "minDisplayTime": "1500"
+      }
+    },
+    {
+      "description": "Pulse animation with percentage",
+      "attributes": {
+        "block_id": "e5f6",
+        "loaderStyle": "style-5",
+        "showProgress": true,
+        "progressType": "percentage",
+        "fadeOutDuration": "800",
+        "loaderSize": {"md": "80", "unit": "px"}
+      }
+    },
+    {
+      "description": "Button-triggered loading overlay",
+      "attributes": {
+        "block_id": "g7h8",
+        "loaderStyle": "style-3",
+        "loaderTrigger": "button-click",
+        "triggerSelector": "#submit-button",
+        "loadingText": "Processing...",
+        "backgroundColor": "rgba(0,0,0,0.8)"
+      }
+    }
+  ]
+}

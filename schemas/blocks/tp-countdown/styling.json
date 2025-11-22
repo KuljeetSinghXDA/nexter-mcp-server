@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-countdown",
+  "title": "Countdown - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "counterMaxWidth": {
+      "type": "object",
+      "default": {
+        "md": ""
+      },
+      "description": "Maximum width for flip countdown (style-2)",
+      "responsive": true
+    },
+    "counterFontColor": {
+      "type": "string",
+      "default": "",
+      "description": "Number/digit color"
+    },
+    "counterTypo": {
+      "$ref": "definitions://typography"
+    },
+    "labelTypo": {
+      "$ref": "definitions://typography"
+    },
+    "expiryMsgTypo": {
+      "$ref": "definitions://typography"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "datetime",
+      "showLabels",
+      "daysText",
+      "hoursText",
+      "minutesText",
+      "secondsText",
+      "expiryMsg",
+      "counterFontColor",
+      "counterTypo",
+      "labelTypo",
+      "inlineStyle"
+    ],
+    "requiresValidation": [
+      "style",
+      "countdownSelection",
+      "countdownExpiry",
+      "expiryRedirect",
+      "trackUdata",
+      "enaLoop",
+      "templates"
+    ]
+  },
+  "styleDependencies": [
+    "Countdown timer CSS (3 styles)",
+    "Flip animation library (style-2)",
+    "Circular progress SVG (style-3)",
+    "JavaScript countdown engine",
+    "Cookie/LocalStorage for user tracking (Pro)"
+  ]
+}

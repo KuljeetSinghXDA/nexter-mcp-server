@@ -1,0 +1,424 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-adv-typo",
+  "title": "Advanced Typography - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "typoText": {
+      "type": "string",
+      "default": "Your Text Content",
+      "description": "Main typography text (when typoListing is 'normal')"
+    },
+    "tTextLink": {
+      "$ref": "definitions://link"
+    },
+    "textListing": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Multiple text items with individual styling (when typoListing is 'multiple')",
+      "items": {
+        "lText": {
+          "type": "string",
+          "default": "Your Text Content",
+          "description": "Text content"
+        },
+        "linkUrl": {
+          "type": "object",
+          "default": {
+            "url": "#",
+            "target": "",
+            "nofollow": ""
+          },
+          "description": "Link URL for this text"
+        },
+        "ariaLabel": {
+          "type": "string",
+          "default": "",
+          "description": "ARIA label for accessibility"
+        },
+        "strokeFill": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable text stroke and fill effects"
+        },
+        "strokeWidth": {
+          "type": "object",
+          "default": {
+            "md": "",
+            "unit": "px"
+          },
+          "description": "Text stroke width",
+          "responsive": true
+        },
+        "gradientTgl": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use gradient for stroke color"
+        },
+        "strokeNColor": {
+          "type": "string",
+          "default": "",
+          "description": "Stroke color (normal, solid)"
+        },
+        "strokeHColor": {
+          "type": "string",
+          "default": "",
+          "description": "Stroke color (hover, solid)"
+        },
+        "strokeNGColor": {
+          "type": "string",
+          "default": "",
+          "description": "Stroke gradient (normal)"
+        },
+        "strokeHGColor": {
+          "type": "string",
+          "default": "",
+          "description": "Stroke gradient (hover)"
+        },
+        "fillNColor": {
+          "type": "string",
+          "default": "",
+          "description": "Fill color (normal)"
+        },
+        "fillHColor": {
+          "type": "string",
+          "default": "",
+          "description": "Fill color (hover)"
+        },
+        "blendMode": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable CSS mix-blend-mode"
+        },
+        "blendVariation": {
+          "type": "string",
+          "default": "color",
+          "enum": [
+            "normal",
+            "multiply",
+            "screen",
+            "overlay",
+            "darken",
+            "lighten",
+            "color-dodge",
+            "color-burn",
+            "difference",
+            "exclusion",
+            "hue",
+            "saturation",
+            "color",
+            "luminosity"
+          ],
+          "description": "CSS mix-blend-mode value"
+        },
+        "knockoutText": {
+          "type": "boolean",
+          "default": false,
+          "description": "Knockout text effect with background"
+        },
+        "koTextBG": {
+          "type": "object",
+          "default": {
+            "openBg": 0
+          },
+          "description": "Knockout text background"
+        },
+        "onHoverImg": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show image on hover"
+        },
+        "hoverImg": {
+          "type": "object",
+          "default": {
+            "url": ""
+          },
+          "description": "Hover image"
+        },
+        "hoverStyle": {
+          "type": "string",
+          "default": "1",
+          "description": "Hover image style variant"
+        },
+        "marquee": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable marquee scrolling animation"
+        },
+        "marqueeType": {
+          "type": "string",
+          "default": "default",
+          "enum": [
+            "default",
+            "on_transition"
+          ],
+          "description": "Marquee implementation type"
+        },
+        "marqueeDir": {
+          "type": "string",
+          "default": "left",
+          "enum": [
+            "left",
+            "right",
+            "up",
+            "down"
+          ],
+          "description": "Marquee scroll direction"
+        },
+        "marqueeBeh": {
+          "type": "string",
+          "default": "initial",
+          "enum": [
+            "initial",
+            "scroll",
+            "slide",
+            "alternate"
+          ],
+          "description": "Marquee behavior"
+        },
+        "marqueeLoop": {
+          "type": "string",
+          "default": "-1",
+          "description": "Marquee loop count (-1 for infinite)"
+        },
+        "marqueeScroll": {
+          "type": "string",
+          "default": "6",
+          "description": "Marquee scroll amount"
+        },
+        "marqueeAni": {
+          "type": "string",
+          "default": "3",
+          "description": "Marquee animation duration in seconds"
+        },
+        "marqueeTwidth": {
+          "type": "object",
+          "default": {
+            "md": "",
+            "unit": "px"
+          },
+          "description": "Marquee text width",
+          "responsive": true
+        },
+        "contiAnimation": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable continuous animation"
+        },
+        "aniEffect": {
+          "type": "string",
+          "default": "pulse",
+          "enum": [
+            "pulse",
+            "floating",
+            "tossing"
+          ],
+          "description": "Animation effect type"
+        },
+        "aniOnHover": {
+          "type": "boolean",
+          "default": false,
+          "description": "Trigger animation on hover only"
+        },
+        "aniDurTime": {
+          "type": "string",
+          "default": "",
+          "description": "Animation duration in seconds"
+        },
+        "advUnderline": {
+          "type": "string",
+          "default": "none",
+          "enum": [
+            "none",
+            "classic",
+            "overlay"
+          ],
+          "description": "Text decoration type"
+        },
+        "overlayStyle": {
+          "type": "string",
+          "default": "style-1",
+          "enum": [
+            "style-1",
+            "style-2",
+            "style-3",
+            "style-4",
+            "style-5",
+            "style-6",
+            "style-7"
+          ],
+          "description": "Overlay underline style (7 creative styles)"
+        },
+        "nLineType": {
+          "type": "string",
+          "default": "none",
+          "enum": [
+            "none",
+            "underline",
+            "overline",
+            "line-through"
+          ],
+          "description": "Classic text-decoration-line (normal)"
+        },
+        "hLineType": {
+          "type": "string",
+          "default": "none",
+          "enum": [
+            "none",
+            "underline",
+            "overline",
+            "line-through"
+          ],
+          "description": "Classic text-decoration-line (hover)"
+        },
+        "nLineStyle": {
+          "type": "string",
+          "default": "solid",
+          "enum": [
+            "solid",
+            "double",
+            "dotted",
+            "dashed",
+            "wavy"
+          ],
+          "description": "Classic text-decoration-style (normal)"
+        }
+      }
+    },
+    "htmlTag": {
+      "type": "string",
+      "default": "h2",
+      "enum": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "p",
+        "div",
+        "span"
+      ],
+      "description": "HTML tag for text element"
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "text-left",
+      "enum": [
+        "text-left",
+        "text-center",
+        "text-right"
+      ],
+      "description": "Text alignment"
+    },
+    "strokeWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "gradientTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Use gradient for stroke (normal mode)"
+    },
+    "knockoutText": {
+      "type": "boolean",
+      "default": false,
+      "description": "Knockout text effect (normal mode)"
+    },
+    "marquee": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable marquee (normal mode)"
+    },
+    "cirTextEn": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable circular text layout"
+    },
+    "cirTextPath": {
+      "type": "string",
+      "default": "",
+      "description": "SVG path for circular text"
+    },
+    "textMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "textPadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "typoText",
+      "textListing",
+      "tTextLink",
+      "typoTypo",
+      "typoColor",
+      "typoHvrColor",
+      "strokeWidth",
+      "strokeNColor",
+      "strokeHColor",
+      "fillNColor",
+      "fillHColor",
+      "koTextBG",
+      "hoverImg",
+      "marqueeDir",
+      "marqueeLoop",
+      "marqueeScroll",
+      "marqueeAni",
+      "marqueeTwidth",
+      "aniDurTime",
+      "cirTextPath",
+      "textMargin",
+      "textPadding"
+    ],
+    "requiresValidation": [
+      "typoListing",
+      "htmlTag",
+      "textAlign",
+      "strokeFill",
+      "gradientTgl",
+      "blendMode",
+      "blendVariation",
+      "knockoutText",
+      "onHoverImg",
+      "hoverStyle",
+      "marquee",
+      "marqueeType",
+      "marqueeBeh",
+      "contiAnimation",
+      "aniEffect",
+      "aniOnHover",
+      "advUnderline",
+      "overlayStyle",
+      "nLineType",
+      "hLineType",
+      "nLineStyle",
+      "cirTextEn"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-date-field",
+  "version": "1.0.0",
+  "title": "Pick a Date",
+  "category": "forms",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Include a calendar-based date picker in your form with date range validation. Features customizable minimum and maximum date ranges (year, month, day), optional date range validation, field width cont",
+  "keywords": [
+    "date picker",
+    "calendar",
+    "date input"
+  ],
+  "useCases": [
+    "Date selection in forms"
+  ]
+}

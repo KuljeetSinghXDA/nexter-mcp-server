@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-security-field",
+  "title": "Security Code - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "securityOptions": {
+      "type": "string",
+      "default": "",
+      "description": "Security verification type (e.g., 'recaptcha', 'hcaptcha', 'turnstile')"
+    },
+    "captchaOptions": {
+      "type": "string",
+      "default": "",
+      "description": "CAPTCHA configuration options (version, theme, size, etc.)"
+    },
+    "cloudSecretKey": {
+      "type": "string",
+      "default": "",
+      "description": "Secret key for CAPTCHA service (server-side validation)"
+    },
+    "cloudSiteKey": {
+      "type": "string",
+      "default": "",
+      "description": "Site key for CAPTCHA service (client-side rendering)"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "captchaOptions"
+    ],
+    "requiresValidation": [
+      "securityOptions"
+    ],
+    "dangerous": [
+      "block_id",
+      "cloudSecretKey",
+      "cloudSiteKey"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true
+}

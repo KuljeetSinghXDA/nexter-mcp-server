@@ -1,0 +1,185 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-creative-image",
+  "title": "Advanced Image - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "ImgSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size selection"
+    },
+    "Alignment": {
+      "type": "object",
+      "default": {
+        "md": "center",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Image alignment (left, center, right)",
+      "responsive": true
+    },
+    "ImgWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "floatAlign": {
+      "type": "string",
+      "default": "none",
+      "enum": [
+        "none",
+        "left",
+        "right"
+      ],
+      "description": "CSS float alignment for text wrapping"
+    },
+    "captionTypo": {
+      "$ref": "definitions://typography"
+    },
+    "captionNormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Caption text color (normal state)"
+    },
+    "captionHoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Caption text color (hover state)"
+    },
+    "AnimBgColor": {
+      "type": "string",
+      "default": "",
+      "description": "Scroll reveal overlay background color"
+    },
+    "ScrollImgHeight": {
+      "type": "object",
+      "default": {
+        "md": 400
+      },
+      "description": "Container min-height for scroll effect (px)",
+      "responsive": true
+    },
+    "MaskShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "border": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "",
+            "left": "",
+            "bottom": "",
+            "right": ""
+          },
+          "unit": ""
+        }
+      },
+      "description": "Image border (normal state)"
+    },
+    "borderHover": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "",
+            "left": "",
+            "bottom": "",
+            "right": ""
+          },
+          "unit": ""
+        }
+      },
+      "description": "Image border (hover state)"
+    },
+    "borderRadius": {
+      "type": "object",
+      "default": {
+        "md": {
+          "top": "",
+          "right": "",
+          "left": "",
+          "bottom": ""
+        }
+      },
+      "description": "Image border radius (normal state)",
+      "responsive": true
+    },
+    "borderRadiusHover": {
+      "type": "object",
+      "default": {
+        "md": {
+          "top": "",
+          "right": "",
+          "left": "",
+          "bottom": ""
+        }
+      },
+      "description": "Image border radius (hover state)",
+      "responsive": true
+    },
+    "shadow": {
+      "$ref": "definitions://shadow"
+    },
+    "nmlDropShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "shadowHover": {
+      "$ref": "definitions://shadow"
+    },
+    "hvrDropShadow": {
+      "$ref": "definitions://shadow"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "SelectImg",
+      "ImgSize",
+      "Alignment",
+      "ImgWidth",
+      "showCaption",
+      "ImgCaption",
+      "captionTypo",
+      "captionNormalColor",
+      "captionHoverColor",
+      "border",
+      "borderHover",
+      "borderRadius",
+      "borderRadiusHover",
+      "shadow",
+      "shadowHover",
+      "imgNFilter",
+      "imgHFilter",
+      "link"
+    ],
+    "requiresValidation": [
+      "ScrollRevelImg",
+      "AnimBgColor",
+      "AnimDirection",
+      "ScrollImgEffect",
+      "ScrollImgHeight",
+      "ScrollTransDur",
+      "showMaskImg",
+      "MaskImg",
+      "ScrollParallax",
+      "ScrollMoveX",
+      "ScrollMoveY",
+      "fancyBox",
+      "FancyOption"
+    ]
+  },
+  "styleDependencies": [
+    "CSS filters (blur, brightness, contrast, etc.)",
+    "CSS transforms for parallax",
+    "Scroll reveal animation JavaScript",
+    "Continuous scroll effect on hover",
+    "SVG mask-image CSS",
+    "Fancybox/lightbox library (when fancyBox enabled)",
+    "Intersection Observer for scroll triggers"
+  ]
+}

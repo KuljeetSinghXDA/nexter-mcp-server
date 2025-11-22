@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-security-field",
+  "version": "1.0.0",
+  "title": "Security Code",
+  "category": "forms",
+  "source": "pro",
+  "complexity": "advanced",
+  "description": "Add security verification to your form with CAPTCHA or other security methods. Protects forms from spam and automated submissions. Features configurable security options, CAPTCHA integration (reCAPTCH",
+  "keywords": [
+    "captcha",
+    "recaptcha",
+    "security",
+    "spam protection"
+  ],
+  "useCases": [
+    "Spam prevention",
+    "Bot protection",
+    "Form security"
+  ]
+}

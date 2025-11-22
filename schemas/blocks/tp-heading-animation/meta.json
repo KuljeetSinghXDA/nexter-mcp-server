@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-heading-animation",
+  "version": "1.0.0",
+  "title": "Heading Animation",
+  "category": "content",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Create eye-catching animated headings with 2 main styles: text highlights with underlines/circles/strikethroughs, or rotating text animations. Features customizable prefix/postfix text, multiple anima",
+  "keywords": [
+    "animated heading",
+    "typewriter",
+    "rotating text",
+    "dynamic heading"
+  ],
+  "useCases": [
+    "Hero sections with animated text",
+    "Attention-grabbing headlines"
+  ]
+}

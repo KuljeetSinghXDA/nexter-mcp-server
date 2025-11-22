@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-empty-space",
+  "title": "Spacer - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple 50px spacer",
+      "attributes": {
+        "block_id": "a1b2",
+        "toggle": "normal",
+        "space": {
+          "md": 50
+        }
+      }
+    },
+    {
+      "description": "Responsive spacer (100px desktop, 60px tablet, 30px mobile)",
+      "attributes": {
+        "block_id": "c3d4",
+        "toggle": "normal",
+        "space": {
+          "md": 100,
+          "sm": 60,
+          "xs": 30
+        }
+      }
+    },
+    {
+      "description": "Global mode with rem units",
+      "attributes": {
+        "block_id": "e5f6",
+        "toggle": "global",
+        "space": {
+          "md": "3rem",
+          "sm": "2rem",
+          "xs": "1rem"
+        }
+      }
+    },
+    {
+      "description": "Viewport-based spacing",
+      "attributes": {
+        "block_id": "g7h8",
+        "toggle": "global",
+        "space": {
+          "md": "10vh",
+          "sm": "7vh",
+          "xs": "5vh"
+        }
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

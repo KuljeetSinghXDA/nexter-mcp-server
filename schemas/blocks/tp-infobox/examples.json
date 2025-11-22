@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-infobox",
+  "title": "Infobox - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple feature box with icon",
+      "attributes": {
+        "block_id": "a1b2",
+        "styleType": "style-1",
+        "Title": "Fast Performance",
+        "Description": "Optimized for speed and efficiency",
+        "iconType": "icon",
+        "IconName": "fas fa-rocket",
+        "Alignment": {
+          "md": "center"
+        }
+      }
+    },
+    {
+      "description": "Info box with badge and link",
+      "attributes": {
+        "block_id": "c3d4",
+        "Title": "Premium Feature",
+        "Description": "Exclusive access to advanced tools",
+        "dispPinText": true,
+        "pinText": "New",
+        "IBoxLinkTgl": true,
+        "IBoxLink": {
+          "url": "/premium",
+          "target": "_self"
+        }
+      }
+    },
+    {
+      "description": "Number-based info box",
+      "attributes": {
+        "block_id": "e5f6",
+        "Title": "Step One",
+        "Description": "Start by creating your account",
+        "iconType": "text",
+        "textIcon": "01"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

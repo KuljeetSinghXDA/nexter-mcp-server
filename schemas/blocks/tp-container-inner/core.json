@@ -1,0 +1,144 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-container-inner",
+  "title": "Container Inner - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "className": {
+      "type": "string",
+      "default": "",
+      "description": "Additional CSS class names"
+    },
+    "Width": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "stickycol": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Enable sticky positioning (scrolls with page)",
+      "proFeature": true
+    },
+    "botSpace": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Bottom offset for sticky positioning (distance from viewport bottom)",
+      "proFeature": true
+    },
+    "stickyDes": {
+      "type": "boolean",
+      "default": true,
+      "description": "Pro: Enable sticky on desktop",
+      "proFeature": true
+    },
+    "stickyTab": {
+      "type": "boolean",
+      "default": true,
+      "description": "Pro: Enable sticky on tablet",
+      "proFeature": true
+    },
+    "stickyMob": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Enable sticky on mobile",
+      "proFeature": true
+    },
+    "conInnerFilter": {
+      "type": "object",
+      "default": {
+        "openFilter": false,
+        "isbackdrop": true
+      },
+      "description": "Pro: Backdrop filter effects (blur, brightness, contrast, etc.)",
+      "proFeature": true
+    },
+    "customClasses": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS classes"
+    },
+    "customCss": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS rules for this block"
+    },
+    "hideDesktop": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide section on desktop (1201px+)"
+    },
+    "hideTablet": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide section on tablet (768-1200px)"
+    },
+    "hideMobile": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide section on mobile (767px and below)"
+    },
+    "wrapLink": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Wrap entire section in a clickable link",
+      "proFeature": true
+    },
+    "colUrl": {
+      "$ref": "definitions://link"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "Width",
+      "minHeight",
+      "Padding",
+      "Margin",
+      "NormalBg",
+      "HoverBg",
+      "NormalBorder",
+      "HoverBorder",
+      "NormalBradius",
+      "HoverBradius",
+      "NormalBShadow",
+      "HoverBShadow",
+      "customClasses",
+      "hideDesktop",
+      "hideTablet",
+      "hideMobile",
+      "flexDirection"
+    ],
+    "requiresValidation": [
+      "stickycol",
+      "topSpace",
+      "botSpace",
+      "stickyDes",
+      "stickyTab",
+      "stickyMob",
+      "conInnerFilter",
+      "flexreverse",
+      "flexRespreverse",
+      "flexTabreverse",
+      "flexMobreverse",
+      "ZIndex"
+    ],
+    "dangerous": [
+      "block_id",
+      "className"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "inserter": false
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": true
+}

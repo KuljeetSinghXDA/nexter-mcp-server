@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-time-field",
+  "title": "Pick a Time - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple time picker",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Select Time",
+        "placeholder": "Pick a time",
+        "reqTgl": true
+      }
+    },
+    {
+      "description": "Appointment time with help text",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Preferred Appointment Time",
+        "placeholder": "HH:MM",
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "Select your preferred time slot for the appointment",
+        "descPoss": "bottom"
+      }
+    },
+    {
+      "description": "Event start time",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Event Start Time",
+        "placeholder": "Start time",
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "What time will the event begin?",
+        "descPoss": "top"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

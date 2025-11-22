@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-icon-box",
+  "title": "Icon - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple icon with default view",
+      "attributes": {
+        "block_id": "a1b2",
+        "icon": "fontAwesome",
+        "fIcon": "fas fa-heart",
+        "iview": "default",
+        "iAlign": {
+          "md": "center"
+        },
+        "iColor": "#e74c3c"
+      }
+    },
+    {
+      "description": "Stacked icon with background",
+      "attributes": {
+        "block_id": "c3d4",
+        "fIcon": "fas fa-check",
+        "iview": "stacked",
+        "iColor": "#27ae60"
+      }
+    },
+    {
+      "description": "Linked framed icon",
+      "attributes": {
+        "block_id": "e5f6",
+        "fIcon": "fas fa-external-link-alt",
+        "iview": "framed",
+        "iLink": {
+          "url": "https://example.com",
+          "target": "_blank"
+        },
+        "iColor": "#3498db",
+        "ihColor": "#2980b9"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

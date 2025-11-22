@@ -1,0 +1,584 @@
+{
+  "blockName": "tpgb/tp-popup-builder",
+  "version": "1.0.0",
+  "title": "Popup Builder",
+  "category": "layout",
+  "description": "Create customizable popups and modals with multiple trigger options, positioning controls, and animation effects. Supports button or icon toggles, template/custom content, and various opening behaviors (popup, push, slide-along). Perfect for opt-ins, notifications, announcements, promotional offers, exit-intent popups, and content teasers. Gain complete attention of site visitors using popups.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "contentSource": {
+      "type": "string",
+      "default": "",
+      "description": "Content source (template ID or other)"
+    },
+    "cntType": {
+      "type": "string",
+      "default": "template",
+      "enum": ["template", "content"],
+      "description": "Content type: reusable template or custom content"
+    },
+    "popupCnt": {
+      "type": "string",
+      "default": "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+      "description": "Custom popup content (when cntType is 'content')"
+    },
+    "shortCodeCnt": {
+      "type": "string",
+      "default": "",
+      "description": "WordPress shortcode content"
+    },
+    "backendVisi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show popup in backend editor"
+    },
+    "popupDir": {
+      "type": "string",
+      "default": "center",
+      "enum": ["center", "left", "right", "top", "bottom"],
+      "description": "Popup direction/position"
+    },
+    "toggleCanvas": {
+      "type": "string",
+      "default": "button",
+      "enum": ["button", "icon"],
+      "description": "Toggle trigger type (button or icon)"
+    },
+    "toggleIconStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2", "style-3", "custom"],
+      "description": "Icon toggle style (hamburger styles or custom image)"
+    },
+    "imgSvg": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Custom SVG/image for icon toggle (when toggleIconStyle is 'custom')"
+    },
+    "btnText": {
+      "type": "string",
+      "default": "Open Me",
+      "description": "Toggle button text"
+    },
+    "btnIconStyle": {
+      "type": "string",
+      "default": "font_awesome",
+      "description": "Button icon style (font_awesome or other)"
+    },
+    "btnIcon": {
+      "type": "string",
+      "default": "fa fa-chevron-right",
+      "description": "Font Awesome icon class for button"
+    },
+    "iconPosition": {
+      "type": "string",
+      "default": "after",
+      "enum": ["before", "after"],
+      "description": "Icon position relative to button text"
+    },
+    "btnAlign": {
+      "type": "object",
+      "default": {"md": "center", "sm": "center", "xs": "center"},
+      "description": "Button alignment",
+      "responsive": true
+    },
+    "openStyle": {
+      "type": "string",
+      "default": "popup",
+      "enum": ["popup", "push", "slide-along", "corner-box"],
+      "description": "Opening animation style"
+    },
+    "openDir": {
+      "type": "string",
+      "default": "left",
+      "enum": ["left", "right", "top", "bottom"],
+      "description": "Opening direction (for push/slide-along styles)"
+    },
+    "cornerBoxDir": {
+      "type": "string",
+      "default": "top-left",
+      "enum": ["top-left", "top-right", "bottom-left", "bottom-right"],
+      "description": "Corner box position (when openStyle is 'corner-box')"
+    },
+    "popupWidth": {
+      "type": "object",
+      "default": {"md": 300, "unit": "px"},
+      "description": "Popup width (when openStyle is 'popup')",
+      "responsive": true
+    },
+    "popupHeight": {
+      "type": "object",
+      "default": {"md": 300, "unit": "px"},
+      "description": "Popup height (when openStyle is 'popup')",
+      "responsive": true
+    },
+    "openWidth": {
+      "type": "object",
+      "default": {"md": 300, "unit": "px"},
+      "description": "Opening width (for push/slide-along/corner-box styles)",
+      "responsive": true
+    },
+    "closeContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show close button"
+    },
+    "bodyClickClose": {
+      "type": "boolean",
+      "default": true,
+      "description": "Close popup on body/overlay click"
+    },
+    "fixedToggleBtn": {
+      "type": "boolean",
+      "default": false,
+      "description": "Fixed position toggle button"
+    },
+    "scrollWindowOffset": {
+      "type": "boolean",
+      "default": false,
+      "description": "Scroll offset trigger"
+    },
+    "scrollTopOffset": {
+      "type": "string",
+      "default": "",
+      "description": "Scroll top offset value (pixels)"
+    },
+    "contentCloseIcon": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show close icon"
+    },
+    "closeIconSticky": {
+      "type": "boolean",
+      "default": false,
+      "description": "Sticky close icon position"
+    },
+    "closeIconCustom": {
+      "type": "boolean",
+      "default": false,
+      "description": "Use custom close icon image"
+    },
+    "closeIconCustomSource": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Custom close icon image source"
+    },
+    "closeIconAlign": {
+      "type": "string",
+      "default": "right",
+      "enum": ["left", "right"],
+      "description": "Close icon alignment"
+    },
+    "onbtnClick": {
+      "type": "boolean",
+      "default": true,
+      "description": "Trigger on button click"
+    },
+    "loadpodelay": {
+      "type": "string",
+      "default": "500",
+      "description": "Load delay in milliseconds"
+    },
+    "onpageLoad": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger on page load"
+    },
+    "onScroll": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger on scroll"
+    },
+    "exitInlet": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger on exit intent (mouse leaving viewport)"
+    },
+    "inactivity": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger after inactivity period"
+    },
+    "pageviews": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger after certain page views"
+    },
+    "prevurl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger from previous URL"
+    },
+    "extraclick": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger on external element click"
+    },
+    "scrollHeight": {
+      "type": "string",
+      "default": "100",
+      "description": "Scroll height trigger value (pixels or percentage)"
+    },
+    "previousUrl": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Previous URL for referrer trigger"
+    },
+    "extraId": {
+      "type": "string",
+      "default": "",
+      "description": "CSS selector for external click trigger"
+    },
+    "showTime": {
+      "type": "boolean",
+      "default": false,
+      "description": "Time-based display restrictions"
+    },
+    "dateStart": {
+      "type": "string",
+      "default": "2020-10-28 02:59",
+      "description": "Display start date/time"
+    },
+    "dateEnd": {
+      "type": "string",
+      "default": "2020-10-28 02:59",
+      "description": "Display end date/time"
+    },
+    "showRestricted": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show X times restriction"
+    },
+    "showXTimes": {
+      "type": "string",
+      "default": "",
+      "description": "Number of times to show popup"
+    },
+    "calltoUrlpara": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger from URL parameter"
+    },
+    "callUrl": {
+      "type": "string",
+      "default": "",
+      "description": "URL parameter name"
+    },
+    "showXDays": {
+      "type": "string",
+      "default": "",
+      "description": "Show popup every X days"
+    },
+    "pageViews": {
+      "type": "string",
+      "default": "",
+      "description": "Number of page views before triggering"
+    },
+    "inactivitySec": {
+      "type": "string",
+      "default": "",
+      "description": "Inactivity seconds before triggering"
+    },
+    "popLeftAuto": {
+      "type": "boolean",
+      "default": false,
+      "description": "Auto calculate left position"
+    },
+    "popTopAuto": {
+      "type": "boolean",
+      "default": false,
+      "description": "Auto calculate top position"
+    },
+    "popXPos": {
+      "type": "string",
+      "default": "",
+      "description": "Custom X position (percentage)"
+    },
+    "popYPos": {
+      "type": "string",
+      "default": "",
+      "description": "Custom Y position (percentage)"
+    },
+    "inAnimation": {
+      "type": "string",
+      "default": "fadeIn",
+      "description": "Opening animation type"
+    },
+    "inanimDir": {
+      "type": "string",
+      "default": "",
+      "description": "Opening animation direction"
+    },
+    "inanimDur": {
+      "type": "string",
+      "default": "normal",
+      "enum": ["slow", "normal", "fast", "custom"],
+      "description": "Opening animation duration"
+    },
+    "custDur": {
+      "type": "string",
+      "default": "",
+      "description": "Custom opening animation duration (seconds)"
+    },
+    "animDelay": {
+      "type": "string",
+      "default": "",
+      "description": "Opening animation delay (seconds)"
+    },
+    "AnimEasing": {
+      "type": "string",
+      "default": "",
+      "description": "Opening animation easing function"
+    },
+    "AnimEasCustom": {
+      "type": "string",
+      "default": "",
+      "description": "Custom opening animation easing (CSS cubic-bezier)"
+    },
+    "outAnimation": {
+      "type": "string",
+      "default": "fadeOut",
+      "description": "Closing animation type"
+    },
+    "outanimDir": {
+      "type": "string",
+      "default": "",
+      "description": "Closing animation direction"
+    },
+    "outanimDur": {
+      "type": "string",
+      "default": "normal",
+      "enum": ["slow", "normal", "fast", "custom"],
+      "description": "Closing animation duration"
+    },
+    "outcustDur": {
+      "type": "string",
+      "default": "",
+      "description": "Custom closing animation duration (seconds)"
+    },
+    "outanimDelay": {
+      "type": "string",
+      "default": "",
+      "description": "Closing animation delay (seconds)"
+    },
+    "outAnimEasing": {
+      "type": "string",
+      "default": "",
+      "description": "Closing animation easing function"
+    },
+    "AnimEasCustomOut": {
+      "type": "string",
+      "default": "",
+      "description": "Custom closing animation easing (CSS cubic-bezier)"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "popupCnt",
+      "shortCodeCnt",
+      "btnText",
+      "btnIcon",
+      "iconPosition",
+      "btnAlign",
+      "popupWidth",
+      "popupHeight",
+      "openWidth",
+      "closeContent",
+      "bodyClickClose",
+      "scrollTopOffset",
+      "closeIconAlign",
+      "loadpodelay",
+      "scrollHeight",
+      "previousUrl",
+      "extraId",
+      "dateStart",
+      "dateEnd",
+      "showXTimes",
+      "callUrl",
+      "showXDays",
+      "pageViews",
+      "inactivitySec",
+      "popXPos",
+      "popYPos",
+      "custDur",
+      "animDelay",
+      "outcustDur",
+      "outanimDelay"
+    ],
+    "requiresValidation": [
+      "contentSource",
+      "cntType",
+      "popupDir",
+      "toggleCanvas",
+      "toggleIconStyle",
+      "imgSvg",
+      "btnIconStyle",
+      "openStyle",
+      "openDir",
+      "cornerBoxDir",
+      "fixedToggleBtn",
+      "scrollWindowOffset",
+      "closeIconCustom",
+      "closeIconCustomSource",
+      "onbtnClick",
+      "onpageLoad",
+      "onScroll",
+      "exitInlet",
+      "inactivity",
+      "pageviews",
+      "prevurl",
+      "extraclick",
+      "showTime",
+      "showRestricted",
+      "calltoUrlpara",
+      "popLeftAuto",
+      "popTopAuto",
+      "inAnimation",
+      "inanimDir",
+      "inanimDur",
+      "AnimEasing",
+      "outAnimation",
+      "outanimDir",
+      "outanimDur",
+      "outAnimEasing"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Popup/modal overlay JavaScript",
+    "Animation library (Animate.css or similar)",
+    "Exit intent detection JavaScript",
+    "Scroll tracking JavaScript",
+    "Cookie/localStorage for restrictions",
+    "URL parameter detection",
+    "Responsive positioning calculations"
+  ],
+  "commonUseCases": [
+    "Email opt-in popups",
+    "Exit-intent promotional offers",
+    "Announcement notifications",
+    "Content teasers and previews",
+    "Age verification gates",
+    "Cookie consent notices",
+    "Lead generation forms",
+    "Discount code offers",
+    "Newsletter signups",
+    "Product launch announcements",
+    "Event registration popups",
+    "Survey and feedback forms"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-off-canvas",
+    "tpgb/tp-modal",
+    "core/group"
+  ],
+  "capabilities": [
+    "2 toggle types (button, icon with 3 hamburger styles + custom image)",
+    "Template or custom content support",
+    "Shortcode embedding",
+    "4 opening styles (popup, push, slide-along, corner-box)",
+    "5 popup directions (center, left, right, top, bottom)",
+    "4 corner box positions",
+    "Customizable width and height",
+    "Close button with custom icon option",
+    "Body/overlay click to close",
+    "Fixed position toggle button",
+    "8 trigger types: button click, page load, scroll, exit intent, inactivity, page views, previous URL, external element click",
+    "Time-based display restrictions (start/end dates)",
+    "Show X times restriction with cookie storage",
+    "URL parameter triggering",
+    "Show every X days restriction",
+    "Scroll offset trigger",
+    "Page views counter trigger",
+    "Inactivity timer trigger",
+    "Exit intent detection",
+    "Custom positioning (X/Y coordinates)",
+    "Opening and closing animations with direction, duration, delay, and easing controls",
+    "Responsive button alignment",
+    "Custom close icon alignment",
+    "Backend editor visibility toggle",
+    "Extensive styling controls for toggle button, icon, popup content, overlay, and close button"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple button-triggered popup",
+      "attributes": {
+        "block_id": "a1b2",
+        "toggleCanvas": "button",
+        "btnText": "Open Popup",
+        "openStyle": "popup",
+        "popupWidth": {"md": 500, "unit": "px"},
+        "popupHeight": {"md": 400, "unit": "px"},
+        "onbtnClick": true
+      }
+    },
+    {
+      "description": "Exit-intent promotional popup",
+      "attributes": {
+        "block_id": "c3d4",
+        "toggleCanvas": "icon",
+        "toggleIconStyle": "style-1",
+        "openStyle": "popup",
+        "exitInlet": true,
+        "showRestricted": true,
+        "showXTimes": "1",
+        "showXDays": "7"
+      }
+    },
+    {
+      "description": "Scroll-triggered side panel",
+      "attributes": {
+        "block_id": "e5f6",
+        "openStyle": "slide-along",
+        "openDir": "right",
+        "openWidth": {"md": 400, "unit": "px"},
+        "onScroll": true,
+        "scrollHeight": "50",
+        "inAnimation": "slideInRight"
+      }
+    },
+    {
+      "description": "Timed announcement popup",
+      "attributes": {
+        "block_id": "g7h8",
+        "onpageLoad": true,
+        "loadpodelay": "3000",
+        "showTime": true,
+        "dateStart": "2025-01-01 00:00",
+        "dateEnd": "2025-12-31 23:59",
+        "closeContent": true,
+        "bodyClickClose": true
+      }
+    },
+    {
+      "description": "Corner box notification",
+      "attributes": {
+        "block_id": "i9j0",
+        "openStyle": "corner-box",
+        "cornerBoxDir": "bottom-right",
+        "openWidth": {"md": 300, "unit": "px"},
+        "onpageLoad": true,
+        "loadpodelay": "5000",
+        "inAnimation": "bounceIn"
+      }
+    }
+  ]
+}

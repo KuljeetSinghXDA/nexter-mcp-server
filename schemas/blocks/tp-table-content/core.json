@@ -1,0 +1,237 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-table-content",
+  "title": "Table of Contents - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "typeList": {
+      "type": "string",
+      "default": "UL",
+      "enum": [
+        "UL",
+        "OL"
+      ],
+      "description": "List type: unordered (UL) or ordered (OL)"
+    },
+    "Style": {
+      "type": "string",
+      "default": "none",
+      "enum": [
+        "none",
+        "style-1",
+        "style-2",
+        "style-3",
+        "style-4"
+      ],
+      "description": "Visual style with decorative lines and indicators"
+    },
+    "selectorH1": {
+      "type": "boolean",
+      "default": true,
+      "description": "Include H1 headings in table of contents"
+    },
+    "selectorH2": {
+      "type": "boolean",
+      "default": true,
+      "description": "Include H2 headings in table of contents"
+    },
+    "selectorH3": {
+      "type": "boolean",
+      "default": true,
+      "description": "Include H3 headings in table of contents"
+    },
+    "selectorH4": {
+      "type": "boolean",
+      "default": true,
+      "description": "Include H4 headings in table of contents"
+    },
+    "selectorH5": {
+      "type": "boolean",
+      "default": true,
+      "description": "Include H5 headings in table of contents"
+    },
+    "selectorH6": {
+      "type": "boolean",
+      "default": true,
+      "description": "Include H6 headings in table of contents"
+    },
+    "contentSelector": {
+      "type": "string",
+      "default": "#content",
+      "description": "CSS selector for content area to scan for headings"
+    },
+    "ChildToggle": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable toggle for child/nested headings"
+    },
+    "headingsOffset": {
+      "type": "string",
+      "default": "1",
+      "description": "Heading level offset (start numbering from H1=1, H2=2, etc.)"
+    },
+    "smoothScroll": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable smooth scrolling animation on link click"
+    },
+    "smoothDuration": {
+      "type": "string",
+      "default": "420",
+      "description": "Smooth scroll duration in milliseconds"
+    },
+    "showText": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show table of contents title/heading"
+    },
+    "contentText": {
+      "type": "string",
+      "default": "Table of Contents",
+      "description": "Table of contents title text"
+    },
+    "TableDescText": {
+      "type": "string",
+      "default": "",
+      "description": "Optional description text below title"
+    },
+    "showIcon": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show prefix icon before title"
+    },
+    "PrefixIcon": {
+      "type": "string",
+      "default": "",
+      "description": "Font Awesome icon class for prefix icon"
+    },
+    "ToggleIcon": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show collapsible toggle icon"
+    },
+    "openIcon": {
+      "type": "string",
+      "default": "fas fa-angle-up",
+      "description": "Font Awesome icon when table is expanded"
+    },
+    "closeIcon": {
+      "type": "string",
+      "default": "fas fa-angle-down",
+      "description": "Font Awesome icon when table is collapsed"
+    },
+    "DefaultToggle": {
+      "type": "object",
+      "default": {
+        "md": true,
+        "sm": true,
+        "xs": false
+      },
+      "description": "Default collapsed/expanded state (responsive)",
+      "responsive": true
+    },
+    "totitleAlign": {
+      "type": "object",
+      "default": {
+        "md": "",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Title alignment",
+      "responsive": true
+    },
+    "ScrollBarWidth": {
+      "type": "string",
+      "default": "",
+      "description": "Scrollbar width in pixels"
+    },
+    "ScrollBarThumb": {
+      "type": "string",
+      "default": "",
+      "description": "Scrollbar thumb color"
+    },
+    "ScrollBarTrack": {
+      "type": "string",
+      "default": "",
+      "description": "Scrollbar track color"
+    },
+    "LineWidth": {
+      "type": "string",
+      "default": "",
+      "description": "Decorative line width in pixels (style-1, style-2, style-3, style-4)"
+    },
+    "Line2Width": {
+      "type": "string",
+      "default": "",
+      "description": "Active line width in pixels (style-2, style-3, style-4)"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "selectorH1",
+      "selectorH2",
+      "selectorH3",
+      "selectorH4",
+      "selectorH5",
+      "selectorH6",
+      "contentSelector",
+      "headingsOffset",
+      "smoothDuration",
+      "scrollOffset",
+      "fixedOffset",
+      "contentText",
+      "TableDescText",
+      "PrefixIcon",
+      "openIcon",
+      "closeIcon",
+      "DefaultToggle",
+      "totitleAlign",
+      "leftOffset",
+      "bottomOffset",
+      "TableMinHeight",
+      "ScrollBarWidth",
+      "ScrollBarThumb",
+      "ScrollBarTrack",
+      "LineWidth",
+      "Line2Width",
+      "LineColor",
+      "LineActiveColor"
+    ],
+    "requiresValidation": [
+      "typeList",
+      "Style",
+      "ChildToggle",
+      "smoothScroll",
+      "fixedPosition",
+      "showText",
+      "showIcon",
+      "ToggleIcon",
+      "TableSetMinHeight"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

@@ -1,0 +1,354 @@
+{
+  "blockName": "tpgb/tp-container-inner",
+  "version": "1.0.0",
+  "title": "Container Inner",
+  "category": "layout",
+  "description": "Individual inner section block that must be used inside a tp-container block. Defines section width, alignment, spacing, and styling with flexbox controls. Supports responsive widths, flex direction control, and Pro features including sticky positioning, backdrop filters, and link wrapper. Cannot be inserted independently - requires tp-container parent. This is the modern alternative to tp-column (used with tp-row).",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "className": {
+      "type": "string",
+      "default": "",
+      "description": "Additional CSS class names"
+    },
+    "Width": {
+      "type": "object",
+      "default": {"md": 50, "sm": 50, "xs": 100, "unit": "%", "device": "md"},
+      "description": "Section width percentage (responsive)",
+      "responsive": true
+    },
+    "minHeight": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Minimum height for the inner section",
+      "responsive": true
+    },
+    "stickycol": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Enable sticky positioning (scrolls with page)",
+      "proFeature": true
+    },
+    "topSpace": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Top offset for sticky positioning (distance from viewport top)",
+      "proFeature": true
+    },
+    "botSpace": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Bottom offset for sticky positioning (distance from viewport bottom)",
+      "proFeature": true
+    },
+    "stickyDes": {
+      "type": "boolean",
+      "default": true,
+      "description": "Pro: Enable sticky on desktop",
+      "proFeature": true
+    },
+    "stickyTab": {
+      "type": "boolean",
+      "default": true,
+      "description": "Pro: Enable sticky on tablet",
+      "proFeature": true
+    },
+    "stickyMob": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Enable sticky on mobile",
+      "proFeature": true
+    },
+    "NormalBg": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": ""},
+      "description": "Background styling (normal state)"
+    },
+    "HoverBg": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": ""},
+      "description": "Background styling (hover state)"
+    },
+    "conInnerFilter": {
+      "type": "object",
+      "default": {"openFilter": false, "isbackdrop": true},
+      "description": "Pro: Backdrop filter effects (blur, brightness, contrast, etc.)",
+      "proFeature": true
+    },
+    "NormalBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": ""}
+      },
+      "description": "Border styling (normal state)"
+    },
+    "HoverBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": ""}
+      },
+      "description": "Border styling (hover state)"
+    },
+    "NormalBradius": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Border radius (normal state)",
+      "responsive": true
+    },
+    "HoverBradius": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Border radius (hover state)",
+      "responsive": true
+    },
+    "NormalBShadow": {
+      "type": "object",
+      "default": {
+        "openShadow": 0,
+        "inset": 0,
+        "horizontal": 0,
+        "vertical": 4,
+        "blur": 8,
+        "spread": 0,
+        "color": "rgba(0,0,0,0.40)"
+      },
+      "description": "Box shadow (normal state)"
+    },
+    "HoverBShadow": {
+      "type": "object",
+      "default": {
+        "openShadow": 0,
+        "inset": 0,
+        "horizontal": 0,
+        "vertical": 4,
+        "blur": 8,
+        "spread": 0,
+        "color": "rgba(0,0,0,0.40)"
+      },
+      "description": "Box shadow (hover state)"
+    },
+    "Margin": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Section margin",
+      "responsive": true
+    },
+    "Padding": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Section padding (inner spacing)",
+      "responsive": true
+    },
+    "ZIndex": {
+      "type": "string",
+      "default": "",
+      "description": "CSS z-index stacking order"
+    },
+    "customClasses": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS classes"
+    },
+    "customCss": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS rules for this block"
+    },
+    "hideDesktop": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide section on desktop (1201px+)"
+    },
+    "hideTablet": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide section on tablet (768-1200px)"
+    },
+    "hideMobile": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide section on mobile (767px and below)"
+    },
+    "wrapLink": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Wrap entire section in a clickable link",
+      "proFeature": true
+    },
+    "colUrl": {
+      "type": "object",
+      "default": {"url": "", "target": "", "nofollow": ""},
+      "description": "Pro: Section link URL and settings",
+      "proFeature": true
+    },
+    "flexreverse": {
+      "type": "boolean",
+      "default": false,
+      "description": "Reverse flex direction on desktop"
+    },
+    "flexRespreverse": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable responsive flex reverse"
+    },
+    "flexTabreverse": {
+      "type": "boolean",
+      "default": false,
+      "description": "Reverse flex direction on tablet"
+    },
+    "flexMobreverse": {
+      "type": "boolean",
+      "default": false,
+      "description": "Reverse flex direction on mobile"
+    },
+    "flexDirection": {
+      "type": "object",
+      "default": {"md": "", "sm": "", "xs": ""},
+      "description": "Flex direction (row, column) for content inside this section",
+      "responsive": true
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "Width",
+      "minHeight",
+      "Padding",
+      "Margin",
+      "NormalBg",
+      "HoverBg",
+      "NormalBorder",
+      "HoverBorder",
+      "NormalBradius",
+      "HoverBradius",
+      "NormalBShadow",
+      "HoverBShadow",
+      "customClasses",
+      "hideDesktop",
+      "hideTablet",
+      "hideMobile",
+      "flexDirection"
+    ],
+    "requiresValidation": [
+      "stickycol",
+      "topSpace",
+      "botSpace",
+      "stickyDes",
+      "stickyTab",
+      "stickyMob",
+      "conInnerFilter",
+      "flexreverse",
+      "flexRespreverse",
+      "flexTabreverse",
+      "flexMobreverse",
+      "ZIndex"
+    ],
+    "dangerous": [
+      "block_id",
+      "className"
+    ]
+  },
+  "styleDependencies": [
+    "Flexbox layout CSS",
+    "Section width calculations",
+    "Sticky positioning CSS (Pro)",
+    "Backdrop filter CSS (Pro)",
+    "Responsive breakpoint handling"
+  ],
+  "commonUseCases": [
+    "Inner sections within tp-container (modern approach)",
+    "50/50 two-section layouts",
+    "33/33/33 three-section layouts",
+    "25/75 sidebar layouts with sticky sidebar",
+    "Responsive section reordering with flex",
+    "Frosted glass effects with backdrop filters (Pro)",
+    "Sticky content sections (Pro)"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-container",
+    "tpgb/tp-row",
+    "tpgb/tp-column"
+  ],
+  "capabilities": [
+    "Responsive section widths",
+    "Min-height control",
+    "Flexbox direction control (row, column)",
+    "Responsive flex direction reversal",
+    "Normal/Hover state styling",
+    "Responsive visibility controls",
+    "Pro: Sticky section positioning with responsive controls",
+    "Pro: Sticky offset controls (top/bottom)",
+    "Pro: Backdrop filters (blur, brightness, contrast)",
+    "Pro: Section link wrapper",
+    "Custom CSS and classes"
+  ],
+  "usesContext": [],
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "inserter": false
+  },
+  "innerBlocksAllowed": true,
+  "allowedInnerBlocks": ["*"],
+  "parentBlockRequired": true,
+  "requiredParentBlock": "tpgb/tp-container",
+  "examples": [
+    {
+      "description": "50% width section with center alignment",
+      "attributes": {
+        "block_id": "a1b2",
+        "Width": {"md": 50, "sm": 50, "xs": 100, "unit": "%"},
+        "Padding": {"md": {"top": "20", "bottom": "20", "left": "20", "right": "20"}, "unit": "px"}
+      }
+    },
+    {
+      "description": "33% width section with background",
+      "attributes": {
+        "block_id": "c3d4",
+        "Width": {"md": 33.33, "sm": 50, "xs": 100, "unit": "%"},
+        "NormalBg": {"openBg": 1, "bgType": "color", "bgColor": "#f5f5f5"},
+        "Padding": {"md": {"top": "30", "bottom": "30", "left": "20", "right": "20"}, "unit": "px"}
+      }
+    },
+    {
+      "description": "Pro: Sticky sidebar section (25% width)",
+      "attributes": {
+        "block_id": "e5f6",
+        "Width": {"md": 25, "sm": 100, "xs": 100, "unit": "%"},
+        "stickycol": true,
+        "topSpace": "100",
+        "stickyDes": true,
+        "stickyTab": false,
+        "stickyMob": false
+      }
+    },
+    {
+      "description": "Pro: Frosted glass section with backdrop blur",
+      "attributes": {
+        "block_id": "g7h8",
+        "Width": {"md": 50, "sm": 100, "xs": 100, "unit": "%"},
+        "NormalBg": {"openBg": 1, "bgType": "color", "bgColor": "rgba(255,255,255,0.8)"},
+        "conInnerFilter": {"openFilter": true, "isbackdrop": true, "blur": 10},
+        "Padding": {"md": {"top": "40", "bottom": "40", "left": "40", "right": "40"}, "unit": "px"}
+      }
+    },
+    {
+      "description": "Column layout section (flex direction column)",
+      "attributes": {
+        "block_id": "i9j0",
+        "Width": {"md": 50, "sm": 100, "xs": 100, "unit": "%"},
+        "flexDirection": {"md": "column", "sm": "column", "xs": "column"}
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-submit-button",
+  "version": "1.0.0",
+  "title": "Submit",
+  "category": "forms",
+  "source": "pro",
+  "complexity": "simple",
+  "description": "Add a submit button to your form with icon support and flexible positioning. Features Font Awesome icons or custom images, inline or block display modes, button alignment, size control, icon positioni",
+  "keywords": [
+    "submit",
+    "send",
+    "form submit",
+    "submit button"
+  ],
+  "useCases": [
+    "Form submission buttons"
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "blockName": "tpgb/tp-pricing-table",
+  "version": "1.0.0",
+  "title": "Pricing Table",
+  "category": "marketing",
+  "description": "Professional pricing table to showcase product or service pricing options with features, CTA buttons, ribbons, and multiple style variants. Perfect for subscription plans, service tiers, and product comparisons.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Overall visual style variant for pricing table"
+    },
+    "titleStyle": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Title section style variant"
+    },
+    "title": {
+      "type": "string",
+      "default": "Professional",
+      "description": "Plan/package title"
+    },
+    "subTitle": {
+      "type": "string",
+      "default": "Designed for Agency",
+      "description": "Plan subtitle or tagline"
+    },
+    "titleAlign": {
+      "type": "object",
+      "default": "",
+      "description": "Text alignment for title and subtitle",
+      "responsive": true
+    },
+    "iconType": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "icon", "img"],
+      "description": "Icon type for pricing table header"
+    },
+    "iconStore": {
+      "type": "string",
+      "default": "fas fa-home",
+      "description": "Font Awesome icon class"
+    },
+    "imgStore": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Custom icon/image"
+    },
+    "imgSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Icon/image size",
+      "responsive": true
+    },
+    "priceStyle": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Price section style variant"
+    },
+    "preText": {
+      "type": "string",
+      "default": "$",
+      "description": "Currency symbol or prefix text"
+    },
+    "priceValue": {
+      "type": "string",
+      "default": "99.99",
+      "description": "Price amount"
+    },
+    "postText": {
+      "type": "string",
+      "default": "Per Year",
+      "description": "Price suffix (e.g., per month, per year)"
+    },
+    "priceAlign": {
+      "type": "object",
+      "default": "",
+      "description": "Price section alignment",
+      "responsive": true
+    },
+    "disPrePrice": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show previous/discounted price (strikethrough)"
+    },
+    "prevPreText": {
+      "type": "string",
+      "default": "$",
+      "description": "Previous price currency symbol"
+    },
+    "prevPriceValue": {
+      "type": "string",
+      "default": "199.99",
+      "description": "Previous/original price amount"
+    },
+    "prevPostText": {
+      "type": "string",
+      "default": "",
+      "description": "Previous price suffix"
+    },
+    "contentStyle": {
+      "type": "string",
+      "default": "wysiwyg",
+      "enum": ["wysiwyg", "stylish"],
+      "description": "Content display style: WYSIWYG editor or stylish list"
+    },
+    "conListStyle": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Stylish list variant (when contentStyle is 'stylish')"
+    },
+    "stylishList": {
+      "type": "array",
+      "default": [],
+      "description": "Feature list items for stylish list mode",
+      "repeaterField": {
+        "listDesc": {"type": "string", "description": "Feature text"},
+        "listIcon": {"type": "string", "description": "Feature icon"},
+        "showIcon": {"type": "boolean", "description": "Show/hide icon for this item"}
+      }
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "title",
+      "subTitle",
+      "preText",
+      "priceValue",
+      "postText",
+      "prevPriceValue",
+      "titleAlign",
+      "priceAlign",
+      "disPrePrice",
+      "stylishList",
+      "iconStore"
+    ],
+    "requiresValidation": [
+      "style",
+      "titleStyle",
+      "priceStyle",
+      "contentStyle",
+      "conListStyle",
+      "iconType"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Pricing table style CSS (multiple variants)",
+    "Icon font library (Font Awesome)",
+    "Feature list styling",
+    "Ribbon/badge styling",
+    "Responsive styling"
+  ],
+  "commonUseCases": [
+    "Subscription pricing plans",
+    "Service tier comparison",
+    "Product package pricing",
+    "Membership levels",
+    "SaaS pricing tables",
+    "Hosting plan comparison"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-button",
+    "tpgb/tp-heading-title",
+    "tpgb/tp-switcher",
+    "tpgb/tp-icon-box"
+  ],
+  "capabilities": [
+    "Multiple style variants",
+    "Icon or image header",
+    "Strikethrough previous price",
+    "WYSIWYG or feature list content",
+    "Feature list with icons",
+    "Custom alignment options",
+    "Ribbon/badge support",
+    "CTA button integration",
+    "Responsive design"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": true,
+  "allowedInnerBlocks": ["*"],
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Basic pricing table with discount",
+      "attributes": {
+        "block_id": "a1b2",
+        "title": "Premium Plan",
+        "subTitle": "For Growing Teams",
+        "preText": "$",
+        "priceValue": "49",
+        "postText": "/month",
+        "disPrePrice": true,
+        "prevPriceValue": "79",
+        "titleAlign": {"md": "center"},
+        "priceAlign": {"md": "center"}
+      }
+    },
+    {
+      "description": "Pricing table with feature list",
+      "attributes": {
+        "block_id": "c3d4",
+        "title": "Enterprise",
+        "contentStyle": "stylish",
+        "stylishList": [
+          {"listDesc": "Unlimited Users", "listIcon": "fas fa-check", "showIcon": true},
+          {"listDesc": "Priority Support", "listIcon": "fas fa-check", "showIcon": true},
+          {"listDesc": "Custom Integration", "listIcon": "fas fa-check", "showIcon": true}
+        ]
+      }
+    }
+  ]
+}

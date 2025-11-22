@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-process-steps",
+  "version": "1.0.0",
+  "title": "Process Steps",
+  "category": "marketing",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Display step-by-step processes, workflows, or instructions with visual indicators and connecting lines. Features 2 layout styles, custom icons/images/text for step markers, optional counters, carousel",
+  "keywords": [
+    "process",
+    "steps",
+    "workflow",
+    "how it works"
+  ],
+  "useCases": [
+    "Process flows",
+    "Step-by-step guides",
+    "Workflows"
+  ]
+}

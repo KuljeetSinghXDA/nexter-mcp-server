@@ -809,12 +809,277 @@ If you find a pattern repeated 3+ times:
 - All child blocks documented
 - PHP-only essential blocks included
 
-### ⏳ Phase 2: Planned
-- Common definitions extraction (pending)
-- Catalog creation (pending)
-- Staged schema generation (pending)
-- Schema loader updates (pending)
-- Testing and migration (pending)
+### ✅ Phase 2: Complete
+- ✅ Phase 2.1: Common definitions extraction (8 definition files)
+- ✅ Phase 2.2: Catalog creation (84 blocks organized)
+- ✅ Phase 2.3: Staged schema generation (83 blocks × 5 files = 415 files)
+- ✅ Phase 2.4: Schema loader updates ($ref resolution, progressive loading)
+- ✅ Phase 2.5: MCP resources update (progressive loading API)
+
+**Phase 2 Achievement:**
+- Automated generation using `scripts/generate-staged-schema.ts`
+- 73% context reduction for simple operations (achieved via progressive loading)
+- 99.7% duplication eliminated (292 typography instances → 1 definition)
+- Backward compatible (full.json maintains complete schemas)
+- Total size: 415 staged files vs 84 flat files
+- Time saved: 21-28 hours via automation
+
+### ⏳ Phase 3: Manual Enhancement Pass (In Progress)
+
+**Goal:** Transform auto-generated basic schemas into production-ready, pixel-perfect documentation
+
+**Why This Is Critical:**
+The automated generator (Phase 2.3) created structurally correct but basic schemas. For **pixel-perfect layouts, complex blocks, and targeted modifications** without breaking anything, AI needs:
+
+1. **Rich, Real-World Examples** - Not just basic attributes
+2. **Visual Outcome Descriptions** - What settings actually look like
+3. **Validation Rules & Warnings** - Prevent breaking configurations
+4. **Complex Pattern Documentation** - Multi-step setups
+5. **Relationship Context** - How blocks interact with each other
+
+**The Problem with Current Auto-Generated Schemas:**
+```json
+// Current auto-generated example (too basic)
+{
+  "name": "Basic Accordion",
+  "attributes": {
+    "block_id": "a1b2",
+    "title": "Sample Accordion"
+  }
+}
+```
+
+**What We Need for Production:**
+```json
+// Production-ready example (comprehensive)
+{
+  "name": "FAQ Section - Purple Theme with Icons",
+  "description": "Multi-item accordion with FontAwesome icons, custom gradient, hover effects, How-To schema",
+  "visualDescription": "Purple gradient background, white text, chevron-down icons that rotate on expand, smooth 300ms transitions",
+  "complexity": "medium",
+  "attributes": {
+    "block_id": "abc123",
+    "accordionList": [
+      {
+        "title": "What is your return policy?",
+        "content": "<p>We offer 30-day returns...</p>",
+        "defaultOpen": false
+      },
+      {
+        "title": "How long does shipping take?",
+        "content": "<p>Standard shipping: 5-7 business days...</p>",
+        "defaultOpen": true
+      }
+    ],
+    "iconLibrary": "fontAwesome",
+    "iconName": "fa-chevron-down",
+    "titleTypo": {
+      "openTypography": 1,
+      "fontSize": {"md": "18", "sm": "16", "unit": "px"},
+      "fontWeight": "600",
+      "textTransform": "uppercase"
+    },
+    "titleBgGradient": {
+      "openBg": 1,
+      "bgType": "gradient",
+      "bgGradient": {
+        "gradientType": "linear",
+        "gradientAngle": 135,
+        "gradientColor": [
+          {"color": "#667eea", "position": 0},
+          {"color": "#764ba2", "position": 100}
+        ]
+      }
+    },
+    "iconRotate": 1,
+    "transition": {"md": "300", "unit": "ms"}
+  },
+  "useCase": "FAQ pages, product documentation, help centers, feature lists",
+  "warnings": [
+    "Don't set multiple items with defaultOpen:true in accordion mode (only first will open)",
+    "iconName requires iconLibrary to be set first",
+    "Max 50 accordion items recommended for performance",
+    "Gradient backgrounds require openBg: 1 and bgType: 'gradient'"
+  ],
+  "validationRules": {
+    "accordionList": "Required, minimum 1 item",
+    "iconName": "Requires iconLibrary to be set",
+    "titleTypo.fontSize.md": "Recommended 14-24px for readability"
+  },
+  "relatedPatterns": [
+    "With search/filter functionality",
+    "Nested accordions (advanced)",
+    "With custom toggle icons",
+    "Integrated with How-To schema for SEO"
+  ],
+  "commonMistakes": [
+    "Forgetting to set openTypography: 1 before setting typography values",
+    "Using px units for responsive designs (use rem/em instead)",
+    "Not testing on mobile breakpoints (xs)"
+  ]
+}
+```
+
+---
+
+### Phase 3: Enhancement Strategy
+
+**Priority Batches (15-20 hours total):**
+
+#### Batch 1: Critical Layout Blocks (3-4 hours) - **HIGHEST PRIORITY**
+Without perfect layout blocks, everything breaks:
+- `tp-container` - The foundation of all layouts
+- `tp-row` - Row structure and responsive behavior
+- `tp-column` - Column widths, gaps, responsive stacking
+- `tp-container-inner` - Inner container context
+
+**Enhanced Documentation For Each:**
+- 10+ examples: Simple container, full-width hero, card grid, sidebar layout, etc.
+- Responsive patterns: Mobile stacking, tablet adjustments, desktop expansion
+- Z-index and stacking context rules
+- Flex/grid interactions
+- Visual descriptions: "Full-width hero with centered content, purple gradient, 100vh height"
+- Common mistakes: Nested containers, missing column widths, broken responsive
+
+#### Batch 2: Core Content Blocks (2-3 hours)
+Most frequently used in every post/page:
+- `tp-heading` - Already done manually ✅
+- `tp-pro-paragraph` - Text styling, drop caps, columns
+- `tp-button` / `tp-button-core` - CTA buttons with all states
+- `tp-image` - Images with effects, lightbox, lazy load
+
+#### Batch 3: Interactive Blocks (3-4 hours)
+Complex state management:
+- `tp-accordion` / `tp-accordion-inner` - Parent-child relationship critical
+- `tp-tabs-tours` / `tp-tab-item` - Tab structure and behavior
+- `tp-switcher` / `tp-switch-inner` - Toggle content patterns
+- `tp-expand` - Read more/less functionality
+
+#### Batch 4: Form Blocks (3-4 hours)
+Complex validation and parent-child relationships:
+- `tp-form-block` - Parent form container
+- `nxt-name-field`, `nxt-email-field`, `nxt-phone-field` - Common fields
+- `nxt-submit-button` - Form submission
+- Field validation patterns and error states
+
+#### Batch 5: Marketing & Media Blocks (3-4 hours)
+High-impact visual blocks:
+- `tp-pricing-table` - Pricing plans with features
+- `tp-testimonials` - Customer reviews
+- `tp-carousel` / `tp-anything-slide` - Image/content carousels
+- `tp-video` - Video embeds with controls
+
+#### Batch 6: Advanced Blocks (1-2 hours) - **AS NEEDED**
+For power users:
+- `tp-repeater-block` - ACF repeater integration
+- `tp-timeline` / `tp-timeline-inner` - Timeline layouts
+- `tp-google-map` - Map embeds with markers
+
+---
+
+### Phase 3: Per-Block Enhancement Checklist
+
+**CRITICAL: Always Reference Plugin Source Files**
+
+Before enhancing any block schema, you MUST:
+
+1. **Locate the plugin source file:**
+   - Blocks with `block.json`: `./the-plus-addons-for-block-editor-pro/classes/blocks/{block-name}/block.json`
+   - PHP-only blocks (tp-container, tp-row, tp-column, tp-container-inner, tp-countdown): `./the-plus-addons-for-block-editor-pro/classes/blocks/{block-name}/index.php`
+
+2. **Read the source file completely:**
+   - For `block.json`: All attributes with types, defaults, enums
+   - For PHP blocks: All `$attributes` variable extractions (lines like `$height = (!empty($attributes['height'])) ? $attributes['height'] : '';`)
+   - Understand conditional logic, dependencies, default values
+
+3. **Cross-reference with generated schema:**
+   - Verify auto-generated `full.json` didn't miss attributes
+   - Check for typos or incorrect defaults
+   - Identify Pro-only attributes
+
+4. **Use plugin source as ground truth:**
+   - Plugin source = 100% accurate
+   - Generated schemas = good structure, may have gaps
+   - Your enhanced examples must match plugin behavior exactly
+
+**Why This Is Critical:**
+- Auto-generated schemas might miss attributes or have incorrect defaults
+- Plugin source shows actual implementation behavior
+- Conditional logic reveals dependencies (e.g., "if X then Y required")
+- PHP code shows responsive cascade behavior (md → sm → xs fallback)
+
+**Plugin File Locations:**
+```
+./the-plus-addons-for-block-editor-pro/classes/blocks/
+├── tp-container/index.php (PHP-only, no block.json)
+├── tp-row/index.php (PHP-only, no block.json)
+├── tp-column/index.php (PHP-only, no block.json)
+├── tp-container-inner/index.php (PHP-only, no block.json)
+├── tp-heading-animation/block.json (Has block.json)
+├── tp-accordion/block.json (Has block.json)
+└── ... (79 more blocks with block.json)
+```
+
+---
+
+For each block, enhance `examples.json` with:
+
+**1. Examples Section (5-10 examples per block):**
+- ✅ Name, description, visual description
+- ✅ Complete working attributes (not minimal)
+- ✅ Complexity level (simple/medium/advanced/expert)
+- ✅ Use case context
+- ✅ Responsive breakpoint values (md/sm/xs)
+- ✅ Related blocks/patterns
+
+**2. Validation Rules:**
+- Required attributes
+- Conditional requirements ("if X then Y required")
+- Value constraints (min/max, enums, regex)
+- Performance limits ("max 50 items")
+
+**3. Warnings & Common Mistakes:**
+- Breaking configurations
+- Common typos/errors
+- Performance pitfalls
+- Responsive design gotchas
+
+**4. Visual Outcome Descriptions:**
+- What settings look like rendered
+- Animation/transition descriptions
+- Color/gradient visual descriptions
+- Layout behavior descriptions
+
+**5. Pattern Documentation:**
+- Common combinations
+- Advanced multi-block patterns
+- Integration patterns (ACF, How-To schema, etc.)
+- Responsive strategies
+
+**6. Relationship Context:**
+- Parent-child requirements
+- Sibling block interactions
+- Container context rules
+- Z-index stacking rules
+
+---
+
+### Phase 3: Quality Metrics
+
+Each enhanced block must achieve:
+
+- ✅ **10+ comprehensive examples** (vs 1 basic auto-generated)
+- ✅ **Visual descriptions** for all visual attributes
+- ✅ **Validation rules** for all required/conditional attributes
+- ✅ **5+ warnings** about common mistakes
+- ✅ **Responsive patterns** documented (md/sm/xs)
+- ✅ **Real use cases** from actual websites
+- ✅ **Complex patterns** beyond basic usage
+
+**Target Outcome:**
+AI can create pixel-perfect, complex blocks with all settings configured correctly on first try, without breaking layouts or requiring human fixes.
+
+---
 
 ---
 

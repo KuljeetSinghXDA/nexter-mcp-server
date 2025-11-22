@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-pro-paragraph",
+  "version": "1.0.0",
+  "title": "Paragraph",
+  "category": "content",
+  "source": "free",
+  "complexity": "simple",
+  "description": "Advanced paragraph block with optional heading, WYSIWYG editor content, custom typography, text shadows, and link styling. Perfect for rich text content with enhanced styling options beyond the core W",
+  "keywords": [
+    "paragraph",
+    "text",
+    "content",
+    "body text",
+    "description"
+  ],
+  "useCases": [
+    "Body content",
+    "Descriptions",
+    "Text sections"
+  ]
+}

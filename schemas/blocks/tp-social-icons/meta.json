@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-social-icons",
+  "version": "1.0.0",
+  "title": "Social Icon",
+  "category": "social",
+  "source": "free",
+  "complexity": "simple",
+  "description": "Display social media icons with links for easy sharing and following. Supports 15+ style variants, custom icons, tooltips, and hover effects. Perfect for header/footer social links, share buttons, and",
+  "keywords": [
+    "social",
+    "social media",
+    "social icons",
+    "share buttons"
+  ],
+  "useCases": [
+    "Social media links",
+    "Share buttons",
+    "Social profiles"
+  ]
+}

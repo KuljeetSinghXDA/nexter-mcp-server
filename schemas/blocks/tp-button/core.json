@@ -1,0 +1,181 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-button",
+  "title": "Advanced Button - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "styleType": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2",
+        "style-3",
+        "style-4",
+        "style-5",
+        "style-6",
+        "style-7",
+        "style-8",
+        "style-9",
+        "style-10",
+        "style-11",
+        "style-12",
+        "style-13",
+        "style-14",
+        "style-15",
+        "style-16",
+        "style-17",
+        "style-18",
+        "style-19",
+        "style-20",
+        "style-21",
+        "style-22",
+        "style-23"
+      ],
+      "description": "Button visual style variant (23 different styles available)"
+    },
+    "btnText": {
+      "type": "string",
+      "default": "Buy Now",
+      "description": "Button text label"
+    },
+    "hoverText": {
+      "type": "string",
+      "default": "Click Here",
+      "description": "Alternative text shown on hover (for specific styles)"
+    },
+    "btnTagText": {
+      "type": "string",
+      "default": "Click Here",
+      "description": "Tag/hint text for style-23"
+    },
+    "btnLink": {
+      "$ref": "definitions://link"
+    },
+    "fancyBox": {
+      "type": "boolean",
+      "default": false,
+      "description": "Open link in FancyBox popup/lightbox"
+    },
+    "templates": {
+      "type": "string",
+      "default": "",
+      "description": "Block template ID for FancyBox content"
+    },
+    "btnHvrType": {
+      "type": "string",
+      "default": "hover-left",
+      "enum": [
+        "hover-left",
+        "hover-right",
+        "hover-top",
+        "hover-bottom"
+      ],
+      "description": "Button hover animation direction"
+    },
+    "iconType": {
+      "type": "string",
+      "default": "fontAwesome",
+      "enum": [
+        "none",
+        "fontAwesome",
+        "image"
+      ],
+      "description": "Icon type: Font Awesome icon or custom image"
+    },
+    "imageName": {
+      "type": "object",
+      "default": [],
+      "description": "Custom icon image"
+    },
+    "icnVrtcal": {
+      "type": "string",
+      "default": "icon-top",
+      "enum": [
+        "icon-top",
+        "icon-middle",
+        "icon-bottom"
+      ],
+      "description": "Vertical icon alignment"
+    },
+    "iconHvrType": {
+      "type": "string",
+      "default": "hover-top",
+      "description": "Icon hover animation type"
+    },
+    "iconSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "ariaLabel": {
+      "type": "string",
+      "default": "",
+      "description": "ARIA label for accessibility"
+    },
+    "texTyp": {
+      "$ref": "definitions://typography"
+    },
+    "tagTyp": {
+      "$ref": "definitions://typography"
+    },
+    "btnTextNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (normal state)"
+    },
+    "btnTextHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (hover state)"
+    },
+    "backendVisi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Backend visibility flag"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "btnText",
+      "hoverText",
+      "btnTagText",
+      "btnLink",
+      "Alignment",
+      "fontAwesomeIcon",
+      "iconPosition",
+      "iconSpace",
+      "innerPadding",
+      "btnTextNmlColor",
+      "btnTextHvrColor",
+      "ariaLabel"
+    ],
+    "requiresValidation": [
+      "styleType",
+      "btnHvrType",
+      "iconHvrType",
+      "iconType",
+      "fancyBox",
+      "templates"
+    ],
+    "dangerous": [
+      "block_id",
+      "backendVisi"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

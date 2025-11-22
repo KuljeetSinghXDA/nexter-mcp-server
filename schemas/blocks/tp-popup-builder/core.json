@@ -1,0 +1,452 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-popup-builder",
+  "title": "Popup Builder - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "contentSource": {
+      "type": "string",
+      "default": "",
+      "description": "Content source (template ID or other)"
+    },
+    "cntType": {
+      "type": "string",
+      "default": "template",
+      "enum": [
+        "template",
+        "content"
+      ],
+      "description": "Content type: reusable template or custom content"
+    },
+    "popupCnt": {
+      "type": "string",
+      "default": "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+      "description": "Custom popup content (when cntType is 'content')"
+    },
+    "shortCodeCnt": {
+      "type": "string",
+      "default": "",
+      "description": "WordPress shortcode content"
+    },
+    "backendVisi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show popup in backend editor"
+    },
+    "popupDir": {
+      "type": "string",
+      "default": "center",
+      "enum": [
+        "center",
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "description": "Popup direction/position"
+    },
+    "toggleCanvas": {
+      "type": "string",
+      "default": "button",
+      "enum": [
+        "button",
+        "icon"
+      ],
+      "description": "Toggle trigger type (button or icon)"
+    },
+    "toggleIconStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2",
+        "style-3",
+        "custom"
+      ],
+      "description": "Icon toggle style (hamburger styles or custom image)"
+    },
+    "imgSvg": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Custom SVG/image for icon toggle (when toggleIconStyle is 'custom')"
+    },
+    "btnText": {
+      "type": "string",
+      "default": "Open Me",
+      "description": "Toggle button text"
+    },
+    "btnIconStyle": {
+      "type": "string",
+      "default": "font_awesome",
+      "description": "Button icon style (font_awesome or other)"
+    },
+    "btnIcon": {
+      "type": "string",
+      "default": "fa fa-chevron-right",
+      "description": "Font Awesome icon class for button"
+    },
+    "openStyle": {
+      "type": "string",
+      "default": "popup",
+      "enum": [
+        "popup",
+        "push",
+        "slide-along",
+        "corner-box"
+      ],
+      "description": "Opening animation style"
+    },
+    "openDir": {
+      "type": "string",
+      "default": "left",
+      "enum": [
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "description": "Opening direction (for push/slide-along styles)"
+    },
+    "cornerBoxDir": {
+      "type": "string",
+      "default": "top-left",
+      "enum": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "description": "Corner box position (when openStyle is 'corner-box')"
+    },
+    "popupWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "openWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "closeContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show close button"
+    },
+    "bodyClickClose": {
+      "type": "boolean",
+      "default": true,
+      "description": "Close popup on body/overlay click"
+    },
+    "fixedToggleBtn": {
+      "type": "boolean",
+      "default": false,
+      "description": "Fixed position toggle button"
+    },
+    "contentCloseIcon": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show close icon"
+    },
+    "closeIconSticky": {
+      "type": "boolean",
+      "default": false,
+      "description": "Sticky close icon position"
+    },
+    "closeIconCustom": {
+      "type": "boolean",
+      "default": false,
+      "description": "Use custom close icon image"
+    },
+    "closeIconCustomSource": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Custom close icon image source"
+    },
+    "onbtnClick": {
+      "type": "boolean",
+      "default": true,
+      "description": "Trigger on button click"
+    },
+    "loadpodelay": {
+      "type": "string",
+      "default": "500",
+      "description": "Load delay in milliseconds"
+    },
+    "onpageLoad": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger on page load"
+    },
+    "onScroll": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger on scroll"
+    },
+    "exitInlet": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger on exit intent (mouse leaving viewport)"
+    },
+    "inactivity": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger after inactivity period"
+    },
+    "pageviews": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger after certain page views"
+    },
+    "prevurl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger from previous URL"
+    },
+    "extraclick": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger on external element click"
+    },
+    "previousUrl": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Previous URL for referrer trigger"
+    },
+    "extraId": {
+      "type": "string",
+      "default": "",
+      "description": "CSS selector for external click trigger"
+    },
+    "showTime": {
+      "type": "boolean",
+      "default": false,
+      "description": "Time-based display restrictions"
+    },
+    "dateStart": {
+      "type": "string",
+      "default": "2020-10-28 02:59",
+      "description": "Display start date/time"
+    },
+    "dateEnd": {
+      "type": "string",
+      "default": "2020-10-28 02:59",
+      "description": "Display end date/time"
+    },
+    "showRestricted": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show X times restriction"
+    },
+    "showXTimes": {
+      "type": "string",
+      "default": "",
+      "description": "Number of times to show popup"
+    },
+    "calltoUrlpara": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger from URL parameter"
+    },
+    "callUrl": {
+      "type": "string",
+      "default": "",
+      "description": "URL parameter name"
+    },
+    "showXDays": {
+      "type": "string",
+      "default": "",
+      "description": "Show popup every X days"
+    },
+    "pageViews": {
+      "type": "string",
+      "default": "",
+      "description": "Number of page views before triggering"
+    },
+    "inactivitySec": {
+      "type": "string",
+      "default": "",
+      "description": "Inactivity seconds before triggering"
+    },
+    "popXPos": {
+      "type": "string",
+      "default": "",
+      "description": "Custom X position (percentage)"
+    },
+    "popYPos": {
+      "type": "string",
+      "default": "",
+      "description": "Custom Y position (percentage)"
+    },
+    "inanimDir": {
+      "type": "string",
+      "default": "",
+      "description": "Opening animation direction"
+    },
+    "inanimDur": {
+      "type": "string",
+      "default": "normal",
+      "enum": [
+        "slow",
+        "normal",
+        "fast",
+        "custom"
+      ],
+      "description": "Opening animation duration"
+    },
+    "custDur": {
+      "type": "string",
+      "default": "",
+      "description": "Custom opening animation duration (seconds)"
+    },
+    "animDelay": {
+      "type": "string",
+      "default": "",
+      "description": "Opening animation delay (seconds)"
+    },
+    "AnimEasing": {
+      "type": "string",
+      "default": "",
+      "description": "Opening animation easing function"
+    },
+    "AnimEasCustom": {
+      "type": "string",
+      "default": "",
+      "description": "Custom opening animation easing (CSS cubic-bezier)"
+    },
+    "outanimDir": {
+      "type": "string",
+      "default": "",
+      "description": "Closing animation direction"
+    },
+    "outanimDur": {
+      "type": "string",
+      "default": "normal",
+      "enum": [
+        "slow",
+        "normal",
+        "fast",
+        "custom"
+      ],
+      "description": "Closing animation duration"
+    },
+    "outcustDur": {
+      "type": "string",
+      "default": "",
+      "description": "Custom closing animation duration (seconds)"
+    },
+    "outanimDelay": {
+      "type": "string",
+      "default": "",
+      "description": "Closing animation delay (seconds)"
+    },
+    "outAnimEasing": {
+      "type": "string",
+      "default": "",
+      "description": "Closing animation easing function"
+    },
+    "AnimEasCustomOut": {
+      "type": "string",
+      "default": "",
+      "description": "Custom closing animation easing (CSS cubic-bezier)"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "popupCnt",
+      "shortCodeCnt",
+      "btnText",
+      "btnIcon",
+      "iconPosition",
+      "btnAlign",
+      "popupWidth",
+      "popupHeight",
+      "openWidth",
+      "closeContent",
+      "bodyClickClose",
+      "scrollTopOffset",
+      "closeIconAlign",
+      "loadpodelay",
+      "scrollHeight",
+      "previousUrl",
+      "extraId",
+      "dateStart",
+      "dateEnd",
+      "showXTimes",
+      "callUrl",
+      "showXDays",
+      "pageViews",
+      "inactivitySec",
+      "popXPos",
+      "popYPos",
+      "custDur",
+      "animDelay",
+      "outcustDur",
+      "outanimDelay"
+    ],
+    "requiresValidation": [
+      "contentSource",
+      "cntType",
+      "popupDir",
+      "toggleCanvas",
+      "toggleIconStyle",
+      "imgSvg",
+      "btnIconStyle",
+      "openStyle",
+      "openDir",
+      "cornerBoxDir",
+      "fixedToggleBtn",
+      "scrollWindowOffset",
+      "closeIconCustom",
+      "closeIconCustomSource",
+      "onbtnClick",
+      "onpageLoad",
+      "onScroll",
+      "exitInlet",
+      "inactivity",
+      "pageviews",
+      "prevurl",
+      "extraclick",
+      "showTime",
+      "showRestricted",
+      "calltoUrlpara",
+      "popLeftAuto",
+      "popTopAuto",
+      "inAnimation",
+      "inanimDir",
+      "inanimDur",
+      "AnimEasing",
+      "outAnimation",
+      "outanimDir",
+      "outanimDur",
+      "outAnimEasing"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": false
+}

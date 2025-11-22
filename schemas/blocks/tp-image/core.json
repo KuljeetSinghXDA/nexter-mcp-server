@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-image",
+  "title": "Image - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "tImg": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "Id": ""
+      },
+      "description": "Image source URL and media library ID"
+    },
+    "tiLink": {
+      "$ref": "definitions://link"
+    },
+    "tiCap": {
+      "type": "string",
+      "default": "none",
+      "enum": [
+        "none",
+        "caption",
+        "custom"
+      ],
+      "description": "Caption type: none, image caption, or custom text"
+    },
+    "capimg": {
+      "type": "string",
+      "default": "",
+      "description": "Image caption from media library"
+    },
+    "ctmCap": {
+      "type": "string",
+      "source": "html",
+      "selector": ".tpgb-image-caption",
+      "default": "",
+      "description": "Custom caption HTML content"
+    },
+    "iWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "imWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iHeig": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "imgFit": {
+      "type": "object",
+      "default": {
+        "md": ""
+      },
+      "description": "CSS object-fit property (cover, contain, fill, none, scale-down)",
+      "responsive": true
+    },
+    "inOpa": {
+      "type": "string",
+      "default": "",
+      "description": "Image opacity (0-1)"
+    },
+    "iHOpa": {
+      "type": "string",
+      "default": "",
+      "description": "Image opacity on hover (0-1)"
+    },
+    "inFilt": {
+      "type": "object",
+      "default": {
+        "openFilter": false
+      },
+      "description": "CSS filter effects (blur, brightness, contrast, grayscale, hue-rotate, saturate, sepia)"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "tImg",
+      "tiAlign",
+      "tiLink",
+      "capimg",
+      "ctmCap",
+      "iWidth",
+      "imWidth",
+      "iHeig",
+      "inOpa",
+      "iHOpa",
+      "inFilt"
+    ],
+    "requiresValidation": [
+      "iSize",
+      "tiCap",
+      "imgFit"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

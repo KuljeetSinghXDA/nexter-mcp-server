@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-pro-paragraph",
+  "title": "Paragraph - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple paragraph with heading",
+      "attributes": {
+        "block_id": "a1b2",
+        "Showtitle": true,
+        "title": "Our Mission",
+        "titleTag": "h2",
+        "content": "We are committed to providing the best service to our customers.",
+        "alignment": {
+          "md": "left"
+        }
+      }
+    },
+    {
+      "description": "Centered paragraph without heading",
+      "attributes": {
+        "block_id": "c3d4",
+        "Showtitle": false,
+        "content": "This is a centered paragraph of text.",
+        "alignment": {
+          "md": "center"
+        },
+        "textColor": "#333333"
+      }
+    },
+    {
+      "description": "Paragraph with custom link colors",
+      "attributes": {
+        "block_id": "e5f6",
+        "content": "Visit our <a href='/contact'>contact page</a> for more information.",
+        "linkColor": "#0066cc",
+        "linkHoverColor": "#003d7a"
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

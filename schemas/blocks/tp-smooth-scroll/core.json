@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-smooth-scroll",
+  "title": "Smooth Scroll - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "className": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS class"
+    },
+    "aniTime": {
+      "type": "string",
+      "default": "2500",
+      "description": "Animation duration in milliseconds"
+    },
+    "tMult": {
+      "type": "string",
+      "default": "2",
+      "description": "Touchpad multiplier for scroll sensitivity"
+    },
+    "normalizeWheel": {
+      "type": "boolean",
+      "default": true,
+      "description": "Normalize wheel events across browsers"
+    },
+    "easing": {
+      "type": "string",
+      "default": "ease-out-cubic",
+      "enum": [
+        "linear",
+        "ease-in-quad",
+        "ease-out-quad",
+        "ease-in-out-quad",
+        "ease-in-cubic",
+        "ease-out-cubic",
+        "ease-in-out-cubic",
+        "ease-in-quart",
+        "ease-out-quart",
+        "ease-in-out-quart",
+        "ease-in-quint",
+        "ease-out-quint",
+        "ease-in-out-quint"
+      ],
+      "description": "Easing function for scroll animation"
+    },
+    "infinite": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable infinite scroll loop"
+    },
+    "smNav": {
+      "type": "boolean",
+      "default": false,
+      "description": "Smooth scroll for navigation links"
+    },
+    "custEase": {
+      "type": "string",
+      "default": "",
+      "description": "Custom easing function CSS"
+    },
+    "viewport": {
+      "type": "string",
+      "default": "",
+      "description": "Custom viewport selector"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "aniTime",
+      "stepSize",
+      "tMult",
+      "custEase",
+      "viewport"
+    ],
+    "requiresValidation": [
+      "normalizeWheel",
+      "easing",
+      "infinite",
+      "smNav"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

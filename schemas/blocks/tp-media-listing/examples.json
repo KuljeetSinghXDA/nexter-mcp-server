@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-media-listing",
+  "title": "Media Listing - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple 3-column image grid",
+      "attributes": {
+        "block_id": "a1b2",
+        "GalleryType": "image",
+        "layout": "grid",
+        "style": "style-1",
+        "columns": {
+          "md": 3,
+          "sm": 4,
+          "xs": 6
+        },
+        "Imgoption": "fancybox"
+      }
+    },
+    {
+      "description": "Masonry layout portfolio",
+      "attributes": {
+        "block_id": "c3d4",
+        "layout": "masonry",
+        "style": "style-2",
+        "columns": {
+          "md": 4,
+          "sm": 6,
+          "xs": 12
+        },
+        "Dtitle": true,
+        "Dcontent": true,
+        "columnSpace": {
+          "md": "20",
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "description": "Video gallery with YouTube",
+      "attributes": {
+        "block_id": "e5f6",
+        "GalleryType": "video",
+        "style": "style-3",
+        "ImgRepeater": [
+          {
+            "Rtitle": "Video 1",
+            "VSource": "youtube",
+            "YouTubeId": "dQw4w9WgXcQ"
+          },
+          {
+            "Rtitle": "Video 2",
+            "VSource": "youtube",
+            "YouTubeId": "9bZkp7q19f0"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Metro layout with custom pattern",
+      "attributes": {
+        "block_id": "g7h8",
+        "layout": "metro",
+        "MetroSty": {
+          "md": "style-2",
+          "sm": "style-1",
+          "xs": "style-1"
+        },
+        "colMetro": {
+          "md": 4,
+          "sm": 3,
+          "xs": 6
+        }
+      }
+    },
+    {
+      "description": "Carousel showcase (style-4 with buttons)",
+      "attributes": {
+        "block_id": "i9j0",
+        "layout": "carousel",
+        "style": "style-4",
+        "DisBtns4": true,
+        "Btns4txt": "View Details",
+        "BtnCr": "#667eea"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

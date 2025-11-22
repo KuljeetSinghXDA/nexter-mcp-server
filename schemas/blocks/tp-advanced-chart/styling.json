@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-advanced-chart",
+  "title": "Advanced Chart - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "aloneBG": {
+      "type": "string",
+      "default": "#f7d782 | #6fc784 | #8072fc",
+      "description": "Background colors for standalone data (separated by pipes)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelValue",
+      "dataBox",
+      "aloneData",
+      "aloneBG",
+      "aloneBdr",
+      "dntDataBox",
+      "bblDataBox"
+    ],
+    "requiresValidation": [
+      "chartType",
+      "barType",
+      "pieType"
+    ]
+  },
+  "styleDependencies": [
+    "Chart.js library for rendering",
+    "Canvas element for chart display",
+    "Responsive chart sizing",
+    "Legend and tooltip styling",
+    "Animation and interaction handling"
+  ]
+}

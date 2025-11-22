@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-icon-box",
+  "title": "Icon - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "icon": {
+      "type": "string",
+      "default": "fontAwesome",
+      "enum": [
+        "fontAwesome",
+        "svg"
+      ],
+      "description": "Icon type: Font Awesome or custom SVG"
+    },
+    "fIcon": {
+      "type": "string",
+      "default": "fas fa-star",
+      "description": "Font Awesome icon class"
+    },
+    "isvg": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Custom SVG icon upload"
+    },
+    "anchor": {
+      "type": "string",
+      "description": "HTML anchor ID for direct linking"
+    },
+    "iview": {
+      "type": "string",
+      "default": "default",
+      "enum": [
+        "default",
+        "stacked",
+        "framed"
+      ],
+      "description": "Icon display style: default (icon only), stacked (with background circle/square), framed (with border)"
+    },
+    "iLink": {
+      "$ref": "definitions://link"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "fIcon",
+      "isvg",
+      "iAlign",
+      "iLink",
+      "iColor",
+      "ihColor",
+      "anchor"
+    ],
+    "requiresValidation": [
+      "icon",
+      "iview"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

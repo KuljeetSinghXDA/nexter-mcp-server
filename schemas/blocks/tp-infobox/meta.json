@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-infobox",
+  "version": "1.0.0",
+  "title": "Infobox",
+  "category": "marketing",
+  "source": "free",
+  "complexity": "medium",
+  "description": "Feature box with icon/image, title, description, and optional button. Multiple style variants for showcasing services, features, or information in an organized and visually appealing way. Supports pin",
+  "keywords": [
+    "info box",
+    "feature box",
+    "icon box",
+    "content card"
+  ],
+  "useCases": [
+    "Feature highlights",
+    "Service boxes",
+    "Info cards"
+  ]
+}

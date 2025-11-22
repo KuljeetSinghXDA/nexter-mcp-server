@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-blockquote",
+  "title": "Blockquote - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Visual style variant for blockquote"
+    },
+    "content": {
+      "type": "string",
+      "source": "html",
+      "selector": ".quote-text",
+      "default": "You can't connect the dots looking forward; you can only connect them looking backwards.",
+      "description": "Quote text content (HTML supported)"
+    },
+    "authorName": {
+      "type": "string",
+      "source": "html",
+      "selector": ".tpgb-quote-author",
+      "default": "Steve Jobs",
+      "description": "Quote author/attribution"
+    },
+    "contentAlignment": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "description": "Text alignment for quote and author"
+    },
+    "textNormalColor": {
+      "type": "string",
+      "default": "#747474",
+      "description": "Quote text color (normal state)"
+    },
+    "textHoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Quote text color (hover state)"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "content",
+      "authorName",
+      "contentAlignment",
+      "textNormalColor",
+      "textHoverColor",
+      "authorNormalColor"
+    ],
+    "requiresValidation": [
+      "style",
+      "typography",
+      "authorTypo"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

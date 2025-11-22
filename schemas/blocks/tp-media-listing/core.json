@@ -1,0 +1,373 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-media-listing",
+  "title": "Media Listing - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "GalleryType": {
+      "type": "string",
+      "default": "image",
+      "enum": [
+        "image",
+        "video"
+      ],
+      "description": "Media type: image gallery or video gallery"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2",
+        "style-3",
+        "style-4"
+      ],
+      "description": "Visual style for gallery items"
+    },
+    "layout": {
+      "type": "string",
+      "default": "grid",
+      "enum": [
+        "grid",
+        "masonry",
+        "metro",
+        "carousel"
+      ],
+      "description": "Gallery layout type"
+    },
+    "Playout": {
+      "type": "string",
+      "default": "default",
+      "enum": [
+        "default",
+        "custom"
+      ],
+      "description": "Portfolio layout mode (affects item arrangement)"
+    },
+    "Imgoption": {
+      "type": "string",
+      "default": "normal",
+      "enum": [
+        "normal",
+        "fancybox"
+      ],
+      "description": "Image click behavior: normal (link) or lightbox popup"
+    },
+    "NAddImg": {
+      "type": "array",
+      "default": [],
+      "description": "Bulk image upload array (WordPress media library)"
+    },
+    "ImgRepeater": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Individual media items with custom metadata",
+      "items": {
+        "VSource": {
+          "type": "string",
+          "default": "self-hosted",
+          "enum": [
+            "self-hosted",
+            "youtube",
+            "vimeo"
+          ],
+          "description": "Video source type (for GalleryType: video)"
+        },
+        "RVideo": {
+          "type": "object",
+          "default": {
+            "url": "",
+            "Id": ""
+          },
+          "description": "Self-hosted video file"
+        },
+        "YouTubeId": {
+          "type": "string",
+          "default": "2ReiWfKUxIM",
+          "description": "YouTube video ID"
+        },
+        "VimeoId": {
+          "type": "string",
+          "default": "87591302",
+          "description": "Vimeo video ID"
+        },
+        "Rimg": {
+          "type": "object",
+          "default": {
+            "url": "",
+            "Id": ""
+          },
+          "description": "Image or video thumbnail"
+        },
+        "Rtitle": {
+          "type": "string",
+          "default": "Image",
+          "description": "Item title"
+        },
+        "RCategory": {
+          "type": "string",
+          "default": "",
+          "description": "Item category/tag for filtering"
+        },
+        "RCaption": {
+          "type": "string",
+          "default": "I am text block",
+          "description": "Item caption/description"
+        },
+        "RselImg": {
+          "type": "string",
+          "default": "none",
+          "enum": [
+            "none",
+            "icon",
+            "image"
+          ],
+          "description": "Overlay icon type"
+        },
+        "RIcon": {
+          "type": "string",
+          "default": "",
+          "description": "Font Awesome icon class (when RselImg is 'icon')"
+        },
+        "RIimg": {
+          "type": "object",
+          "default": {
+            "url": "",
+            "Id": ""
+          },
+          "description": "Custom overlay icon image (when RselImg is 'image')"
+        },
+        "Rurl": {
+          "type": "object",
+          "default": {
+            "url": "",
+            "target": "",
+            "nofollow": ""
+          },
+          "description": "Custom link URL for item"
+        }
+      },
+      "default": [
+        {
+          "Rtitle": "Image",
+          "RCaption": "I am text block",
+          "Rimg": {
+            "url": ""
+          },
+          "VSource": "self-hosted",
+          "YouTubeId": "2ReiWfKUxIM",
+          "VimeoId": "87591302",
+          "Rurl": {
+            "url": "",
+            "target": "",
+            "nofollow": ""
+          }
+        },
+        {
+          "Rtitle": "Image",
+          "RCaption": "I am text block",
+          "Rimg": {
+            "url": ""
+          },
+          "VSource": "self-hosted",
+          "YouTubeId": "2ReiWfKUxIM",
+          "VimeoId": "87591302",
+          "Rurl": {
+            "url": "",
+            "target": "",
+            "nofollow": ""
+          }
+        }
+      ]
+    },
+    "columns": {
+      "type": "object",
+      "default": {
+        "md": 3,
+        "sm": 4,
+        "xs": 6
+      },
+      "description": "Grid columns (responsive, WordPress grid system: 1-12)",
+      "responsive": true
+    },
+    "colMetro": {
+      "type": "object",
+      "default": {
+        "md": 3,
+        "sm": 3,
+        "xs": 6
+      },
+      "description": "Metro layout columns (responsive)",
+      "responsive": true
+    },
+    "MetroSty": {
+      "type": "object",
+      "default": {
+        "md": "style-1",
+        "sm": "style-1",
+        "xs": "style-1"
+      },
+      "description": "Metro layout pattern style",
+      "responsive": true
+    },
+    "columnSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "metrocolumns": {
+      "type": "object",
+      "default": {
+        "md": 3,
+        "sm": 3,
+        "xs": 3
+      },
+      "description": "Metro columns count (alternate definition)",
+      "responsive": true
+    },
+    "metroStyle": {
+      "type": "object",
+      "default": {
+        "md": "style-1",
+        "sm": "style-1",
+        "xs": "style-1"
+      },
+      "description": "Metro style pattern (alternate definition)",
+      "responsive": true
+    },
+    "metroCustom": {
+      "type": "string",
+      "default": "",
+      "description": "Custom metro pattern definition"
+    },
+    "Dtitle": {
+      "type": "boolean",
+      "default": true,
+      "description": "Display item titles"
+    },
+    "TitleTag": {
+      "type": "string",
+      "default": "h3",
+      "enum": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "div",
+        "span"
+      ],
+      "description": "HTML tag for titles"
+    },
+    "DImgS": {
+      "type": "boolean",
+      "default": false,
+      "description": "Display custom image size selector"
+    },
+    "Dcontent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Display captions/descriptions"
+    },
+    "Boxlink": {
+      "type": "boolean",
+      "default": false,
+      "description": "Make entire item box clickable"
+    },
+    "FCusURl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Force custom URLs (ignore default lightbox behavior)"
+    },
+    "DisBtns4": {
+      "type": "boolean",
+      "default": true,
+      "description": "Display 'Learn more' button (style-4)"
+    },
+    "Btns4txt": {
+      "type": "string",
+      "default": "  Learn more",
+      "description": "'Learn more' button text (style-4)"
+    },
+    "BtnCr": {
+      "type": "string",
+      "default": "",
+      "description": "Button color (style-4)"
+    },
+    "Disicon": {
+      "type": "boolean",
+      "default": true,
+      "description": "Display overlay icon"
+    },
+    "PopupNone": {
+      "type": "string",
+      "default": "icon",
+      "enum": [
+        "icon",
+        "image",
+        "none"
+      ],
+      "description": "Overlay icon type"
+    },
+    "PopupIcon": {
+      "type": "string",
+      "default": "fa fa-search-plus",
+      "description": "Font Awesome icon class for overlay"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "ImgRepeater",
+      "NAddImg",
+      "columns",
+      "columnSpace",
+      "Dtitle",
+      "TitleTag",
+      "ImgSize",
+      "Dcontent",
+      "Boxlink",
+      "DisBtns4",
+      "Btns4txt",
+      "BtnTypo",
+      "BtnCr",
+      "Disicon",
+      "PopupIcon"
+    ],
+    "requiresValidation": [
+      "GalleryType",
+      "style",
+      "layout",
+      "Playout",
+      "Imgoption",
+      "colMetro",
+      "MetroSty",
+      "metroCustom",
+      "FCusURl",
+      "PopupNone"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

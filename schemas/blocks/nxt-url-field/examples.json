@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-url-field",
+  "title": "Website URL - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple website URL field",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Website",
+        "placeholder": "https://example.com",
+        "reqTgl": true,
+        "autoComplete": "url"
+      }
+    },
+    {
+      "description": "Portfolio link with icon",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Portfolio URL",
+        "urlIconType": "fontAwesome",
+        "urlIcons": "fas fa-link",
+        "placeholder": "Your portfolio website",
+        "reqTgl": false,
+        "icnClr": "#667eea",
+        "hvrIcnClr": "#764ba2"
+      }
+    },
+    {
+      "description": "Social media profile with help text",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "LinkedIn Profile",
+        "placeholder": "https://linkedin.com/in/username",
+        "hlpTxt": true,
+        "desctxt": "Enter your complete LinkedIn profile URL",
+        "descPoss": "bottom",
+        "urlIconType": "fontAwesome",
+        "urlIcons": "fab fa-linkedin",
+        "reqTgl": false
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

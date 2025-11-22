@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-submit-button",
+  "title": "Submit - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "btnAlign": {
+      "type": "object",
+      "default": "left",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "description": "Button alignment (when isInline is false)",
+      "responsive": false
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "ButtonIcon",
+      "ButtonImage",
+      "btnAlign",
+      "btnSz",
+      "iconSpc",
+      "iconSz",
+      "icnClr",
+      "hvrIcnClr"
+    ],
+    "requiresValidation": [
+      "ButtonType",
+      "iconPos",
+      "isInline"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Flexbox layout for inline mode",
+    "CSS gap for icon spacing",
+    "Icon order property for positioning"
+  ]
+}

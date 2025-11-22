@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-google-map",
+  "title": "Google Map - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple single location map with custom pin",
+      "attributes": {
+        "block_id": "a1b2",
+        "locationPoint": [
+          {
+            "_key": "0",
+            "latitude": "40.7580",
+            "longitude": "-73.9855",
+            "latOrAddr": "latitude",
+            "pinIcon": {
+              "url": "/custom-pin.png"
+            }
+          }
+        ],
+        "mapHeight": {
+          "md": 400,
+          "unit": "px"
+        },
+        "Zoom": "14",
+        "gmapType": "roadmap"
+      }
+    },
+    {
+      "description": "Multiple store locations with overlay content",
+      "attributes": {
+        "block_id": "c3d4",
+        "locationPoint": [
+          {
+            "_key": "0",
+            "latitude": "34.0522",
+            "longitude": "-118.2437",
+            "latOrAddr": "latitude"
+          },
+          {
+            "_key": "1",
+            "latitude": "40.7128",
+            "longitude": "-74.0060",
+            "latOrAddr": "latitude"
+          },
+          {
+            "_key": "2",
+            "latitude": "41.8781",
+            "longitude": "-87.6298",
+            "latOrAddr": "latitude"
+          }
+        ],
+        "mapHeight": {
+          "md": 500,
+          "unit": "px"
+        },
+        "Zoom": "4",
+        "contentTgl": true,
+        "title": "Our Locations",
+        "description": "Visit any of our 3 locations nationwide",
+        "titleColor": "#2c3e50",
+        "contentBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(255,255,255,0.9)"
+        }
+      }
+    },
+    {
+      "description": "Custom styled satellite map",
+      "attributes": {
+        "block_id": "e5f6",
+        "gmapType": "satellite",
+        "customStyleTgl": true,
+        "customStyle": "style-3",
+        "streetViewCtrl": false,
+        "Zoom": "18"
+      }
+    },
+    {
+      "description": "Address-based location (geocoding)",
+      "attributes": {
+        "block_id": "g7h8",
+        "locationPoint": [
+          {
+            "_key": "0",
+            "latOrAddr": "address",
+            "addr": "1600 Amphitheatre Parkway, Mountain View, CA"
+          }
+        ],
+        "mapHeight": {
+          "md": 350,
+          "unit": "px"
+        }
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

@@ -1,0 +1,156 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-column",
+  "title": "Column - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "Width": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "verticalPosition": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "flex-start",
+        "center",
+        "flex-end",
+        "stretch"
+      ],
+      "description": "Vertical alignment of content (non-responsive fallback)"
+    },
+    "horizontalPosition": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "flex-start",
+        "center",
+        "flex-end",
+        "space-between",
+        "space-around",
+        "space-evenly"
+      ],
+      "description": "Horizontal alignment of content (non-responsive fallback)"
+    },
+    "NormalBg": {
+      "$ref": "definitions://background"
+    },
+    "HoverBg": {
+      "$ref": "definitions://background"
+    },
+    "NormalBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "",
+            "bottom": "",
+            "left": "",
+            "right": ""
+          },
+          "unit": ""
+        }
+      },
+      "description": "Border styling (normal state)"
+    },
+    "HoverBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "",
+            "bottom": "",
+            "left": "",
+            "right": ""
+          },
+          "unit": ""
+        }
+      },
+      "description": "Border styling (hover state)"
+    },
+    "NormalBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "HoverBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "NormalBShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "HoverBShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "Margin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "Padding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "topSpace": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Top offset for sticky column (distance from viewport top)",
+      "proFeature": true
+    },
+    "colOrder": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "ZIndex": {
+      "type": "string",
+      "default": "",
+      "description": "CSS z-index stacking order"
+    },
+    "hideDesktop": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide column on desktop (1201px+)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "Width",
+      "verticalPos",
+      "verticalPosition",
+      "horizontalPos",
+      "horizontalPosition",
+      "blockSpace",
+      "Padding",
+      "Margin",
+      "NormalBg",
+      "HoverBg",
+      "NormalBorder",
+      "HoverBorder",
+      "NormalBradius",
+      "HoverBradius",
+      "NormalBShadow",
+      "HoverBShadow",
+      "colOrder",
+      "customClasses",
+      "hideDesktop",
+      "hideTablet",
+      "hideMobile"
+    ],
+    "requiresValidation": [
+      "stickycol",
+      "topSpace",
+      "botSpace",
+      "stickyDes",
+      "stickyTab",
+      "stickyMob",
+      "ZIndex"
+    ]
+  },
+  "styleDependencies": [
+    "Flexbox layout CSS",
+    "Column width calculations",
+    "Sticky positioning CSS (Pro)",
+    "Responsive breakpoint handling"
+  ]
+}

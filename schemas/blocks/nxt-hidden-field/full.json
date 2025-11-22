@@ -1,0 +1,97 @@
+{
+  "blockName": "tpgb/tp-form-hidden-field",
+  "version": "1.0.0",
+  "title": "Hidden Field",
+  "category": "form",
+  "description": "Add a hidden field to your form to pass data silently without displaying it to users. Features field name and value attributes for backend processing. Perfect for passing tracking parameters, form IDs, referral codes, campaign sources, or any data that shouldn't be visible to users. The field is completely invisible in the frontend but submits with the form. Must be used inside a Form Block. Pro version with advanced form controls.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "nameValue": {
+      "type": "string",
+      "default": "Hidden Name",
+      "description": "Field name (used as key in form submission data)"
+    },
+    "actualValue": {
+      "type": "string",
+      "default": "",
+      "description": "Field value (data to be submitted with form)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "nameValue",
+      "actualValue"
+    ],
+    "requiresValidation": [],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Hidden input element (display:none)"
+  ],
+  "commonUseCases": [
+    "Form ID tracking",
+    "Campaign source tracking",
+    "Referral codes",
+    "UTM parameters",
+    "Page URL capture",
+    "Timestamp submission",
+    "Hidden metadata",
+    "A/B test variant tracking",
+    "Session identifiers"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-form-block",
+    "tpgb/tp-form-submit-button"
+  ],
+  "capabilities": [
+    "Invisible field submission",
+    "Custom field name",
+    "Custom field value",
+    "Backend data passing",
+    "Tracking parameter support",
+    "No frontend rendering",
+    "Form metadata handling"
+  ],
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true,
+  "ancestorBlock": "tpgb/tp-form-block",
+  "examples": [
+    {
+      "description": "Simple hidden field",
+      "attributes": {
+        "block_id": "a1b2",
+        "nameValue": "form_id",
+        "actualValue": "contact-form-2025"
+      }
+    },
+    {
+      "description": "Campaign source tracking",
+      "attributes": {
+        "block_id": "c3d4",
+        "nameValue": "utm_source",
+        "actualValue": "newsletter"
+      }
+    },
+    {
+      "description": "Referral code passing",
+      "attributes": {
+        "block_id": "e5f6",
+        "nameValue": "referral_code",
+        "actualValue": "PROMO2025"
+      }
+    }
+  ]
+}

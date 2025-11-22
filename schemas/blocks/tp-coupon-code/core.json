@@ -1,0 +1,281 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-coupon-code",
+  "title": "Coupon Code - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "couponType": {
+      "type": "string",
+      "default": "standard",
+      "enum": [
+        "standard",
+        "scratch",
+        "slideOut",
+        "peel"
+      ],
+      "description": "Coupon display type: standard button, scratch-off, slide-out, or peel effect"
+    },
+    "standardStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2",
+        "style-3"
+      ],
+      "description": "Standard coupon visual style (when couponType is 'standard')"
+    },
+    "directionHint": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show direction hint/arrow"
+    },
+    "couponText": {
+      "type": "string",
+      "default": "Show Code",
+      "description": "Button text for revealing coupon code"
+    },
+    "redirectLink": {
+      "$ref": "definitions://link"
+    },
+    "codeArrow": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show arrow on code display"
+    },
+    "codecopyIcn": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show copy icon for code"
+    },
+    "couponCode": {
+      "type": "string",
+      "default": "PO-SI-MY-TH-007",
+      "description": "The actual coupon code to display"
+    },
+    "actionType": {
+      "type": "string",
+      "default": "click",
+      "enum": [
+        "click",
+        "hover",
+        "popup"
+      ],
+      "description": "Code reveal trigger: click, hover, or popup modal"
+    },
+    "popupTitle": {
+      "type": "string",
+      "default": "Here is your coupon code",
+      "description": "Popup modal title (when actionType is 'popup')"
+    },
+    "popupDesc": {
+      "type": "string",
+      "default": "Use code on site",
+      "description": "Popup modal description (when actionType is 'popup')"
+    },
+    "copyBtnText": {
+      "type": "string",
+      "default": "Copy Code",
+      "description": "Copy button text"
+    },
+    "afterCopyText": {
+      "type": "string",
+      "default": "Copied!",
+      "description": "Text shown after successful copy"
+    },
+    "visitBtnText": {
+      "type": "string",
+      "default": "Visit Site",
+      "description": "Visit site button text (popup mode)"
+    },
+    "saveCookie": {
+      "type": "boolean",
+      "default": false,
+      "description": "Save code reveal state in cookie"
+    },
+    "hideLink": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide redirect link and show masked links instead"
+    },
+    "linkMaskText": {
+      "type": "string",
+      "default": "",
+      "description": "Masked link dropdown text"
+    },
+    "maskLinkList": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "List of masked links with labels",
+      "items": {
+        "label": {
+          "type": "string",
+          "default": "Label",
+          "description": "Link label"
+        },
+        "linkUrl": {
+          "type": "object",
+          "default": {
+            "url": "#",
+            "target": "",
+            "nofollow": ""
+          },
+          "description": "Link URL"
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "label": "Wordpress",
+          "linkUrl": {
+            "url": "#",
+            "target": "",
+            "nofollow": ""
+          }
+        }
+      ]
+    },
+    "tabReverse": {
+      "type": "boolean",
+      "default": false,
+      "description": "Reverse tab order (accessibility)"
+    },
+    "fillPercent": {
+      "type": "string",
+      "default": "70",
+      "description": "Scratch fill percentage to auto-reveal (scratch type)"
+    },
+    "scratchWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "slideDirection": {
+      "type": "string",
+      "default": "left",
+      "enum": [
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "description": "Slide direction (slideOut type)"
+    },
+    "frontContentType": {
+      "type": "string",
+      "default": "default",
+      "enum": [
+        "default",
+        "template"
+      ],
+      "description": "Front content type: default text or template (scratch/slideOut/peel)"
+    },
+    "frontContent": {
+      "type": "string",
+      "default": "Front Content",
+      "description": "Front content text (when frontContentType is 'default')"
+    },
+    "frontTemp": {
+      "type": "string",
+      "default": "",
+      "description": "Front template ID (when frontContentType is 'template')"
+    },
+    "backendVisi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show in backend editor (template mode)"
+    },
+    "backContentType": {
+      "type": "string",
+      "default": "default",
+      "enum": [
+        "default",
+        "template"
+      ],
+      "description": "Back content type: default text or template (scratch/slideOut/peel)"
+    },
+    "backTitle": {
+      "type": "string",
+      "default": "Back Title",
+      "description": "Back title text (when backContentType is 'default')"
+    },
+    "backDesc": {
+      "type": "string",
+      "default": "Back Description",
+      "description": "Back description text (when backContentType is 'default')"
+    },
+    "backTemp": {
+      "type": "string",
+      "default": "",
+      "description": "Back template ID (when backContentType is 'template')"
+    },
+    "backtempVisi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show back template in backend editor"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "couponText",
+      "redirectLink",
+      "couponCode",
+      "popupTitle",
+      "popupDesc",
+      "copyBtnText",
+      "afterCopyText",
+      "visitBtnText",
+      "standardConAlign",
+      "standardAlign",
+      "linkMaskText",
+      "maskLinkList",
+      "fillPercent",
+      "scratchWidth",
+      "scratchHeight",
+      "frontContent",
+      "backTitle",
+      "backDesc"
+    ],
+    "requiresValidation": [
+      "couponType",
+      "standardStyle",
+      "directionHint",
+      "codeArrow",
+      "codecopyIcn",
+      "actionType",
+      "saveCookie",
+      "hideLink",
+      "tabReverse",
+      "slideDirection",
+      "frontContentType",
+      "frontTemp",
+      "backendVisi",
+      "backContentType",
+      "backTemp",
+      "backtempVisi"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

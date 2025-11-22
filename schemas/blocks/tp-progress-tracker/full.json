@@ -1,0 +1,500 @@
+{
+  "blockName": "tpgb/tp-progress-tracker",
+  "version": "1.0.0",
+  "title": "Progress Tracker",
+  "category": "interactive",
+  "description": "Display a visual indicator of user's progress as they scroll through your web page. Features 3 layout types (horizontal, vertical, circular), customizable positioning, percentage display, pin points for content sections, and extensive styling. Perfect for reading progress, scroll indicators, and content navigation. Free version with comprehensive tracking options.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "progressType": {
+      "type": "string",
+      "default": "horizontal",
+      "enum": ["horizontal", "vertical", "circular"],
+      "description": "Progress bar layout type"
+    },
+    "horizontalPos": {
+      "type": "string",
+      "default": "top",
+      "enum": ["top", "bottom"],
+      "description": "Horizontal bar position (when progressType is 'horizontal')"
+    },
+    "hzDirection": {
+      "type": "string",
+      "default": "ltr",
+      "enum": ["ltr", "rtl"],
+      "description": "Horizontal fill direction (when progressType is 'horizontal')"
+    },
+    "verticalPos": {
+      "type": "string",
+      "default": "left",
+      "enum": ["left", "right"],
+      "description": "Vertical bar position (when progressType is 'vertical')"
+    },
+    "circularPos": {
+      "type": "string",
+      "default": "top-left",
+      "enum": ["top-left", "top-right", "center-left", "center-right", "bottom-left", "bottom-right"],
+      "description": "Circular indicator position (when progressType is 'circular')"
+    },
+    "cPosTopOff": {
+      "type": "object",
+      "default": {"md": "0", "unit": "px"},
+      "description": "Circular position top offset",
+      "responsive": true
+    },
+    "cPosBottomOff": {
+      "type": "object",
+      "default": {"md": "0", "unit": "px"},
+      "description": "Circular position bottom offset",
+      "responsive": true
+    },
+    "cPosLeftOff": {
+      "type": "object",
+      "default": {"md": "0", "unit": "px"},
+      "description": "Circular position left offset",
+      "responsive": true
+    },
+    "cPosRightOff": {
+      "type": "object",
+      "default": {"md": "0", "unit": "px"},
+      "description": "Circular position right offset",
+      "responsive": true
+    },
+    "pinPoint": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable pin points for content sections"
+    },
+    "pinPStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2"],
+      "description": "Pin point visual style"
+    },
+    "pinPointRep": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Pin point items with titles and content IDs",
+      "items": {
+        "Title": {
+          "type": "string",
+          "default": "Pin 1",
+          "description": "Pin point label"
+        },
+        "conID": {
+          "type": "string",
+          "default": "",
+          "description": "Content section ID to track"
+        }
+      },
+      "default": [{"_key": "0", "Title": "Pin 1", "conID": ""}]
+    },
+    "applyTo": {
+      "type": "string",
+      "default": "entire",
+      "enum": ["entire", "custom"],
+      "description": "Progress tracking scope: entire page or custom selector"
+    },
+    "unqSelector": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS selector for progress tracking (when applyTo is 'custom')"
+    },
+    "relTselector": {
+      "type": "boolean",
+      "default": false,
+      "description": "Use relative selector for custom tracking"
+    },
+    "percentageText": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show percentage text indicator"
+    },
+    "percentageStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2"],
+      "description": "Percentage text visual style"
+    },
+    "circleSize": {
+      "type": "string",
+      "default": "",
+      "description": "Circular progress size"
+    },
+    "circleBGColor": {
+      "type": "string",
+      "default": "",
+      "description": "Circular background color"
+    },
+    "trackSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Track/stroke width",
+      "responsive": true
+    },
+    "trackBG": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Track background (horizontal/vertical)"
+    },
+    "trackBdr": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "unit": "px"}},
+      "description": "Track border (horizontal/vertical)"
+    },
+    "trackBRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Track border radius",
+      "responsive": true
+    },
+    "trackBShadow": {
+      "type": "object",
+      "default": {"horizontal": 0, "vertical": 8, "blur": 20, "spread": 1, "color": "rgba(0,0,0,0.27)"},
+      "description": "Track box shadow"
+    },
+    "fillBG": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Progress fill background (horizontal/vertical)"
+    },
+    "cTrackColor": {
+      "type": "string",
+      "default": "",
+      "description": "Circular track stroke color"
+    },
+    "cTrackDShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "typeShadow": "drop-shadow", "horizontal": 2, "vertical": 3, "blur": 2, "color": "rgba(0,0,0,0.5)"},
+      "description": "Circular track drop shadow"
+    },
+    "cFillColor": {
+      "type": "string",
+      "default": "",
+      "description": "Circular fill stroke color"
+    },
+    "texTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Percentage text typography"
+    },
+    "ttPadding": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Percentage text padding (style-2)",
+      "responsive": true
+    },
+    "textColor": {
+      "type": "string",
+      "default": "",
+      "description": "Percentage text color"
+    },
+    "ttBGColor": {
+      "type": "string",
+      "default": "",
+      "description": "Percentage text background color (style-2)"
+    },
+    "pinTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Pin point text typography"
+    },
+    "pinPadding": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Pin point text padding",
+      "responsive": true
+    },
+    "pinOffset": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Pin point position offset from track",
+      "responsive": true
+    },
+    "pinColor": {
+      "type": "string",
+      "default": "",
+      "description": "Pin point text color (normal)"
+    },
+    "pinHColor": {
+      "type": "string",
+      "default": "",
+      "description": "Pin point text color (hover)"
+    },
+    "pinAColor": {
+      "type": "string",
+      "default": "",
+      "description": "Pin point text color (active)"
+    },
+    "pinBG": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Pin point background (normal)"
+    },
+    "pinHBG": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Pin point background (hover)"
+    },
+    "pinABG": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Pin point background (active)"
+    },
+    "pinBdr": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "sm": {}, "xs": {}, "unit": "px"}},
+      "description": "Pin point border (normal)"
+    },
+    "pinHBdr": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "sm": {}, "xs": {}, "unit": "px"}},
+      "description": "Pin point border (hover)"
+    },
+    "pinABdr": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "sm": {}, "xs": {}, "unit": "px"}},
+      "description": "Pin point border (active)"
+    },
+    "pinRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Pin point border radius (normal)",
+      "responsive": true
+    },
+    "pinHRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Pin point border radius (hover)",
+      "responsive": true
+    },
+    "pinARadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Pin point border radius (active)",
+      "responsive": true
+    },
+    "pinBShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Pin point box shadow (normal)"
+    },
+    "pinHBShadow": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Pin point box shadow (hover)"
+    },
+    "pinABShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Pin point box shadow (active)"
+    },
+    "pinDotSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Pin dot size (style-2)",
+      "responsive": true
+    },
+    "pDotBG": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Pin dot background (normal, style-2)"
+    },
+    "pDotHBG": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Pin dot background (hover, style-2)"
+    },
+    "pDotABG": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Pin dot background (active, style-2)"
+    },
+    "pDotBdr": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "sm": {}, "xs": {}, "unit": "px"}},
+      "description": "Pin dot border (normal, style-2)"
+    },
+    "pDotHBdr": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "sm": {}, "xs": {}, "unit": "px"}},
+      "description": "Pin dot border (hover, style-2)"
+    },
+    "pDotABdr": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "sm": {}, "xs": {}, "unit": "px"}},
+      "description": "Pin dot border (active, style-2)"
+    },
+    "pDotRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Pin dot border radius (normal, style-2)",
+      "responsive": true
+    },
+    "pDotHRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Pin dot border radius (hover, style-2)",
+      "responsive": true
+    },
+    "pDotARadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Pin dot border radius (active, style-2)",
+      "responsive": true
+    },
+    "pDotBShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Pin dot box shadow (normal, style-2)"
+    },
+    "pDotHBShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Pin dot box shadow (hover, style-2)"
+    },
+    "pDotABShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Pin dot box shadow (active, style-2)"
+    },
+    "trackOffset": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Track position offset from viewport edge",
+      "responsive": true
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "pinPointRep",
+      "unqSelector",
+      "circleSize",
+      "circleBGColor",
+      "trackSize",
+      "cPosTopOff",
+      "cPosBottomOff",
+      "cPosLeftOff",
+      "cPosRightOff",
+      "trackBG",
+      "fillBG",
+      "cTrackColor",
+      "cFillColor",
+      "textColor",
+      "ttBGColor",
+      "pinColor",
+      "pinHColor",
+      "pinAColor",
+      "pinOffset",
+      "trackOffset",
+      "texTypo",
+      "pinTypo"
+    ],
+    "requiresValidation": [
+      "progressType",
+      "horizontalPos",
+      "hzDirection",
+      "verticalPos",
+      "circularPos",
+      "pinPoint",
+      "pinPStyle",
+      "applyTo",
+      "relTselector",
+      "percentageText",
+      "percentageStyle"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Scroll progress tracking JavaScript",
+    "SVG for circular progress",
+    "Intersection Observer for pin points",
+    "Admin bar offset handling"
+  ],
+  "commonUseCases": [
+    "Reading progress indicator",
+    "Scroll progress bar",
+    "Content navigation aid",
+    "Long-form article tracker",
+    "Page completion indicator",
+    "Section progress display",
+    "Tutorial step tracker",
+    "Multi-section navigation"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-smooth-scroll"
+  ],
+  "capabilities": [
+    "3 layout types (horizontal, vertical, circular)",
+    "Horizontal: top/bottom position, LTR/RTL direction",
+    "Vertical: left/right position",
+    "Circular: 6 corner positions with offsets",
+    "Entire page or custom selector tracking",
+    "Percentage text display (2 styles)",
+    "Pin points for content sections",
+    "Unlimited pin points with repeater",
+    "2 pin point styles",
+    "Active state tracking",
+    "Customizable track size and colors",
+    "Track background, border, radius, shadow",
+    "Fill background with gradient support",
+    "Circular SVG with drop shadow",
+    "Typography controls for text and pins",
+    "Normal/hover/active state styling for pins",
+    "Background, border, radius, shadow for pins (all states)",
+    "Pin dot styling (style-2)",
+    "Responsive position offsets",
+    "Admin bar compatibility"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple horizontal progress bar at top",
+      "attributes": {
+        "block_id": "a1b2",
+        "progressType": "horizontal",
+        "horizontalPos": "top",
+        "trackSize": {"md": "4", "unit": "px"},
+        "fillBG": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#667eea"}
+      }
+    },
+    {
+      "description": "Circular progress with percentage",
+      "attributes": {
+        "block_id": "c3d4",
+        "progressType": "circular",
+        "circularPos": "bottom-right",
+        "percentageText": true,
+        "circleSize": "60",
+        "cTrackColor": "#e0e0e0",
+        "cFillColor": "#667eea"
+      }
+    },
+    {
+      "description": "Progress with pin points for sections",
+      "attributes": {
+        "block_id": "e5f6",
+        "progressType": "horizontal",
+        "horizontalPos": "top",
+        "pinPoint": true,
+        "pinPointRep": [
+          {"_key": "0", "Title": "Introduction", "conID": "intro"},
+          {"_key": "1", "Title": "Features", "conID": "features"},
+          {"_key": "2", "Title": "Pricing", "conID": "pricing"}
+        ]
+      }
+    }
+  ]
+}

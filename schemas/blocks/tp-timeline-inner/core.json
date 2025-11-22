@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-timeline-inner",
+  "title": "Timeline Inner - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "default": "",
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "className": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS class"
+    },
+    "index": {
+      "type": "number",
+      "default": "",
+      "description": "Timeline item index position"
+    },
+    "repetKey": {
+      "type": "string",
+      "default": "",
+      "description": "Repeater item unique key"
+    },
+    "layout": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline layout style inherited from parent"
+    },
+    "MLayout": {
+      "type": "boolean",
+      "default": false,
+      "description": "Mobile layout mode inherited from parent"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Timeline item visual style variant"
+    },
+    "RcTitle": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline item title"
+    },
+    "description": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline item description/content"
+    },
+    "Rnone": {
+      "type": "string",
+      "default": "",
+      "description": "Reserved attribute"
+    },
+    "PinStyle": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Timeline pin/marker style variant"
+    },
+    "RTitle": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline item secondary title"
+    },
+    "Ricon": {
+      "type": "string",
+      "default": "",
+      "description": "Font Awesome icon class for timeline marker"
+    },
+    "RButton": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show call-to-action button"
+    },
+    "RBtnText": {
+      "type": "string",
+      "default": "",
+      "description": "Button text (when RButton is true)"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "RcTitle",
+      "description",
+      "RTitle",
+      "Ricon",
+      "RBtnText",
+      "RcAlign"
+    ],
+    "requiresValidation": [
+      "style",
+      "PinStyle",
+      "RButton",
+      "index"
+    ],
+    "dangerous": [
+      "block_id",
+      "repetKey"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "inserter": false,
+    "reusable": false,
+    "html": false
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": true
+}

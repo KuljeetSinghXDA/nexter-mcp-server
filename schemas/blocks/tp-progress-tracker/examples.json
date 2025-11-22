@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-progress-tracker",
+  "title": "Progress Tracker - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple horizontal progress bar at top",
+      "attributes": {
+        "block_id": "a1b2",
+        "progressType": "horizontal",
+        "horizontalPos": "top",
+        "trackSize": {
+          "md": "4",
+          "unit": "px"
+        },
+        "fillBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        }
+      }
+    },
+    {
+      "description": "Circular progress with percentage",
+      "attributes": {
+        "block_id": "c3d4",
+        "progressType": "circular",
+        "circularPos": "bottom-right",
+        "percentageText": true,
+        "circleSize": "60",
+        "cTrackColor": "#e0e0e0",
+        "cFillColor": "#667eea"
+      }
+    },
+    {
+      "description": "Progress with pin points for sections",
+      "attributes": {
+        "block_id": "e5f6",
+        "progressType": "horizontal",
+        "horizontalPos": "top",
+        "pinPoint": true,
+        "pinPointRep": [
+          {
+            "_key": "0",
+            "Title": "Introduction",
+            "conID": "intro"
+          },
+          {
+            "_key": "1",
+            "Title": "Features",
+            "conID": "features"
+          },
+          {
+            "_key": "2",
+            "Title": "Pricing",
+            "conID": "pricing"
+          }
+        ]
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

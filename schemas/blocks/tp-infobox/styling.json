@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-infobox",
+  "title": "Infobox - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "Alignment": {
+      "type": "object",
+      "default": {
+        "md": "center"
+      },
+      "description": "Content alignment (left, center, right)",
+      "responsive": true
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "full",
+      "description": "Image size"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "Title",
+      "Description",
+      "IconName",
+      "textIcon",
+      "imageName",
+      "Alignment",
+      "pinText",
+      "dispPinText",
+      "IBoxLink"
+    ],
+    "requiresValidation": [
+      "styleType",
+      "iconType",
+      "IBoxLinkTgl",
+      "carouselBtn",
+      "carBtnStyle"
+    ]
+  },
+  "styleDependencies": [
+    "Infobox style CSS (multiple variants)",
+    "Icon font library (Font Awesome)",
+    "Pin/badge styling",
+    "Button styling (if enabled)",
+    "Hover effects"
+  ]
+}

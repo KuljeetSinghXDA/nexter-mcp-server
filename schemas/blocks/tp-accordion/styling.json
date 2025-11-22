@@ -1,0 +1,273 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-accordion",
+  "title": "Accordion - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "iconFont": {
+      "type": "string",
+      "default": "font_awesome",
+      "description": "Icon library for toggle icons"
+    },
+    "iconAlign": {
+      "type": "string",
+      "default": "end",
+      "enum": [
+        "start",
+        "end"
+      ],
+      "description": "Toggle icon position (start = left, end = right)"
+    },
+    "titleAlign": {
+      "type": "string",
+      "default": "text-left",
+      "enum": [
+        "text-left",
+        "text-center",
+        "text-right"
+      ],
+      "description": "Text alignment for accordion titles"
+    },
+    "descAlign": {
+      "type": "string",
+      "default": "text-left",
+      "enum": [
+        "text-left",
+        "text-center",
+        "text-right"
+      ],
+      "description": "Text alignment for accordion content"
+    },
+    "collBtnAlign": {
+      "type": "object",
+      "default": {
+        "md": "center"
+      },
+      "description": "Alignment of expand/collapse button",
+      "responsive": true
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "full",
+      "description": "Image size for How-To schema image"
+    },
+    "inIconColor": {
+      "type": "string",
+      "default": "",
+      "description": "Color for inner accordion item icons"
+    },
+    "inIconActcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Color for inner icons when accordion is active/open"
+    },
+    "inIconGap": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "inIconSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "tgiconColor": {
+      "type": "string",
+      "default": "",
+      "description": "Color for toggle icon (closed state)"
+    },
+    "tgiconActcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Color for toggle icon (open state)"
+    },
+    "tgiconGap": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "tgiconSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Accordion title text color (default state)"
+    },
+    "titleActcolor": {
+      "type": "string",
+      "default": "#6f14f1",
+      "description": "Accordion title text color (active/open state)"
+    },
+    "titleHvrcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Accordion title text color (hover state)"
+    },
+    "titlePadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titleBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Border settings for accordion title (default state)",
+      "responsive": true
+    },
+    "titleBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titleActborder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Border settings for accordion title (active state)",
+      "responsive": true
+    },
+    "titleActBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titlebgType": {
+      "$ref": "definitions://background"
+    },
+    "titleBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "titleActbgtype": {
+      "$ref": "definitions://background"
+    },
+    "titleActBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "descTypo": {
+      "$ref": "definitions://typography"
+    },
+    "descColor": {
+      "type": "string",
+      "default": "",
+      "description": "Accordion content text color"
+    },
+    "descMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "descPadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "descBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Border settings for accordion content",
+      "responsive": true
+    },
+    "descbgType": {
+      "$ref": "definitions://background"
+    },
+    "descboxShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "exCollTypo": {
+      "$ref": "definitions://typography"
+    },
+    "exClPadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "exClMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "excollColor": {
+      "type": "string",
+      "default": "",
+      "description": "Expand/collapse button text color"
+    },
+    "excollHColor": {
+      "type": "string",
+      "default": "",
+      "description": "Expand/collapse button text color (hover)"
+    },
+    "excollBg": {
+      "$ref": "definitions://background"
+    },
+    "excollHBg": {
+      "$ref": "definitions://background"
+    },
+    "excollBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Expand/collapse button border"
+    },
+    "excollHBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Expand/collapse button border (hover)"
+    },
+    "excollBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "excollHBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "excollShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "excollHShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "hoverStyle": {
+      "type": "string",
+      "default": "none",
+      "enum": [
+        "none",
+        "style-1",
+        "style-2"
+      ],
+      "description": "Hover animation style for accordion items"
+    },
+    "hoverColor": {
+      "type": "string",
+      "default": "#232323",
+      "description": "Color for hover style animation effect"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "accordianList",
+      "titleColor",
+      "titleActcolor",
+      "titleHvrcolor",
+      "descColor",
+      "inIconColor",
+      "tgiconColor",
+      "titlePadding",
+      "descPadding",
+      "descMargin",
+      "accorBetspace",
+      "collapseText",
+      "expandText",
+      "howTotitle",
+      "howTodesc"
+    ],
+    "requiresValidation": [
+      "titleTag",
+      "defaultAct",
+      "onHvrtab",
+      "atOneOpen",
+      "toggleIcon",
+      "iconName",
+      "ActiconName",
+      "expCollBtn",
+      "markupSch",
+      "carouselId"
+    ]
+  },
+  "styleDependencies": [
+    "Accordion animation CSS",
+    "Icon font library (Font Awesome)",
+    "Hover effect styles",
+    "Responsive styling for all breakpoints"
+  ]
+}

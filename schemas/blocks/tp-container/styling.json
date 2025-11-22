@@ -1,0 +1,469 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-container",
+  "title": "Container - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "contentWidth": {
+      "type": "string",
+      "default": "wide",
+      "enum": [
+        "wide",
+        "full"
+      ],
+      "description": "Container width mode: wide (contained) or full (edge-to-edge)"
+    },
+    "align": {
+      "type": "string",
+      "default": "wide",
+      "enum": [
+        "wide",
+        "full"
+      ],
+      "description": "Block alignment in editor"
+    },
+    "sectionWidth": {
+      "type": "string",
+      "default": "boxed",
+      "enum": [
+        "boxed",
+        "full"
+      ],
+      "description": "Section width mode"
+    },
+    "height": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "min-height"
+      ],
+      "description": "Height control mode"
+    },
+    "minHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "overflow": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "hidden",
+        "visible",
+        "scroll",
+        "auto"
+      ],
+      "description": "CSS overflow property"
+    },
+    "shapeTop": {
+      "type": "string",
+      "default": "",
+      "description": "Top shape divider SVG name (e.g., wave, curve, arrow)"
+    },
+    "shapeTColor": {
+      "type": "string",
+      "default": "",
+      "description": "Top shape divider fill color"
+    },
+    "shapeTWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "shapeTHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "shapeBottom": {
+      "type": "string",
+      "default": "",
+      "description": "Bottom shape divider SVG name"
+    },
+    "shapeBColor": {
+      "type": "string",
+      "default": "",
+      "description": "Bottom shape divider fill color"
+    },
+    "shapeBWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "shapeBHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "NormalBg": {
+      "$ref": "definitions://background"
+    },
+    "HoverBg": {
+      "$ref": "definitions://background"
+    },
+    "StickyBg": {
+      "$ref": "definitions://background"
+    },
+    "NormalBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "",
+            "bottom": "",
+            "left": "",
+            "right": ""
+          },
+          "unit": ""
+        }
+      },
+      "description": "Border styling (normal state)"
+    },
+    "HoverBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "",
+            "bottom": "",
+            "left": "",
+            "right": ""
+          },
+          "unit": ""
+        }
+      },
+      "description": "Border styling (hover state)"
+    },
+    "StickyBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "",
+            "bottom": "",
+            "left": "",
+            "right": ""
+          },
+          "unit": ""
+        }
+      },
+      "description": "Border styling (sticky state)"
+    },
+    "NormalBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "HoverBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "StickyBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "NormalBShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "HoverBShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "StickyBShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "Margin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "Padding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "ZIndex": {
+      "type": "string",
+      "default": "",
+      "description": "CSS z-index stacking order"
+    },
+    "HideDesktop": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide container on desktop (1201px+)"
+    },
+    "deepBgopt": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "bg_normal_color",
+        "bg_gradientcolor",
+        "bg_image",
+        "bg_moving_color",
+        "bg_scrolling_color"
+      ],
+      "description": "Pro: Deep background layer type for advanced effects",
+      "proFeature": true
+    },
+    "DeepBgcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Solid color for deep background layer",
+      "proFeature": true
+    },
+    "DeepGrecolor": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Gradient color for deep background layer",
+      "proFeature": true
+    },
+    "colorList": {
+      "type": "array",
+      "default": [
+        {
+          "_key": "0",
+          "aniColor": "#8072fc",
+          "aniBgtype": ""
+        },
+        {
+          "_key": "1",
+          "aniColor": "#6fc784",
+          "aniBgtype": ""
+        },
+        {
+          "_key": "2",
+          "aniColor": "#ff5a6e",
+          "aniBgtype": ""
+        }
+      ],
+      "description": "Pro: Color list repeater for animated/scrolling backgrounds",
+      "repeaterField": {
+        "aniColor": {
+          "type": "string",
+          "default": "",
+          "description": "Animation color"
+        },
+        "aniBgtype": {
+          "type": "object",
+          "default": {
+            "openBg": 0
+          },
+          "description": "Background type per color"
+        },
+        "scrollImg": {
+          "type": "object",
+          "default": {
+            "url": ""
+          },
+          "description": "Scroll image URL"
+        }
+      },
+      "proFeature": true
+    },
+    "deepimgPosition": {
+      "type": "object",
+      "default": {
+        "md": "",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Pro: Deep image background position",
+      "responsive": true,
+      "proFeature": true
+    },
+    "deepimgSize": {
+      "type": "object",
+      "default": {
+        "md": "",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Pro: Deep image background size",
+      "responsive": true,
+      "proFeature": true
+    },
+    "craBgeffect": {
+      "type": "string",
+      "default": "columns_simple_image",
+      "enum": [
+        "columns_simple_image",
+        "bg_canvas",
+        "multi-color",
+        "bg_image_effect",
+        "mordern-image-effect"
+      ],
+      "description": "Pro: Creative background effect type",
+      "proFeature": true
+    },
+    "animation": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Background animation type",
+      "proFeature": true
+    },
+    "bgduration": {
+      "type": "string",
+      "default": "15",
+      "description": "Pro: Background animation duration in seconds",
+      "proFeature": true
+    },
+    "bgRotation": {
+      "type": "string",
+      "default": "120",
+      "description": "Pro: Background rotation angle",
+      "proFeature": true
+    },
+    "fullBggra": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Full background gradient mode",
+      "proFeature": true
+    },
+    "bgposition": {
+      "type": "string",
+      "default": "inherit",
+      "description": "Pro: Background position for animations",
+      "proFeature": true
+    },
+    "patiColor": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Primary particle color",
+      "proFeature": true
+    },
+    "topOption": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "color",
+        "texture-img"
+      ],
+      "description": "Pro: Top overlay layer option",
+      "proFeature": true
+    },
+    "topBgtype": {
+      "$ref": "definitions://background"
+    },
+    "teximgPosition": {
+      "type": "object",
+      "default": {
+        "md": "",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Pro: Texture image background position",
+      "responsive": true,
+      "proFeature": true
+    },
+    "teximgSize": {
+      "type": "object",
+      "default": {
+        "md": "",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Pro: Texture image background size",
+      "responsive": true,
+      "proFeature": true
+    },
+    "timgOpacity": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Texture image opacity (0-1)",
+      "proFeature": true
+    },
+    "flexreverse": {
+      "type": "boolean",
+      "default": false,
+      "description": "Reverse flex direction on desktop"
+    },
+    "flexRespreverse": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable responsive flex reverse"
+    },
+    "flexTabreverse": {
+      "type": "boolean",
+      "default": false,
+      "description": "Reverse flex direction on tablet"
+    },
+    "flexMobreverse": {
+      "type": "boolean",
+      "default": false,
+      "description": "Reverse flex direction on mobile"
+    },
+    "flexDirection": {
+      "type": "object",
+      "default": {
+        "md": "",
+        "sm": "",
+        "xs": "column"
+      },
+      "description": "Flex direction (row, column)",
+      "responsive": true
+    },
+    "contopoffset": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "stiMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "stiPadding": {
+      "$ref": "definitions://responsive-unit"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "Padding",
+      "Margin",
+      "minHeight",
+      "gutterSpace",
+      "NormalBg",
+      "HoverBg",
+      "NormalBorder",
+      "HoverBorder",
+      "NormalBradius",
+      "HoverBradius",
+      "NormalBShadow",
+      "HoverBShadow",
+      "shapeTop",
+      "shapeTColor",
+      "shapeTWidth",
+      "shapeTHeight",
+      "shapeBottom",
+      "shapeBColor",
+      "shapeBWidth",
+      "shapeBHeight",
+      "customClass",
+      "customId",
+      "HideDesktop",
+      "HideTablet",
+      "HideMobile"
+    ],
+    "requiresValidation": [
+      "contentWidth",
+      "containerWide",
+      "height",
+      "tagName",
+      "overflow",
+      "deepBgopt",
+      "videosour",
+      "craBgeffect",
+      "imgeffect",
+      "flexDirection",
+      "contSticky",
+      "constType",
+      "sanimaType",
+      "midOption"
+    ]
+  },
+  "styleDependencies": [
+    "Container flexbox layout CSS",
+    "Width constraints (wide/full)",
+    "Shape divider SVG assets",
+    "Background layer CSS (normal, deep, middle, top)",
+    "Video background player scripts",
+    "Parallax scroll libraries",
+    "Canvas particles.js library",
+    "Ken Burns animation CSS",
+    "Tilt.js for 3D effects",
+    "Magic scroll animation library",
+    "Sticky positioning CSS",
+    "Backdrop filter CSS",
+    "Responsive breakpoint handling"
+  ]
+}

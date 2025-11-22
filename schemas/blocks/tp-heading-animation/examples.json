@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-heading-animation",
+  "title": "Heading Animation - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple underline highlight",
+      "attributes": {
+        "block_id": "a1b2",
+        "style": "highlights",
+        "highLightStyle": "underline",
+        "prefixText": "We are ",
+        "highlightsText": "Innovative",
+        "postfixText": " thinkers",
+        "alignment": {
+          "md": "center"
+        },
+        "titleTag": "h1"
+      }
+    },
+    {
+      "description": "Rotating text with 4 words",
+      "attributes": {
+        "block_id": "c3d4",
+        "style": "textAnim",
+        "textAnimStyle": "style-2",
+        "prefixText": "We help you ",
+        "animText": [
+          {
+            "_key": "0",
+            "singleText": "Grow"
+          },
+          {
+            "_key": "1",
+            "singleText": "Succeed"
+          },
+          {
+            "_key": "2",
+            "singleText": "Scale"
+          },
+          {
+            "_key": "3",
+            "singleText": "Thrive"
+          }
+        ],
+        "durationTiming": "800"
+      }
+    },
+    {
+      "description": "Circle highlight with custom colors",
+      "attributes": {
+        "block_id": "e5f6",
+        "style": "highlights",
+        "highLightStyle": "circle",
+        "prefixText": "The ",
+        "highlightsText": "Best",
+        "postfixText": " Solution",
+        "textColor": "#2c3e50",
+        "animColor": "#667eea",
+        "animTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "48",
+            "unit": "px"
+          },
+          "weight": "700"
+        }
+      }
+    },
+    {
+      "description": "Animated heading with custom duration",
+      "attributes": {
+        "block_id": "g7h8",
+        "style": "textAnim",
+        "textAnimStyle": "style-4",
+        "prefixText": "Build ",
+        "animText": [
+          {
+            "_key": "0",
+            "singleText": "Websites"
+          },
+          {
+            "_key": "1",
+            "singleText": "Apps"
+          },
+          {
+            "_key": "2",
+            "singleText": "Experiences"
+          }
+        ],
+        "postfixText": " that matter",
+        "durationTiming": "1000",
+        "alignment": {
+          "md": "left"
+        }
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

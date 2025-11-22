@@ -1,0 +1,551 @@
+{
+  "blockName": "tpgb/tp-process-steps",
+  "version": "1.0.0",
+  "title": "Process Steps",
+  "category": "content",
+  "description": "Display step-by-step processes, workflows, or instructions with visual indicators and connecting lines. Features 2 layout styles, custom icons/images/text for step markers, optional counters, carousel integration, and extensive styling options. Perfect for tutorials, workflows, onboarding, recipes, and procedural content.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2"],
+      "description": "Visual layout: style-1 (horizontal with left icons), style-2 (vertical stacked)"
+    },
+    "displayCounter": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show step counter/number badges"
+    },
+    "counterStyle": {
+      "type": "string",
+      "default": "number_normal",
+      "enum": ["number_normal", "dc_custom_text"],
+      "description": "Counter display style (numeric or custom text)"
+    },
+    "vertOnTablet": {
+      "type": "boolean",
+      "default": false,
+      "description": "Switch to vertical layout on tablet devices"
+    },
+    "nmlLoutMobile": {
+      "type": "boolean",
+      "default": false,
+      "description": "Use normal (horizontal) layout on mobile"
+    },
+    "imgSt2Align": {
+      "type": "string",
+      "default": "center",
+      "enum": ["left", "center", "right"],
+      "description": "Image alignment for style-2"
+    },
+    "cntntSt2Align": {
+      "type": "string",
+      "default": "center",
+      "enum": ["left", "center", "right"],
+      "description": "Content alignment for style-2"
+    },
+    "specialBG": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable special animated background effect"
+    },
+    "dfltActive": {
+      "type": "string",
+      "default": "none",
+      "description": "Default active step (step number or 'none')"
+    },
+    "processSteps": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Array of individual process step items",
+      "items": {
+        "title": {
+          "type": "string",
+          "default": "Next Step",
+          "description": "Step title/heading"
+        },
+        "desc": {
+          "type": "string",
+          "default": "It`s a step description, Which will be changed with your required text content over here. Add content you want to add over here.",
+          "description": "Step description text"
+        },
+        "selectIcon": {
+          "type": "string",
+          "default": "icon",
+          "enum": ["icon", "image", "text"],
+          "description": "Step indicator type"
+        },
+        "fontAwesomeIcon": {
+          "type": "string",
+          "default": "fas fa-star",
+          "description": "Font Awesome icon class (when selectIcon is 'icon')"
+        },
+        "stepImage": {
+          "type": "object",
+          "default": {"url": ""},
+          "description": "Step indicator image (when selectIcon is 'image')"
+        },
+        "imageSize": {
+          "type": "string",
+          "default": "thumbnail",
+          "description": "WordPress image size for step image"
+        },
+        "stepText": {
+          "type": "string",
+          "default": "The Plus",
+          "description": "Step text label (when selectIcon is 'text')"
+        },
+        "linkUrl": {
+          "type": "object",
+          "default": {},
+          "description": "Optional link URL for the step"
+        },
+        "customText": {
+          "type": "string",
+          "default": "step",
+          "description": "Custom counter text (when using dc_custom_text)"
+        },
+        "iconNormalBG": {
+          "type": "object",
+          "default": {"openBg": 0, "bgType": "color"},
+          "description": "Step icon background (normal state)"
+        },
+        "iconHoverBG": {
+          "type": "object",
+          "default": {"openBg": 0, "bgType": "color"},
+          "description": "Step icon background (hover/active state)"
+        },
+        "contentHeight": {
+          "type": "object",
+          "default": {"md": "", "unit": "px"},
+          "description": "Individual step minimum height",
+          "responsive": true
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "title": "Step 1",
+          "desc": "Begin with your self. Improve, Learn, discover and become master with complete self-discipline.",
+          "selectIcon": "icon",
+          "fontAwesomeIcon": "fas fa-chess-king",
+          "stepImage": {"url": ""},
+          "imageSize": "thumbnail",
+          "stepText": "The Plus",
+          "linkUrl": {"url": "", "target": "", "nofollow": ""},
+          "customText": "step"
+        },
+        {
+          "_key": "1",
+          "title": "Step 2",
+          "desc": "Now, It's time to share and help others. Spread all your have learned to others and help them get free.",
+          "selectIcon": "icon",
+          "fontAwesomeIcon": "fas fa-bullhorn",
+          "stepImage": {"url": ""},
+          "imageSize": "thumbnail",
+          "stepText": "The Plus",
+          "linkUrl": {"url": "", "target": "", "nofollow": ""},
+          "customText": "step"
+        }
+      ]
+    },
+    "carouselToggle": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable carousel mode for steps"
+    },
+    "carouselID": {
+      "type": "string",
+      "default": "",
+      "description": "Carousel remote ID for sync with carousel block"
+    },
+    "carouselEffect": {
+      "type": "string",
+      "default": "con_pro_hover",
+      "enum": ["con_pro_hover", "con_pro_click"],
+      "description": "Carousel navigation trigger (hover or click)"
+    },
+    "titleTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography for step titles"
+    },
+    "titleNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (normal state)"
+    },
+    "titleHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (hover/active state)"
+    },
+    "titleTopSpace": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Title top margin spacing",
+      "responsive": true
+    },
+    "descTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography for step descriptions"
+    },
+    "descNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Description color (normal state)"
+    },
+    "descHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Description color (hover/active state)"
+    },
+    "descTopSpace": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Description top margin spacing",
+      "responsive": true
+    },
+    "iconSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Icon font size",
+      "responsive": true
+    },
+    "iconNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal state)"
+    },
+    "iconHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (hover/active state)"
+    },
+    "imgSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Image indicator size (width and height)",
+      "responsive": true
+    },
+    "imgBRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Image border radius",
+      "responsive": true
+    },
+    "textTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography for text indicators"
+    },
+    "textNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Text indicator color (normal state)"
+    },
+    "textHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Text indicator color (hover/active state)"
+    },
+    "bgSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Step indicator background size",
+      "responsive": true
+    },
+    "contentHeight": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Overall step content minimum height",
+      "responsive": true
+    },
+    "normalBG": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color"},
+      "description": "Step indicator background (normal state)"
+    },
+    "hoverBG": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color"},
+      "description": "Step indicator background (hover/active state)"
+    },
+    "bgNmlB": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "unit": "px"}},
+      "description": "Step indicator border (normal state)"
+    },
+    "bgHvrB": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "unit": "px"}},
+      "description": "Step indicator border (hover/active state)"
+    },
+    "nmlBRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Step indicator border radius (normal state)",
+      "responsive": true
+    },
+    "hvrBRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Step indicator border radius (hover/active state)",
+      "responsive": true
+    },
+    "nmlBGShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Step indicator box shadow (normal state)"
+    },
+    "hvrBGShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Step indicator box shadow (hover/active state)"
+    },
+    "bType": {
+      "type": "string",
+      "default": "solid",
+      "enum": ["solid", "dashed", "dotted", "custom"],
+      "description": "Separator line border style"
+    },
+    "sepNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Separator line color (normal state)"
+    },
+    "sepBSize": {
+      "type": "object",
+      "default": {"md": "1", "unit": "px"},
+      "description": "Separator line border width",
+      "responsive": true
+    },
+    "sepSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Separator line length (for style-2)",
+      "responsive": true
+    },
+    "sepHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Separator line color (hover/active state)"
+    },
+    "customImg": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Custom separator image (when bType is 'custom')"
+    },
+    "sepOffset": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Separator horizontal offset",
+      "responsive": true
+    },
+    "imgMaxSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Custom separator image max size",
+      "responsive": true
+    },
+    "sepBRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Custom separator image border radius",
+      "responsive": true
+    },
+    "contentPadding": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Step content area padding",
+      "responsive": true
+    },
+    "contentMargin": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Step icon/content margin (style-1)",
+      "responsive": true
+    },
+    "contentNmlBG": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color"},
+      "description": "Step content background (normal state)"
+    },
+    "contentHvrBG": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color"},
+      "description": "Step content background (hover/active state)"
+    },
+    "repPadding": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Individual step container padding",
+      "responsive": true
+    },
+    "repMargin": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Individual step container margin",
+      "responsive": true
+    },
+    "repNmlBG": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color"},
+      "description": "Step container background (normal state)"
+    },
+    "repHvrBG": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color"},
+      "description": "Step container background (hover/active state)"
+    },
+    "tpgbEqualHeight": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable equal height for all steps"
+    },
+    "equalUnqClass": {
+      "type": "string",
+      "default": "",
+      "description": "Unique class for equal height synchronization"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "processSteps",
+      "titleTypo",
+      "descTypo",
+      "titleNmlColor",
+      "titleHvrColor",
+      "descNmlColor",
+      "descHvrColor",
+      "iconSize",
+      "iconNmlColor",
+      "iconHvrColor",
+      "textTypo",
+      "normalBG",
+      "hoverBG",
+      "contentPadding",
+      "repPadding",
+      "repMargin",
+      "sepNmlColor",
+      "sepHvrColor"
+    ],
+    "requiresValidation": [
+      "style",
+      "displayCounter",
+      "counterStyle",
+      "carouselToggle",
+      "carouselID",
+      "carouselEffect",
+      "bType",
+      "customImg",
+      "tpgbEqualHeight"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Process steps layout CSS (2 styles)",
+    "Step separator lines/images",
+    "Hover/active state animations",
+    "Carousel integration (when carouselToggle enabled)",
+    "Equal height JavaScript (when tpgbEqualHeight enabled)"
+  ],
+  "commonUseCases": [
+    "Step-by-step tutorials and guides",
+    "Workflow and process documentation",
+    "Recipe instructions",
+    "Onboarding sequences",
+    "Product assembly instructions",
+    "Service process explanations",
+    "How-to guides",
+    "Milestone timelines",
+    "Project phases",
+    "Customer journey maps"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-timeline",
+    "tpgb/tp-icon-box",
+    "tpgb/tp-infobox",
+    "tpgb/tp-number-counter"
+  ],
+  "capabilities": [
+    "2 visual styles (horizontal and vertical)",
+    "Custom icons, images, or text for step indicators",
+    "Optional step counters with custom text",
+    "Repeater field for unlimited steps",
+    "Individual step styling (per-step backgrounds)",
+    "Separator lines between steps (solid, dashed, dotted, or custom images)",
+    "Carousel integration for step navigation",
+    "Responsive layout controls (vertical on tablet, normal on mobile)",
+    "Equal height synchronization",
+    "Normal/Hover/Active state styling",
+    "Optional links on steps",
+    "Special animated background effect",
+    "Default active step selection"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple 3-step process with icons",
+      "attributes": {
+        "block_id": "a1b2",
+        "style": "style-1",
+        "processSteps": [
+          {"_key": "0", "title": "Plan", "desc": "Define your goals and requirements", "fontAwesomeIcon": "fas fa-lightbulb"},
+          {"_key": "1", "title": "Build", "desc": "Develop and implement your solution", "fontAwesomeIcon": "fas fa-wrench"},
+          {"_key": "2", "title": "Launch", "desc": "Deploy and celebrate success", "fontAwesomeIcon": "fas fa-rocket"}
+        ]
+      }
+    },
+    {
+      "description": "Vertical process with counter badges",
+      "attributes": {
+        "block_id": "c3d4",
+        "style": "style-2",
+        "displayCounter": true,
+        "counterStyle": "number_normal",
+        "processSteps": [
+          {"_key": "0", "title": "Step 1", "desc": "First action item"},
+          {"_key": "1", "title": "Step 2", "desc": "Second action item"}
+        ]
+      }
+    },
+    {
+      "description": "Process with custom separator image",
+      "attributes": {
+        "block_id": "e5f6",
+        "style": "style-1",
+        "bType": "custom",
+        "customImg": {"url": "/arrow-separator.svg"}
+      }
+    },
+    {
+      "description": "Carousel-integrated process steps",
+      "attributes": {
+        "block_id": "g7h8",
+        "carouselToggle": true,
+        "carouselID": "carousel-1",
+        "carouselEffect": "con_pro_hover"
+      }
+    }
+  ]
+}

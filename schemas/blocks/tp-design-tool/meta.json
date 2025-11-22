@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-design-tool",
+  "version": "1.0.0",
+  "title": "Design Tool",
+  "category": "advanced",
+  "source": "pro",
+  "complexity": "expert",
+  "description": "Add horizontal and vertical grid lines to verify alignment of website content. Visual design aid for ensuring precise layout alignment with customizable grid systems. Features default or custom grid c",
+  "keywords": [
+    "grid",
+    "design tool",
+    "alignment",
+    "grid overlay"
+  ],
+  "useCases": [
+    "Design alignment",
+    "Grid overlays",
+    "Development tool"
+  ]
+}

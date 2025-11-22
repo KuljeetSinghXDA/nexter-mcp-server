@@ -1,0 +1,307 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-process-steps",
+  "title": "Process Steps - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2"
+      ],
+      "description": "Visual layout: style-1 (horizontal with left icons), style-2 (vertical stacked)"
+    },
+    "counterStyle": {
+      "type": "string",
+      "default": "number_normal",
+      "enum": [
+        "number_normal",
+        "dc_custom_text"
+      ],
+      "description": "Counter display style (numeric or custom text)"
+    },
+    "vertOnTablet": {
+      "type": "boolean",
+      "default": false,
+      "description": "Switch to vertical layout on tablet devices"
+    },
+    "nmlLoutMobile": {
+      "type": "boolean",
+      "default": false,
+      "description": "Use normal (horizontal) layout on mobile"
+    },
+    "dfltActive": {
+      "type": "string",
+      "default": "none",
+      "description": "Default active step (step number or 'none')"
+    },
+    "processSteps": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Array of individual process step items",
+      "items": {
+        "title": {
+          "type": "string",
+          "default": "Next Step",
+          "description": "Step title/heading"
+        },
+        "desc": {
+          "type": "string",
+          "default": "It`s a step description, Which will be changed with your required text content over here. Add content you want to add over here.",
+          "description": "Step description text"
+        },
+        "selectIcon": {
+          "type": "string",
+          "default": "icon",
+          "enum": [
+            "icon",
+            "image",
+            "text"
+          ],
+          "description": "Step indicator type"
+        },
+        "fontAwesomeIcon": {
+          "type": "string",
+          "default": "fas fa-star",
+          "description": "Font Awesome icon class (when selectIcon is 'icon')"
+        },
+        "stepImage": {
+          "type": "object",
+          "default": {
+            "url": ""
+          },
+          "description": "Step indicator image (when selectIcon is 'image')"
+        },
+        "imageSize": {
+          "type": "string",
+          "default": "thumbnail",
+          "description": "WordPress image size for step image"
+        },
+        "stepText": {
+          "type": "string",
+          "default": "The Plus",
+          "description": "Step text label (when selectIcon is 'text')"
+        },
+        "linkUrl": {
+          "type": "object",
+          "default": {},
+          "description": "Optional link URL for the step"
+        },
+        "customText": {
+          "type": "string",
+          "default": "step",
+          "description": "Custom counter text (when using dc_custom_text)"
+        },
+        "iconNormalBG": {
+          "type": "object",
+          "default": {
+            "openBg": 0,
+            "bgType": "color"
+          },
+          "description": "Step icon background (normal state)"
+        },
+        "iconHoverBG": {
+          "type": "object",
+          "default": {
+            "openBg": 0,
+            "bgType": "color"
+          },
+          "description": "Step icon background (hover/active state)"
+        },
+        "contentHeight": {
+          "type": "object",
+          "default": {
+            "md": "",
+            "unit": "px"
+          },
+          "description": "Individual step minimum height",
+          "responsive": true
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "title": "Step 1",
+          "desc": "Begin with your self. Improve, Learn, discover and become master with complete self-discipline.",
+          "selectIcon": "icon",
+          "fontAwesomeIcon": "fas fa-chess-king",
+          "stepImage": {
+            "url": ""
+          },
+          "imageSize": "thumbnail",
+          "stepText": "The Plus",
+          "linkUrl": {
+            "url": "",
+            "target": "",
+            "nofollow": ""
+          },
+          "customText": "step"
+        },
+        {
+          "_key": "1",
+          "title": "Step 2",
+          "desc": "Now, It's time to share and help others. Spread all your have learned to others and help them get free.",
+          "selectIcon": "icon",
+          "fontAwesomeIcon": "fas fa-bullhorn",
+          "stepImage": {
+            "url": ""
+          },
+          "imageSize": "thumbnail",
+          "stepText": "The Plus",
+          "linkUrl": {
+            "url": "",
+            "target": "",
+            "nofollow": ""
+          },
+          "customText": "step"
+        }
+      ]
+    },
+    "carouselToggle": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable carousel mode for steps"
+    },
+    "carouselID": {
+      "type": "string",
+      "default": "",
+      "description": "Carousel remote ID for sync with carousel block"
+    },
+    "carouselEffect": {
+      "type": "string",
+      "default": "con_pro_hover",
+      "enum": [
+        "con_pro_hover",
+        "con_pro_click"
+      ],
+      "description": "Carousel navigation trigger (hover or click)"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (normal state)"
+    },
+    "titleHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (hover/active state)"
+    },
+    "titleTopSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "textTypo": {
+      "$ref": "definitions://typography"
+    },
+    "textNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Text indicator color (normal state)"
+    },
+    "textHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Text indicator color (hover/active state)"
+    },
+    "contentHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "bType": {
+      "type": "string",
+      "default": "solid",
+      "enum": [
+        "solid",
+        "dashed",
+        "dotted",
+        "custom"
+      ],
+      "description": "Separator line border style"
+    },
+    "customImg": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Custom separator image (when bType is 'custom')"
+    },
+    "contentPadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "contentMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "contentNmlBG": {
+      "$ref": "definitions://background"
+    },
+    "contentHvrBG": {
+      "$ref": "definitions://background"
+    },
+    "equalUnqClass": {
+      "type": "string",
+      "default": "",
+      "description": "Unique class for equal height synchronization"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "processSteps",
+      "titleTypo",
+      "descTypo",
+      "titleNmlColor",
+      "titleHvrColor",
+      "descNmlColor",
+      "descHvrColor",
+      "iconSize",
+      "iconNmlColor",
+      "iconHvrColor",
+      "textTypo",
+      "normalBG",
+      "hoverBG",
+      "contentPadding",
+      "repPadding",
+      "repMargin",
+      "sepNmlColor",
+      "sepHvrColor"
+    ],
+    "requiresValidation": [
+      "style",
+      "displayCounter",
+      "counterStyle",
+      "carouselToggle",
+      "carouselID",
+      "carouselEffect",
+      "bType",
+      "customImg",
+      "tpgbEqualHeight"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

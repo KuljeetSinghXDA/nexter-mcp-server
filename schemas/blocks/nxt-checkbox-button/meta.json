@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-checkbox-button",
+  "version": "1.0.0",
+  "title": "Checkbox",
+  "category": "forms",
+  "source": "pro",
+  "complexity": "simple",
+  "description": "Add checkboxes to enable multiple selections from a list of options. Features customizable option labels and values, vertical or horizontal layout, checkbox positioning alignment, border radius stylin",
+  "keywords": [
+    "checkbox",
+    "multi-select",
+    "options"
+  ],
+  "useCases": [
+    "Multiple choice inputs"
+  ]
+}

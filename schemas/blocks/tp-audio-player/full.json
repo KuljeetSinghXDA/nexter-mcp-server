@@ -1,0 +1,549 @@
+{
+  "blockName": "tpgb/tp-audio-player",
+  "version": "1.0.0",
+  "title": "Audio Player",
+  "category": "media",
+  "description": "Stream audio files with a fully customizable audio player featuring 9 unique visual styles, playlist support, and extensive control customization. Perfect for podcasts, music albums, audio samples, sound effects libraries, and audio portfolios. Supports self-hosted files or external URLs with volume control, play/pause, forward/rewind, and playlist management.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "Apstyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2", "style-3", "style-4", "style-5", "style-6", "style-7", "style-8", "style-9"],
+      "description": "Audio player visual style (9 options)"
+    },
+    "Aprepeater": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Playlist tracks with title, author, audio source, and cover image",
+      "items": {
+        "title": {
+          "type": "string",
+          "default": "Shape of You",
+          "description": "Track title"
+        },
+        "author": {
+          "type": "string",
+          "default": "Ed Sheeran",
+          "description": "Track artist/author"
+        },
+        "AudSource": {
+          "type": "string",
+          "default": "url",
+          "enum": ["url", "self"],
+          "description": "Audio source type: URL or self-hosted file"
+        },
+        "sorself": {
+          "type": "object",
+          "default": {"url": "", "Id": ""},
+          "description": "Self-hosted audio file (when AudSource is 'self')"
+        },
+        "sorurl": {
+          "type": "object",
+          "default": {"url": "", "target": "", "nofollow": ""},
+          "description": "External audio URL (when AudSource is 'url')"
+        },
+        "Imagesource": {
+          "type": "object",
+          "default": {"url": "", "Id": ""},
+          "description": "Track cover/thumbnail image"
+        }
+      },
+      "default": [
+        {
+          "_key": "1",
+          "title": "Shape of You",
+          "author": "Ed Sheeran",
+          "AudSource": "url",
+          "Imagesource": {"url": ""},
+          "sorurl": {"url": ""}
+        }
+      ]
+    },
+    "Audioimage": {
+      "type": "object",
+      "default": {"url": "", "Id": ""},
+      "description": "Default cover image (used when track has no specific image)"
+    },
+    "ImageSize": {
+      "type": "string",
+      "default": "thumbnail",
+      "description": "WordPress image size for cover images"
+    },
+    "SplitText": {
+      "type": "string",
+      "default": "by",
+      "description": "Separator text between title and author (e.g., 'Title by Author')"
+    },
+    "MaxWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Maximum player width",
+      "responsive": true
+    },
+    "DefaultVolume": {
+      "type": "string",
+      "default": "",
+      "description": "Initial volume level (0-100)"
+    },
+    "SongFont": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for song/track titles"
+    },
+    "TitleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title text color"
+    },
+    "AuthorFont": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for artist/author names"
+    },
+    "Authorcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Author text color"
+    },
+    "SplitFont": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for separator text"
+    },
+    "SpliTextColor": {
+      "type": "string",
+      "default": "",
+      "description": "Separator text color"
+    },
+    "CBGcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Controls background color (style-9)"
+    },
+    "CBGRadiuss9": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Controls background border radius (style-9)",
+      "responsive": true
+    },
+    "IconColor": {
+      "type": "string",
+      "default": "",
+      "description": "Control icons color (normal state)"
+    },
+    "IconSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Control icons font size",
+      "responsive": true
+    },
+    "PlayPausecolor": {
+      "type": "string",
+      "default": "",
+      "description": "Play/pause button color"
+    },
+    "PlayPauseSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Play/pause button font size",
+      "responsive": true
+    },
+    "bgsize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Play/pause button container size (width and height)",
+      "responsive": true
+    },
+    "bgtype": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Play/pause button background"
+    },
+    "BackgroundType": {
+      "type": "object",
+      "default": {"openBorder": 0, "color": "#fff"},
+      "description": "Play/pause button border"
+    },
+    "BorderRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Play/pause button border radius",
+      "responsive": true
+    },
+    "PlIconcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Playlist icon color"
+    },
+    "PlIconSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Playlist icon font size",
+      "responsive": true
+    },
+    "VolSize": {
+      "type": "object",
+      "default": {"unit": "px"},
+      "description": "Volume icon font size",
+      "responsive": true
+    },
+    "VolIcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Volume icon color"
+    },
+    "VolScolor": {
+      "type": "string",
+      "default": "",
+      "description": "Volume slider fill color"
+    },
+    "VolSBgColor": {
+      "type": "string",
+      "default": "",
+      "description": "Volume slider background color"
+    },
+    "VolSRangeColor": {
+      "type": "string",
+      "default": "",
+      "description": "Volume slider range color"
+    },
+    "CBoxShadow": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Volume control box shadow"
+    },
+    "TTimeSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Time display font size (style-3)",
+      "responsive": true
+    },
+    "TTimecolor": {
+      "type": "string",
+      "default": "",
+      "description": "Time display color (style-3)"
+    },
+    "TTWidth": {
+      "type": "object",
+      "default": {"unit": "%"},
+      "description": "Track/timeline width",
+      "responsive": true
+    },
+    "TDotColor": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline scrubber dot color"
+    },
+    "Trackcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline track border color"
+    },
+    "TFillcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline fill/progress color"
+    },
+    "TIBorder": {
+      "type": "object",
+      "default": {"openBorder": 0},
+      "description": "Track image border"
+    },
+    "TIBorderR": {
+      "type": "object",
+      "default": {"unit": "%"},
+      "description": "Track image border radius",
+      "responsive": true
+    },
+    "TIBoxShadow": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Track image box shadow"
+    },
+    "PlPadding": {
+      "type": "object",
+      "default": {"unit": "px"},
+      "description": "Playlist item padding",
+      "responsive": true
+    },
+    "PlIMargin": {
+      "type": "object",
+      "default": {"unit": "px"},
+      "description": "Playlist item margin",
+      "responsive": true
+    },
+    "PlOMargin": {
+      "type": "object",
+      "default": {"unit": "px"},
+      "description": "Playlist container outer margin",
+      "responsive": true
+    },
+    "PLTypography": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for playlist items"
+    },
+    "NormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Playlist item color (normal state)"
+    },
+    "NormalTop": {
+      "type": "object",
+      "default": {"unit": "px"},
+      "description": "Playlist container top margin",
+      "responsive": true
+    },
+    "PlBgCr": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Playlist container background"
+    },
+    "ActiveColor": {
+      "type": "string",
+      "default": "",
+      "description": "Playlist item color (active/playing state)"
+    },
+    "ActiveTop": {
+      "type": "object",
+      "default": {"unit": "px"},
+      "description": "Active playlist item top margin",
+      "responsive": true
+    },
+    "HColor": {
+      "type": "string",
+      "default": "",
+      "description": "Playlist item color (hover state)"
+    },
+    "HAColor": {
+      "type": "string",
+      "default": "",
+      "description": "Active playlist item color (hover state)"
+    },
+    "HAPlaBgcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Active playlist item background (hover state)"
+    },
+    "PlaBgcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Active playlist item background color"
+    },
+    "Plborder": {
+      "type": "object",
+      "default": "",
+      "description": "Playlist container border"
+    },
+    "PlborderR": {
+      "type": "object",
+      "default": {"unit": "px"},
+      "description": "Playlist container border radius",
+      "responsive": true
+    },
+    "PlBoxshadow": {
+      "type": "object",
+      "default": "",
+      "description": "Playlist container box shadow"
+    },
+    "PlBgType": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Player background"
+    },
+    "PBPadding": {
+      "type": "object",
+      "default": {"unit": "px"},
+      "description": "Player container padding",
+      "responsive": true
+    },
+    "PBMargin": {
+      "type": "object",
+      "default": {"unit": "px"},
+      "description": "Player container margin",
+      "responsive": true
+    },
+    "PlBorderType": {
+      "type": "object",
+      "default": "",
+      "description": "Player container border"
+    },
+    "PLBgBordeR": {
+      "type": "object",
+      "default": {"unit": "px"},
+      "description": "Player container border radius",
+      "responsive": true
+    },
+    "PBGboxshadow": {
+      "type": "object",
+      "default": "",
+      "description": "Player container box shadow"
+    },
+    "PBGCSSFilters": {
+      "type": "object",
+      "default": {"openFilter": true, "blur": 8},
+      "description": "Player background image CSS filters (style-8)"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "Aprepeater",
+      "Audioimage",
+      "SplitText",
+      "MaxWidth",
+      "DefaultVolume",
+      "SongFont",
+      "TitleColor",
+      "AuthorFont",
+      "Authorcolor",
+      "IconColor",
+      "IconSize",
+      "PlayPausecolor",
+      "PlayPauseSize",
+      "bgsize",
+      "bgtype",
+      "BorderRadius",
+      "VolSize",
+      "VolIcolor",
+      "VolScolor",
+      "TDotColor",
+      "Trackcolor",
+      "TFillcolor",
+      "PLTypography",
+      "NormalColor",
+      "ActiveColor",
+      "PlBgType",
+      "PBPadding"
+    ],
+    "requiresValidation": [
+      "Apstyle",
+      "ImageSize",
+      "BackgroundType",
+      "TTWidth",
+      "TIBorder",
+      "PlBgCr",
+      "PlborderR",
+      "PlBoxshadow",
+      "PBGCSSFilters"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Audio player JavaScript library (Web Audio API or Howler.js)",
+    "Volume slider (noUi-Slider library)",
+    "Timeline/progress bar scrubber",
+    "Playlist management JavaScript",
+    "Audio format support (MP3, OGG, WAV, etc.)"
+  ],
+  "commonUseCases": [
+    "Podcast episodes with playlist",
+    "Music album previews",
+    "Audio sample libraries",
+    "Sound effects collections",
+    "Audiobook chapters",
+    "Language learning lessons",
+    "Interview recordings",
+    "Meditation/relaxation audio",
+    "Product demonstration audio",
+    "Audio portfolios for voice actors"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-video",
+    "tpgb/tp-media-listing"
+  ],
+  "capabilities": [
+    "9 unique visual styles",
+    "Unlimited playlist tracks with repeater field",
+    "Self-hosted or external URL audio files",
+    "Play/pause, forward/rewind controls",
+    "Volume control with slider",
+    "Timeline/progress bar with scrubber",
+    "Track title and artist display",
+    "Cover/thumbnail images per track",
+    "Playlist toggle with active state styling",
+    "Responsive controls and sizing",
+    "Custom typography for all text elements",
+    "Extensive color customization",
+    "Play/pause button styling (size, background, border, radius)",
+    "Timeline styling (dot, track, fill colors)",
+    "Playlist styling (normal, active, hover states)",
+    "Player background and border styling",
+    "CSS filters for background images (style-8)",
+    "Default volume control",
+    "Time display (style-3)",
+    "Custom separator text between title/author"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple single-track player (style-1)",
+      "attributes": {
+        "block_id": "a1b2",
+        "Apstyle": "style-1",
+        "Aprepeater": [
+          {
+            "_key": "1",
+            "title": "Episode 1: Introduction",
+            "author": "My Podcast",
+            "AudSource": "url",
+            "sorurl": {"url": "https://example.com/audio/episode1.mp3"}
+          }
+        ],
+        "DefaultVolume": "70"
+      }
+    },
+    {
+      "description": "Album playlist with custom colors (style-3)",
+      "attributes": {
+        "block_id": "c3d4",
+        "Apstyle": "style-3",
+        "Aprepeater": [
+          {"_key": "1", "title": "Track 1", "author": "Artist Name", "AudSource": "url"},
+          {"_key": "2", "title": "Track 2", "author": "Artist Name", "AudSource": "url"},
+          {"_key": "3", "title": "Track 3", "author": "Artist Name", "AudSource": "url"}
+        ],
+        "TitleColor": "#2c3e50",
+        "PlayPausecolor": "#667eea",
+        "TFillcolor": "#667eea",
+        "ActiveColor": "#667eea"
+      }
+    },
+    {
+      "description": "Minimal player with background blur (style-8)",
+      "attributes": {
+        "block_id": "e5f6",
+        "Apstyle": "style-8",
+        "PBGCSSFilters": {"openFilter": true, "blur": 12, "brightness": 80}
+      }
+    },
+    {
+      "description": "Compact player with custom play button (style-5)",
+      "attributes": {
+        "block_id": "g7h8",
+        "Apstyle": "style-5",
+        "bgsize": {"md": "60", "unit": "px"},
+        "bgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#27ae60"},
+        "PlayPausecolor": "#ffffff",
+        "BorderRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "%"}
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-number-field",
+  "version": "1.0.0",
+  "title": "Numeric Input",
+  "category": "forms",
+  "source": "pro",
+  "complexity": "simple",
+  "description": "Add a numeric input field for number entry with validation. Features optional Font Awesome icons or custom images, min/max number validation, maximum character count limit, field width control, requir",
+  "keywords": [
+    "number input",
+    "numeric field",
+    "quantity"
+  ],
+  "useCases": [
+    "Number/quantity inputs"
+  ]
+}

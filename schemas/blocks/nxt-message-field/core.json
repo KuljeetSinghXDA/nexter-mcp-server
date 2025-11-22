@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-message-field",
+  "title": "Message - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "labelss": {
+      "type": "string",
+      "default": "Message",
+      "description": "Field label text"
+    },
+    "reqTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Make field required"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "Message",
+      "description": "Placeholder text shown in empty textarea"
+    },
+    "error": {
+      "type": "string",
+      "default": "This field is required.",
+      "description": "Error message for validation failure"
+    },
+    "hlpTxt": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable help text (description)"
+    },
+    "desctxt": {
+      "type": "string",
+      "default": "Description",
+      "description": "Help text content (when hlpTxt is true)"
+    },
+    "autoComplete": {
+      "type": "string",
+      "default": "off",
+      "enum": [
+        "off",
+        "on"
+      ],
+      "description": "HTML autocomplete attribute value"
+    },
+    "lineNum": {
+      "type": "string",
+      "default": "2",
+      "description": "Number of visible text lines (rows) in textarea"
+    },
+    "inpSz": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "descPoss": {
+      "type": "string",
+      "default": "top",
+      "enum": [
+        "top",
+        "bottom"
+      ],
+      "description": "Help text position relative to field"
+    },
+    "uniqueid": {
+      "type": "string",
+      "default": "",
+      "description": "Unique field identifier for form submission"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "placeholder",
+      "error",
+      "desctxt",
+      "lineNum",
+      "inpSz"
+    ],
+    "requiresValidation": [
+      "reqTgl",
+      "hlpTxt",
+      "autoComplete",
+      "descPoss"
+    ],
+    "dangerous": [
+      "block_id",
+      "uniqueid"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true
+}

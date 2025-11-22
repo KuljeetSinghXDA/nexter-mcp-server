@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-mobile-menu",
+  "version": "1.0.0",
+  "title": "Mobile Menu",
+  "category": "navigation",
+  "source": "pro",
+  "complexity": "advanced",
+  "description": "Create responsive mobile-friendly navigation menus with 2 visual styles, custom icons/images, pin badges, page indicators, and extra toggle content. Features fixed/absolute positioning, swiper/column ",
+  "keywords": [
+    "mobile menu",
+    "hamburger menu",
+    "navigation",
+    "responsive menu"
+  ],
+  "useCases": [
+    "Mobile navigation",
+    "Responsive menus",
+    "Hamburger menus"
+  ]
+}

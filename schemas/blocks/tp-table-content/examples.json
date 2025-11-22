@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-table-content",
+  "title": "Table of Contents - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple table of contents (H2-H3 only)",
+      "attributes": {
+        "block_id": "a1b2",
+        "selectorH1": false,
+        "selectorH2": true,
+        "selectorH3": true,
+        "selectorH4": false,
+        "selectorH5": false,
+        "selectorH6": false,
+        "smoothScroll": true,
+        "contentText": "On This Page"
+      }
+    },
+    {
+      "description": "Documentation TOC with style-1",
+      "attributes": {
+        "block_id": "c3d4",
+        "Style": "style-1",
+        "typeList": "OL",
+        "showIcon": true,
+        "PrefixIcon": "fas fa-list",
+        "smoothDuration": "500",
+        "scrollOffset": "80"
+      }
+    },
+    {
+      "description": "Sticky sidebar TOC with max height",
+      "attributes": {
+        "block_id": "e5f6",
+        "fixedPosition": true,
+        "fixedOffset": "100",
+        "TableSetMinHeight": true,
+        "TableMinHeight": {
+          "md": "600",
+          "unit": "px"
+        },
+        "ScrollBarWidth": "8",
+        "ScrollBarThumb": "#667eea",
+        "Style": "style-2"
+      }
+    },
+    {
+      "description": "Collapsible TOC (mobile-collapsed, desktop-expanded)",
+      "attributes": {
+        "block_id": "g7h8",
+        "ToggleIcon": true,
+        "openIcon": "fas fa-minus",
+        "closeIcon": "fas fa-plus",
+        "DefaultToggle": {
+          "md": true,
+          "sm": true,
+          "xs": false
+        },
+        "contentText": "Contents",
+        "TableDescText": "Jump to section"
+      }
+    },
+    {
+      "description": "Styled TOC with active indicators (style-4)",
+      "attributes": {
+        "block_id": "i9j0",
+        "Style": "style-4",
+        "LineWidth": "2",
+        "Line2Width": "4",
+        "LineColor": "#e0e0e0",
+        "LineActiveColor": "#667eea",
+        "leftOffset": "30",
+        "bottomOffset": "15"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

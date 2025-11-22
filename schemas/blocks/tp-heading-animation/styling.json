@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-heading-animation",
+  "title": "Heading Animation - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "alignment": {
+      "type": "object",
+      "default": {
+        "md": "center"
+      },
+      "description": "Heading text alignment",
+      "responsive": true
+    },
+    "textTypo": {
+      "$ref": "definitions://typography"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "",
+      "description": "Heading text color (prefix, postfix, and base)"
+    },
+    "animTypo": {
+      "$ref": "definitions://typography"
+    },
+    "animColor": {
+      "type": "string",
+      "default": "",
+      "description": "Animated/highlighted text color"
+    },
+    "lineColor": {
+      "type": "string",
+      "default": "",
+      "description": "Line/underline color (textAnim style-1)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "prefixText",
+      "highlightsText",
+      "animText",
+      "postfixText",
+      "alignment",
+      "titleTag",
+      "textTypo",
+      "textColor",
+      "animTypo",
+      "animColor",
+      "lineColor"
+    ],
+    "requiresValidation": [
+      "style",
+      "highLightStyle",
+      "textAnimStyle",
+      "durationTiming"
+    ]
+  },
+  "styleDependencies": [
+    "CSS animations for text rotation",
+    "SVG or CSS for highlight decorations (underline, circle, strikethrough)",
+    "JavaScript for text rotation timing",
+    "Responsive typography adjustments"
+  ]
+}

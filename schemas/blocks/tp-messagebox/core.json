@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-messagebox",
+  "title": "Message Box - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "Title": {
+      "type": "string",
+      "default": "Special Alert message for you. Got it?",
+      "description": "Message box title text"
+    },
+    "Description": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show/hide description text"
+    },
+    "descText": {
+      "type": "string",
+      "default": "I Am Text Block. Click Edit Button To Change This Text. Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Ut Elit Tellus, Luctus Nec Ullamcorper Mattis, Pulvinar Dapibus Leo.",
+      "description": "Description/body text content"
+    },
+    "icon": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide icon"
+    },
+    "IconName": {
+      "type": "string",
+      "default": "fas fa-exclamation",
+      "description": "Font Awesome icon class"
+    },
+    "dismiss": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show dismiss/close button"
+    },
+    "dismsIcon": {
+      "type": "string",
+      "default": "far fa-times-circle",
+      "description": "Font Awesome icon class for dismiss button"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleAdjust": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titleMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titleNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (normal state)"
+    },
+    "titleHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (hover state)"
+    },
+    "titleNmlBG": {
+      "$ref": "definitions://background"
+    },
+    "titleHvrBG": {
+      "$ref": "definitions://background"
+    },
+    "titleNmlShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "titleHvrShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "descAdjust": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconWidth": {
+      "type": "object",
+      "default": {
+        "md": ""
+      },
+      "description": "Icon container width/height",
+      "responsive": true
+    },
+    "msgArrow": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show message box arrow pointer"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "Title",
+      "descText",
+      "Description",
+      "icon",
+      "dismiss",
+      "IconName",
+      "dismsIcon",
+      "titleNmlColor",
+      "titleHvrColor",
+      "descNmlColor",
+      "descHvrColor",
+      "iconNormalColor",
+      "iconHoverColor",
+      "titleTypo",
+      "descTypo",
+      "titleAdjust",
+      "titleMargin",
+      "descAdjust",
+      "descMargin",
+      "bgNormalColor"
+    ],
+    "requiresValidation": [
+      "icnPosition",
+      "msgArrow"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

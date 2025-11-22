@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-accordion",
+  "title": "Accordion - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple FAQ accordion with 3 items",
+      "attributes": {
+        "block_id": "a1b2",
+        "toggleIcon": true,
+        "iconName": "fas fa-plus",
+        "ActiconName": "fas fa-minus",
+        "defaultAct": "0",
+        "atOneOpen": true,
+        "titleColor": "#333333",
+        "titleActcolor": "#6f14f1"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-accordion-inner"
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner"
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner"
+        }
+      ]
+    },
+    {
+      "description": "Accordion with expand/collapse all button",
+      "attributes": {
+        "block_id": "c3d4",
+        "toggleIcon": true,
+        "expCollBtn": true,
+        "collBtnPos": "before",
+        "expandText": "Show All",
+        "collapseText": "Hide All",
+        "collBtnAlign": {
+          "md": "right"
+        }
+      }
+    },
+    {
+      "description": "How-To schema enabled accordion",
+      "attributes": {
+        "block_id": "e5f6",
+        "markupSch": true,
+        "howTotitle": "How to Install WordPress",
+        "howTodesc": "Complete guide to installing WordPress on your server",
+        "howTostep": "Follow these steps:",
+        "toggleIcon": true
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

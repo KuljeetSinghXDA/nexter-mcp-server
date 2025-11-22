@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-accordion-inner",
+  "title": "Accordion Inner - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "iconFont": {
+      "type": "string",
+      "default": "font_awesome",
+      "description": "Inherited from parent - icon library"
+    },
+    "titleAlign": {
+      "type": "string",
+      "default": "text-left",
+      "enum": [
+        "text-left",
+        "text-center",
+        "text-right"
+      ],
+      "description": "Inherited from parent - title alignment"
+    },
+    "iniconFonts": {
+      "type": "string",
+      "default": "font_awesome",
+      "description": "Icon library for this item's icon"
+    },
+    "iconAlign": {
+      "type": "string",
+      "default": "end",
+      "enum": [
+        "start",
+        "end"
+      ],
+      "description": "Inherited from parent - icon alignment"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "title",
+      "innerIcon",
+      "innericonName",
+      "hrefLink",
+      "innerBlocks content"
+    ],
+    "requiresValidation": [
+      "index",
+      "defaultAct",
+      "uniqueKey"
+    ]
+  },
+  "styleDependencies": [
+    "Inherits all styling from parent tp-accordion block",
+    "Icon font library (Font Awesome)",
+    "Accordion animation CSS"
+  ]
+}

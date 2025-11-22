@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-expand",
+  "title": "Expand - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "iconPosition": {
+      "type": "string",
+      "default": "before",
+      "enum": [
+        "before",
+        "after"
+      ],
+      "description": "Icon position relative to button text"
+    },
+    "contentMaxHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "customOpacity": {
+      "type": "boolean",
+      "default": false,
+      "description": "Use custom opacity overlay at content bottom"
+    },
+    "opacityHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "opacityColor": {
+      "type": "string",
+      "default": "",
+      "description": "Opacity overlay end color (gradient from transparent)"
+    },
+    "toggleAlignment": {
+      "type": "string",
+      "default": "left",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "description": "Toggle button alignment"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "title",
+      "content",
+      "expandText",
+      "ariaLabel",
+      "readMoreIcon",
+      "collapseText",
+      "collapseIcon",
+      "extraButtonText",
+      "extraButtonLink",
+      "ariaLabelEb",
+      "extraButtonIcon",
+      "contentMaxHeight",
+      "opacityHeight",
+      "opacityColor",
+      "transDuration",
+      "toggleAlignment"
+    ],
+    "requiresValidation": [
+      "contentSource",
+      "templates",
+      "backendVisi",
+      "titleTag",
+      "iconPosition",
+      "extraButton",
+      "contentExpandDir",
+      "customOpacity"
+    ]
+  },
+  "styleDependencies": [
+    "CSS transitions for smooth expand/collapse",
+    "JavaScript for height calculation and toggle",
+    "Gradient overlay CSS (when customOpacity is true)"
+  ]
+}

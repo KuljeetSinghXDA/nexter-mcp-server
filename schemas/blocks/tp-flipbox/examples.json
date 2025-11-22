@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-flipbox",
+  "title": "Flip Box - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple horizontal flip box",
+      "attributes": {
+        "block_id": "a1b2",
+        "flipType": "horizontal",
+        "boxHeight": {
+          "md": "300",
+          "unit": "px"
+        },
+        "backAlign": "center",
+        "backCarouselBtn": true,
+        "btnCarouselStyle": "style-1"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-heading-title",
+          "attrs": {
+            "block_id": "c3d4",
+            "Title": "Front Side"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "e5f6",
+            "content": "Back side content here"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Vertical flip with button",
+      "attributes": {
+        "block_id": "g7h8",
+        "flipType": "vertical",
+        "backCarouselBtn": true,
+        "btnCarouselIconType": "icon",
+        "btnCarouselIconName": "fas fa-arrow-right"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

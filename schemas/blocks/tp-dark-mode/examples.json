@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-dark-mode",
+  "title": "Dark Mode - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple toggle with default style",
+      "attributes": {
+        "block_id": "a1b2",
+        "dmStyle": "style-1",
+        "matchOsTheme": true,
+        "saveCookies": true
+      }
+    },
+    {
+      "description": "Icon-based toggle with custom colors",
+      "attributes": {
+        "block_id": "c3d4",
+        "dmStyle": "style-3",
+        "IconName": "fas fa-sun",
+        "darkIconEn": true,
+        "darkIcon": "fas fa-moon",
+        "iconLgtColor": "#ffa500",
+        "iconDarkColor": "#4169e1"
+      }
+    },
+    {
+      "description": "Fixed position toggle in corner",
+      "attributes": {
+        "block_id": "e5f6",
+        "dmStyle": "style-2",
+        "dmPosition": "fixed",
+        "fixedPos": "right-bottom",
+        "dmRightOf": {
+          "md": "20",
+          "unit": "px"
+        },
+        "dmBottomOf": {
+          "md": "20",
+          "unit": "px"
+        }
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

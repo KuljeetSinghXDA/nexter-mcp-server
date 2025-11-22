@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-design-tool",
+  "title": "Design Tool - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Default grid system overlay",
+      "attributes": {
+        "block_id": "a1b2",
+        "gridSystemOpt": "gs_default",
+        "gridOnFront": false
+      }
+    },
+    {
+      "description": "Custom 12-column grid with purple overlay",
+      "attributes": {
+        "block_id": "c3d4",
+        "gridSystemOpt": "gs_custom",
+        "gridColumn": {
+          "md": "12"
+        },
+        "gridMaxWidth": {
+          "md": "1140",
+          "unit": "px"
+        },
+        "gridBGcolor": "#8072fc40",
+        "alleySpace": {
+          "md": "30",
+          "unit": "px"
+        },
+        "gridOffset": {
+          "md": "30",
+          "unit": "px"
+        },
+        "gridOnFront": false
+      }
+    },
+    {
+      "description": "RTL grid for right-to-left languages",
+      "attributes": {
+        "block_id": "e5f6",
+        "gridSystemOpt": "gs_custom",
+        "gridDirection": "rtl",
+        "gridColumn": {
+          "md": "12"
+        },
+        "gridOnFront": true
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-stylist-list",
+  "title": "Stylish List - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "hover_bg_style": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable hover background effect on list items"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "listsRepeater (add/edit/remove items)",
+      "hover_bg_style"
+    ],
+    "requiresValidation": []
+  },
+  "styleDependencies": [
+    "List styling CSS",
+    "Icon font library (Font Awesome)",
+    "Tooltip styling",
+    "Hover effects",
+    "Hint badge styling"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-team-listing",
+  "version": "1.0.0",
+  "title": "Team Member",
+  "category": "advanced",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Showcase team members with photos, names, designations, and social media links. Supports grid and carousel layouts with multiple style variants. Perfect for About Us pages, team sections, and staff di",
+  "keywords": [
+    "team",
+    "staff",
+    "about us",
+    "team members"
+  ],
+  "useCases": [
+    "Team pages",
+    "Staff listings",
+    "About us sections"
+  ]
+}

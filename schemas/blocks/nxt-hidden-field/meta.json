@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-hidden-field",
+  "version": "1.0.0",
+  "title": "Hidden Field",
+  "category": "forms",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Add a hidden field to your form to pass data silently without displaying it to users. Features field name and value attributes for backend processing. Perfect for passing tracking parameters, form IDs",
+  "keywords": [
+    "hidden input",
+    "metadata",
+    "tracking"
+  ],
+  "useCases": [
+    "Hidden form data",
+    "Tracking fields",
+    "UTM parameters"
+  ]
+}

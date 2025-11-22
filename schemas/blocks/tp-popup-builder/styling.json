@@ -1,0 +1,160 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-popup-builder",
+  "title": "Popup Builder - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "iconPosition": {
+      "type": "string",
+      "default": "after",
+      "enum": [
+        "before",
+        "after"
+      ],
+      "description": "Icon position relative to button text"
+    },
+    "btnAlign": {
+      "type": "object",
+      "default": {
+        "md": "center",
+        "sm": "center",
+        "xs": "center"
+      },
+      "description": "Button alignment",
+      "responsive": true
+    },
+    "popupWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "popupHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "openWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "scrollWindowOffset": {
+      "type": "boolean",
+      "default": false,
+      "description": "Scroll offset trigger"
+    },
+    "scrollTopOffset": {
+      "type": "string",
+      "default": "",
+      "description": "Scroll top offset value (pixels)"
+    },
+    "closeIconAlign": {
+      "type": "string",
+      "default": "right",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "description": "Close icon alignment"
+    },
+    "scrollHeight": {
+      "type": "string",
+      "default": "100",
+      "description": "Scroll height trigger value (pixels or percentage)"
+    },
+    "popLeftAuto": {
+      "type": "boolean",
+      "default": false,
+      "description": "Auto calculate left position"
+    },
+    "popTopAuto": {
+      "type": "boolean",
+      "default": false,
+      "description": "Auto calculate top position"
+    },
+    "inAnimation": {
+      "type": "string",
+      "default": "fadeIn",
+      "description": "Opening animation type"
+    },
+    "outAnimation": {
+      "type": "string",
+      "default": "fadeOut",
+      "description": "Closing animation type"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "popupCnt",
+      "shortCodeCnt",
+      "btnText",
+      "btnIcon",
+      "iconPosition",
+      "btnAlign",
+      "popupWidth",
+      "popupHeight",
+      "openWidth",
+      "closeContent",
+      "bodyClickClose",
+      "scrollTopOffset",
+      "closeIconAlign",
+      "loadpodelay",
+      "scrollHeight",
+      "previousUrl",
+      "extraId",
+      "dateStart",
+      "dateEnd",
+      "showXTimes",
+      "callUrl",
+      "showXDays",
+      "pageViews",
+      "inactivitySec",
+      "popXPos",
+      "popYPos",
+      "custDur",
+      "animDelay",
+      "outcustDur",
+      "outanimDelay"
+    ],
+    "requiresValidation": [
+      "contentSource",
+      "cntType",
+      "popupDir",
+      "toggleCanvas",
+      "toggleIconStyle",
+      "imgSvg",
+      "btnIconStyle",
+      "openStyle",
+      "openDir",
+      "cornerBoxDir",
+      "fixedToggleBtn",
+      "scrollWindowOffset",
+      "closeIconCustom",
+      "closeIconCustomSource",
+      "onbtnClick",
+      "onpageLoad",
+      "onScroll",
+      "exitInlet",
+      "inactivity",
+      "pageviews",
+      "prevurl",
+      "extraclick",
+      "showTime",
+      "showRestricted",
+      "calltoUrlpara",
+      "popLeftAuto",
+      "popTopAuto",
+      "inAnimation",
+      "inanimDir",
+      "inanimDur",
+      "AnimEasing",
+      "outAnimation",
+      "outanimDir",
+      "outanimDur",
+      "outAnimEasing"
+    ]
+  },
+  "styleDependencies": [
+    "Popup/modal overlay JavaScript",
+    "Animation library (Animate.css or similar)",
+    "Exit intent detection JavaScript",
+    "Scroll tracking JavaScript",
+    "Cookie/localStorage for restrictions",
+    "URL parameter detection",
+    "Responsive positioning calculations"
+  ]
+}

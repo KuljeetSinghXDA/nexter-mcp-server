@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-submit-button",
+  "title": "Submit - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "labelss": {
+      "type": "string",
+      "default": "Submit",
+      "description": "Button text label"
+    },
+    "ButtonType": {
+      "type": "string",
+      "default": "none",
+      "enum": [
+        "none",
+        "fontAwesome",
+        "image"
+      ],
+      "description": "Icon type for submit button"
+    },
+    "ButtonIcon": {
+      "type": "string",
+      "default": "",
+      "description": "Font Awesome icon class (when ButtonType is 'fontAwesome')"
+    },
+    "ButtonImage": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "Id": ""
+      },
+      "description": "Custom icon image (when ButtonType is 'image')"
+    },
+    "btnSz": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconPos": {
+      "type": "string",
+      "default": "-1",
+      "enum": [
+        "-1",
+        "1"
+      ],
+      "description": "Icon position: -1 for left (before text), 1 for right (after text)"
+    },
+    "iconSpc": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconSz": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "icnClr": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal state)"
+    },
+    "hvrIcnClr": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (hover state)"
+    },
+    "isInline": {
+      "type": "boolean",
+      "default": false,
+      "description": "Display inline with previous field (e.g., email field) instead of block"
+    },
+    "parentFormId": {
+      "type": "string",
+      "default": "",
+      "description": "Parent form block ID for submission handling"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "ButtonIcon",
+      "ButtonImage",
+      "btnAlign",
+      "btnSz",
+      "iconSpc",
+      "iconSz",
+      "icnClr",
+      "hvrIcnClr"
+    ],
+    "requiresValidation": [
+      "ButtonType",
+      "iconPos",
+      "isInline"
+    ],
+    "dangerous": [
+      "block_id",
+      "parentFormId"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true
+}

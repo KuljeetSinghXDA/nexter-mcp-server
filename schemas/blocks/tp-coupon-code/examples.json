@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-coupon-code",
+  "title": "Coupon Code - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple click-to-reveal coupon (style-1)",
+      "attributes": {
+        "block_id": "a1b2",
+        "couponType": "standard",
+        "standardStyle": "style-1",
+        "couponText": "Get 20% Off",
+        "couponCode": "SAVE20",
+        "actionType": "click",
+        "codecopyIcn": true
+      }
+    },
+    {
+      "description": "Popup modal coupon with redirect",
+      "attributes": {
+        "block_id": "c3d4",
+        "couponType": "standard",
+        "standardStyle": "style-2",
+        "actionType": "popup",
+        "couponCode": "FLASH30",
+        "popupTitle": "Here's your exclusive 30% discount!",
+        "popupDesc": "Use this code at checkout",
+        "redirectLink": {
+          "url": "https://example.com/shop",
+          "target": "_blank"
+        }
+      }
+    },
+    {
+      "description": "Scratch-off gamified coupon",
+      "attributes": {
+        "block_id": "e5f6",
+        "couponType": "scratch",
+        "couponCode": "MYSTERY50",
+        "fillPercent": "60",
+        "scratchWidth": {
+          "md": "400",
+          "unit": "px"
+        },
+        "scratchHeight": {
+          "md": "250",
+          "unit": "px"
+        },
+        "frontContent": "Scratch to reveal your discount!"
+      }
+    },
+    {
+      "description": "Slide-out coupon with masked links",
+      "attributes": {
+        "block_id": "g7h8",
+        "couponType": "slideOut",
+        "slideDirection": "right",
+        "couponCode": "PARTNER15",
+        "hideLink": true,
+        "linkMaskText": "Choose your store",
+        "maskLinkList": [
+          {
+            "label": "Store A",
+            "linkUrl": {
+              "url": "https://store-a.com"
+            }
+          },
+          {
+            "label": "Store B",
+            "linkUrl": {
+              "url": "https://store-b.com"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Peel effect with cookie persistence",
+      "attributes": {
+        "block_id": "i9j0",
+        "couponType": "peel",
+        "couponCode": "WELCOME10",
+        "saveCookie": true,
+        "backTitle": "Welcome!",
+        "backDesc": "Use code WELCOME10 for 10% off your first order"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

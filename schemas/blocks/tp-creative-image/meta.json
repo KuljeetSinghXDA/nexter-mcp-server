@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-creative-image",
+  "version": "1.0.0",
+  "title": "Advanced Image",
+  "category": "media",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Display images with advanced effects including scroll reveal animations, parallax movement, mask shapes, continuous scroll effects, and CSS filters. Perfect for hero sections, feature showcases, and v",
+  "keywords": [
+    "creative image",
+    "image effects",
+    "hover image",
+    "animated image"
+  ],
+  "useCases": [
+    "Images with hover effects",
+    "Creative galleries",
+    "Portfolio images"
+  ]
+}

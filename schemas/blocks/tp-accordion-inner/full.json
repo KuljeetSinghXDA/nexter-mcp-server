@@ -1,0 +1,188 @@
+{
+  "blockName": "tpgb/tp-accordion-inner",
+  "version": "1.0.0",
+  "title": "Accordion Inner",
+  "category": "interactive",
+  "description": "Individual accordion item that must be used inside the Accordion block. Contains title and collapsible content with optional icon support. This block cannot be inserted independently - it requires a parent Accordion block.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "className": {
+      "type": "string",
+      "default": "",
+      "description": "Additional CSS class names"
+    },
+    "uniqueKey": {
+      "type": "string",
+      "default": "",
+      "description": "Unique key for this accordion item within parent"
+    },
+    "title": {
+      "type": "string",
+      "default": "",
+      "description": "Accordion item title (clickable header)"
+    },
+    "index": {
+      "type": "number",
+      "default": "",
+      "description": "Item index position within parent accordion"
+    },
+    "defaultAct": {
+      "type": "number",
+      "default": "",
+      "description": "Whether this item is active/open by default"
+    },
+    "toggleIcon": {
+      "type": "boolean",
+      "default": false,
+      "description": "Inherited from parent - show toggle icon"
+    },
+    "iconFont": {
+      "type": "string",
+      "default": "font_awesome",
+      "description": "Inherited from parent - icon library"
+    },
+    "iconName": {
+      "type": "string",
+      "default": "fas fa-plus",
+      "description": "Inherited from parent - closed state icon"
+    },
+    "ActiconName": {
+      "type": "string",
+      "default": "fas fa-minus",
+      "description": "Inherited from parent - open state icon"
+    },
+    "titleTag": {
+      "type": "string",
+      "default": "",
+      "description": "Inherited from parent - HTML tag for title"
+    },
+    "titleAlign": {
+      "type": "string",
+      "default": "text-left",
+      "enum": ["text-left", "text-center", "text-right"],
+      "description": "Inherited from parent - title alignment"
+    },
+    "innerIcon": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show icon specific to this accordion item"
+    },
+    "iniconFonts": {
+      "type": "string",
+      "default": "font_awesome",
+      "description": "Icon library for this item's icon"
+    },
+    "innericonName": {
+      "type": "string",
+      "default": "fas fa-home",
+      "description": "Icon class for this item's icon"
+    },
+    "iconAlign": {
+      "type": "string",
+      "default": "end",
+      "enum": ["start", "end"],
+      "description": "Inherited from parent - icon alignment"
+    },
+    "markupSch": {
+      "type": "boolean",
+      "default": false,
+      "description": "Inherited from parent - How-To schema markup enabled"
+    },
+    "hrefLink": {
+      "type": "string",
+      "default": "",
+      "description": "Optional URL link for the accordion title"
+    },
+    "accordianList": {
+      "type": "array",
+      "default": [],
+      "description": "Legacy repeater field - modern usage prefers using innerBlocks for content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "title",
+      "innerIcon",
+      "innericonName",
+      "hrefLink",
+      "innerBlocks content"
+    ],
+    "requiresValidation": [
+      "index",
+      "defaultAct",
+      "uniqueKey"
+    ],
+    "dangerous": [
+      "block_id",
+      "className",
+      "Parent-inherited properties (toggleIcon, iconFont, titleTag, etc.)"
+    ]
+  },
+  "styleDependencies": [
+    "Inherits all styling from parent tp-accordion block",
+    "Icon font library (Font Awesome)",
+    "Accordion animation CSS"
+  ],
+  "commonUseCases": [
+    "Individual FAQ item",
+    "Collapsible content panel",
+    "Step in How-To guide",
+    "Expandable product feature"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-accordion",
+    "tpgb/tp-heading-title",
+    "tpgb/tp-pro-paragraph"
+  ],
+  "capabilities": [
+    "Custom title per item",
+    "Optional item-specific icon",
+    "Supports innerBlocks for rich content",
+    "URL linking on title",
+    "Inherits parent styling and behavior"
+  ],
+  "usesContext": [],
+  "supports": {
+    "inserter": false,
+    "reusable": false,
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": true,
+  "allowedInnerBlocks": ["*"],
+  "parentBlockRequired": true,
+  "requiredParentBlock": "tpgb/tp-accordion",
+  "examples": [
+    {
+      "description": "Simple accordion item with title and content",
+      "attributes": {
+        "block_id": "a1b2",
+        "title": "What is WordPress?",
+        "innerIcon": false
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "c3d4",
+            "content": "WordPress is a free and open-source content management system."
+          }
+        }
+      ]
+    },
+    {
+      "description": "Accordion item with custom icon",
+      "attributes": {
+        "block_id": "e5f6",
+        "title": "Pricing Information",
+        "innerIcon": true,
+        "innericonName": "fas fa-dollar-sign"
+      }
+    }
+  ]
+}

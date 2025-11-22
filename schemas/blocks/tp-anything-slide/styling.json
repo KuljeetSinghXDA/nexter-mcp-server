@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-anything-slide",
+  "title": "Slide Inner - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {},
+  "editingGuidelines": {
+    "safeToModify": [
+      "itemId"
+    ],
+    "requiresValidation": [
+      "key"
+    ]
+  },
+  "styleDependencies": [
+    "Parent carousel (tp-anything-carousel) JavaScript",
+    "Slide animation and transition effects",
+    "Carousel navigation system"
+  ]
+}

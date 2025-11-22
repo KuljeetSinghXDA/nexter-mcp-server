@@ -1,0 +1,334 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-progress-tracker",
+  "title": "Progress Tracker - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "progressType": {
+      "type": "string",
+      "default": "horizontal",
+      "enum": [
+        "horizontal",
+        "vertical",
+        "circular"
+      ],
+      "description": "Progress bar layout type"
+    },
+    "horizontalPos": {
+      "type": "string",
+      "default": "top",
+      "enum": [
+        "top",
+        "bottom"
+      ],
+      "description": "Horizontal bar position (when progressType is 'horizontal')"
+    },
+    "hzDirection": {
+      "type": "string",
+      "default": "ltr",
+      "enum": [
+        "ltr",
+        "rtl"
+      ],
+      "description": "Horizontal fill direction (when progressType is 'horizontal')"
+    },
+    "verticalPos": {
+      "type": "string",
+      "default": "left",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "description": "Vertical bar position (when progressType is 'vertical')"
+    },
+    "circularPos": {
+      "type": "string",
+      "default": "top-left",
+      "enum": [
+        "top-left",
+        "top-right",
+        "center-left",
+        "center-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "description": "Circular indicator position (when progressType is 'circular')"
+    },
+    "pinPoint": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable pin points for content sections"
+    },
+    "pinPStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2"
+      ],
+      "description": "Pin point visual style"
+    },
+    "pinPointRep": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Pin point items with titles and content IDs",
+      "items": {
+        "Title": {
+          "type": "string",
+          "default": "Pin 1",
+          "description": "Pin point label"
+        },
+        "conID": {
+          "type": "string",
+          "default": "",
+          "description": "Content section ID to track"
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "Title": "Pin 1",
+          "conID": ""
+        }
+      ]
+    },
+    "applyTo": {
+      "type": "string",
+      "default": "entire",
+      "enum": [
+        "entire",
+        "custom"
+      ],
+      "description": "Progress tracking scope: entire page or custom selector"
+    },
+    "unqSelector": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS selector for progress tracking (when applyTo is 'custom')"
+    },
+    "relTselector": {
+      "type": "boolean",
+      "default": false,
+      "description": "Use relative selector for custom tracking"
+    },
+    "percentageText": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show percentage text indicator"
+    },
+    "percentageStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2"
+      ],
+      "description": "Percentage text visual style"
+    },
+    "trackBdr": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "1",
+            "left": "1",
+            "bottom": "1",
+            "right": "1"
+          },
+          "unit": "px"
+        }
+      },
+      "description": "Track border (horizontal/vertical)"
+    },
+    "texTypo": {
+      "$ref": "definitions://typography"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "",
+      "description": "Percentage text color"
+    },
+    "pinBdr": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "1",
+            "left": "1",
+            "bottom": "1",
+            "right": "1"
+          },
+          "sm": {},
+          "xs": {},
+          "unit": "px"
+        }
+      },
+      "description": "Pin point border (normal)"
+    },
+    "pinHBdr": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "1",
+            "left": "1",
+            "bottom": "1",
+            "right": "1"
+          },
+          "sm": {},
+          "xs": {},
+          "unit": "px"
+        }
+      },
+      "description": "Pin point border (hover)"
+    },
+    "pinABdr": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "1",
+            "left": "1",
+            "bottom": "1",
+            "right": "1"
+          },
+          "sm": {},
+          "xs": {},
+          "unit": "px"
+        }
+      },
+      "description": "Pin point border (active)"
+    },
+    "pDotBdr": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "1",
+            "left": "1",
+            "bottom": "1",
+            "right": "1"
+          },
+          "sm": {},
+          "xs": {},
+          "unit": "px"
+        }
+      },
+      "description": "Pin dot border (normal, style-2)"
+    },
+    "pDotHBdr": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "1",
+            "left": "1",
+            "bottom": "1",
+            "right": "1"
+          },
+          "sm": {},
+          "xs": {},
+          "unit": "px"
+        }
+      },
+      "description": "Pin dot border (hover, style-2)"
+    },
+    "pDotABdr": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "1",
+            "left": "1",
+            "bottom": "1",
+            "right": "1"
+          },
+          "sm": {},
+          "xs": {},
+          "unit": "px"
+        }
+      },
+      "description": "Pin dot border (active, style-2)"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "pinPointRep",
+      "unqSelector",
+      "circleSize",
+      "circleBGColor",
+      "trackSize",
+      "cPosTopOff",
+      "cPosBottomOff",
+      "cPosLeftOff",
+      "cPosRightOff",
+      "trackBG",
+      "fillBG",
+      "cTrackColor",
+      "cFillColor",
+      "textColor",
+      "ttBGColor",
+      "pinColor",
+      "pinHColor",
+      "pinAColor",
+      "pinOffset",
+      "trackOffset",
+      "texTypo",
+      "pinTypo"
+    ],
+    "requiresValidation": [
+      "progressType",
+      "horizontalPos",
+      "hzDirection",
+      "verticalPos",
+      "circularPos",
+      "pinPoint",
+      "pinPStyle",
+      "applyTo",
+      "relTselector",
+      "percentageText",
+      "percentageStyle"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

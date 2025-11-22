@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-time-field",
+  "version": "1.0.0",
+  "title": "Pick a Time",
+  "category": "forms",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Include a clock-based time picker in your form for time selection. Features field width control, required field validation, placeholder text, help text (description), and custom error messages. Perfec",
+  "keywords": [
+    "time picker",
+    "time input",
+    "clock"
+  ],
+  "useCases": [
+    "Time selection in forms"
+  ]
+}

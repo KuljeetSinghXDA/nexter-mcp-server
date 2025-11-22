@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-acceptance-button",
+  "title": "Agree to Terms - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "lblTypo": {
+      "$ref": "definitions://typography"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "lnkLbl",
+      "lnk",
+      "lblClr",
+      "lnkLblClr",
+      "lblTypo",
+      "hvrLblClr",
+      "hvrLnkLblClr"
+    ],
+    "requiresValidation": [
+      "reqTgl",
+      "lnkTgl"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Checkbox input styling",
+    "Link hover transitions"
+  ]
+}

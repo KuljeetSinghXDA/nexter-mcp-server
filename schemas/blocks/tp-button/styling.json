@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-button",
+  "title": "Advanced Button - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "hoverText": {
+      "type": "string",
+      "default": "Click Here",
+      "description": "Alternative text shown on hover (for specific styles)"
+    },
+    "Alignment": {
+      "type": "object",
+      "default": {
+        "md": "left",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Responsive button alignment (left/center/right)",
+      "responsive": true
+    },
+    "fontAwesomeIcon": {
+      "type": "string",
+      "default": "fa fa-chevron-right",
+      "description": "Font Awesome icon class"
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "full",
+      "description": "Icon image size"
+    },
+    "iconPosition": {
+      "type": "string",
+      "default": "iconAfter",
+      "enum": [
+        "iconBefore",
+        "iconAfter"
+      ],
+      "description": "Icon position relative to button text"
+    },
+    "iconSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "innerPadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "btnTextNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (normal state)"
+    },
+    "btnTextHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (hover state)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "btnText",
+      "hoverText",
+      "btnTagText",
+      "btnLink",
+      "Alignment",
+      "fontAwesomeIcon",
+      "iconPosition",
+      "iconSpace",
+      "innerPadding",
+      "btnTextNmlColor",
+      "btnTextHvrColor",
+      "ariaLabel"
+    ],
+    "requiresValidation": [
+      "styleType",
+      "btnHvrType",
+      "iconHvrType",
+      "iconType",
+      "fancyBox",
+      "templates"
+    ]
+  },
+  "styleDependencies": [
+    "Button style CSS (23 variants)",
+    "Hover animation effects",
+    "Icon font library (Font Awesome)",
+    "FancyBox/lightbox library (if enabled)",
+    "Responsive styling"
+  ]
+}

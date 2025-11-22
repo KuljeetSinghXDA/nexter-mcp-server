@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-cta-banner",
+  "title": "CTA Banner - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "imageSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size for banner image"
+    },
+    "hoverStyle": {
+      "type": "string",
+      "default": "cta_img_vertical",
+      "enum": [
+        "cta_img_vertical",
+        "cta_img_horizontal",
+        "cta_img_zoom",
+        "cta_img_fade"
+      ],
+      "description": "Image hover effect type"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title text color (normal state)"
+    },
+    "titlehoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title text color (hover state)"
+    },
+    "subtitleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "subtitleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Subtitle text color (normal state)"
+    },
+    "subtitlehoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Subtitle text color (hover state)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "Title",
+      "subTitle",
+      "desc",
+      "bannerImage",
+      "imageSize",
+      "titleTypo",
+      "titleColor",
+      "titlehoverColor",
+      "subtitleTypo",
+      "subtitleColor",
+      "subtitlehoverColor"
+    ],
+    "requiresValidation": [
+      "styleType",
+      "hoverStyle"
+    ]
+  },
+  "styleDependencies": [
+    "Image hover effects (vertical, horizontal, zoom, fade)",
+    "CSS transitions for hover states",
+    "Background image positioning",
+    "Responsive typography",
+    "Color transitions on hover"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-repeater-block",
+  "title": "Repeater - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple 3-column grid",
+      "attributes": {
+        "block_id": "a1b2",
+        "sourceOpt": "none",
+        "gridColumns": {
+          "md": "3",
+          "sm": "2",
+          "xs": "1"
+        },
+        "columnsGap": {
+          "md": "20",
+          "unit": "px"
+        },
+        "rowGap": {
+          "md": "20",
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "description": "ACF repeater field display",
+      "attributes": {
+        "block_id": "c3d4",
+        "sourceOpt": "acf",
+        "repField": "team_members",
+        "postOpt": {
+          "label": "About Page",
+          "value": "123"
+        },
+        "gridColumns": {
+          "md": "4",
+          "sm": "2",
+          "xs": "1"
+        },
+        "columnsGap": {
+          "md": "30",
+          "unit": "px"
+        },
+        "rowGap": {
+          "md": "30",
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "description": "Responsive testimonial grid with padding",
+      "attributes": {
+        "block_id": "e5f6",
+        "sourceOpt": "none",
+        "gridColumns": {
+          "md": "2",
+          "sm": "1",
+          "xs": "1"
+        },
+        "contPad": {
+          "md": {
+            "top": "40",
+            "bottom": "40",
+            "left": "20",
+            "right": "20"
+          },
+          "unit": "px"
+        },
+        "columnsGap": {
+          "md": "40",
+          "unit": "px"
+        },
+        "rowGap": {
+          "md": "40",
+          "unit": "px"
+        }
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

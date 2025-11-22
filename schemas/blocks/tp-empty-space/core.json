@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-empty-space",
+  "title": "Spacer - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "className": {
+      "type": "string",
+      "default": "",
+      "description": "Additional CSS class names"
+    },
+    "toggle": {
+      "type": "string",
+      "default": "normal",
+      "enum": [
+        "normal",
+        "global"
+      ],
+      "description": "Spacing mode: normal (px units) or global (custom units like rem, em, vh)"
+    },
+    "space": {
+      "type": "object",
+      "default": {
+        "md": 50
+      },
+      "description": "Vertical spacing height (responsive). In 'normal' mode uses px, in 'global' mode uses the unit specified in the value (e.g. '2rem', '5vh')",
+      "responsive": true
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "space",
+      "toggle",
+      "className"
+    ],
+    "requiresValidation": [],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {},
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

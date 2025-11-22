@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-design-tool",
+  "title": "Design Tool - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "gridSystemOpt": {
+      "type": "string",
+      "default": "gs_default",
+      "enum": [
+        "gs_default",
+        "gs_custom"
+      ],
+      "description": "Grid system: default or custom configuration"
+    },
+    "gridDirection": {
+      "type": "string",
+      "default": "ltr",
+      "enum": [
+        "ltr",
+        "rtl"
+      ],
+      "description": "Grid direction: left-to-right or right-to-left"
+    },
+    "gridMaxWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "gridColumn": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "gridBGcolor": {
+      "type": "string",
+      "default": "#8072fc40",
+      "description": "Grid column background color (when gridSystemOpt is 'gs_custom')"
+    },
+    "alleyBGcolor": {
+      "type": "string",
+      "default": "#00000000",
+      "description": "Alley/gutter background color (when gridSystemOpt is 'gs_custom')"
+    },
+    "gridOffset": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "gridOnFront": {
+      "type": "boolean",
+      "default": false,
+      "description": "Display grid on frontend (otherwise editor-only)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "gridMaxWidth",
+      "gridColumn",
+      "gridBGcolor",
+      "alleySpace",
+      "alleyBGcolor",
+      "gridOffset"
+    ],
+    "requiresValidation": [
+      "designToolOpt",
+      "gridSystemOpt",
+      "gridDirection",
+      "gridOnFront"
+    ]
+  },
+  "styleDependencies": [
+    "CSS custom properties (CSS variables) for grid system",
+    "Grid overlay rendering",
+    "Editor-only vs frontend display toggle"
+  ]
+}

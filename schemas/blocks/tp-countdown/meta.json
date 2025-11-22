@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-countdown",
+  "version": "1.0.0",
+  "title": "Countdown",
+  "category": "marketing",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Display countdown timers to specific dates or dynamic counters. Supports 3 visual styles (default, flip, progress bar) with customizable labels, colors, and expiry actions. Perfect for product launche",
+  "keywords": [
+    "countdown",
+    "timer",
+    "launch countdown",
+    "event timer"
+  ],
+  "useCases": [
+    "Product launches",
+    "Event countdowns",
+    "Sale timers"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-acceptance-button",
+  "title": "Agree to Terms - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "labelss": {
+      "type": "string",
+      "default": "I have read and accepted the Privacy Policy.",
+      "description": "Acceptance statement text (consent label)"
+    },
+    "reqTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Make field required (user must check to submit)"
+    },
+    "lnkTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable link within acceptance text"
+    },
+    "lnkLbl": {
+      "type": "string",
+      "default": "",
+      "description": "Link text label (when lnkTgl is true)"
+    },
+    "lnk": {
+      "$ref": "definitions://link"
+    },
+    "lblClr": {
+      "type": "string",
+      "default": "",
+      "description": "Acceptance label text color (normal state)"
+    },
+    "lnkLblClr": {
+      "type": "string",
+      "default": "",
+      "description": "Link text color (normal state)"
+    },
+    "hvrLblClr": {
+      "type": "string",
+      "default": "",
+      "description": "Acceptance label text color (hover state)"
+    },
+    "hvrLnkLblClr": {
+      "type": "string",
+      "default": "",
+      "description": "Link text color (hover state)"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "lnkLbl",
+      "lnk",
+      "lblClr",
+      "lnkLblClr",
+      "lblTypo",
+      "hvrLblClr",
+      "hvrLnkLblClr"
+    ],
+    "requiresValidation": [
+      "reqTgl",
+      "lnkTgl"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true
+}

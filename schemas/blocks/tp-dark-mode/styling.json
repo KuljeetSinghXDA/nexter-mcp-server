@@ -1,0 +1,233 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-dark-mode",
+  "title": "Dark Mode - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "dmPosition": {
+      "type": "string",
+      "default": "relative",
+      "enum": [
+        "relative",
+        "absolute",
+        "fixed"
+      ],
+      "description": "Toggle positioning mode"
+    },
+    "Alignment": {
+      "type": "object",
+      "default": {
+        "md": "center",
+        "sm": "",
+        "xs": ""
+      },
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "description": "Toggle alignment (when dmPosition is 'relative')",
+      "responsive": true
+    },
+    "dmRightOf": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "dmBottomOf": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "switchSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "icons2Size": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "bgs3Size": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconLgtColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color in light mode (style-3)"
+    },
+    "iconDarkColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color in dark mode (style-3)"
+    },
+    "dotLgtBG": {
+      "$ref": "definitions://background"
+    },
+    "dotDarkBG": {
+      "$ref": "definitions://background"
+    },
+    "dotLgtBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "1",
+            "left": "1",
+            "bottom": "1",
+            "right": "1"
+          },
+          "sm": [],
+          "xs": [],
+          "unit": "px"
+        }
+      },
+      "description": "Toggle dot border (light mode)"
+    },
+    "dotDarkBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "1",
+            "left": "1",
+            "bottom": "1",
+            "right": "1"
+          },
+          "sm": [],
+          "xs": [],
+          "unit": "px"
+        }
+      },
+      "description": "Toggle dot border (dark mode)"
+    },
+    "dotLgtBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "dotDarkBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "dotLgtShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "dotDarkShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "switchLgtBG": {
+      "$ref": "definitions://background"
+    },
+    "switchDarkBG": {
+      "$ref": "definitions://background"
+    },
+    "switchLgtBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "1",
+            "left": "1",
+            "bottom": "1",
+            "right": "1"
+          },
+          "sm": [],
+          "xs": [],
+          "unit": "px"
+        }
+      },
+      "description": "Toggle switch border (light mode)"
+    },
+    "switchDarkBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "1",
+            "left": "1",
+            "bottom": "1",
+            "right": "1"
+          },
+          "sm": [],
+          "xs": [],
+          "unit": "px"
+        }
+      },
+      "description": "Toggle switch border (dark mode)"
+    },
+    "switchLgtBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "switchDarkBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "switchLgtShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "switchDarkShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "beforeTypo": {
+      "$ref": "definitions://typography"
+    },
+    "beforeColor": {
+      "type": "string",
+      "default": "",
+      "description": "Color for before text"
+    },
+    "beforeOffset": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "afterTypo": {
+      "$ref": "definitions://typography"
+    },
+    "afterColor": {
+      "type": "string",
+      "default": "",
+      "description": "Color for after text"
+    },
+    "afterOffset": {
+      "$ref": "definitions://responsive-unit"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "IconName",
+      "darkIcon",
+      "switchSize",
+      "icons2Size",
+      "bgs3Size",
+      "iconLgtColor",
+      "iconDarkColor",
+      "beforeText",
+      "afterText",
+      "beforeColor",
+      "afterColor",
+      "beforeOffset",
+      "afterOffset",
+      "Alignment",
+      "absoluteOff",
+      "dmRightOf",
+      "dmBottomOf"
+    ],
+    "requiresValidation": [
+      "dmStyle",
+      "S2IconType",
+      "darkIconEn",
+      "saveCookies",
+      "matchOsTheme",
+      "dmPosition",
+      "fixedPos"
+    ]
+  },
+  "styleDependencies": [
+    "Dark mode toggle JavaScript",
+    "Cookie management (when saveCookies is true)",
+    "OS theme detection (when matchOsTheme is true)",
+    "CSS custom properties for theme switching",
+    "Global color palette system"
+  ]
+}

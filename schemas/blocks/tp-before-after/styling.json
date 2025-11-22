@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-before-after",
+  "title": "Before After - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "imageSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size for both images"
+    },
+    "alignment": {
+      "type": "object",
+      "default": {
+        "md": "center",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Block alignment (left, center, right)",
+      "responsive": true
+    },
+    "fullWidth": {
+      "type": "boolean",
+      "default": false,
+      "description": "Expand to full container width"
+    },
+    "sepWidth": {
+      "type": "string",
+      "default": "5",
+      "description": "Separator line width (px)"
+    },
+    "sepColor": {
+      "type": "string",
+      "default": "",
+      "description": "Separator line color"
+    },
+    "sepbotColor": {
+      "type": "string",
+      "default": "",
+      "description": "Separator bottom segment color (for two-tone separator)"
+    },
+    "padding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "labelTypo": {
+      "$ref": "definitions://typography"
+    },
+    "labelColor": {
+      "type": "string",
+      "default": "",
+      "description": "Label text color"
+    },
+    "labelBgtype": {
+      "$ref": "definitions://background"
+    },
+    "labelBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Label border styling"
+    },
+    "labelBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "labelBshadow": {
+      "$ref": "definitions://shadow"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "beforeImg",
+      "afterImg",
+      "beforeLabel",
+      "afterLabel",
+      "imageSize",
+      "alignment",
+      "fullWidth",
+      "onmouseHvr",
+      "sepLine",
+      "sepWidth",
+      "sepPosi",
+      "sepColor",
+      "sepbotColor",
+      "labelTypo",
+      "labelColor",
+      "labelBgtype",
+      "labelBorder",
+      "labelBradius",
+      "labelBshadow",
+      "padding"
+    ],
+    "requiresValidation": [
+      "style",
+      "sepStyle",
+      "sepIcon"
+    ]
+  },
+  "styleDependencies": [
+    "Before/After comparison slider JavaScript library",
+    "Drag and hover interaction handlers",
+    "Image clipping/masking CSS",
+    "Separator handle positioning"
+  ]
+}

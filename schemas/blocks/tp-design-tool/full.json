@@ -1,0 +1,163 @@
+{
+  "blockName": "tpgb/tp-design-tool",
+  "version": "1.0.0",
+  "title": "Design Tool",
+  "category": "design",
+  "description": "Add horizontal and vertical grid lines to verify alignment of website content. Visual design aid for ensuring precise layout alignment with customizable grid systems. Features default or custom grid configurations with adjustable columns, spacing, and colors. Perfect for design precision, layout verification, and development workflow.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "designToolOpt": {
+      "type": "string",
+      "default": "grid_stystem",
+      "description": "Design tool option type"
+    },
+    "gridSystemOpt": {
+      "type": "string",
+      "default": "gs_default",
+      "enum": ["gs_default", "gs_custom"],
+      "description": "Grid system: default or custom configuration"
+    },
+    "gridDirection": {
+      "type": "string",
+      "default": "ltr",
+      "enum": ["ltr", "rtl"],
+      "description": "Grid direction: left-to-right or right-to-left"
+    },
+    "gridMaxWidth": {
+      "type": "object",
+      "default": {"md": "1140", "unit": "px"},
+      "description": "Grid container max width (when gridSystemOpt is 'gs_custom')",
+      "responsive": true
+    },
+    "gridColumn": {
+      "type": "object",
+      "default": {"md": "12", "unit": ""},
+      "description": "Number of grid columns (when gridSystemOpt is 'gs_custom')",
+      "responsive": true
+    },
+    "gridBGcolor": {
+      "type": "string",
+      "default": "#8072fc40",
+      "description": "Grid column background color (when gridSystemOpt is 'gs_custom')"
+    },
+    "alleySpace": {
+      "type": "object",
+      "default": {"md": "30", "unit": "px"},
+      "description": "Gutter/alley space between columns (when gridSystemOpt is 'gs_custom')",
+      "responsive": true
+    },
+    "alleyBGcolor": {
+      "type": "string",
+      "default": "#00000000",
+      "description": "Alley/gutter background color (when gridSystemOpt is 'gs_custom')"
+    },
+    "gridOffset": {
+      "type": "object",
+      "default": {"md": "30", "unit": "px"},
+      "description": "Grid left and right offset from viewport edge (when gridSystemOpt is 'gs_custom')",
+      "responsive": true
+    },
+    "gridOnFront": {
+      "type": "boolean",
+      "default": false,
+      "description": "Display grid on frontend (otherwise editor-only)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "gridMaxWidth",
+      "gridColumn",
+      "gridBGcolor",
+      "alleySpace",
+      "alleyBGcolor",
+      "gridOffset"
+    ],
+    "requiresValidation": [
+      "designToolOpt",
+      "gridSystemOpt",
+      "gridDirection",
+      "gridOnFront"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "CSS custom properties (CSS variables) for grid system",
+    "Grid overlay rendering",
+    "Editor-only vs frontend display toggle"
+  ],
+  "commonUseCases": [
+    "Design alignment verification",
+    "Layout grid overlay",
+    "Column alignment checking",
+    "Development workflow aid",
+    "Responsive design testing",
+    "Grid system visualization",
+    "Content alignment validation",
+    "Design precision tool"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-container",
+    "core/group",
+    "core/columns"
+  ],
+  "capabilities": [
+    "2 grid system modes (default, custom)",
+    "Custom grid column count",
+    "Adjustable max container width",
+    "Customizable column background color",
+    "Gutter/alley spacing control",
+    "Gutter background color",
+    "Left/right offset control",
+    "LTR/RTL direction support",
+    "Editor-only or frontend display",
+    "Responsive configuration",
+    "CSS custom property injection",
+    "Visual alignment aid"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Default grid system overlay",
+      "attributes": {
+        "block_id": "a1b2",
+        "gridSystemOpt": "gs_default",
+        "gridOnFront": false
+      }
+    },
+    {
+      "description": "Custom 12-column grid with purple overlay",
+      "attributes": {
+        "block_id": "c3d4",
+        "gridSystemOpt": "gs_custom",
+        "gridColumn": {"md": "12"},
+        "gridMaxWidth": {"md": "1140", "unit": "px"},
+        "gridBGcolor": "#8072fc40",
+        "alleySpace": {"md": "30", "unit": "px"},
+        "gridOffset": {"md": "30", "unit": "px"},
+        "gridOnFront": false
+      }
+    },
+    {
+      "description": "RTL grid for right-to-left languages",
+      "attributes": {
+        "block_id": "e5f6",
+        "gridSystemOpt": "gs_custom",
+        "gridDirection": "rtl",
+        "gridColumn": {"md": "12"},
+        "gridOnFront": true
+      }
+    }
+  ]
+}

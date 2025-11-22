@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-number-counter",
+  "version": "1.0.0",
+  "title": "Number Counter",
+  "category": "marketing",
+  "source": "free",
+  "complexity": "medium",
+  "description": "Animated number counter for highlighting important stats and figures. Displays numbers with smooth count-up animations from start to end value. Supports 2 layout styles, custom symbols/prefixes, optio",
+  "keywords": [
+    "counter",
+    "statistics",
+    "number",
+    "count up",
+    "stats"
+  ],
+  "useCases": [
+    "Statistics",
+    "Achievements",
+    "Counters"
+  ]
+}

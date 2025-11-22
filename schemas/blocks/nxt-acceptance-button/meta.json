@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-acceptance-button",
+  "version": "1.0.0",
+  "title": "Agree to Terms",
+  "category": "forms",
+  "source": "pro",
+  "complexity": "simple",
+  "description": "Include a consent statement with a checkbox for terms and conditions acceptance. Features customizable acceptance label, optional link to terms/privacy policy, required field validation, label and lin",
+  "keywords": [
+    "terms",
+    "privacy",
+    "acceptance",
+    "consent",
+    "gdpr"
+  ],
+  "useCases": [
+    "Terms acceptance",
+    "Privacy consent",
+    "GDPR compliance"
+  ]
+}

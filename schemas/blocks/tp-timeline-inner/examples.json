@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-timeline-inner",
+  "title": "Timeline Inner - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Basic timeline event with icon",
+      "attributes": {
+        "block_id": "a1b2",
+        "RcTitle": "Company Founded",
+        "description": "We started our journey with a vision to change the industry.",
+        "Ricon": "fas fa-rocket",
+        "PinStyle": "style-1",
+        "RcAlign": "text-left"
+      }
+    },
+    {
+      "description": "Timeline item with button CTA",
+      "attributes": {
+        "block_id": "c3d4",
+        "RcTitle": "Product Launch",
+        "RTitle": "Version 1.0",
+        "description": "Our flagship product was released to the public.",
+        "Ricon": "fas fa-star",
+        "RButton": true,
+        "RBtnText": "Learn More"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

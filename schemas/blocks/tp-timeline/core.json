@@ -1,0 +1,556 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-timeline",
+  "title": "Timeline - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2"
+      ],
+      "description": "Timeline layout: style-1 (horizontal line with alternating cards), style-2 (vertical cards)"
+    },
+    "MLayout": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable mobile-specific layout adjustments"
+    },
+    "timeediType": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline edit type (internal use)"
+    },
+    "RContent": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Array of timeline event/milestone items",
+      "items": {
+        "Rnone": {
+          "type": "string",
+          "default": "icon",
+          "enum": [
+            "icon",
+            "image"
+          ],
+          "description": "Pin icon type"
+        },
+        "Ricon": {
+          "type": "string",
+          "default": "fa fa-download",
+          "description": "Font Awesome icon class for pin"
+        },
+        "Rimg": {
+          "type": "object",
+          "default": {
+            "url": "",
+            "Id": ""
+          },
+          "description": "Pin image (when Rnone is 'image')"
+        },
+        "RimgSize": {
+          "type": "string",
+          "default": "full",
+          "description": "WordPress image size for pin image"
+        },
+        "RTitle": {
+          "type": "string",
+          "default": "09-11-2045",
+          "description": "Date/time label displayed on timeline pin"
+        },
+        "contentImg": {
+          "type": "object",
+          "default": {
+            "url": "",
+            "Id": ""
+          },
+          "description": "Content card image"
+        },
+        "RContentType": {
+          "type": "string",
+          "default": "text",
+          "enum": [
+            "text",
+            "template"
+          ],
+          "description": "Content type: text (HTML) or template (Pro)"
+        },
+        "RImgWidth": {
+          "type": "object",
+          "default": {
+            "md": "",
+            "unit": "px"
+          },
+          "description": "Content card image width",
+          "responsive": true
+        },
+        "RImgtoff": {
+          "type": "object",
+          "default": {
+            "md": "",
+            "unit": "px"
+          },
+          "description": "Content card image top margin",
+          "responsive": true
+        },
+        "RPosition": {
+          "type": "string",
+          "default": "right",
+          "enum": [
+            "left",
+            "right"
+          ],
+          "description": "Card position relative to timeline (alternating)"
+        },
+        "RcTitle": {
+          "type": "string",
+          "default": "New Event",
+          "description": "Event/milestone title"
+        },
+        "Rdes": {
+          "type": "string",
+          "default": "Add your event description with style using all our options. You will love to use and add details over here.",
+          "description": "Event description text (HTML allowed)"
+        },
+        "RcType": {
+          "type": "string",
+          "default": "image",
+          "enum": [
+            "image",
+            "icon",
+            "none"
+          ],
+          "description": "Content featured media type"
+        },
+        "Rfimage": {
+          "type": "object",
+          "default": {
+            "url": "",
+            "Id": ""
+          },
+          "description": "Featured image for content card"
+        },
+        "RfImgSize": {
+          "type": "string",
+          "default": "full",
+          "description": "WordPress image size for featured image"
+        },
+        "RUrl": {
+          "type": "object",
+          "default": {
+            "url": "",
+            "target": "",
+            "nofollow": ""
+          },
+          "description": "Optional link URL for the timeline item"
+        },
+        "RButton": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show button/CTA in content card"
+        },
+        "RBtnText": {
+          "type": "string",
+          "default": "",
+          "description": "Button text label"
+        },
+        "RcHTML": {
+          "type": "string",
+          "default": "",
+          "description": "Custom HTML content for card"
+        },
+        "Rtemplet": {
+          "type": "string",
+          "default": "right",
+          "description": "Pro: Template positioning"
+        },
+        "backVisi": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show in backend editor"
+        },
+        "ajaxbase": {
+          "type": "string",
+          "default": "",
+          "description": "Ajax base URL for dynamic content"
+        },
+        "RcAlign": {
+          "type": "string",
+          "default": "text-right",
+          "enum": [
+            "text-left",
+            "text-center",
+            "text-right"
+          ],
+          "description": "Content text alignment"
+        },
+        "RSAlign": {
+          "type": "string",
+          "default": "left",
+          "enum": [
+            "left",
+            "center",
+            "right"
+          ],
+          "description": "Separator alignment"
+        },
+        "RTopspace": {
+          "type": "object",
+          "default": {
+            "md": "",
+            "unit": "px"
+          },
+          "description": "Individual item top margin",
+          "responsive": true
+        }
+      },
+      "default": [
+        {
+          "_key": "1",
+          "Rnone": "icon",
+          "Ricon": "fa fa-calendar",
+          "RcTitle": "Event 1",
+          "RTitle": "24-05-1995",
+          "RPosition": "right",
+          "RContentType": "text",
+          "RcType": "image",
+          "RUrl": {
+            "url": ""
+          },
+          "RcAlign": "text-right",
+          "RSAlign": "left",
+          "Rdes": "Add your event description with style using all our options. You will love to use and add details over here.",
+          "ajaxbase": ""
+        },
+        {
+          "_key": "2",
+          "Rnone": "icon",
+          "Ricon": "fa fa-calendar",
+          "RcTitle": "Event 2",
+          "RTitle": "24-05-1995",
+          "RPosition": "left",
+          "RContentType": "text",
+          "RcType": "image",
+          "RUrl": {
+            "url": ""
+          },
+          "RcAlign": "text-left",
+          "RSAlign": "right",
+          "Rdes": "Add your event description with style using all our options. You will love to use and add details over here.",
+          "ajaxbase": ""
+        }
+      ]
+    },
+    "PinStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2",
+        "style-3"
+      ],
+      "description": "Pin badge visual style"
+    },
+    "StartPin": {
+      "type": "string",
+      "default": "icon",
+      "enum": [
+        "icon",
+        "image",
+        "text"
+      ],
+      "description": "Timeline start marker type"
+    },
+    "StartIcon": {
+      "type": "string",
+      "default": "fa fa-angle-double-down",
+      "description": "Font Awesome icon for start marker"
+    },
+    "StartImage": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "Id": ""
+      },
+      "description": "Image for start marker (when StartPin is 'image')"
+    },
+    "StartText": {
+      "type": "string",
+      "default": "START",
+      "description": "Text for start marker (when StartPin is 'text')"
+    },
+    "EndPin": {
+      "type": "string",
+      "default": "icon",
+      "enum": [
+        "icon",
+        "image",
+        "text"
+      ],
+      "description": "Timeline end marker type"
+    },
+    "EndIcon": {
+      "type": "string",
+      "default": "fa fa-stop-circle",
+      "description": "Font Awesome icon for end marker"
+    },
+    "EndImage": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "Id": ""
+      },
+      "description": "Image for end marker (when EndPin is 'image')"
+    },
+    "EndText": {
+      "type": "string",
+      "default": "END",
+      "description": "Text for end marker (when EndPin is 'text')"
+    },
+    "NPinCr": {
+      "type": "string",
+      "default": "",
+      "description": "Pin label text color"
+    },
+    "NBRrs": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "HPinCr": {
+      "type": "string",
+      "default": "",
+      "description": "Pin label text color (hover)"
+    },
+    "IconCr": {
+      "type": "string",
+      "default": "",
+      "description": "Pin icon color"
+    },
+    "IconBcr": {
+      "type": "string",
+      "default": "",
+      "description": "Pin icon border color"
+    },
+    "IconBrs": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "IconHcr": {
+      "type": "string",
+      "default": "",
+      "description": "Pin icon color (hover)"
+    },
+    "IconHBcr": {
+      "type": "string",
+      "default": "",
+      "description": "Pin icon border color (hover)"
+    },
+    "TypoTitle": {
+      "$ref": "definitions://typography"
+    },
+    "titledivider": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show divider line under titles"
+    },
+    "NCrTitle": {
+      "type": "string",
+      "default": "",
+      "description": "Title text color (normal)"
+    },
+    "NBCrTitle": {
+      "type": "string",
+      "default": "",
+      "description": "Title divider border color (normal)"
+    },
+    "HCrTitle": {
+      "type": "string",
+      "default": "",
+      "description": "Title text color (hover)"
+    },
+    "HBCrTitle": {
+      "type": "string",
+      "default": "",
+      "description": "Title divider border color (hover)"
+    },
+    "NCrCon": {
+      "type": "string",
+      "default": "",
+      "description": "Description text color (normal)"
+    },
+    "HCrcon": {
+      "type": "string",
+      "default": "",
+      "description": "Description text color (hover)"
+    },
+    "BtnPad": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "BtnNcr": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (normal)"
+    },
+    "BtnBrd": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Button border (normal)"
+    },
+    "BtnBRds": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "BtnBoxsd": {
+      "$ref": "definitions://shadow"
+    },
+    "BtnHcr": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (hover)"
+    },
+    "BtnHvrBrd": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Button border (hover)"
+    },
+    "BtnHBSRs": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "BtnHBoxSd": {
+      "$ref": "definitions://shadow"
+    },
+    "ArrowStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2",
+        "style-3"
+      ],
+      "description": "Card arrow style (for style-2)"
+    },
+    "PinBCr": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline track/line background color"
+    },
+    "PSCr": {
+      "type": "string",
+      "default": "",
+      "description": "Start marker color (icon or text)"
+    },
+    "TextTypo": {
+      "$ref": "definitions://typography"
+    },
+    "TextPad": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "TextMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "TextBg": {
+      "$ref": "definitions://background"
+    },
+    "TextBCr": {
+      "type": "string",
+      "default": "",
+      "description": "Start text marker border color"
+    },
+    "TextBRs": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "TextBSd": {
+      "$ref": "definitions://shadow"
+    },
+    "PECr": {
+      "type": "string",
+      "default": "",
+      "description": "End marker color (icon or text)"
+    },
+    "ETextTypo": {
+      "$ref": "definitions://typography"
+    },
+    "ETextPad": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "eTextMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "ETextBg": {
+      "$ref": "definitions://background"
+    },
+    "ETextCr": {
+      "type": "string",
+      "default": "",
+      "description": "End text marker border color"
+    },
+    "ETextBRs": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "ETextBSd": {
+      "$ref": "definitions://shadow"
+    },
+    "divWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "isAnim": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable animated progress line on scroll"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "RContent",
+      "StartPin",
+      "StartIcon",
+      "StartText",
+      "EndPin",
+      "EndIcon",
+      "EndText",
+      "TypoTitle",
+      "TypoCon",
+      "TypoLoop",
+      "IconSize",
+      "IconCr",
+      "IconBgCr",
+      "NCrTitle",
+      "NCrCon",
+      "BtnNcr",
+      "BtnNBG",
+      "PinBCr"
+    ],
+    "requiresValidation": [
+      "style",
+      "Alignment",
+      "PinStyle",
+      "ArrowStyle",
+      "isAnim",
+      "titledivider",
+      "MLayout"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

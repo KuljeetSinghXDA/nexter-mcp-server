@@ -1,0 +1,235 @@
+{
+  "blockName": "tpgb/tp-form-block",
+  "version": "1.0.0",
+  "title": "Form",
+  "category": "forms",
+  "description": "Create user-friendly forms to collect information effortlessly. Build custom forms with multiple field types including name, email, phone, message, date, time, URL, number, checkboxes, radio buttons, dropdowns, and file uploads. Features extensive styling controls, validation, and submission handling. Perfect for contact forms, surveys, registrations, and data collection.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "lblClr": {
+      "type": "string",
+      "default": "",
+      "description": "Label text color"
+    },
+    "lblTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for labels"
+    },
+    "lblBtmMrg": {
+      "type": "object",
+      "default": {"md": "5", "unit": "px"},
+      "description": "Label bottom margin",
+      "responsive": true
+    },
+    "hvrLblClr": {
+      "type": "string",
+      "default": "",
+      "description": "Label color on hover"
+    },
+    "inpClr": {
+      "type": "string",
+      "default": "",
+      "description": "Input text color"
+    },
+    "plcClr": {
+      "type": "string",
+      "default": "",
+      "description": "Placeholder text color"
+    },
+    "inpBg": {
+      "type": "string",
+      "default": "",
+      "description": "Input background color"
+    },
+    "hvrPlc": {
+      "type": "string",
+      "default": "",
+      "description": "Placeholder color on hover"
+    },
+    "hvrInpBg": {
+      "type": "string",
+      "default": "",
+      "description": "Input background on hover"
+    },
+    "inpBdr": {
+      "type": "object",
+      "default": {"openBorder": 0},
+      "description": "Input border"
+    },
+    "inpBdrRds": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Input border radius",
+      "responsive": true
+    },
+    "hvrInpBdrClr": {
+      "type": "string",
+      "default": "",
+      "description": "Input border color on hover"
+    },
+    "inpPad": {
+      "type": "object",
+      "default": {"md": {"top": "10", "bottom": "10", "left": "10", "right": "10"}, "unit": "px"},
+      "description": "Input padding",
+      "responsive": true
+    },
+    "inpTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for input text"
+    },
+    "chkRadSz": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Checkbox and radio button size",
+      "responsive": true
+    },
+    "chkRadBg": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color", "bgDefaultColor": ""},
+      "description": "Checkbox/radio background"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "lblClr",
+      "lblTypo",
+      "lblBtmMrg",
+      "hvrLblClr",
+      "inpClr",
+      "plcClr",
+      "inpBg",
+      "hvrPlc",
+      "hvrInpBg",
+      "inpBdr",
+      "inpBdrRds",
+      "hvrInpBdrClr",
+      "inpPad",
+      "inpTypo",
+      "chkRadSz",
+      "chkRadBg"
+    ],
+    "requiresValidation": [],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Form validation JavaScript",
+    "Input masking for phone numbers",
+    "Date/time picker JavaScript",
+    "File upload handling",
+    "Form submission AJAX",
+    "Error message display",
+    "Success message handling"
+  ],
+  "commonUseCases": [
+    "Contact forms",
+    "Newsletter signups",
+    "Lead generation forms",
+    "Survey and feedback forms",
+    "Registration forms",
+    "Application forms",
+    "Booking and reservation forms",
+    "Quote request forms",
+    "Support ticket forms",
+    "Order forms",
+    "RSVP forms",
+    "Consultation request forms"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-button",
+    "core/group"
+  ],
+  "capabilities": [
+    "Multiple field types (name, email, phone, message, date, time, URL, number, checkbox, radio, dropdown, file)",
+    "Custom field labels",
+    "Placeholder text customization",
+    "Label typography controls",
+    "Label bottom margin",
+    "Input text color customization",
+    "Placeholder color styling",
+    "Input background color",
+    "Hover states for labels, placeholders, and backgrounds",
+    "Border styling (color, width, style, radius)",
+    "Hover border color",
+    "Input padding controls",
+    "Input typography customization",
+    "Checkbox and radio button sizing",
+    "Checkbox/radio background styling",
+    "Phone number field with country code dropdown",
+    "Date and time input fields",
+    "Message/textarea field",
+    "Number input field",
+    "URL field validation",
+    "Checkbox and radio options",
+    "Dropdown/select field",
+    "Accept/terms checkbox",
+    "Pin badge text for menu items (mobile menu integration)",
+    "Responsive styling controls",
+    "Autofill styling support",
+    "Normal and hover state styling for all elements"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple contact form styling",
+      "attributes": {
+        "block_id": "a1b2",
+        "lblClr": "#2c3e50",
+        "inpClr": "#2c3e50",
+        "plcClr": "#95a5a6",
+        "inpBg": "#ffffff",
+        "inpBdr": {"openBorder": 1, "type": "solid", "color": "#dcdcdc", "width": {"md": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "unit": "px"}},
+        "inpBdrRds": {"md": {"top": "4", "right": "4", "bottom": "4", "left": "4"}, "unit": "px"}
+      }
+    },
+    {
+      "description": "Modern form with custom styling",
+      "attributes": {
+        "block_id": "c3d4",
+        "lblTypo": {"openTypography": 1, "size": {"md": "14", "unit": "px"}, "weight": "600"},
+        "lblBtmMrg": {"md": "8", "unit": "px"},
+        "inpPad": {"md": {"top": "12", "bottom": "12", "left": "15", "right": "15"}, "unit": "px"},
+        "inpBg": "#f7f9fc",
+        "hvrInpBg": "#ffffff",
+        "hvrInpBdrClr": "#667eea"
+      }
+    },
+    {
+      "description": "Minimal bordered form",
+      "attributes": {
+        "block_id": "e5f6",
+        "inpBg": "transparent",
+        "inpBdr": {"openBorder": 1, "type": "solid", "color": "#e0e0e0", "width": {"md": {"top": "0", "left": "0", "bottom": "2", "right": "0"}, "unit": "px"}},
+        "inpBdrRds": {"md": {"top": "0", "right": "0", "bottom": "0", "left": "0"}, "unit": "px"},
+        "hvrInpBdrClr": "#667eea"
+      }
+    },
+    {
+      "description": "Custom checkbox/radio styling",
+      "attributes": {
+        "block_id": "g7h8",
+        "chkRadSz": {"md": "20", "unit": "px"},
+        "chkRadBg": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#667eea"}
+      }
+    }
+  ]
+}

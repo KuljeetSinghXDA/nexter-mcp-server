@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-adv-typo",
+  "title": "Advanced Typography - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Gradient stroke text",
+      "attributes": {
+        "block_id": "a1b2",
+        "typoText": "Creative Typography",
+        "strokeFill": true,
+        "gradientTgl": true,
+        "strokeWidth": {
+          "md": "2",
+          "unit": "px"
+        },
+        "strokeNGColor": "linear-gradient(90deg, #667eea 0%, #764ba2 100%)",
+        "fillNColor": "transparent"
+      }
+    },
+    {
+      "description": "Marquee scrolling announcement",
+      "attributes": {
+        "block_id": "c3d4",
+        "typoText": "🎉 Limited Time Offer - 50% Off All Products 🎉",
+        "marquee": true,
+        "marqueeDir": "left",
+        "marqueeLoop": "-1",
+        "marqueeAni": "15"
+      }
+    },
+    {
+      "description": "Circular text logo",
+      "attributes": {
+        "block_id": "e5f6",
+        "typoText": "Your Brand Name • Est. 2024 • ",
+        "cirTextEn": true,
+        "cirTextPath": "M 100,100 m -75,0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+      }
+    },
+    {
+      "description": "Multiple text items with different effects",
+      "attributes": {
+        "block_id": "g7h8",
+        "typoListing": "multiple",
+        "textListing": [
+          {
+            "lText": "Creative",
+            "strokeFill": true,
+            "strokeNColor": "#667eea",
+            "fillNColor": "transparent"
+          },
+          {
+            "lText": "Typography",
+            "advUnderline": "overlay",
+            "overlayStyle": "style-3"
+          },
+          {
+            "lText": "Design",
+            "blendMode": true,
+            "blendVariation": "difference"
+          }
+        ]
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

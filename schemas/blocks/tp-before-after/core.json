@@ -1,0 +1,161 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-before-after",
+  "title": "Before After - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "style": {
+      "type": "string",
+      "default": "horizontal",
+      "enum": [
+        "horizontal",
+        "vertical"
+      ],
+      "description": "Comparison slider orientation"
+    },
+    "beforeImg": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Before image source"
+    },
+    "beforeLabel": {
+      "type": "string",
+      "default": "",
+      "description": "Optional 'Before' label text (shown over image)"
+    },
+    "afterImg": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "After image source"
+    },
+    "afterLabel": {
+      "type": "string",
+      "default": "",
+      "description": "Optional 'After' label text (shown over image)"
+    },
+    "fullWidth": {
+      "type": "boolean",
+      "default": false,
+      "description": "Expand to full container width"
+    },
+    "onmouseHvr": {
+      "type": "boolean",
+      "default": true,
+      "description": "Activate slider on mouse hover (vs drag only)"
+    },
+    "sepStyle": {
+      "type": "string",
+      "default": "middle",
+      "enum": [
+        "middle",
+        "top",
+        "bottom"
+      ],
+      "description": "Separator handle icon/button position"
+    },
+    "sepLine": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show full-height separator line"
+    },
+    "sepWidth": {
+      "type": "string",
+      "default": "5",
+      "description": "Separator line width (px)"
+    },
+    "sepPosi": {
+      "type": "string",
+      "default": "",
+      "description": "Default separator position percentage (0-100)"
+    },
+    "sepIcon": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Custom separator handle icon/image"
+    },
+    "labelTypo": {
+      "$ref": "definitions://typography"
+    },
+    "labelColor": {
+      "type": "string",
+      "default": "",
+      "description": "Label text color"
+    },
+    "labelBgtype": {
+      "$ref": "definitions://background"
+    },
+    "labelBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Label border styling"
+    },
+    "labelBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "labelBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "beforeImg",
+      "afterImg",
+      "beforeLabel",
+      "afterLabel",
+      "imageSize",
+      "alignment",
+      "fullWidth",
+      "onmouseHvr",
+      "sepLine",
+      "sepWidth",
+      "sepPosi",
+      "sepColor",
+      "sepbotColor",
+      "labelTypo",
+      "labelColor",
+      "labelBgtype",
+      "labelBorder",
+      "labelBradius",
+      "labelBshadow",
+      "padding"
+    ],
+    "requiresValidation": [
+      "style",
+      "sepStyle",
+      "sepIcon"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

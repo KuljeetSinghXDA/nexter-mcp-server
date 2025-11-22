@@ -1,0 +1,149 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-pricing-list",
+  "title": "Pricing List - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2",
+        "style-3"
+      ],
+      "description": "Visual layout style"
+    },
+    "title": {
+      "type": "string",
+      "default": "Delicious Cup Cake",
+      "description": "Item title/name"
+    },
+    "tagField": {
+      "type": "string",
+      "default": "Small|Medium|Large",
+      "description": "Tags/variations separated by pipes"
+    },
+    "price": {
+      "type": "string",
+      "default": "$4.99",
+      "description": "Price display text"
+    },
+    "description": {
+      "type": "string",
+      "default": "Cupcake ipsum dolor. Sit amet marshmallow topping cheesecake muffin. Halvah croissant candy canes bonbon candy. Apple pie jelly beans topping carrot cake danish tart cake cheesecake. Muffin danish chocolate soufflé pastry icing bonbon oat cake. Powder cake jujubes oat cake. Lemon drops tootsie roll marshmallow halvah carrot cake.",
+      "description": "Item description/details"
+    },
+    "imageField": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Item image/photo"
+    },
+    "imgShape": {
+      "type": "string",
+      "default": "none",
+      "enum": [
+        "none",
+        "circle",
+        "rounded"
+      ],
+      "description": "Image shape style"
+    },
+    "maskImg": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "SVG mask image for custom shapes"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title text color"
+    },
+    "titleBG": {
+      "$ref": "definitions://background"
+    },
+    "titlePadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "lineStyle": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "#888",
+        "width": {
+          "md": {
+            "top": "",
+            "left": "",
+            "bottom": "",
+            "right": ""
+          },
+          "unit": "px"
+        }
+      },
+      "description": "Separator line border style (style-3)"
+    },
+    "tagTypo": {
+      "$ref": "definitions://typography"
+    },
+    "tagSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "title",
+      "tagField",
+      "price",
+      "description",
+      "imageField",
+      "Alignment",
+      "titleTypo",
+      "titleColor",
+      "titleBG",
+      "titlePadding",
+      "tagTypo",
+      "tagSpace",
+      "imgShape"
+    ],
+    "requiresValidation": [
+      "style",
+      "boxAlign",
+      "hoverEffect",
+      "lineStyle",
+      "maskImg"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

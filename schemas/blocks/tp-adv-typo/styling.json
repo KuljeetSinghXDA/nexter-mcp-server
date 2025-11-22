@@ -1,0 +1,149 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-adv-typo",
+  "title": "Advanced Typography - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "typoListing": {
+      "type": "string",
+      "default": "normal",
+      "enum": [
+        "normal",
+        "multiple"
+      ],
+      "description": "Listing mode: single text or multiple items"
+    },
+    "typoText": {
+      "type": "string",
+      "default": "Your Text Content",
+      "description": "Main typography text (when typoListing is 'normal')"
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "text-left",
+      "enum": [
+        "text-left",
+        "text-center",
+        "text-right"
+      ],
+      "description": "Text alignment"
+    },
+    "typoTypo": {
+      "$ref": "definitions://typography"
+    },
+    "typoColor": {
+      "type": "string",
+      "default": "",
+      "description": "Text color (normal mode, normal state)"
+    },
+    "typoHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Text color (normal mode, hover state)"
+    },
+    "strokeFill": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable stroke/fill (normal mode)"
+    },
+    "strokeWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "strokeNColor": {
+      "type": "string",
+      "default": "",
+      "description": "Stroke color (normal mode, normal state)"
+    },
+    "strokeHColor": {
+      "type": "string",
+      "default": "",
+      "description": "Stroke color (normal mode, hover state)"
+    },
+    "fillNColor": {
+      "type": "string",
+      "default": "",
+      "description": "Fill color (normal mode, normal state)"
+    },
+    "fillHColor": {
+      "type": "string",
+      "default": "",
+      "description": "Fill color (normal mode, hover state)"
+    },
+    "blendMode": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable mix-blend-mode (normal mode)"
+    },
+    "blendVariation": {
+      "type": "string",
+      "default": "color",
+      "description": "Mix-blend-mode value (normal mode)"
+    },
+    "textMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "textPadding": {
+      "$ref": "definitions://responsive-unit"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "typoText",
+      "textListing",
+      "tTextLink",
+      "typoTypo",
+      "typoColor",
+      "typoHvrColor",
+      "strokeWidth",
+      "strokeNColor",
+      "strokeHColor",
+      "fillNColor",
+      "fillHColor",
+      "koTextBG",
+      "hoverImg",
+      "marqueeDir",
+      "marqueeLoop",
+      "marqueeScroll",
+      "marqueeAni",
+      "marqueeTwidth",
+      "aniDurTime",
+      "cirTextPath",
+      "textMargin",
+      "textPadding"
+    ],
+    "requiresValidation": [
+      "typoListing",
+      "htmlTag",
+      "textAlign",
+      "strokeFill",
+      "gradientTgl",
+      "blendMode",
+      "blendVariation",
+      "knockoutText",
+      "onHoverImg",
+      "hoverStyle",
+      "marquee",
+      "marqueeType",
+      "marqueeBeh",
+      "contiAnimation",
+      "aniEffect",
+      "aniOnHover",
+      "advUnderline",
+      "overlayStyle",
+      "nLineType",
+      "hLineType",
+      "nLineStyle",
+      "cirTextEn"
+    ]
+  },
+  "styleDependencies": [
+    "CSS text-stroke and text-fill properties",
+    "CSS gradients for stroke",
+    "CSS mix-blend-mode",
+    "Marquee animation JavaScript or CSS",
+    "SVG for circular text layout",
+    "Continuous animation keyframes (pulse, floating, tossing)",
+    "Hover image positioning JavaScript",
+    "Overlay underline animations"
+  ]
+}

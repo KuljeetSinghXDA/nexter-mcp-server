@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-media-listing",
+  "version": "1.0.0",
+  "title": "Media Listing",
+  "category": "media",
+  "source": "pro",
+  "complexity": "advanced",
+  "description": "Showcase image and video galleries with multiple layout options (grid, masonry, metro, carousel), lightbox integration, and 4 visual styles. Perfect for portfolios, photo galleries, video showcases, a",
+  "keywords": [
+    "gallery",
+    "media grid",
+    "post grid",
+    "portfolio"
+  ],
+  "useCases": [
+    "Post grids",
+    "Portfolio galleries",
+    "Media archives"
+  ]
+}

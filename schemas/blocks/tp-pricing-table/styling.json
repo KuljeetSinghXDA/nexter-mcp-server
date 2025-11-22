@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-pricing-table",
+  "title": "Pricing Table - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "titleAlign": {
+      "type": "object",
+      "default": "",
+      "description": "Text alignment for title and subtitle",
+      "responsive": true
+    },
+    "imgSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "priceAlign": {
+      "type": "object",
+      "default": "",
+      "description": "Price section alignment",
+      "responsive": true
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "title",
+      "subTitle",
+      "preText",
+      "priceValue",
+      "postText",
+      "prevPriceValue",
+      "titleAlign",
+      "priceAlign",
+      "disPrePrice",
+      "stylishList",
+      "iconStore"
+    ],
+    "requiresValidation": [
+      "style",
+      "titleStyle",
+      "priceStyle",
+      "contentStyle",
+      "conListStyle",
+      "iconType"
+    ]
+  },
+  "styleDependencies": [
+    "Pricing table style CSS (multiple variants)",
+    "Icon font library (Font Awesome)",
+    "Feature list styling",
+    "Ribbon/badge styling",
+    "Responsive styling"
+  ]
+}

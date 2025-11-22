@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-animated-service-boxes",
+  "title": "Animated Service Boxes - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Vertical image accordion showcase",
+      "attributes": {
+        "block_id": "a1b2",
+        "mainStyleType": "image-accordion",
+        "imgAcrdnStyle": "accordion-style-1",
+        "imgOrientation": "accordion-vertical",
+        "activeSlide": "1",
+        "serviceBox": [
+          {
+            "_key": "0",
+            "title": "Web Design",
+            "featureImg": {
+              "url": "/design.jpg"
+            }
+          },
+          {
+            "_key": "1",
+            "title": "Development",
+            "featureImg": {
+              "url": "/dev.jpg"
+            }
+          },
+          {
+            "_key": "2",
+            "title": "Marketing",
+            "featureImg": {
+              "url": "/marketing.jpg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Sliding boxes with buttons (style-2)",
+      "attributes": {
+        "block_id": "c3d4",
+        "mainStyleType": "sliding-boxes",
+        "slideStyle": "sliding-style-2",
+        "disBtn": true,
+        "btnStyle": "style-7",
+        "serviceBox": [
+          {
+            "_key": "0",
+            "title": "Consulting",
+            "iconStore": "fas fa-chart-line",
+            "btnText": "Learn More"
+          },
+          {
+            "_key": "1",
+            "title": "Support",
+            "iconStore": "fas fa-headset",
+            "btnText": "Contact Us"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Fancy box style with icons",
+      "attributes": {
+        "block_id": "e5f6",
+        "mainStyleType": "fancy-box",
+        "fancyBStyle": "fancy-box-style-1",
+        "disIcnImg": true,
+        "serviceBox": [
+          {
+            "_key": "0",
+            "title": "Fast Delivery",
+            "iconType": "icon",
+            "iconStore": "fas fa-shipping-fast",
+            "description": "Quick turnaround times"
+          },
+          {
+            "_key": "1",
+            "title": "24/7 Support",
+            "iconType": "icon",
+            "iconStore": "fas fa-clock",
+            "description": "Always here to help"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Hover section with preloaded images",
+      "attributes": {
+        "block_id": "g7h8",
+        "mainStyleType": "hover-section",
+        "sectionStyle": "hover-section-style-2",
+        "sectionImgPreload": true,
+        "serviceBox": [
+          {
+            "_key": "0",
+            "title": "Project A",
+            "featureImg": {
+              "url": "/project-a-bg.jpg"
+            }
+          },
+          {
+            "_key": "1",
+            "title": "Project B",
+            "featureImg": {
+              "url": "/project-b-bg.jpg"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

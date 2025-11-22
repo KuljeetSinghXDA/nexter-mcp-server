@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-media-listing",
+  "title": "Media Listing - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "ImgSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size"
+    },
+    "BtnTypo": {
+      "$ref": "definitions://typography"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "ImgRepeater",
+      "NAddImg",
+      "columns",
+      "columnSpace",
+      "Dtitle",
+      "TitleTag",
+      "ImgSize",
+      "Dcontent",
+      "Boxlink",
+      "DisBtns4",
+      "Btns4txt",
+      "BtnTypo",
+      "BtnCr",
+      "Disicon",
+      "PopupIcon"
+    ],
+    "requiresValidation": [
+      "GalleryType",
+      "style",
+      "layout",
+      "Playout",
+      "Imgoption",
+      "colMetro",
+      "MetroSty",
+      "metroCustom",
+      "FCusURl",
+      "PopupNone"
+    ]
+  },
+  "styleDependencies": [
+    "Masonry layout JavaScript (for masonry layout)",
+    "Metro layout grid system (custom patterns)",
+    "Lightbox library (Fancybox when Imgoption is 'fancybox')",
+    "Carousel/slider library (for carousel layout)",
+    "Isotope or similar filtering library (for category filtering)",
+    "Video embed APIs (YouTube, Vimeo)"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-button-core",
+  "version": "1.0.0",
+  "title": "Button",
+  "category": "marketing",
+  "source": "free",
+  "complexity": "simple",
+  "description": "Create eye-catching call-to-action buttons. Simple and clean button block with typography, colors, icons, and positioning options. Perfect for CTAs, links, and interactive elements. Free version alter",
+  "keywords": [
+    "button",
+    "cta",
+    "simple button",
+    "basic button"
+  ],
+  "useCases": [
+    "Basic CTA buttons",
+    "Simple links"
+  ]
+}

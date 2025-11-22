@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-timeline",
+  "title": "Timeline - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Company history timeline",
+      "attributes": {
+        "block_id": "a1b2",
+        "style": "style-1",
+        "Alignment": "center",
+        "RContent": [
+          {
+            "_key": "1",
+            "RTitle": "1995",
+            "RcTitle": "Company Founded",
+            "Rdes": "Started with a vision to change the industry",
+            "RPosition": "right"
+          },
+          {
+            "_key": "2",
+            "RTitle": "2000",
+            "RcTitle": "First Major Product",
+            "Rdes": "Launched our flagship product",
+            "RPosition": "left"
+          },
+          {
+            "_key": "3",
+            "RTitle": "2010",
+            "RcTitle": "Global Expansion",
+            "Rdes": "Opened offices in 15 countries",
+            "RPosition": "right"
+          }
+        ],
+        "StartPin": "icon",
+        "StartIcon": "fas fa-rocket",
+        "EndPin": "icon",
+        "EndIcon": "fas fa-flag-checkered"
+      }
+    },
+    {
+      "description": "Event agenda with animated progress",
+      "attributes": {
+        "block_id": "c3d4",
+        "style": "style-2",
+        "isAnim": true,
+        "animColor": "#667eea",
+        "RContent": [
+          {
+            "_key": "1",
+            "RTitle": "9:00 AM",
+            "RcTitle": "Registration",
+            "RButton": false
+          },
+          {
+            "_key": "2",
+            "RTitle": "10:00 AM",
+            "RcTitle": "Keynote Speech",
+            "RButton": false
+          },
+          {
+            "_key": "3",
+            "RTitle": "12:00 PM",
+            "RcTitle": "Lunch Break",
+            "RButton": false
+          }
+        ]
+      }
+    },
+    {
+      "description": "Product roadmap with custom arrows",
+      "attributes": {
+        "block_id": "e5f6",
+        "style": "style-2",
+        "ArrowStyle": "style-3",
+        "BGSnBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f8f9fa"
+        },
+        "BGSnBrs": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        }
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

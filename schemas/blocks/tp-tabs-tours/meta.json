@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-tabs-tours",
+  "version": "1.0.0",
+  "title": "Tabs Tours",
+  "category": "interactive",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Create tabbed content sections with horizontal or vertical navigation. Display organized information in tabs or tours with icons, custom content, templates, and mobile accordion view. Features swiper ",
+  "keywords": [
+    "tabs",
+    "tabbed content",
+    "tours",
+    "content tabs"
+  ],
+  "useCases": [
+    "Tabbed content areas",
+    "Product specifications",
+    "Multi-section content"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-url-field",
+  "version": "1.0.0",
+  "title": "Website URL",
+  "category": "forms",
+  "source": "pro",
+  "complexity": "simple",
+  "description": "Add a URL input field to your form with automatic URL validation. Features optional Font Awesome icons or custom images, field width control, required field validation, placeholder text, help text (de",
+  "keywords": [
+    "url input",
+    "website field",
+    "link input"
+  ],
+  "useCases": [
+    "Website URL inputs"
+  ]
+}

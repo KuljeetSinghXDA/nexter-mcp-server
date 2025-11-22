@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-hidden-field",
+  "title": "Hidden Field - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple hidden field",
+      "attributes": {
+        "block_id": "a1b2",
+        "nameValue": "form_id",
+        "actualValue": "contact-form-2025"
+      }
+    },
+    {
+      "description": "Campaign source tracking",
+      "attributes": {
+        "block_id": "c3d4",
+        "nameValue": "utm_source",
+        "actualValue": "newsletter"
+      }
+    },
+    {
+      "description": "Referral code passing",
+      "attributes": {
+        "block_id": "e5f6",
+        "nameValue": "referral_code",
+        "actualValue": "PROMO2025"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

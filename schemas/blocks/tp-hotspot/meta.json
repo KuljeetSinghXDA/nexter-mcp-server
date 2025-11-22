@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-hotspot",
+  "version": "1.0.0",
+  "title": "Hotspot",
+  "category": "media",
+  "source": "pro",
+  "complexity": "advanced",
+  "description": "Create interactive images with clickable hotspot pins that display tooltips with rich content. Perfect for product showcases, infographics, interactive maps, annotated diagrams, and feature highlights",
+  "keywords": [
+    "hotspot",
+    "image markers",
+    "interactive image",
+    "image points"
+  ],
+  "useCases": [
+    "Interactive product images",
+    "Annotated images",
+    "Location markers"
+  ]
+}

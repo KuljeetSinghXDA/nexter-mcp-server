@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-block",
+  "title": "Form - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "lblClr": {
+      "type": "string",
+      "default": "",
+      "description": "Label text color"
+    },
+    "lblBtmMrg": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "hvrLblClr": {
+      "type": "string",
+      "default": "",
+      "description": "Label color on hover"
+    },
+    "inpClr": {
+      "type": "string",
+      "default": "",
+      "description": "Input text color"
+    },
+    "plcClr": {
+      "type": "string",
+      "default": "",
+      "description": "Placeholder text color"
+    },
+    "hvrPlc": {
+      "type": "string",
+      "default": "",
+      "description": "Placeholder color on hover"
+    },
+    "inpBdr": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Input border"
+    },
+    "inpBdrRds": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "hvrInpBdrClr": {
+      "type": "string",
+      "default": "",
+      "description": "Input border color on hover"
+    },
+    "inpPad": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "chkRadSz": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "lblClr",
+      "lblTypo",
+      "lblBtmMrg",
+      "hvrLblClr",
+      "inpClr",
+      "plcClr",
+      "inpBg",
+      "hvrPlc",
+      "hvrInpBg",
+      "inpBdr",
+      "inpBdrRds",
+      "hvrInpBdrClr",
+      "inpPad",
+      "inpTypo",
+      "chkRadSz",
+      "chkRadBg"
+    ],
+    "requiresValidation": [],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "anchor": true
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": false
+}

@@ -1,0 +1,295 @@
+{
+  "blockName": "tpgb/tp-countdown",
+  "version": "1.0.0",
+  "title": "Countdown",
+  "category": "content",
+  "description": "Display countdown timers to specific dates or dynamic counters. Supports 3 visual styles (default, flip, progress bar) with customizable labels, colors, and expiry actions. Perfect for product launches, event countdowns, sales deadlines, or scarcity messaging. Pro features include loop mode, user tracking, and custom templates.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "countdownSelection": {
+      "type": "string",
+      "default": "normal",
+      "enum": ["normal", "scarcity", "fake"],
+      "description": "Countdown mode: normal (to specific date), scarcity (limited quantity), fake (dynamic counter)"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2", "style-3"],
+      "description": "Visual style: style-1 (default boxes), style-2 (flip animation), style-3 (circular progress)"
+    },
+    "scarSec": {
+      "type": "string",
+      "default": "90",
+      "description": "Scarcity counter seconds remaining"
+    },
+    "trackUdata": {
+      "type": "string",
+      "default": "normal",
+      "enum": ["normal", "cookie", "ip"],
+      "description": "Pro: User tracking method for scarcity mode (cookie or IP-based)",
+      "proFeature": true
+    },
+    "enaLoop": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Enable countdown loop/restart after expiry",
+      "proFeature": true
+    },
+    "delayTime": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Delay time before loop restart",
+      "proFeature": true
+    },
+    "flipTheme": {
+      "type": "string",
+      "default": "dark",
+      "enum": ["dark", "light"],
+      "description": "Flip countdown theme (for style-2)"
+    },
+    "fenaLoop": {
+      "type": "boolean",
+      "default": false,
+      "description": "Fake counter loop enable"
+    },
+    "fMsg": {
+      "type": "string",
+      "default": "Showing {visible_counter}",
+      "description": "Fake counter message template with {visible_counter} placeholder"
+    },
+    "counterMaxWidth": {
+      "type": "object",
+      "default": {"md": ""},
+      "description": "Maximum width for flip countdown (style-2)",
+      "responsive": true
+    },
+    "datetime": {
+      "type": "string",
+      "default": "",
+      "description": "Target datetime for countdown (ISO 8601 format)"
+    },
+    "changeType": {
+      "type": "string",
+      "default": "decreasing",
+      "enum": ["decreasing", "increasing"],
+      "description": "Fake counter direction"
+    },
+    "initNum": {
+      "type": "string",
+      "default": "1",
+      "description": "Fake counter initial number"
+    },
+    "endNum": {
+      "type": "string",
+      "default": "10",
+      "description": "Fake counter ending number"
+    },
+    "numRange": {
+      "type": "string",
+      "default": "10",
+      "description": "Fake counter number range"
+    },
+    "changeInterval": {
+      "type": "string",
+      "default": "1",
+      "description": "Fake counter change interval in seconds"
+    },
+    "countdownExpiry": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "showmsg", "redirect", "showtemp"],
+      "description": "Action on countdown expiry: none, show message, redirect, or show template"
+    },
+    "expiryMsg": {
+      "type": "string",
+      "default": "Countdown Has Ended !",
+      "description": "Message displayed when countdown expires"
+    },
+    "expiryRedirect": {
+      "type": "object",
+      "default": {"url": "", "target": "", "nofollow": ""},
+      "description": "Redirect URL on countdown expiry"
+    },
+    "templates": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Template ID to show on expiry",
+      "proFeature": true
+    },
+    "backendVisi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show countdown in backend editor"
+    },
+    "inlineStyle": {
+      "type": "boolean",
+      "default": false,
+      "description": "Display countdown inline (not stacked)"
+    },
+    "showLabels": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show time unit labels (Days, Hours, etc.)"
+    },
+    "daysText": {
+      "type": "string",
+      "default": "Days",
+      "description": "Custom label for days"
+    },
+    "hoursText": {
+      "type": "string",
+      "default": "Hours",
+      "description": "Custom label for hours"
+    },
+    "minutesText": {
+      "type": "string",
+      "default": "Minutes",
+      "description": "Custom label for minutes"
+    },
+    "secondsText": {
+      "type": "string",
+      "default": "Seconds",
+      "description": "Custom label for seconds"
+    },
+    "counterFontColor": {
+      "type": "string",
+      "default": "",
+      "description": "Number/digit color"
+    },
+    "counterTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for countdown numbers"
+    },
+    "labelTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for time unit labels"
+    },
+    "expiryMsgTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for expiry message"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "datetime",
+      "showLabels",
+      "daysText",
+      "hoursText",
+      "minutesText",
+      "secondsText",
+      "expiryMsg",
+      "counterFontColor",
+      "counterTypo",
+      "labelTypo",
+      "inlineStyle"
+    ],
+    "requiresValidation": [
+      "style",
+      "countdownSelection",
+      "countdownExpiry",
+      "expiryRedirect",
+      "trackUdata",
+      "enaLoop",
+      "templates"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Countdown timer CSS (3 styles)",
+    "Flip animation library (style-2)",
+    "Circular progress SVG (style-3)",
+    "JavaScript countdown engine",
+    "Cookie/LocalStorage for user tracking (Pro)"
+  ],
+  "commonUseCases": [
+    "Product launch countdowns",
+    "Limited-time offer deadlines",
+    "Event countdown timers",
+    "Flash sale timers",
+    "Webinar registration deadlines",
+    "Course enrollment closing dates",
+    "Scarcity counters ('Only 5 left!')",
+    "Black Friday / Cyber Monday sales"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-number-counter",
+    "tpgb/tp-progress-bar",
+    "tpgb/tp-heading-title"
+  ],
+  "capabilities": [
+    "3 visual styles (default, flip, circular progress)",
+    "Date/time countdown",
+    "Scarcity counter mode",
+    "Fake dynamic counter",
+    "Custom time unit labels",
+    "Expiry actions (message, redirect, template)",
+    "Inline or stacked layout",
+    "Custom typography and colors",
+    "Pro: User tracking (cookie/IP)",
+    "Pro: Loop/restart mode",
+    "Pro: Custom template on expiry"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple countdown to New Year",
+      "attributes": {
+        "block_id": "a1b2",
+        "style": "style-1",
+        "countdownSelection": "normal",
+        "datetime": "2025-01-01T00:00:00",
+        "showLabels": true,
+        "countdownExpiry": "showmsg",
+        "expiryMsg": "Happy New Year!"
+      }
+    },
+    {
+      "description": "Flip countdown for product launch",
+      "attributes": {
+        "block_id": "c3d4",
+        "style": "style-2",
+        "flipTheme": "dark",
+        "datetime": "2025-02-14T12:00:00",
+        "countdownExpiry": "redirect",
+        "expiryRedirect": {"url": "/product-launched", "target": "_self"}
+      }
+    },
+    {
+      "description": "Scarcity counter (90 seconds)",
+      "attributes": {
+        "block_id": "e5f6",
+        "countdownSelection": "scarcity",
+        "scarSec": "90",
+        "showLabels": false,
+        "expiryMsg": "Time's up! Deal expired."
+      }
+    },
+    {
+      "description": "Pro: Looping countdown",
+      "attributes": {
+        "block_id": "g7h8",
+        "style": "style-3",
+        "datetime": "2025-12-31T23:59:59",
+        "enaLoop": true,
+        "delayTime": "3600",
+        "trackUdata": "cookie"
+      }
+    }
+  ]
+}

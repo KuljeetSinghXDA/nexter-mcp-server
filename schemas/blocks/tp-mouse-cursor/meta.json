@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-mouse-cursor",
+  "version": "1.0.0",
+  "title": "Mouse Cursor",
+  "category": "advanced",
+  "source": "pro",
+  "complexity": "advanced",
+  "description": "Customize mouse cursor with creative animations, icons, images, text, or circles that follow pointer movement. Features 3 circle styles, custom images, text labels, click effects, and hover interactio",
+  "keywords": [
+    "cursor",
+    "mouse cursor",
+    "custom cursor",
+    "pointer"
+  ],
+  "useCases": [
+    "Custom cursor effects",
+    "Creative interactions"
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-google-map",
+  "title": "Google Map - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "locationPoint": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Array of map location markers/pins with custom icons and addresses",
+      "items": {
+        "latitude": {
+          "type": "string",
+          "default": "",
+          "description": "Marker latitude coordinate"
+        },
+        "longitude": {
+          "type": "string",
+          "default": "",
+          "description": "Marker longitude coordinate"
+        },
+        "address": {
+          "type": "string",
+          "default": "",
+          "description": "Marker address (fallback if lat/long not provided)"
+        },
+        "pinIcon": {
+          "type": "object",
+          "default": {
+            "url": ""
+          },
+          "description": "Custom pin/marker icon image"
+        },
+        "pinIconSize": {
+          "type": "string",
+          "default": "thumbnail",
+          "description": "Pin icon WordPress image size"
+        },
+        "latOrAddr": {
+          "type": "string",
+          "default": "latitude",
+          "enum": [
+            "latitude",
+            "address"
+          ],
+          "description": "Use latitude/longitude or address for positioning"
+        },
+        "addr": {
+          "type": "string",
+          "default": "Galaxy Signature Science City Road, Opp. sukan bungalow, Sola, Ahmedabad, Gujarat-380060",
+          "description": "Full address string for geocoding"
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "latitude": "40.6884135",
+          "longitude": "-74.3606169",
+          "address": "",
+          "pinIcon": {
+            "url": ""
+          },
+          "latOrAddr": "latitude",
+          "addr": "Galaxy Signature Science City Road, Opp. sukan bungalow, Sola, Ahmedabad, Gujarat-380060"
+        }
+      ]
+    },
+    "Zoom": {
+      "type": "string",
+      "default": "8.5",
+      "description": "Initial map zoom level (0-20, higher = more zoomed in)"
+    },
+    "scrollWheel": {
+      "type": "boolean",
+      "default": true,
+      "description": "Allow zoom with mouse wheel scrolling"
+    },
+    "panCtrl": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show pan control buttons"
+    },
+    "Draggable": {
+      "type": "boolean",
+      "default": true,
+      "description": "Allow dragging/panning the map"
+    },
+    "zoomCtrl": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show zoom in/out controls"
+    },
+    "mapTypeCtrl": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show map type selector (roadmap, satellite, etc.)"
+    },
+    "scaleCtrl": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show map scale control"
+    },
+    "fullScreenCtrl": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show fullscreen toggle button"
+    },
+    "streetViewCtrl": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show Street View pegman control"
+    },
+    "gmapType": {
+      "type": "string",
+      "default": "roadmap",
+      "enum": [
+        "roadmap",
+        "satellite",
+        "hybrid",
+        "terrain"
+      ],
+      "description": "Google Maps display type"
+    },
+    "customStyleTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable custom map styling (Snazzy Maps styles)"
+    },
+    "customStyle": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Pre-built custom map style (when customStyleTgl is true)"
+    },
+    "contentTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show overlay content box on map"
+    },
+    "title": {
+      "type": "string",
+      "default": "Location Here",
+      "description": "Overlay content title"
+    },
+    "description": {
+      "type": "string",
+      "default": "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+      "description": "Overlay content description text"
+    },
+    "contentBG": {
+      "$ref": "definitions://background"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Overlay title text color"
+    },
+    "tglActiveClr": {
+      "type": "string",
+      "default": "",
+      "description": "Overlay toggle button color (active state)"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "locationPoint",
+      "mapHeight",
+      "Zoom",
+      "scrollWheel",
+      "panCtrl",
+      "Draggable",
+      "zoomCtrl",
+      "mapTypeCtrl",
+      "scaleCtrl",
+      "fullScreenCtrl",
+      "streetViewCtrl",
+      "gmapType",
+      "customStyleTgl",
+      "customStyle",
+      "title",
+      "description",
+      "titleColor",
+      "descColor",
+      "titleTypo",
+      "descTypo",
+      "contentBG"
+    ],
+    "requiresValidation": [
+      "contentTgl",
+      "toggleColor",
+      "tglActiveClr"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

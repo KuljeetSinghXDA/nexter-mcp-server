@@ -1,0 +1,369 @@
+{
+  "blockName": "tpgb/tp-progress-bar",
+  "version": "1.0.0",
+  "title": "Progress Bar",
+  "category": "content",
+  "description": "Visual indicator showing percentage of process completion. Supports horizontal progress bars (3 styles with small/large heights) and circular/pie chart layouts. Perfect for skill levels, project completion, statistics, and visual metrics with customizable colors, icons, and typography.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "layoutType": {
+      "type": "string",
+      "default": "progressbar",
+      "enum": ["progressbar", "piechart"],
+      "description": "Layout type: horizontal bar or circular pie chart"
+    },
+    "styleType": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2", "style-3"],
+      "description": "Progress bar style (applies to progressbar layout)"
+    },
+    "heightType": {
+      "type": "string",
+      "default": "small-height",
+      "enum": ["small-height", "large-height"],
+      "description": "Bar height: small (thin bar) or large (thick bar with inline content)"
+    },
+    "pieStyleType": {
+      "type": "string",
+      "default": "pieStyle-1",
+      "enum": ["pieStyle-1", "pieStyle-2"],
+      "description": "Pie chart visual style"
+    },
+    "circleStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2"],
+      "description": "Circle progress style variant"
+    },
+    "dynamicValue": {
+      "type": "string",
+      "default": "69",
+      "description": "Progress percentage value (0-100)"
+    },
+    "dynamicPieValue": {
+      "type": "string",
+      "default": "0.7",
+      "description": "Pie chart value (0.0-1.0 for 0%-100%)"
+    },
+    "dispNumber": {
+      "type": "boolean",
+      "default": true,
+      "description": "Display percentage number"
+    },
+    "pieCircleSize": {
+      "type": "string",
+      "default": "200",
+      "description": "Pie/circle chart size in pixels"
+    },
+    "pieThickness": {
+      "type": "string",
+      "default": "5",
+      "description": "Pie/circle chart line thickness"
+    },
+    "pieFillColor": {
+      "type": "string",
+      "default": "normal",
+      "enum": ["normal", "gradient"],
+      "description": "Pie chart fill color mode"
+    },
+    "pieColor1": {
+      "type": "string",
+      "default": "#FFA500",
+      "description": "Primary pie chart color"
+    },
+    "pieColor2": {
+      "type": "string",
+      "default": "#008000",
+      "description": "Secondary pie chart color (for gradient)"
+    },
+    "fillReverse": {
+      "type": "boolean",
+      "default": false,
+      "description": "Reverse gradient fill direction"
+    },
+    "Title": {
+      "type": "string",
+      "default": "Web Design",
+      "description": "Progress bar title text"
+    },
+    "subTitle": {
+      "type": "string",
+      "default": "HTML, CSS and WordPress",
+      "description": "Progress bar subtitle/description text"
+    },
+    "prepostSymbol": {
+      "type": "string",
+      "default": "%",
+      "description": "Symbol displayed with percentage (%, pts, etc.)"
+    },
+    "sPosition": {
+      "type": "string",
+      "default": "afterNumber",
+      "enum": ["beforeNumber", "afterNumber"],
+      "description": "Symbol position relative to number"
+    },
+    "iconType": {
+      "type": "string",
+      "default": "iconIcon",
+      "enum": ["iconIcon", "iconImage"],
+      "description": "Icon type: Font Awesome icon or image"
+    },
+    "iconLibrary": {
+      "type": "string",
+      "default": "fontawesome",
+      "description": "Icon library (currently Font Awesome)"
+    },
+    "IconName": {
+      "type": "string",
+      "default": "fas fa-code",
+      "description": "Font Awesome icon class"
+    },
+    "imageName": {
+      "type": "object",
+      "default": {"url": "", "Id": ""},
+      "description": "Image icon upload"
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "thumbnail",
+      "description": "WordPress image size preset"
+    },
+    "imgPosition": {
+      "type": "string",
+      "default": "beforeTitle",
+      "enum": ["beforeTitle", "afterTitle"],
+      "description": "Icon/image position relative to title"
+    },
+    "pbTopMargin": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Progress bar top margin (spacing from title)",
+      "responsive": true
+    },
+    "bgColor": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color", "bgDefaultColor": ""},
+      "description": "Progress fill background color/gradient"
+    },
+    "emptyColor": {
+      "type": "string",
+      "default": "",
+      "description": "Empty/unfilled bar background color"
+    },
+    "sepColor": {
+      "type": "string",
+      "default": "",
+      "description": "Separator color (for style-2)"
+    },
+    "titleTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography for title text"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title text color"
+    },
+    "titleSpace": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Spacing between icon and title",
+      "responsive": true
+    },
+    "subTitleTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography for subtitle text"
+    },
+    "subTitleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Subtitle text color"
+    },
+    "numTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography for percentage number"
+    },
+    "numberColor": {
+      "type": "string",
+      "default": "",
+      "description": "Percentage number color"
+    },
+    "numPrePostTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography for symbol (%, pts, etc.)"
+    },
+    "numPrePostColor": {
+      "type": "string",
+      "default": "",
+      "description": "Symbol color"
+    },
+    "iconColor": {
+      "type": "string",
+      "default": "",
+      "description": "Font Awesome icon color"
+    },
+    "iconSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Icon font size",
+      "responsive": true
+    },
+    "imgSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Image icon width",
+      "responsive": true
+    },
+    "imgBRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Image icon border radius",
+      "responsive": true
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "Title",
+      "subTitle",
+      "dynamicValue",
+      "dynamicPieValue",
+      "prepostSymbol",
+      "IconName",
+      "bgColor",
+      "emptyColor",
+      "titleColor",
+      "subTitleColor",
+      "numberColor",
+      "iconColor",
+      "pieColor1",
+      "pieColor2",
+      "titleTypo",
+      "subTitleTypo",
+      "numTypo",
+      "iconSize"
+    ],
+    "requiresValidation": [
+      "layoutType",
+      "styleType",
+      "heightType",
+      "pieStyleType",
+      "iconType",
+      "sPosition",
+      "imgPosition"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Progress bar animation CSS",
+    "Circular/pie chart SVG library",
+    "Progress fill animation JavaScript"
+  ],
+  "commonUseCases": [
+    "Skill level indicators",
+    "Project completion percentages",
+    "Survey/poll results visualization",
+    "Product feature comparisons",
+    "Service quality metrics",
+    "Training progress tracking",
+    "Goal achievement indicators",
+    "Performance metrics display",
+    "Portfolio statistics"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-number-counter",
+    "tpgb/tp-countdown",
+    "tpgb/tp-icon-box"
+  ],
+  "capabilities": [
+    "2 layout types (horizontal bar, circular pie chart)",
+    "3 progress bar styles with 2 height options",
+    "Animated progress fill",
+    "Custom percentage values",
+    "Icon support (Font Awesome or image)",
+    "Title and subtitle text",
+    "Custom symbols (%, pts, etc.) with position control",
+    "Gradient or solid fill colors",
+    "Empty bar background color",
+    "Typography control for all text elements",
+    "Icon/image positioning",
+    "Circular progress with customizable size and thickness"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple skill progress bar",
+      "attributes": {
+        "block_id": "a1b2",
+        "layoutType": "progressbar",
+        "styleType": "style-1",
+        "heightType": "small-height",
+        "Title": "WordPress",
+        "dynamicValue": "85",
+        "iconType": "iconIcon",
+        "IconName": "fab fa-wordpress"
+      }
+    },
+    {
+      "description": "Large progress bar with subtitle",
+      "attributes": {
+        "block_id": "c3d4",
+        "layoutType": "progressbar",
+        "styleType": "style-2",
+        "heightType": "large-height",
+        "Title": "Web Development",
+        "subTitle": "HTML, CSS, JavaScript",
+        "dynamicValue": "92",
+        "bgColor": {"openBg": 1, "bgType": "gradient", "bgGradient": "linear-gradient(90deg, #667eea 0%, #764ba2 100%)"}
+      }
+    },
+    {
+      "description": "Circular pie chart progress",
+      "attributes": {
+        "block_id": "e5f6",
+        "layoutType": "piechart",
+        "pieStyleType": "pieStyle-1",
+        "Title": "Project Completion",
+        "dynamicPieValue": "0.75",
+        "pieCircleSize": "200",
+        "pieThickness": "8",
+        "pieFillColor": "gradient",
+        "pieColor1": "#27ae60",
+        "pieColor2": "#2ecc71"
+      }
+    },
+    {
+      "description": "Progress bar with custom symbol",
+      "attributes": {
+        "block_id": "g7h8",
+        "Title": "Customer Satisfaction",
+        "dynamicValue": "98",
+        "prepostSymbol": "pts",
+        "sPosition": "afterNumber",
+        "iconType": "iconIcon",
+        "IconName": "fas fa-star"
+      }
+    }
+  ]
+}

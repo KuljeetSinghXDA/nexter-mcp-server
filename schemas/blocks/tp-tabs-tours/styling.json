@@ -1,0 +1,239 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-tabs-tours",
+  "title": "Tabs Tours - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "navPosition": {
+      "type": "string",
+      "default": "top",
+      "enum": [
+        "top",
+        "bottom",
+        "left",
+        "right"
+      ],
+      "description": "Tab navigation position"
+    },
+    "onhoverTab": {
+      "type": "string",
+      "default": "click",
+      "enum": [
+        "click",
+        "hover"
+      ],
+      "description": "Tab activation trigger"
+    },
+    "iconSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconwidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal)"
+    },
+    "iconActcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (active/hover)"
+    },
+    "iconSpacing": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "fullwidthIcon": {
+      "type": "boolean",
+      "default": false,
+      "description": "Full width icon above text"
+    },
+    "outiconSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "outiconColor": {
+      "type": "string",
+      "default": "",
+      "description": "Outer icon color"
+    },
+    "outiconActColor": {
+      "type": "string",
+      "default": "",
+      "description": "Outer icon active color"
+    },
+    "vernavWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "VerticalAlign": {
+      "type": "string",
+      "default": "center",
+      "enum": [
+        "top",
+        "center",
+        "bottom"
+      ],
+      "description": "Vertical content alignment"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "navAlign": {
+      "type": "string",
+      "default": "text-center",
+      "enum": [
+        "text-left",
+        "text-center",
+        "text-right"
+      ],
+      "description": "Tab navigation alignment"
+    },
+    "colSize": {
+      "type": "object",
+      "default": {
+        "md": ""
+      },
+      "description": "Number of columns for tabs",
+      "responsive": true
+    },
+    "navequalwidth": {
+      "type": "boolean",
+      "default": false,
+      "description": "Equal width for all tabs"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Tab title color (normal)"
+    },
+    "titleActcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Tab title color (active/hover)"
+    },
+    "ulineColor": {
+      "type": "string",
+      "default": "",
+      "description": "Underline color"
+    },
+    "tabMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "tabPadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "tabBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Tab header border (normal)"
+    },
+    "normalBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "tabActborder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Tab header border (active)"
+    },
+    "actBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "tabbgType": {
+      "$ref": "definitions://background"
+    },
+    "acttabBgtype": {
+      "$ref": "definitions://background"
+    },
+    "tabNBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "tabActBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "descTypo": {
+      "$ref": "definitions://typography"
+    },
+    "descColor": {
+      "type": "string",
+      "default": "",
+      "description": "Tab content text color"
+    },
+    "descMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "descPadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "descBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Tab content wrapper border"
+    },
+    "descbgType": {
+      "$ref": "definitions://background"
+    },
+    "descboxShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "navOpacity": {
+      "type": "string",
+      "default": "1",
+      "description": "Tab opacity (normal)"
+    },
+    "ActnavOpacity": {
+      "type": "string",
+      "default": "1",
+      "description": "Tab opacity (active)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "tablistRepeater",
+      "activeTab",
+      "iconSize",
+      "iconwidth",
+      "iconColor",
+      "iconActcolor",
+      "iconSpacing",
+      "titleColor",
+      "titleActcolor",
+      "ulineColor",
+      "tabMargin",
+      "tabPadding",
+      "navSpace",
+      "descMargin",
+      "descPadding",
+      "descColor",
+      "vernavWidth"
+    ],
+    "requiresValidation": [
+      "tabType",
+      "tabLayout",
+      "navPosition",
+      "swiperEffect",
+      "onhoverTab",
+      "carouselId",
+      "fullwidthIcon",
+      "hideToggle",
+      "VerticalAlign",
+      "navAlign",
+      "tabCol",
+      "titleShow",
+      "navequalwidth",
+      "underline"
+    ]
+  },
+  "styleDependencies": [
+    "Swiper.js (when swiperEffect is true)",
+    "Tab switching JavaScript",
+    "Accordion functionality for mobile",
+    "Active state management",
+    "Template rendering (when using templates)",
+    "AJAX loading (when using ajaxbase)"
+  ]
+}

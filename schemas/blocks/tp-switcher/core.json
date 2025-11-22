@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-switcher",
+  "title": "Switcher - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "title1": {
+      "type": "string",
+      "default": "Switch 1",
+      "description": "Label for first switch option"
+    },
+    "title2": {
+      "type": "string",
+      "default": "Switch 2",
+      "description": "Label for second switch option"
+    },
+    "desc1": {
+      "type": "string",
+      "default": "",
+      "description": "Content for first switch option (legacy mode)"
+    },
+    "desc2": {
+      "type": "string",
+      "default": "",
+      "description": "Content for second switch option (legacy mode)"
+    },
+    "source1": {
+      "type": "string",
+      "default": "content",
+      "enum": [
+        "content",
+        "template"
+      ],
+      "description": "Content source for switch 1"
+    },
+    "source2": {
+      "type": "string",
+      "default": "content",
+      "enum": [
+        "content",
+        "template"
+      ],
+      "description": "Content source for switch 2"
+    },
+    "blockTemp1": {
+      "type": "string",
+      "default": "",
+      "description": "Block template ID for switch 1"
+    },
+    "blockTemp2": {
+      "type": "string",
+      "default": "",
+      "description": "Block template ID for switch 2"
+    },
+    "ajaxbaseTem1": {
+      "type": "string",
+      "default": "",
+      "description": "AJAX loading configuration for switch 1"
+    },
+    "ajaxbaseTem2": {
+      "type": "string",
+      "default": "",
+      "description": "AJAX loading configuration for switch 2"
+    },
+    "showBtn": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide the switch toggle button"
+    },
+    "switchStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2",
+        "style-3",
+        "style-4"
+      ],
+      "description": "Visual style of the switch toggle"
+    },
+    "labSpacebet": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "switchWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "carouselId": {
+      "type": "string",
+      "default": "",
+      "description": "ID of carousel block to sync with switcher"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "title1",
+      "title2",
+      "desc1",
+      "desc2",
+      "switchalign",
+      "labSpacebet",
+      "toggleSize",
+      "switchColor",
+      "innerBlocks content"
+    ],
+    "requiresValidation": [
+      "switchStyle",
+      "source1",
+      "source2",
+      "blockTemp1",
+      "blockTemp2",
+      "showBtn",
+      "carouselId"
+    ],
+    "dangerous": [
+      "block_id",
+      "ajaxbaseTem1",
+      "ajaxbaseTem2"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": false
+}

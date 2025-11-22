@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-coupon-code",
+  "version": "1.0.0",
+  "title": "Coupon Code",
+  "category": "marketing",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Increase conversion using coupons, offers, promo codes, and discounts. Features 4 coupon types (standard, scratch, slide-out, peel) with 3 standard styles, copy-to-clipboard functionality, and custom ",
+  "keywords": [
+    "coupon",
+    "promo code",
+    "discount code",
+    "voucher"
+  ],
+  "useCases": [
+    "Discount coupons",
+    "Promo codes",
+    "Referral codes"
+  ]
+}

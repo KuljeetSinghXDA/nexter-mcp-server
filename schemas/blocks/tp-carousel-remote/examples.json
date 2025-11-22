@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-carousel-remote",
+  "title": "Carousel Remote - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple prev/next buttons",
+      "attributes": {
+        "block_id": "a1b2",
+        "carouselId": "product-carousel",
+        "carobtn": true,
+        "btntxt1": "Previous",
+        "btntxt2": "Next",
+        "btnIcon1": "fas fa-chevron-left",
+        "btnIcon2": "fas fa-chevron-right"
+      }
+    },
+    {
+      "description": "Dot indicators with animated borders",
+      "attributes": {
+        "block_id": "c3d4",
+        "carouselId": "gallery-carousel",
+        "showDot": true,
+        "dotstyle": "style-1",
+        "AborderColor": "#667eea",
+        "AniDuration": "3000",
+        "dotLayout": "horizontal"
+      }
+    },
+    {
+      "description": "Dots with tooltips (vertical layout)",
+      "attributes": {
+        "block_id": "e5f6",
+        "carouselId": "testimonial-carousel",
+        "showDot": true,
+        "dotstyle": "style-2",
+        "dotLayout": "vertical",
+        "vtooltipDir": "left",
+        "tooltiparrow": true,
+        "dotList": [
+          {
+            "label": "Customer 1",
+            "iconName": "fas fa-user"
+          },
+          {
+            "label": "Customer 2",
+            "iconName": "fas fa-user"
+          },
+          {
+            "label": "Customer 3",
+            "iconName": "fas fa-user"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Full remote with buttons, dots, and pagination",
+      "attributes": {
+        "block_id": "g7h8",
+        "carouselId": "featured-carousel",
+        "carobtn": true,
+        "showDot": true,
+        "showpagi": true,
+        "sliderInd": "/",
+        "rbtnAlign": "text-center"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

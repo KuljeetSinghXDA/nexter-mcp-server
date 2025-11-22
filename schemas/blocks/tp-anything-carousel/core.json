@@ -1,0 +1,133 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-anything-carousel",
+  "title": "Carousel Anything - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "carouselList": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Array of carousel slide items",
+      "items": {
+        "title": {
+          "type": "string",
+          "default": "Slide",
+          "description": "Slide title/label (for editor organization)"
+        },
+        "blockTemp": {
+          "type": "string",
+          "default": "none",
+          "description": "Pro: Reusable block template ID"
+        },
+        "contentType": {
+          "type": "string",
+          "default": "template",
+          "enum": [
+            "template",
+            "content"
+          ],
+          "description": "Content source: template or innerBlocks"
+        },
+        "backendVisi": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show slide in backend editor"
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "title": "Slide",
+          "blockTemp": "none",
+          "backendVisi": false,
+          "contentType": "template"
+        }
+      ]
+    },
+    "carouselId": {
+      "type": "string",
+      "default": "",
+      "description": "Unique carousel ID for remote control integration"
+    },
+    "caroslideType": {
+      "type": "string",
+      "default": "template",
+      "enum": [
+        "template",
+        "content"
+      ],
+      "description": "Global slide content type"
+    },
+    "OverflowHid": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide overflow content outside carousel bounds"
+    },
+    "rmdOrder": {
+      "type": "boolean",
+      "default": false,
+      "description": "Randomize slide order on load"
+    },
+    "equalUnqClass": {
+      "type": "string",
+      "default": "",
+      "description": "Unique class for equal height synchronization"
+    },
+    "rewindFade": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable rewind animation for fade transitions"
+    },
+    "carType": {
+      "type": "string",
+      "default": "slide",
+      "enum": [
+        "slide",
+        "fade"
+      ],
+      "description": "Carousel transition type"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "carouselList",
+      "carouselId",
+      "OverflowHid",
+      "rmdOrder",
+      "tpgbEqualHeight",
+      "equalUnqClass",
+      "rewindFade",
+      "carType"
+    ],
+    "requiresValidation": [
+      "caroslideType",
+      "blockTemp"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "anchor": true
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": false
+}

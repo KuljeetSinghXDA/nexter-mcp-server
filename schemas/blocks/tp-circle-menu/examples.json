@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-circle-menu",
+  "title": "Circle Menu - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Social media circular menu (bottom-right)",
+      "attributes": {
+        "block_id": "a1b2",
+        "layoutType": "circle",
+        "cDirection": "bottom-right",
+        "angleStart": "0",
+        "angleEnd": "90",
+        "circleRadius": {
+          "md": "120"
+        },
+        "icnTrigger": "hover"
+      }
+    },
+    {
+      "description": "Contact menu with phone and email",
+      "attributes": {
+        "block_id": "c3d4",
+        "layoutType": "circle",
+        "circleMenu": [
+          {
+            "iconStore": "fas fa-phone",
+            "title": "Phone",
+            "linkType": "phone",
+            "phoneNo": "+1234567890"
+          },
+          {
+            "iconStore": "fas fa-envelope",
+            "title": "Email",
+            "linkType": "email",
+            "emailtxt": "contact@example.com"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Straight menu with text labels (style-2)",
+      "attributes": {
+        "block_id": "e5f6",
+        "layoutType": "straight",
+        "menuStyle": "style-2",
+        "sDirection": "right",
+        "iconGap": "15",
+        "openSpeed": "400"
+      }
+    },
+    {
+      "description": "Floating action button with custom positioning",
+      "attributes": {
+        "block_id": "g7h8",
+        "iconPos": "fixed",
+        "bottomAuto": true,
+        "bottomASize": {
+          "md": "5",
+          "unit": "%"
+        },
+        "rightAuto": true,
+        "rightASize": {
+          "md": "5",
+          "unit": "%"
+        },
+        "overlayColorTgl": true,
+        "overlayColor": "rgba(0,0,0,0.5)"
+      }
+    },
+    {
+      "description": "Full semi-circle menu (180 degrees)",
+      "attributes": {
+        "block_id": "i9j0",
+        "layoutType": "circle",
+        "angleStart": "0",
+        "angleEnd": "180",
+        "circleRadius": {
+          "md": "150"
+        },
+        "menuOSpeed": "600",
+        "icnStepIn": "-30",
+        "icnStepOut": "30"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

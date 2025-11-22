@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-mouse-cursor",
+  "title": "Mouse Cursor - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple circle cursor following mouse",
+      "attributes": {
+        "block_id": "a1b2",
+        "cursorEffect": "mc-body",
+        "cursorType": "mouse-follow-circle",
+        "circleStyle": "mc-cs1",
+        "circleMaxWidth": {
+          "md": "40",
+          "unit": "px"
+        },
+        "circleMaxHeight": {
+          "md": "40",
+          "unit": "px"
+        },
+        "circleNmlBG": "#667eea",
+        "circleOpacity": "0.6"
+      }
+    },
+    {
+      "description": "Custom image cursor",
+      "attributes": {
+        "block_id": "c3d4",
+        "cursorType": "mouse-follow-image",
+        "mcPointerIcon": {
+          "url": "/cursor-icon.png"
+        },
+        "iconMaxWidth": {
+          "md": "30",
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "description": "Text label following cursor",
+      "attributes": {
+        "block_id": "e5f6",
+        "cursorType": "mouse-follow-text",
+        "pointerText": "Click Here",
+        "listTagHover": "a, button"
+      }
+    },
+    {
+      "description": "Mix-blend circle with dual sizes",
+      "attributes": {
+        "block_id": "g7h8",
+        "cursorType": "mouse-follow-circle",
+        "circleStyle": "mc-cs3",
+        "crclMixBMode": "difference",
+        "firstCircleSize": "60",
+        "secondCircleSize": "40",
+        "mcClick": true,
+        "mcClickText": "View"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

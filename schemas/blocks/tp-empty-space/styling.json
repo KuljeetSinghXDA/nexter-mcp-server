@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-empty-space",
+  "title": "Spacer - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {},
+  "editingGuidelines": {
+    "safeToModify": [
+      "space",
+      "toggle",
+      "className"
+    ],
+    "requiresValidation": []
+  },
+  "styleDependencies": [
+    "Basic height CSS styling",
+    "Responsive height adjustments"
+  ]
+}

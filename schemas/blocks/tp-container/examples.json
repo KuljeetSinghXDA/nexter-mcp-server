@@ -1,0 +1,770 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-container",
+  "title": "Container - Usage Examples (Enhanced)",
+  "description": "Comprehensive usage patterns with visual descriptions, validation rules, and warnings for pixel-perfect layouts",
+
+  "examples": [
+    {
+      "name": "Simple Content Section",
+      "description": "Basic centered content container for standard page sections",
+      "visualDescription": "1200px wide centered container, 400px minimum height, 80px top/bottom padding, 20px side padding. White background, standard spacing.",
+      "complexity": "simple",
+      "useCase": "About sections, content areas, standard page sections",
+      "attributes": {
+        "block_id": "a1b2",
+        "contentWidth": "wide",
+        "containerWide": {
+          "md": "1200",
+          "sm": "100",
+          "unit": "px"
+        },
+        "minHeight": {
+          "md": "400",
+          "sm": "300",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "Padding": {
+          "md": {
+            "top": "80",
+            "bottom": "80",
+            "left": "20",
+            "right": "20"
+          },
+          "sm": {
+            "top": "60",
+            "bottom": "60",
+            "left": "15",
+            "right": "15"
+          },
+          "unit": "px"
+        },
+        "tagName": "section"
+      },
+      "responsiveNotes": "Container becomes 100% width on small screens (sm), padding reduces for mobile",
+      "relatedBlocks": ["tp-container-inner", "tp-row", "tp-column"]
+    },
+
+    {
+      "name": "Full-Width Hero Section with Gradient",
+      "description": "Edge-to-edge hero section with purple gradient background and wave shape divider",
+      "visualDescription": "Full viewport width, 600px minimum height, purple-to-violet gradient (135deg from #667eea to #764ba2), white wave shape divider at bottom (100px height). Content vertically centered.",
+      "complexity": "medium",
+      "useCase": "Hero sections, landing page headers, featured content areas",
+      "attributes": {
+        "block_id": "c3d4",
+        "contentWidth": "full",
+        "minHeight": {
+          "md": "600",
+          "sm": "450",
+          "xs": "400",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "shapeBottom": "wave",
+        "shapeBColor": "#ffffff",
+        "shapeBHeight": {
+          "md": "100",
+          "sm": "60",
+          "unit": "px"
+        },
+        "shapeBFlip": false,
+        "contentPositionitems": "middle",
+        "Padding": {
+          "md": {
+            "top": "120",
+            "bottom": "120",
+            "left": "40",
+            "right": "40"
+          },
+          "sm": {
+            "top": "80",
+            "bottom": "80",
+            "left": "20",
+            "right": "20"
+          },
+          "unit": "px"
+        },
+        "tagName": "header"
+      },
+      "responsiveNotes": "Hero height reduces on tablets (450px) and mobile (400px). Shape divider height scales down on smaller screens.",
+      "visualTips": "Wave shape creates smooth transition to next section. Gradient provides visual interest without images.",
+      "relatedBlocks": ["tp-heading", "tp-button", "tp-pro-paragraph"]
+    },
+
+    {
+      "name": "Card Grid Layout Container",
+      "description": "Wide container setup for displaying grid of cards or columns",
+      "visualDescription": "1140px wide centered container, flexbox layout with row wrap, 30px gap between items. Minimum 300px height, light gray background (#f8f9fa).",
+      "complexity": "simple",
+      "useCase": "Card grids, feature sections, portfolio layouts, service listings",
+      "attributes": {
+        "block_id": "e5f6",
+        "contentWidth": "wide",
+        "containerWide": {
+          "md": "1140",
+          "sm": "100",
+          "unit": "px"
+        },
+        "gutterSpace": {
+          "md": "30",
+          "sm": "20",
+          "xs": "15",
+          "unit": "px"
+        },
+        "minHeight": {
+          "md": "300",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f8f9fa"
+        },
+        "Padding": {
+          "md": {
+            "top": "60",
+            "bottom": "60",
+            "left": "20",
+            "right": "20"
+          },
+          "sm": {
+            "top": "40",
+            "bottom": "40",
+            "left": "15",
+            "right": "15"
+          },
+          "unit": "px"
+        },
+        "tagName": "section"
+      },
+      "responsiveNotes": "Gutter space reduces on smaller screens (30px → 20px → 15px). Container becomes fluid width on tablets.",
+      "layoutNotes": "Use with 3-4 tp-container-inner blocks for optimal card grid. Gutter space applies as padding to inner columns.",
+      "relatedBlocks": ["tp-container-inner", "tp-pricing-table", "tp-icon-box", "tp-testimonials"]
+    },
+
+    {
+      "name": "Video Background Hero (Pro)",
+      "description": "Full-width container with YouTube video background and overlay",
+      "visualDescription": "Full viewport width, 700px minimum height, YouTube video playing in background (looped, muted). Dark semi-transparent overlay (rgba(0,0,0,0.5)) for content readability. Fallback poster image shown until video loads.",
+      "complexity": "advanced",
+      "useCase": "Premium hero sections, product showcases, immersive landing pages",
+      "source": "pro",
+      "attributes": {
+        "block_id": "g7h8",
+        "contentWidth": "full",
+        "deepBgopt": "bg_video",
+        "videosour": "youtube",
+        "youtubeId": "dQw4w9WgXcQ",
+        "videoloop": true,
+        "videoMute": true,
+        "videoImg": {
+          "url": "https://example.com/poster.jpg",
+          "id": "123",
+          "alt": "Video poster image"
+        },
+        "minHeight": {
+          "md": "700",
+          "sm": "500",
+          "xs": "400",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "overlayBg": 1,
+        "overlayBgColor": "rgba(0,0,0,0.5)",
+        "contentPositionitems": "middle",
+        "contentAlign": "center",
+        "Padding": {
+          "md": {
+            "top": "100",
+            "bottom": "100",
+            "left": "40",
+            "right": "40"
+          },
+          "sm": {
+            "top": "60",
+            "bottom": "60",
+            "left": "20",
+            "right": "20"
+          },
+          "unit": "px"
+        },
+        "tagName": "header"
+      },
+      "responsiveNotes": "Video background disabled on mobile for performance. Poster image shown instead.",
+      "performanceNotes": "Always provide poster image (videoImg) for loading state. Mute video (videoMute: true) for autoplay to work.",
+      "warnings": [
+        "Video backgrounds can impact page load performance - use sparingly",
+        "Always set videoMute: true for autoplay to work (browser policy)",
+        "Provide high-quality poster image for loading state and mobile fallback",
+        "Test video playback across browsers - some may block autoplay"
+      ],
+      "relatedBlocks": ["tp-heading", "tp-button"]
+    },
+
+    {
+      "name": "Sticky Navigation Container (Pro)",
+      "description": "Container that sticks to top of viewport when scrolling with smooth animation",
+      "visualDescription": "Initially normal flow, becomes fixed at top when scrolling past 100px offset. White background with subtle shadow appears on scroll. Slides in from top with 0.5s transition.",
+      "complexity": "advanced",
+      "useCase": "Sticky headers, floating navigation bars, persistent CTAs",
+      "source": "pro",
+      "attributes": {
+        "block_id": "i9j0",
+        "contentWidth": "full",
+        "contSticky": {
+          "md": true,
+          "sm": false
+        },
+        "constType": "normal-sticky",
+        "contopoffset": {
+          "md": "100",
+          "unit": "px"
+        },
+        "sanimaType": "slide",
+        "stTransdur": "0.5",
+        "StickyBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "StickyBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.1)"
+        },
+        "Padding": {
+          "md": {
+            "top": "20",
+            "bottom": "20",
+            "left": "40",
+            "right": "40"
+          },
+          "unit": "px"
+        },
+        "zIndex": {
+          "md": "999"
+        },
+        "tagName": "nav"
+      },
+      "responsiveNotes": "Sticky behavior disabled on small screens (sm) to avoid viewport issues",
+      "behaviorNotes": "Container becomes sticky after scrolling past contopoffset (100px). Slide animation adds smooth transition effect.",
+      "warnings": [
+        "Set high z-index (900+) to ensure sticky container appears above other content",
+        "Test on mobile - sticky containers can consume too much viewport height",
+        "Avoid nested sticky containers - can cause z-index conflicts",
+        "sanimaType requires stTransdur to be set for animation duration"
+      ],
+      "validationRules": {
+        "contSticky.md": "Must be true to enable sticky behavior",
+        "constType": "Must be 'normal-sticky' or 'smart-sticky'",
+        "contopoffset": "Offset before sticky activates (recommended 50-200px)",
+        "zIndex": "Must be higher than other content (recommended 900-999)"
+      },
+      "relatedBlocks": ["tp-mobile-menu"]
+    },
+
+    {
+      "name": "Animated Gradient Background (Pro)",
+      "description": "Full-width container with animated multi-color gradient that transitions smoothly",
+      "visualDescription": "Full viewport width, 500px minimum height, gradient animates between purple (#8072fc), green (#6fc784), and pink (#ff5a6e) colors. 5-second loop creates smooth color flow effect.",
+      "complexity": "advanced",
+      "useCase": "Modern hero sections, creative portfolios, attention-grabbing headers",
+      "source": "pro",
+      "attributes": {
+        "block_id": "k1l2",
+        "contentWidth": "full",
+        "deepBgopt": "bg_animate_gradient",
+        "colorList": [
+          {
+            "_key": "0",
+            "aniColor": "#8072fc"
+          },
+          {
+            "_key": "1",
+            "aniColor": "#6fc784"
+          },
+          {
+            "_key": "2",
+            "aniColor": "#ff5a6e"
+          }
+        ],
+        "animdur": "5",
+        "minHeight": {
+          "md": "500",
+          "sm": "400",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "contentPositionitems": "middle",
+        "Padding": {
+          "md": {
+            "top": "80",
+            "bottom": "80",
+            "left": "40",
+            "right": "40"
+          },
+          "unit": "px"
+        },
+        "tagName": "section"
+      },
+      "performanceNotes": "Animated gradients use CSS animations - minimal performance impact",
+      "visualTips": "Use 3-5 colors for best effect. Longer animdur (5-10s) creates subtle, elegant transitions. Shorter (<3s) creates energetic effect.",
+      "warnings": [
+        "Animated backgrounds can distract from content - ensure sufficient contrast for text",
+        "Test color combinations for readability - may need text shadows or overlay",
+        "colorList requires minimum 2 colors, recommended 3-5 colors",
+        "animdur in seconds (recommended 3-10 for smooth effect)"
+      ],
+      "relatedBlocks": ["tp-heading", "tp-button"]
+    },
+
+    {
+      "name": "Parallax Image Background (Pro)",
+      "description": "Container with image background that moves at different speed than scroll (parallax effect)",
+      "visualDescription": "Full-width container, 600px minimum height, background image moves slower than scroll creating depth effect. Dark overlay (0.4 opacity) ensures content readability.",
+      "complexity": "medium",
+      "useCase": "Visual storytelling, feature sections, portfolio showcases",
+      "source": "pro",
+      "attributes": {
+        "block_id": "m3n4",
+        "contentWidth": "full",
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "image",
+          "bgImage": {
+            "url": "https://example.com/background.jpg",
+            "id": "456",
+            "position": "center center",
+            "attachment": "fixed",
+            "repeat": "no-repeat",
+            "size": "cover"
+          }
+        },
+        "overlayBg": 1,
+        "overlayBgColor": "rgba(0,0,0,0.4)",
+        "deepBgopt": "bg_image",
+        "parallax": true,
+        "minHeight": {
+          "md": "600",
+          "sm": "450",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "contentPositionitems": "middle",
+        "Padding": {
+          "md": {
+            "top": "100",
+            "bottom": "100",
+            "left": "40",
+            "right": "40"
+          },
+          "unit": "px"
+        },
+        "tagName": "section"
+      },
+      "responsiveNotes": "Parallax disabled on mobile devices for performance and UX. Shows static background instead.",
+      "performanceNotes": "Use optimized images (WebP, compressed). Parallax can impact scroll performance on slower devices.",
+      "warnings": [
+        "Parallax disabled on iOS/mobile devices - provide good static fallback",
+        "Use high-resolution images but optimize file size (<500KB recommended)",
+        "Set parallax: true to enable parallax scrolling effect",
+        "Always include overlay for text readability"
+      ],
+      "validationRules": {
+        "deepBgopt": "Must be 'bg_image' for image backgrounds",
+        "parallax": "Set to true to enable parallax effect",
+        "bgImage.url": "Required - high-quality image URL",
+        "bgImage.size": "Should be 'cover' for full coverage"
+      },
+      "relatedBlocks": ["tp-heading", "tp-pro-paragraph"]
+    },
+
+    {
+      "name": "Multi-Shape Divider Section",
+      "description": "Container with shape dividers on top and bottom for creative section transitions",
+      "visualDescription": "Wide container, white background, purple wave shape at top (inverted), green triangle shape at bottom. 450px minimum height. Creates flowing visual transition between sections.",
+      "complexity": "medium",
+      "useCase": "Creative section breaks, modern page layouts, visual separation",
+      "attributes": {
+        "block_id": "o5p6",
+        "contentWidth": "wide",
+        "containerWide": {
+          "md": "1200",
+          "unit": "px"
+        },
+        "minHeight": {
+          "md": "450",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "shapeTop": "wave",
+        "shapeTColor": "#667eea",
+        "shapeTHeight": {
+          "md": "80",
+          "unit": "px"
+        },
+        "shapeTFlip": true,
+        "shapeBottom": "triangle",
+        "shapeBColor": "#6fc784",
+        "shapeBHeight": {
+          "md": "100",
+          "unit": "px"
+        },
+        "shapeBFlip": false,
+        "Padding": {
+          "md": {
+            "top": "60",
+            "bottom": "60",
+            "left": "40",
+            "right": "40"
+          },
+          "unit": "px"
+        },
+        "tagName": "section"
+      },
+      "visualTips": "Shape dividers create smooth visual flow between sections. Match shape colors to adjacent sections for seamless integration.",
+      "warnings": [
+        "Shape colors should match adjacent section backgrounds for seamless effect",
+        "shapeTFlip/shapeBFlip inverts shape direction - use for variety",
+        "Test shape heights on mobile - may need to reduce for small screens",
+        "Available shapes: wave, triangle, curve, clouds, zigzag"
+      ],
+      "relatedBlocks": ["tp-container", "tp-row"]
+    },
+
+    {
+      "name": "Centered Content with Border & Shadow",
+      "description": "Boxed container with border, shadow, and centered alignment for card-like appearance",
+      "visualDescription": "1000px wide centered container, white background, 2px solid purple border, medium shadow for depth. Looks like floating card on page. 400px minimum height.",
+      "complexity": "simple",
+      "useCase": "Feature boxes, testimonial sections, highlighted content areas",
+      "attributes": {
+        "block_id": "q7r8",
+        "contentWidth": "wide",
+        "containerWide": {
+          "md": "1000",
+          "sm": "90",
+          "unit": "px"
+        },
+        "minHeight": {
+          "md": "400",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "Border": {
+          "openBorder": 1,
+          "borderTop": {
+            "width": "2",
+            "style": "solid",
+            "color": "#667eea"
+          },
+          "borderRight": {
+            "width": "2",
+            "style": "solid",
+            "color": "#667eea"
+          },
+          "borderBottom": {
+            "width": "2",
+            "style": "solid",
+            "color": "#667eea"
+          },
+          "borderLeft": {
+            "width": "2",
+            "style": "solid",
+            "color": "#667eea"
+          }
+        },
+        "borderRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "BoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 24,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.12)"
+        },
+        "Padding": {
+          "md": {
+            "top": "60",
+            "bottom": "60",
+            "left": "50",
+            "right": "50"
+          },
+          "sm": {
+            "top": "40",
+            "bottom": "40",
+            "left": "30",
+            "right": "30"
+          },
+          "unit": "px"
+        },
+        "tagName": "article"
+      },
+      "visualTips": "Combining border, shadow, and border-radius creates professional card effect. Subtle shadow (blur: 24, low opacity) looks modern.",
+      "relatedBlocks": ["tp-heading", "tp-pro-paragraph", "tp-icon-box"]
+    },
+
+    {
+      "name": "Full-Height Viewport Section",
+      "description": "Container that fills 100% of viewport height for full-screen sections",
+      "visualDescription": "Full viewport width and height (100vh), gradient background, content vertically and horizontally centered. Creates immersive full-screen experience.",
+      "complexity": "simple",
+      "useCase": "Landing page sections, portfolio showcases, full-screen CTAs",
+      "attributes": {
+        "block_id": "s9t0",
+        "contentWidth": "full",
+        "minHeight": {
+          "md": "100",
+          "sm": "600",
+          "unit": "vh"
+        },
+        "height": "min-height",
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 45,
+            "gradientColor": [
+              {"color": "#11998e", "position": 0},
+              {"color": "#38ef7d", "position": 100}
+            ]
+          }
+        },
+        "contentPositionitems": "middle",
+        "contentAlign": "center",
+        "Padding": {
+          "md": {
+            "top": "40",
+            "bottom": "40",
+            "left": "40",
+            "right": "40"
+          },
+          "unit": "px"
+        },
+        "tagName": "section"
+      },
+      "responsiveNotes": "Uses 100vh on desktop for full viewport height. Switches to fixed 600px on mobile to avoid very tall sections on portrait orientation.",
+      "warnings": [
+        "100vh on mobile can be tricky due to browser chrome - test thoroughly",
+        "Consider reducing to fixed height (600-800px) on mobile",
+        "Avoid multiple 100vh sections - can disorient users",
+        "Test content overflow - ensure all content fits or is scrollable"
+      ],
+      "validationRules": {
+        "minHeight.md": "Use 100 with unit 'vh' for full viewport",
+        "contentPositionitems": "Should be 'middle' for vertical centering",
+        "contentAlign": "Should be 'center' for horizontal centering"
+      },
+      "relatedBlocks": ["tp-heading", "tp-button"]
+    }
+  ],
+
+  "commonPatterns": {
+    "hero-section": {
+      "description": "Full-width hero with gradient, centered content, wave divider",
+      "baseAttributes": {
+        "contentWidth": "full",
+        "minHeight": {"md": "600", "sm": "450", "unit": "px"},
+        "height": "min-height",
+        "contentPositionitems": "middle",
+        "shapeBottom": "wave",
+        "tagName": "header"
+      }
+    },
+    "content-section": {
+      "description": "Standard wide container for content",
+      "baseAttributes": {
+        "contentWidth": "wide",
+        "containerWide": {"md": "1200", "unit": "px"},
+        "Padding": {
+          "md": {"top": "80", "bottom": "80", "left": "20", "right": "20"},
+          "unit": "px"
+        },
+        "tagName": "section"
+      }
+    },
+    "card-grid": {
+      "description": "Container for grid of cards/columns",
+      "baseAttributes": {
+        "contentWidth": "wide",
+        "containerWide": {"md": "1140", "unit": "px"},
+        "gutterSpace": {"md": "30", "sm": "20", "unit": "px"},
+        "tagName": "section"
+      }
+    }
+  },
+
+  "validationRules": {
+    "block_id": {
+      "required": true,
+      "pattern": "^[a-f0-9]{4}(_\\d+)?$",
+      "description": "4-character hex ID, never modify"
+    },
+    "contentWidth": {
+      "enum": ["wide", "full"],
+      "description": "wide = contained width, full = edge-to-edge"
+    },
+    "containerWide": {
+      "condition": "Only applies when contentWidth = 'wide'",
+      "recommended": {"md": "1200-1400", "unit": "px"},
+      "description": "Maximum width for contained layouts"
+    },
+    "minHeight": {
+      "condition": "Only applies when height = 'min-height'",
+      "recommended": {"md": "300-800", "unit": "px or vh"},
+      "description": "Prevents container from collapsing"
+    },
+    "gutterSpace": {
+      "description": "Becomes padding for child tp-container-inner blocks",
+      "recommended": {"md": "15-30", "unit": "px"},
+      "warning": "Large gutter values (>50px) can cause layout issues"
+    },
+    "NormalBg.bgType": {
+      "enum": ["color", "gradient", "image"],
+      "condition": "Requires openBg: 1",
+      "description": "Background type selection"
+    },
+    "deepBgopt": {
+      "enum": ["bg_video", "bg_animate_gradient", "scroll_animate_color", "bg_image", "bg_gallery", "bg_color"],
+      "source": "pro",
+      "description": "Advanced background effects (Pro only)"
+    },
+    "parallax": {
+      "type": "boolean",
+      "default": false,
+      "condition": "Works with bgType: 'image' or deepBgopt: 'bg_image'",
+      "description": "Enable parallax scrolling effect for background images"
+    },
+    "contSticky": {
+      "condition": "Requires constType to be set",
+      "recommended": "Disable on mobile (sm: false)",
+      "description": "Makes container stick to viewport when scrolling"
+    }
+  },
+
+  "warnings": [
+    "**CRITICAL**: Never modify or regenerate block_id - causes blocks to break",
+    "Container is parent of tp-container-inner blocks - use proper nesting",
+    "gutterSpace applies as padding to child tp-container-inner blocks, not container itself",
+    "Full-width (contentWidth: 'full') ignores containerWide setting",
+    "Video backgrounds (deepBgopt: 'bg_video') require videoMute: true for autoplay",
+    "Shape dividers (shapeTop/shapeBottom) may need color adjustment to match adjacent sections",
+    "Sticky containers (contSticky) need high z-index (900+) to appear above content",
+    "Parallax effects (parallax: true) disabled on mobile devices",
+    "100vh height can be problematic on mobile due to browser chrome",
+    "openBg: 1 is required before setting any background properties",
+    "openBorder: 1 is required before setting border properties",
+    "openShadow: 1 is required before setting shadow properties"
+  ],
+
+  "commonMistakes": [
+    {
+      "mistake": "Setting background without openBg: 1",
+      "fix": "Always set openBg: 1 before bgType, bgDefaultColor, bgGradient, etc.",
+      "impact": "Background won't render"
+    },
+    {
+      "mistake": "Using wide containerWide value with contentWidth: 'full'",
+      "fix": "containerWide only applies when contentWidth is 'wide'",
+      "impact": "Setting has no effect"
+    },
+    {
+      "mistake": "Setting minHeight without height: 'min-height'",
+      "fix": "Set height: 'min-height' to activate minHeight",
+      "impact": "Minimum height won't apply"
+    },
+    {
+      "mistake": "Expecting gutterSpace to add container padding",
+      "fix": "gutterSpace creates padding on child tp-container-inner blocks, use Padding for container",
+      "impact": "No spacing appears as expected"
+    },
+    {
+      "mistake": "Creating sticky container without z-index",
+      "fix": "Set zIndex to 900+ for sticky containers",
+      "impact": "Sticky container appears behind other content"
+    },
+    {
+      "mistake": "Using video background without poster image",
+      "fix": "Always provide videoImg for loading state",
+      "impact": "Blank section while video loads"
+    },
+    {
+      "mistake": "Multiple 100vh sections in sequence",
+      "fix": "Limit to 1-2 full-height sections per page",
+      "impact": "Disorienting scroll experience"
+    },
+    {
+      "mistake": "Not testing responsive breakpoints",
+      "fix": "Always set md, sm, xs values for heights, padding, widths",
+      "impact": "Poor mobile experience"
+    }
+  ],
+
+  "bestPractices": [
+    "Use semantic HTML tags (section, header, footer, article) for tagName",
+    "Always provide responsive values (md, sm, xs) for spacing and dimensions",
+    "Keep containerWide between 1140-1400px for readability",
+    "Use rem/em units for padding when possible (better for accessibility)",
+    "Combine multiple containers to create complex layouts",
+    "Use gutterSpace consistently across page for visual harmony (15px or 30px)",
+    "Test sticky containers on mobile - often better to disable",
+    "Optimize background images (<500KB) for performance",
+    "Use shape dividers sparingly - too many can be overwhelming",
+    "Match shape divider colors to adjacent sections for seamless flow"
+  ],
+
+  "layoutContext": {
+    "containerHierarchy": "tp-container > tp-container-inner > [content blocks]",
+    "gutterBehavior": "gutterSpace value becomes padding for all child tp-container-inner blocks",
+    "fullWidthBehavior": "contentWidth: 'full' creates edge-to-edge layout, ignores containerWide",
+    "wideBehavior": "contentWidth: 'wide' creates centered container with max-width from containerWide",
+    "stickyContext": "Sticky containers create new stacking context, require z-index management",
+    "shapeContext": "Shape dividers overflow container bounds to create seamless transitions"
+  },
+
+  "performanceConsiderations": [
+    "Video backgrounds increase page load time - use compressed videos",
+    "Parallax effects can impact scroll performance on slower devices",
+    "Animated gradients (bg_animate_gradient/scroll_animate_color) are CSS-based, minimal impact",
+    "Large background images should be optimized (WebP, compressed)",
+    "Multiple sticky containers on same page can cause performance issues",
+    "Shape dividers are SVG-based, lightweight and performant"
+  ]
+}

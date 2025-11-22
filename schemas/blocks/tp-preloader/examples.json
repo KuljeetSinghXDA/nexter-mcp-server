@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-preloader",
+  "title": "Preloader - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple spinner with text",
+      "attributes": {
+        "block_id": "a1b2",
+        "loaderStyle": "style-1",
+        "loadingText": "Please wait...",
+        "showText": true,
+        "loaderColor": "#667eea",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    {
+      "description": "Custom logo preloader with progress bar",
+      "attributes": {
+        "block_id": "c3d4",
+        "loaderStyle": "custom",
+        "customImage": {
+          "url": "/logo.svg"
+        },
+        "imageSize": {
+          "md": "120",
+          "unit": "px"
+        },
+        "showProgress": true,
+        "progressType": "bar",
+        "minDisplayTime": "1500"
+      }
+    },
+    {
+      "description": "Pulse animation with percentage",
+      "attributes": {
+        "block_id": "e5f6",
+        "loaderStyle": "style-5",
+        "showProgress": true,
+        "progressType": "percentage",
+        "fadeOutDuration": "800",
+        "loaderSize": {
+          "md": "80",
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "description": "Button-triggered loading overlay",
+      "attributes": {
+        "block_id": "g7h8",
+        "loaderStyle": "style-3",
+        "loaderTrigger": "button-click",
+        "triggerSelector": "#submit-button",
+        "loadingText": "Processing...",
+        "backgroundColor": "rgba(0,0,0,0.8)"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

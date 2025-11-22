@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-image",
+  "version": "1.0.0",
+  "title": "Image",
+  "category": "media",
+  "source": "free",
+  "complexity": "simple",
+  "description": "Enhanced image block with advanced styling options including filters, opacity, custom sizing, captions, linking, and hover effects. Supports responsive sizing and object-fit properties for perfect ima",
+  "keywords": [
+    "image",
+    "picture",
+    "photo",
+    "img"
+  ],
+  "useCases": [
+    "Display images",
+    "Photo galleries",
+    "Product images"
+  ]
+}

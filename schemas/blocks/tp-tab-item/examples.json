@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-tab-item",
+  "title": "Tab Tours Inner - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple tab with title and content",
+      "attributes": {
+        "block_id": "a1b2",
+        "tabinTitle": "Features",
+        "tabtoIndex": 0,
+        "innerIcon": false
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "c3d4",
+            "content": "Our product features include..."
+          }
+        }
+      ]
+    },
+    {
+      "description": "Tab with custom icon",
+      "attributes": {
+        "block_id": "e5f6",
+        "tabinTitle": "Pricing",
+        "tabtoIndex": 1,
+        "innerIcon": true,
+        "innericonName": "fas fa-dollar-sign"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

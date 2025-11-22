@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-countdown",
+  "title": "Countdown - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple countdown to New Year",
+      "attributes": {
+        "block_id": "a1b2",
+        "style": "style-1",
+        "countdownSelection": "normal",
+        "datetime": "2025-01-01T00:00:00",
+        "showLabels": true,
+        "countdownExpiry": "showmsg",
+        "expiryMsg": "Happy New Year!"
+      }
+    },
+    {
+      "description": "Flip countdown for product launch",
+      "attributes": {
+        "block_id": "c3d4",
+        "style": "style-2",
+        "flipTheme": "dark",
+        "datetime": "2025-02-14T12:00:00",
+        "countdownExpiry": "redirect",
+        "expiryRedirect": {
+          "url": "/product-launched",
+          "target": "_self"
+        }
+      }
+    },
+    {
+      "description": "Scarcity counter (90 seconds)",
+      "attributes": {
+        "block_id": "e5f6",
+        "countdownSelection": "scarcity",
+        "scarSec": "90",
+        "showLabels": false,
+        "expiryMsg": "Time's up! Deal expired."
+      }
+    },
+    {
+      "description": "Pro: Looping countdown",
+      "attributes": {
+        "block_id": "g7h8",
+        "style": "style-3",
+        "datetime": "2025-12-31T23:59:59",
+        "enaLoop": true,
+        "delayTime": "3600",
+        "trackUdata": "cookie"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}
