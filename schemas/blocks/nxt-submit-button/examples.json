@@ -2,49 +2,618 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-form-submit-button",
   "title": "Submit - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for form submit buttons",
   "examples": [
     {
-      "description": "Simple submit button",
+      "name": "Simple Submit Button (Center Aligned)",
+      "description": "Basic submit button with center alignment, no icon",
+      "visualDescription": "Standard submit button labeled 'Send Message', centered below form fields, inherits parent styling (color, background, padding, border)",
+      "complexity": "simple",
+      "useCase": "Contact forms, registration forms, simple submissions",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "submit001",
         "labelss": "Send Message",
         "btnAlign": "center"
-      }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "btnAlign='center' centers button in container",
+        "All styling (color, background, hover states) controlled by parent tp-form-block",
+        "Default button type is 'none' (no icon)",
+        "Button displays as block-level element (full-width container)"
+      ]
     },
     {
-      "description": "Submit button with icon",
+      "name": "Submit Button with Icon (Before Text)",
+      "description": "Submit button with paper plane icon positioned before text",
+      "visualDescription": "Submit button with purple paper plane icon on left, white text 'Subscribe' on right, purple background, 20px icon size",
+      "complexity": "medium",
+      "useCase": "Newsletter signups, email subscriptions, send actions",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "submit002",
         "labelss": "Subscribe",
         "ButtonType": "fontAwesome",
         "ButtonIcon": "fas fa-paper-plane",
-        "iconPos": "1",
+        "iconPos": "-1",
         "iconSz": {
           "md": "20",
+          "sm": "18",
+          "xs": "16",
           "unit": "px"
         },
-        "icnClr": "#ffffff"
-      }
+        "icnClr": "#ffffff",
+        "hvrIcnClr": "#f0f0f0",
+        "btnAlign": "center"
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "ButtonType must be 'fontAwesome' for FontAwesome icons",
+        "ButtonIcon uses Font Awesome class (fas fa-paper-plane, fas fa-check, etc.)",
+        "iconPos='-1' places icon before text (use '1' for after text)",
+        "Icon color changes on hover with hvrIcnClr",
+        "Responsive icon size (20px desktop, 18px tablet, 16px mobile)"
+      ]
     },
     {
-      "description": "Inline submit for newsletter",
+      "name": "Submit Button with Icon (After Text)",
+      "description": "Submit button with arrow right icon positioned after text",
+      "visualDescription": "Submit button with white text 'Continue' on left, purple arrow icon on right, centered, icon transitions on hover",
+      "complexity": "medium",
+      "useCase": "Multi-step forms, continue actions, next page buttons",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "submit003",
+        "labelss": "Continue",
+        "ButtonType": "fontAwesome",
+        "ButtonIcon": "fas fa-arrow-right",
+        "iconPos": "1",
+        "iconSz": {
+          "md": "18",
+          "unit": "px"
+        },
+        "iconSpc": {
+          "md": "10",
+          "unit": "px"
+        },
+        "icnClr": "#ffffff",
+        "hvrIcnClr": "#f0f0f0",
+        "btnAlign": "center"
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "iconPos='1' places icon after text (right side)",
+        "iconSpc controls gap between text and icon (10px)",
+        "Useful for 'next' or 'continue' actions (icon points right)",
+        "Icon size slightly smaller (18px) for subtle appearance"
+      ]
+    },
+    {
+      "name": "Submit Button with Custom Image Icon",
+      "description": "Submit button using custom image icon instead of font icon",
+      "visualDescription": "Submit button with custom send icon image (24x24px) before text 'Submit Form', centered alignment",
+      "complexity": "medium",
+      "useCase": "Branded forms, custom-designed forms, theme-specific submit buttons",
+      "attributes": {
+        "block_id": "submit004",
+        "labelss": "Submit Form",
+        "ButtonType": "image",
+        "ButtonImage": {
+          "url": "https://example.com/send-icon.png",
+          "Id": "999"
+        },
+        "iconPos": "-1",
+        "iconSz": {
+          "md": "24",
+          "unit": "px"
+        },
+        "btnAlign": "center"
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "ButtonType must be 'image' for custom images",
+        "ButtonImage.url should be full URL to image file",
+        "ButtonImage.Id is WordPress media library ID",
+        "Recommended image size: 24x24px or 32x32px",
+        "Image icons don't support color customization (use SVG for color control)"
+      ]
+    },
+    {
+      "name": "Inline Submit Button for Newsletter",
+      "description": "Inline submit button optimized to sit on same row as email field",
+      "visualDescription": "Compact submit button labeled 'Join', purple background, arrow icon, 120px width, sits inline with email field",
+      "complexity": "medium",
+      "useCase": "Newsletter signups, footer email collection, hero section CTAs with email field",
+      "attributes": {
+        "block_id": "submit005",
         "labelss": "Join",
         "isInline": true,
         "ButtonType": "fontAwesome",
         "ButtonIcon": "fas fa-arrow-right",
+        "iconPos": "1",
         "btnSz": {
           "md": "120",
+          "sm": "100",
+          "xs": "100",
           "unit": "px"
-        }
+        },
+        "iconSz": {
+          "md": "16",
+          "unit": "px"
+        },
+        "icnClr": "#ffffff",
+        "btnAlign": "left"
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "siblingBlocks": ["nxt-email-field with inpSz ~68-70%"],
+      "notes": [
+        "isInline=true enables inline button mode (nxt-btn-inline class)",
+        "btnSz sets button width (120px desktop, 100px tablet/mobile)",
+        "Email field should have inpSz ~68-70% to leave room for button",
+        "Button stacks below email on mobile for better UX",
+        "Parent tp-form-block layoutType should support inline (nxt-newsstyle-1, nxt-newsstyle-3, nxt-newsstyle-4)",
+        "btnAlign='left' aligns button left (inline with email field)"
+      ]
+    },
+    {
+      "name": "Full-Width Submit Button",
+      "description": "Full-width submit button spanning entire form width",
+      "visualDescription": "Large submit button spanning full form width, labeled 'Create Account', check circle icon, centered text, white text on purple gradient",
+      "complexity": "simple",
+      "useCase": "Registration forms, account creation, prominent CTAs",
+      "attributes": {
+        "block_id": "submit006",
+        "labelss": "Create Account",
+        "ButtonType": "fontAwesome",
+        "ButtonIcon": "fas fa-check-circle",
+        "iconPos": "1",
+        "btnSz": {
+          "md": "100",
+          "unit": "%"
+        },
+        "iconSz": {
+          "md": "20",
+          "unit": "px"
+        },
+        "icnClr": "#ffffff",
+        "hvrIcnClr": "#f0f0f0",
+        "btnAlign": "center"
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "btnSz with unit '%' and value '100' makes button full-width",
+        "btnAlign='center' centers text within full-width button",
+        "Check circle icon reinforces positive action (account creation)",
+        "Full-width buttons are prominent and mobile-friendly"
+      ]
+    },
+    {
+      "name": "Submit Button with Custom Sizing and Spacing",
+      "description": "Submit button with custom min-width and icon spacing",
+      "visualDescription": "Medium-sized submit button (180px wide), labeled 'Get Started', rocket icon, 15px gap between icon and text, right-aligned",
+      "complexity": "medium",
+      "useCase": "Landing pages, CTAs, custom form layouts requiring specific button sizing",
+      "attributes": {
+        "block_id": "submit007",
+        "labelss": "Get Started",
+        "ButtonType": "fontAwesome",
+        "ButtonIcon": "fas fa-rocket",
+        "iconPos": "-1",
+        "btnSz": {
+          "md": "180",
+          "sm": "160",
+          "xs": "100",
+          "unit": "px"
+        },
+        "iconSz": {
+          "md": "22",
+          "unit": "px"
+        },
+        "iconSpc": {
+          "md": "15",
+          "unit": "px"
+        },
+        "icnClr": "#ffffff",
+        "hvrIcnClr": "#ffe066",
+        "btnAlign": "right"
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "btnSz controls minimum button width (180px desktop, 160px tablet, 100% mobile)",
+        "iconSpc controls gap between icon and text (15px)",
+        "btnAlign='right' aligns button to right side of form",
+        "Rocket icon suggests launch/start action",
+        "Hover icon color changes to yellow (#ffe066) for emphasis"
+      ]
+    },
+    {
+      "name": "Professional Submit Button with All Features",
+      "description": "Comprehensive submit button with icon, responsive sizing, custom spacing, hover states",
+      "visualDescription": "Purple submit button labeled 'Submit Application', purple ID card icon on left (changes to lighter purple on hover), 200px wide, 12px icon gap, centered, responsive sizing",
+      "complexity": "advanced",
+      "useCase": "Professional applications, job submissions, high-value forms",
+      "attributes": {
+        "block_id": "submit008",
+        "labelss": "Submit Application",
+        "ButtonType": "fontAwesome",
+        "ButtonIcon": "fas fa-id-card",
+        "iconPos": "-1",
+        "btnSz": {
+          "md": "220",
+          "sm": "180",
+          "xs": "100",
+          "unit": "%"
+        },
+        "iconSz": {
+          "md": "20",
+          "sm": "18",
+          "xs": "16",
+          "unit": "px"
+        },
+        "iconSpc": {
+          "md": "12",
+          "sm": "10",
+          "xs": "8",
+          "unit": "px"
+        },
+        "icnClr": "#ffffff",
+        "hvrIcnClr": "#e0e0ff",
+        "btnAlign": "center"
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "Combines icon, responsive sizing, custom spacing, and hover states",
+        "ID card icon reinforces professional/application context",
+        "Fully responsive: 220px desktop, 180px tablet, full-width mobile",
+        "Icon size and spacing also responsive for optimal appearance on all devices",
+        "Hover icon color changes subtly (#ffffff → #e0e0ff)"
+      ]
+    }
+  ],
+  "commonPatterns": [
+    {
+      "pattern": "simple-submit",
+      "description": "Basic centered submit button",
+      "attrs": {
+        "labelss": "Submit",
+        "btnAlign": "center"
+      }
+    },
+    {
+      "pattern": "submit-with-icon",
+      "description": "Submit button with FontAwesome icon before text",
+      "attrs": {
+        "labelss": "Send",
+        "ButtonType": "fontAwesome",
+        "ButtonIcon": "fas fa-paper-plane",
+        "iconPos": "-1",
+        "icnClr": "#ffffff",
+        "btnAlign": "center"
+      }
+    },
+    {
+      "pattern": "inline-newsletter-button",
+      "description": "Inline submit button for newsletter forms",
+      "attrs": {
+        "labelss": "Subscribe",
+        "isInline": true,
+        "btnSz": {"md": "120", "unit": "px"},
+        "btnAlign": "left"
+      },
+      "siblingBlocks": ["nxt-email-field with inpSz ~68%"]
+    },
+    {
+      "pattern": "full-width-submit",
+      "description": "Full-width submit button",
+      "attrs": {
+        "labelss": "Submit",
+        "btnSz": {"md": "100", "unit": "%"},
+        "btnAlign": "center"
       }
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
+  "validationRules": {
+    "labelss": "Required - Button label text displayed to user",
+    "ButtonType": "Optional - Must be 'none', 'fontAwesome', or 'image' (default: 'none')",
+    "ButtonIcon": "Required if ButtonType='fontAwesome' - Font Awesome class",
+    "ButtonImage": "Required if ButtonType='image' - Object with url and Id",
+    "btnAlign": "Optional - 'left', 'center', or 'right' (default: 'left')",
+    "btnSz": "Optional - Responsive min-width object (default: empty, inherits parent)",
+    "iconPos": "Optional - '-1' (before text) or '1' (after text) (default: '-1')",
+    "iconSz": "Optional - Responsive icon size (default: {md: '25', unit: 'px'})",
+    "iconSpc": "Optional - Responsive icon spacing/gap (default: empty)",
+    "icnClr": "Optional - Icon color (hex/rgba)",
+    "hvrIcnClr": "Optional - Hover icon color (hex/rgba)",
+    "isInline": "Optional - Set true for inline button mode (default: false)",
+    "parentFormId": "Optional - Parent form ID (auto-set by system)"
+  },
+  "warnings": [
+    "⚠️ PARENT REQUIRED: nxt-submit-button MUST be placed inside tp-form-block (ancestor requirement)",
+    "⚠️ ICON TYPE: ButtonType must be set before ButtonIcon or ButtonImage will work",
+    "⚠️ INLINE BUTTON: isInline=true requires sibling email/name field with reduced width (~68-70%)",
+    "⚠️ BUTTON SIZING: btnSz with unit='%' and value='100' makes button full-width",
+    "⚠️ ICON POSITION: iconPos='-1' places icon before text, '1' places after text",
+    "⚠️ ICON SPACING: iconSpc controls gap between icon and text (use 8-15px typically)",
+    "⚠️ STYLING: Button color, background, padding, border controlled by parent tp-form-block (btnClr, btnBgClr, etc.)",
+    "⚠️ ICON COLOR: icnClr and hvrIcnClr only work with ButtonType='fontAwesome', not with image icons",
+    "⚠️ IMAGE ICON SIZE: Custom image icons should be 24x24px or 32x32px for optimal display",
+    "⚠️ ALIGNMENT: btnAlign controls button alignment in container ('left', 'center', 'right')",
+    "⚠️ RESPONSIVE: Always set mobile (xs) btnSz to small value or 100% for better UX",
+    "⚠️ INLINE MODE: Parent tp-form-block layoutType must support inline buttons (nxt-newsstyle-1, nxt-newsstyle-3, nxt-newsstyle-4)"
+  ],
+  "commonMistakes": [
+    "❌ Forgetting to set ButtonType before adding icon (icons won't appear)",
+    "❌ Using isInline=true without reducing sibling field width (button wraps to new line)",
+    "❌ Setting btnSz without unit (must include unit: 'px' or '%')",
+    "❌ Using iconPos='0' (use '-1' for before, '1' for after)",
+    "❌ Expecting icon color change with image icons (only works with fontAwesome)",
+    "❌ Using btnAlign on inline buttons (alignment controlled by form layout in inline mode)",
+    "❌ Not testing responsive widths on mobile (buttons should adapt or go full-width on xs)",
+    "❌ Using vague button labels like 'Submit' instead of specific 'Send Message' or 'Create Account'",
+    "❌ Placing submit button outside tp-form-block parent (block won't render correctly)",
+    "❌ Using iconSpc without iconSz (no effect if icon doesn't exist)",
+    "❌ Setting btnSz to very small values (< 80px) making button too cramped"
+  ],
+  "bestPractices": [
+    "✅ Use descriptive button labels: 'Send Message' not 'Submit', 'Create Account' not 'Continue'",
+    "✅ Choose icons that match action: fa-paper-plane for send, fa-check for submit, fa-arrow-right for continue",
+    "✅ Set btnAlign='center' for most forms (centered buttons look balanced)",
+    "✅ Use btnAlign='left' for inline buttons (matches email field alignment)",
+    "✅ Set btnSz to 180-220px for desktop (comfortable click target), full-width on mobile",
+    "✅ Use iconPos='-1' (icon before text) for most cases, '1' for directional actions (next/continue)",
+    "✅ Set iconSz to 18-24px for good balance with text size",
+    "✅ Use iconSpc of 10-15px for comfortable icon-text gap",
+    "✅ Provide hover icon color (hvrIcnClr) for visual feedback",
+    "✅ For inline buttons, set isInline=true AND btnSz ~120-150px",
+    "✅ Use full-width buttons (btnSz=100%) for mobile-first designs",
+    "✅ Test button with long labels (internationalization) - ensure btnSz accommodates",
+    "✅ Use consistent icon style across form (if email has icon, submit should too)",
+    "✅ For newsletter forms, use short labels ('Join', 'Subscribe', '→') in inline mode",
+    "✅ Set responsive btnSz, iconSz, iconSpc for optimal appearance on all devices",
+    "✅ Use white icon color (#ffffff) on colored button backgrounds for contrast"
+  ],
+  "iconTypeGuide": {
+    "description": "Icon display options for submit buttons",
+    "types": {
+      "none": {
+        "description": "No icon displayed",
+        "useCase": "Minimal forms, text-only buttons, simple submissions",
+        "attributes": {"ButtonType": "none"}
+      },
+      "fontAwesome": {
+        "description": "Font Awesome icon",
+        "useCase": "Most common - wide icon selection, color customization, hover states",
+        "attributes": {
+          "ButtonType": "fontAwesome",
+          "ButtonIcon": "fas fa-paper-plane",
+          "iconPos": "-1",
+          "icnClr": "#ffffff",
+          "hvrIcnClr": "#f0f0f0"
+        },
+        "popularIcons": [
+          "fas fa-paper-plane (send/submit)",
+          "fas fa-check (confirm/submit)",
+          "fas fa-check-circle (success/complete)",
+          "fas fa-arrow-right (continue/next)",
+          "fas fa-rocket (launch/get started)",
+          "fas fa-sign-in-alt (login/signin)",
+          "fas fa-user-plus (register/signup)",
+          "fas fa-envelope (email/contact)",
+          "fas fa-id-card (application/professional)",
+          "fas fa-download (download/submit)"
+        ]
+      },
+      "image": {
+        "description": "Custom image icon",
+        "useCase": "Branded forms, custom designs, specific graphics",
+        "attributes": {
+          "ButtonType": "image",
+          "ButtonImage": {
+            "url": "https://example.com/icon.png",
+            "Id": "999"
+          },
+          "iconPos": "-1"
+        },
+        "notes": [
+          "Recommended size: 24x24px or 32x32px",
+          "Supports PNG, JPG, SVG, WebP",
+          "SVG recommended for scalability and color control",
+          "No color customization via icnClr (use SVG fill for color)"
+        ]
+      }
     }
+  },
+  "iconPositionGuide": {
+    "description": "Icon positioning relative to button text",
+    "values": {
+      "-1": {
+        "description": "Icon before text (left side)",
+        "visualExample": "[icon] Submit",
+        "useCase": "Most common, general submissions",
+        "recommendedIcons": ["fa-paper-plane", "fa-check", "fa-envelope", "fa-rocket"]
+      },
+      "1": {
+        "description": "Icon after text (right side)",
+        "visualExample": "Continue [icon]",
+        "useCase": "Directional actions (next, continue, forward)",
+        "recommendedIcons": ["fa-arrow-right", "fa-arrow-circle-right", "fa-chevron-right"]
+      }
+    },
+    "bestPractices": [
+      "Use '-1' (icon before) for submit/send actions",
+      "Use '1' (icon after) for continue/next actions",
+      "Consistent positioning across form buttons improves UX",
+      "Right-pointing arrows (→) naturally go after text (iconPos='1')"
+    ]
+  },
+  "buttonSizingGuide": {
+    "description": "Understanding button sizing with btnSz attribute",
+    "unitTypes": {
+      "px": {
+        "description": "Fixed pixel width",
+        "example": {"md": "180", "unit": "px"},
+        "useCase": "Specific button widths, inline buttons, custom layouts",
+        "notes": [
+          "Button will be exactly this width (min-width)",
+          "Good for consistent sizing across forms",
+          "Set smaller values on mobile (sm/xs)"
+        ]
+      },
+      "%": {
+        "description": "Percentage of container width",
+        "example": {"md": "100", "unit": "%"},
+        "useCase": "Full-width buttons, responsive layouts",
+        "notes": [
+          "100% makes button span full form width",
+          "Automatically responsive to container size",
+          "Good for mobile-first designs"
+        ]
+      }
+    },
+    "recommendations": {
+      "inlineButton": {
+        "btnSz": {"md": "120", "sm": "100", "xs": "100", "unit": "px"},
+        "description": "Compact button for newsletter forms (68% email + 30% button + 2% gap)"
+      },
+      "standardButton": {
+        "btnSz": {"md": "180", "sm": "160", "xs": "100", "unit": "%"},
+        "description": "Standard sized button, full-width on mobile"
+      },
+      "fullWidthButton": {
+        "btnSz": {"md": "100", "unit": "%"},
+        "description": "Full-width button on all devices"
+      },
+      "largeButton": {
+        "btnSz": {"md": "220", "sm": "180", "xs": "100", "unit": "%"},
+        "description": "Large prominent button, full-width on mobile"
+      }
+    }
+  },
+  "responsivePatterns": {
+    "standardButton": {
+      "description": "Standard button, full-width on mobile",
+      "btnSz": {"md": "180", "sm": "160", "xs": "100", "unit": "%"},
+      "iconSz": {"md": "20", "sm": "18", "xs": "16", "unit": "px"},
+      "iconSpc": {"md": "12", "sm": "10", "xs": "8", "unit": "px"},
+      "btnAlign": "center",
+      "useCase": "Most contact forms, registration forms"
+    },
+    "inlineButton": {
+      "description": "Inline button for newsletter forms",
+      "isInline": true,
+      "btnSz": {"md": "120", "sm": "100", "xs": "100", "unit": "px"},
+      "iconSz": {"md": "16", "unit": "px"},
+      "btnAlign": "left",
+      "useCase": "Newsletter signups, inline email+button layouts",
+      "notes": ["Email field should be inpSz ~68-70%"]
+    },
+    "fullWidth": {
+      "description": "Full-width button on all devices",
+      "btnSz": {"md": "100", "unit": "%"},
+      "iconSz": {"md": "20", "unit": "px"},
+      "btnAlign": "center",
+      "useCase": "Mobile-first forms, registration, account creation"
+    }
+  },
+  "accessibilityNotes": [
+    "🌐 WCAG 2.1 AA Compliance:",
+    "- Button label must be descriptive (labelss attribute): 'Send Message' not 'Click Here'",
+    "- Button must have sufficient contrast with background (4.5:1 for text, 3:1 for focus)",
+    "- Icon is decorative and supplemental to text label",
+    "- Button must be keyboard accessible (Enter/Space to activate)",
+    "",
+    "🎯 Focus States:",
+    "- Parent tp-form-block controls focus styling (actInpBg, actInpBdr)",
+    "- Ensure focus state has 3:1 contrast ratio with background",
+    "- Focus indicator must be visible and obvious",
+    "",
+    "⌨️ Keyboard Navigation:",
+    "- Tab key moves to submit button",
+    "- Enter or Space activates button (submits form)",
+    "- Focus order: fields → submit button (logical flow)",
+    "",
+    "🔊 Screen Reader Considerations:",
+    "- Label announced: 'Send Message, button'",
+    "- Icon not announced (decorative only, aria-hidden=true)",
+    "- Button role automatically recognized by screen readers",
+    "- Loading state should announce 'Submitting...' if implemented",
+    "",
+    "🌈 Color Contrast:",
+    "- Button text must have 4.5:1 contrast with button background",
+    "- Icon color (icnClr) should have 3:1 contrast with button background",
+    "- Hover state must maintain contrast ratios",
+    "- Focus indicator must have 3:1 contrast with adjacent colors",
+    "",
+    "🖱️ Click Target Size:",
+    "- Minimum 44x44px click target (WCAG 2.1 Level AAA)",
+    "- Use btnSz min 120px width, min 44px height (set in parent tp-form-block btnPad)",
+    "- Larger targets (180-220px) recommended for better usability",
+    "",
+    "📱 Mobile Accessibility:",
+    "- Full-width buttons (100%) on mobile for easy tapping",
+    "- Minimum 44px height maintained on all breakpoints",
+    "- Adequate spacing between button and fields above (parent rowGap)"
+  ],
+  "parentChildRelationship": {
+    "parent": "tpgb/tp-form-block",
+    "child": "tpgb/tp-form-submit-button",
+    "requirement": "CRITICAL - nxt-submit-button MUST be inside tp-form-block",
+    "parentControls": [
+      "Button color (btnClr) - text color",
+      "Button background (btnBgClr, hvrBtnBgClr) - background and hover background",
+      "Button typography (btnTypo) - font size, weight, family",
+      "Button padding (btnPad) - internal spacing",
+      "Button border (btnBdr, btnBdrRds) - border and border radius",
+      "Form submission behavior (actionOption, emailTo1, etc.)",
+      "Loading state (ldrClr) - loading spinner color",
+      "Success/error messages (sucTypo, sucClr, failMsg)"
+    ],
+    "childControls": [
+      "Button label (labelss)",
+      "Icon (ButtonType, ButtonIcon, ButtonImage, iconPos, iconSz, iconSpc, icnClr, hvrIcnClr)",
+      "Alignment (btnAlign)",
+      "Size (btnSz)",
+      "Inline mode (isInline)"
+    ],
+    "workflow": [
+      "1. Create tp-form-block parent",
+      "2. Set parent styling (button color, background, padding, border)",
+      "3. Add form fields (name, email, phone, etc.)",
+      "4. Add nxt-submit-button child as last block in form",
+      "5. Configure child-specific settings (label, icon, alignment, size)",
+      "6. Button triggers parent form submission on click"
+    ],
+    "submissionFlow": [
+      "1. User clicks submit button",
+      "2. Form validates all fields (reqTgl, patt, etc.)",
+      "3. If validation fails: error messages shown, no submission",
+      "4. If validation passes: loading state shown, form data collected",
+      "5. Form data sent to parent-configured action (Email, Mailchimp, etc.)",
+      "6. Success/error message shown based on result",
+      "7. Form optionally resets or remains filled"
+    ]
+  },
+  "buttonLabelGuide": {
+    "description": "Best practices for button labels (labelss attribute)",
+    "principles": [
+      "Be specific: 'Send Message' not 'Submit'",
+      "Use action verbs: 'Create', 'Send', 'Subscribe', 'Register'",
+      "Keep it short: 1-3 words ideal",
+      "Match context: 'Apply Now' for job forms, 'Subscribe' for newsletters",
+      "Avoid generic terms: 'Submit', 'Click Here', 'Continue'"
+    ],
+    "examples": {
+      "contactForm": ["Send Message", "Contact Us", "Get in Touch"],
+      "newsletter": ["Subscribe", "Join", "Sign Up", "Get Updates"],
+      "registration": ["Create Account", "Register", "Sign Up", "Join Now"],
+      "login": ["Sign In", "Log In", "Login"],
+      "download": ["Download Now", "Get Free Guide", "Download"],
+      "application": ["Submit Application", "Apply Now", "Apply"],
+      "purchase": ["Buy Now", "Add to Cart", "Purchase"],
+      "multiStep": ["Continue", "Next Step", "Next", "Proceed"]
+    },
+    "internationalization": [
+      "Keep labels short for translation (long German/Finnish words may overflow)",
+      "Test button with 2x-3x label length to ensure btnSz accommodates",
+      "Consider icon-only buttons for very compact layouts (with aria-label)"
+    ]
   }
 }
