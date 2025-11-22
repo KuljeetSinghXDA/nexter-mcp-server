@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-messagebox",
+  "version": "1.0.0",
+  "title": "Message Box",
+  "category": "marketing",
+  "source": "free",
+  "complexity": "simple",
+  "description": "Display notification boxes and alerts to show important notes, warnings, error messages, or success notifications to users. Includes optional icon, dismissible functionality, and extensive styling for",
+  "keywords": [
+    "alert",
+    "message",
+    "notification",
+    "info box",
+    "warning"
+  ],
+  "useCases": [
+    "Alerts",
+    "Notices",
+    "Important messages"
+  ]
+}

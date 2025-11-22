@@ -1,0 +1,161 @@
+{
+  "blockName": "tpgb/tp-team-listing",
+  "version": "1.0.0",
+  "title": "Team Member",
+  "category": "marketing",
+  "description": "Showcase team members with photos, names, designations, and social media links. Supports grid and carousel layouts with multiple style variants. Perfect for About Us pages, team sections, and staff directories.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "Style": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Visual style variant for team member cards"
+    },
+    "layout": {
+      "type": "string",
+      "default": "grid",
+      "enum": ["grid", "carousel"],
+      "description": "Display layout: static grid or carousel slider"
+    },
+    "Alignment": {
+      "type": "object",
+      "default": {"md": "left", "sm": "", "xs": ""},
+      "description": "Text alignment for team member content",
+      "responsive": true
+    },
+    "TeamMemberR": {
+      "type": "array",
+      "default": [],
+      "description": "Array of team member items",
+      "repeaterField": {
+        "TName": {
+          "type": "string",
+          "default": "Team Member",
+          "description": "Team member name"
+        },
+        "TImage": {
+          "type": "object",
+          "default": {"url": "", "Id": ""},
+          "description": "Team member photo/avatar"
+        },
+        "TDesig": {
+          "type": "string",
+          "default": "Manager",
+          "description": "Job title or designation"
+        },
+        "TCateg": {
+          "type": "string",
+          "default": "",
+          "description": "Team member category/department"
+        },
+        "CusUrl": {
+          "type": "object",
+          "default": {"url": "", "target": "", "nofollow": ""},
+          "description": "Custom URL link"
+        },
+        "WsUrl": {
+          "type": "object",
+          "default": {"url": "", "target": "", "nofollow": ""},
+          "description": "Website URL"
+        },
+        "FbUrl": {
+          "type": "object",
+          "default": {"url": "", "target": "", "nofollow": ""},
+          "description": "Facebook profile URL"
+        },
+        "MailUrl": {
+          "type": "object",
+          "default": {"url": "", "target": "", "nofollow": ""},
+          "description": "Email address (mailto link)"
+        }
+      }
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "TeamMemberR",
+      "Alignment"
+    ],
+    "requiresValidation": [
+      "Style",
+      "layout"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Team member card style CSS",
+    "Grid or carousel layout CSS",
+    "Social icon styling",
+    "Hover effect animations",
+    "Responsive styling"
+  ],
+  "commonUseCases": [
+    "About Us team section",
+    "Meet the team page",
+    "Staff directory",
+    "Executive team showcase",
+    "Advisory board members",
+    "Department team listings"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-testimonials",
+    "tpgb/tp-heading-title",
+    "tpgb/tp-social-icons"
+  ],
+  "capabilities": [
+    "Multiple style variants",
+    "Grid or carousel layout",
+    "Photo/avatar support",
+    "Social media links",
+    "Custom URL linking",
+    "Job title/designation",
+    "Category/department filtering",
+    "Repeater for multiple members",
+    "Responsive alignment"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple team grid with 3 members",
+      "attributes": {
+        "block_id": "a1b2",
+        "layout": "grid",
+        "Alignment": {"md": "center"},
+        "TeamMemberR": [
+          {
+            "TName": "John Smith",
+            "TDesig": "CEO & Founder",
+            "TImage": {"url": "", "Id": ""},
+            "FbUrl": {"url": "https://facebook.com/john", "target": "_blank"},
+            "MailUrl": {"url": "mailto:john@company.com"}
+          },
+          {
+            "TName": "Jane Doe",
+            "TDesig": "CTO",
+            "TImage": {"url": "", "Id": ""}
+          }
+        ]
+      }
+    },
+    {
+      "description": "Team carousel with style-3",
+      "attributes": {
+        "block_id": "c3d4",
+        "Style": "style-3",
+        "layout": "carousel"
+      }
+    }
+  ]
+}

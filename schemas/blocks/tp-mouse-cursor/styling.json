@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-mouse-cursor",
+  "title": "Mouse Cursor - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "cursorEffect": {
+      "type": "string",
+      "default": "mc-body",
+      "enum": [
+        "mc-body",
+        "mc-block"
+      ],
+      "description": "Effect scope: entire body or specific block"
+    },
+    "cursorType": {
+      "type": "string",
+      "default": "mouse-cursor-icon",
+      "enum": [
+        "mouse-cursor-icon",
+        "mouse-follow-image",
+        "mouse-follow-text",
+        "mouse-follow-circle"
+      ],
+      "description": "Cursor type: icon, image, text, or circle"
+    },
+    "circleCursorType": {
+      "type": "string",
+      "default": "cursor-predefine",
+      "enum": [
+        "cursor-predefine",
+        "cursor-custom"
+      ],
+      "description": "Circle cursor type (when cursorType is 'mouse-follow-circle')"
+    },
+    "mcCursorSymbol": {
+      "type": "string",
+      "default": "crosshair",
+      "description": "CSS cursor symbol for circle area"
+    },
+    "iconMaxWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "circleMaxWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "circleMaxHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "firstCircleSize": {
+      "type": "string",
+      "default": "50",
+      "description": "First circle size in pixels (style-3)"
+    },
+    "secondCircleSize": {
+      "type": "string",
+      "default": "30",
+      "description": "Second circle size in pixels (style-3)"
+    },
+    "pointLeftOffset": {
+      "type": "string",
+      "default": "10",
+      "description": "Cursor left offset in pixels"
+    },
+    "pointTopOffset": {
+      "type": "string",
+      "default": "10",
+      "description": "Cursor top offset in pixels"
+    },
+    "circleZindex": {
+      "type": "string",
+      "default": "99",
+      "description": "Z-index for cursor circle"
+    },
+    "listTagHover": {
+      "type": "string",
+      "default": "a",
+      "description": "HTML tag selector for hover effect (e.g., 'a', 'button')"
+    },
+    "circleNmlBG": {
+      "type": "string",
+      "default": "",
+      "description": "Circle background color (normal state)"
+    },
+    "circleHvrBG": {
+      "type": "string",
+      "default": "",
+      "description": "Circle background color (hover state)"
+    },
+    "circleOpacity": {
+      "type": "string",
+      "default": "",
+      "description": "Circle opacity (0-1, style-1)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "mcPointerIcon",
+      "mcPointerCirIcon",
+      "iconMaxWidth",
+      "circleMaxWidth",
+      "circleMaxHeight",
+      "firstCircleSize",
+      "secondCircleSize",
+      "pointerText",
+      "pointLeftOffset",
+      "pointTopOffset",
+      "circleZindex",
+      "mcClickIcon",
+      "mcClickText",
+      "listTagHover",
+      "circleNmlBG",
+      "circleHvrBG",
+      "circleOpacity",
+      "circleTansNmlCss",
+      "circleTansHvrCss",
+      "circleNmlTranDur",
+      "circleHvrTranDur"
+    ],
+    "requiresValidation": [
+      "cursorEffect",
+      "cursorType",
+      "curIconType",
+      "curPreIcon",
+      "circleCursorType",
+      "mcCursorSymbol",
+      "circleStyle",
+      "mcClick",
+      "crclMixBMode"
+    ]
+  },
+  "styleDependencies": [
+    "JavaScript for mouse tracking",
+    "CSS transforms for cursor positioning",
+    "Mix-blend-mode CSS (style-3)",
+    "SVG for circle style-2",
+    "requestAnimationFrame for smooth following",
+    "Custom cursor CSS properties"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-draw-svg",
+  "title": "Draw SVG - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Animated logo on scroll",
+      "attributes": {
+        "block_id": "a1b2",
+        "selectSvg": "preBuild",
+        "svgList": "app",
+        "alignment": "center",
+        "maxWidth": {
+          "md": "200",
+          "unit": "px"
+        },
+        "strokeColor": "#667eea",
+        "drawType": "delayed",
+        "duration": "120",
+        "hoverDraw": "onScroll"
+      }
+    },
+    {
+      "description": "Custom SVG with fill",
+      "attributes": {
+        "block_id": "c3d4",
+        "selectSvg": "custom",
+        "customSVG": {
+          "url": "/path/to/custom-logo.svg"
+        },
+        "fillToggle": true,
+        "strokeColor": "#000000",
+        "fillColor": "#27ae60",
+        "drawType": "sync",
+        "hoverDraw": "onHover"
+      }
+    },
+    {
+      "description": "Looping animated icon",
+      "attributes": {
+        "block_id": "e5f6",
+        "selectSvg": "preBuild",
+        "maxWidth": {
+          "md": "100",
+          "unit": "px"
+        },
+        "strokeColor": "#e74c3c",
+        "drawType": "oneByOne",
+        "duration": "60",
+        "hoverDraw": "loop"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

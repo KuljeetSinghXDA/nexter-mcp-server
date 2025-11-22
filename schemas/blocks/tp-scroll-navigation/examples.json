@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-scroll-navigation",
+  "title": "Scroll Navigation - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple dot navigation (right side)",
+      "attributes": {
+        "block_id": "a1b2",
+        "scrollNavStyle": "style-1",
+        "scrollDirection": "vertical",
+        "scrollPosition": "right",
+        "scrollOffset": {
+          "md": "50",
+          "unit": "px"
+        },
+        "scrollNavRepeater": [
+          {
+            "_key": "0",
+            "title": "Home",
+            "sectionId": "home",
+            "icon": "fas fa-home"
+          },
+          {
+            "_key": "1",
+            "title": "About",
+            "sectionId": "about",
+            "icon": "fas fa-user"
+          },
+          {
+            "_key": "2",
+            "title": "Portfolio",
+            "sectionId": "portfolio",
+            "icon": "fas fa-folder"
+          },
+          {
+            "_key": "3",
+            "title": "Contact",
+            "sectionId": "contact",
+            "icon": "fas fa-envelope"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Text label navigation with progress bar",
+      "attributes": {
+        "block_id": "c3d4",
+        "scrollNavStyle": "style-2",
+        "scrollPosition": "left",
+        "progressBar": true,
+        "progressPosition": "top",
+        "scrollSpeed": "800"
+      }
+    },
+    {
+      "description": "Horizontal navigation (top)",
+      "attributes": {
+        "block_id": "e5f6",
+        "scrollDirection": "horizontal",
+        "scrollPosition": "top",
+        "scrollOffset": {
+          "md": "80",
+          "unit": "px"
+        },
+        "showTooltip": false
+      }
+    },
+    {
+      "description": "Mobile-hidden nav with custom speed",
+      "attributes": {
+        "block_id": "g7h8",
+        "hideOnMobile": true,
+        "scrollSpeed": "1500",
+        "activeOffset": "150",
+        "tooltipPosition": "left"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

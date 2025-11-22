@@ -1,0 +1,160 @@
+{
+  "blockName": "tpgb/tp-repeater-block",
+  "version": "1.0.0",
+  "title": "Repeater",
+  "category": "layout",
+  "description": "Add and manage repeatable content like FAQs, testimonials, or team profiles with ease. Dynamic grid container that displays multiple instances of the same content structure from ACF repeater fields or custom post types. Features responsive grid columns, adjustable gaps, and integration with WordPress dynamic data. Perfect for data-driven content displays.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "sourceOpt": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "acf", "custom"],
+      "description": "Data source: none (manual), ACF repeater field, or custom"
+    },
+    "repField": {
+      "type": "string",
+      "default": "",
+      "description": "ACF repeater field name (when sourceOpt is 'acf')"
+    },
+    "postOpt": {
+      "type": "object",
+      "default": {"label": "", "value": ""},
+      "description": "Post/page selection for ACF data source"
+    },
+    "gridColumns": {
+      "type": "object",
+      "default": {"md": "2"},
+      "description": "Number of grid columns",
+      "responsive": true
+    },
+    "contPad": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Container padding",
+      "responsive": true
+    },
+    "columnsGap": {
+      "type": "object",
+      "default": {"md": "10", "unit": "px"},
+      "description": "Gap between columns",
+      "responsive": true
+    },
+    "rowGap": {
+      "type": "object",
+      "default": {"md": "10", "unit": "px"},
+      "description": "Gap between rows",
+      "responsive": true
+    },
+    "selectedLayout": {
+      "type": "string",
+      "default": "",
+      "description": "Selected layout template ID"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "gridColumns",
+      "contPad",
+      "columnsGap",
+      "rowGap",
+      "repField",
+      "postOpt"
+    ],
+    "requiresValidation": [
+      "sourceOpt",
+      "selectedLayout"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "CSS Grid layout system",
+    "ACF (Advanced Custom Fields) integration",
+    "Dynamic data loading",
+    "Template context passing"
+  ],
+  "commonUseCases": [
+    "FAQ sections",
+    "Team member grids",
+    "Testimonial displays",
+    "Service listings",
+    "Product features",
+    "Portfolio items",
+    "Pricing tables",
+    "Process steps",
+    "Client logos",
+    "Feature comparisons",
+    "Custom post type displays",
+    "ACF repeater field displays"
+  ],
+  "relatedBlocks": [
+    "core/group",
+    "core/columns",
+    "tpgb/tp-post-listing",
+    "tpgb/tp-dynamic-category"
+  ],
+  "capabilities": [
+    "3 data sources (none, ACF, custom)",
+    "ACF repeater field integration",
+    "Dynamic post/page selection",
+    "Responsive grid columns (md, sm, xs)",
+    "Adjustable column gap",
+    "Adjustable row gap",
+    "Container padding control",
+    "Layout template system",
+    "Context provides dynamic field and post data to children",
+    "CSS Grid-based layout",
+    "Backend and frontend styling variants",
+    "Inner blocks support for custom layouts"
+  ],
+  "usesContext": [],
+  "providesContext": {
+    "tpgb/dynamicRepField": "repField",
+    "tpgb/dynamicPost": "postOpt"
+  },
+  "supports": {},
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple 3-column grid",
+      "attributes": {
+        "block_id": "a1b2",
+        "sourceOpt": "none",
+        "gridColumns": {"md": "3", "sm": "2", "xs": "1"},
+        "columnsGap": {"md": "20", "unit": "px"},
+        "rowGap": {"md": "20", "unit": "px"}
+      }
+    },
+    {
+      "description": "ACF repeater field display",
+      "attributes": {
+        "block_id": "c3d4",
+        "sourceOpt": "acf",
+        "repField": "team_members",
+        "postOpt": {"label": "About Page", "value": "123"},
+        "gridColumns": {"md": "4", "sm": "2", "xs": "1"},
+        "columnsGap": {"md": "30", "unit": "px"},
+        "rowGap": {"md": "30", "unit": "px"}
+      }
+    },
+    {
+      "description": "Responsive testimonial grid with padding",
+      "attributes": {
+        "block_id": "e5f6",
+        "sourceOpt": "none",
+        "gridColumns": {"md": "2", "sm": "1", "xs": "1"},
+        "contPad": {"md": {"top": "40", "bottom": "40", "left": "20", "right": "20"}, "unit": "px"},
+        "columnsGap": {"md": "40", "unit": "px"},
+        "rowGap": {"md": "40", "unit": "px"}
+      }
+    }
+  ]
+}

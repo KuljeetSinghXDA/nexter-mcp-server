@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-checkbox-button",
+  "title": "Checkbox - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple interests selection",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Select Your Interests",
+        "fldOptions": [
+          {
+            "fldLabel": "Web Design",
+            "fldValue": "design"
+          },
+          {
+            "fldLabel": "Development",
+            "fldValue": "dev"
+          },
+          {
+            "fldLabel": "Marketing",
+            "fldValue": "marketing"
+          }
+        ],
+        "optPos": "vertical",
+        "reqTgl": true
+      }
+    },
+    {
+      "description": "Horizontal preferences with help text",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Newsletter Topics",
+        "fldOptions": [
+          {
+            "fldLabel": "News",
+            "fldValue": "news"
+          },
+          {
+            "fldLabel": "Updates",
+            "fldValue": "updates"
+          },
+          {
+            "fldLabel": "Offers",
+            "fldValue": "offers"
+          }
+        ],
+        "optPos": "horizontal",
+        "bRadius": "rounded",
+        "hlpTxt": true,
+        "desctxt": "Select all topics you'd like to receive",
+        "descPoss": "top"
+      }
+    },
+    {
+      "description": "Terms agreement checkbox",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Agreement",
+        "fldOptions": [
+          {
+            "fldLabel": "I agree to the Terms and Conditions",
+            "fldValue": "agree"
+          }
+        ],
+        "reqTgl": true,
+        "error": "You must agree to continue"
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

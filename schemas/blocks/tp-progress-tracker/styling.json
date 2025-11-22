@@ -1,0 +1,211 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-progress-tracker",
+  "title": "Progress Tracker - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "cPosTopOff": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "cPosBottomOff": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "cPosLeftOff": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "cPosRightOff": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "circleSize": {
+      "type": "string",
+      "default": "",
+      "description": "Circular progress size"
+    },
+    "circleBGColor": {
+      "type": "string",
+      "default": "",
+      "description": "Circular background color"
+    },
+    "trackSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "trackBG": {
+      "$ref": "definitions://background"
+    },
+    "trackBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "trackBShadow": {
+      "type": "object",
+      "default": {
+        "horizontal": 0,
+        "vertical": 8,
+        "blur": 20,
+        "spread": 1,
+        "color": "rgba(0,0,0,0.27)"
+      },
+      "description": "Track box shadow"
+    },
+    "fillBG": {
+      "$ref": "definitions://background"
+    },
+    "cTrackColor": {
+      "type": "string",
+      "default": "",
+      "description": "Circular track stroke color"
+    },
+    "cTrackDShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "cFillColor": {
+      "type": "string",
+      "default": "",
+      "description": "Circular fill stroke color"
+    },
+    "texTypo": {
+      "$ref": "definitions://typography"
+    },
+    "ttPadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "",
+      "description": "Percentage text color"
+    },
+    "ttBGColor": {
+      "type": "string",
+      "default": "",
+      "description": "Percentage text background color (style-2)"
+    },
+    "pinTypo": {
+      "$ref": "definitions://typography"
+    },
+    "pinPadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pinOffset": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pinColor": {
+      "type": "string",
+      "default": "",
+      "description": "Pin point text color (normal)"
+    },
+    "pinHColor": {
+      "type": "string",
+      "default": "",
+      "description": "Pin point text color (hover)"
+    },
+    "pinAColor": {
+      "type": "string",
+      "default": "",
+      "description": "Pin point text color (active)"
+    },
+    "pinBG": {
+      "$ref": "definitions://background"
+    },
+    "pinHBG": {
+      "$ref": "definitions://background"
+    },
+    "pinABG": {
+      "$ref": "definitions://background"
+    },
+    "pinRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pinHRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pinARadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pinBShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "pinHBShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "pinABShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "pinDotSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pDotBG": {
+      "$ref": "definitions://background"
+    },
+    "pDotHBG": {
+      "$ref": "definitions://background"
+    },
+    "pDotABG": {
+      "$ref": "definitions://background"
+    },
+    "pDotRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pDotHRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pDotARadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pDotBShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "pDotHBShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "pDotABShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "trackOffset": {
+      "$ref": "definitions://responsive-unit"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "pinPointRep",
+      "unqSelector",
+      "circleSize",
+      "circleBGColor",
+      "trackSize",
+      "cPosTopOff",
+      "cPosBottomOff",
+      "cPosLeftOff",
+      "cPosRightOff",
+      "trackBG",
+      "fillBG",
+      "cTrackColor",
+      "cFillColor",
+      "textColor",
+      "ttBGColor",
+      "pinColor",
+      "pinHColor",
+      "pinAColor",
+      "pinOffset",
+      "trackOffset",
+      "texTypo",
+      "pinTypo"
+    ],
+    "requiresValidation": [
+      "progressType",
+      "horizontalPos",
+      "hzDirection",
+      "verticalPos",
+      "circularPos",
+      "pinPoint",
+      "pinPStyle",
+      "applyTo",
+      "relTselector",
+      "percentageText",
+      "percentageStyle"
+    ]
+  },
+  "styleDependencies": [
+    "Scroll progress tracking JavaScript",
+    "SVG for circular progress",
+    "Intersection Observer for pin points",
+    "Admin bar offset handling"
+  ]
+}

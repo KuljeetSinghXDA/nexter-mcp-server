@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-anything-slide",
+  "title": "Slide Inner - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Basic slide container",
+      "attributes": {
+        "key": "slide-1",
+        "itemId": "carousel-item-001"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

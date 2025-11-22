@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-team-listing",
+  "title": "Team Member - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple team grid with 3 members",
+      "attributes": {
+        "block_id": "a1b2",
+        "layout": "grid",
+        "Alignment": {
+          "md": "center"
+        },
+        "TeamMemberR": [
+          {
+            "TName": "John Smith",
+            "TDesig": "CEO & Founder",
+            "TImage": {
+              "url": "",
+              "Id": ""
+            },
+            "FbUrl": {
+              "url": "https://facebook.com/john",
+              "target": "_blank"
+            },
+            "MailUrl": {
+              "url": "mailto:john@company.com"
+            }
+          },
+          {
+            "TName": "Jane Doe",
+            "TDesig": "CTO",
+            "TImage": {
+              "url": "",
+              "Id": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Team carousel with style-3",
+      "attributes": {
+        "block_id": "c3d4",
+        "Style": "style-3",
+        "layout": "carousel"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

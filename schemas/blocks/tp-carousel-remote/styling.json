@@ -1,0 +1,234 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-carousel-remote",
+  "title": "Carousel Remote - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "rbtnAlign": {
+      "type": "string",
+      "default": "text-left",
+      "enum": [
+        "text-left",
+        "text-center",
+        "text-right"
+      ],
+      "description": "Button alignment"
+    },
+    "BiconFont": {
+      "type": "string",
+      "default": "font_awesome",
+      "enum": [
+        "font_awesome",
+        "img"
+      ],
+      "description": "Button icon type"
+    },
+    "imgSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size for icons"
+    },
+    "iconSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal)"
+    },
+    "HvrIcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (hover/active)"
+    },
+    "rbtnpadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "rbtnTypo": {
+      "$ref": "definitions://typography"
+    },
+    "txtcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (normal)"
+    },
+    "Hvrtxtcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (hover/active)"
+    },
+    "btnBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Button border (normal)"
+    },
+    "btnHBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Button border (hover/active)"
+    },
+    "btnBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "btnHBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "btnBgtype": {
+      "$ref": "definitions://background"
+    },
+    "hvrBgtype": {
+      "$ref": "definitions://background"
+    },
+    "btnBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "hvrBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "AborderColor": {
+      "type": "string",
+      "default": "#6f14f1",
+      "description": "Active border color (style-1)"
+    },
+    "dotSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "diconSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "dimgSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "dmargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "dpadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "totipmargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "totippadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "totipAlign": {
+      "type": "string",
+      "default": "center",
+      "enum": [
+        "flex-start",
+        "center",
+        "flex-end"
+      ],
+      "description": "Tooltip text alignment (style-2)"
+    },
+    "totipTypo": {
+      "$ref": "definitions://typography"
+    },
+    "totipColor": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip text color (style-2)"
+    },
+    "totipHColor": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip text color on hover (style-2)"
+    },
+    "totipBgcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip background (style-2)"
+    },
+    "totipHBgcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip background on hover (style-2)"
+    },
+    "arrowColor": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip arrow color (style-2)"
+    },
+    "totipBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "tipBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "noColor": {
+      "type": "string",
+      "default": "",
+      "description": "Pagination text color"
+    },
+    "noTypo": {
+      "$ref": "definitions://typography"
+    },
+    "ActnoColor": {
+      "type": "string",
+      "default": "",
+      "description": "Active pagination number color"
+    },
+    "ActnoTypo": {
+      "$ref": "definitions://typography"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "carouselId",
+      "btntxt1",
+      "btntxt2",
+      "pAriaLabel",
+      "nAriaLabel",
+      "btnIcon1",
+      "btnIcon2",
+      "Ctmicon1",
+      "Ctmicon2",
+      "iconSize",
+      "iconSpace",
+      "iconColor",
+      "HvrIcolor",
+      "btnSpace",
+      "rbtnpadding",
+      "txtcolor",
+      "Hvrtxtcolor",
+      "dotList",
+      "AborderColor",
+      "AniDuration",
+      "dotSize",
+      "dotSpace",
+      "diconSize",
+      "totipmargin",
+      "totippadding",
+      "totipColor",
+      "arrowColor"
+    ],
+    "requiresValidation": [
+      "carobtn",
+      "remType",
+      "rbtnAlign",
+      "BiconFont",
+      "imgSize",
+      "showDot",
+      "dotLayout",
+      "dotstyle",
+      "tooltipDir",
+      "vtooltipDir",
+      "totipAlign",
+      "tooltiparrow",
+      "showpagi",
+      "sliderInd"
+    ]
+  },
+  "styleDependencies": [
+    "Carousel control JavaScript",
+    "Swiper.js or similar carousel library",
+    "Dot indicator click handlers",
+    "Tooltip positioning (style-2)",
+    "Active state management",
+    "Pagination update logic"
+  ]
+}

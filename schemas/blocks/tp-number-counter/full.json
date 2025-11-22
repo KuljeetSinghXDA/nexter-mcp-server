@@ -1,0 +1,470 @@
+{
+  "blockName": "tpgb/tp-number-counter",
+  "version": "1.0.0",
+  "title": "Number Counter",
+  "category": "content",
+  "description": "Animated number counter for highlighting important stats and figures. Displays numbers with smooth count-up animations from start to end value. Supports 2 layout styles, custom symbols/prefixes, optional icons or images, and extensive styling options. Perfect for statistics, achievements, metrics, and testimonial counts.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2"],
+      "description": "Layout style: style-1 (centered), style-2 (left-aligned)"
+    },
+    "style1Align": {
+      "type": "string",
+      "default": "text-center",
+      "enum": ["text-left", "text-center", "text-right"],
+      "description": "Alignment for style-1"
+    },
+    "style2Align": {
+      "type": "string",
+      "default": "text-left",
+      "enum": ["text-left", "text-center", "text-right"],
+      "description": "Alignment for style-2"
+    },
+    "title": {
+      "type": "string",
+      "default": "Awards Won",
+      "description": "Counter title/label text"
+    },
+    "linkURL": {
+      "type": "object",
+      "default": {"url": "#", "target": "", "nofollow": ""},
+      "description": "Optional link URL wrapping the counter"
+    },
+    "ariaLabel": {
+      "type": "string",
+      "default": "",
+      "description": "Accessible aria-label for the link"
+    },
+    "numValue": {
+      "type": "string",
+      "default": "999",
+      "description": "Final number value (end point)"
+    },
+    "startValue": {
+      "type": "string",
+      "default": "0",
+      "description": "Starting number value (animation start)"
+    },
+    "numGap": {
+      "type": "string",
+      "default": "5",
+      "description": "Number increment step during animation"
+    },
+    "timeDelay": {
+      "type": "string",
+      "default": "5",
+      "description": "Animation delay in milliseconds between increments"
+    },
+    "numeration": {
+      "type": "string",
+      "default": "default",
+      "enum": ["default", "commas", "custom"],
+      "description": "Number format: default (no separators), commas (1,000), or custom"
+    },
+    "symbol": {
+      "type": "string",
+      "default": "",
+      "description": "Symbol/suffix after number (e.g., %, +, K, M)"
+    },
+    "symbolPos": {
+      "type": "string",
+      "default": "after",
+      "enum": ["before", "after"],
+      "description": "Symbol position relative to number"
+    },
+    "preSymbol": {
+      "type": "string",
+      "default": "",
+      "description": "Prefix symbol before number (e.g., $, €, £)"
+    },
+    "iconType": {
+      "type": "string",
+      "default": "icon",
+      "enum": ["icon", "img", "svg"],
+      "description": "Icon type: Font Awesome icon, image, or SVG"
+    },
+    "iconStore": {
+      "type": "string",
+      "default": "fas fa-award",
+      "description": "Font Awesome icon class"
+    },
+    "imagestore": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Image upload for icon"
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "thumbnail",
+      "description": "WordPress image size preset"
+    },
+    "svgIcon": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "SVG icon upload"
+    },
+    "titleTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography for title text"
+    },
+    "titleNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (normal state)"
+    },
+    "titleHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (hover state)"
+    },
+    "titleTopSpace": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Title top margin",
+      "responsive": true
+    },
+    "titleBottomSpace": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Title bottom margin",
+      "responsive": true
+    },
+    "digitTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography for number digits"
+    },
+    "digitNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Digit color (normal state)"
+    },
+    "digitHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Digit color (hover state)"
+    },
+    "digitTopSpace": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Digit top margin",
+      "responsive": true
+    },
+    "symbolTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography for symbol/suffix"
+    },
+    "symbolNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Symbol color (normal state)"
+    },
+    "symbolHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Symbol color (hover state)"
+    },
+    "iconStyle": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "square", "rounded"],
+      "description": "Icon background style"
+    },
+    "iconSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Icon font size",
+      "responsive": true
+    },
+    "iconWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Icon container width/height",
+      "responsive": true
+    },
+    "icnNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal state)"
+    },
+    "icnHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (hover state)"
+    },
+    "icnNormalBG": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color"},
+      "description": "Icon background (normal state)"
+    },
+    "icnHoverBG": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color"},
+      "description": "Icon background (hover state)"
+    },
+    "nmlBColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon border color (normal state)"
+    },
+    "hvrBColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon border color (hover state)"
+    },
+    "nmlIcnBRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Icon border radius (normal state)",
+      "responsive": true
+    },
+    "hvrIcnBRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Icon border radius (hover state)",
+      "responsive": true
+    },
+    "nmlIcnShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Icon box shadow (normal state)"
+    },
+    "hvrIcnShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Icon box shadow (hover state)"
+    },
+    "imgWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Image icon max-width",
+      "responsive": true
+    },
+    "bgNmlBorder": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "unit": "px"}},
+      "description": "Background border (normal state)"
+    },
+    "bgHvrBorder": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "unit": "px"}},
+      "description": "Background border (hover state)"
+    },
+    "bgNmlBRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Background border radius (normal state)",
+      "responsive": true
+    },
+    "bgHvrBRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Background border radius (hover state)",
+      "responsive": true
+    },
+    "normalBG": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color"},
+      "description": "Background styling (normal state)"
+    },
+    "hoverBG": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color"},
+      "description": "Background styling (hover state)"
+    },
+    "bgNmlShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Background box shadow (normal state)"
+    },
+    "bgHvrShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "inset": 0, "horizontal": 0, "vertical": 4, "blur": 8, "spread": 0, "color": "rgba(0,0,0,0.40)"},
+      "description": "Background box shadow (hover state)"
+    },
+    "bgPadding": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Background padding",
+      "responsive": true
+    },
+    "verticalCenter": {
+      "type": "boolean",
+      "default": false,
+      "description": "Vertically center align content"
+    },
+    "svgDraw": {
+      "type": "string",
+      "default": "delayed",
+      "enum": ["delayed", "sync", "oneByOne"],
+      "description": "SVG draw animation timing"
+    },
+    "svgDura": {
+      "type": "string",
+      "default": "90",
+      "description": "SVG draw animation duration (frames)"
+    },
+    "svgmaxWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "SVG icon max-width",
+      "responsive": true
+    },
+    "svgstroColor": {
+      "type": "string",
+      "default": "#000000",
+      "description": "SVG stroke color"
+    },
+    "svgfillColor": {
+      "type": "string",
+      "default": "",
+      "description": "SVG fill color"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "title",
+      "numValue",
+      "startValue",
+      "symbol",
+      "preSymbol",
+      "titleTypo",
+      "titleNmlColor",
+      "titleHvrColor",
+      "digitTypo",
+      "digitNmlColor",
+      "digitHvrColor",
+      "symbolTypo",
+      "symbolNmlColor",
+      "symbolHvrColor",
+      "iconStore",
+      "iconSize",
+      "icnNmlColor",
+      "icnHvrColor",
+      "normalBG",
+      "hoverBG",
+      "bgPadding"
+    ],
+    "requiresValidation": [
+      "style",
+      "numGap",
+      "timeDelay",
+      "numeration",
+      "iconType",
+      "iconStyle",
+      "linkURL"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Counter animation JavaScript library",
+    "SVG draw animation library (for SVG icons)",
+    "Number formatting (commas/custom)"
+  ],
+  "commonUseCases": [
+    "Statistics and metrics display",
+    "Achievement counters (projects completed, clients served)",
+    "Years of experience counters",
+    "Product/service count showcases",
+    "Team size indicators",
+    "Revenue or sales figures",
+    "Download/view counters",
+    "Social media follower counts",
+    "Customer satisfaction percentages"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-countdown",
+    "tpgb/tp-progress-bar",
+    "tpgb/tp-icon-box"
+  ],
+  "capabilities": [
+    "Animated count-up from start to end value",
+    "2 layout styles (centered, left-aligned)",
+    "Custom number formatting (commas, custom separators)",
+    "Prefix and suffix symbols ($, %, +, K, M, etc.)",
+    "Icon support (Font Awesome, image, SVG)",
+    "SVG draw animation",
+    "Icon background styles (none, square, rounded)",
+    "Title/label text with typography control",
+    "Normal/Hover state styling",
+    "Optional link wrapper",
+    "Customizable animation speed and increments",
+    "Vertical centering option"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple counter with icon",
+      "attributes": {
+        "block_id": "a1b2",
+        "style": "style-1",
+        "title": "Projects Completed",
+        "numValue": "500",
+        "startValue": "0",
+        "symbol": "+",
+        "iconType": "icon",
+        "iconStore": "fas fa-check-circle"
+      }
+    },
+    {
+      "description": "Revenue counter with prefix",
+      "attributes": {
+        "block_id": "c3d4",
+        "title": "Annual Revenue",
+        "numValue": "2500000",
+        "preSymbol": "$",
+        "numeration": "commas",
+        "iconType": "icon",
+        "iconStore": "fas fa-dollar-sign"
+      }
+    },
+    {
+      "description": "Percentage counter",
+      "attributes": {
+        "block_id": "e5f6",
+        "title": "Client Satisfaction",
+        "numValue": "98",
+        "symbol": "%",
+        "iconType": "icon",
+        "iconStore": "fas fa-smile",
+        "digitNmlColor": "#27ae60"
+      }
+    },
+    {
+      "description": "Years of experience with custom styling",
+      "attributes": {
+        "block_id": "g7h8",
+        "style": "style-2",
+        "style2Align": "text-left",
+        "title": "Years of Experience",
+        "numValue": "25",
+        "symbol": "+",
+        "normalBG": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#f5f5f5"},
+        "bgPadding": {"md": {"top": "30", "right": "30", "bottom": "30", "left": "30"}, "unit": "px"}
+      }
+    }
+  ]
+}

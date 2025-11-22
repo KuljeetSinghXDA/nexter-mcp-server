@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-anything-carousel",
+  "title": "Carousel Anything - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple 3-slide testimonial carousel",
+      "attributes": {
+        "block_id": "a1b2",
+        "carType": "slide",
+        "carouselList": [
+          {
+            "_key": "0",
+            "title": "Testimonial 1",
+            "contentType": "content"
+          },
+          {
+            "_key": "1",
+            "title": "Testimonial 2",
+            "contentType": "content"
+          },
+          {
+            "_key": "2",
+            "title": "Testimonial 3",
+            "contentType": "content"
+          }
+        ],
+        "tpgbEqualHeight": true
+      }
+    },
+    {
+      "description": "Fade transition carousel with remote control",
+      "attributes": {
+        "block_id": "c3d4",
+        "carType": "fade",
+        "rewindFade": true,
+        "carouselId": "hero-carousel",
+        "carouselList": [
+          {
+            "_key": "0",
+            "title": "Hero 1"
+          },
+          {
+            "_key": "1",
+            "title": "Hero 2"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Product showcase with overflow hidden",
+      "attributes": {
+        "block_id": "e5f6",
+        "carType": "slide",
+        "OverflowHid": true,
+        "tpgbEqualHeight": true,
+        "equalUnqClass": "product-carousel"
+      }
+    },
+    {
+      "description": "Random order content slider",
+      "attributes": {
+        "block_id": "g7h8",
+        "rmdOrder": true,
+        "carouselList": [
+          {
+            "_key": "0",
+            "title": "Feature 1"
+          },
+          {
+            "_key": "1",
+            "title": "Feature 2"
+          },
+          {
+            "_key": "2",
+            "title": "Feature 3"
+          },
+          {
+            "_key": "3",
+            "title": "Feature 4"
+          }
+        ]
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

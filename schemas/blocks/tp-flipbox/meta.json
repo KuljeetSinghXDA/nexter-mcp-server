@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-flipbox",
+  "version": "1.0.0",
+  "title": "Flip Box",
+  "category": "media",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Interactive flip box with front and back sides that flips on hover. Perfect for revealing additional content, creating engaging interactions, and showcasing dual-sided information like product feature",
+  "keywords": [
+    "flipbox",
+    "flip card",
+    "hover flip",
+    "3d flip"
+  ],
+  "useCases": [
+    "Hover reveal content",
+    "Interactive cards",
+    "Service boxes"
+  ]
+}

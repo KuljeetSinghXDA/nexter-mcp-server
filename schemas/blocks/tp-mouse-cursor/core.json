@@ -1,0 +1,191 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-mouse-cursor",
+  "title": "Mouse Cursor - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "curIconType": {
+      "type": "string",
+      "default": "icon-predefine",
+      "enum": [
+        "icon-predefine",
+        "icon-custom"
+      ],
+      "description": "Icon cursor type (when cursorType is 'mouse-cursor-icon')"
+    },
+    "curPreIcon": {
+      "type": "string",
+      "default": "crosshair",
+      "enum": [
+        "crosshair",
+        "pointer",
+        "grab",
+        "help",
+        "wait",
+        "text",
+        "move",
+        "not-allowed"
+      ],
+      "description": "Predefined CSS cursor (when curIconType is 'icon-predefine')"
+    },
+    "circleStyle": {
+      "type": "string",
+      "default": "mc-cs1",
+      "enum": [
+        "mc-cs1",
+        "mc-cs2",
+        "mc-cs3"
+      ],
+      "description": "Circle style: cs1 (solid), cs2 (SVG stroke), cs3 (mix-blend)"
+    },
+    "mcPointerCirIcon": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Custom circle cursor image"
+    },
+    "mcPointerIcon": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Custom icon image for cursor"
+    },
+    "iconMaxWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "circleMaxWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pointerText": {
+      "type": "string",
+      "default": "Follow Text",
+      "description": "Text that follows cursor (when cursorType is 'mouse-follow-text')"
+    },
+    "mcClick": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show special cursor on click"
+    },
+    "mcClickIcon": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Custom click cursor image"
+    },
+    "mcClickText": {
+      "type": "string",
+      "default": "See More",
+      "description": "Click cursor text"
+    },
+    "listTagHover": {
+      "type": "string",
+      "default": "a",
+      "description": "HTML tag selector for hover effect (e.g., 'a', 'button')"
+    },
+    "crclMixBMode": {
+      "type": "string",
+      "default": "difference",
+      "enum": [
+        "normal",
+        "multiply",
+        "screen",
+        "overlay",
+        "darken",
+        "lighten",
+        "color-dodge",
+        "color-burn",
+        "difference",
+        "exclusion",
+        "hue",
+        "saturation",
+        "color",
+        "luminosity"
+      ],
+      "description": "CSS mix-blend-mode for circle (style-3)"
+    },
+    "circleTansNmlCss": {
+      "type": "string",
+      "default": "",
+      "description": "CSS transform for circle (normal state)"
+    },
+    "circleTansHvrCss": {
+      "type": "string",
+      "default": "",
+      "description": "CSS transform for circle (hover state)"
+    },
+    "circleNmlTranDur": {
+      "type": "string",
+      "default": "",
+      "description": "Normal state transition duration in seconds"
+    },
+    "circleHvrTranDur": {
+      "type": "string",
+      "default": "",
+      "description": "Hover state transition duration in seconds"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "mcPointerIcon",
+      "mcPointerCirIcon",
+      "iconMaxWidth",
+      "circleMaxWidth",
+      "circleMaxHeight",
+      "firstCircleSize",
+      "secondCircleSize",
+      "pointerText",
+      "pointLeftOffset",
+      "pointTopOffset",
+      "circleZindex",
+      "mcClickIcon",
+      "mcClickText",
+      "listTagHover",
+      "circleNmlBG",
+      "circleHvrBG",
+      "circleOpacity",
+      "circleTansNmlCss",
+      "circleTansHvrCss",
+      "circleNmlTranDur",
+      "circleHvrTranDur"
+    ],
+    "requiresValidation": [
+      "cursorEffect",
+      "cursorType",
+      "curIconType",
+      "curPreIcon",
+      "circleCursorType",
+      "mcCursorSymbol",
+      "circleStyle",
+      "mcClick",
+      "crclMixBMode"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

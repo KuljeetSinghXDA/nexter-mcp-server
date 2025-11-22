@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-email-field",
+  "version": "1.0.0",
+  "title": "Email Address",
+  "category": "forms",
+  "source": "pro",
+  "complexity": "simple",
+  "description": "Add an email input field to your form with automatic email validation. Features optional Font Awesome icons or custom images, field width control, required field validation, placeholder text, help tex",
+  "keywords": [
+    "email input",
+    "email field",
+    "contact email"
+  ],
+  "useCases": [
+    "Email inputs in forms"
+  ]
+}

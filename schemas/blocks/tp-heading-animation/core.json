@@ -1,0 +1,150 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-heading-animation",
+  "title": "Heading Animation - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "style": {
+      "type": "string",
+      "default": "highlights",
+      "enum": [
+        "highlights",
+        "textAnim"
+      ],
+      "description": "Animation style: highlights (underline/circle) or textAnim (rotating words)"
+    },
+    "highLightStyle": {
+      "type": "string",
+      "default": "underline",
+      "enum": [
+        "underline",
+        "circle",
+        "strikethrough"
+      ],
+      "description": "Highlight decoration type (when style is 'highlights')"
+    },
+    "textAnimStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2",
+        "style-3",
+        "style-4"
+      ],
+      "description": "Text animation variant (when style is 'textAnim')"
+    },
+    "prefixText": {
+      "type": "string",
+      "default": "We are ",
+      "description": "Text before animated/highlighted word"
+    },
+    "highlightsText": {
+      "type": "string",
+      "default": "Innovative",
+      "description": "Static highlighted text (when style is 'highlights')"
+    },
+    "animText": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Array of rotating text items (when style is 'textAnim')",
+      "items": {
+        "singleText": {
+          "type": "string",
+          "default": "Creative",
+          "description": "Individual rotating word/phrase"
+        }
+      },
+      "default": [
+        {
+          "_key": "cvi9",
+          "singleText": "Innovative"
+        },
+        {
+          "_key": "sci9",
+          "singleText": "Creative"
+        }
+      ]
+    },
+    "postfixText": {
+      "type": "string",
+      "default": "",
+      "description": "Text after animated/highlighted word"
+    },
+    "durationTiming": {
+      "type": "string",
+      "default": "600",
+      "description": "Animation duration in milliseconds (for text rotation)"
+    },
+    "titleTag": {
+      "type": "string",
+      "default": "div",
+      "enum": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "div",
+        "span",
+        "p"
+      ],
+      "description": "HTML tag for heading wrapper"
+    },
+    "textTypo": {
+      "$ref": "definitions://typography"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "",
+      "description": "Heading text color (prefix, postfix, and base)"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "prefixText",
+      "highlightsText",
+      "animText",
+      "postfixText",
+      "alignment",
+      "titleTag",
+      "textTypo",
+      "textColor",
+      "animTypo",
+      "animColor",
+      "lineColor"
+    ],
+    "requiresValidation": [
+      "style",
+      "highLightStyle",
+      "textAnimStyle",
+      "durationTiming"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

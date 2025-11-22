@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-block",
+  "title": "Form - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple contact form styling",
+      "attributes": {
+        "block_id": "a1b2",
+        "lblClr": "#2c3e50",
+        "inpClr": "#2c3e50",
+        "plcClr": "#95a5a6",
+        "inpBg": "#ffffff",
+        "inpBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#dcdcdc",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "inpBdrRds": {
+          "md": {
+            "top": "4",
+            "right": "4",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "description": "Modern form with custom styling",
+      "attributes": {
+        "block_id": "c3d4",
+        "lblTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "14",
+            "unit": "px"
+          },
+          "weight": "600"
+        },
+        "lblBtmMrg": {
+          "md": "8",
+          "unit": "px"
+        },
+        "inpPad": {
+          "md": {
+            "top": "12",
+            "bottom": "12",
+            "left": "15",
+            "right": "15"
+          },
+          "unit": "px"
+        },
+        "inpBg": "#f7f9fc",
+        "hvrInpBg": "#ffffff",
+        "hvrInpBdrClr": "#667eea"
+      }
+    },
+    {
+      "description": "Minimal bordered form",
+      "attributes": {
+        "block_id": "e5f6",
+        "inpBg": "transparent",
+        "inpBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e0e0e0",
+          "width": {
+            "md": {
+              "top": "0",
+              "left": "0",
+              "bottom": "2",
+              "right": "0"
+            },
+            "unit": "px"
+          }
+        },
+        "inpBdrRds": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "hvrInpBdrClr": "#667eea"
+      }
+    },
+    {
+      "description": "Custom checkbox/radio styling",
+      "attributes": {
+        "block_id": "g7h8",
+        "chkRadSz": {
+          "md": "20",
+          "unit": "px"
+        },
+        "chkRadBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        }
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-block",
+  "version": "1.0.0",
+  "title": "Form",
+  "category": "forms",
+  "source": "pro",
+  "complexity": "advanced",
+  "description": "Create user-friendly forms to collect information effortlessly. Build custom forms with multiple field types including name, email, phone, message, date, time, URL, number, checkboxes, radio buttons, ",
+  "keywords": [
+    "form",
+    "contact form",
+    "form builder",
+    "input"
+  ],
+  "useCases": [
+    "Contact forms",
+    "Signup forms",
+    "Survey forms"
+  ]
+}

@@ -1,0 +1,319 @@
+{
+  "blockName": "tpgb/tp-mouse-cursor",
+  "version": "1.0.0",
+  "title": "Mouse Cursor",
+  "category": "content",
+  "description": "Customize mouse cursor with creative animations, icons, images, text, or circles that follow pointer movement. Features 3 circle styles, custom images, text labels, click effects, and hover interactions. Perfect for creative portfolios, interactive experiences, modern agencies, and unique brand expressions. Apply globally or to specific elements.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "cursorEffect": {
+      "type": "string",
+      "default": "mc-body",
+      "enum": ["mc-body", "mc-block"],
+      "description": "Effect scope: entire body or specific block"
+    },
+    "cursorType": {
+      "type": "string",
+      "default": "mouse-cursor-icon",
+      "enum": ["mouse-cursor-icon", "mouse-follow-image", "mouse-follow-text", "mouse-follow-circle"],
+      "description": "Cursor type: icon, image, text, or circle"
+    },
+    "curIconType": {
+      "type": "string",
+      "default": "icon-predefine",
+      "enum": ["icon-predefine", "icon-custom"],
+      "description": "Icon cursor type (when cursorType is 'mouse-cursor-icon')"
+    },
+    "curPreIcon": {
+      "type": "string",
+      "default": "crosshair",
+      "enum": ["crosshair", "pointer", "grab", "help", "wait", "text", "move", "not-allowed"],
+      "description": "Predefined CSS cursor (when curIconType is 'icon-predefine')"
+    },
+    "circleCursorType": {
+      "type": "string",
+      "default": "cursor-predefine",
+      "enum": ["cursor-predefine", "cursor-custom"],
+      "description": "Circle cursor type (when cursorType is 'mouse-follow-circle')"
+    },
+    "mcCursorSymbol": {
+      "type": "string",
+      "default": "crosshair",
+      "description": "CSS cursor symbol for circle area"
+    },
+    "circleStyle": {
+      "type": "string",
+      "default": "mc-cs1",
+      "enum": ["mc-cs1", "mc-cs2", "mc-cs3"],
+      "description": "Circle style: cs1 (solid), cs2 (SVG stroke), cs3 (mix-blend)"
+    },
+    "mcPointerCirIcon": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Custom circle cursor image"
+    },
+    "mcPointerIcon": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Custom icon image for cursor"
+    },
+    "iconMaxWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Follow image max width",
+      "responsive": true
+    },
+    "circleMaxWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Circle max width",
+      "responsive": true
+    },
+    "circleMaxHeight": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Circle max height",
+      "responsive": true
+    },
+    "firstCircleSize": {
+      "type": "string",
+      "default": "50",
+      "description": "First circle size in pixels (style-3)"
+    },
+    "secondCircleSize": {
+      "type": "string",
+      "default": "30",
+      "description": "Second circle size in pixels (style-3)"
+    },
+    "pointerText": {
+      "type": "string",
+      "default": "Follow Text",
+      "description": "Text that follows cursor (when cursorType is 'mouse-follow-text')"
+    },
+    "pointLeftOffset": {
+      "type": "string",
+      "default": "10",
+      "description": "Cursor left offset in pixels"
+    },
+    "pointTopOffset": {
+      "type": "string",
+      "default": "10",
+      "description": "Cursor top offset in pixels"
+    },
+    "circleZindex": {
+      "type": "string",
+      "default": "99",
+      "description": "Z-index for cursor circle"
+    },
+    "mcClick": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show special cursor on click"
+    },
+    "mcClickIcon": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Custom click cursor image"
+    },
+    "mcClickText": {
+      "type": "string",
+      "default": "See More",
+      "description": "Click cursor text"
+    },
+    "listTagHover": {
+      "type": "string",
+      "default": "a",
+      "description": "HTML tag selector for hover effect (e.g., 'a', 'button')"
+    },
+    "circleNmlBG": {
+      "type": "string",
+      "default": "",
+      "description": "Circle background color (normal state)"
+    },
+    "circleHvrBG": {
+      "type": "string",
+      "default": "",
+      "description": "Circle background color (hover state)"
+    },
+    "circleOpacity": {
+      "type": "string",
+      "default": "",
+      "description": "Circle opacity (0-1, style-1)"
+    },
+    "crclMixBMode": {
+      "type": "string",
+      "default": "difference",
+      "enum": ["normal", "multiply", "screen", "overlay", "darken", "lighten", "color-dodge", "color-burn", "difference", "exclusion", "hue", "saturation", "color", "luminosity"],
+      "description": "CSS mix-blend-mode for circle (style-3)"
+    },
+    "circleTansNmlCss": {
+      "type": "string",
+      "default": "",
+      "description": "CSS transform for circle (normal state)"
+    },
+    "circleTansHvrCss": {
+      "type": "string",
+      "default": "",
+      "description": "CSS transform for circle (hover state)"
+    },
+    "circleNmlTranDur": {
+      "type": "string",
+      "default": "",
+      "description": "Normal state transition duration in seconds"
+    },
+    "circleHvrTranDur": {
+      "type": "string",
+      "default": "",
+      "description": "Hover state transition duration in seconds"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "mcPointerIcon",
+      "mcPointerCirIcon",
+      "iconMaxWidth",
+      "circleMaxWidth",
+      "circleMaxHeight",
+      "firstCircleSize",
+      "secondCircleSize",
+      "pointerText",
+      "pointLeftOffset",
+      "pointTopOffset",
+      "circleZindex",
+      "mcClickIcon",
+      "mcClickText",
+      "listTagHover",
+      "circleNmlBG",
+      "circleHvrBG",
+      "circleOpacity",
+      "circleTansNmlCss",
+      "circleTansHvrCss",
+      "circleNmlTranDur",
+      "circleHvrTranDur"
+    ],
+    "requiresValidation": [
+      "cursorEffect",
+      "cursorType",
+      "curIconType",
+      "curPreIcon",
+      "circleCursorType",
+      "mcCursorSymbol",
+      "circleStyle",
+      "mcClick",
+      "crclMixBMode"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "JavaScript for mouse tracking",
+    "CSS transforms for cursor positioning",
+    "Mix-blend-mode CSS (style-3)",
+    "SVG for circle style-2",
+    "requestAnimationFrame for smooth following",
+    "Custom cursor CSS properties"
+  ],
+  "commonUseCases": [
+    "Creative agency websites",
+    "Portfolio sites with unique interactions",
+    "Modern brand experiences",
+    "Interactive presentations",
+    "Art and design showcases",
+    "Premium product pages",
+    "Experimental UI designs",
+    "Gaming and entertainment sites",
+    "Creative studio homepages",
+    "Interactive storytelling"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-scroll-navigation",
+    "tpgb/tp-hotspot"
+  ],
+  "capabilities": [
+    "4 cursor types (icon, image, text, circle)",
+    "8 predefined CSS cursors",
+    "Custom icon/image upload",
+    "Text that follows cursor",
+    "3 circle styles (solid, SVG stroke, mix-blend)",
+    "Dual circle sizes (style-3)",
+    "Custom circle width and height",
+    "Cursor offset controls (left, top)",
+    "Z-index positioning",
+    "Click state with custom icon/text",
+    "Hover effects on specific HTML tags",
+    "Normal and hover state styling",
+    "Circle background colors (normal/hover)",
+    "Opacity control",
+    "CSS mix-blend-mode (12 options)",
+    "Custom CSS transforms (normal/hover)",
+    "Transition duration controls",
+    "SVG circle with stroke customization (style-2)",
+    "Progress bar animation (style-2)",
+    "Global or block-scoped effects",
+    "Responsive sizing",
+    "Typography controls for text cursor"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple circle cursor following mouse",
+      "attributes": {
+        "block_id": "a1b2",
+        "cursorEffect": "mc-body",
+        "cursorType": "mouse-follow-circle",
+        "circleStyle": "mc-cs1",
+        "circleMaxWidth": {"md": "40", "unit": "px"},
+        "circleMaxHeight": {"md": "40", "unit": "px"},
+        "circleNmlBG": "#667eea",
+        "circleOpacity": "0.6"
+      }
+    },
+    {
+      "description": "Custom image cursor",
+      "attributes": {
+        "block_id": "c3d4",
+        "cursorType": "mouse-follow-image",
+        "mcPointerIcon": {"url": "/cursor-icon.png"},
+        "iconMaxWidth": {"md": "30", "unit": "px"}
+      }
+    },
+    {
+      "description": "Text label following cursor",
+      "attributes": {
+        "block_id": "e5f6",
+        "cursorType": "mouse-follow-text",
+        "pointerText": "Click Here",
+        "listTagHover": "a, button"
+      }
+    },
+    {
+      "description": "Mix-blend circle with dual sizes",
+      "attributes": {
+        "block_id": "g7h8",
+        "cursorType": "mouse-follow-circle",
+        "circleStyle": "mc-cs3",
+        "crclMixBMode": "difference",
+        "firstCircleSize": "60",
+        "secondCircleSize": "40",
+        "mcClick": true,
+        "mcClickText": "View"
+      }
+    }
+  ]
+}

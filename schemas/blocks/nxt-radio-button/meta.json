@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-radio-button",
+  "version": "1.0.0",
+  "title": "Radio Button",
+  "category": "forms",
+  "source": "pro",
+  "complexity": "simple",
+  "description": "Add radio buttons to allow selecting a single option from a list of choices. Features customizable option labels and values, vertical or horizontal layout, border radius styling (round by default), fi",
+  "keywords": [
+    "radio button",
+    "single select",
+    "options"
+  ],
+  "useCases": [
+    "Single choice inputs"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-date-field",
+  "title": "Pick a Date - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple date picker",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Select Date",
+        "placeholder": "Pick a date",
+        "reqTgl": true
+      }
+    },
+    {
+      "description": "Birthdate with age restriction",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Date of Birth",
+        "placeholder": "MM/DD/YYYY",
+        "valDate": true,
+        "minYear": 1920,
+        "maxYear": 2010,
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "You must be at least 18 years old",
+        "descPoss": "bottom"
+      }
+    },
+    {
+      "description": "Appointment booking with future dates",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Appointment Date",
+        "placeholder": "Choose date",
+        "valDate": true,
+        "minYear": 2025,
+        "minMonth": 1,
+        "minDay": 1,
+        "maxYear": 2026,
+        "maxMonth": 12,
+        "maxDay": 31,
+        "reqTgl": true
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-email-field",
+  "title": "Email Address - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple required email field",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Email Address",
+        "placeholder": "your@email.com",
+        "reqTgl": true,
+        "autoComplete": "email"
+      }
+    },
+    {
+      "description": "Email field with icon",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Your Email",
+        "iconType": "fontAwesome",
+        "icons": "fas fa-envelope",
+        "placeholder": "Enter your email",
+        "reqTgl": true,
+        "icnClr": "#667eea",
+        "hvrIcnClr": "#764ba2"
+      }
+    },
+    {
+      "description": "Newsletter signup with help text",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Subscribe to Newsletter",
+        "placeholder": "email@example.com",
+        "hlpTxt": true,
+        "desctxt": "We'll never share your email with anyone else",
+        "descPoss": "bottom",
+        "reqTgl": true
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

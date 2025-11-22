@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-creative-image",
+  "title": "Advanced Image - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple image with parallax effect",
+      "attributes": {
+        "block_id": "a1b2",
+        "SelectImg": {
+          "url": "/hero-image.jpg"
+        },
+        "ScrollParallax": true,
+        "ScrollMoveY": "100",
+        "ImgWidth": {
+          "md": "1200",
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "description": "Scroll reveal animation from left",
+      "attributes": {
+        "block_id": "c3d4",
+        "SelectImg": {
+          "url": "/feature.jpg"
+        },
+        "ScrollRevelImg": true,
+        "AnimDirection": "left",
+        "AnimBgColor": "#667eea"
+      }
+    },
+    {
+      "description": "Masked circular image with shadow",
+      "attributes": {
+        "block_id": "e5f6",
+        "SelectImg": {
+          "url": "/portrait.jpg"
+        },
+        "showMaskImg": true,
+        "MaskImg": {
+          "url": "/circle-mask.svg"
+        },
+        "MaskShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "color": "rgba(0,0,0,0.3)"
+        }
+      }
+    },
+    {
+      "description": "Image with continuous scroll effect",
+      "attributes": {
+        "block_id": "g7h8",
+        "SelectImg": {
+          "url": "/tall-image.jpg"
+        },
+        "ScrollImgEffect": true,
+        "ScrollImgHeight": {
+          "md": 500
+        },
+        "ScrollTransDur": {
+          "md": 3
+        }
+      }
+    },
+    {
+      "description": "Filtered image with hover effect",
+      "attributes": {
+        "block_id": "i9j0",
+        "SelectImg": {
+          "url": "/photo.jpg"
+        },
+        "imgNFilter": {
+          "openFilter": true,
+          "grayscale": 100
+        },
+        "imgHFilter": {
+          "openFilter": true,
+          "grayscale": 0
+        }
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-security-field",
+  "title": "Security Code - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Google reCAPTCHA v2",
+      "attributes": {
+        "block_id": "a1b2",
+        "securityOptions": "recaptcha",
+        "captchaOptions": "v2",
+        "cloudSiteKey": "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+        "cloudSecretKey": "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+      }
+    },
+    {
+      "description": "hCaptcha integration",
+      "attributes": {
+        "block_id": "c3d4",
+        "securityOptions": "hcaptcha",
+        "cloudSiteKey": "10000000-ffff-ffff-ffff-000000000001",
+        "cloudSecretKey": "0x0000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "description": "Cloudflare Turnstile",
+      "attributes": {
+        "block_id": "e5f6",
+        "securityOptions": "turnstile",
+        "captchaOptions": "managed",
+        "cloudSiteKey": "1x00000000000000000000AA",
+        "cloudSecretKey": "1x0000000000000000000000000000000AA"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-timeline-inner",
+  "title": "Timeline Inner - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "RSAlign": {
+      "type": "string",
+      "default": "",
+      "description": "Responsive alignment inherited from parent"
+    },
+    "RPosition": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline position inherited from parent"
+    },
+    "RcAlign": {
+      "type": "string",
+      "default": "text-right",
+      "enum": [
+        "text-left",
+        "text-center",
+        "text-right"
+      ],
+      "description": "Timeline item content alignment"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "RcTitle",
+      "description",
+      "RTitle",
+      "Ricon",
+      "RBtnText",
+      "RcAlign"
+    ],
+    "requiresValidation": [
+      "style",
+      "PinStyle",
+      "RButton",
+      "index"
+    ]
+  },
+  "styleDependencies": [
+    "Parent timeline (tp-timeline) styling system",
+    "Timeline connector lines",
+    "Pin/marker icon rendering",
+    "Content card styling",
+    "Button styling from parent"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-pricing-table",
+  "title": "Pricing Table - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Basic pricing table with discount",
+      "attributes": {
+        "block_id": "a1b2",
+        "title": "Premium Plan",
+        "subTitle": "For Growing Teams",
+        "preText": "$",
+        "priceValue": "49",
+        "postText": "/month",
+        "disPrePrice": true,
+        "prevPriceValue": "79",
+        "titleAlign": {
+          "md": "center"
+        },
+        "priceAlign": {
+          "md": "center"
+        }
+      }
+    },
+    {
+      "description": "Pricing table with feature list",
+      "attributes": {
+        "block_id": "c3d4",
+        "title": "Enterprise",
+        "contentStyle": "stylish",
+        "stylishList": [
+          {
+            "listDesc": "Unlimited Users",
+            "listIcon": "fas fa-check",
+            "showIcon": true
+          },
+          {
+            "listDesc": "Priority Support",
+            "listIcon": "fas fa-check",
+            "showIcon": true
+          },
+          {
+            "listDesc": "Custom Integration",
+            "listIcon": "fas fa-check",
+            "showIcon": true
+          }
+        ]
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

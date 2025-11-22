@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-switch-inner",
+  "title": "Switcher Inner - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "First switch panel (index 0) with pricing content",
+      "attributes": {
+        "block_id": "a1b2",
+        "index": 0
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pricing-table",
+          "attrs": {
+            "block_id": "c3d4",
+            "title": "Monthly Plan",
+            "priceValue": "29"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Second switch panel (index 1) with alternate content",
+      "attributes": {
+        "block_id": "e5f6",
+        "index": 1
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pricing-table",
+          "attrs": {
+            "block_id": "g7h8",
+            "title": "Yearly Plan",
+            "priceValue": "290"
+          }
+        }
+      ]
+    }
+  ],
+  "commonPatterns": {}
+}

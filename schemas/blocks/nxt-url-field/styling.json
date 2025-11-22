@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-url-field",
+  "title": "Website URL - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {},
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "placeholder",
+      "error",
+      "inpSz",
+      "desctxt",
+      "urlIcons",
+      "urlImage",
+      "icnClr",
+      "hvrIcnClr"
+    ],
+    "requiresValidation": [
+      "reqTgl",
+      "autoComplete",
+      "hlpTxt",
+      "descPoss",
+      "urlIconType"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Input container flexbox layout",
+    "URL validation JavaScript"
+  ]
+}

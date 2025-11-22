@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-heading-title",
+  "title": "Advanced Heading - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple centered heading with subtitle",
+      "attributes": {
+        "block_id": "a1b2",
+        "style": "style-1",
+        "Title": "Welcome to Our Website",
+        "subTitle": "Building amazing experiences",
+        "titleType": "h1",
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        }
+      }
+    },
+    {
+      "description": "Heading with separator line (style-3)",
+      "attributes": {
+        "block_id": "c3d4",
+        "style": "style-3",
+        "Title": "Our Services",
+        "titleType": "h2",
+        "sepColor": "#3498db",
+        "sepWidth": {
+          "md": "60",
+          "unit": "%"
+        },
+        "Alignment": {
+          "md": "center"
+        }
+      }
+    },
+    {
+      "description": "Gradient heading with animation",
+      "attributes": {
+        "block_id": "e5f6",
+        "style": "style-1",
+        "Title": "Innovative Solutions",
+        "titleType": "h2",
+        "titleGrad": true,
+        "titleStroke": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "aniEffect": "fade",
+        "extrOpt": {
+          "animationSpeed": "1000",
+          "animationDelay": "200"
+        }
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

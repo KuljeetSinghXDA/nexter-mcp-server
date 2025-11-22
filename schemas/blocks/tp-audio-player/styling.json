@@ -1,0 +1,357 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-audio-player",
+  "title": "Audio Player - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "ImageSize": {
+      "type": "string",
+      "default": "thumbnail",
+      "description": "WordPress image size for cover images"
+    },
+    "MaxWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "SongFont": {
+      "$ref": "definitions://typography"
+    },
+    "TitleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title text color"
+    },
+    "AuthorFont": {
+      "$ref": "definitions://typography"
+    },
+    "Authorcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Author text color"
+    },
+    "SplitFont": {
+      "$ref": "definitions://typography"
+    },
+    "SpliTextColor": {
+      "type": "string",
+      "default": "",
+      "description": "Separator text color"
+    },
+    "CBGcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Controls background color (style-9)"
+    },
+    "CBGRadiuss9": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "IconColor": {
+      "type": "string",
+      "default": "",
+      "description": "Control icons color (normal state)"
+    },
+    "IconSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "PlayPausecolor": {
+      "type": "string",
+      "default": "",
+      "description": "Play/pause button color"
+    },
+    "PlayPauseSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "bgsize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "bgtype": {
+      "$ref": "definitions://background"
+    },
+    "BackgroundType": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "color": "#fff"
+      },
+      "description": "Play/pause button border"
+    },
+    "BorderRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "PlIconcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Playlist icon color"
+    },
+    "PlIconSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "VolSize": {
+      "type": "object",
+      "default": {
+        "unit": "px"
+      },
+      "description": "Volume icon font size",
+      "responsive": true
+    },
+    "VolIcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Volume icon color"
+    },
+    "VolScolor": {
+      "type": "string",
+      "default": "",
+      "description": "Volume slider fill color"
+    },
+    "VolSBgColor": {
+      "type": "string",
+      "default": "",
+      "description": "Volume slider background color"
+    },
+    "VolSRangeColor": {
+      "type": "string",
+      "default": "",
+      "description": "Volume slider range color"
+    },
+    "CBoxShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "TTimeSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "TTimecolor": {
+      "type": "string",
+      "default": "",
+      "description": "Time display color (style-3)"
+    },
+    "TTWidth": {
+      "type": "object",
+      "default": {
+        "unit": "%"
+      },
+      "description": "Track/timeline width",
+      "responsive": true
+    },
+    "TDotColor": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline scrubber dot color"
+    },
+    "Trackcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline track border color"
+    },
+    "TFillcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Timeline fill/progress color"
+    },
+    "TIBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Track image border"
+    },
+    "TIBorderR": {
+      "type": "object",
+      "default": {
+        "unit": "%"
+      },
+      "description": "Track image border radius",
+      "responsive": true
+    },
+    "TIBoxShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "PlPadding": {
+      "type": "object",
+      "default": {
+        "unit": "px"
+      },
+      "description": "Playlist item padding",
+      "responsive": true
+    },
+    "PlIMargin": {
+      "type": "object",
+      "default": {
+        "unit": "px"
+      },
+      "description": "Playlist item margin",
+      "responsive": true
+    },
+    "PlOMargin": {
+      "type": "object",
+      "default": {
+        "unit": "px"
+      },
+      "description": "Playlist container outer margin",
+      "responsive": true
+    },
+    "PLTypography": {
+      "$ref": "definitions://typography"
+    },
+    "NormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Playlist item color (normal state)"
+    },
+    "NormalTop": {
+      "type": "object",
+      "default": {
+        "unit": "px"
+      },
+      "description": "Playlist container top margin",
+      "responsive": true
+    },
+    "PlBgCr": {
+      "$ref": "definitions://background"
+    },
+    "ActiveColor": {
+      "type": "string",
+      "default": "",
+      "description": "Playlist item color (active/playing state)"
+    },
+    "ActiveTop": {
+      "type": "object",
+      "default": {
+        "unit": "px"
+      },
+      "description": "Active playlist item top margin",
+      "responsive": true
+    },
+    "HColor": {
+      "type": "string",
+      "default": "",
+      "description": "Playlist item color (hover state)"
+    },
+    "HAColor": {
+      "type": "string",
+      "default": "",
+      "description": "Active playlist item color (hover state)"
+    },
+    "HAPlaBgcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Active playlist item background (hover state)"
+    },
+    "PlaBgcolor": {
+      "type": "string",
+      "default": "",
+      "description": "Active playlist item background color"
+    },
+    "Plborder": {
+      "type": "object",
+      "default": "",
+      "description": "Playlist container border"
+    },
+    "PlborderR": {
+      "type": "object",
+      "default": {
+        "unit": "px"
+      },
+      "description": "Playlist container border radius",
+      "responsive": true
+    },
+    "PlBoxshadow": {
+      "type": "object",
+      "default": "",
+      "description": "Playlist container box shadow"
+    },
+    "PlBgType": {
+      "$ref": "definitions://background"
+    },
+    "PBPadding": {
+      "type": "object",
+      "default": {
+        "unit": "px"
+      },
+      "description": "Player container padding",
+      "responsive": true
+    },
+    "PBMargin": {
+      "type": "object",
+      "default": {
+        "unit": "px"
+      },
+      "description": "Player container margin",
+      "responsive": true
+    },
+    "PlBorderType": {
+      "type": "object",
+      "default": "",
+      "description": "Player container border"
+    },
+    "PLBgBordeR": {
+      "type": "object",
+      "default": {
+        "unit": "px"
+      },
+      "description": "Player container border radius",
+      "responsive": true
+    },
+    "PBGboxshadow": {
+      "type": "object",
+      "default": "",
+      "description": "Player container box shadow"
+    },
+    "PBGCSSFilters": {
+      "type": "object",
+      "default": {
+        "openFilter": true,
+        "blur": 8
+      },
+      "description": "Player background image CSS filters (style-8)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "Aprepeater",
+      "Audioimage",
+      "SplitText",
+      "MaxWidth",
+      "DefaultVolume",
+      "SongFont",
+      "TitleColor",
+      "AuthorFont",
+      "Authorcolor",
+      "IconColor",
+      "IconSize",
+      "PlayPausecolor",
+      "PlayPauseSize",
+      "bgsize",
+      "bgtype",
+      "BorderRadius",
+      "VolSize",
+      "VolIcolor",
+      "VolScolor",
+      "TDotColor",
+      "Trackcolor",
+      "TFillcolor",
+      "PLTypography",
+      "NormalColor",
+      "ActiveColor",
+      "PlBgType",
+      "PBPadding"
+    ],
+    "requiresValidation": [
+      "Apstyle",
+      "ImageSize",
+      "BackgroundType",
+      "TTWidth",
+      "TIBorder",
+      "PlBgCr",
+      "PlborderR",
+      "PlBoxshadow",
+      "PBGCSSFilters"
+    ]
+  },
+  "styleDependencies": [
+    "Audio player JavaScript library (Web Audio API or Howler.js)",
+    "Volume slider (noUi-Slider library)",
+    "Timeline/progress bar scrubber",
+    "Playlist management JavaScript",
+    "Audio format support (MP3, OGG, WAV, etc.)"
+  ]
+}

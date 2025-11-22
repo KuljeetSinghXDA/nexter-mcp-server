@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-video",
+  "title": "Video - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple YouTube video embed",
+      "attributes": {
+        "block_id": "a1b2",
+        "VideoType": "youtube",
+        "YoutubeID": "dQw4w9WgXcQ",
+        "controls": true,
+        "rel": false
+      }
+    },
+    {
+      "description": "YouTube video with custom thumbnail",
+      "attributes": {
+        "block_id": "c3d4",
+        "VideoType": "youtube",
+        "YoutubeID": "dQw4w9WgXcQ",
+        "ShowBannerImg": true,
+        "BannerImg": {
+          "url": "https://example.com/thumbnail.jpg"
+        },
+        "autoPlay": false
+      }
+    },
+    {
+      "description": "Vimeo video with schema markup",
+      "attributes": {
+        "block_id": "e5f6",
+        "VideoType": "vimeo",
+        "VimeoID": "123456789",
+        "markupSch": true,
+        "VideoTitle": "Product Demo Video",
+        "VideoColor": "#3498db"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

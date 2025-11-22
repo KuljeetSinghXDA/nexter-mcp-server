@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-blockquote",
+  "title": "Blockquote - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "contentAlignment": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "description": "Text alignment for quote and author"
+    },
+    "typography": {
+      "$ref": "definitions://typography"
+    },
+    "authorTypo": {
+      "$ref": "definitions://typography"
+    },
+    "textNormalColor": {
+      "type": "string",
+      "default": "#747474",
+      "description": "Quote text color (normal state)"
+    },
+    "textHoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Quote text color (hover state)"
+    },
+    "authorNormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Author name color (normal state)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "content",
+      "authorName",
+      "contentAlignment",
+      "textNormalColor",
+      "textHoverColor",
+      "authorNormalColor"
+    ],
+    "requiresValidation": [
+      "style",
+      "typography",
+      "authorTypo"
+    ]
+  },
+  "styleDependencies": [
+    "Blockquote style CSS (multiple variants)",
+    "Quote marks/decoration styling",
+    "Typography CSS",
+    "Hover effects"
+  ]
+}

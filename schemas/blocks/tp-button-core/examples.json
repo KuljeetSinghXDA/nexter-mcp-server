@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-button-core",
+  "title": "Button - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple button with icon",
+      "attributes": {
+        "block_id": "a1b2",
+        "btxt": "Get Started",
+        "bLink": {
+          "url": "/signup",
+          "target": "",
+          "nofollow": ""
+        },
+        "biType": "fontAwesome",
+        "bIcon": "fas fa-arrow-right",
+        "bAlign": {
+          "md": "center"
+        }
+      }
+    },
+    {
+      "description": "Styled button with custom colors",
+      "attributes": {
+        "block_id": "c3d4",
+        "btxt": "Learn More",
+        "btColor": "#ffffff",
+        "btBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "brad": {
+          "md": {
+            "top": "5",
+            "bottom": "5",
+            "left": "5",
+            "right": "5"
+          },
+          "unit": "px"
+        },
+        "btPad": {
+          "md": {
+            "top": "15",
+            "bottom": "15",
+            "left": "30",
+            "right": "30"
+          },
+          "unit": "px"
+        }
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

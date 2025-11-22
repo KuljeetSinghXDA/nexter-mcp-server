@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-heading-title",
+  "version": "1.0.0",
+  "title": "Advanced Heading",
+  "category": "content",
+  "source": "free",
+  "complexity": "medium",
+  "description": "A versatile heading block with multiple style variants, subtitle support, separators, animations, and gradient effects. Supports responsive typography, custom HTML tags (h1-h6), text truncation, and d",
+  "keywords": [
+    "heading with subtitle",
+    "title description",
+    "heading group"
+  ],
+  "useCases": [
+    "Section headers with descriptions",
+    "Feature block titles"
+  ]
+}

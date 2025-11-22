@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-button-core",
+  "title": "Button - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "bAlign": {
+      "type": "object",
+      "default": {
+        "md": "left",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Button alignment",
+      "responsive": true
+    },
+    "biSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "bTypo": {
+      "$ref": "definitions://typography"
+    },
+    "tShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "btColor": {
+      "type": "string",
+      "default": "#fff",
+      "description": "Button text color (normal)"
+    },
+    "bthColor": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (hover)"
+    },
+    "btBg": {
+      "$ref": "definitions://background"
+    },
+    "bthBg": {
+      "$ref": "definitions://background"
+    },
+    "bthBColor": {
+      "type": "string",
+      "default": "",
+      "description": "Button border color (hover)"
+    },
+    "btshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "globalPosition": {
+      "type": "object",
+      "default": {
+        "md": "",
+        "sm": "",
+        "xs": ""
+      },
+      "enum": [
+        "static",
+        "relative",
+        "absolute",
+        "fixed"
+      ],
+      "description": "Global positioning mode",
+      "responsive": true
+    },
+    "glohoriOffset": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "gloverticalOffset": {
+      "$ref": "definitions://responsive-unit"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "btxt",
+      "bLink",
+      "bAlign",
+      "bIcon",
+      "bImg",
+      "bispac",
+      "biSize",
+      "bTypo",
+      "btColor",
+      "bthColor",
+      "btPad",
+      "brad"
+    ],
+    "requiresValidation": [
+      "biType",
+      "bipos",
+      "globalPosition"
+    ]
+  },
+  "styleDependencies": [
+    "Flexbox layout for icon positioning"
+  ]
+}

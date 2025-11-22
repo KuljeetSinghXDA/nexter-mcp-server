@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-dynamic-heading",
+  "version": "1.0.0",
+  "title": "Dynamic HTML",
+  "category": "layout",
+  "source": "pro",
+  "complexity": "expert",
+  "description": "Display dynamic HTML content within repeater templates with typography and color controls. Automatically adjusts content based on ACF repeater data, user interaction, or context. Features text alignme",
+  "keywords": [
+    "dynamic content",
+    "ACF heading",
+    "repeater heading",
+    "template heading"
+  ],
+  "useCases": [
+    "Repeater template headings",
+    "Dynamic content display"
+  ]
+}

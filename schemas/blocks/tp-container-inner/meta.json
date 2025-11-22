@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-container-inner",
+  "version": "1.0.0",
+  "title": "Container Inner",
+  "category": "layout",
+  "source": "pro",
+  "complexity": "advanced",
+  "description": "Individual inner section block that must be used inside a tp-container block. Defines section width, alignment, spacing, and styling with flexbox controls. Supports responsive widths, flex direction c",
+  "keywords": [
+    "inner container",
+    "nested container",
+    "child container"
+  ],
+  "useCases": [
+    "Nested layouts",
+    "Complex grid structures"
+  ]
+}

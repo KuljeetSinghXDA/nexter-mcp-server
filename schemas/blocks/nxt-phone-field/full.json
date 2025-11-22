@@ -1,0 +1,213 @@
+{
+  "blockName": "tpgb/tp-form-phone-field",
+  "version": "1.0.0",
+  "title": "Phone Number",
+  "category": "form",
+  "description": "Add a phone number input field with country dropdown and pattern validation. Features country selector with customizable width, regex pattern validation, optional Font Awesome icons or custom images, field width control, required field validation, help text (description), and autocomplete control. Includes default country setting and icon color with hover states. Must be used inside a Form Block. Pro version with advanced form controls.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "labelss": {
+      "type": "string",
+      "default": "Phone",
+      "description": "Field label text"
+    },
+    "countryWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Width of country dropdown selector",
+      "responsive": true
+    },
+    "error": {
+      "type": "string",
+      "default": "This field is required",
+      "description": "Error message for validation failure"
+    },
+    "autoComplete": {
+      "type": "string",
+      "default": "off",
+      "enum": ["off", "on", "tel", "tel-national", "tel-local"],
+      "description": "HTML autocomplete attribute value"
+    },
+    "patt": {
+      "type": "string",
+      "default": "^\\\\d{3} \\\\d{3} \\\\d{4}$",
+      "description": "Regex pattern for phone number validation (default: XXX XXX XXXX)"
+    },
+    "reqTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Make field required"
+    },
+    "inpSz": {
+      "type": "object",
+      "default": {"md": "100", "unit": "%"},
+      "description": "Field width (percentage or px)",
+      "responsive": true
+    },
+    "descPoss": {
+      "type": "string",
+      "default": "top",
+      "enum": ["top", "bottom"],
+      "description": "Help text position relative to field"
+    },
+    "hlpTxt": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable help text (description)"
+    },
+    "desctxt": {
+      "type": "string",
+      "default": "Description",
+      "description": "Help text content (when hlpTxt is true)"
+    },
+    "phnIconType": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "fontAwesome", "image"],
+      "description": "Icon type for phone field"
+    },
+    "phnIcons": {
+      "type": "string",
+      "default": "",
+      "description": "Font Awesome icon class (when phnIconType is 'fontAwesome')"
+    },
+    "phnImage": {
+      "type": "object",
+      "default": {"url": "", "Id": ""},
+      "description": "Custom icon image (when phnIconType is 'image')"
+    },
+    "icnClr": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal state)"
+    },
+    "hvrIcnClr": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (hover state)"
+    },
+    "uniqueid": {
+      "type": "string",
+      "default": "",
+      "description": "Unique field identifier for form submission"
+    },
+    "defCountry": {
+      "type": "string",
+      "default": "",
+      "description": "Default country code for country dropdown"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "countryWidth",
+      "error",
+      "patt",
+      "inpSz",
+      "desctxt",
+      "phnIcons",
+      "phnImage",
+      "icnClr",
+      "hvrIcnClr",
+      "defCountry"
+    ],
+    "requiresValidation": [
+      "autoComplete",
+      "reqTgl",
+      "descPoss",
+      "hlpTxt",
+      "phnIconType"
+    ],
+    "dangerous": [
+      "block_id",
+      "uniqueid"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Country dropdown component",
+    "Input wrapper flexbox layout",
+    "Regex validation JavaScript"
+  ],
+  "commonUseCases": [
+    "Contact forms",
+    "Registration forms",
+    "Booking forms",
+    "Support requests",
+    "Appointment scheduling",
+    "Order forms",
+    "Emergency contact",
+    "Callback requests"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-form-block",
+    "tpgb/tp-form-name-field",
+    "tpgb/tp-form-email-field",
+    "tpgb/tp-form-submit-button"
+  ],
+  "capabilities": [
+    "Customizable label text",
+    "Country dropdown selector",
+    "Customizable country dropdown width",
+    "Regex pattern validation",
+    "Default country setting",
+    "3 icon types (none, Font Awesome, custom image)",
+    "Required field validation",
+    "Custom error messages",
+    "Autocomplete control (5 options)",
+    "Responsive width control",
+    "Help text with top/bottom positioning",
+    "Icon color with hover state",
+    "Unique field ID for form handling",
+    "Inline display support with submit button"
+  ],
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true,
+  "ancestorBlock": "tpgb/tp-form-block",
+  "examples": [
+    {
+      "description": "Simple phone field with default pattern",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Phone Number",
+        "reqTgl": true,
+        "autoComplete": "tel",
+        "defCountry": "US"
+      }
+    },
+    {
+      "description": "Phone field with icon and help text",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Contact Number",
+        "phnIconType": "fontAwesome",
+        "phnIcons": "fas fa-phone",
+        "icnClr": "#667eea",
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "Enter your phone number with country code",
+        "descPoss": "bottom"
+      }
+    },
+    {
+      "description": "Custom pattern for international format",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Mobile",
+        "patt": "^\\\\+?[1-9]\\\\d{1,14}$",
+        "countryWidth": {"md": "80", "unit": "px"},
+        "reqTgl": true
+      }
+    }
+  ]
+}

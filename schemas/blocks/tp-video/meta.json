@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-video",
+  "version": "1.0.0",
+  "title": "Video",
+  "category": "media",
+  "source": "free",
+  "complexity": "medium",
+  "description": "Embed YouTube, Vimeo, or self-hosted videos with custom play buttons, banner images, and advanced controls. Supports autoplay, loop, muted mode, and schema markup for SEO. Perfect for video marketing,",
+  "keywords": [
+    "video",
+    "youtube",
+    "vimeo",
+    "video player",
+    "embed"
+  ],
+  "useCases": [
+    "Embed videos",
+    "Video backgrounds",
+    "YouTube/Vimeo players"
+  ]
+}

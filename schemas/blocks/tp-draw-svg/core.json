@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-draw-svg",
+  "title": "Draw SVG - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "selectSvg": {
+      "type": "string",
+      "default": "preBuild",
+      "enum": [
+        "preBuild",
+        "custom"
+      ],
+      "description": "SVG source: pre-built library or custom upload"
+    },
+    "svgList": {
+      "type": "string",
+      "default": "app",
+      "description": "Pre-built SVG icon selection from library"
+    },
+    "customSVG": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Custom SVG file upload"
+    },
+    "maxWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "fillToggle": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable SVG fill color"
+    },
+    "drawType": {
+      "type": "string",
+      "default": "delayed",
+      "enum": [
+        "delayed",
+        "sync",
+        "oneByOne"
+      ],
+      "description": "Animation drawing sequence: delayed (staggered), sync (simultaneous), oneByOne (sequential)"
+    },
+    "duration": {
+      "type": "string",
+      "default": "90",
+      "description": "Animation duration in frames"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "svgList",
+      "customSVG",
+      "alignment",
+      "maxWidth",
+      "strokeColor",
+      "fillColor",
+      "fillToggle",
+      "duration"
+    ],
+    "requiresValidation": [
+      "selectSvg",
+      "drawType",
+      "hoverDraw"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

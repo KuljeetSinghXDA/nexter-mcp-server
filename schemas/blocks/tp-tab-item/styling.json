@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-tab-item",
+  "title": "Tab Tours Inner - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "navAlign": {
+      "type": "string",
+      "default": "text-center",
+      "enum": [
+        "text-left",
+        "text-center",
+        "text-right"
+      ],
+      "description": "Inherited from parent - tab navigation alignment"
+    },
+    "iconFonts": {
+      "type": "string",
+      "default": "font_awesome",
+      "description": "Icon library selection"
+    },
+    "iconImageSize": {
+      "type": "string",
+      "default": "full",
+      "description": "Size of custom icon image"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "tabinTitle",
+      "innerIcon",
+      "innericonName",
+      "iconImage",
+      "innerBlocks content"
+    ],
+    "requiresValidation": [
+      "tabtoIndex",
+      "uniqueKey",
+      "active"
+    ]
+  },
+  "styleDependencies": [
+    "Inherits all styling from parent tp-tabs-tours block",
+    "Icon font library (Font Awesome)",
+    "Tab transition CSS"
+  ]
+}

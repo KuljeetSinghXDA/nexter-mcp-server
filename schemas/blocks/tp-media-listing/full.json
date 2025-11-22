@@ -1,0 +1,401 @@
+{
+  "blockName": "tpgb/tp-media-listing",
+  "version": "1.0.0",
+  "title": "Media Listing",
+  "category": "media",
+  "description": "Showcase image and video galleries with multiple layout options (grid, masonry, metro, carousel), lightbox integration, and 4 visual styles. Perfect for portfolios, photo galleries, video showcases, and media libraries. Supports custom icons, captions, categories, and responsive columns with extensive styling controls.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "GalleryType": {
+      "type": "string",
+      "default": "image",
+      "enum": ["image", "video"],
+      "description": "Media type: image gallery or video gallery"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2", "style-3", "style-4"],
+      "description": "Visual style for gallery items"
+    },
+    "layout": {
+      "type": "string",
+      "default": "grid",
+      "enum": ["grid", "masonry", "metro", "carousel"],
+      "description": "Gallery layout type"
+    },
+    "Playout": {
+      "type": "string",
+      "default": "default",
+      "enum": ["default", "custom"],
+      "description": "Portfolio layout mode (affects item arrangement)"
+    },
+    "Imgoption": {
+      "type": "string",
+      "default": "normal",
+      "enum": ["normal", "fancybox"],
+      "description": "Image click behavior: normal (link) or lightbox popup"
+    },
+    "NAddImg": {
+      "type": "array",
+      "default": [],
+      "description": "Bulk image upload array (WordPress media library)"
+    },
+    "ImgRepeater": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Individual media items with custom metadata",
+      "items": {
+        "VSource": {
+          "type": "string",
+          "default": "self-hosted",
+          "enum": ["self-hosted", "youtube", "vimeo"],
+          "description": "Video source type (for GalleryType: video)"
+        },
+        "RVideo": {
+          "type": "object",
+          "default": {"url": "", "Id": ""},
+          "description": "Self-hosted video file"
+        },
+        "YouTubeId": {
+          "type": "string",
+          "default": "2ReiWfKUxIM",
+          "description": "YouTube video ID"
+        },
+        "VimeoId": {
+          "type": "string",
+          "default": "87591302",
+          "description": "Vimeo video ID"
+        },
+        "Rimg": {
+          "type": "object",
+          "default": {"url": "", "Id": ""},
+          "description": "Image or video thumbnail"
+        },
+        "Rtitle": {
+          "type": "string",
+          "default": "Image",
+          "description": "Item title"
+        },
+        "RCategory": {
+          "type": "string",
+          "default": "",
+          "description": "Item category/tag for filtering"
+        },
+        "RCaption": {
+          "type": "string",
+          "default": "I am text block",
+          "description": "Item caption/description"
+        },
+        "RselImg": {
+          "type": "string",
+          "default": "none",
+          "enum": ["none", "icon", "image"],
+          "description": "Overlay icon type"
+        },
+        "RIcon": {
+          "type": "string",
+          "default": "",
+          "description": "Font Awesome icon class (when RselImg is 'icon')"
+        },
+        "RIimg": {
+          "type": "object",
+          "default": {"url": "", "Id": ""},
+          "description": "Custom overlay icon image (when RselImg is 'image')"
+        },
+        "Rurl": {
+          "type": "object",
+          "default": {"url": "", "target": "", "nofollow": ""},
+          "description": "Custom link URL for item"
+        }
+      },
+      "default": [
+        {
+          "Rtitle": "Image",
+          "RCaption": "I am text block",
+          "Rimg": {"url": ""},
+          "VSource": "self-hosted",
+          "YouTubeId": "2ReiWfKUxIM",
+          "VimeoId": "87591302",
+          "Rurl": {"url": "", "target": "", "nofollow": ""}
+        },
+        {
+          "Rtitle": "Image",
+          "RCaption": "I am text block",
+          "Rimg": {"url": ""},
+          "VSource": "self-hosted",
+          "YouTubeId": "2ReiWfKUxIM",
+          "VimeoId": "87591302",
+          "Rurl": {"url": "", "target": "", "nofollow": ""}
+        }
+      ]
+    },
+    "columns": {
+      "type": "object",
+      "default": {"md": 3, "sm": 4, "xs": 6},
+      "description": "Grid columns (responsive, WordPress grid system: 1-12)",
+      "responsive": true
+    },
+    "colMetro": {
+      "type": "object",
+      "default": {"md": 3, "sm": 3, "xs": 6},
+      "description": "Metro layout columns (responsive)",
+      "responsive": true
+    },
+    "MetroSty": {
+      "type": "object",
+      "default": {"md": "style-1", "sm": "style-1", "xs": "style-1"},
+      "description": "Metro layout pattern style",
+      "responsive": true
+    },
+    "columnSpace": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Column gap/spacing",
+      "responsive": true
+    },
+    "metrocolumns": {
+      "type": "object",
+      "default": {"md": 3, "sm": 3, "xs": 3},
+      "description": "Metro columns count (alternate definition)",
+      "responsive": true
+    },
+    "metroStyle": {
+      "type": "object",
+      "default": {"md": "style-1", "sm": "style-1", "xs": "style-1"},
+      "description": "Metro style pattern (alternate definition)",
+      "responsive": true
+    },
+    "metroCustom": {
+      "type": "string",
+      "default": "",
+      "description": "Custom metro pattern definition"
+    },
+    "Dtitle": {
+      "type": "boolean",
+      "default": true,
+      "description": "Display item titles"
+    },
+    "TitleTag": {
+      "type": "string",
+      "default": "h3",
+      "enum": ["h1", "h2", "h3", "h4", "h5", "h6", "div", "span"],
+      "description": "HTML tag for titles"
+    },
+    "DImgS": {
+      "type": "boolean",
+      "default": false,
+      "description": "Display custom image size selector"
+    },
+    "ImgSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size"
+    },
+    "Dcontent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Display captions/descriptions"
+    },
+    "Boxlink": {
+      "type": "boolean",
+      "default": false,
+      "description": "Make entire item box clickable"
+    },
+    "FCusURl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Force custom URLs (ignore default lightbox behavior)"
+    },
+    "DisBtns4": {
+      "type": "boolean",
+      "default": true,
+      "description": "Display 'Learn more' button (style-4)"
+    },
+    "Btns4txt": {
+      "type": "string",
+      "default": "  Learn more",
+      "description": "'Learn more' button text (style-4)"
+    },
+    "BtnTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for button (style-4)"
+    },
+    "BtnCr": {
+      "type": "string",
+      "default": "",
+      "description": "Button color (style-4)"
+    },
+    "Disicon": {
+      "type": "boolean",
+      "default": true,
+      "description": "Display overlay icon"
+    },
+    "PopupNone": {
+      "type": "string",
+      "default": "icon",
+      "enum": ["icon", "image", "none"],
+      "description": "Overlay icon type"
+    },
+    "PopupIcon": {
+      "type": "string",
+      "default": "fa fa-search-plus",
+      "description": "Font Awesome icon class for overlay"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "ImgRepeater",
+      "NAddImg",
+      "columns",
+      "columnSpace",
+      "Dtitle",
+      "TitleTag",
+      "ImgSize",
+      "Dcontent",
+      "Boxlink",
+      "DisBtns4",
+      "Btns4txt",
+      "BtnTypo",
+      "BtnCr",
+      "Disicon",
+      "PopupIcon"
+    ],
+    "requiresValidation": [
+      "GalleryType",
+      "style",
+      "layout",
+      "Playout",
+      "Imgoption",
+      "colMetro",
+      "MetroSty",
+      "metroCustom",
+      "FCusURl",
+      "PopupNone"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Masonry layout JavaScript (for masonry layout)",
+    "Metro layout grid system (custom patterns)",
+    "Lightbox library (Fancybox when Imgoption is 'fancybox')",
+    "Carousel/slider library (for carousel layout)",
+    "Isotope or similar filtering library (for category filtering)",
+    "Video embed APIs (YouTube, Vimeo)"
+  ],
+  "commonUseCases": [
+    "Photography portfolios",
+    "Product image galleries",
+    "Video showcases",
+    "Design project portfolios",
+    "Before/after galleries",
+    "Team photo grids",
+    "Client logo showcases",
+    "Event photo albums",
+    "Real estate property galleries",
+    "Art and illustration portfolios"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-image",
+    "tpgb/tp-creative-image",
+    "tpgb/tp-video",
+    "tpgb/tp-audio-player"
+  ],
+  "capabilities": [
+    "4 visual styles for gallery items",
+    "4 layout types (grid, masonry, metro, carousel)",
+    "Image and video gallery modes",
+    "Unlimited items with repeater field",
+    "Bulk image upload from WordPress media library",
+    "Video support (self-hosted, YouTube, Vimeo)",
+    "Responsive columns (desktop, tablet, mobile)",
+    "Lightbox/fancybox popup integration",
+    "Custom URLs and links per item",
+    "Item titles, captions, and categories",
+    "Overlay icons (Font Awesome or custom images)",
+    "Metro layout with multiple pattern styles",
+    "Custom metro pattern definition",
+    "Category filtering support",
+    "'Learn more' buttons (style-4)",
+    "Full box click areas",
+    "Customizable column spacing",
+    "Title HTML tag selection (h1-h6, div, span)",
+    "WordPress image size selection"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple 3-column image grid",
+      "attributes": {
+        "block_id": "a1b2",
+        "GalleryType": "image",
+        "layout": "grid",
+        "style": "style-1",
+        "columns": {"md": 3, "sm": 4, "xs": 6},
+        "Imgoption": "fancybox"
+      }
+    },
+    {
+      "description": "Masonry layout portfolio",
+      "attributes": {
+        "block_id": "c3d4",
+        "layout": "masonry",
+        "style": "style-2",
+        "columns": {"md": 4, "sm": 6, "xs": 12},
+        "Dtitle": true,
+        "Dcontent": true,
+        "columnSpace": {"md": "20", "unit": "px"}
+      }
+    },
+    {
+      "description": "Video gallery with YouTube",
+      "attributes": {
+        "block_id": "e5f6",
+        "GalleryType": "video",
+        "style": "style-3",
+        "ImgRepeater": [
+          {"Rtitle": "Video 1", "VSource": "youtube", "YouTubeId": "dQw4w9WgXcQ"},
+          {"Rtitle": "Video 2", "VSource": "youtube", "YouTubeId": "9bZkp7q19f0"}
+        ]
+      }
+    },
+    {
+      "description": "Metro layout with custom pattern",
+      "attributes": {
+        "block_id": "g7h8",
+        "layout": "metro",
+        "MetroSty": {"md": "style-2", "sm": "style-1", "xs": "style-1"},
+        "colMetro": {"md": 4, "sm": 3, "xs": 6}
+      }
+    },
+    {
+      "description": "Carousel showcase (style-4 with buttons)",
+      "attributes": {
+        "block_id": "i9j0",
+        "layout": "carousel",
+        "style": "style-4",
+        "DisBtns4": true,
+        "Btns4txt": "View Details",
+        "BtnCr": "#667eea"
+      }
+    }
+  ]
+}

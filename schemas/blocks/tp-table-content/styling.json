@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-table-content",
+  "title": "Table of Contents - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "headingsOffset": {
+      "type": "string",
+      "default": "1",
+      "description": "Heading level offset (start numbering from H1=1, H2=2, etc.)"
+    },
+    "scrollOffset": {
+      "type": "string",
+      "default": "0",
+      "description": "Scroll offset in pixels (accounts for fixed headers)"
+    },
+    "fixedPosition": {
+      "type": "boolean",
+      "default": false,
+      "description": "Fixed position table of contents (sticky)"
+    },
+    "fixedOffset": {
+      "type": "string",
+      "default": "",
+      "description": "Fixed position offset from top in pixels"
+    },
+    "totitleAlign": {
+      "type": "object",
+      "default": {
+        "md": "",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Title alignment",
+      "responsive": true
+    },
+    "leftOffset": {
+      "type": "string",
+      "default": "20",
+      "description": "Left padding/indent for nested lists in pixels"
+    },
+    "bottomOffset": {
+      "type": "string",
+      "default": "10",
+      "description": "Bottom margin for list items in pixels (style-2, style-3, style-4)"
+    },
+    "TableSetMinHeight": {
+      "type": "boolean",
+      "default": false,
+      "description": "Set maximum height with scrollbar"
+    },
+    "TableMinHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "ScrollBarWidth": {
+      "type": "string",
+      "default": "",
+      "description": "Scrollbar width in pixels"
+    },
+    "LineWidth": {
+      "type": "string",
+      "default": "",
+      "description": "Decorative line width in pixels (style-1, style-2, style-3, style-4)"
+    },
+    "Line2Width": {
+      "type": "string",
+      "default": "",
+      "description": "Active line width in pixels (style-2, style-3, style-4)"
+    },
+    "LineColor": {
+      "type": "string",
+      "default": "",
+      "description": "Decorative line color"
+    },
+    "LineActiveColor": {
+      "type": "string",
+      "default": "",
+      "description": "Active line color (when heading is in viewport)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "selectorH1",
+      "selectorH2",
+      "selectorH3",
+      "selectorH4",
+      "selectorH5",
+      "selectorH6",
+      "contentSelector",
+      "headingsOffset",
+      "smoothDuration",
+      "scrollOffset",
+      "fixedOffset",
+      "contentText",
+      "TableDescText",
+      "PrefixIcon",
+      "openIcon",
+      "closeIcon",
+      "DefaultToggle",
+      "totitleAlign",
+      "leftOffset",
+      "bottomOffset",
+      "TableMinHeight",
+      "ScrollBarWidth",
+      "ScrollBarThumb",
+      "ScrollBarTrack",
+      "LineWidth",
+      "Line2Width",
+      "LineColor",
+      "LineActiveColor"
+    ],
+    "requiresValidation": [
+      "typeList",
+      "Style",
+      "ChildToggle",
+      "smoothScroll",
+      "fixedPosition",
+      "showText",
+      "showIcon",
+      "ToggleIcon",
+      "TableSetMinHeight"
+    ]
+  },
+  "styleDependencies": [
+    "Heading detection and parsing JavaScript",
+    "Smooth scroll library (e.g., smooth-scroll.js)",
+    "Intersection Observer API for active link highlighting",
+    "CSS sticky positioning (when fixedPosition is true)",
+    "Custom scrollbar styling (webkit-scrollbar)"
+  ]
+}

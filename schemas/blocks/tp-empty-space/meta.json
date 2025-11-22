@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-empty-space",
+  "version": "1.0.0",
+  "title": "Spacer",
+  "category": "layout",
+  "source": "free",
+  "complexity": "simple",
+  "description": "Add customizable vertical spacing between elements to control page layout and declutter content. Simple spacer/divider block with responsive height control. Use to create breathing room, separate sect",
+  "keywords": [
+    "spacer",
+    "gap",
+    "margin",
+    "spacing",
+    "divider"
+  ],
+  "useCases": [
+    "Add vertical spacing",
+    "Create visual breaks",
+    "Section separators"
+  ]
+}

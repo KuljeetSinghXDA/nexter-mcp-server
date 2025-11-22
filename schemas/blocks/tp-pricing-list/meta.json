@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-pricing-list",
+  "version": "1.0.0",
+  "title": "Pricing List",
+  "category": "marketing",
+  "source": "free",
+  "complexity": "medium",
+  "description": "Display restaurant menus, food items, service pricing lists, or product catalogs with title, price, tags, description, and optional images. Features 3 visual styles including dotted/dashed separator l",
+  "keywords": [
+    "price list",
+    "services list",
+    "menu pricing"
+  ],
+  "useCases": [
+    "Service pricing",
+    "Restaurant menus",
+    "Product lists"
+  ]
+}

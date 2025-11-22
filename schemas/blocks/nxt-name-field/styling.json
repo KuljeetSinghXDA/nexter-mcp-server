@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-name-field",
+  "title": "Name Field - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {},
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "nameIcons",
+      "nameImage",
+      "placeholder",
+      "error",
+      "inpSz",
+      "desctxt",
+      "maxAlphabets",
+      "icnClr",
+      "hvrIcnClr"
+    ],
+    "requiresValidation": [
+      "nameIconType",
+      "reqTgl",
+      "autoComplete",
+      "hlpTxt",
+      "descPoss",
+      "valName"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Input container flexbox layout",
+    "Icon positioning (absolute/relative)"
+  ]
+}

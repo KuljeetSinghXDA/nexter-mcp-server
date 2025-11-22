@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-name-field",
+  "version": "1.0.0",
+  "title": "Name Field",
+  "category": "forms",
+  "source": "pro",
+  "complexity": "simple",
+  "description": "Add a name input field to your form with validation and icon support. Features optional Font Awesome icons or custom images, field width control, required field validation, placeholder text, help text",
+  "keywords": [
+    "name input",
+    "text field",
+    "name"
+  ],
+  "useCases": [
+    "Name inputs in forms"
+  ]
+}

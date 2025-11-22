@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-accordion-inner",
+  "version": "1.0.0",
+  "title": "Accordion Inner",
+  "category": "interactive",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Individual accordion item that must be used inside the Accordion block. Contains title and collapsible content with optional icon support. This block cannot be inserted independently - it requires a p",
+  "keywords": [
+    "accordion item",
+    "accordion panel"
+  ],
+  "useCases": [
+    "Individual accordion panels",
+    "FAQ items"
+  ]
+}

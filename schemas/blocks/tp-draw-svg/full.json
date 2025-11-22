@@ -1,0 +1,180 @@
+{
+  "blockName": "tpgb/tp-draw-svg",
+  "version": "1.0.0",
+  "title": "Draw SVG",
+  "category": "media",
+  "description": "Display animated SVG vector graphics with drawing animation effects. Choose from pre-built SVG icons or upload custom SVG files. Perfect for logos, icons, illustrations, and decorative graphics with stroke animation. Supports custom colors, animation timing, and trigger options.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "selectSvg": {
+      "type": "string",
+      "default": "preBuild",
+      "enum": ["preBuild", "custom"],
+      "description": "SVG source: pre-built library or custom upload"
+    },
+    "svgList": {
+      "type": "string",
+      "default": "app",
+      "description": "Pre-built SVG icon selection from library"
+    },
+    "customSVG": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Custom SVG file upload"
+    },
+    "alignment": {
+      "type": "string",
+      "default": "center",
+      "enum": ["left", "center", "right"],
+      "description": "SVG horizontal alignment"
+    },
+    "maxWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Maximum width and height (square) for SVG",
+      "responsive": true
+    },
+    "strokeColor": {
+      "type": "string",
+      "default": "#8072fc",
+      "description": "SVG stroke/outline color"
+    },
+    "fillToggle": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable SVG fill color"
+    },
+    "fillColor": {
+      "type": "string",
+      "default": "#000000",
+      "description": "SVG fill color (when fillToggle is enabled)"
+    },
+    "drawType": {
+      "type": "string",
+      "default": "delayed",
+      "enum": ["delayed", "sync", "oneByOne"],
+      "description": "Animation drawing sequence: delayed (staggered), sync (simultaneous), oneByOne (sequential)"
+    },
+    "duration": {
+      "type": "string",
+      "default": "90",
+      "description": "Animation duration in frames"
+    },
+    "hoverDraw": {
+      "type": "string",
+      "default": "onScroll",
+      "enum": ["onScroll", "onHover", "loop"],
+      "description": "Animation trigger: on scroll into view, on hover, or continuous loop"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "svgList",
+      "customSVG",
+      "alignment",
+      "maxWidth",
+      "strokeColor",
+      "fillColor",
+      "fillToggle",
+      "duration"
+    ],
+    "requiresValidation": [
+      "selectSvg",
+      "drawType",
+      "hoverDraw"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "SVG path animation library (Vivus.js or similar)",
+    "Stroke dasharray/dashoffset CSS animations",
+    "Scroll trigger library for viewport detection"
+  ],
+  "commonUseCases": [
+    "Animated logos on page load",
+    "Icon animations on scroll",
+    "Signature drawing effects",
+    "Decorative line illustrations",
+    "Technical diagrams with reveal animation",
+    "Brand elements with custom animations",
+    "Interactive hover effects",
+    "Infographic elements",
+    "Call-to-action arrows and pointers"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-image",
+    "tpgb/tp-icon-box",
+    "tpgb/tp-heading-title"
+  ],
+  "capabilities": [
+    "Pre-built SVG icon library",
+    "Custom SVG file upload",
+    "Stroke drawing animation",
+    "3 animation types (delayed, sync, oneByOne)",
+    "Animation triggers (scroll, hover, loop)",
+    "Custom stroke and fill colors",
+    "Adjustable animation speed/duration",
+    "Responsive size control",
+    "Alignment options (left, center, right)",
+    "SVG fill toggle"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Animated logo on scroll",
+      "attributes": {
+        "block_id": "a1b2",
+        "selectSvg": "preBuild",
+        "svgList": "app",
+        "alignment": "center",
+        "maxWidth": {"md": "200", "unit": "px"},
+        "strokeColor": "#667eea",
+        "drawType": "delayed",
+        "duration": "120",
+        "hoverDraw": "onScroll"
+      }
+    },
+    {
+      "description": "Custom SVG with fill",
+      "attributes": {
+        "block_id": "c3d4",
+        "selectSvg": "custom",
+        "customSVG": {"url": "/path/to/custom-logo.svg"},
+        "fillToggle": true,
+        "strokeColor": "#000000",
+        "fillColor": "#27ae60",
+        "drawType": "sync",
+        "hoverDraw": "onHover"
+      }
+    },
+    {
+      "description": "Looping animated icon",
+      "attributes": {
+        "block_id": "e5f6",
+        "selectSvg": "preBuild",
+        "maxWidth": {"md": "100", "unit": "px"},
+        "strokeColor": "#e74c3c",
+        "drawType": "oneByOne",
+        "duration": "60",
+        "hoverDraw": "loop"
+      }
+    }
+  ]
+}

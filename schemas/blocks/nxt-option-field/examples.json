@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-option-field",
+  "title": "Dropdown - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple country selector",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Select Country",
+        "fldOptions": [
+          {
+            "fldLabel": "United States",
+            "fldValue": "us"
+          },
+          {
+            "fldLabel": "United Kingdom",
+            "fldValue": "uk"
+          },
+          {
+            "fldLabel": "Canada",
+            "fldValue": "ca"
+          },
+          {
+            "fldLabel": "Australia",
+            "fldValue": "au"
+          }
+        ],
+        "reqTgl": true
+      }
+    },
+    {
+      "description": "Category selection with help text",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Inquiry Type",
+        "fldOptions": [
+          {
+            "fldLabel": "General Question",
+            "fldValue": "general"
+          },
+          {
+            "fldLabel": "Technical Support",
+            "fldValue": "support"
+          },
+          {
+            "fldLabel": "Sales Inquiry",
+            "fldValue": "sales"
+          },
+          {
+            "fldLabel": "Feedback",
+            "fldValue": "feedback"
+          }
+        ],
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "Please select the category that best describes your inquiry",
+        "descPoss": "top"
+      }
+    },
+    {
+      "description": "Priority selection",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Priority Level",
+        "fldOptions": [
+          {
+            "fldLabel": "Low",
+            "fldValue": "low"
+          },
+          {
+            "fldLabel": "Medium",
+            "fldValue": "medium"
+          },
+          {
+            "fldLabel": "High",
+            "fldValue": "high"
+          },
+          {
+            "fldLabel": "Critical",
+            "fldValue": "critical"
+          }
+        ],
+        "reqTgl": true
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

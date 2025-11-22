@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-hidden-field",
+  "title": "Hidden Field - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {},
+  "editingGuidelines": {
+    "safeToModify": [
+      "nameValue",
+      "actualValue"
+    ],
+    "requiresValidation": []
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Hidden input element (display:none)"
+  ]
+}

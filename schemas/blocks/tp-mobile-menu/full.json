@@ -1,0 +1,367 @@
+{
+  "blockName": "tpgb/tp-mobile-menu",
+  "version": "1.0.0",
+  "title": "Mobile Menu",
+  "category": "navigation",
+  "description": "Create responsive mobile-friendly navigation menus with 2 visual styles, custom icons/images, pin badges, page indicators, and extra toggle content. Features fixed/absolute positioning, swiper/column display modes, and extensive styling. Perfect for app-style navigation, bottom bars, floating menus, and mobile-optimized sites.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "mmStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2"],
+      "description": "Mobile menu visual style"
+    },
+    "posType": {
+      "type": "string",
+      "default": "absolute",
+      "enum": ["absolute", "relative", "fixed"],
+      "description": "CSS position type"
+    },
+    "fixPosType": {
+      "type": "string",
+      "default": "top",
+      "enum": ["top", "bottom"],
+      "description": "Fixed position: top or bottom (when posType is 'fixed')"
+    },
+    "openMenu": {
+      "type": "string",
+      "default": "",
+      "description": "Default open menu index"
+    },
+    "menu1Item": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Left/main menu items (style-1) or left menu items (style-2)",
+      "items": {
+        "textVal": {
+          "type": "string",
+          "default": "Menu",
+          "description": "Menu item text"
+        },
+        "iconType": {
+          "type": "string",
+          "default": "icon",
+          "enum": ["icon", "image"],
+          "description": "Icon or image type"
+        },
+        "iconStore": {
+          "type": "string",
+          "default": "far fa-calendar-alt",
+          "description": "Font Awesome icon class"
+        },
+        "imgStore": {
+          "type": "object",
+          "default": {"url": ""},
+          "description": "Menu item image"
+        },
+        "imageSize": {
+          "type": "string",
+          "default": "thumbnail",
+          "description": "WordPress image size"
+        },
+        "linkUrl": {
+          "type": "object",
+          "default": {"url": "", "target": "", "nofollow": ""},
+          "description": "Menu item link"
+        },
+        "pinText": {
+          "type": "string",
+          "default": "New",
+          "description": "Pin badge text (e.g., 'New', '3', 'Sale')"
+        }
+      },
+      "default": [
+        {"_key": "0", "textVal": "Home", "iconType": "icon", "iconStore": "fas fa-home", "linkUrl": {"url": "#"}},
+        {"_key": "1", "textVal": "About", "iconType": "icon", "iconStore": "fas fa-users", "linkUrl": {"url": "#"}},
+        {"_key": "2", "textVal": "Contact", "iconType": "icon", "iconStore": "fas fa-address-card", "linkUrl": {"url": "#"}},
+        {"_key": "3", "textVal": "Offers", "iconType": "icon", "iconStore": "fas fa-barcode", "linkUrl": {"url": "#"}},
+        {"_key": "4", "textVal": "Support", "iconType": "icon", "iconStore": "fas fa-ticket-alt", "linkUrl": {"url": "#"}}
+      ]
+    },
+    "menu2Item": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Right menu items (style-2 only)",
+      "items": {
+        "textVal": {"type": "string", "default": "Menu"},
+        "iconType": {"type": "string", "default": "icon"},
+        "iconStore": {"type": "string", "default": "far fa-calendar-alt"},
+        "imgStore": {"type": "object", "default": {"url": ""}},
+        "imageSize": {"type": "string", "default": "thumbnail"},
+        "linkUrl": {"type": "object", "default": {"url": "", "target": "", "nofollow": ""}},
+        "pinText": {"type": "string", "default": "New"}
+      },
+      "default": [
+        {"_key": "0", "textVal": "Offer", "iconType": "icon", "iconStore": "fas fa-home", "linkUrl": {"url": "#"}},
+        {"_key": "1", "textVal": "Contact", "iconType": "icon", "iconStore": "far fa-calendar-alt", "linkUrl": {"url": "#"}}
+      ]
+    },
+    "extraToggle": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show center extra toggle button (style-2)"
+    },
+    "tglText": {
+      "type": "string",
+      "default": "Home",
+      "description": "Extra toggle button text"
+    },
+    "tglIconType": {
+      "type": "string",
+      "default": "icon",
+      "enum": ["icon", "image"],
+      "description": "Extra toggle icon type"
+    },
+    "iconStore": {
+      "type": "string",
+      "default": "fas fa-home",
+      "description": "Extra toggle Font Awesome icon"
+    },
+    "imageStore": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Extra toggle image"
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "thumbnail",
+      "description": "Extra toggle image size"
+    },
+    "contentType": {
+      "type": "string",
+      "default": "link",
+      "enum": ["link", "template"],
+      "description": "Extra toggle content type: link or slide-out template"
+    },
+    "contentLink": {
+      "type": "object",
+      "default": {"url": "", "target": "", "nofollow": ""},
+      "description": "Extra toggle link URL (when contentType is 'link')"
+    },
+    "tempList": {
+      "type": "string",
+      "default": "",
+      "description": "Template ID for slide-out content (when contentType is 'template')"
+    },
+    "backendVisi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show template in backend editor"
+    },
+    "toggleDirection": {
+      "type": "string",
+      "default": "right",
+      "enum": ["left", "right", "top", "bottom"],
+      "description": "Slide-out direction for extra toggle content"
+    },
+    "oCntntStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2"],
+      "description": "Slide-out content overlay style"
+    },
+    "cntntWidth": {
+      "type": "string",
+      "default": "custom",
+      "enum": ["custom", "fullwidth"],
+      "description": "Slide-out content width: custom or fullwidth"
+    },
+    "customWH": {
+      "type": "object",
+      "default": {"md": "400", "unit": "px"},
+      "description": "Custom slide-out width/height",
+      "responsive": true
+    },
+    "displayMode": {
+      "type": "string",
+      "default": "columns",
+      "enum": ["columns", "swiper"],
+      "description": "Menu item display: columns or swiper slider"
+    },
+    "pageIndicator": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show active page indicator"
+    },
+    "indiStyle": {
+      "type": "string",
+      "default": "line",
+      "enum": ["line", "dot"],
+      "description": "Page indicator style"
+    },
+    "indiPos": {
+      "type": "string",
+      "default": "indi-top",
+      "enum": ["indi-top", "indi-bottom"],
+      "description": "Page indicator position"
+    },
+    "scrollOffsetTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Toggle menu visibility based on scroll"
+    },
+    "scrollTopValue": {
+      "type": "string",
+      "default": "",
+      "description": "Scroll value in pixels to toggle visibility"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "menu1Item",
+      "menu2Item",
+      "tglText",
+      "iconStore",
+      "imageStore",
+      "contentLink",
+      "tempList",
+      "customWH",
+      "scrollTopValue"
+    ],
+    "requiresValidation": [
+      "mmStyle",
+      "posType",
+      "fixPosType",
+      "openMenu",
+      "extraToggle",
+      "tglIconType",
+      "contentType",
+      "backendVisi",
+      "toggleDirection",
+      "oCntntStyle",
+      "cntntWidth",
+      "displayMode",
+      "pageIndicator",
+      "indiStyle",
+      "indiPos",
+      "scrollOffsetTgl"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Swiper.js or similar slider library (when displayMode is 'swiper')",
+    "Slide-out panel JavaScript (for extra toggle content)",
+    "Scroll detection JavaScript (when scrollOffsetTgl is true)",
+    "Active page indicator logic",
+    "CSS fixed/sticky positioning",
+    "Touch/swipe gesture support"
+  ],
+  "commonUseCases": [
+    "Mobile app-style bottom navigation",
+    "Fixed bottom menu bars",
+    "Responsive site navigation",
+    "E-commerce mobile menus",
+    "Social media app navigation",
+    "Blog mobile navigation",
+    "Dashboard mobile menus",
+    "Service app bottom bars",
+    "Mobile-first websites",
+    "Progressive web apps (PWA)"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-navigation-menu",
+    "tpgb/tp-circle-menu",
+    "tpgb/tp-off-canvas"
+  ],
+  "capabilities": [
+    "2 visual styles (single row, split with center toggle)",
+    "Unlimited menu items with repeater fields",
+    "Dual menu arrays (left and right for style-2)",
+    "Icon or image menu items",
+    "Font Awesome icon support",
+    "WordPress image size selection",
+    "Pin badges/notifications per item",
+    "Extra center toggle button (style-2)",
+    "Link or slide-out template for extra toggle",
+    "4 slide-out directions (left, right, top, bottom)",
+    "2 slide-out overlay styles",
+    "Custom or fullwidth slide-out content",
+    "2 display modes (columns, swiper slider)",
+    "Active page indicators (line or dot)",
+    "Top or bottom indicator position",
+    "3 CSS position types (absolute, relative, fixed)",
+    "Fixed top or bottom positioning",
+    "Scroll-based visibility toggle",
+    "Menu item width/height control (swiper mode)",
+    "Normal and active state styling",
+    "Typography controls for menu text",
+    "Icon and image sizing",
+    "Padding, background, border, radius, shadow",
+    "Close icon styling for slide-out",
+    "Overlay background color",
+    "Responsive controls"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple bottom navigation bar (style-1)",
+      "attributes": {
+        "block_id": "a1b2",
+        "mmStyle": "style-1",
+        "posType": "fixed",
+        "fixPosType": "bottom",
+        "menu1Item": [
+          {"textVal": "Home", "iconStore": "fas fa-home", "linkUrl": {"url": "/"}},
+          {"textVal": "Search", "iconStore": "fas fa-search", "linkUrl": {"url": "/search"}},
+          {"textVal": "Cart", "iconStore": "fas fa-shopping-cart", "linkUrl": {"url": "/cart"}, "pinText": "3"},
+          {"textVal": "Account", "iconStore": "fas fa-user", "linkUrl": {"url": "/account"}}
+        ]
+      }
+    },
+    {
+      "description": "Split menu with center action button (style-2)",
+      "attributes": {
+        "block_id": "c3d4",
+        "mmStyle": "style-2",
+        "posType": "fixed",
+        "fixPosType": "bottom",
+        "extraToggle": true,
+        "tglText": "Create",
+        "tglIconType": "icon",
+        "iconStore": "fas fa-plus-circle",
+        "contentType": "link",
+        "contentLink": {"url": "/create"}
+      }
+    },
+    {
+      "description": "Menu with page indicator and swiper",
+      "attributes": {
+        "block_id": "e5f6",
+        "displayMode": "swiper",
+        "pageIndicator": true,
+        "indiStyle": "line",
+        "indiPos": "indi-top"
+      }
+    },
+    {
+      "description": "Scroll-hiding menu with slide-out",
+      "attributes": {
+        "block_id": "g7h8",
+        "scrollOffsetTgl": true,
+        "scrollTopValue": "100",
+        "extraToggle": true,
+        "contentType": "template",
+        "tempList": "mobile-menu-template",
+        "toggleDirection": "right"
+      }
+    }
+  ]
+}

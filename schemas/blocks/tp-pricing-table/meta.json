@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-pricing-table",
+  "version": "1.0.0",
+  "title": "Pricing Table",
+  "category": "marketing",
+  "source": "pro",
+  "complexity": "advanced",
+  "description": "Professional pricing table to showcase product or service pricing options with features, CTA buttons, ribbons, and multiple style variants. Perfect for subscription plans, service tiers, and product c",
+  "keywords": [
+    "pricing",
+    "price table",
+    "plans",
+    "subscription"
+  ],
+  "useCases": [
+    "Pricing pages",
+    "Subscription plans",
+    "Product tiers"
+  ]
+}

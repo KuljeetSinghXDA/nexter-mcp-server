@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-switch-inner",
+  "title": "Switcher Inner - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "className": {
+      "type": "string",
+      "default": "",
+      "description": "Additional CSS class names"
+    },
+    "index": {
+      "type": "number",
+      "default": "",
+      "description": "Switch panel index (0 or 1) indicating which switch option this content belongs to"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "innerBlocks content"
+    ],
+    "requiresValidation": [
+      "index"
+    ],
+    "dangerous": [
+      "block_id",
+      "className"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "inserter": false,
+    "reusable": false,
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": true
+}

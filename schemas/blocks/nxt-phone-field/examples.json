@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-phone-field",
+  "title": "Phone Number - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple phone field with default pattern",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Phone Number",
+        "reqTgl": true,
+        "autoComplete": "tel",
+        "defCountry": "US"
+      }
+    },
+    {
+      "description": "Phone field with icon and help text",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Contact Number",
+        "phnIconType": "fontAwesome",
+        "phnIcons": "fas fa-phone",
+        "icnClr": "#667eea",
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "Enter your phone number with country code",
+        "descPoss": "bottom"
+      }
+    },
+    {
+      "description": "Custom pattern for international format",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Mobile",
+        "patt": "^\\\\+?[1-9]\\\\d{1,14}$",
+        "countryWidth": {
+          "md": "80",
+          "unit": "px"
+        },
+        "reqTgl": true
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-block",
+  "title": "Form - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "lblTypo": {
+      "$ref": "definitions://typography"
+    },
+    "inpBg": {
+      "type": "string",
+      "default": "",
+      "description": "Input background color"
+    },
+    "hvrInpBg": {
+      "type": "string",
+      "default": "",
+      "description": "Input background on hover"
+    },
+    "inpTypo": {
+      "$ref": "definitions://typography"
+    },
+    "chkRadBg": {
+      "$ref": "definitions://background"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "lblClr",
+      "lblTypo",
+      "lblBtmMrg",
+      "hvrLblClr",
+      "inpClr",
+      "plcClr",
+      "inpBg",
+      "hvrPlc",
+      "hvrInpBg",
+      "inpBdr",
+      "inpBdrRds",
+      "hvrInpBdrClr",
+      "inpPad",
+      "inpTypo",
+      "chkRadSz",
+      "chkRadBg"
+    ],
+    "requiresValidation": []
+  },
+  "styleDependencies": [
+    "Form validation JavaScript",
+    "Input masking for phone numbers",
+    "Date/time picker JavaScript",
+    "File upload handling",
+    "Form submission AJAX",
+    "Error message display",
+    "Success message handling"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-hotspot",
+  "title": "Hotspot - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Product feature showcase with 3 hotspots",
+      "attributes": {
+        "block_id": "a1b2",
+        "hotspotImage": {
+          "url": "/product-image.jpg"
+        },
+        "pinlistRepeater": [
+          {
+            "_key": "0",
+            "pinIcon": "fas fa-camera",
+            "leftPos": "20",
+            "topPos": "30",
+            "tooltipText": "High-resolution 48MP camera",
+            "tipPlacement": "top"
+          },
+          {
+            "_key": "1",
+            "pinIcon": "fas fa-battery-full",
+            "leftPos": "50",
+            "topPos": "70",
+            "tooltipText": "All-day battery life",
+            "tipPlacement": "right"
+          },
+          {
+            "_key": "2",
+            "pinIcon": "fas fa-fingerprint",
+            "leftPos": "80",
+            "topPos": "50",
+            "tooltipText": "Biometric security",
+            "tipPlacement": "left"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Interactive infographic with custom pins",
+      "attributes": {
+        "block_id": "c3d4",
+        "pinlistRepeater": [
+          {
+            "_key": "0",
+            "pinType": "text",
+            "pinText": "1",
+            "tooltipText": "First step in the process",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#667eea80"
+          }
+        ],
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "18",
+            "unit": "px"
+          }
+        },
+        "txtPadding": {
+          "md": "12",
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "description": "Floor plan with clickable rooms",
+      "attributes": {
+        "block_id": "e5f6",
+        "pinlistRepeater": [
+          {
+            "_key": "0",
+            "pinType": "icon",
+            "tipTriggers": "click",
+            "tipInteractive": true,
+            "tipMaxWidth": "300",
+            "tooltipText": "<h4>Living Room</h4><p>Spacious 20x15 area with hardwood floors</p>"
+          }
+        ]
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

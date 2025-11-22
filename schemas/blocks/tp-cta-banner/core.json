@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-cta-banner",
+  "title": "CTA Banner - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "styleType": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2",
+        "style-3",
+        "style-4",
+        "style-5",
+        "style-6",
+        "style-7",
+        "style-8"
+      ],
+      "description": "CTA banner visual style (8 options)"
+    },
+    "bannerImage": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Background image for banner"
+    },
+    "Title": {
+      "type": "string",
+      "default": "Exclusive Offers",
+      "description": "Main banner title/headline"
+    },
+    "subTitle": {
+      "type": "string",
+      "default": "Never Before",
+      "description": "Banner subtitle/tagline"
+    },
+    "desc": {
+      "type": "string",
+      "default": "",
+      "description": "Banner description text (optional)"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title text color (normal state)"
+    },
+    "titlehoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title text color (hover state)"
+    },
+    "subtitleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "subtitleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Subtitle text color (normal state)"
+    },
+    "subtitlehoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Subtitle text color (hover state)"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "Title",
+      "subTitle",
+      "desc",
+      "bannerImage",
+      "imageSize",
+      "titleTypo",
+      "titleColor",
+      "titlehoverColor",
+      "subtitleTypo",
+      "subtitleColor",
+      "subtitlehoverColor"
+    ],
+    "requiresValidation": [
+      "styleType",
+      "hoverStyle"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

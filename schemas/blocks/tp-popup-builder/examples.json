@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-popup-builder",
+  "title": "Popup Builder - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple button-triggered popup",
+      "attributes": {
+        "block_id": "a1b2",
+        "toggleCanvas": "button",
+        "btnText": "Open Popup",
+        "openStyle": "popup",
+        "popupWidth": {
+          "md": 500,
+          "unit": "px"
+        },
+        "popupHeight": {
+          "md": 400,
+          "unit": "px"
+        },
+        "onbtnClick": true
+      }
+    },
+    {
+      "description": "Exit-intent promotional popup",
+      "attributes": {
+        "block_id": "c3d4",
+        "toggleCanvas": "icon",
+        "toggleIconStyle": "style-1",
+        "openStyle": "popup",
+        "exitInlet": true,
+        "showRestricted": true,
+        "showXTimes": "1",
+        "showXDays": "7"
+      }
+    },
+    {
+      "description": "Scroll-triggered side panel",
+      "attributes": {
+        "block_id": "e5f6",
+        "openStyle": "slide-along",
+        "openDir": "right",
+        "openWidth": {
+          "md": 400,
+          "unit": "px"
+        },
+        "onScroll": true,
+        "scrollHeight": "50",
+        "inAnimation": "slideInRight"
+      }
+    },
+    {
+      "description": "Timed announcement popup",
+      "attributes": {
+        "block_id": "g7h8",
+        "onpageLoad": true,
+        "loadpodelay": "3000",
+        "showTime": true,
+        "dateStart": "2025-01-01 00:00",
+        "dateEnd": "2025-12-31 23:59",
+        "closeContent": true,
+        "bodyClickClose": true
+      }
+    },
+    {
+      "description": "Corner box notification",
+      "attributes": {
+        "block_id": "i9j0",
+        "openStyle": "corner-box",
+        "cornerBoxDir": "bottom-right",
+        "openWidth": {
+          "md": 300,
+          "unit": "px"
+        },
+        "onpageLoad": true,
+        "loadpodelay": "5000",
+        "inAnimation": "bounceIn"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

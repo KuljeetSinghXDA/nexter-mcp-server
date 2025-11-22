@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-hotspot",
+  "title": "Hotspot - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "imageSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size for hotspot background"
+    },
+    "iconSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pinWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pinRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pinBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "pinHvrBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "imgSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pinimgWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pinimgRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pinimgBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "pinimgHvrBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "textTypo": {
+      "$ref": "definitions://typography"
+    },
+    "txtPadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "txtRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "txtBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "txtHvrBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "hvrBgoverlay": {
+      "$ref": "definitions://background"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "hotspotImage",
+      "pinlistRepeater",
+      "iconSize",
+      "pinWidth",
+      "pinRadius",
+      "imgSize",
+      "pinimgWidth",
+      "pinimgRadius",
+      "textTypo",
+      "txtPadding",
+      "txtRadius",
+      "pinBshadow",
+      "pinHvrBshadow"
+    ],
+    "requiresValidation": [
+      "hveOverlay",
+      "hvrBgoverlay",
+      "transfoemcss"
+    ]
+  },
+  "styleDependencies": [
+    "Tippy.js tooltip library",
+    "Pin positioning CSS (percentage-based)",
+    "Wave ripple animation CSS/JS",
+    "Responsive positioning media queries",
+    "Hover overlay effects"
+  ]
+}

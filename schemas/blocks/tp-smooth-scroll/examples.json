@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-smooth-scroll",
+  "title": "Smooth Scroll - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Basic smooth scroll with default settings",
+      "attributes": {
+        "block_id": "a1b2",
+        "easing": "ease-out-cubic",
+        "aniTime": "2500",
+        "normalizeWheel": true
+      }
+    },
+    {
+      "description": "Fast smooth scroll for quick navigation",
+      "attributes": {
+        "block_id": "c3d4",
+        "easing": "ease-out-quad",
+        "aniTime": "1000",
+        "stepSize": "800",
+        "smNav": true
+      }
+    },
+    {
+      "description": "Cinematic smooth scroll with slow easing",
+      "attributes": {
+        "block_id": "e5f6",
+        "easing": "ease-in-out-quint",
+        "aniTime": "3500",
+        "stepSize": "400",
+        "tMult": "1.5"
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-smooth-scroll",
+  "version": "1.0.0",
+  "title": "Smooth Scroll",
+  "category": "interactive",
+  "source": "free",
+  "complexity": "simple",
+  "description": "Give your users premium smooth experience by adding a smooth scroll effect. Implements smooth scrolling animation for the entire page with customizable easing, speed, and behavior. Features multiple e",
+  "keywords": [
+    "smooth scroll",
+    "scroll animation",
+    "easing"
+  ],
+  "useCases": [
+    "Page-wide smooth scrolling",
+    "Improved scroll UX"
+  ]
+}

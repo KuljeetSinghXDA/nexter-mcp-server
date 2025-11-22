@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-dynamic-device",
+  "title": "Dynamic Device - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "iPhone mockup with scrolling screenshot",
+      "attributes": {
+        "block_id": "a1b2",
+        "layoutType": "normal",
+        "deviceType": "mobile",
+        "mobileDevice": "iphone-white-flat",
+        "contentType": "image",
+        "conImage": {
+          "url": "/mockup-screen.jpg"
+        },
+        "rebHoverScroll": true,
+        "rebTranDur": "3"
+      }
+    },
+    {
+      "description": "MacBook mockup with iframe website preview",
+      "attributes": {
+        "block_id": "c3d4",
+        "layoutType": "normal",
+        "deviceType": "laptop",
+        "laptopDevice": "laptop-macbook-black",
+        "contentType": "iframe",
+        "conIframe": {
+          "url": "https://example.com",
+          "target": "_blank"
+        },
+        "iframeTitle": "Website Preview"
+      }
+    },
+    {
+      "description": "Device carousel with popup gallery",
+      "attributes": {
+        "block_id": "e5f6",
+        "layoutType": "carousel",
+        "cDeviceType": "mobile",
+        "cMobileDevice": "iphone-white-flat",
+        "onClickEfct": "popup",
+        "slideAutoplay": true,
+        "slideAutoplaySpeed": "3000",
+        "showDots": {
+          "md": true
+        },
+        "dotsStyle": "style-2"
+      }
+    },
+    {
+      "description": "Custom device frame with template content",
+      "attributes": {
+        "block_id": "g7h8",
+        "layoutType": "normal",
+        "deviceType": "custom",
+        "customMedia": {
+          "url": "/custom-device-frame.png"
+        },
+        "contentType": "template",
+        "blockTemp": "device-content-template",
+        "imgTopOff": {
+          "md": "50",
+          "unit": "px"
+        },
+        "imgLeftOff": {
+          "md": "30",
+          "unit": "px"
+        }
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

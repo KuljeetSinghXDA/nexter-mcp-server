@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-blockquote",
+  "title": "Blockquote - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple centered quote",
+      "attributes": {
+        "block_id": "a1b2",
+        "style": "style-1",
+        "content": "The only way to do great work is to love what you do.",
+        "authorName": "Steve Jobs",
+        "contentAlignment": "center",
+        "textNormalColor": "#333333"
+      }
+    },
+    {
+      "description": "Left-aligned quote without author",
+      "attributes": {
+        "block_id": "c3d4",
+        "content": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+        "authorName": "",
+        "contentAlignment": "left"
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

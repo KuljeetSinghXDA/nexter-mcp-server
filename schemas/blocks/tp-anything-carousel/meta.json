@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-anything-carousel",
+  "version": "1.0.0",
+  "title": "Carousel Anything",
+  "category": "media",
+  "source": "pro",
+  "complexity": "advanced",
+  "description": "Create fully customizable carousels/sliders that can contain any content type including images, videos, text, or nested blocks. Features slide and fade transitions, equal height synchronization, remot",
+  "keywords": [
+    "carousel",
+    "slider",
+    "slideshow",
+    "anything slider"
+  ],
+  "useCases": [
+    "Image carousels",
+    "Content sliders",
+    "Product showcases"
+  ]
+}

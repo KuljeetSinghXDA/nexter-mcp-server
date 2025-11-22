@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-carousel-remote",
+  "version": "1.0.0",
+  "title": "Carousel Remote",
+  "category": "media",
+  "source": "pro",
+  "complexity": "expert",
+  "description": "Remote control for any carousel using unique ID connection. Features prev/next navigation buttons, customizable dot indicators with icons/images, tooltips, pagination display, and extensive styling. P",
+  "keywords": [
+    "carousel control",
+    "remote slider",
+    "slider navigation"
+  ],
+  "useCases": [
+    "Custom carousel controls",
+    "Remote navigation"
+  ]
+}

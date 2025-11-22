@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-dynamic-heading",
+  "title": "Dynamic HTML - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple dynamic text display",
+      "attributes": {
+        "block_id": "a1b2",
+        "textValue": "{{field_name}}",
+        "hAlign": {
+          "md": "left"
+        },
+        "hColor": "#333333"
+      }
+    },
+    {
+      "description": "Centered dynamic heading with hover",
+      "attributes": {
+        "block_id": "c3d4",
+        "textValue": "<h3>{{title}}</h3>",
+        "hAlign": {
+          "md": "center"
+        },
+        "hColor": "#2c3e50",
+        "hvrHColor": "#667eea"
+      }
+    },
+    {
+      "description": "Custom HTML with typography",
+      "attributes": {
+        "block_id": "e5f6",
+        "textValue": "<div class='custom'>{{content}}</div>",
+        "hTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "18",
+            "unit": "px"
+          }
+        },
+        "hColor": "#555555"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

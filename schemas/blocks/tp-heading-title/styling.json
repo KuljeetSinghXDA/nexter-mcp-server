@@ -1,0 +1,176 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-heading-title",
+  "title": "Advanced Heading - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "ETPosition": {
+      "type": "string",
+      "default": "afterTitle",
+      "enum": [
+        "beforeTitle",
+        "afterTitle"
+      ],
+      "description": "Position of extra title relative to main title"
+    },
+    "subTitlePosition": {
+      "type": "string",
+      "default": "onBottonTitle",
+      "enum": [
+        "onTopTitle",
+        "onBottonTitle"
+      ],
+      "description": "Position of subtitle relative to main title"
+    },
+    "Alignment": {
+      "type": "object",
+      "default": {
+        "md": "center",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Responsive text alignment (left/center/right). Applies differently based on style variant",
+      "responsive": true,
+      "conditionalStyle": "Not applicable to style-5"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Main title text color (hex, rgb, rgba). Only applies when titleGrad is false"
+    },
+    "titleStroke": {
+      "type": "string",
+      "default": "",
+      "description": "Gradient CSS for title text (when titleGrad is true). Creates gradient text effect using background-clip"
+    },
+    "titleMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titleBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titleBg": {
+      "$ref": "definitions://background"
+    },
+    "titleShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "subTitleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "subTitleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Subtitle text color. Only applies when subTitleGrad is false"
+    },
+    "subTitleStroke": {
+      "type": "string",
+      "default": "",
+      "description": "Gradient CSS for subtitle text (when subTitleGrad is true)"
+    },
+    "subTitleMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "extraTitleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "extraTitleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Extra title text color"
+    },
+    "sepColor": {
+      "type": "string",
+      "default": "",
+      "description": "Separator line/border color (applies to style-3, style-4, style-5, style-8)",
+      "conditionalStyle": "Only visible in specific styles"
+    },
+    "sepWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "sepHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "topSepHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "bottomSepHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "sepDotColor": {
+      "type": "string",
+      "default": "",
+      "description": "Separator dot color (applies to style-6, style-8)",
+      "conditionalStyle": "Only visible in specific styles"
+    },
+    "septopspa": {
+      "type": "string",
+      "default": "",
+      "description": "Separator top spacing in pixels (style-6)",
+      "conditionalStyle": "Only applicable to style-6"
+    },
+    "aniPosition": {
+      "type": "object",
+      "default": {
+        "aniPositionX": "",
+        "aniPositionY": ""
+      },
+      "description": "Animation starting position offset (X and Y coordinates)"
+    },
+    "animationScale": {
+      "type": "object",
+      "default": {
+        "animationScaleX": "",
+        "animationScaleY": "",
+        "animationScaleZ": ""
+      },
+      "description": "Animation scale transformation (X, Y, Z axes)"
+    },
+    "animationRotate": {
+      "type": "object",
+      "default": {
+        "animationRotateX": "",
+        "animationRotateY": "",
+        "animationRotateZ": ""
+      },
+      "description": "Animation rotation transformation (X, Y, Z axes in degrees)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "Title",
+      "subTitle",
+      "extraTitle",
+      "titleColor",
+      "subTitleColor",
+      "extraTitleColor",
+      "sepColor",
+      "sepDotColor",
+      "Alignment",
+      "titleMargin",
+      "titlePadd",
+      "subTitleMargin"
+    ],
+    "requiresValidation": [
+      "style",
+      "titleType",
+      "subTitleType",
+      "anchor",
+      "titleLimit",
+      "subTitleLimit",
+      "titleCount",
+      "subTitleCount",
+      "aniEffect"
+    ]
+  },
+  "styleDependencies": [
+    "style.css",
+    "Conditional styles based on 'style' attribute",
+    "Responsive typography CSS",
+    "Animation CSS when aniEffect is set",
+    "Gradient effects when titleGrad or subTitleGrad enabled"
+  ]
+}

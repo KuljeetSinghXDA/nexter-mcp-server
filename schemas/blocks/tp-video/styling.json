@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-video",
+  "title": "Video - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "autoPlay": {
+      "type": "boolean",
+      "default": false,
+      "description": "Auto-play video on page load"
+    },
+    "VideoColor": {
+      "type": "string",
+      "default": "",
+      "description": "Player accent color (Vimeo)"
+    },
+    "BannerImgSize": {
+      "type": "string",
+      "default": "full",
+      "description": "Banner image size"
+    },
+    "VideoIconSize": {
+      "type": "string",
+      "default": "full",
+      "description": "Play icon size"
+    },
+    "IconAlign": {
+      "type": "string",
+      "default": "center",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "description": "Play button alignment on banner"
+    },
+    "OverlayIconImgSize": {
+      "type": "string",
+      "default": "full",
+      "description": "Overlay icon size"
+    },
+    "VideoTitleTypo": {
+      "$ref": "definitions://typography"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "YoutubeID",
+      "VimeoID",
+      "mp4Url",
+      "autoPlay",
+      "muted",
+      "loop",
+      "controls",
+      "BannerImg",
+      "VideoIcon",
+      "IconAlign",
+      "VideoTitle",
+      "iframeTitle"
+    ],
+    "requiresValidation": [
+      "VideoType",
+      "ShowBannerImg",
+      "markupSch",
+      "rel",
+      "yt_privacy",
+      "ModestBranding"
+    ]
+  },
+  "styleDependencies": [
+    "Video player iframe embed CSS",
+    "Banner/overlay styling",
+    "Play button styling",
+    "Responsive aspect ratio CSS"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-scroll-navigation",
+  "title": "Scroll Navigation - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "scrollPosition": {
+      "type": "string",
+      "default": "right",
+      "enum": [
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "description": "Navigation position on page (vertical: left/right, horizontal: top/bottom)"
+    },
+    "scrollOffset": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "activeOffset": {
+      "type": "string",
+      "default": "100",
+      "description": "Offset in pixels for active section detection"
+    },
+    "tooltipPosition": {
+      "type": "string",
+      "default": "left",
+      "enum": [
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "description": "Tooltip placement"
+    },
+    "progressPosition": {
+      "type": "string",
+      "default": "top",
+      "enum": [
+        "top",
+        "bottom"
+      ],
+      "description": "Progress bar position"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "scrollNavRepeater",
+      "scrollOffset",
+      "scrollSpeed",
+      "activeOffset",
+      "tooltipPosition"
+    ],
+    "requiresValidation": [
+      "scrollNavStyle",
+      "scrollDirection",
+      "scrollPosition",
+      "showTooltip",
+      "progressBar",
+      "progressPosition",
+      "hideOnMobile"
+    ]
+  },
+  "styleDependencies": [
+    "Smooth scroll library (e.g., smooth-scroll.js)",
+    "Intersection Observer API for active section detection",
+    "Tooltip library or CSS tooltips",
+    "Progress bar JavaScript for scroll tracking",
+    "CSS sticky/fixed positioning"
+  ]
+}

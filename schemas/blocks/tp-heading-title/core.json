@@ -1,0 +1,327 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-heading-title",
+  "title": "Advanced Heading - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "anchor": {
+      "type": "string",
+      "description": "HTML anchor ID for direct linking to this heading"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2",
+        "style-3",
+        "style-4",
+        "style-5",
+        "style-6",
+        "style-7",
+        "style-8",
+        "style-9"
+      ],
+      "description": "Visual style variant of the heading. Each style provides unique separator and layout options"
+    },
+    "Title": {
+      "type": "string",
+      "default": "Main Heading",
+      "description": "Main heading text content"
+    },
+    "subTitle": {
+      "type": "string",
+      "default": "It's Sub Heading",
+      "description": "Optional subtitle text displayed above or below main title"
+    },
+    "extraTitle": {
+      "type": "string",
+      "default": "I am Extra",
+      "description": "Optional extra title text for additional emphasis"
+    },
+    "subTitlePosition": {
+      "type": "string",
+      "default": "onBottonTitle",
+      "enum": [
+        "onTopTitle",
+        "onBottonTitle"
+      ],
+      "description": "Position of subtitle relative to main title"
+    },
+    "titleType": {
+      "type": "string",
+      "default": "h3",
+      "enum": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "div",
+        "span",
+        "p"
+      ],
+      "description": "HTML tag for main title (affects SEO and semantic structure)"
+    },
+    "subTitleType": {
+      "type": "string",
+      "default": "h3",
+      "enum": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "div",
+        "span",
+        "p"
+      ],
+      "description": "HTML tag for subtitle"
+    },
+    "headingType": {
+      "type": "string",
+      "default": "default",
+      "description": "Heading display type variation"
+    },
+    "splitType": {
+      "type": "string",
+      "default": "words",
+      "enum": [
+        "words",
+        "chars",
+        "lines"
+      ],
+      "description": "Text split type for animation effects"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Main title text color (hex, rgb, rgba). Only applies when titleGrad is false"
+    },
+    "titleGrad": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable gradient color for title text"
+    },
+    "titleStroke": {
+      "type": "string",
+      "default": "",
+      "description": "Gradient CSS for title text (when titleGrad is true). Creates gradient text effect using background-clip"
+    },
+    "titleMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titlePadd": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titleB": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "",
+            "left": "",
+            "bottom": "",
+            "right": ""
+          },
+          "unit": ""
+        }
+      },
+      "description": "Border settings for main title: type (solid/dashed/dotted), color, width per side",
+      "responsive": true
+    },
+    "titleBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titleBg": {
+      "$ref": "definitions://background"
+    },
+    "titleShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "subTitleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "subTitleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Subtitle text color. Only applies when subTitleGrad is false"
+    },
+    "subTitleGrad": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable gradient color for subtitle text"
+    },
+    "subTitleStroke": {
+      "type": "string",
+      "default": "",
+      "description": "Gradient CSS for subtitle text (when subTitleGrad is true)"
+    },
+    "subTitleMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "extraTitleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "extraTitleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Extra title text color"
+    },
+    "sepWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "imgName": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "Id": ""
+      },
+      "description": "Optional image for separator decoration (style-3)"
+    },
+    "limitTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Master toggle for text truncation features"
+    },
+    "titleLimit": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable text truncation for main title"
+    },
+    "titleLimitOn": {
+      "type": "string",
+      "default": "char",
+      "enum": [
+        "char",
+        "word"
+      ],
+      "description": "Truncation type: by character or by word"
+    },
+    "titleCount": {
+      "type": "string",
+      "default": "3",
+      "description": "Number of characters/words to show before truncation"
+    },
+    "titleDots": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show ellipsis (...) after truncated title"
+    },
+    "subTitleLimit": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable text truncation for subtitle"
+    },
+    "subTitleLimitOn": {
+      "type": "string",
+      "default": "char",
+      "enum": [
+        "char",
+        "word"
+      ],
+      "description": "Truncation type for subtitle: by character or by word"
+    },
+    "subTitleCount": {
+      "type": "string",
+      "default": "3",
+      "description": "Number of characters/words to show in subtitle before truncation"
+    },
+    "subTitleDots": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show ellipsis (...) after truncated subtitle"
+    },
+    "aniEffect": {
+      "type": "string",
+      "default": "default",
+      "description": "Animation effect type (none/fade/slide/scale/rotate/etc)"
+    },
+    "extrOpt": {
+      "type": "object",
+      "default": {
+        "animationOpacity": "",
+        "animationSpeed": "",
+        "animationDelay": ""
+      },
+      "description": "Extra animation options: opacity, speed (ms), delay (ms)"
+    },
+    "isRptBlock": {
+      "type": "boolean",
+      "default": false,
+      "description": "Flag indicating if block is inside a repeater"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content visibility"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "Title",
+      "subTitle",
+      "extraTitle",
+      "titleColor",
+      "subTitleColor",
+      "extraTitleColor",
+      "sepColor",
+      "sepDotColor",
+      "Alignment",
+      "titleMargin",
+      "titlePadd",
+      "subTitleMargin"
+    ],
+    "requiresValidation": [
+      "style",
+      "titleType",
+      "subTitleType",
+      "anchor",
+      "titleLimit",
+      "subTitleLimit",
+      "titleCount",
+      "subTitleCount",
+      "aniEffect"
+    ],
+    "dangerous": [
+      "block_id",
+      "isRptBlock",
+      "headingType",
+      "splitType"
+    ]
+  },
+  "usesContext": [
+    "postId",
+    "postType",
+    "queryId",
+    "tpgb/dynamicSubFieldData",
+    "tpgb/dynamicRowIndex",
+    "tpgb/dynamicPost",
+    "tpgb/dynamicRepField"
+  ],
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

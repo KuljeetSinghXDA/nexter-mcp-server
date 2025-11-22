@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-number-field",
+  "title": "Numeric Input - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {},
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "placeholder",
+      "error",
+      "minNum",
+      "maxNum",
+      "inpSz",
+      "desctxt",
+      "numIcons",
+      "numImage",
+      "maxCount",
+      "icnClr",
+      "hvrIcnClr"
+    ],
+    "requiresValidation": [
+      "reqTgl",
+      "valNum",
+      "hlpTxt",
+      "descPoss",
+      "numIconType"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Number input styling",
+    "Input container flexbox layout",
+    "Number validation JavaScript"
+  ]
+}

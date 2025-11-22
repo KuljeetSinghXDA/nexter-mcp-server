@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-messagebox",
+  "title": "Message Box - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "icnPosition": {
+      "type": "string",
+      "default": "prefix",
+      "enum": [
+        "prefix",
+        "suffix"
+      ],
+      "description": "Icon position: before (prefix) or after (suffix) title"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titleNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (normal state)"
+    },
+    "titleHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (hover state)"
+    },
+    "titleNmlBG": {
+      "$ref": "definitions://background"
+    },
+    "titleHvrBG": {
+      "$ref": "definitions://background"
+    },
+    "titleNmlShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "titleHvrShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "descTypo": {
+      "$ref": "definitions://typography"
+    },
+    "descMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "descNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Description color (normal state)"
+    },
+    "descHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Description color (hover state)"
+    },
+    "descNmlBG": {
+      "$ref": "definitions://background"
+    },
+    "descHvrBG": {
+      "$ref": "definitions://background"
+    },
+    "descNmlBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "descHvrBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconSize": {
+      "type": "object",
+      "default": {
+        "md": ""
+      },
+      "description": "Icon font size",
+      "responsive": true
+    },
+    "iconWidth": {
+      "type": "object",
+      "default": {
+        "md": ""
+      },
+      "description": "Icon container width/height",
+      "responsive": true
+    },
+    "iconNormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal state)"
+    },
+    "iconHoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (hover state)"
+    },
+    "bgNormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Message box background color (normal state)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "Title",
+      "descText",
+      "Description",
+      "icon",
+      "dismiss",
+      "IconName",
+      "dismsIcon",
+      "titleNmlColor",
+      "titleHvrColor",
+      "descNmlColor",
+      "descHvrColor",
+      "iconNormalColor",
+      "iconHoverColor",
+      "titleTypo",
+      "descTypo",
+      "titleAdjust",
+      "titleMargin",
+      "descAdjust",
+      "descMargin",
+      "bgNormalColor"
+    ],
+    "requiresValidation": [
+      "icnPosition",
+      "msgArrow"
+    ]
+  },
+  "styleDependencies": [
+    "Alert box CSS",
+    "Dismissible functionality JavaScript",
+    "Arrow pointer CSS (optional)"
+  ]
+}

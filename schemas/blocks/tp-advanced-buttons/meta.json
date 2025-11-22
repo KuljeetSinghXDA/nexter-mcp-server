@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-advanced-buttons",
+  "version": "1.0.0",
+  "title": "Pro Buttons",
+  "category": "marketing",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Create high-converting CTA and download buttons with multiple creative styles. Features include emoji reactions, extra text overlays, loading states, progress indicators, and extensive styling. Perfec",
+  "keywords": [
+    "button group",
+    "multiple buttons",
+    "dual buttons"
+  ],
+  "useCases": [
+    "Button groups",
+    "Primary + secondary CTAs",
+    "Multi-action buttons"
+  ]
+}

@@ -1,0 +1,290 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-carousel-remote",
+  "title": "Carousel Remote - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "carouselId": {
+      "type": "string",
+      "default": "Id1",
+      "description": "Unique carousel ID to connect with target carousel"
+    },
+    "carobtn": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show prev/next navigation buttons"
+    },
+    "remType": {
+      "type": "string",
+      "default": "carousel",
+      "description": "Remote control type"
+    },
+    "btntxt1": {
+      "type": "string",
+      "default": "Prev",
+      "description": "Previous button text"
+    },
+    "btntxt2": {
+      "type": "string",
+      "default": "Next",
+      "description": "Next button text"
+    },
+    "pAriaLabel": {
+      "type": "string",
+      "default": "",
+      "description": "Previous button ARIA label"
+    },
+    "nAriaLabel": {
+      "type": "string",
+      "default": "",
+      "description": "Next button ARIA label"
+    },
+    "btnIcon1": {
+      "type": "string",
+      "default": "fas fa-angle-left",
+      "description": "Previous button Font Awesome icon"
+    },
+    "btnIcon2": {
+      "type": "string",
+      "default": "fas fa-angle-right",
+      "description": "Next button Font Awesome icon"
+    },
+    "Ctmicon1": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Previous button custom image"
+    },
+    "Ctmicon2": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Next button custom image"
+    },
+    "iconSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "btnSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "showDot": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show dot indicators"
+    },
+    "dotList": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Dot indicator items with icons/images",
+      "items": {
+        "label": {
+          "type": "string",
+          "default": "Slide",
+          "description": "Dot label/tooltip text"
+        },
+        "iconFonts": {
+          "type": "string",
+          "default": "font_awesome",
+          "description": "Icon type"
+        },
+        "iconName": {
+          "type": "string",
+          "default": "fas fa-home",
+          "description": "Font Awesome icon class"
+        },
+        "iconImage": {
+          "type": "object",
+          "default": {
+            "url": ""
+          },
+          "description": "Custom icon image"
+        },
+        "iconimageSize": {
+          "type": "string",
+          "default": "full",
+          "description": "WordPress image size"
+        },
+        "doticonColor": {
+          "type": "string",
+          "default": "",
+          "description": "Dot icon color (normal)"
+        },
+        "dotBgtype": {
+          "type": "object",
+          "default": {
+            "openBg": 1,
+            "bgType": "color",
+            "bgDefaultColor": "#c2ccc4"
+          },
+          "description": "Dot background (normal)"
+        },
+        "acticonColor": {
+          "type": "string",
+          "default": "",
+          "description": "Dot icon color (active/hover)"
+        },
+        "actdotBgtype": {
+          "type": "object",
+          "default": {
+            "openBg": 0
+          },
+          "description": "Dot background (active/hover)"
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "label": "Slide 1",
+          "iconName": "fas fa-home"
+        },
+        {
+          "_key": "1",
+          "label": "Slide 2",
+          "iconName": "fas fa-globe-europe"
+        }
+      ]
+    },
+    "dotLayout": {
+      "type": "string",
+      "default": "horizontal",
+      "enum": [
+        "horizontal",
+        "vertical"
+      ],
+      "description": "Dot layout direction"
+    },
+    "dotstyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2"
+      ],
+      "description": "Dot visual style (style-1: animated border, style-2: tooltips)"
+    },
+    "AniDuration": {
+      "type": "string",
+      "default": "",
+      "description": "Border animation duration in milliseconds (style-1)"
+    },
+    "tooltipDir": {
+      "type": "string",
+      "default": "top",
+      "enum": [
+        "top",
+        "bottom",
+        "left",
+        "right"
+      ],
+      "description": "Tooltip direction for horizontal layout (style-2)"
+    },
+    "vtooltipDir": {
+      "type": "string",
+      "default": "left",
+      "enum": [
+        "top",
+        "bottom",
+        "left",
+        "right"
+      ],
+      "description": "Tooltip direction for vertical layout (style-2)"
+    },
+    "dotSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "totipHgh": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip height in pixels (style-2)"
+    },
+    "tooltiparrow": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show tooltip arrow (style-2)"
+    },
+    "showpagi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show pagination (e.g., '1 / 5')"
+    },
+    "sliderInd": {
+      "type": "string",
+      "default": "",
+      "description": "Pagination separator"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "carouselId",
+      "btntxt1",
+      "btntxt2",
+      "pAriaLabel",
+      "nAriaLabel",
+      "btnIcon1",
+      "btnIcon2",
+      "Ctmicon1",
+      "Ctmicon2",
+      "iconSize",
+      "iconSpace",
+      "iconColor",
+      "HvrIcolor",
+      "btnSpace",
+      "rbtnpadding",
+      "txtcolor",
+      "Hvrtxtcolor",
+      "dotList",
+      "AborderColor",
+      "AniDuration",
+      "dotSize",
+      "dotSpace",
+      "diconSize",
+      "totipmargin",
+      "totippadding",
+      "totipColor",
+      "arrowColor"
+    ],
+    "requiresValidation": [
+      "carobtn",
+      "remType",
+      "rbtnAlign",
+      "BiconFont",
+      "imgSize",
+      "showDot",
+      "dotLayout",
+      "dotstyle",
+      "tooltipDir",
+      "vtooltipDir",
+      "totipAlign",
+      "tooltiparrow",
+      "showpagi",
+      "sliderInd"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

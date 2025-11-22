@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-scroll-navigation",
+  "version": "1.0.0",
+  "title": "Scroll Navigation",
+  "category": "interactive",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Create elegant one-page navigation with smooth scrolling to anchor sections. Features dot or text indicators, tooltips, progress tracking, and custom positioning. Perfect for single-page websites, lan",
+  "keywords": [
+    "scroll nav",
+    "anchor navigation",
+    "one page nav",
+    "scroll to section"
+  ],
+  "useCases": [
+    "One-page navigation",
+    "Anchor links",
+    "Scroll-to sections"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-progress-tracker",
+  "version": "1.0.0",
+  "title": "Progress Tracker",
+  "category": "advanced",
+  "source": "free",
+  "complexity": "medium",
+  "description": "Display a visual indicator of user's progress as they scroll through your web page. Features 3 layout types (horizontal, vertical, circular), customizable positioning, percentage display, pin points f",
+  "keywords": [
+    "scroll progress",
+    "reading progress",
+    "progress indicator"
+  ],
+  "useCases": [
+    "Reading progress bars",
+    "Scroll indicators",
+    "Page progress"
+  ]
+}

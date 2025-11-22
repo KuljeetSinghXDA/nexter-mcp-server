@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-messagebox",
+  "title": "Message Box - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Success message",
+      "attributes": {
+        "block_id": "a1b2",
+        "Title": "Success! Your changes have been saved.",
+        "Description": false,
+        "icon": true,
+        "IconName": "fas fa-check-circle",
+        "titleNmlColor": "#27ae60",
+        "iconNormalColor": "#27ae60",
+        "bgNormalColor": "#d4edda"
+      }
+    },
+    {
+      "description": "Warning message with description",
+      "attributes": {
+        "block_id": "c3d4",
+        "Title": "Warning: Action Required",
+        "Description": true,
+        "descText": "Please review your account settings before continuing. Some information may be outdated.",
+        "icon": true,
+        "IconName": "fas fa-exclamation-triangle",
+        "titleNmlColor": "#f39c12",
+        "iconNormalColor": "#f39c12",
+        "bgNormalColor": "#fff3cd"
+      }
+    },
+    {
+      "description": "Error alert",
+      "attributes": {
+        "block_id": "e5f6",
+        "Title": "Error: Unable to process request",
+        "Description": false,
+        "icon": true,
+        "IconName": "fas fa-times-circle",
+        "dismiss": true,
+        "titleNmlColor": "#e74c3c",
+        "iconNormalColor": "#e74c3c",
+        "bgNormalColor": "#f8d7da"
+      }
+    },
+    {
+      "description": "Info callout",
+      "attributes": {
+        "block_id": "g7h8",
+        "Title": "Did you know?",
+        "Description": true,
+        "descText": "You can customize every aspect of your message boxes with our advanced styling options.",
+        "icon": true,
+        "IconName": "fas fa-info-circle",
+        "titleNmlColor": "#3498db",
+        "iconNormalColor": "#3498db",
+        "bgNormalColor": "#d1ecf1"
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

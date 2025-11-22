@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-expand",
+  "title": "Expand - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple 'Read More' for blog excerpt",
+      "attributes": {
+        "block_id": "a1b2",
+        "title": "",
+        "expandText": "Read More",
+        "collapseText": "Read Less",
+        "contentMaxHeight": {
+          "md": "150",
+          "unit": "px"
+        },
+        "toggleAlignment": "left",
+        "transDuration": "300"
+      }
+    },
+    {
+      "description": "Product description with custom icon",
+      "attributes": {
+        "block_id": "c3d4",
+        "title": "Product Details",
+        "titleTag": "h3",
+        "expandText": "View Full Details",
+        "readMoreIcon": "fas fa-chevron-down",
+        "collapseIcon": "fas fa-chevron-up",
+        "contentMaxHeight": {
+          "md": "100",
+          "unit": "px"
+        },
+        "customOpacity": true,
+        "opacityColor": "#ffffff"
+      }
+    },
+    {
+      "description": "FAQ answer with extra 'Contact Us' button",
+      "attributes": {
+        "block_id": "e5f6",
+        "expandText": "Show Answer",
+        "collapseText": "Hide Answer",
+        "extraButton": true,
+        "extraButtonText": "Contact Support",
+        "extraButtonLink": {
+          "url": "/contact",
+          "target": ""
+        },
+        "toggleAlignment": "center"
+      }
+    },
+    {
+      "description": "Team bio with template content",
+      "attributes": {
+        "block_id": "g7h8",
+        "contentSource": "template",
+        "templates": "team-bio-template",
+        "title": "About John Doe",
+        "titleTag": "h4",
+        "expandText": "Read Full Bio",
+        "collapseText": "Show Less",
+        "iconPosition": "after"
+      }
+    },
+    {
+      "description": "Recipe with gradient overlay",
+      "attributes": {
+        "block_id": "i9j0",
+        "title": "Full Recipe",
+        "contentMaxHeight": {
+          "md": "200",
+          "unit": "px"
+        },
+        "customOpacity": true,
+        "opacityHeight": {
+          "md": "80",
+          "unit": "px"
+        },
+        "opacityColor": "#f9f9f9",
+        "expandText": "Show Full Recipe",
+        "toggleAlignment": "center",
+        "transDuration": "400"
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

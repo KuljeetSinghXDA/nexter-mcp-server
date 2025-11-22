@@ -1,0 +1,133 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-container",
+  "title": "Container - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple centered content section",
+      "attributes": {
+        "block_id": "a1b2",
+        "contentWidth": "wide",
+        "containerWide": {
+          "md": "1200",
+          "unit": "px"
+        },
+        "minHeight": {
+          "md": "400",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "Padding": {
+          "md": {
+            "top": "80",
+            "bottom": "80",
+            "left": "20",
+            "right": "20"
+          },
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "description": "Full-width hero section with background and shape divider",
+      "attributes": {
+        "block_id": "c3d4",
+        "contentWidth": "full",
+        "minHeight": {
+          "md": "600",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        },
+        "shapeBottom": "wave",
+        "shapeBColor": "#ffffff",
+        "shapeBHeight": {
+          "md": "100",
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "description": "Pro: Video background container",
+      "attributes": {
+        "block_id": "e5f6",
+        "contentWidth": "full",
+        "deepBgopt": "bg_video",
+        "videosour": "youtube",
+        "youtubeId": "dQw4w9WgXcQ",
+        "videoloop": true,
+        "videoMute": true,
+        "videoImg": {
+          "url": "/path/to/poster.jpg"
+        },
+        "minHeight": {
+          "md": "700",
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "description": "Pro: Sticky container with animation",
+      "attributes": {
+        "block_id": "g7h8",
+        "contentWidth": "wide",
+        "contSticky": {
+          "md": true
+        },
+        "constType": "normal-sticky",
+        "contopoffset": {
+          "md": "100",
+          "unit": "px"
+        },
+        "sanimaType": "slide",
+        "stTransdur": "0.5",
+        "StickyBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgColor": "#ffffff"
+        },
+        "StickyBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.1)"
+        }
+      }
+    },
+    {
+      "description": "Pro: Animated gradient background",
+      "attributes": {
+        "block_id": "i9j0",
+        "contentWidth": "full",
+        "deepBgopt": "bg_moving_color",
+        "colorList": [
+          {
+            "_key": "0",
+            "aniColor": "#8072fc"
+          },
+          {
+            "_key": "1",
+            "aniColor": "#6fc784"
+          },
+          {
+            "_key": "2",
+            "aniColor": "#ff5a6e"
+          }
+        ],
+        "animdur": "5",
+        "minHeight": {
+          "md": "500",
+          "unit": "px"
+        }
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

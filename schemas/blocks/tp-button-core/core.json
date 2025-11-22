@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-button-core",
+  "title": "Button - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "btxt": {
+      "type": "string",
+      "source": "html",
+      "selector": ".tpgb-btn-txt",
+      "default": "Click Here",
+      "description": "Button text content"
+    },
+    "bLink": {
+      "$ref": "definitions://link"
+    },
+    "biType": {
+      "type": "string",
+      "default": "none",
+      "enum": [
+        "none",
+        "fontAwesome",
+        "image"
+      ],
+      "description": "Button icon type"
+    },
+    "bIcon": {
+      "type": "string",
+      "default": "",
+      "description": "Font Awesome icon class (when biType is 'fontAwesome')"
+    },
+    "bImg": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "Id": ""
+      },
+      "description": "Custom icon image (when biType is 'image')"
+    },
+    "bipos": {
+      "type": "string",
+      "default": "",
+      "description": "Icon position order (CSS flexbox order)"
+    },
+    "bispac": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "bBord": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Button border (normal)"
+    },
+    "brad": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "btPad": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "isRptBlock": {
+      "type": "boolean",
+      "default": false,
+      "description": "Flag indicating if block is inside a repeater"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "btxt",
+      "bLink",
+      "bAlign",
+      "bIcon",
+      "bImg",
+      "bispac",
+      "biSize",
+      "bTypo",
+      "btColor",
+      "bthColor",
+      "btPad",
+      "brad"
+    ],
+    "requiresValidation": [
+      "biType",
+      "bipos",
+      "globalPosition"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [
+    "postId",
+    "postType",
+    "queryId",
+    "tpgb/dynamicSubFieldData",
+    "tpgb/dynamicRowIndex",
+    "tpgb/dynamicPost",
+    "tpgb/dynamicRepField"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

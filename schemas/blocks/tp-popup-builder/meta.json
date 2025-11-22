@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-popup-builder",
+  "version": "1.0.0",
+  "title": "Popup Builder",
+  "category": "marketing",
+  "source": "pro",
+  "complexity": "expert",
+  "description": "Create customizable popups and modals with multiple trigger options, positioning controls, and animation effects. Supports button or icon toggles, template/custom content, and various opening behavior",
+  "keywords": [
+    "popup",
+    "modal",
+    "lightbox",
+    "overlay"
+  ],
+  "useCases": [
+    "Email signup popups",
+    "Promotional modals",
+    "Content overlays"
+  ]
+}

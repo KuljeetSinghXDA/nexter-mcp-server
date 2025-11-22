@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-radio-button",
+  "title": "Radio Button - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple single-choice question",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "How did you hear about us?",
+        "fldOptions": [
+          {
+            "fldLabel": "Search Engine",
+            "fldValue": "search"
+          },
+          {
+            "fldLabel": "Social Media",
+            "fldValue": "social"
+          },
+          {
+            "fldLabel": "Friend Referral",
+            "fldValue": "referral"
+          },
+          {
+            "fldLabel": "Advertisement",
+            "fldValue": "ad"
+          }
+        ],
+        "optPos": "vertical",
+        "reqTgl": true
+      }
+    },
+    {
+      "description": "Horizontal rating scale",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "How would you rate our service?",
+        "fldOptions": [
+          {
+            "fldLabel": "Poor",
+            "fldValue": "1"
+          },
+          {
+            "fldLabel": "Fair",
+            "fldValue": "2"
+          },
+          {
+            "fldLabel": "Good",
+            "fldValue": "3"
+          },
+          {
+            "fldLabel": "Excellent",
+            "fldValue": "4"
+          }
+        ],
+        "optPos": "horizontal",
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "Please select one option",
+        "descPoss": "bottom"
+      }
+    },
+    {
+      "description": "Yes/No question with square style",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Would you recommend us?",
+        "fldOptions": [
+          {
+            "fldLabel": "Yes",
+            "fldValue": "yes"
+          },
+          {
+            "fldLabel": "No",
+            "fldValue": "no"
+          }
+        ],
+        "optPos": "horizontal",
+        "bRadius": "square",
+        "reqTgl": true
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

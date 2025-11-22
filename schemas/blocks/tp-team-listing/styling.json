@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-team-listing",
+  "title": "Team Member - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "Alignment": {
+      "type": "object",
+      "default": {
+        "md": "left",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Text alignment for team member content",
+      "responsive": true
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "TeamMemberR",
+      "Alignment"
+    ],
+    "requiresValidation": [
+      "Style",
+      "layout"
+    ]
+  },
+  "styleDependencies": [
+    "Team member card style CSS",
+    "Grid or carousel layout CSS",
+    "Social icon styling",
+    "Hover effect animations",
+    "Responsive styling"
+  ]
+}

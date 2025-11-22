@@ -1,0 +1,256 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-process-steps",
+  "title": "Process Steps - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "displayCounter": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show step counter/number badges"
+    },
+    "imgSt2Align": {
+      "type": "string",
+      "default": "center",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "description": "Image alignment for style-2"
+    },
+    "cntntSt2Align": {
+      "type": "string",
+      "default": "center",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "description": "Content alignment for style-2"
+    },
+    "specialBG": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable special animated background effect"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (normal state)"
+    },
+    "titleHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (hover/active state)"
+    },
+    "titleTopSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "descTypo": {
+      "$ref": "definitions://typography"
+    },
+    "descNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Description color (normal state)"
+    },
+    "descHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Description color (hover/active state)"
+    },
+    "descTopSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal state)"
+    },
+    "iconHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (hover/active state)"
+    },
+    "imgSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "imgBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "textTypo": {
+      "$ref": "definitions://typography"
+    },
+    "textNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Text indicator color (normal state)"
+    },
+    "textHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Text indicator color (hover/active state)"
+    },
+    "bgSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "contentHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "normalBG": {
+      "$ref": "definitions://background"
+    },
+    "hoverBG": {
+      "$ref": "definitions://background"
+    },
+    "bgNmlB": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "1",
+            "left": "1",
+            "bottom": "1",
+            "right": "1"
+          },
+          "unit": "px"
+        }
+      },
+      "description": "Step indicator border (normal state)"
+    },
+    "bgHvrB": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {
+          "md": {
+            "top": "1",
+            "left": "1",
+            "bottom": "1",
+            "right": "1"
+          },
+          "unit": "px"
+        }
+      },
+      "description": "Step indicator border (hover/active state)"
+    },
+    "nmlBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "hvrBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "nmlBGShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "hvrBGShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "sepNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Separator line color (normal state)"
+    },
+    "sepBSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "sepSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "sepHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Separator line color (hover/active state)"
+    },
+    "sepOffset": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "imgMaxSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "sepBRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "contentPadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "contentMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "contentNmlBG": {
+      "$ref": "definitions://background"
+    },
+    "contentHvrBG": {
+      "$ref": "definitions://background"
+    },
+    "repPadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "repMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "repNmlBG": {
+      "$ref": "definitions://background"
+    },
+    "repHvrBG": {
+      "$ref": "definitions://background"
+    },
+    "tpgbEqualHeight": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable equal height for all steps"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "processSteps",
+      "titleTypo",
+      "descTypo",
+      "titleNmlColor",
+      "titleHvrColor",
+      "descNmlColor",
+      "descHvrColor",
+      "iconSize",
+      "iconNmlColor",
+      "iconHvrColor",
+      "textTypo",
+      "normalBG",
+      "hoverBG",
+      "contentPadding",
+      "repPadding",
+      "repMargin",
+      "sepNmlColor",
+      "sepHvrColor"
+    ],
+    "requiresValidation": [
+      "style",
+      "displayCounter",
+      "counterStyle",
+      "carouselToggle",
+      "carouselID",
+      "carouselEffect",
+      "bType",
+      "customImg",
+      "tpgbEqualHeight"
+    ]
+  },
+  "styleDependencies": [
+    "Process steps layout CSS (2 styles)",
+    "Step separator lines/images",
+    "Hover/active state animations",
+    "Carousel integration (when carouselToggle enabled)",
+    "Equal height JavaScript (when tpgbEqualHeight enabled)"
+  ]
+}

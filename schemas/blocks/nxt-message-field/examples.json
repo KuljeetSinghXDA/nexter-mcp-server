@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-message-field",
+  "title": "Message - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple message field",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Your Message",
+        "placeholder": "Enter your message here...",
+        "lineNum": "4",
+        "reqTgl": true
+      }
+    },
+    {
+      "description": "Feedback form with help text",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Feedback",
+        "placeholder": "Tell us what you think",
+        "lineNum": "6",
+        "hlpTxt": true,
+        "desctxt": "Please provide detailed feedback to help us improve",
+        "descPoss": "top",
+        "reqTgl": true
+      }
+    },
+    {
+      "description": "Large comment area",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Additional Comments",
+        "placeholder": "Any additional information...",
+        "lineNum": "8",
+        "reqTgl": false
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

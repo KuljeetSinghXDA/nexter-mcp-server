@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-cta-banner",
+  "title": "CTA Banner - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple promotional banner (style-1)",
+      "attributes": {
+        "block_id": "a1b2",
+        "styleType": "style-1",
+        "bannerImage": {
+          "url": "/promo-bg.jpg"
+        },
+        "Title": "50% OFF Sale",
+        "subTitle": "Limited Time Only",
+        "desc": "Shop now and save big on all products",
+        "hoverStyle": "cta_img_zoom"
+      }
+    },
+    {
+      "description": "Product showcase banner with hover effect",
+      "attributes": {
+        "block_id": "c3d4",
+        "styleType": "style-3",
+        "bannerImage": {
+          "url": "/product.jpg"
+        },
+        "Title": "New Arrival",
+        "subTitle": "Premium Collection",
+        "hoverStyle": "cta_img_vertical",
+        "titleColor": "#ffffff",
+        "subtitleColor": "#f0f0f0"
+      }
+    },
+    {
+      "description": "Custom styled CTA with hover colors",
+      "attributes": {
+        "block_id": "e5f6",
+        "styleType": "style-5",
+        "Title": "Download Free Guide",
+        "subTitle": "Learn the Secrets",
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "42",
+            "unit": "px"
+          },
+          "weight": "700"
+        },
+        "titleColor": "#2c3e50",
+        "titlehoverColor": "#667eea",
+        "subtitleColor": "#7f8c8d",
+        "subtitlehoverColor": "#27ae60"
+      }
+    },
+    {
+      "description": "Minimal banner with fade effect (style-8)",
+      "attributes": {
+        "block_id": "g7h8",
+        "styleType": "style-8",
+        "bannerImage": {
+          "url": "/minimal-bg.jpg"
+        },
+        "Title": "Start Your Journey",
+        "subTitle": "Today",
+        "hoverStyle": "cta_img_fade"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

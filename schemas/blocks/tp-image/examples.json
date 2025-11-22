@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-image",
+  "title": "Image - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple centered image",
+      "attributes": {
+        "block_id": "a1b2",
+        "tImg": {
+          "url": "https://example.com/image.jpg",
+          "Id": "123"
+        },
+        "tiAlign": {
+          "md": "center"
+        },
+        "iSize": "large"
+      }
+    },
+    {
+      "description": "Linked image with hover effect",
+      "attributes": {
+        "block_id": "c3d4",
+        "tImg": {
+          "url": "https://example.com/banner.jpg",
+          "Id": "456"
+        },
+        "tiLink": {
+          "url": "https://example.com/products",
+          "target": "_blank"
+        },
+        "inOpa": "1",
+        "iHOpa": "0.8"
+      }
+    },
+    {
+      "description": "Image with custom size and filter",
+      "attributes": {
+        "block_id": "e5f6",
+        "tImg": {
+          "url": "https://example.com/photo.jpg",
+          "Id": "789"
+        },
+        "iWidth": {
+          "md": "400",
+          "unit": "px"
+        },
+        "iHeig": {
+          "md": "300",
+          "unit": "px"
+        },
+        "imgFit": {
+          "md": "cover"
+        },
+        "inFilt": {
+          "openFilter": true,
+          "grayscale": 100
+        }
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

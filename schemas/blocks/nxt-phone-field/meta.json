@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-phone-field",
+  "version": "1.0.0",
+  "title": "Phone Number",
+  "category": "forms",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Add a phone number input field with country dropdown and pattern validation. Features country selector with customizable width, regex pattern validation, optional Font Awesome icons or custom images, ",
+  "keywords": [
+    "phone input",
+    "telephone",
+    "phone number"
+  ],
+  "useCases": [
+    "Phone number inputs"
+  ]
+}

@@ -1,0 +1,370 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-mobile-menu",
+  "title": "Mobile Menu - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "mmStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2"
+      ],
+      "description": "Mobile menu visual style"
+    },
+    "posType": {
+      "type": "string",
+      "default": "absolute",
+      "enum": [
+        "absolute",
+        "relative",
+        "fixed"
+      ],
+      "description": "CSS position type"
+    },
+    "fixPosType": {
+      "type": "string",
+      "default": "top",
+      "enum": [
+        "top",
+        "bottom"
+      ],
+      "description": "Fixed position: top or bottom (when posType is 'fixed')"
+    },
+    "openMenu": {
+      "type": "string",
+      "default": "",
+      "description": "Default open menu index"
+    },
+    "menu1Item": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Left/main menu items (style-1) or left menu items (style-2)",
+      "items": {
+        "textVal": {
+          "type": "string",
+          "default": "Menu",
+          "description": "Menu item text"
+        },
+        "iconType": {
+          "type": "string",
+          "default": "icon",
+          "enum": [
+            "icon",
+            "image"
+          ],
+          "description": "Icon or image type"
+        },
+        "iconStore": {
+          "type": "string",
+          "default": "far fa-calendar-alt",
+          "description": "Font Awesome icon class"
+        },
+        "imgStore": {
+          "type": "object",
+          "default": {
+            "url": ""
+          },
+          "description": "Menu item image"
+        },
+        "imageSize": {
+          "type": "string",
+          "default": "thumbnail",
+          "description": "WordPress image size"
+        },
+        "linkUrl": {
+          "type": "object",
+          "default": {
+            "url": "",
+            "target": "",
+            "nofollow": ""
+          },
+          "description": "Menu item link"
+        },
+        "pinText": {
+          "type": "string",
+          "default": "New",
+          "description": "Pin badge text (e.g., 'New', '3', 'Sale')"
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "textVal": "Home",
+          "iconType": "icon",
+          "iconStore": "fas fa-home",
+          "linkUrl": {
+            "url": "#"
+          }
+        },
+        {
+          "_key": "1",
+          "textVal": "About",
+          "iconType": "icon",
+          "iconStore": "fas fa-users",
+          "linkUrl": {
+            "url": "#"
+          }
+        },
+        {
+          "_key": "2",
+          "textVal": "Contact",
+          "iconType": "icon",
+          "iconStore": "fas fa-address-card",
+          "linkUrl": {
+            "url": "#"
+          }
+        },
+        {
+          "_key": "3",
+          "textVal": "Offers",
+          "iconType": "icon",
+          "iconStore": "fas fa-barcode",
+          "linkUrl": {
+            "url": "#"
+          }
+        },
+        {
+          "_key": "4",
+          "textVal": "Support",
+          "iconType": "icon",
+          "iconStore": "fas fa-ticket-alt",
+          "linkUrl": {
+            "url": "#"
+          }
+        }
+      ]
+    },
+    "menu2Item": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Right menu items (style-2 only)",
+      "items": {
+        "textVal": {
+          "type": "string",
+          "default": "Menu"
+        },
+        "iconType": {
+          "type": "string",
+          "default": "icon"
+        },
+        "iconStore": {
+          "type": "string",
+          "default": "far fa-calendar-alt"
+        },
+        "imgStore": {
+          "type": "object",
+          "default": {
+            "url": ""
+          }
+        },
+        "imageSize": {
+          "type": "string",
+          "default": "thumbnail"
+        },
+        "linkUrl": {
+          "type": "object",
+          "default": {
+            "url": "",
+            "target": "",
+            "nofollow": ""
+          }
+        },
+        "pinText": {
+          "type": "string",
+          "default": "New"
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "textVal": "Offer",
+          "iconType": "icon",
+          "iconStore": "fas fa-home",
+          "linkUrl": {
+            "url": "#"
+          }
+        },
+        {
+          "_key": "1",
+          "textVal": "Contact",
+          "iconType": "icon",
+          "iconStore": "far fa-calendar-alt",
+          "linkUrl": {
+            "url": "#"
+          }
+        }
+      ]
+    },
+    "extraToggle": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show center extra toggle button (style-2)"
+    },
+    "tglText": {
+      "type": "string",
+      "default": "Home",
+      "description": "Extra toggle button text"
+    },
+    "tglIconType": {
+      "type": "string",
+      "default": "icon",
+      "enum": [
+        "icon",
+        "image"
+      ],
+      "description": "Extra toggle icon type"
+    },
+    "iconStore": {
+      "type": "string",
+      "default": "fas fa-home",
+      "description": "Extra toggle Font Awesome icon"
+    },
+    "imageStore": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Extra toggle image"
+    },
+    "contentType": {
+      "type": "string",
+      "default": "link",
+      "enum": [
+        "link",
+        "template"
+      ],
+      "description": "Extra toggle content type: link or slide-out template"
+    },
+    "contentLink": {
+      "$ref": "definitions://link"
+    },
+    "tempList": {
+      "type": "string",
+      "default": "",
+      "description": "Template ID for slide-out content (when contentType is 'template')"
+    },
+    "backendVisi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show template in backend editor"
+    },
+    "toggleDirection": {
+      "type": "string",
+      "default": "right",
+      "enum": [
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "description": "Slide-out direction for extra toggle content"
+    },
+    "oCntntStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2"
+      ],
+      "description": "Slide-out content overlay style"
+    },
+    "cntntWidth": {
+      "type": "string",
+      "default": "custom",
+      "enum": [
+        "custom",
+        "fullwidth"
+      ],
+      "description": "Slide-out content width: custom or fullwidth"
+    },
+    "customWH": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pageIndicator": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show active page indicator"
+    },
+    "indiStyle": {
+      "type": "string",
+      "default": "line",
+      "enum": [
+        "line",
+        "dot"
+      ],
+      "description": "Page indicator style"
+    },
+    "indiPos": {
+      "type": "string",
+      "default": "indi-top",
+      "enum": [
+        "indi-top",
+        "indi-bottom"
+      ],
+      "description": "Page indicator position"
+    },
+    "scrollTopValue": {
+      "type": "string",
+      "default": "",
+      "description": "Scroll value in pixels to toggle visibility"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "menu1Item",
+      "menu2Item",
+      "tglText",
+      "iconStore",
+      "imageStore",
+      "contentLink",
+      "tempList",
+      "customWH",
+      "scrollTopValue"
+    ],
+    "requiresValidation": [
+      "mmStyle",
+      "posType",
+      "fixPosType",
+      "openMenu",
+      "extraToggle",
+      "tglIconType",
+      "contentType",
+      "backendVisi",
+      "toggleDirection",
+      "oCntntStyle",
+      "cntntWidth",
+      "displayMode",
+      "pageIndicator",
+      "indiStyle",
+      "indiPos",
+      "scrollOffsetTgl"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

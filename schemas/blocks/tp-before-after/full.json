@@ -1,0 +1,262 @@
+{
+  "blockName": "tpgb/tp-before-after",
+  "version": "1.0.0",
+  "title": "Before After",
+  "category": "media",
+  "description": "Create interactive before/after image comparison sliders to showcase transformations, renovations, product improvements, or any visual changes. Features horizontal and vertical slider modes, customizable separator line, optional labels, and mouse hover or drag interaction. Perfect for portfolios, case studies, and visual storytelling.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "style": {
+      "type": "string",
+      "default": "horizontal",
+      "enum": ["horizontal", "vertical"],
+      "description": "Comparison slider orientation"
+    },
+    "beforeImg": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Before image source"
+    },
+    "beforeLabel": {
+      "type": "string",
+      "default": "",
+      "description": "Optional 'Before' label text (shown over image)"
+    },
+    "afterImg": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "After image source"
+    },
+    "afterLabel": {
+      "type": "string",
+      "default": "",
+      "description": "Optional 'After' label text (shown over image)"
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size for both images"
+    },
+    "alignment": {
+      "type": "object",
+      "default": {"md": "center", "sm": "", "xs": ""},
+      "description": "Block alignment (left, center, right)",
+      "responsive": true
+    },
+    "fullWidth": {
+      "type": "boolean",
+      "default": false,
+      "description": "Expand to full container width"
+    },
+    "onmouseHvr": {
+      "type": "boolean",
+      "default": true,
+      "description": "Activate slider on mouse hover (vs drag only)"
+    },
+    "sepStyle": {
+      "type": "string",
+      "default": "middle",
+      "enum": ["middle", "top", "bottom"],
+      "description": "Separator handle icon/button position"
+    },
+    "sepLine": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show full-height separator line"
+    },
+    "sepWidth": {
+      "type": "string",
+      "default": "5",
+      "description": "Separator line width (px)"
+    },
+    "sepPosi": {
+      "type": "string",
+      "default": "",
+      "description": "Default separator position percentage (0-100)"
+    },
+    "sepColor": {
+      "type": "string",
+      "default": "",
+      "description": "Separator line color"
+    },
+    "sepbotColor": {
+      "type": "string",
+      "default": "",
+      "description": "Separator bottom segment color (for two-tone separator)"
+    },
+    "sepIcon": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Custom separator handle icon/image"
+    },
+    "padding": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Label padding",
+      "responsive": true
+    },
+    "labelTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for before/after labels"
+    },
+    "labelColor": {
+      "type": "string",
+      "default": "",
+      "description": "Label text color"
+    },
+    "labelBgtype": {
+      "type": "object",
+      "default": {"openBg": 0},
+      "description": "Label background color/gradient"
+    },
+    "labelBorder": {
+      "type": "object",
+      "default": {"openBorder": 0},
+      "description": "Label border styling"
+    },
+    "labelBradius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Label border radius",
+      "responsive": true
+    },
+    "labelBshadow": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Label box shadow"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "beforeImg",
+      "afterImg",
+      "beforeLabel",
+      "afterLabel",
+      "imageSize",
+      "alignment",
+      "fullWidth",
+      "onmouseHvr",
+      "sepLine",
+      "sepWidth",
+      "sepPosi",
+      "sepColor",
+      "sepbotColor",
+      "labelTypo",
+      "labelColor",
+      "labelBgtype",
+      "labelBorder",
+      "labelBradius",
+      "labelBshadow",
+      "padding"
+    ],
+    "requiresValidation": [
+      "style",
+      "sepStyle",
+      "sepIcon"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Before/After comparison slider JavaScript library",
+    "Drag and hover interaction handlers",
+    "Image clipping/masking CSS",
+    "Separator handle positioning"
+  ],
+  "commonUseCases": [
+    "Home renovation before/after",
+    "Photo editing showcases",
+    "Product improvement comparisons",
+    "Design refresh demonstrations",
+    "Weight loss transformations",
+    "Landscape changes over time",
+    "Photography skill progression",
+    "Image restoration work",
+    "Historical comparisons",
+    "Cosmetic procedure results"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-creative-image",
+    "tpgb/tp-image",
+    "tpgb/tp-media-listing"
+  ],
+  "capabilities": [
+    "Horizontal and vertical slider modes",
+    "Mouse hover or drag interaction",
+    "Customizable separator line width and color",
+    "3 separator handle positions (middle, top, bottom)",
+    "Custom separator handle icon/image",
+    "Optional before/after labels with full styling",
+    "Default separator position control",
+    "Responsive alignment",
+    "Full-width option",
+    "Label typography and colors",
+    "Label background, border, radius, shadow",
+    "WordPress image size selection"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple horizontal comparison",
+      "attributes": {
+        "block_id": "a1b2",
+        "style": "horizontal",
+        "beforeImg": {"url": "/before.jpg"},
+        "afterImg": {"url": "/after.jpg"},
+        "beforeLabel": "Before",
+        "afterLabel": "After"
+      }
+    },
+    {
+      "description": "Vertical slider with custom separator",
+      "attributes": {
+        "block_id": "c3d4",
+        "style": "vertical",
+        "beforeImg": {"url": "/old-design.jpg"},
+        "afterImg": {"url": "/new-design.jpg"},
+        "sepLine": true,
+        "sepWidth": "8",
+        "sepColor": "#667eea",
+        "sepStyle": "middle"
+      }
+    },
+    {
+      "description": "Styled labels with backgrounds",
+      "attributes": {
+        "block_id": "e5f6",
+        "beforeLabel": "Original",
+        "afterLabel": "Enhanced",
+        "labelColor": "#ffffff",
+        "labelBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "rgba(0,0,0,0.7)"},
+        "labelBradius": {"md": {"top": "4", "right": "4", "bottom": "4", "left": "4"}, "unit": "px"},
+        "padding": {"md": {"top": "8", "right": "16", "bottom": "8", "left": "16"}, "unit": "px"}
+      }
+    },
+    {
+      "description": "Drag-only comparison (no hover)",
+      "attributes": {
+        "block_id": "g7h8",
+        "onmouseHvr": false,
+        "sepPosi": "50",
+        "fullWidth": true
+      }
+    }
+  ]
+}

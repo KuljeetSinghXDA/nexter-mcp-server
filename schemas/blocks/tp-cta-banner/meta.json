@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-cta-banner",
+  "version": "1.0.0",
+  "title": "CTA Banner",
+  "category": "marketing",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Create eye-popping call-to-action banners with 8 unique styles, image backgrounds, hover effects, and extensive typography controls. Features title, subtitle, and description fields with normal/hover ",
+  "keywords": [
+    "cta banner",
+    "call to action",
+    "banner",
+    "promo banner"
+  ],
+  "useCases": [
+    "CTA sections",
+    "Promotional banners",
+    "Newsletter signups"
+  ]
+}

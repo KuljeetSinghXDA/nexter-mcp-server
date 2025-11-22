@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-name-field",
+  "title": "Name Field - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple required name field",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Full Name",
+        "placeholder": "Enter your full name",
+        "reqTgl": true,
+        "autoComplete": "name"
+      }
+    },
+    {
+      "description": "Name field with icon and validation",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Your Name",
+        "nameIconType": "fontAwesome",
+        "nameIcons": "fas fa-user",
+        "reqTgl": true,
+        "valName": true,
+        "maxAlphabets": "50",
+        "icnClr": "#667eea"
+      }
+    },
+    {
+      "description": "Name field with help text",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Applicant Name",
+        "hlpTxt": true,
+        "desctxt": "Please enter your legal name as it appears on your ID",
+        "descPoss": "bottom",
+        "reqTgl": true
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

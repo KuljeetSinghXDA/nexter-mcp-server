@@ -1,0 +1,106 @@
+{
+  "blockName": "tpgb/tp-switch-inner",
+  "version": "1.0.0",
+  "title": "Switcher Inner",
+  "category": "interactive",
+  "description": "Individual content panel that must be used inside the Switcher block. Contains one of two switchable content sections. This block cannot be inserted independently - it requires a parent Switcher block. Two of these blocks are needed (one for each switch option).",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "className": {
+      "type": "string",
+      "default": "",
+      "description": "Additional CSS class names"
+    },
+    "index": {
+      "type": "number",
+      "default": "",
+      "description": "Switch panel index (0 or 1) indicating which switch option this content belongs to"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "innerBlocks content"
+    ],
+    "requiresValidation": [
+      "index"
+    ],
+    "dangerous": [
+      "block_id",
+      "className"
+    ]
+  },
+  "styleDependencies": [
+    "Inherits all styling from parent tp-switcher block",
+    "Content transition/fade effects"
+  ],
+  "commonUseCases": [
+    "First switch option content panel",
+    "Second switch option content panel",
+    "Monthly pricing content (in pricing switcher)",
+    "Yearly pricing content (in pricing switcher)",
+    "Feature comparison content panels"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-switcher",
+    "tpgb/tp-pricing-table",
+    "tpgb/tp-container"
+  ],
+  "capabilities": [
+    "Supports innerBlocks for rich content",
+    "Index-based panel identification",
+    "Content toggle via parent switcher",
+    "Transition animations"
+  ],
+  "usesContext": [],
+  "supports": {
+    "inserter": false,
+    "reusable": false,
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": true,
+  "allowedInnerBlocks": ["*"],
+  "parentBlockRequired": true,
+  "requiredParentBlock": "tpgb/tp-switcher",
+  "examples": [
+    {
+      "description": "First switch panel (index 0) with pricing content",
+      "attributes": {
+        "block_id": "a1b2",
+        "index": 0
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pricing-table",
+          "attrs": {
+            "block_id": "c3d4",
+            "title": "Monthly Plan",
+            "priceValue": "29"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Second switch panel (index 1) with alternate content",
+      "attributes": {
+        "block_id": "e5f6",
+        "index": 1
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pricing-table",
+          "attrs": {
+            "block_id": "g7h8",
+            "title": "Yearly Plan",
+            "priceValue": "290"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-tabs-tours",
+  "title": "Tabs Tours - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple horizontal tabs with icons",
+      "attributes": {
+        "block_id": "a1b2",
+        "tabLayout": "horizontal",
+        "navPosition": "top",
+        "tablistRepeater": [
+          {
+            "tabTitle": "Features",
+            "innericonName": "fas fa-star",
+            "innerIcon": true,
+            "tabDescription": "Discover our amazing features."
+          },
+          {
+            "tabTitle": "Pricing",
+            "innericonName": "fas fa-dollar-sign",
+            "innerIcon": true,
+            "tabDescription": "View our pricing plans."
+          },
+          {
+            "tabTitle": "Support",
+            "innericonName": "fas fa-headset",
+            "innerIcon": true,
+            "tabDescription": "Get help from our team."
+          }
+        ]
+      }
+    },
+    {
+      "description": "Vertical tabs with custom styling",
+      "attributes": {
+        "block_id": "c3d4",
+        "tabLayout": "vertical",
+        "navPosition": "left",
+        "vernavWidth": {
+          "md": "250",
+          "unit": "px"
+        },
+        "titleColor": "#2c3e50",
+        "titleActcolor": "#667eea",
+        "tabbgType": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f7f9fc"
+        }
+      }
+    },
+    {
+      "description": "Tabs with underline and hover activation",
+      "attributes": {
+        "block_id": "e5f6",
+        "onhoverTab": "hover",
+        "underline": true,
+        "ulineColor": "#667eea",
+        "activeTab": "1"
+      }
+    },
+    {
+      "description": "Template-based tabs with swiper effect",
+      "attributes": {
+        "block_id": "g7h8",
+        "swiperEffect": true,
+        "tablistRepeater": [
+          {
+            "tabTitle": "Overview",
+            "contentType": "template",
+            "blockTemp": "tab-template-1"
+          },
+          {
+            "tabTitle": "Details",
+            "contentType": "template",
+            "blockTemp": "tab-template-2"
+          }
+        ]
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

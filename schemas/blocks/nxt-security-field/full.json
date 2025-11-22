@@ -1,0 +1,117 @@
+{
+  "blockName": "tpgb/tp-security-field",
+  "version": "1.0.0",
+  "title": "Security Code",
+  "category": "form",
+  "description": "Add security verification to your form with CAPTCHA or other security methods. Protects forms from spam and automated submissions. Features configurable security options, CAPTCHA integration (reCAPTCHA, hCaptcha, Cloudflare Turnstile), cloud site key and secret key configuration. Automatically validates user responses before form submission. Must be used inside a Form Block. Pro version with advanced security controls.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "securityOptions": {
+      "type": "string",
+      "default": "",
+      "description": "Security verification type (e.g., 'recaptcha', 'hcaptcha', 'turnstile')"
+    },
+    "captchaOptions": {
+      "type": "string",
+      "default": "",
+      "description": "CAPTCHA configuration options (version, theme, size, etc.)"
+    },
+    "cloudSecretKey": {
+      "type": "string",
+      "default": "",
+      "description": "Secret key for CAPTCHA service (server-side validation)"
+    },
+    "cloudSiteKey": {
+      "type": "string",
+      "default": "",
+      "description": "Site key for CAPTCHA service (client-side rendering)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "captchaOptions"
+    ],
+    "requiresValidation": [
+      "securityOptions"
+    ],
+    "dangerous": [
+      "block_id",
+      "cloudSecretKey",
+      "cloudSiteKey"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "CAPTCHA service JavaScript (reCAPTCHA, hCaptcha, or Turnstile)",
+    "CAPTCHA API integration"
+  ],
+  "commonUseCases": [
+    "Spam protection",
+    "Bot prevention",
+    "Contact form security",
+    "Registration form protection",
+    "Comment form validation",
+    "Newsletter signup security",
+    "Login form protection",
+    "Automated submission blocking"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-form-block",
+    "tpgb/tp-form-submit-button"
+  ],
+  "capabilities": [
+    "Multiple CAPTCHA service support (reCAPTCHA, hCaptcha, Cloudflare Turnstile)",
+    "Configurable security options",
+    "Site key configuration",
+    "Secret key configuration",
+    "Server-side validation",
+    "Client-side rendering",
+    "Spam and bot protection",
+    "Automated form submission blocking",
+    "CAPTCHA theme and size customization"
+  ],
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true,
+  "ancestorBlock": "tpgb/tp-form-block",
+  "examples": [
+    {
+      "description": "Google reCAPTCHA v2",
+      "attributes": {
+        "block_id": "a1b2",
+        "securityOptions": "recaptcha",
+        "captchaOptions": "v2",
+        "cloudSiteKey": "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+        "cloudSecretKey": "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+      }
+    },
+    {
+      "description": "hCaptcha integration",
+      "attributes": {
+        "block_id": "c3d4",
+        "securityOptions": "hcaptcha",
+        "cloudSiteKey": "10000000-ffff-ffff-ffff-000000000001",
+        "cloudSecretKey": "0x0000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "description": "Cloudflare Turnstile",
+      "attributes": {
+        "block_id": "e5f6",
+        "securityOptions": "turnstile",
+        "captchaOptions": "managed",
+        "cloudSiteKey": "1x00000000000000000000AA",
+        "cloudSecretKey": "1x0000000000000000000000000000000AA"
+      }
+    }
+  ]
+}

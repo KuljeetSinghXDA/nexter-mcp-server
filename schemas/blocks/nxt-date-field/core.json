@@ -1,0 +1,133 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-date-field",
+  "title": "Pick a Date - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "labelss": {
+      "type": "string",
+      "default": "Date",
+      "description": "Field label text"
+    },
+    "hlpTxt": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable help text (description)"
+    },
+    "desctxt": {
+      "type": "string",
+      "default": "Description",
+      "description": "Help text content (when hlpTxt is true)"
+    },
+    "reqTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Make field required"
+    },
+    "descPoss": {
+      "type": "string",
+      "default": "top",
+      "enum": [
+        "top",
+        "bottom"
+      ],
+      "description": "Help text position relative to field"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "Date",
+      "description": "Placeholder text shown in empty input"
+    },
+    "valDate": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable date range validation using min/max values"
+    },
+    "minYear": {
+      "type": "number",
+      "default": 1965,
+      "description": "Minimum allowed year (when valDate is true)"
+    },
+    "minDay": {
+      "type": "number",
+      "default": 1,
+      "description": "Minimum allowed day of month (1-31, when valDate is true)"
+    },
+    "minMonth": {
+      "type": "number",
+      "default": 1,
+      "description": "Minimum allowed month (1-12, when valDate is true)"
+    },
+    "maxYear": {
+      "type": "number",
+      "default": 2085,
+      "description": "Maximum allowed year (when valDate is true)"
+    },
+    "maxDay": {
+      "type": "number",
+      "default": 30,
+      "description": "Maximum allowed day of month (1-31, when valDate is true)"
+    },
+    "maxMonth": {
+      "type": "number",
+      "default": 12,
+      "description": "Maximum allowed month (1-12, when valDate is true)"
+    },
+    "inpSz": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "error": {
+      "type": "string",
+      "default": "This field is required.",
+      "description": "Error message for validation failure"
+    },
+    "uniqueid": {
+      "type": "string",
+      "default": "",
+      "description": "Unique field identifier for form submission"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "desctxt",
+      "placeholder",
+      "minYear",
+      "minDay",
+      "minMonth",
+      "maxYear",
+      "maxDay",
+      "maxMonth",
+      "error",
+      "inpSz"
+    ],
+    "requiresValidation": [
+      "hlpTxt",
+      "reqTgl",
+      "descPoss",
+      "valDate"
+    ],
+    "dangerous": [
+      "block_id",
+      "uniqueid"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true
+}

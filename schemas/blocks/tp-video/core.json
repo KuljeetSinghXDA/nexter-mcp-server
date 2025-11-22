@@ -1,0 +1,190 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-video",
+  "title": "Video - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "VideoType": {
+      "type": "string",
+      "default": "youtube",
+      "enum": [
+        "youtube",
+        "vimeo",
+        "self-hosted"
+      ],
+      "description": "Video source platform"
+    },
+    "YoutubeID": {
+      "type": "string",
+      "default": "TJ1SDXbij8Y",
+      "description": "YouTube video ID (from URL)"
+    },
+    "VimeoID": {
+      "type": "string",
+      "default": "27246366",
+      "description": "Vimeo video ID (from URL)"
+    },
+    "mp4Url": {
+      "type": "object",
+      "default": [],
+      "description": "Self-hosted video file upload (MP4)"
+    },
+    "muted": {
+      "type": "boolean",
+      "default": false,
+      "description": "Start video muted"
+    },
+    "loop": {
+      "type": "boolean",
+      "default": false,
+      "description": "Loop video continuously"
+    },
+    "controls": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show video player controls"
+    },
+    "showinfo": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show video information (YouTube)"
+    },
+    "touchDisable": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disable touch/click on video overlay"
+    },
+    "ModestBranding": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide YouTube logo (YouTube)"
+    },
+    "VideoColor": {
+      "type": "string",
+      "default": "",
+      "description": "Player accent color (Vimeo)"
+    },
+    "rel": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show related videos at end (YouTube)"
+    },
+    "yt_privacy": {
+      "type": "boolean",
+      "default": false,
+      "description": "Use YouTube privacy-enhanced mode"
+    },
+    "VimeoTitle": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show video title (Vimeo)"
+    },
+    "VimeoPortrait": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show author portrait (Vimeo)"
+    },
+    "VimeoByline": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show author byline (Vimeo)"
+    },
+    "image_banner": {
+      "type": "string",
+      "default": "banner_img",
+      "description": "Banner image mode"
+    },
+    "ShowBannerImg": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show custom banner/thumbnail image before play"
+    },
+    "BannerImg": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Custom banner/thumbnail image"
+    },
+    "VideoIcon": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Custom play button icon image"
+    },
+    "VideoIconSize": {
+      "type": "string",
+      "default": "full",
+      "description": "Play icon size"
+    },
+    "OverlayIconImg": {
+      "type": "object",
+      "default": [],
+      "description": "Overlay icon image"
+    },
+    "VideoTitle": {
+      "type": "string",
+      "default": "Earth from the Moon",
+      "description": "Video title for schema markup"
+    },
+    "markupSch": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable VideoObject schema markup for SEO"
+    },
+    "iframeTitle": {
+      "type": "string",
+      "default": "",
+      "description": "Iframe title for accessibility"
+    },
+    "VideoTitleTypo": {
+      "$ref": "definitions://typography"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "YoutubeID",
+      "VimeoID",
+      "mp4Url",
+      "autoPlay",
+      "muted",
+      "loop",
+      "controls",
+      "BannerImg",
+      "VideoIcon",
+      "IconAlign",
+      "VideoTitle",
+      "iframeTitle"
+    ],
+    "requiresValidation": [
+      "VideoType",
+      "ShowBannerImg",
+      "markupSch",
+      "rel",
+      "yt_privacy",
+      "ModestBranding"
+    ],
+    "dangerous": [
+      "block_id",
+      "touchDisable"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

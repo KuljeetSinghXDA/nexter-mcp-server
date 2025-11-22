@@ -1,0 +1,224 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-countdown",
+  "title": "Countdown - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "countdownSelection": {
+      "type": "string",
+      "default": "normal",
+      "enum": [
+        "normal",
+        "scarcity",
+        "fake"
+      ],
+      "description": "Countdown mode: normal (to specific date), scarcity (limited quantity), fake (dynamic counter)"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2",
+        "style-3"
+      ],
+      "description": "Visual style: style-1 (default boxes), style-2 (flip animation), style-3 (circular progress)"
+    },
+    "scarSec": {
+      "type": "string",
+      "default": "90",
+      "description": "Scarcity counter seconds remaining"
+    },
+    "trackUdata": {
+      "type": "string",
+      "default": "normal",
+      "enum": [
+        "normal",
+        "cookie",
+        "ip"
+      ],
+      "description": "Pro: User tracking method for scarcity mode (cookie or IP-based)",
+      "proFeature": true
+    },
+    "enaLoop": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Enable countdown loop/restart after expiry",
+      "proFeature": true
+    },
+    "delayTime": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Delay time before loop restart",
+      "proFeature": true
+    },
+    "flipTheme": {
+      "type": "string",
+      "default": "dark",
+      "enum": [
+        "dark",
+        "light"
+      ],
+      "description": "Flip countdown theme (for style-2)"
+    },
+    "fenaLoop": {
+      "type": "boolean",
+      "default": false,
+      "description": "Fake counter loop enable"
+    },
+    "fMsg": {
+      "type": "string",
+      "default": "Showing {visible_counter}",
+      "description": "Fake counter message template with {visible_counter} placeholder"
+    },
+    "counterMaxWidth": {
+      "type": "object",
+      "default": {
+        "md": ""
+      },
+      "description": "Maximum width for flip countdown (style-2)",
+      "responsive": true
+    },
+    "datetime": {
+      "type": "string",
+      "default": "",
+      "description": "Target datetime for countdown (ISO 8601 format)"
+    },
+    "changeType": {
+      "type": "string",
+      "default": "decreasing",
+      "enum": [
+        "decreasing",
+        "increasing"
+      ],
+      "description": "Fake counter direction"
+    },
+    "initNum": {
+      "type": "string",
+      "default": "1",
+      "description": "Fake counter initial number"
+    },
+    "endNum": {
+      "type": "string",
+      "default": "10",
+      "description": "Fake counter ending number"
+    },
+    "numRange": {
+      "type": "string",
+      "default": "10",
+      "description": "Fake counter number range"
+    },
+    "changeInterval": {
+      "type": "string",
+      "default": "1",
+      "description": "Fake counter change interval in seconds"
+    },
+    "countdownExpiry": {
+      "type": "string",
+      "default": "none",
+      "enum": [
+        "none",
+        "showmsg",
+        "redirect",
+        "showtemp"
+      ],
+      "description": "Action on countdown expiry: none, show message, redirect, or show template"
+    },
+    "expiryMsg": {
+      "type": "string",
+      "default": "Countdown Has Ended !",
+      "description": "Message displayed when countdown expires"
+    },
+    "expiryRedirect": {
+      "$ref": "definitions://link"
+    },
+    "templates": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Template ID to show on expiry",
+      "proFeature": true
+    },
+    "backendVisi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show countdown in backend editor"
+    },
+    "inlineStyle": {
+      "type": "boolean",
+      "default": false,
+      "description": "Display countdown inline (not stacked)"
+    },
+    "showLabels": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show time unit labels (Days, Hours, etc.)"
+    },
+    "daysText": {
+      "type": "string",
+      "default": "Days",
+      "description": "Custom label for days"
+    },
+    "hoursText": {
+      "type": "string",
+      "default": "Hours",
+      "description": "Custom label for hours"
+    },
+    "minutesText": {
+      "type": "string",
+      "default": "Minutes",
+      "description": "Custom label for minutes"
+    },
+    "secondsText": {
+      "type": "string",
+      "default": "Seconds",
+      "description": "Custom label for seconds"
+    },
+    "labelTypo": {
+      "$ref": "definitions://typography"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "datetime",
+      "showLabels",
+      "daysText",
+      "hoursText",
+      "minutesText",
+      "secondsText",
+      "expiryMsg",
+      "counterFontColor",
+      "counterTypo",
+      "labelTypo",
+      "inlineStyle"
+    ],
+    "requiresValidation": [
+      "style",
+      "countdownSelection",
+      "countdownExpiry",
+      "expiryRedirect",
+      "trackUdata",
+      "enaLoop",
+      "templates"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

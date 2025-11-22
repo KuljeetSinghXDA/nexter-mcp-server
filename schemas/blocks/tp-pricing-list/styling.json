@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-pricing-list",
+  "title": "Pricing List - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "Alignment": {
+      "type": "object",
+      "default": {
+        "md": "left",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Content alignment (left, center, right)",
+      "responsive": true
+    },
+    "boxAlign": {
+      "type": "string",
+      "default": "top-left",
+      "enum": [
+        "top-left",
+        "top-center",
+        "top-right",
+        "center-left",
+        "center-center",
+        "center-right",
+        "bottom-left",
+        "bottom-center",
+        "bottom-right"
+      ],
+      "description": "Image/icon box alignment position"
+    },
+    "hoverEffect": {
+      "type": "string",
+      "default": "horizontal",
+      "enum": [
+        "horizontal",
+        "vertical",
+        "diagonal",
+        "none"
+      ],
+      "description": "Image hover animation direction"
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title text color"
+    },
+    "titleBG": {
+      "$ref": "definitions://background"
+    },
+    "titlePadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "tagTypo": {
+      "$ref": "definitions://typography"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "title",
+      "tagField",
+      "price",
+      "description",
+      "imageField",
+      "Alignment",
+      "titleTypo",
+      "titleColor",
+      "titleBG",
+      "titlePadding",
+      "tagTypo",
+      "tagSpace",
+      "imgShape"
+    ],
+    "requiresValidation": [
+      "style",
+      "boxAlign",
+      "hoverEffect",
+      "lineStyle",
+      "maskImg"
+    ]
+  },
+  "styleDependencies": [
+    "Separator line styles (dotted, dashed, solid)",
+    "Image hover effects",
+    "SVG mask-image for custom shapes",
+    "Tag/badge styling",
+    "Responsive typography"
+  ]
+}

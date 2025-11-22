@@ -1,0 +1,478 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-hotspot",
+  "title": "Hotspot - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "hotspotImage": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Background image for hotspot overlay"
+    },
+    "pinlistRepeater": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Array of hotspot pin markers with tooltips",
+      "items": {
+        "pinType": {
+          "type": "string",
+          "default": "icon",
+          "enum": [
+            "icon",
+            "image",
+            "text"
+          ],
+          "description": "Pin marker type"
+        },
+        "pinIconType": {
+          "type": "string",
+          "default": "font_awesome",
+          "enum": [
+            "font_awesome"
+          ],
+          "description": "Icon library type"
+        },
+        "pinIcon": {
+          "type": "string",
+          "default": "fas fa-plus",
+          "description": "Font Awesome icon class for pin"
+        },
+        "pinImage": {
+          "type": "object",
+          "default": {
+            "url": ""
+          },
+          "description": "Custom image for pin (when pinType is 'image')"
+        },
+        "pinText": {
+          "type": "string",
+          "default": "Pin",
+          "description": "Text label for pin (when pinType is 'text')"
+        },
+        "DleftAuto": {
+          "type": "boolean",
+          "default": true,
+          "description": "Position from left (auto-calculated if true)"
+        },
+        "DrightAuto": {
+          "type": "boolean",
+          "default": false,
+          "description": "Position from right (auto-calculated if true)"
+        },
+        "DtopAuto": {
+          "type": "boolean",
+          "default": true,
+          "description": "Position from top (auto-calculated if true)"
+        },
+        "DbottomAuto": {
+          "type": "boolean",
+          "default": false,
+          "description": "Position from bottom (auto-calculated if true)"
+        },
+        "TabRespo": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable separate tablet positioning"
+        },
+        "itemTooltip": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable tooltip for this pin"
+        },
+        "tooltipContentType": {
+          "type": "string",
+          "default": "text",
+          "enum": [
+            "text",
+            "template"
+          ],
+          "description": "Tooltip content type (text or Pro template)"
+        },
+        "tooltipText": {
+          "type": "string",
+          "default": "Your content will be here.",
+          "description": "Tooltip text content (HTML allowed)"
+        },
+        "piniconColor": {
+          "type": "string",
+          "default": "",
+          "description": "Pin icon/text color (normal state)"
+        },
+        "pinBgcolor": {
+          "type": "string",
+          "default": "",
+          "description": "Pin background color (normal state)"
+        },
+        "piniconHvrColor": {
+          "type": "string",
+          "default": "",
+          "description": "Pin icon/text color (hover state)"
+        },
+        "pinHvrBgcolor": {
+          "type": "string",
+          "default": "",
+          "description": "Pin background color (hover state)"
+        },
+        "leftPos": {
+          "type": "string",
+          "default": "20",
+          "description": "Pin left position percentage (when DleftAuto is true)"
+        },
+        "righttPos": {
+          "type": "string",
+          "default": "",
+          "description": "Pin right position percentage (when DrightAuto is true)"
+        },
+        "topPos": {
+          "type": "string",
+          "default": "25",
+          "description": "Pin top position percentage (when DtopAuto is true)"
+        },
+        "bottomPos": {
+          "type": "string",
+          "default": "",
+          "description": "Pin bottom position percentage (when DbottomAuto is true)"
+        },
+        "TleftPos": {
+          "type": "string",
+          "default": "",
+          "description": "Pin left position % on tablet (when TabRespo enabled)"
+        },
+        "TtopPos": {
+          "type": "string",
+          "default": "",
+          "description": "Pin top position % on tablet (when TabRespo enabled)"
+        },
+        "TrightPos": {
+          "type": "string",
+          "default": "",
+          "description": "Pin right position % on tablet (when TabRespo enabled)"
+        },
+        "TbottomPos": {
+          "type": "string",
+          "default": "",
+          "description": "Pin bottom position % on tablet (when TabRespo enabled)"
+        },
+        "MleftPos": {
+          "type": "string",
+          "default": "",
+          "description": "Pin left position % on mobile (when MobRespo enabled)"
+        },
+        "MrightPos": {
+          "type": "string",
+          "default": "",
+          "description": "Pin right position % on mobile (when MobRespo enabled)"
+        },
+        "MtopPos": {
+          "type": "string",
+          "default": "",
+          "description": "Pin top position % on mobile (when MobRespo enabled)"
+        },
+        "MbottomPos": {
+          "type": "string",
+          "default": "",
+          "description": "Pin bottom position % on mobile (when MobRespo enabled)"
+        },
+        "toltipAlign": {
+          "type": "string",
+          "default": "center",
+          "enum": [
+            "left",
+            "center",
+            "right"
+          ],
+          "description": "Tooltip text alignment"
+        },
+        "tooltipTypo": {
+          "type": "object",
+          "default": {
+            "openTypography": 0
+          },
+          "description": "Typography for tooltip text"
+        },
+        "tooltipColor": {
+          "type": "string",
+          "default": "",
+          "description": "Tooltip text color"
+        },
+        "contEffect": {
+          "type": "string",
+          "default": "normal_drop_waves",
+          "enum": [
+            "normal_drop_waves",
+            "image_drop_waves",
+            "hover_drop_waves",
+            "none"
+          ],
+          "description": "Pin animation effect (wave ripples)"
+        },
+        "pinimgSize": {
+          "type": "string",
+          "default": "full",
+          "description": "WordPress image size for pin image"
+        },
+        "tipInteractive": {
+          "type": "boolean",
+          "default": false,
+          "description": "Tippy.js: Allow mouse interaction with tooltip"
+        },
+        "followCursor": {
+          "type": "boolean",
+          "default": false,
+          "description": "Tippy.js: Tooltip follows cursor"
+        },
+        "tipPlacement": {
+          "type": "string",
+          "default": "top",
+          "enum": [
+            "top",
+            "top-start",
+            "top-end",
+            "right",
+            "right-start",
+            "right-end",
+            "bottom",
+            "bottom-start",
+            "bottom-end",
+            "left",
+            "left-start",
+            "left-end"
+          ],
+          "description": "Tippy.js: Tooltip placement relative to pin"
+        },
+        "tipArrow": {
+          "type": "boolean",
+          "default": true,
+          "description": "Tippy.js: Show tooltip arrow"
+        },
+        "tipTriggers": {
+          "type": "string",
+          "default": "mouseenter",
+          "enum": [
+            "mouseenter",
+            "click",
+            "focus",
+            "manual"
+          ],
+          "description": "Tippy.js: Trigger event for tooltip"
+        },
+        "tipTheme": {
+          "type": "string",
+          "default": "light",
+          "enum": [
+            "light",
+            "dark",
+            "translucent"
+          ],
+          "description": "Tippy.js: Tooltip theme"
+        },
+        "tipMaxWidth": {
+          "type": "string",
+          "default": "",
+          "description": "Tooltip max width in pixels"
+        },
+        "tiprespo": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable responsive tooltip width"
+        },
+        "tiptabWidth": {
+          "type": "string",
+          "default": "",
+          "description": "Tooltip width on tablet (when tiprespo enabled)"
+        },
+        "tipmobWidth": {
+          "type": "string",
+          "default": "",
+          "description": "Tooltip width on mobile (when tiprespo enabled)"
+        },
+        "tipArrowColor": {
+          "type": "string",
+          "default": "",
+          "description": "Tooltip arrow color"
+        },
+        "tipPadding": {
+          "type": "object",
+          "default": {
+            "md": {
+              "top": "",
+              "right": "",
+              "bottom": "",
+              "left": ""
+            },
+            "unit": "px"
+          },
+          "description": "Tooltip padding",
+          "responsive": true
+        },
+        "tipBorder": {
+          "type": "object",
+          "default": {
+            "openBorder": 0,
+            "type": "",
+            "color": "",
+            "width": {
+              "md": {
+                "top": "1",
+                "left": "1",
+                "bottom": "1",
+                "right": "1"
+              },
+              "unit": "px"
+            }
+          },
+          "description": "Tooltip border"
+        },
+        "tipBorderRadius": {
+          "type": "object",
+          "default": {},
+          "description": "Tooltip border radius"
+        },
+        "tipBg": {
+          "type": "object",
+          "default": {
+            "openBg": 0,
+            "bgType": "color"
+          },
+          "description": "Tooltip background"
+        },
+        "tipBoxShadow": {
+          "type": "object",
+          "default": {
+            "openShadow": 0
+          },
+          "description": "Tooltip box shadow"
+        },
+        "pinUrl": {
+          "type": "object",
+          "default": {
+            "url": "#",
+            "target": "",
+            "nofollow": ""
+          },
+          "description": "Optional link URL for pin"
+        },
+        "ariaLabel": {
+          "type": "string",
+          "default": "",
+          "description": "Accessibility aria-label for pin"
+        },
+        "waveColor": {
+          "type": "string",
+          "default": "#31313180",
+          "description": "Wave ripple effect color (when contEffect is wave type)"
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "pinType": "icon",
+          "pinIconType": "font_awesome",
+          "pinIcon": "fas fa-plus",
+          "contEffect": "normal_drop_waves",
+          "pinimgSize": "thumbnail",
+          "tipPlacement": "top",
+          "tipArrow": true,
+          "tipTriggers": "mouseenter",
+          "tipTheme": "light",
+          "pinUrl": "#",
+          "ariaLabel": "",
+          "pinText": "Pin",
+          "itemTooltip": true,
+          "piniconColor": "",
+          "pinBgcolor": "",
+          "tooltipColor": "",
+          "tooltipContentType": "text",
+          "tooltipText": "Your content will be here.",
+          "tooltipTypo": {
+            "openTypography": 0
+          },
+          "tipBoxShadow": {
+            "openShadow": 0
+          },
+          "tipBorder": {
+            "openBorder": 0,
+            "type": ""
+          },
+          "DleftAuto": true,
+          "leftPos": "20",
+          "topPos": "25",
+          "DtopAuto": true,
+          "waveColor": "#31313180",
+          "tipArrowColor": "",
+          "pinImage": {
+            "url": ""
+          }
+        }
+      ]
+    },
+    "pinWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "pinimgWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "textTypo": {
+      "$ref": "definitions://typography"
+    },
+    "hveOverlay": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show overlay background on pin hover"
+    },
+    "transfoemcss": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS transform for pin hover effect"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "hotspotImage",
+      "pinlistRepeater",
+      "iconSize",
+      "pinWidth",
+      "pinRadius",
+      "imgSize",
+      "pinimgWidth",
+      "pinimgRadius",
+      "textTypo",
+      "txtPadding",
+      "txtRadius",
+      "pinBshadow",
+      "pinHvrBshadow"
+    ],
+    "requiresValidation": [
+      "hveOverlay",
+      "hvrBgoverlay",
+      "transfoemcss"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

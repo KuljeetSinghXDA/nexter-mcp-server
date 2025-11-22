@@ -1,0 +1,458 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-circle-menu",
+  "title": "Circle Menu - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "layoutType": {
+      "type": "string",
+      "default": "circle",
+      "enum": [
+        "circle",
+        "straight"
+      ],
+      "description": "Menu layout: circular radial pattern or straight line"
+    },
+    "cDirection": {
+      "type": "string",
+      "default": "bottom-right",
+      "enum": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "description": "Circle menu opening direction (for circle layout)"
+    },
+    "menuStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2"
+      ],
+      "description": "Menu visual style (style-2 shows text labels)"
+    },
+    "sDirection": {
+      "type": "string",
+      "default": "right",
+      "enum": [
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "description": "Straight menu opening direction (for straight layout)"
+    },
+    "circleMenu": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Menu items with icons, links, and styling",
+      "items": {
+        "iconType": {
+          "type": "string",
+          "default": "icon",
+          "enum": [
+            "icon",
+            "image"
+          ],
+          "description": "Icon or image for menu item"
+        },
+        "iconStore": {
+          "type": "string",
+          "default": "fab fa-whatsapp",
+          "description": "Font Awesome icon class"
+        },
+        "imageStore": {
+          "type": "object",
+          "default": {
+            "url": ""
+          },
+          "description": "Image for menu item (when iconType is 'image')"
+        },
+        "imageSize": {
+          "type": "string",
+          "default": "thumbnail",
+          "description": "WordPress image size"
+        },
+        "title": {
+          "type": "string",
+          "default": "New Menu",
+          "description": "Menu item title/label"
+        },
+        "linkType": {
+          "type": "string",
+          "default": "url",
+          "enum": [
+            "url",
+            "email",
+            "phone"
+          ],
+          "description": "Link type: URL, email (mailto:), or phone (tel:)"
+        },
+        "linkUrl": {
+          "type": "object",
+          "default": {
+            "url": "#",
+            "target": "",
+            "nofollow": ""
+          },
+          "description": "URL link (when linkType is 'url')"
+        },
+        "emailtxt": {
+          "type": "string",
+          "default": "",
+          "description": "Email address (when linkType is 'email')"
+        },
+        "phoneNo": {
+          "type": "string",
+          "default": "",
+          "description": "Phone number (when linkType is 'phone')"
+        },
+        "ariaLabel": {
+          "type": "string",
+          "default": "",
+          "description": "ARIA label for accessibility"
+        },
+        "iconNmlColor": {
+          "type": "string",
+          "default": "",
+          "description": "Icon color (normal state)"
+        },
+        "iconHvrColor": {
+          "type": "string",
+          "default": "",
+          "description": "Icon color (hover state)"
+        },
+        "textNmlColor": {
+          "type": "string",
+          "default": "",
+          "description": "Text color (normal state, style-2)"
+        },
+        "textHvrColor": {
+          "type": "string",
+          "default": "",
+          "description": "Text color (hover state, style-2)"
+        },
+        "iconNmlBG": {
+          "type": "object",
+          "default": {},
+          "description": "Icon background (normal state)"
+        },
+        "iconHvrBG": {
+          "type": "object",
+          "default": {},
+          "description": "Icon background (hover state)"
+        },
+        "nmlBColor": {
+          "type": "string",
+          "default": "",
+          "description": "Border color (normal state)"
+        },
+        "hvrBColor": {
+          "type": "string",
+          "default": "",
+          "description": "Border color (hover state)"
+        },
+        "tooltipText": {
+          "type": "string",
+          "default": "I am tooltip.",
+          "description": "Tooltip text (Tippy.js integration)"
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "iconStore": "fab fa-facebook-f",
+          "title": "Facebook",
+          "linkUrl": {
+            "url": "#"
+          },
+          "iconNmlBG": {
+            "openBg": 1,
+            "bgDefaultColor": "#3a579a"
+          },
+          "tooltipText": "Facebook"
+        },
+        {
+          "_key": "1",
+          "iconStore": "fab fa-twitter",
+          "title": "Twitter",
+          "linkUrl": {
+            "url": "#"
+          },
+          "iconNmlBG": {
+            "openBg": 1,
+            "bgDefaultColor": "#0aaded"
+          },
+          "tooltipText": "Twitter"
+        },
+        {
+          "_key": "2",
+          "iconStore": "fab fa-instagram",
+          "title": "Instagram",
+          "linkUrl": {
+            "url": "#"
+          },
+          "iconNmlBG": {
+            "openBg": 1,
+            "bgDefaultColor": "#c32aa3"
+          },
+          "tooltipText": "Instagram"
+        },
+        {
+          "_key": "3",
+          "iconStore": "fab fa-linkedin-in",
+          "title": "LinkedIn",
+          "linkUrl": {
+            "url": "#"
+          },
+          "iconNmlBG": {
+            "openBg": 1,
+            "bgDefaultColor": "#127bb6"
+          },
+          "tooltipText": "LinkedIn"
+        }
+      ]
+    },
+    "tglIcnType": {
+      "type": "string",
+      "default": "icon",
+      "enum": [
+        "icon",
+        "image"
+      ],
+      "description": "Toggle button icon type"
+    },
+    "iconStore": {
+      "type": "string",
+      "default": "fas fa-home",
+      "description": "Font Awesome icon for toggle button"
+    },
+    "imageStore": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Image for toggle button (when tglIcnType is 'image')"
+    },
+    "tglStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2",
+        "style-3"
+      ],
+      "description": "Toggle button style"
+    },
+    "ariaLabel": {
+      "type": "string",
+      "default": "",
+      "description": "ARIA label for toggle button"
+    },
+    "iconPos": {
+      "type": "string",
+      "default": "absolute",
+      "enum": [
+        "absolute",
+        "relative",
+        "fixed"
+      ],
+      "description": "Toggle button CSS position type"
+    },
+    "openSpeed": {
+      "type": "string",
+      "default": "",
+      "description": "Opening animation speed in milliseconds (straight layout)"
+    },
+    "angleStart": {
+      "type": "string",
+      "default": "0",
+      "description": "Circle start angle in degrees (circle layout)"
+    },
+    "angleEnd": {
+      "type": "string",
+      "default": "90",
+      "description": "Circle end angle in degrees (circle layout)"
+    },
+    "iconDelay": {
+      "type": "string",
+      "default": "1000",
+      "description": "Icon animation delay in milliseconds (circle layout)"
+    },
+    "menuOSpeed": {
+      "type": "string",
+      "default": "500",
+      "description": "Menu opening speed in milliseconds (circle layout)"
+    },
+    "icnStepIn": {
+      "type": "string",
+      "default": "-20",
+      "description": "Icon step in distance in pixels (circle layout)"
+    },
+    "icnStepOut": {
+      "type": "string",
+      "default": "20",
+      "description": "Icon step out distance in pixels (circle layout)"
+    },
+    "icnTrigger": {
+      "type": "string",
+      "default": "hover",
+      "enum": [
+        "hover",
+        "click"
+      ],
+      "description": "Menu trigger type"
+    },
+    "icnTrans": {
+      "type": "string",
+      "default": "ease",
+      "enum": [
+        "ease",
+        "ease-in",
+        "ease-out",
+        "ease-in-out",
+        "linear"
+      ],
+      "description": "Icon transition timing function"
+    },
+    "tipInteractive": {
+      "type": "boolean",
+      "default": false,
+      "description": "Tippy.js interactive mode"
+    },
+    "tipPlacement": {
+      "type": "string",
+      "default": "top",
+      "enum": [
+        "top",
+        "bottom",
+        "left",
+        "right"
+      ],
+      "description": "Tooltip placement"
+    },
+    "tipTheme": {
+      "type": "string",
+      "default": "",
+      "description": "Tippy.js theme"
+    },
+    "tipMaxWidth": {
+      "type": "string",
+      "default": "100",
+      "description": "Tooltip max width in pixels"
+    },
+    "tipDistance": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip distance from trigger"
+    },
+    "tipArrow": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show tooltip arrow"
+    },
+    "tipTriggers": {
+      "type": "string",
+      "default": "mouseenter",
+      "description": "Tooltip trigger events"
+    },
+    "tipDurationIn": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip fade-in duration in milliseconds"
+    },
+    "tipDurationOut": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip fade-out duration in milliseconds"
+    },
+    "scrollToggle": {
+      "type": "boolean",
+      "default": false,
+      "description": "Toggle menu visibility on scroll"
+    },
+    "scrollValue": {
+      "type": "string",
+      "default": "",
+      "description": "Scroll value in pixels to toggle visibility"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "circleMenu",
+      "iconStore",
+      "imageStore",
+      "ariaLabel",
+      "leftASize",
+      "rightASize",
+      "topASize",
+      "bottomASize",
+      "iconGap",
+      "openSpeed",
+      "angleStart",
+      "angleEnd",
+      "circleRadius",
+      "iconDelay",
+      "menuOSpeed",
+      "icnStepIn",
+      "icnStepOut",
+      "tipMaxWidth",
+      "tipOffset",
+      "tipDistance",
+      "tipDurationIn",
+      "tipDurationOut",
+      "scrollValue",
+      "overlayColor"
+    ],
+    "requiresValidation": [
+      "layoutType",
+      "cDirection",
+      "menuStyle",
+      "sDirection",
+      "tglIcnType",
+      "tglStyle",
+      "iconPos",
+      "leftAuto",
+      "rightAuto",
+      "topAuto",
+      "bottomAuto",
+      "icnTrigger",
+      "icnTrans",
+      "tipInteractive",
+      "tipPlacement",
+      "tipTheme",
+      "tipArrow",
+      "tipTriggers",
+      "tipAnimation",
+      "scrollToggle",
+      "overlayColorTgl"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-column",
+  "version": "1.0.0",
+  "title": "Column",
+  "category": "layout",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Individual column block that must be used inside a tp-row block. Defines column width, alignment, spacing, and styling. Supports responsive widths, vertical/horizontal alignment, and Pro features incl",
+  "keywords": [
+    "column",
+    "grid column",
+    "layout column"
+  ],
+  "useCases": [
+    "Individual columns in row",
+    "Grid cells"
+  ]
+}

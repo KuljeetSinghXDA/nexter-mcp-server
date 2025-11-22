@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-pro-paragraph",
+  "title": "Paragraph - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "Showtitle": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide the heading title"
+    },
+    "title": {
+      "type": "string",
+      "default": "Save the Earth for future Generations.",
+      "description": "Optional heading title above paragraph"
+    },
+    "titleTag": {
+      "type": "string",
+      "default": "h3",
+      "enum": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "div",
+        "span",
+        "p"
+      ],
+      "description": "HTML tag for title"
+    },
+    "content": {
+      "type": "string",
+      "default": "",
+      "description": "Main paragraph content (supports HTML)"
+    },
+    "descTag": {
+      "type": "string",
+      "default": "p",
+      "enum": [
+        "div",
+        "p"
+      ],
+      "description": "HTML wrapper tag for content"
+    },
+    "textTypo": {
+      "$ref": "definitions://typography"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "",
+      "description": "Paragraph text color"
+    },
+    "linkColor": {
+      "type": "string",
+      "default": "",
+      "description": "Link color within paragraph"
+    },
+    "linkHoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Link hover color"
+    },
+    "textShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "HovertextShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "content",
+      "title",
+      "Showtitle",
+      "alignment",
+      "textColor",
+      "linkColor",
+      "linkHoverColor"
+    ],
+    "requiresValidation": [
+      "titleTag",
+      "descTag",
+      "textTypo",
+      "titleTypo"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

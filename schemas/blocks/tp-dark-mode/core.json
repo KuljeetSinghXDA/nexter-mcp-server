@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-dark-mode",
+  "title": "Dark Mode - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "dmStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2",
+        "style-3"
+      ],
+      "description": "Dark mode toggle visual style"
+    },
+    "S2IconType": {
+      "type": "string",
+      "default": "icon",
+      "description": "Icon type for style-2"
+    },
+    "IconName": {
+      "type": "string",
+      "default": "fas fa-sun",
+      "description": "Light mode Font Awesome icon class"
+    },
+    "darkIconEn": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable separate dark mode icon"
+    },
+    "darkIcon": {
+      "type": "string",
+      "default": "fas fa-moon",
+      "description": "Dark mode Font Awesome icon class (when darkIconEn is true)"
+    },
+    "saveCookies": {
+      "type": "boolean",
+      "default": false,
+      "description": "Save user preference in cookies"
+    },
+    "matchOsTheme": {
+      "type": "boolean",
+      "default": true,
+      "description": "Match operating system theme automatically"
+    },
+    "absoluteOff": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "fixedPos": {
+      "type": "string",
+      "default": "left-top",
+      "enum": [
+        "left-top",
+        "left-bottom",
+        "right-top",
+        "right-bottom"
+      ],
+      "description": "Fixed position corner (when dmPosition is 'fixed')"
+    },
+    "beforeText": {
+      "type": "string",
+      "default": "Normal",
+      "description": "Text before toggle (style-1/2)"
+    },
+    "afterText": {
+      "type": "string",
+      "default": "Dark",
+      "description": "Text after toggle (style-1/2)"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "IconName",
+      "darkIcon",
+      "switchSize",
+      "icons2Size",
+      "bgs3Size",
+      "iconLgtColor",
+      "iconDarkColor",
+      "beforeText",
+      "afterText",
+      "beforeColor",
+      "afterColor",
+      "beforeOffset",
+      "afterOffset",
+      "Alignment",
+      "absoluteOff",
+      "dmRightOf",
+      "dmBottomOf"
+    ],
+    "requiresValidation": [
+      "dmStyle",
+      "S2IconType",
+      "darkIconEn",
+      "saveCookies",
+      "matchOsTheme",
+      "dmPosition",
+      "fixedPos"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

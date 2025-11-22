@@ -1,0 +1,271 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-advanced-chart",
+  "title": "Advanced Chart - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "chartType": {
+      "type": "string",
+      "default": "line",
+      "enum": [
+        "line",
+        "bar",
+        "pie",
+        "doughnut",
+        "radar",
+        "polarArea",
+        "bubble"
+      ],
+      "description": "Chart type selection"
+    },
+    "barType": {
+      "type": "string",
+      "default": "horizontal",
+      "enum": [
+        "horizontal",
+        "vertical"
+      ],
+      "description": "Bar chart orientation (when chartType is 'bar')"
+    },
+    "pieType": {
+      "type": "string",
+      "default": "doughnut",
+      "enum": [
+        "pie",
+        "doughnut"
+      ],
+      "description": "Pie chart variant (when chartType is 'pie')"
+    },
+    "labelValue": {
+      "type": "string",
+      "default": "Jan | Feb | Mar",
+      "description": "X-axis labels separated by pipes (for line, bar, radar charts)"
+    },
+    "dataBox": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Datasets for line, bar, and radar charts",
+      "items": {
+        "label": {
+          "type": "string",
+          "default": "Label",
+          "description": "Dataset label/legend name"
+        },
+        "data": {
+          "type": "string",
+          "default": "0|25|42",
+          "description": "Data values separated by pipes (one per label)"
+        },
+        "multiDot": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use multiple dot colors (one per data point)"
+        },
+        "fillBG": {
+          "type": "string",
+          "default": "#ffff99",
+          "description": "Fill/background color for area (line/radar charts)"
+        },
+        "bdrColor": {
+          "type": "string",
+          "default": "#ffff00",
+          "description": "Border/line color"
+        },
+        "singleDot": {
+          "type": "string",
+          "default": "#ffff00",
+          "description": "Single dot/point color (when multiDot is false)"
+        },
+        "multiDotBG": {
+          "type": "string",
+          "default": "#f7d78299 | #6fc78499 | #8072fc99",
+          "description": "Multiple dot background colors separated by pipes"
+        },
+        "multiBdr": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use multiple border colors"
+        },
+        "dotBColor": {
+          "type": "string",
+          "default": "#ffff99",
+          "description": "Dot border color (when multiBdr is false)"
+        },
+        "dotMultiBColor": {
+          "type": "string",
+          "default": "#f7d782 | #6fc784 | #8072fc",
+          "description": "Multiple dot border colors separated by pipes"
+        },
+        "fillTgl": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable fill under line (line charts)"
+        },
+        "bDashTgl": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use dashed border line"
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "label": "Jan",
+          "data": "25|15|30",
+          "fillBG": "#ff9999",
+          "bdrColor": "#ff0000",
+          "multiDot": false,
+          "singleDot": "#ff9999",
+          "multiDotBG": "#f7d78299 | #6fc78499 | #8072fc99",
+          "multiBdr": false,
+          "dotBColor": "#ff0000",
+          "dotMultiBColor": "#f7d782 | #6fc784 | #8072fc"
+        },
+        {
+          "_key": "1",
+          "label": "Feb",
+          "data": "12|18|28",
+          "fillBG": "#99ff99",
+          "bdrColor": "#00ff00",
+          "multiDot": false,
+          "singleDot": "#99ff99",
+          "multiDotBG": "#f7d78299 | #6fc78499 | #8072fc99",
+          "multiBdr": false,
+          "dotBColor": "#00ff00",
+          "dotMultiBColor": "#f7d782 | #6fc784 | #8072fc"
+        },
+        {
+          "_key": "2",
+          "label": "Mar",
+          "data": "11|20|40",
+          "fillBG": "#9999ff",
+          "bdrColor": "#0000ff",
+          "multiDot": false,
+          "singleDot": "#9999ff",
+          "multiDotBG": "#f7d78299 | #6fc78499 | #8072fc99",
+          "multiBdr": false,
+          "dotBColor": "#0000ff",
+          "dotMultiBColor": "#f7d782 | #6fc784 | #8072fc"
+        }
+      ]
+    },
+    "aloneData": {
+      "type": "string",
+      "default": "10 | 15 | 20",
+      "description": "Standalone data values for simple charts (pie, doughnut, polar area)"
+    },
+    "aloneBdr": {
+      "type": "string",
+      "default": "#f7d78299 | #6fc78499 | #8072fc99",
+      "description": "Border colors for standalone data (separated by pipes)"
+    },
+    "dntDataBox": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Datasets for doughnut/pie charts with multiple rings",
+      "items": {
+        "dntLabel": {
+          "type": "string",
+          "default": "Label",
+          "description": "Dataset label"
+        },
+        "dntData": {
+          "type": "string",
+          "default": "0 | 25 | 42",
+          "description": "Data values separated by pipes"
+        },
+        "dntBG": {
+          "type": "string",
+          "default": "#ff5a6e99 | #8072fc99 | #6fc78499",
+          "description": "Background colors separated by pipes"
+        },
+        "dntBdr": {
+          "type": "string",
+          "default": "#000000 | #000000 | #000000",
+          "description": "Border colors separated by pipes"
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "dntLabel": "Jan",
+          "dntData": "25 | 15 | 30",
+          "dntBG": "#ff5a6e99 | #8072fc99 | #6fc78499",
+          "dntBdr": "#000000 | #000000 | #000000"
+        },
+        {
+          "_key": "1",
+          "dntLabel": "Feb",
+          "dntData": "12 | 18 | 28",
+          "dntBG": "#f7d78299 | #6fc78499 | #8072fc99",
+          "dntBdr": "#40e0d0 | #40e0d0 | #40e0d0"
+        },
+        {
+          "_key": "2",
+          "dntLabel": "Mar",
+          "dntData": "11 | 20 | 40",
+          "dntBG": "#71d1dc99 | #8072fc99 | #ff5a6e99",
+          "dntBdr": "#000000 | #000000 | #000000"
+        }
+      ]
+    },
+    "bblDataBox": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Datasets for bubble charts (x, y, radius)",
+      "items": {
+        "bblLabel": {
+          "type": "string",
+          "default": "Label",
+          "description": "Bubble dataset label"
+        },
+        "bblData": {
+          "type": "string",
+          "default": "[23|34|28][8|16|24][4|12|18]",
+          "description": "Bubble data in format [x|y|r][x|y|r]... (x, y, radius triplets)"
+        }
+      }
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelValue",
+      "dataBox",
+      "aloneData",
+      "aloneBG",
+      "aloneBdr",
+      "dntDataBox",
+      "bblDataBox"
+    ],
+    "requiresValidation": [
+      "chartType",
+      "barType",
+      "pieType"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

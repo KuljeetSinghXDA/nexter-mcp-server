@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-google-map",
+  "version": "1.0.0",
+  "title": "Google Map",
+  "category": "advanced",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Embed Google Maps with multiple location markers/pins, custom map styles, optional overlay content, and full control over map interactions. Perfect for contact pages, store locators, event locations, ",
+  "keywords": [
+    "map",
+    "google maps",
+    "location",
+    "embed map"
+  ],
+  "useCases": [
+    "Location maps",
+    "Store locators",
+    "Contact page maps"
+  ]
+}

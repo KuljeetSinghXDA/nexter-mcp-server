@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-repeater-block",
+  "title": "Repeater - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "postOpt": {
+      "type": "object",
+      "default": {
+        "label": "",
+        "value": ""
+      },
+      "description": "Post/page selection for ACF data source"
+    },
+    "gridColumns": {
+      "type": "object",
+      "default": {
+        "md": "2"
+      },
+      "description": "Number of grid columns",
+      "responsive": true
+    },
+    "columnsGap": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "rowGap": {
+      "$ref": "definitions://responsive-unit"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "gridColumns",
+      "contPad",
+      "columnsGap",
+      "rowGap",
+      "repField",
+      "postOpt"
+    ],
+    "requiresValidation": [
+      "sourceOpt",
+      "selectedLayout"
+    ]
+  },
+  "styleDependencies": [
+    "CSS Grid layout system",
+    "ACF (Advanced Custom Fields) integration",
+    "Dynamic data loading",
+    "Template context passing"
+  ]
+}

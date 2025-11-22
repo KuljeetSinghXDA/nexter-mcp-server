@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-dark-mode",
+  "version": "1.0.0",
+  "title": "Dark Mode",
+  "category": "advanced",
+  "source": "free",
+  "complexity": "advanced",
+  "description": "Manage light and dark mode using global color palettes. Toggle between light and dark themes with customizable switch styles. Features 3 visual styles, positioning options (relative/absolute/fixed), c",
+  "keywords": [
+    "dark mode",
+    "theme toggle",
+    "light dark",
+    "color scheme"
+  ],
+  "useCases": [
+    "Dark/light mode switchers",
+    "Theme toggles"
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "blockName": "tpgb/tp-button",
+  "version": "1.0.0",
+  "title": "Advanced Button",
+  "category": "content",
+  "description": "Highly customizable call-to-action button with 23+ style variants, hover effects, icons, FancyBox popup support, and extensive styling options. Perfect for conversions, downloads, links, and user actions.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "styleType": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2", "style-3", "style-4", "style-5", "style-6", "style-7", "style-8", "style-9", "style-10", "style-11", "style-12", "style-13", "style-14", "style-15", "style-16", "style-17", "style-18", "style-19", "style-20", "style-21", "style-22", "style-23"],
+      "description": "Button visual style variant (23 different styles available)"
+    },
+    "btnText": {
+      "type": "string",
+      "default": "Buy Now",
+      "description": "Button text label"
+    },
+    "hoverText": {
+      "type": "string",
+      "default": "Click Here",
+      "description": "Alternative text shown on hover (for specific styles)"
+    },
+    "btnTagText": {
+      "type": "string",
+      "default": "Click Here",
+      "description": "Tag/hint text for style-23"
+    },
+    "btnLink": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "target": "",
+        "nofollow": ""
+      },
+      "description": "Button link settings: URL, target (_blank, _self), nofollow"
+    },
+    "fancyBox": {
+      "type": "boolean",
+      "default": false,
+      "description": "Open link in FancyBox popup/lightbox"
+    },
+    "templates": {
+      "type": "string",
+      "default": "",
+      "description": "Block template ID for FancyBox content"
+    },
+    "Alignment": {
+      "type": "object",
+      "default": {
+        "md": "left",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Responsive button alignment (left/center/right)",
+      "responsive": true
+    },
+    "btnHvrType": {
+      "type": "string",
+      "default": "hover-left",
+      "enum": ["hover-left", "hover-right", "hover-top", "hover-bottom"],
+      "description": "Button hover animation direction"
+    },
+    "iconType": {
+      "type": "string",
+      "default": "fontAwesome",
+      "enum": ["none", "fontAwesome", "image"],
+      "description": "Icon type: Font Awesome icon or custom image"
+    },
+    "fontAwesomeIcon": {
+      "type": "string",
+      "default": "fa fa-chevron-right",
+      "description": "Font Awesome icon class"
+    },
+    "imageName": {
+      "type": "object",
+      "default": [],
+      "description": "Custom icon image"
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "full",
+      "description": "Icon image size"
+    },
+    "iconPosition": {
+      "type": "string",
+      "default": "iconAfter",
+      "enum": ["iconBefore", "iconAfter"],
+      "description": "Icon position relative to button text"
+    },
+    "icnVrtcal": {
+      "type": "string",
+      "default": "icon-top",
+      "enum": ["icon-top", "icon-middle", "icon-bottom"],
+      "description": "Vertical icon alignment"
+    },
+    "iconHvrType": {
+      "type": "string",
+      "default": "hover-top",
+      "description": "Icon hover animation type"
+    },
+    "iconSpace": {
+      "type": "object",
+      "default": {
+        "md": "",
+        "unit": "px"
+      },
+      "description": "Spacing between icon and text",
+      "responsive": true
+    },
+    "iconSize": {
+      "type": "object",
+      "default": {
+        "md": "",
+        "unit": "px"
+      },
+      "description": "Icon size",
+      "responsive": true
+    },
+    "ariaLabel": {
+      "type": "string",
+      "default": "",
+      "description": "ARIA label for accessibility"
+    },
+    "innerPadding": {
+      "type": "object",
+      "default": {
+        "md": {"top": "", "right": "", "bottom": "", "left": ""},
+        "unit": "px"
+      },
+      "description": "Button inner padding",
+      "responsive": true
+    },
+    "texTyp": {
+      "type": "object",
+      "default": {
+        "openTypography": 0,
+        "size": {"md": "", "unit": "px"}
+      },
+      "description": "Button text typography settings",
+      "responsive": true
+    },
+    "tagTyp": {
+      "type": "object",
+      "default": {
+        "openTypography": 0,
+        "size": {"md": "", "unit": "px"}
+      },
+      "description": "Tag text typography (style-23)",
+      "responsive": true
+    },
+    "btnTextNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (normal state)"
+    },
+    "btnTextHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (hover state)"
+    },
+    "backendVisi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Backend visibility flag"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "btnText",
+      "hoverText",
+      "btnTagText",
+      "btnLink",
+      "Alignment",
+      "fontAwesomeIcon",
+      "iconPosition",
+      "iconSpace",
+      "innerPadding",
+      "btnTextNmlColor",
+      "btnTextHvrColor",
+      "ariaLabel"
+    ],
+    "requiresValidation": [
+      "styleType",
+      "btnHvrType",
+      "iconHvrType",
+      "iconType",
+      "fancyBox",
+      "templates"
+    ],
+    "dangerous": [
+      "block_id",
+      "backendVisi"
+    ]
+  },
+  "styleDependencies": [
+    "Button style CSS (23 variants)",
+    "Hover animation effects",
+    "Icon font library (Font Awesome)",
+    "FancyBox/lightbox library (if enabled)",
+    "Responsive styling"
+  ],
+  "commonUseCases": [
+    "Call-to-action buttons",
+    "Download buttons",
+    "'Buy Now' or 'Add to Cart' buttons",
+    "External link buttons",
+    "Popup/modal trigger buttons",
+    "Form submit buttons",
+    "Navigation buttons",
+    "Social media action buttons"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-heading-title",
+    "tpgb/tp-pro-paragraph",
+    "tpgb/tp-container",
+    "tpgb/tp-icon-box"
+  ],
+  "capabilities": [
+    "23+ button style variants",
+    "Custom hover effects and animations",
+    "Icon support (Font Awesome or custom image)",
+    "Icon positioning (before/after text)",
+    "FancyBox popup integration",
+    "Responsive typography and sizing",
+    "Link targeting and nofollow options",
+    "Accessibility support (ARIA labels)",
+    "Custom padding and spacing",
+    "Gradient and shadow effects",
+    "Border and border radius styling",
+    "Multiple color states (normal/hover)"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple primary CTA button",
+      "attributes": {
+        "block_id": "a1b2",
+        "styleType": "style-1",
+        "btnText": "Get Started",
+        "btnLink": {"url": "/signup", "target": "_self", "nofollow": ""},
+        "iconType": "fontAwesome",
+        "fontAwesomeIcon": "fas fa-arrow-right",
+        "iconPosition": "iconAfter",
+        "Alignment": {"md": "center"}
+      }
+    },
+    {
+      "description": "Button with hover text change",
+      "attributes": {
+        "block_id": "c3d4",
+        "styleType": "style-7",
+        "btnText": "Learn More",
+        "hoverText": "Click Now!",
+        "btnHvrType": "hover-left"
+      }
+    },
+    {
+      "description": "FancyBox popup button",
+      "attributes": {
+        "block_id": "e5f6",
+        "btnText": "Watch Video",
+        "fancyBox": true,
+        "btnLink": {"url": "https://youtube.com/watch?v=...", "target": "_blank"},
+        "iconType": "fontAwesome",
+        "fontAwesomeIcon": "fas fa-play"
+      }
+    }
+  ]
+}

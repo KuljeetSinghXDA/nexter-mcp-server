@@ -1,0 +1,201 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-testimonials",
+  "title": "Testimonials - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "style4Alignment": {
+      "type": "string",
+      "default": "left",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "description": "Content alignment for style-4"
+    },
+    "caroByheight": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "height"
+      ],
+      "description": "Carousel height mode"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleNormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Post title color (normal)"
+    },
+    "titleHoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Post title color (hover)"
+    },
+    "AuthortitleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "AuthortitleNormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Author title color (normal)"
+    },
+    "AuthortitleHoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Author title color (hover)"
+    },
+    "DesTypo": {
+      "$ref": "definitions://typography"
+    },
+    "DesNormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Designation color (normal)"
+    },
+    "DesHoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Designation color (hover)"
+    },
+    "contentTypo": {
+      "$ref": "definitions://typography"
+    },
+    "cntntMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "contentNormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Content text color (normal)"
+    },
+    "cntHovercolor": {
+      "type": "string",
+      "default": "",
+      "description": "Content text color (hover)"
+    },
+    "starSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "TopSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "bottomSpc": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "stnrmColor": {
+      "type": "string",
+      "default": "#bcb0b0",
+      "description": "Star color (normal or outline)"
+    },
+    "stactColor": {
+      "type": "string",
+      "default": "#f5a623",
+      "description": "Active/filled star color"
+    },
+    "avatarSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "avatarBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Avatar border"
+    },
+    "avatarBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "itemPadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "itemMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "itemBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Testimonial item border (normal)"
+    },
+    "itemHvrBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Testimonial item border (hover)"
+    },
+    "itemBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "itemBgType": {
+      "$ref": "definitions://background"
+    },
+    "itemHvrBgType": {
+      "$ref": "definitions://background"
+    },
+    "itemBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "itemHvrBshadow": {
+      "$ref": "definitions://shadow"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "ItemRepeater",
+      "columns",
+      "columnSpace",
+      "contentHei",
+      "titleHei",
+      "descLimit",
+      "titleLimit",
+      "redmorTxt",
+      "redlesTxt",
+      "titleTypo",
+      "titleNormalColor",
+      "titleHoverColor",
+      "AuthortitleTypo",
+      "DesTypo",
+      "contentTypo",
+      "contentNormalColor",
+      "starSize",
+      "TopSpace",
+      "bottomSpc",
+      "betSpc",
+      "stnrmColor",
+      "stactColor",
+      "avatarSize",
+      "itemPadding",
+      "itemMargin",
+      "cntntMargin"
+    ],
+    "requiresValidation": [
+      "style",
+      "telayout",
+      "styleLayout",
+      "style4Alignment",
+      "carouselId",
+      "rating",
+      "cntscrollOn",
+      "descByLimit",
+      "caroByheight",
+      "titleByLimit",
+      "starIcon",
+      "stoutLine"
+    ]
+  },
+  "styleDependencies": [
+    "Swiper.js or similar carousel library (when telayout is 'carousel')",
+    "Read more/less toggle JavaScript",
+    "Content scrolling behavior",
+    "Star rating display",
+    "Grid layout system",
+    "Carousel remote control support"
+  ]
+}

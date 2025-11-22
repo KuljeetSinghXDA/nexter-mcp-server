@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-button",
+  "title": "Advanced Button - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple primary CTA button",
+      "attributes": {
+        "block_id": "a1b2",
+        "styleType": "style-1",
+        "btnText": "Get Started",
+        "btnLink": {
+          "url": "/signup",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "iconType": "fontAwesome",
+        "fontAwesomeIcon": "fas fa-arrow-right",
+        "iconPosition": "iconAfter",
+        "Alignment": {
+          "md": "center"
+        }
+      }
+    },
+    {
+      "description": "Button with hover text change",
+      "attributes": {
+        "block_id": "c3d4",
+        "styleType": "style-7",
+        "btnText": "Learn More",
+        "hoverText": "Click Now!",
+        "btnHvrType": "hover-left"
+      }
+    },
+    {
+      "description": "FancyBox popup button",
+      "attributes": {
+        "block_id": "e5f6",
+        "btnText": "Watch Video",
+        "fancyBox": true,
+        "btnLink": {
+          "url": "https://youtube.com/watch?v=...",
+          "target": "_blank"
+        },
+        "iconType": "fontAwesome",
+        "fontAwesomeIcon": "fas fa-play"
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

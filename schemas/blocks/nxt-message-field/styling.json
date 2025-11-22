@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-message-field",
+  "title": "Message - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {},
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "placeholder",
+      "error",
+      "desctxt",
+      "lineNum",
+      "inpSz"
+    ],
+    "requiresValidation": [
+      "reqTgl",
+      "hlpTxt",
+      "autoComplete",
+      "descPoss"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Textarea element styling"
+  ]
+}

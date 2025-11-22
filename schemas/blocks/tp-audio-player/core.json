@@ -1,0 +1,195 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-audio-player",
+  "title": "Audio Player - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "Apstyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2",
+        "style-3",
+        "style-4",
+        "style-5",
+        "style-6",
+        "style-7",
+        "style-8",
+        "style-9"
+      ],
+      "description": "Audio player visual style (9 options)"
+    },
+    "Aprepeater": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Playlist tracks with title, author, audio source, and cover image",
+      "items": {
+        "title": {
+          "type": "string",
+          "default": "Shape of You",
+          "description": "Track title"
+        },
+        "author": {
+          "type": "string",
+          "default": "Ed Sheeran",
+          "description": "Track artist/author"
+        },
+        "AudSource": {
+          "type": "string",
+          "default": "url",
+          "enum": [
+            "url",
+            "self"
+          ],
+          "description": "Audio source type: URL or self-hosted file"
+        },
+        "sorself": {
+          "type": "object",
+          "default": {
+            "url": "",
+            "Id": ""
+          },
+          "description": "Self-hosted audio file (when AudSource is 'self')"
+        },
+        "sorurl": {
+          "type": "object",
+          "default": {
+            "url": "",
+            "target": "",
+            "nofollow": ""
+          },
+          "description": "External audio URL (when AudSource is 'url')"
+        },
+        "Imagesource": {
+          "type": "object",
+          "default": {
+            "url": "",
+            "Id": ""
+          },
+          "description": "Track cover/thumbnail image"
+        }
+      },
+      "default": [
+        {
+          "_key": "1",
+          "title": "Shape of You",
+          "author": "Ed Sheeran",
+          "AudSource": "url",
+          "Imagesource": {
+            "url": ""
+          },
+          "sorurl": {
+            "url": ""
+          }
+        }
+      ]
+    },
+    "Audioimage": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "Id": ""
+      },
+      "description": "Default cover image (used when track has no specific image)"
+    },
+    "SplitText": {
+      "type": "string",
+      "default": "by",
+      "description": "Separator text between title and author (e.g., 'Title by Author')"
+    },
+    "MaxWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "DefaultVolume": {
+      "type": "string",
+      "default": "",
+      "description": "Initial volume level (0-100)"
+    },
+    "TitleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title text color"
+    },
+    "SpliTextColor": {
+      "type": "string",
+      "default": "",
+      "description": "Separator text color"
+    },
+    "TTWidth": {
+      "type": "object",
+      "default": {
+        "unit": "%"
+      },
+      "description": "Track/timeline width",
+      "responsive": true
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "Aprepeater",
+      "Audioimage",
+      "SplitText",
+      "MaxWidth",
+      "DefaultVolume",
+      "SongFont",
+      "TitleColor",
+      "AuthorFont",
+      "Authorcolor",
+      "IconColor",
+      "IconSize",
+      "PlayPausecolor",
+      "PlayPauseSize",
+      "bgsize",
+      "bgtype",
+      "BorderRadius",
+      "VolSize",
+      "VolIcolor",
+      "VolScolor",
+      "TDotColor",
+      "Trackcolor",
+      "TFillcolor",
+      "PLTypography",
+      "NormalColor",
+      "ActiveColor",
+      "PlBgType",
+      "PBPadding"
+    ],
+    "requiresValidation": [
+      "Apstyle",
+      "ImageSize",
+      "BackgroundType",
+      "TTWidth",
+      "TIBorder",
+      "PlBgCr",
+      "PlborderR",
+      "PlBoxshadow",
+      "PBGCSSFilters"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

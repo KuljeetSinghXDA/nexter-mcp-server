@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-anything-slide",
+  "title": "Slide Inner - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "key": {
+      "type": "string",
+      "default": "",
+      "description": "Unique key identifier for the slide"
+    },
+    "itemId": {
+      "type": "string",
+      "default": "",
+      "description": "Item ID for slide identification and tracking"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "itemId"
+    ],
+    "requiresValidation": [
+      "key"
+    ],
+    "dangerous": []
+  },
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": true
+}

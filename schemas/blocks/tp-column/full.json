@@ -1,0 +1,342 @@
+{
+  "blockName": "tpgb/tp-column",
+  "version": "1.0.0",
+  "title": "Column",
+  "category": "layout",
+  "description": "Individual column block that must be used inside a tp-row block. Defines column width, alignment, spacing, and styling. Supports responsive widths, vertical/horizontal alignment, and Pro features including sticky positioning and column link wrapper. Cannot be inserted independently - requires tp-row parent.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "className": {
+      "type": "string",
+      "default": "",
+      "description": "Additional CSS class names"
+    },
+    "Width": {
+      "type": "object",
+      "default": {"md": 50, "sm": 50, "xs": 100, "unit": "%", "device": "md"},
+      "description": "Column width percentage (responsive)",
+      "responsive": true
+    },
+    "verticalPos": {
+      "type": "object",
+      "default": {"md": "", "sm": "", "xs": ""},
+      "description": "Vertical alignment of content (flex align-items) - responsive",
+      "responsive": true
+    },
+    "verticalPosition": {
+      "type": "string",
+      "default": "",
+      "enum": ["", "flex-start", "center", "flex-end", "stretch"],
+      "description": "Vertical alignment of content (non-responsive fallback)"
+    },
+    "horizontalPos": {
+      "type": "object",
+      "default": {"md": "", "sm": "", "xs": ""},
+      "description": "Horizontal alignment of content (flex justify-content) - responsive",
+      "responsive": true
+    },
+    "horizontalPosition": {
+      "type": "string",
+      "default": "",
+      "enum": ["", "flex-start", "center", "flex-end", "space-between", "space-around", "space-evenly"],
+      "description": "Horizontal alignment of content (non-responsive fallback)"
+    },
+    "blockSpace": {
+      "type": "object",
+      "default": {"md": ""},
+      "description": "Spacing between blocks inside the column (margin-bottom)",
+      "responsive": true
+    },
+    "NormalBg": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": ""},
+      "description": "Background styling (normal state)"
+    },
+    "HoverBg": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": ""},
+      "description": "Background styling (hover state)"
+    },
+    "NormalBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": ""}
+      },
+      "description": "Border styling (normal state)"
+    },
+    "HoverBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0,
+        "type": "",
+        "color": "",
+        "width": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": ""}
+      },
+      "description": "Border styling (hover state)"
+    },
+    "NormalBradius": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Border radius (normal state)",
+      "responsive": true
+    },
+    "HoverBradius": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Border radius (hover state)",
+      "responsive": true
+    },
+    "NormalBShadow": {
+      "type": "object",
+      "default": {
+        "openShadow": 0,
+        "inset": 0,
+        "horizontal": 0,
+        "vertical": 4,
+        "blur": 8,
+        "spread": 0,
+        "color": "rgba(0,0,0,0.40)"
+      },
+      "description": "Box shadow (normal state)"
+    },
+    "HoverBShadow": {
+      "type": "object",
+      "default": {
+        "openShadow": 0,
+        "inset": 0,
+        "horizontal": 0,
+        "vertical": 4,
+        "blur": 8,
+        "spread": 0,
+        "color": "rgba(0,0,0,0.40)"
+      },
+      "description": "Box shadow (hover state)"
+    },
+    "Margin": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Column margin",
+      "responsive": true
+    },
+    "Padding": {
+      "type": "object",
+      "default": {"md": {"top": "", "bottom": "", "left": "", "right": ""}, "unit": "px"},
+      "description": "Column padding (inner spacing)",
+      "responsive": true
+    },
+    "stickycol": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Enable sticky column positioning (scrolls with page)",
+      "proFeature": true
+    },
+    "topSpace": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Top offset for sticky column (distance from viewport top)",
+      "proFeature": true
+    },
+    "botSpace": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Bottom offset for sticky column (distance from viewport bottom)",
+      "proFeature": true
+    },
+    "stickyDes": {
+      "type": "boolean",
+      "default": true,
+      "description": "Pro: Enable sticky on desktop",
+      "proFeature": true
+    },
+    "stickyTab": {
+      "type": "boolean",
+      "default": true,
+      "description": "Pro: Enable sticky on tablet",
+      "proFeature": true
+    },
+    "stickyMob": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Enable sticky on mobile",
+      "proFeature": true
+    },
+    "colOrder": {
+      "type": "object",
+      "default": {"md": "", "unit": ""},
+      "description": "Flexbox order for reordering columns (responsive)",
+      "responsive": true
+    },
+    "ZIndex": {
+      "type": "string",
+      "default": "",
+      "description": "CSS z-index stacking order"
+    },
+    "customClasses": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS classes"
+    },
+    "customCss": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS rules for this block"
+    },
+    "hideDesktop": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide column on desktop (1201px+)"
+    },
+    "hideTablet": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide column on tablet (768-1200px)"
+    },
+    "hideMobile": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide column on mobile (767px and below)"
+    },
+    "wrapLink": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Wrap entire column in a clickable link",
+      "proFeature": true
+    },
+    "colUrl": {
+      "type": "object",
+      "default": {"url": "", "target": "", "nofollow": ""},
+      "description": "Pro: Column link URL and settings",
+      "proFeature": true
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "Width",
+      "verticalPos",
+      "verticalPosition",
+      "horizontalPos",
+      "horizontalPosition",
+      "blockSpace",
+      "Padding",
+      "Margin",
+      "NormalBg",
+      "HoverBg",
+      "NormalBorder",
+      "HoverBorder",
+      "NormalBradius",
+      "HoverBradius",
+      "NormalBShadow",
+      "HoverBShadow",
+      "colOrder",
+      "customClasses",
+      "hideDesktop",
+      "hideTablet",
+      "hideMobile"
+    ],
+    "requiresValidation": [
+      "stickycol",
+      "topSpace",
+      "botSpace",
+      "stickyDes",
+      "stickyTab",
+      "stickyMob",
+      "ZIndex"
+    ],
+    "dangerous": [
+      "block_id",
+      "className"
+    ]
+  },
+  "styleDependencies": [
+    "Flexbox layout CSS",
+    "Column width calculations",
+    "Sticky positioning CSS (Pro)",
+    "Responsive breakpoint handling"
+  ],
+  "commonUseCases": [
+    "Individual columns in multi-column layouts (legacy)",
+    "50/50 two-column layouts",
+    "33/33/33 three-column layouts",
+    "25/75 sidebar layouts",
+    "Sticky sidebar columns (Pro)",
+    "Responsive column reordering",
+    "Note: Modern layouts prefer tp-container-inner"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-row",
+    "tpgb/tp-container",
+    "tpgb/tp-container-inner"
+  ],
+  "capabilities": [
+    "Responsive column widths",
+    "Vertical content alignment (flex align-items)",
+    "Horizontal content alignment (flex justify-content)",
+    "Block spacing control",
+    "Normal/Hover state styling",
+    "Responsive visibility controls",
+    "Flexbox order reordering",
+    "Pro: Sticky column positioning with responsive controls",
+    "Pro: Sticky offset controls (top/bottom)",
+    "Pro: Column link wrapper",
+    "Custom CSS and classes"
+  ],
+  "usesContext": [],
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "inserter": false
+  },
+  "innerBlocksAllowed": true,
+  "allowedInnerBlocks": ["*"],
+  "parentBlockRequired": true,
+  "requiredParentBlock": "tpgb/tp-row",
+  "examples": [
+    {
+      "description": "50% width column with center alignment",
+      "attributes": {
+        "block_id": "a1b2",
+        "Width": {"md": 50, "sm": 50, "xs": 100, "unit": "%"},
+        "verticalPosition": "center",
+        "horizontalPosition": "center",
+        "Padding": {"md": {"top": "20", "bottom": "20", "left": "20", "right": "20"}, "unit": "px"}
+      }
+    },
+    {
+      "description": "33% width column with background",
+      "attributes": {
+        "block_id": "c3d4",
+        "Width": {"md": 33.33, "sm": 50, "xs": 100, "unit": "%"},
+        "NormalBg": {"openBg": 1, "bgType": "color", "bgColor": "#f5f5f5"},
+        "Padding": {"md": {"top": "30", "bottom": "30", "left": "20", "right": "20"}, "unit": "px"}
+      }
+    },
+    {
+      "description": "Pro: Sticky sidebar column (25% width)",
+      "attributes": {
+        "block_id": "e5f6",
+        "Width": {"md": 25, "sm": 100, "xs": 100, "unit": "%"},
+        "stickycol": true,
+        "topSpace": "100",
+        "stickyDes": true,
+        "stickyTab": false,
+        "stickyMob": false
+      }
+    },
+    {
+      "description": "Reordered column (appears first on mobile)",
+      "attributes": {
+        "block_id": "g7h8",
+        "Width": {"md": 50, "sm": 50, "xs": 100, "unit": "%"},
+        "colOrder": {"md": "2", "sm": "2", "xs": "1"}
+      }
+    }
+  ]
+}

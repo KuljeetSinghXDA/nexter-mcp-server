@@ -1,0 +1,304 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-dynamic-device",
+  "title": "Dynamic Device - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "laptopDevice": {
+      "type": "string",
+      "default": "laptop-macbook-black",
+      "description": "Laptop device mockup variant (when deviceType is 'laptop')"
+    },
+    "desktopDevice": {
+      "type": "string",
+      "default": "desktop-imac-minimal",
+      "description": "Desktop device mockup variant (when deviceType is 'desktop')"
+    },
+    "iconWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconBdrRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconConHoverAnimation": {
+      "type": "boolean",
+      "default": false,
+      "description": "Trigger animation on hover only"
+    },
+    "cLaptopDevice": {
+      "type": "string",
+      "default": "laptop-macbook-black",
+      "description": "Carousel laptop device variant"
+    },
+    "cDesktopDevice": {
+      "type": "string",
+      "default": "desktop-imac-minimal",
+      "description": "Carousel desktop device variant"
+    },
+    "deviceWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "ddAlignment": {
+      "type": "object",
+      "default": {
+        "md": ""
+      },
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "description": "Device alignment",
+      "responsive": true
+    },
+    "deviceMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "devicePadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "rebTopOffset": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "rebLeftOffset": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "rebHoverScroll": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable scroll animation on hover"
+    },
+    "imgWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "imgHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "imgTopOff": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "imgLeftOff": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "imgZindex": {
+      "type": "string",
+      "default": "",
+      "description": "Image z-index (custom device)"
+    },
+    "imgBdrRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "outerBdrRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "scrollBarWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "thumbBG": {
+      "$ref": "definitions://background"
+    },
+    "thumbRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "thumbShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "trackBG": {
+      "$ref": "definitions://background"
+    },
+    "trackRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "trackShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "AnimationFancy": {
+      "type": "string",
+      "default": "zoom",
+      "description": "Popup open/close animation"
+    },
+    "TransitionFancy": {
+      "type": "string",
+      "default": "slide",
+      "description": "Popup transition effect"
+    },
+    "ThumbsBg": {
+      "$ref": "definitions://background"
+    },
+    "shapeNshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "shapeHshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "cImgBdrRadius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "cImgWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "cImgHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "cImgTopOff": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "cImgLeftOff": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "cImgZindex": {
+      "type": "string",
+      "default": "",
+      "description": "Carousel image z-index"
+    },
+    "centerPadding": {
+      "type": "object",
+      "default": {
+        "md": 0,
+        "sm": 0,
+        "xs": 0
+      },
+      "description": "Center mode padding",
+      "responsive": true
+    },
+    "slideOpacity": {
+      "type": "object",
+      "default": {
+        "md": 1,
+        "sm": 1,
+        "xs": 1
+      },
+      "description": "Non-active slide opacity",
+      "responsive": true
+    },
+    "slideBoxShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "cSlideListMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "carouselWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "mockUpWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "mockUpHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "mockUpOffset": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "slideAutoplay": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable carousel autoplay"
+    },
+    "slideAutoplaySpeed": {
+      "type": "string",
+      "default": "1500",
+      "description": "Autoplay interval in milliseconds"
+    },
+    "dotSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "dotASize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "dotsTopSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "slideHoverDots": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show dots on hover only"
+    },
+    "dotsBorderColor": {
+      "type": "string",
+      "default": "",
+      "description": "Dots border color (normal)"
+    },
+    "dotsBgColor": {
+      "type": "string",
+      "default": "",
+      "description": "Dots background color (normal)"
+    },
+    "dotsActiveBorderColor": {
+      "type": "string",
+      "default": "",
+      "description": "Active dot border color"
+    },
+    "dotsActiveBgColor": {
+      "type": "string",
+      "default": "",
+      "description": "Active dot background color"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "conImage",
+      "conIframe",
+      "iframeTitle",
+      "onClickLink",
+      "iconSrc",
+      "iconWidth",
+      "cConImg",
+      "deviceWidth",
+      "ddAlignment",
+      "deviceMargin",
+      "devicePadding",
+      "rebTopOffset",
+      "rebLeftOffset",
+      "rebTranDur",
+      "imgWidth",
+      "imgHeight",
+      "imgTopOff",
+      "imgLeftOff",
+      "scrollTranDur",
+      "iconBdrRadius",
+      "imgBdrRadius",
+      "scrollBarWidth",
+      "thumbBG",
+      "trackBG",
+      "cImgWidth",
+      "cImgHeight",
+      "slideSpeed",
+      "slideAutoplaySpeed",
+      "dotSize",
+      "dotSpace"
+    ],
+    "requiresValidation": [
+      "layoutType",
+      "deviceType",
+      "mobileDevice",
+      "tabletDevice",
+      "laptopDevice",
+      "desktopDevice",
+      "contentType",
+      "blockTemp",
+      "onClickEfct",
+      "showIcon",
+      "iconConAni",
+      "iconConAniStyle",
+      "iconConHoverAnimation",
+      "cDeviceType",
+      "rebHoverScroll",
+      "scrollDimage",
+      "scrollManual",
+      "centerSlideEffect",
+      "slideInfinite",
+      "slideAutoplay",
+      "showDots",
+      "dotsStyle",
+      "slideHoverDots"
+    ]
+  },
+  "styleDependencies": [
+    "Splide.js carousel library (when layoutType is 'carousel')",
+    "Fancybox popup library (when onClickEfct is 'popup')",
+    "Hover scroll animation JavaScript",
+    "Device mockup SVG or image assets",
+    "Custom scrollbar styling",
+    "Continuous animation keyframes (pulse, floating, tossing, rotating)"
+  ]
+}

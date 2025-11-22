@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-icon-box",
+  "title": "Icon - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "iAlign": {
+      "type": "object",
+      "default": {
+        "md": "left",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Icon alignment (left, center, right)",
+      "responsive": true
+    },
+    "iColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (default view), background color (stacked view), or icon+border color (framed view)"
+    },
+    "ihColor": {
+      "type": "string",
+      "default": "",
+      "description": "Icon hover color"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "fIcon",
+      "isvg",
+      "iAlign",
+      "iLink",
+      "iColor",
+      "ihColor",
+      "anchor"
+    ],
+    "requiresValidation": [
+      "icon",
+      "iview"
+    ]
+  },
+  "styleDependencies": [
+    "Icon font library (Font Awesome)",
+    "SVG styling",
+    "Icon view styles (default/stacked/framed)",
+    "Hover transition effects"
+  ]
+}

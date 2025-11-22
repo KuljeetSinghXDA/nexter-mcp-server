@@ -1,0 +1,191 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-creative-image",
+  "title": "Advanced Image - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "SelectImg": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Primary image source"
+    },
+    "link": {
+      "$ref": "definitions://link"
+    },
+    "ariaLabel": {
+      "type": "string",
+      "default": "",
+      "description": "Accessibility aria-label attribute"
+    },
+    "ImgWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "showCaption": {
+      "type": "boolean",
+      "default": false,
+      "description": "Display image caption"
+    },
+    "ImgCaption": {
+      "type": "string",
+      "default": "Credit : Gutenberg, WordPress",
+      "description": "Caption text content"
+    },
+    "ScrollRevelImg": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable scroll reveal animation (image reveals as overlay slides away)"
+    },
+    "AnimDirection": {
+      "type": "string",
+      "default": "left",
+      "enum": [
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "description": "Scroll reveal animation direction"
+    },
+    "ScrollImgEffect": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable continuous scroll effect (image scrolls on hover/mouse move)"
+    },
+    "ScrollTransDur": {
+      "type": "object",
+      "default": {
+        "md": 2
+      },
+      "description": "Scroll effect transition duration (seconds)",
+      "responsive": true
+    },
+    "showMaskImg": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable mask image/shape (custom SVG mask)"
+    },
+    "MaskImg": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "SVG mask image URL"
+    },
+    "ScrollParallax": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable parallax scroll effect (image moves on scroll)"
+    },
+    "ScrollMoveX": {
+      "type": "string",
+      "default": "120",
+      "description": "Parallax horizontal movement distance (px)"
+    },
+    "ScrollMoveY": {
+      "type": "string",
+      "default": "0",
+      "description": "Parallax vertical movement distance (px)"
+    },
+    "imgNFilter": {
+      "type": "object",
+      "default": {
+        "openFilter": false
+      },
+      "description": "Image CSS filters (normal state): blur, brightness, contrast, grayscale, hue-rotate, saturate, sepia"
+    },
+    "imgHFilter": {
+      "type": "object",
+      "default": {
+        "openFilter": false
+      },
+      "description": "Image CSS filters (hover state)"
+    },
+    "fancyBox": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable lightbox/fancybox popup on click"
+    },
+    "FancyOption": {
+      "type": "string",
+      "default": "[]",
+      "description": "Fancybox options JSON configuration"
+    },
+    "isRptBlock": {
+      "type": "boolean",
+      "default": false,
+      "description": "Used within repeater/dynamic block context"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "SelectImg",
+      "ImgSize",
+      "Alignment",
+      "ImgWidth",
+      "showCaption",
+      "ImgCaption",
+      "captionTypo",
+      "captionNormalColor",
+      "captionHoverColor",
+      "border",
+      "borderHover",
+      "borderRadius",
+      "borderRadiusHover",
+      "shadow",
+      "shadowHover",
+      "imgNFilter",
+      "imgHFilter",
+      "link"
+    ],
+    "requiresValidation": [
+      "ScrollRevelImg",
+      "AnimBgColor",
+      "AnimDirection",
+      "ScrollImgEffect",
+      "ScrollImgHeight",
+      "ScrollTransDur",
+      "showMaskImg",
+      "MaskImg",
+      "ScrollParallax",
+      "ScrollMoveX",
+      "ScrollMoveY",
+      "fancyBox",
+      "FancyOption"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [
+    "postId",
+    "postType",
+    "queryId",
+    "tpgb/dynamicSubFieldData",
+    "tpgb/dynamicRowIndex",
+    "tpgb/dynamicPost",
+    "tpgb/dynamicRepField"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

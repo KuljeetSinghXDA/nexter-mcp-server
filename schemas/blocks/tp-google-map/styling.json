@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-google-map",
+  "title": "Google Map - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "mapHeight": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "contentBG": {
+      "$ref": "definitions://background"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Overlay title text color"
+    },
+    "descTypo": {
+      "$ref": "definitions://typography"
+    },
+    "descColor": {
+      "type": "string",
+      "default": "",
+      "description": "Overlay description text color"
+    },
+    "toggleColor": {
+      "type": "string",
+      "default": "rgba(0, 0, 0, 0.4)",
+      "description": "Overlay toggle button color (normal state)"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "locationPoint",
+      "mapHeight",
+      "Zoom",
+      "scrollWheel",
+      "panCtrl",
+      "Draggable",
+      "zoomCtrl",
+      "mapTypeCtrl",
+      "scaleCtrl",
+      "fullScreenCtrl",
+      "streetViewCtrl",
+      "gmapType",
+      "customStyleTgl",
+      "customStyle",
+      "title",
+      "description",
+      "titleColor",
+      "descColor",
+      "titleTypo",
+      "descTypo",
+      "contentBG"
+    ],
+    "requiresValidation": [
+      "contentTgl",
+      "toggleColor",
+      "tglActiveClr"
+    ]
+  },
+  "styleDependencies": [
+    "Google Maps JavaScript API",
+    "Geocoding API (for address-based markers)",
+    "Custom map styles (Snazzy Maps)",
+    "Overlay content positioning CSS",
+    "Marker clustering (for multiple pins)"
+  ]
+}

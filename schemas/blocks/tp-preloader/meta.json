@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-preloader",
+  "version": "1.0.0",
+  "title": "Preloader",
+  "category": "advanced",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Enhance user experience with elegant loading screens while page content loads. Features 12+ prebuilt animation styles, custom images/logos, progress bars, and loading text. Perfect for creating profes",
+  "keywords": [
+    "preloader",
+    "loading",
+    "loader",
+    "page load"
+  ],
+  "useCases": [
+    "Page loading screens",
+    "Site preloaders"
+  ]
+}

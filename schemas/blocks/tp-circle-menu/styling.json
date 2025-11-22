@@ -1,0 +1,141 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-circle-menu",
+  "title": "Circle Menu - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "imageSize": {
+      "type": "string",
+      "default": "thumbnail",
+      "description": "WordPress image size for toggle button"
+    },
+    "leftAuto": {
+      "type": "boolean",
+      "default": true,
+      "description": "Auto left positioning"
+    },
+    "leftASize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "rightAuto": {
+      "type": "boolean",
+      "default": false,
+      "description": "Auto right positioning"
+    },
+    "rightASize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "topAuto": {
+      "type": "boolean",
+      "default": true,
+      "description": "Auto top positioning"
+    },
+    "topASize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "bottomAuto": {
+      "type": "boolean",
+      "default": false,
+      "description": "Auto bottom positioning"
+    },
+    "bottomASize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconGap": {
+      "type": "string",
+      "default": "0",
+      "description": "Gap between menu icons (straight layout)"
+    },
+    "circleRadius": {
+      "type": "object",
+      "default": {
+        "md": "150"
+      },
+      "description": "Circle radius in pixels (circle layout)",
+      "responsive": true
+    },
+    "tipMaxWidth": {
+      "type": "string",
+      "default": "100",
+      "description": "Tooltip max width in pixels"
+    },
+    "tipOffset": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip offset [x, y]"
+    },
+    "tipAnimation": {
+      "type": "string",
+      "default": "",
+      "description": "Tooltip animation type"
+    },
+    "overlayColorTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show overlay background when menu is open"
+    },
+    "overlayColor": {
+      "type": "string",
+      "default": "",
+      "description": "Overlay background color"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "circleMenu",
+      "iconStore",
+      "imageStore",
+      "ariaLabel",
+      "leftASize",
+      "rightASize",
+      "topASize",
+      "bottomASize",
+      "iconGap",
+      "openSpeed",
+      "angleStart",
+      "angleEnd",
+      "circleRadius",
+      "iconDelay",
+      "menuOSpeed",
+      "icnStepIn",
+      "icnStepOut",
+      "tipMaxWidth",
+      "tipOffset",
+      "tipDistance",
+      "tipDurationIn",
+      "tipDurationOut",
+      "scrollValue",
+      "overlayColor"
+    ],
+    "requiresValidation": [
+      "layoutType",
+      "cDirection",
+      "menuStyle",
+      "sDirection",
+      "tglIcnType",
+      "tglStyle",
+      "iconPos",
+      "leftAuto",
+      "rightAuto",
+      "topAuto",
+      "bottomAuto",
+      "icnTrigger",
+      "icnTrans",
+      "tipInteractive",
+      "tipPlacement",
+      "tipTheme",
+      "tipArrow",
+      "tipTriggers",
+      "tipAnimation",
+      "scrollToggle",
+      "overlayColorTgl"
+    ]
+  },
+  "styleDependencies": [
+    "Circle/radial layout JavaScript",
+    "Tippy.js tooltip library",
+    "CSS transforms for animations",
+    "Touch/swipe gesture support",
+    "Scroll event detection"
+  ]
+}

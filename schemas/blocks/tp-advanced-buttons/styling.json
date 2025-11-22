@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-advanced-buttons",
+  "title": "Pro Buttons - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "dst3MWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "btnAlign": {
+      "type": "string",
+      "default": "text-left",
+      "enum": [
+        "text-left",
+        "text-center",
+        "text-right"
+      ],
+      "description": "Button alignment"
+    },
+    "btnTypo": {
+      "$ref": "definitions://typography"
+    },
+    "btnPadding": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "btnMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "btnWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "btnColor": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (normal)"
+    },
+    "btnHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Button text color (hover)"
+    },
+    "btnBgType": {
+      "$ref": "definitions://background"
+    },
+    "btnHvrBgType": {
+      "$ref": "definitions://background"
+    },
+    "btnBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Button border (normal)"
+    },
+    "btnHvrBorder": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Button border (hover)"
+    },
+    "btnBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "btnHvrBradius": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "btnBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "btnHvrBshadow": {
+      "$ref": "definitions://shadow"
+    },
+    "iconPosition": {
+      "type": "string",
+      "default": "after",
+      "enum": [
+        "before",
+        "after"
+      ],
+      "description": "Icon position relative to text"
+    },
+    "iconSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconSpacing": {
+      "$ref": "definitions://responsive-unit"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "btnText",
+      "extraText",
+      "extraText1",
+      "extraText2",
+      "nmlEmoji",
+      "hvrEmoji",
+      "dst5LoadingText",
+      "dst5SuccessText",
+      "btnLink",
+      "ariaLabel",
+      "btnTypo",
+      "btnPadding",
+      "btnMargin",
+      "btnWidth",
+      "btnColor",
+      "btnHvrColor",
+      "iconName",
+      "iconImage",
+      "iconSize",
+      "iconSpacing",
+      "downloadFile",
+      "downloadName",
+      "dst3MWidth"
+    ],
+    "requiresValidation": [
+      "btnType",
+      "ctaStyle",
+      "dwnldStyle",
+      "btnAlign",
+      "btnIcon",
+      "iconLibrary",
+      "iconPosition"
+    ]
+  },
+  "styleDependencies": [
+    "Download progress JavaScript (for download buttons)",
+    "File download handling",
+    "Button hover animations",
+    "Emoji rendering",
+    "Loading state management",
+    "Success state indicators"
+  ]
+}

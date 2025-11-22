@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-acceptance-button",
+  "title": "Agree to Terms - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple terms acceptance",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "I agree to the Terms and Conditions",
+        "reqTgl": true
+      }
+    },
+    {
+      "description": "Privacy policy with link",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "I have read and accept the",
+        "lnkTgl": true,
+        "lnkLbl": "Privacy Policy",
+        "lnk": {
+          "url": "/privacy-policy",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "reqTgl": true,
+        "lnkLblClr": "#667eea",
+        "hvrLnkLblClr": "#764ba2"
+      }
+    },
+    {
+      "description": "GDPR consent with styled text",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "I consent to the processing of my personal data as described in the",
+        "lnkTgl": true,
+        "lnkLbl": "Privacy Notice",
+        "lnk": {
+          "url": "/gdpr-privacy-notice",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "reqTgl": true,
+        "lblTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "14",
+            "unit": "px"
+          }
+        },
+        "lblClr": "#555555"
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

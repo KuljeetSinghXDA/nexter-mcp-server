@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-pro-paragraph",
+  "title": "Paragraph - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "alignment": {
+      "type": "object",
+      "default": {
+        "md": ""
+      },
+      "description": "Text alignment (left, center, right, justify)",
+      "responsive": true
+    },
+    "textTypo": {
+      "$ref": "definitions://typography"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "",
+      "description": "Paragraph text color"
+    },
+    "linkColor": {
+      "type": "string",
+      "default": "",
+      "description": "Link color within paragraph"
+    },
+    "linkHoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Link hover color"
+    },
+    "textShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "HovertextShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "content",
+      "title",
+      "Showtitle",
+      "alignment",
+      "textColor",
+      "linkColor",
+      "linkHoverColor"
+    ],
+    "requiresValidation": [
+      "titleTag",
+      "descTag",
+      "textTypo",
+      "titleTypo"
+    ]
+  },
+  "styleDependencies": [
+    "Typography CSS",
+    "Text shadow effects",
+    "Link styling",
+    "Responsive text alignment"
+  ]
+}

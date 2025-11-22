@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-switcher",
+  "title": "Switcher - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "switchalign": {
+      "type": "string",
+      "default": "text-left",
+      "enum": [
+        "text-left",
+        "text-center",
+        "text-right"
+      ],
+      "description": "Alignment of switch toggle"
+    },
+    "toggleSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "switchWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "switchColor": {
+      "type": "string",
+      "default": "",
+      "description": "Switch label text color"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "title1",
+      "title2",
+      "desc1",
+      "desc2",
+      "switchalign",
+      "labSpacebet",
+      "toggleSize",
+      "switchColor",
+      "innerBlocks content"
+    ],
+    "requiresValidation": [
+      "switchStyle",
+      "source1",
+      "source2",
+      "blockTemp1",
+      "blockTemp2",
+      "showBtn",
+      "carouselId"
+    ]
+  },
+  "styleDependencies": [
+    "Switcher toggle CSS (4 styles)",
+    "Transition/animation effects",
+    "Responsive styling"
+  ]
+}

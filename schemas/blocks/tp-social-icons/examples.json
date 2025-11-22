@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-social-icons",
+  "title": "Social Icon - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple social icons with 3 networks",
+      "attributes": {
+        "block_id": "a1b2",
+        "style": "style-1",
+        "hoverStyle": "faded",
+        "socialIcon": [
+          {
+            "socialNtwk": "fab fa-facebook",
+            "linkUrl": {
+              "url": "https://facebook.com/yourpage",
+              "target": "_blank"
+            },
+            "title": "Facebook",
+            "nmlBG": "#3b5998",
+            "hvrBG": "#2d4373"
+          },
+          {
+            "socialNtwk": "fab fa-twitter",
+            "linkUrl": {
+              "url": "https://twitter.com/yourhandle",
+              "target": "_blank"
+            },
+            "title": "Twitter",
+            "nmlBG": "#1da1f2",
+            "hvrBG": "#0c85d0"
+          },
+          {
+            "socialNtwk": "fab fa-instagram",
+            "linkUrl": {
+              "url": "https://instagram.com/yourhandle",
+              "target": "_blank"
+            },
+            "title": "Instagram",
+            "nmlBG": "#e4405f",
+            "hvrBG": "#d31e40"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Social icons with tooltips",
+      "attributes": {
+        "block_id": "c3d4",
+        "style": "style-3",
+        "socialIcon": [
+          {
+            "socialNtwk": "fab fa-linkedin",
+            "linkUrl": {
+              "url": "https://linkedin.com/company/yourcompany"
+            },
+            "tooltipText": "Follow us on LinkedIn"
+          }
+        ]
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

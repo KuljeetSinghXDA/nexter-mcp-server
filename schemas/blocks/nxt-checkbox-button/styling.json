@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-checkbox-button",
+  "title": "Checkbox - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "chkPosition": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "left",
+        "center",
+        "right"
+      ],
+      "description": "Checkbox alignment within option container"
+    },
+    "bRadius": {
+      "type": "string",
+      "default": "square",
+      "enum": [
+        "square",
+        "rounded"
+      ],
+      "description": "Checkbox border radius style"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "fldOptions",
+      "desctxt",
+      "error",
+      "inpSz",
+      "chkPosition"
+    ],
+    "requiresValidation": [
+      "optPos",
+      "reqTgl",
+      "hlpTxt",
+      "descPoss",
+      "bRadius"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Checkbox input styling",
+    "Flexbox layout for options",
+    "Border radius for checkbox shape"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-security-field",
+  "title": "Security Code - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {},
+  "editingGuidelines": {
+    "safeToModify": [
+      "captchaOptions"
+    ],
+    "requiresValidation": [
+      "securityOptions"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "CAPTCHA service JavaScript (reCAPTCHA, hCaptcha, or Turnstile)",
+    "CAPTCHA API integration"
+  ]
+}

@@ -1,0 +1,354 @@
+{
+  "blockName": "tpgb/tp-creative-image",
+  "version": "1.0.0",
+  "title": "Advanced Image",
+  "category": "media",
+  "description": "Display images with advanced effects including scroll reveal animations, parallax movement, mask shapes, continuous scroll effects, and CSS filters. Perfect for hero sections, feature showcases, and visually engaging content. Supports captions, links, and responsive sizing.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "SelectImg": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Primary image source"
+    },
+    "ImgSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size selection"
+    },
+    "Alignment": {
+      "type": "object",
+      "default": {"md": "center", "sm": "", "xs": ""},
+      "description": "Image alignment (left, center, right)",
+      "responsive": true
+    },
+    "link": {
+      "type": "object",
+      "default": {"url": "", "target": "", "nofollow": ""},
+      "description": "Optional link URL for image"
+    },
+    "ariaLabel": {
+      "type": "string",
+      "default": "",
+      "description": "Accessibility aria-label attribute"
+    },
+    "ImgWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Image maximum width",
+      "responsive": true
+    },
+    "showCaption": {
+      "type": "boolean",
+      "default": false,
+      "description": "Display image caption"
+    },
+    "ImgCaption": {
+      "type": "string",
+      "default": "Credit : Gutenberg, WordPress",
+      "description": "Caption text content"
+    },
+    "floatAlign": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "left", "right"],
+      "description": "CSS float alignment for text wrapping"
+    },
+    "captionTypo": {
+      "type": "object",
+      "default": {"openTypography": 0},
+      "description": "Typography for caption text"
+    },
+    "captionNormalColor": {
+      "type": "string",
+      "default": "",
+      "description": "Caption text color (normal state)"
+    },
+    "captionHoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Caption text color (hover state)"
+    },
+    "ScrollRevelImg": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable scroll reveal animation (image reveals as overlay slides away)"
+    },
+    "AnimBgColor": {
+      "type": "string",
+      "default": "",
+      "description": "Scroll reveal overlay background color"
+    },
+    "AnimDirection": {
+      "type": "string",
+      "default": "left",
+      "enum": ["left", "right", "top", "bottom"],
+      "description": "Scroll reveal animation direction"
+    },
+    "ScrollImgEffect": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable continuous scroll effect (image scrolls on hover/mouse move)"
+    },
+    "ScrollImgHeight": {
+      "type": "object",
+      "default": {"md": 400},
+      "description": "Container min-height for scroll effect (px)",
+      "responsive": true
+    },
+    "ScrollTransDur": {
+      "type": "object",
+      "default": {"md": 2},
+      "description": "Scroll effect transition duration (seconds)",
+      "responsive": true
+    },
+    "showMaskImg": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable mask image/shape (custom SVG mask)"
+    },
+    "MaskImg": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "SVG mask image URL"
+    },
+    "MaskShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "typeShadow": "drop-shadow", "horizontal": 2, "vertical": 3, "blur": 2, "color": "rgba(0,0,0,0.5)"},
+      "description": "CSS drop-shadow filter for masked image"
+    },
+    "ScrollParallax": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable parallax scroll effect (image moves on scroll)"
+    },
+    "ScrollMoveX": {
+      "type": "string",
+      "default": "120",
+      "description": "Parallax horizontal movement distance (px)"
+    },
+    "ScrollMoveY": {
+      "type": "string",
+      "default": "0",
+      "description": "Parallax vertical movement distance (px)"
+    },
+    "border": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "", "left": "", "bottom": "", "right": ""}, "unit": ""}},
+      "description": "Image border (normal state)"
+    },
+    "borderHover": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "", "width": {"md": {"top": "", "left": "", "bottom": "", "right": ""}, "unit": ""}},
+      "description": "Image border (hover state)"
+    },
+    "borderRadius": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "left": "", "bottom": ""}},
+      "description": "Image border radius (normal state)",
+      "responsive": true
+    },
+    "borderRadiusHover": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "left": "", "bottom": ""}},
+      "description": "Image border radius (hover state)",
+      "responsive": true
+    },
+    "shadow": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Image box shadow (normal state)"
+    },
+    "nmlDropShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "typeShadow": "drop-shadow", "horizontal": 2, "vertical": 3, "blur": 2, "color": "rgba(0,0,0,0.5)"},
+      "description": "Image CSS drop-shadow filter (normal state)"
+    },
+    "shadowHover": {
+      "type": "object",
+      "default": {"openShadow": 0},
+      "description": "Image box shadow (hover state)"
+    },
+    "hvrDropShadow": {
+      "type": "object",
+      "default": {"openShadow": 0, "typeShadow": "drop-shadow", "horizontal": 2, "vertical": 3, "blur": 2, "color": "rgba(0,0,0,0.5)"},
+      "description": "Image CSS drop-shadow filter (hover state)"
+    },
+    "imgNFilter": {
+      "type": "object",
+      "default": {"openFilter": false},
+      "description": "Image CSS filters (normal state): blur, brightness, contrast, grayscale, hue-rotate, saturate, sepia"
+    },
+    "imgHFilter": {
+      "type": "object",
+      "default": {"openFilter": false},
+      "description": "Image CSS filters (hover state)"
+    },
+    "fancyBox": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable lightbox/fancybox popup on click"
+    },
+    "FancyOption": {
+      "type": "string",
+      "default": "[]",
+      "description": "Fancybox options JSON configuration"
+    },
+    "isRptBlock": {
+      "type": "boolean",
+      "default": false,
+      "description": "Used within repeater/dynamic block context"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "SelectImg",
+      "ImgSize",
+      "Alignment",
+      "ImgWidth",
+      "showCaption",
+      "ImgCaption",
+      "captionTypo",
+      "captionNormalColor",
+      "captionHoverColor",
+      "border",
+      "borderHover",
+      "borderRadius",
+      "borderRadiusHover",
+      "shadow",
+      "shadowHover",
+      "imgNFilter",
+      "imgHFilter",
+      "link"
+    ],
+    "requiresValidation": [
+      "ScrollRevelImg",
+      "AnimBgColor",
+      "AnimDirection",
+      "ScrollImgEffect",
+      "ScrollImgHeight",
+      "ScrollTransDur",
+      "showMaskImg",
+      "MaskImg",
+      "ScrollParallax",
+      "ScrollMoveX",
+      "ScrollMoveY",
+      "fancyBox",
+      "FancyOption"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "CSS filters (blur, brightness, contrast, etc.)",
+    "CSS transforms for parallax",
+    "Scroll reveal animation JavaScript",
+    "Continuous scroll effect on hover",
+    "SVG mask-image CSS",
+    "Fancybox/lightbox library (when fancyBox enabled)",
+    "Intersection Observer for scroll triggers"
+  ],
+  "commonUseCases": [
+    "Hero section images with parallax",
+    "Product photography with zoom on hover",
+    "Portfolio images with lightbox",
+    "Masked shape images (circles, custom shapes)",
+    "Scroll-triggered reveal animations",
+    "Image galleries with continuous scroll effect",
+    "Featured images with caption overlays",
+    "Artistic image presentations with filters",
+    "Before/after images (combined with hotspots)",
+    "Banner images with custom masks"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-image",
+    "tpgb/tp-before-after",
+    "tpgb/tp-hotspot",
+    "tpgb/tp-media-listing"
+  ],
+  "capabilities": [
+    "Scroll reveal animation (overlay slides away)",
+    "4 reveal directions (left, right, top, bottom)",
+    "Parallax scroll effect with X/Y movement control",
+    "Continuous scroll effect on hover",
+    "SVG mask shapes",
+    "CSS filters (blur, brightness, contrast, grayscale, hue-rotate, saturate, sepia)",
+    "Normal/Hover state styling",
+    "Box shadows and drop-shadow filters",
+    "Responsive sizing and alignment",
+    "Optional captions with typography controls",
+    "Lightbox/fancybox integration",
+    "Custom links with target and nofollow",
+    "Float alignment for text wrapping",
+    "Border and border radius (normal/hover)",
+    "Accessibility aria-labels"
+  ],
+  "usesContext": ["postId", "postType", "queryId", "tpgb/dynamicSubFieldData", "tpgb/dynamicRowIndex", "tpgb/dynamicPost", "tpgb/dynamicRepField"],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple image with parallax effect",
+      "attributes": {
+        "block_id": "a1b2",
+        "SelectImg": {"url": "/hero-image.jpg"},
+        "ScrollParallax": true,
+        "ScrollMoveY": "100",
+        "ImgWidth": {"md": "1200", "unit": "px"}
+      }
+    },
+    {
+      "description": "Scroll reveal animation from left",
+      "attributes": {
+        "block_id": "c3d4",
+        "SelectImg": {"url": "/feature.jpg"},
+        "ScrollRevelImg": true,
+        "AnimDirection": "left",
+        "AnimBgColor": "#667eea"
+      }
+    },
+    {
+      "description": "Masked circular image with shadow",
+      "attributes": {
+        "block_id": "e5f6",
+        "SelectImg": {"url": "/portrait.jpg"},
+        "showMaskImg": true,
+        "MaskImg": {"url": "/circle-mask.svg"},
+        "MaskShadow": {"openShadow": 1, "horizontal": 0, "vertical": 4, "blur": 12, "color": "rgba(0,0,0,0.3)"}
+      }
+    },
+    {
+      "description": "Image with continuous scroll effect",
+      "attributes": {
+        "block_id": "g7h8",
+        "SelectImg": {"url": "/tall-image.jpg"},
+        "ScrollImgEffect": true,
+        "ScrollImgHeight": {"md": 500},
+        "ScrollTransDur": {"md": 3}
+      }
+    },
+    {
+      "description": "Filtered image with hover effect",
+      "attributes": {
+        "block_id": "i9j0",
+        "SelectImg": {"url": "/photo.jpg"},
+        "imgNFilter": {"openFilter": true, "grayscale": 100},
+        "imgHFilter": {"openFilter": true, "grayscale": 0}
+      }
+    }
+  ]
+}

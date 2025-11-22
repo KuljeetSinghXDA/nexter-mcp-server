@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-stylist-list",
+  "title": "Stylish List - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple feature list with checkmarks",
+      "attributes": {
+        "block_id": "a1b2",
+        "listsRepeater": [
+          {
+            "description": "Unlimited Projects",
+            "iconFontawesome": "fas fa-check",
+            "selectIcon": "fontawesome"
+          },
+          {
+            "description": "24/7 Support",
+            "iconFontawesome": "fas fa-check",
+            "selectIcon": "fontawesome"
+          },
+          {
+            "description": "Advanced Analytics",
+            "iconFontawesome": "fas fa-check",
+            "selectIcon": "fontawesome",
+            "hintText": "New",
+            "hintBgColor": "#27ae60"
+          }
+        ]
+      }
+    },
+    {
+      "description": "List with links and tooltips",
+      "attributes": {
+        "block_id": "c3d4",
+        "hover_bg_style": true,
+        "listsRepeater": [
+          {
+            "description": "Documentation",
+            "iconFontawesome": "fas fa-book",
+            "descurl": {
+              "url": "/docs",
+              "target": "_self"
+            },
+            "tooltipText": "Read our comprehensive documentation"
+          },
+          {
+            "description": "API Reference",
+            "iconFontawesome": "fas fa-code",
+            "descurl": {
+              "url": "/api",
+              "target": "_self"
+            },
+            "tooltipText": "Explore our API"
+          }
+        ]
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

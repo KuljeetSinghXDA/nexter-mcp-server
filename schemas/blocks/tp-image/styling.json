@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-image",
+  "title": "Image - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "iSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size (thumbnail, medium, large, full, or custom)"
+    },
+    "tiAlign": {
+      "type": "object",
+      "default": {
+        "md": "",
+        "sm": "",
+        "xs": ""
+      },
+      "description": "Image alignment (left, center, right)",
+      "responsive": true
+    },
+    "iWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "imWidth": {
+      "$ref": "definitions://responsive-unit"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "tImg",
+      "tiAlign",
+      "tiLink",
+      "capimg",
+      "ctmCap",
+      "iWidth",
+      "imWidth",
+      "iHeig",
+      "inOpa",
+      "iHOpa",
+      "inFilt"
+    ],
+    "requiresValidation": [
+      "iSize",
+      "tiCap",
+      "imgFit"
+    ]
+  },
+  "styleDependencies": [
+    "Image styling CSS",
+    "Caption styling",
+    "Filter effects CSS",
+    "Hover transition effects",
+    "Responsive sizing"
+  ]
+}

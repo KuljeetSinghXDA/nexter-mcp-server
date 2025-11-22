@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-timeline-inner",
+  "version": "1.0.0",
+  "title": "Timeline Inner",
+  "category": "advanced",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Inner block for timeline items. Must be used as a child of tp-timeline. Showcase individual events, milestones, or updates in a chronological series. Features customizable content, icons, buttons, and",
+  "keywords": [
+    "timeline item",
+    "timeline entry"
+  ],
+  "useCases": [
+    "Individual timeline entries"
+  ]
+}

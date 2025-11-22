@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-dynamic-device",
+  "version": "1.0.0",
+  "title": "Dynamic Device",
+  "category": "media",
+  "source": "pro",
+  "complexity": "expert",
+  "description": "Create website design mockups in desktop, tablet, or mobile screen modes. Showcase portfolios with scrolling animation on hover, device frames with custom or preset mockups. Features multiple device t",
+  "keywords": [
+    "device mockup",
+    "mobile mockup",
+    "laptop mockup",
+    "phone frame"
+  ],
+  "useCases": [
+    "App screenshots",
+    "Device mockups",
+    "Mobile previews"
+  ]
+}

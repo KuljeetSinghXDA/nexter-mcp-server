@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-advanced-chart",
+  "title": "Advanced Chart - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple line chart with 3 datasets",
+      "attributes": {
+        "block_id": "a1b2",
+        "chartType": "line",
+        "labelValue": "Jan | Feb | Mar | Apr | May",
+        "dataBox": [
+          {
+            "_key": "0",
+            "label": "Revenue",
+            "data": "25|30|35|40|45",
+            "fillBG": "#667eea99",
+            "bdrColor": "#667eea",
+            "fillTgl": true
+          },
+          {
+            "_key": "1",
+            "label": "Expenses",
+            "data": "15|20|18|22|25",
+            "fillBG": "#e7445899",
+            "bdrColor": "#e74458",
+            "fillTgl": true
+          }
+        ]
+      }
+    },
+    {
+      "description": "Horizontal bar chart comparison",
+      "attributes": {
+        "block_id": "c3d4",
+        "chartType": "bar",
+        "barType": "horizontal",
+        "labelValue": "Product A | Product B | Product C",
+        "dataBox": [
+          {
+            "_key": "0",
+            "label": "Q1 Sales",
+            "data": "120|95|150",
+            "fillBG": "#27ae60",
+            "bdrColor": "#27ae60"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Pie chart with custom colors",
+      "attributes": {
+        "block_id": "e5f6",
+        "chartType": "pie",
+        "pieType": "doughnut",
+        "labelValue": "Desktop | Mobile | Tablet",
+        "aloneData": "45 | 35 | 20",
+        "aloneBG": "#667eea | #27ae60 | #e74458",
+        "aloneBdr": "#667eea | #27ae60 | #e74458"
+      }
+    },
+    {
+      "description": "Radar chart for multi-metric comparison",
+      "attributes": {
+        "block_id": "g7h8",
+        "chartType": "radar",
+        "labelValue": "Speed | Quality | Price | Support | Features",
+        "dataBox": [
+          {
+            "_key": "0",
+            "label": "Product A",
+            "data": "85|90|70|95|80",
+            "fillBG": "#667eea66",
+            "bdrColor": "#667eea"
+          },
+          {
+            "_key": "1",
+            "label": "Product B",
+            "data": "70|85|90|75|85",
+            "fillBG": "#27ae6066",
+            "bdrColor": "#27ae60"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Bubble chart for scatter plot with size",
+      "attributes": {
+        "block_id": "i9j0",
+        "chartType": "bubble",
+        "bblDataBox": [
+          {
+            "_key": "0",
+            "bblLabel": "Dataset 1",
+            "bblData": "[20|30|15][40|10|10][60|60|20]"
+          }
+        ]
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

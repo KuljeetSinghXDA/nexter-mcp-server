@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-progress-bar",
+  "title": "Progress Bar - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple skill progress bar",
+      "attributes": {
+        "block_id": "a1b2",
+        "layoutType": "progressbar",
+        "styleType": "style-1",
+        "heightType": "small-height",
+        "Title": "WordPress",
+        "dynamicValue": "85",
+        "iconType": "iconIcon",
+        "IconName": "fab fa-wordpress"
+      }
+    },
+    {
+      "description": "Large progress bar with subtitle",
+      "attributes": {
+        "block_id": "c3d4",
+        "layoutType": "progressbar",
+        "styleType": "style-2",
+        "heightType": "large-height",
+        "Title": "Web Development",
+        "subTitle": "HTML, CSS, JavaScript",
+        "dynamicValue": "92",
+        "bgColor": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": "linear-gradient(90deg, #667eea 0%, #764ba2 100%)"
+        }
+      }
+    },
+    {
+      "description": "Circular pie chart progress",
+      "attributes": {
+        "block_id": "e5f6",
+        "layoutType": "piechart",
+        "pieStyleType": "pieStyle-1",
+        "Title": "Project Completion",
+        "dynamicPieValue": "0.75",
+        "pieCircleSize": "200",
+        "pieThickness": "8",
+        "pieFillColor": "gradient",
+        "pieColor1": "#27ae60",
+        "pieColor2": "#2ecc71"
+      }
+    },
+    {
+      "description": "Progress bar with custom symbol",
+      "attributes": {
+        "block_id": "g7h8",
+        "Title": "Customer Satisfaction",
+        "dynamicValue": "98",
+        "prepostSymbol": "pts",
+        "sPosition": "afterNumber",
+        "iconType": "iconIcon",
+        "IconName": "fas fa-star"
+      }
+    }
+  ],
+  "commonPatterns": {
+    "default": {
+      "block_id": "example"
+    }
+  }
+}

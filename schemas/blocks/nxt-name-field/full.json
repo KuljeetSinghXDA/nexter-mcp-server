@@ -1,0 +1,208 @@
+{
+  "blockName": "tpgb/tp-form-name-field",
+  "version": "1.0.0",
+  "title": "Name Field",
+  "category": "form",
+  "description": "Add a name input field to your form with validation and icon support. Features optional Font Awesome icons or custom images, field width control, required field validation, placeholder text, help text (description), alphabetic-only validation, and maximum length limits. Supports autocomplete control and custom error messages. Must be used inside a Form Block. Pro version with advanced form controls.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "labelss": {
+      "type": "string",
+      "default": "Name",
+      "description": "Field label text"
+    },
+    "nameIconType": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "fontAwesome", "image"],
+      "description": "Icon type for name field"
+    },
+    "nameIcons": {
+      "type": "string",
+      "default": "",
+      "description": "Font Awesome icon class (when nameIconType is 'fontAwesome')"
+    },
+    "nameImage": {
+      "type": "object",
+      "default": {"url": "", "Id": ""},
+      "description": "Custom icon image (when nameIconType is 'image')"
+    },
+    "reqTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Make field required"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "Name",
+      "description": "Placeholder text shown in empty input"
+    },
+    "error": {
+      "type": "string",
+      "default": "This field is required.",
+      "description": "Error message for validation failure"
+    },
+    "autoComplete": {
+      "type": "string",
+      "default": "off",
+      "enum": ["off", "on", "name", "given-name", "family-name"],
+      "description": "HTML autocomplete attribute value"
+    },
+    "inpSz": {
+      "type": "object",
+      "default": {"md": "100", "unit": "%"},
+      "description": "Field width (percentage or px)",
+      "responsive": true
+    },
+    "hlpTxt": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable help text (description)"
+    },
+    "desctxt": {
+      "type": "string",
+      "default": "Description",
+      "description": "Help text content (when hlpTxt is true)"
+    },
+    "descPoss": {
+      "type": "string",
+      "default": "top",
+      "enum": ["top", "bottom"],
+      "description": "Help text position relative to field"
+    },
+    "valName": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable alphabetic-only validation (letters and spaces only)"
+    },
+    "maxAlphabets": {
+      "type": "string",
+      "default": "",
+      "description": "Maximum number of characters allowed"
+    },
+    "icnClr": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (normal state)"
+    },
+    "hvrIcnClr": {
+      "type": "string",
+      "default": "",
+      "description": "Icon color (hover state)"
+    },
+    "uniqueid": {
+      "type": "string",
+      "default": "",
+      "description": "Unique field identifier for form submission"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "nameIcons",
+      "nameImage",
+      "placeholder",
+      "error",
+      "inpSz",
+      "desctxt",
+      "maxAlphabets",
+      "icnClr",
+      "hvrIcnClr"
+    ],
+    "requiresValidation": [
+      "nameIconType",
+      "reqTgl",
+      "autoComplete",
+      "hlpTxt",
+      "descPoss",
+      "valName"
+    ],
+    "dangerous": [
+      "block_id",
+      "uniqueid"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Input container flexbox layout",
+    "Icon positioning (absolute/relative)"
+  ],
+  "commonUseCases": [
+    "Contact forms",
+    "Registration forms",
+    "Signup forms",
+    "User profile forms",
+    "Booking forms",
+    "Survey forms",
+    "Application forms",
+    "Feedback forms"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-form-block",
+    "tpgb/tp-form-email-field",
+    "tpgb/tp-form-submit-button"
+  ],
+  "capabilities": [
+    "Customizable label text",
+    "3 icon types (none, Font Awesome, custom image)",
+    "Required field validation",
+    "Custom placeholder text",
+    "Custom error messages",
+    "Autocomplete control (5 options)",
+    "Responsive width control",
+    "Help text with top/bottom positioning",
+    "Alphabetic-only validation option",
+    "Maximum length validation",
+    "Icon color with hover state",
+    "Unique field ID for form handling"
+  ],
+  "usesContext": [],
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": true,
+  "ancestorBlock": "tpgb/tp-form-block",
+  "examples": [
+    {
+      "description": "Simple required name field",
+      "attributes": {
+        "block_id": "a1b2",
+        "labelss": "Full Name",
+        "placeholder": "Enter your full name",
+        "reqTgl": true,
+        "autoComplete": "name"
+      }
+    },
+    {
+      "description": "Name field with icon and validation",
+      "attributes": {
+        "block_id": "c3d4",
+        "labelss": "Your Name",
+        "nameIconType": "fontAwesome",
+        "nameIcons": "fas fa-user",
+        "reqTgl": true,
+        "valName": true,
+        "maxAlphabets": "50",
+        "icnClr": "#667eea"
+      }
+    },
+    {
+      "description": "Name field with help text",
+      "attributes": {
+        "block_id": "e5f6",
+        "labelss": "Applicant Name",
+        "hlpTxt": true,
+        "desctxt": "Please enter your legal name as it appears on your ID",
+        "descPoss": "bottom",
+        "reqTgl": true
+      }
+    }
+  ]
+}

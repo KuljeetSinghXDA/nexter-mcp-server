@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-audio-player",
+  "title": "Audio Player - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple single-track player (style-1)",
+      "attributes": {
+        "block_id": "a1b2",
+        "Apstyle": "style-1",
+        "Aprepeater": [
+          {
+            "_key": "1",
+            "title": "Episode 1: Introduction",
+            "author": "My Podcast",
+            "AudSource": "url",
+            "sorurl": {
+              "url": "https://example.com/audio/episode1.mp3"
+            }
+          }
+        ],
+        "DefaultVolume": "70"
+      }
+    },
+    {
+      "description": "Album playlist with custom colors (style-3)",
+      "attributes": {
+        "block_id": "c3d4",
+        "Apstyle": "style-3",
+        "Aprepeater": [
+          {
+            "_key": "1",
+            "title": "Track 1",
+            "author": "Artist Name",
+            "AudSource": "url"
+          },
+          {
+            "_key": "2",
+            "title": "Track 2",
+            "author": "Artist Name",
+            "AudSource": "url"
+          },
+          {
+            "_key": "3",
+            "title": "Track 3",
+            "author": "Artist Name",
+            "AudSource": "url"
+          }
+        ],
+        "TitleColor": "#2c3e50",
+        "PlayPausecolor": "#667eea",
+        "TFillcolor": "#667eea",
+        "ActiveColor": "#667eea"
+      }
+    },
+    {
+      "description": "Minimal player with background blur (style-8)",
+      "attributes": {
+        "block_id": "e5f6",
+        "Apstyle": "style-8",
+        "PBGCSSFilters": {
+          "openFilter": true,
+          "blur": 12,
+          "brightness": 80
+        }
+      }
+    },
+    {
+      "description": "Compact player with custom play button (style-5)",
+      "attributes": {
+        "block_id": "g7h8",
+        "Apstyle": "style-5",
+        "bgsize": {
+          "md": "60",
+          "unit": "px"
+        },
+        "bgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#27ae60"
+        },
+        "PlayPausecolor": "#ffffff",
+        "BorderRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        }
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

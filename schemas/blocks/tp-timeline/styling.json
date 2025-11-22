@@ -1,0 +1,197 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-timeline",
+  "title": "Timeline - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "Alignment": {
+      "type": "string",
+      "default": "center",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "description": "Timeline alignment (center for alternating, left/right for one-sided)"
+    },
+    "StartImgSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size for start image"
+    },
+    "EndImgSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size for end image"
+    },
+    "TypoLoop": {
+      "$ref": "definitions://typography"
+    },
+    "NPinBgCr": {
+      "type": "string",
+      "default": "",
+      "description": "Pin label background color"
+    },
+    "HPinBgCr": {
+      "type": "string",
+      "default": "",
+      "description": "Pin label background color (hover)"
+    },
+    "IconSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "IconBgCr": {
+      "type": "string",
+      "default": "",
+      "description": "Pin icon background color"
+    },
+    "IconHBgcr": {
+      "type": "string",
+      "default": "",
+      "description": "Pin icon background color (hover)"
+    },
+    "TypoTitle": {
+      "$ref": "definitions://typography"
+    },
+    "TNborder": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "TypoCon": {
+      "$ref": "definitions://typography"
+    },
+    "BtnTypo": {
+      "$ref": "definitions://typography"
+    },
+    "BtnTop": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "BtnNBG": {
+      "$ref": "definitions://background"
+    },
+    "BtnHBG": {
+      "$ref": "definitions://background"
+    },
+    "BGSnBg": {
+      "$ref": "definitions://background"
+    },
+    "BGSnBr": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Content card border (normal, style-2)"
+    },
+    "BGSnBrs": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "BGSnSd": {
+      "$ref": "definitions://shadow"
+    },
+    "BGSnAcr": {
+      "type": "string",
+      "default": "",
+      "description": "Content card arrow color (normal, style-2)"
+    },
+    "BGShBg": {
+      "$ref": "definitions://background"
+    },
+    "BGHvrBr": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Content card border (hover, style-2)"
+    },
+    "BGShBrs": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "BGShSd": {
+      "$ref": "definitions://background"
+    },
+    "BGShAcr": {
+      "type": "string",
+      "default": "",
+      "description": "Content card arrow color (hover, style-2)"
+    },
+    "SIconsize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "SImgSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "TextTypo": {
+      "$ref": "definitions://typography"
+    },
+    "TextMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "TextBg": {
+      "$ref": "definitions://background"
+    },
+    "EIconSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "EImgSize": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "ETextTypo": {
+      "$ref": "definitions://typography"
+    },
+    "eTextMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "ETextBg": {
+      "$ref": "definitions://background"
+    },
+    "GapConent": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "animColor": {
+      "type": "string",
+      "default": "",
+      "description": "Animated progress line color"
+    },
+    "divWidth": {
+      "$ref": "definitions://responsive-unit"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "RContent",
+      "StartPin",
+      "StartIcon",
+      "StartText",
+      "EndPin",
+      "EndIcon",
+      "EndText",
+      "TypoTitle",
+      "TypoCon",
+      "TypoLoop",
+      "IconSize",
+      "IconCr",
+      "IconBgCr",
+      "NCrTitle",
+      "NCrCon",
+      "BtnNcr",
+      "BtnNBG",
+      "PinBCr"
+    ],
+    "requiresValidation": [
+      "style",
+      "Alignment",
+      "PinStyle",
+      "ArrowStyle",
+      "isAnim",
+      "titledivider",
+      "MLayout"
+    ]
+  },
+  "styleDependencies": [
+    "Timeline layout CSS (2 styles)",
+    "Pin marker positioning",
+    "Content card arrows (style-2)",
+    "Animated progress tracking (when isAnim enabled)",
+    "Responsive alternating layout",
+    "Scroll animation JavaScript"
+  ]
+}

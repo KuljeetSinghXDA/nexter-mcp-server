@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-testimonials",
+  "title": "Testimonials - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple grid testimonials with ratings",
+      "attributes": {
+        "block_id": "a1b2",
+        "telayout": "grid",
+        "columns": {
+          "md": 4,
+          "sm": 6,
+          "xs": 12
+        },
+        "rating": true,
+        "ItemRepeater": [
+          {
+            "testiTitle": "Sarah Johnson",
+            "designation": "CEO, TechCorp",
+            "content": "Outstanding service and support!",
+            "starRating": "5"
+          },
+          {
+            "testiTitle": "Michael Chen",
+            "designation": "Designer",
+            "content": "Exceeded all expectations.",
+            "starRating": "5"
+          },
+          {
+            "testiTitle": "Emma Davis",
+            "designation": "Founder",
+            "content": "Highly recommended!",
+            "starRating": "4"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Carousel testimonials with avatars",
+      "attributes": {
+        "block_id": "c3d4",
+        "telayout": "carousel",
+        "style": "style-1",
+        "rating": true,
+        "ItemRepeater": [
+          {
+            "testiTitle": "John Doe",
+            "designation": "MD at Orange",
+            "content": "Amazing product quality!",
+            "avatar": {
+              "url": "/avatar1.jpg"
+            },
+            "starRating": "5"
+          },
+          {
+            "testiTitle": "Jane Smith",
+            "designation": "Marketing Director",
+            "content": "Best decision we made.",
+            "avatar": {
+              "url": "/avatar2.jpg"
+            },
+            "starRating": "5"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Testimonials with content limits and read more",
+      "attributes": {
+        "block_id": "e5f6",
+        "descByLimit": "limit",
+        "descLimit": "100",
+        "redmorTxt": "Show More",
+        "redlesTxt": "Show Less",
+        "contentHei": {
+          "md": "150",
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "description": "Style-4 testimonials with center alignment",
+      "attributes": {
+        "block_id": "g7h8",
+        "style": "style-4",
+        "style4Alignment": "center",
+        "rating": true,
+        "stoutLine": false,
+        "stnrmColor": "#ddd",
+        "stactColor": "#f5a623"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

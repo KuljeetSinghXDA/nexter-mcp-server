@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-coupon-code",
+  "title": "Coupon Code - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "standardConAlign": {
+      "type": "object",
+      "default": {
+        "md": "center"
+      },
+      "description": "Content alignment for standard style",
+      "responsive": true
+    },
+    "standardAlign": {
+      "type": "object",
+      "default": {
+        "md": "center"
+      },
+      "description": "Block alignment for standard style",
+      "responsive": true
+    },
+    "scratchWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "scratchHeight": {
+      "$ref": "definitions://responsive-unit"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "couponText",
+      "redirectLink",
+      "couponCode",
+      "popupTitle",
+      "popupDesc",
+      "copyBtnText",
+      "afterCopyText",
+      "visitBtnText",
+      "standardConAlign",
+      "standardAlign",
+      "linkMaskText",
+      "maskLinkList",
+      "fillPercent",
+      "scratchWidth",
+      "scratchHeight",
+      "frontContent",
+      "backTitle",
+      "backDesc"
+    ],
+    "requiresValidation": [
+      "couponType",
+      "standardStyle",
+      "directionHint",
+      "codeArrow",
+      "codecopyIcn",
+      "actionType",
+      "saveCookie",
+      "hideLink",
+      "tabReverse",
+      "slideDirection",
+      "frontContentType",
+      "frontTemp",
+      "backendVisi",
+      "backContentType",
+      "backTemp",
+      "backtempVisi"
+    ]
+  },
+  "styleDependencies": [
+    "Copy-to-clipboard JavaScript",
+    "Scratch-off canvas rendering (scratch type)",
+    "Slide animation JavaScript (slideOut type)",
+    "Peel effect JavaScript (peel type)",
+    "Cookie storage for state persistence",
+    "Modal/popup library (popup actionType)"
+  ]
+}

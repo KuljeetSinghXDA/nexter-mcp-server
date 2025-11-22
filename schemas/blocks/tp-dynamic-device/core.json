@@ -1,0 +1,430 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-dynamic-device",
+  "title": "Dynamic Device - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "layoutType": {
+      "type": "string",
+      "default": "normal",
+      "enum": [
+        "normal",
+        "carousel"
+      ],
+      "description": "Display mode: single device or carousel slider"
+    },
+    "deviceType": {
+      "type": "string",
+      "default": "mobile",
+      "enum": [
+        "mobile",
+        "tablet",
+        "laptop",
+        "desktop",
+        "custom"
+      ],
+      "description": "Device frame type (when layoutType is 'normal')"
+    },
+    "mobileDevice": {
+      "type": "string",
+      "default": "iphone-white-flat",
+      "description": "Mobile device mockup variant (when deviceType is 'mobile')"
+    },
+    "tabletDevice": {
+      "type": "string",
+      "default": "ipad-vertical-white",
+      "description": "Tablet device mockup variant (when deviceType is 'tablet')"
+    },
+    "customMedia": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Custom device frame image (when deviceType is 'custom')"
+    },
+    "contentType": {
+      "type": "string",
+      "default": "image",
+      "enum": [
+        "image",
+        "iframe",
+        "template"
+      ],
+      "description": "Content source type for device screen"
+    },
+    "conImage": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Screen content image (when contentType is 'image')"
+    },
+    "conIframe": {
+      "$ref": "definitions://link"
+    },
+    "iframeTitle": {
+      "type": "string",
+      "default": "",
+      "description": "Iframe accessibility title"
+    },
+    "blockTemp": {
+      "type": "string",
+      "default": "none",
+      "description": "Template ID for device content (when contentType is 'template')"
+    },
+    "backendVisi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show template in backend editor"
+    },
+    "ajaxbase": {
+      "type": "string",
+      "default": "",
+      "description": "AJAX base for dynamic template loading"
+    },
+    "onClickEfct": {
+      "type": "string",
+      "default": "nothing",
+      "enum": [
+        "nothing",
+        "link",
+        "popup"
+      ],
+      "description": "Click action: nothing, link, or popup lightbox"
+    },
+    "onClickLink": {
+      "$ref": "definitions://link"
+    },
+    "showIcon": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show device icon"
+    },
+    "iconSrc": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Device icon image"
+    },
+    "iconWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconConAni": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable continuous icon animation"
+    },
+    "iconConAniStyle": {
+      "type": "string",
+      "default": "pulse",
+      "enum": [
+        "pulse",
+        "floating",
+        "tossing",
+        "rotating"
+      ],
+      "description": "Continuous animation style for icon"
+    },
+    "iconConAniDuration": {
+      "type": "string",
+      "default": "2",
+      "description": "Icon animation duration in seconds"
+    },
+    "cDeviceType": {
+      "type": "string",
+      "default": "mobile",
+      "enum": [
+        "mobile",
+        "laptop",
+        "desktop"
+      ],
+      "description": "Carousel device type (when layoutType is 'carousel')"
+    },
+    "cMobileDevice": {
+      "type": "string",
+      "default": "iphone-white-flat",
+      "description": "Carousel mobile device variant"
+    },
+    "cCustomMedia": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Custom carousel device frame"
+    },
+    "cConImg": {
+      "type": "array",
+      "default": [],
+      "description": "Carousel content images array"
+    },
+    "deviceWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "rebTranDur": {
+      "type": "string",
+      "default": "",
+      "description": "Scroll transition duration in seconds"
+    },
+    "dyDevRebConId": {
+      "type": "string",
+      "default": "",
+      "description": "Dynamic content container ID for hover scroll"
+    },
+    "imgWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "scrollDimage": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable image scroll effect"
+    },
+    "scrollTranDur": {
+      "type": "string",
+      "default": "",
+      "description": "Image scroll transition duration in seconds"
+    },
+    "scrollManual": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable manual scrollbar"
+    },
+    "dyDevConId": {
+      "type": "string",
+      "default": "",
+      "description": "Dynamic device content ID"
+    },
+    "scrollBarWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "FancyOption": {
+      "type": "string",
+      "default": "[]",
+      "description": "Fancybox options JSON (when onClickEfct is 'popup')"
+    },
+    "LoopFancy": {
+      "type": "boolean",
+      "default": true,
+      "description": "Loop popup gallery"
+    },
+    "infobar": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show popup infobar"
+    },
+    "ArrowsFancy": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show popup navigation arrows"
+    },
+    "TitleFancy": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show popup title"
+    },
+    "DurationFancy": {
+      "type": "string",
+      "default": "366",
+      "description": "Popup animation duration in milliseconds"
+    },
+    "TranDuration": {
+      "type": "string",
+      "default": "366",
+      "description": "Popup transition duration in milliseconds"
+    },
+    "ThumbsOption": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show popup thumbnails"
+    },
+    "ThumbsBrCr": {
+      "type": "object",
+      "default": {
+        "openBorder": 0
+      },
+      "description": "Popup thumbnail border"
+    },
+    "cImgWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "centerSlideEffect": {
+      "type": "string",
+      "default": "none",
+      "enum": [
+        "none",
+        "scale",
+        "shadow",
+        "opacity"
+      ],
+      "description": "Center slide visual effect"
+    },
+    "centerslideScale": {
+      "type": "string",
+      "default": "1",
+      "description": "Center slide scale value (when centerSlideEffect is 'scale')"
+    },
+    "normalslideScale": {
+      "type": "string",
+      "default": "1",
+      "description": "Normal slide scale value (when centerSlideEffect is 'scale')"
+    },
+    "slideOpacity": {
+      "type": "object",
+      "default": {
+        "md": 1,
+        "sm": 1,
+        "xs": 1
+      },
+      "description": "Non-active slide opacity",
+      "responsive": true
+    },
+    "slideBoxShadow": {
+      "$ref": "definitions://shadow"
+    },
+    "cSlideListMargin": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "cSlideSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "carouselWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "mockUpWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "columnSlide": {
+      "type": "string",
+      "default": "single",
+      "description": "Carousel columns layout"
+    },
+    "slideSpeed": {
+      "type": "string",
+      "default": "1500",
+      "description": "Carousel transition speed in milliseconds"
+    },
+    "slideColumnSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "slideInfinite": {
+      "type": "boolean",
+      "default": false,
+      "description": "Infinite carousel loop"
+    },
+    "slideAutoplay": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable carousel autoplay"
+    },
+    "slideAutoplaySpeed": {
+      "type": "string",
+      "default": "1500",
+      "description": "Autoplay interval in milliseconds"
+    },
+    "showDots": {
+      "type": "object",
+      "default": {
+        "md": true
+      },
+      "description": "Show carousel dots navigation",
+      "responsive": true
+    },
+    "dotsStyle": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Carousel dots visual style"
+    },
+    "dotSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "slideHoverDots": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show dots on hover only"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "conImage",
+      "conIframe",
+      "iframeTitle",
+      "onClickLink",
+      "iconSrc",
+      "iconWidth",
+      "cConImg",
+      "deviceWidth",
+      "ddAlignment",
+      "deviceMargin",
+      "devicePadding",
+      "rebTopOffset",
+      "rebLeftOffset",
+      "rebTranDur",
+      "imgWidth",
+      "imgHeight",
+      "imgTopOff",
+      "imgLeftOff",
+      "scrollTranDur",
+      "iconBdrRadius",
+      "imgBdrRadius",
+      "scrollBarWidth",
+      "thumbBG",
+      "trackBG",
+      "cImgWidth",
+      "cImgHeight",
+      "slideSpeed",
+      "slideAutoplaySpeed",
+      "dotSize",
+      "dotSpace"
+    ],
+    "requiresValidation": [
+      "layoutType",
+      "deviceType",
+      "mobileDevice",
+      "tabletDevice",
+      "laptopDevice",
+      "desktopDevice",
+      "contentType",
+      "blockTemp",
+      "onClickEfct",
+      "showIcon",
+      "iconConAni",
+      "iconConAniStyle",
+      "iconConHoverAnimation",
+      "cDeviceType",
+      "rebHoverScroll",
+      "scrollDimage",
+      "scrollManual",
+      "centerSlideEffect",
+      "slideInfinite",
+      "slideAutoplay",
+      "showDots",
+      "dotsStyle",
+      "slideHoverDots"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

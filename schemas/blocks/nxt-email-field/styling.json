@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-email-field",
+  "title": "Email Address - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {},
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "icons",
+      "ButtonImage",
+      "desctxt",
+      "placeholder",
+      "error",
+      "inpSz",
+      "icnClr",
+      "hvrIcnClr"
+    ],
+    "requiresValidation": [
+      "iconType",
+      "hlpTxt",
+      "reqTgl",
+      "autoComplete",
+      "descPoss"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Input container flexbox layout",
+    "Icon positioning (absolute/relative)",
+    "Email validation JavaScript"
+  ]
+}

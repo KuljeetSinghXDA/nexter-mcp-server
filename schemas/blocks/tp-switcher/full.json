@@ -1,0 +1,197 @@
+{
+  "blockName": "tpgb/tp-switcher",
+  "version": "1.0.0",
+  "title": "Switcher",
+  "category": "interactive",
+  "description": "Toggle between two different content sections with a clickable switch button. Perfect for pricing comparisons (monthly/yearly), content alternatives, or any dual-option display. Supports carousel integration and multiple visual styles.",
+  "source": "pro",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "title1": {
+      "type": "string",
+      "default": "Switch 1",
+      "description": "Label for first switch option"
+    },
+    "title2": {
+      "type": "string",
+      "default": "Switch 2",
+      "description": "Label for second switch option"
+    },
+    "desc1": {
+      "type": "string",
+      "default": "",
+      "description": "Content for first switch option (legacy mode)"
+    },
+    "desc2": {
+      "type": "string",
+      "default": "",
+      "description": "Content for second switch option (legacy mode)"
+    },
+    "source1": {
+      "type": "string",
+      "default": "content",
+      "enum": ["content", "template"],
+      "description": "Content source for switch 1"
+    },
+    "source2": {
+      "type": "string",
+      "default": "content",
+      "enum": ["content", "template"],
+      "description": "Content source for switch 2"
+    },
+    "blockTemp1": {
+      "type": "string",
+      "default": "",
+      "description": "Block template ID for switch 1"
+    },
+    "blockTemp2": {
+      "type": "string",
+      "default": "",
+      "description": "Block template ID for switch 2"
+    },
+    "ajaxbaseTem1": {
+      "type": "string",
+      "default": "",
+      "description": "AJAX loading configuration for switch 1"
+    },
+    "ajaxbaseTem2": {
+      "type": "string",
+      "default": "",
+      "description": "AJAX loading configuration for switch 2"
+    },
+    "showBtn": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide the switch toggle button"
+    },
+    "switchStyle": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2", "style-3", "style-4"],
+      "description": "Visual style of the switch toggle"
+    },
+    "switchalign": {
+      "type": "string",
+      "default": "text-left",
+      "enum": ["text-left", "text-center", "text-right"],
+      "description": "Alignment of switch toggle"
+    },
+    "labSpacebet": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Space between labels and toggle button (style-1, style-2)",
+      "responsive": true,
+      "conditionalStyle": "Only for style-1 and style-2"
+    },
+    "toggleSize": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Font size of toggle labels",
+      "responsive": true
+    },
+    "switchWidth": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Max width of switch toggle (style-3, style-4)",
+      "responsive": true,
+      "conditionalStyle": "Only for style-3 and style-4"
+    },
+    "switchColor": {
+      "type": "string",
+      "default": "",
+      "description": "Switch label text color"
+    },
+    "carouselId": {
+      "type": "string",
+      "default": "",
+      "description": "ID of carousel block to sync with switcher"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "title1",
+      "title2",
+      "desc1",
+      "desc2",
+      "switchalign",
+      "labSpacebet",
+      "toggleSize",
+      "switchColor",
+      "innerBlocks content"
+    ],
+    "requiresValidation": [
+      "switchStyle",
+      "source1",
+      "source2",
+      "blockTemp1",
+      "blockTemp2",
+      "showBtn",
+      "carouselId"
+    ],
+    "dangerous": [
+      "block_id",
+      "ajaxbaseTem1",
+      "ajaxbaseTem2"
+    ]
+  },
+  "styleDependencies": [
+    "Switcher toggle CSS (4 styles)",
+    "Transition/animation effects",
+    "Responsive styling"
+  ],
+  "commonUseCases": [
+    "Pricing table toggle (monthly/yearly)",
+    "Content comparison views",
+    "Feature plan switcher",
+    "Language or currency switcher",
+    "Before/after content display",
+    "Product variant switcher"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-switch-inner",
+    "tpgb/tp-pricing-table",
+    "tpgb/tp-tabs-tours"
+  ],
+  "capabilities": [
+    "Two-option toggle switch",
+    "4 visual style variants",
+    "Supports innerBlocks for rich content",
+    "Template/content source options",
+    "Carousel integration",
+    "Custom styling and alignment",
+    "Smooth content transitions"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": true,
+  "allowedInnerBlocks": ["tpgb/tp-switch-inner"],
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple pricing switcher (monthly/yearly)",
+      "attributes": {
+        "block_id": "a1b2",
+        "title1": "Monthly",
+        "title2": "Yearly",
+        "switchStyle": "style-1",
+        "switchalign": "text-center"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "attrs": {"block_id": "c3d4", "index": 0}
+        },
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "attrs": {"block_id": "e5f6", "index": 1}
+        }
+      ]
+    }
+  ]
+}

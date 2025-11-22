@@ -1,0 +1,244 @@
+{
+  "blockName": "tpgb/tp-pricing-list",
+  "version": "1.0.0",
+  "title": "Pricing List",
+  "category": "content",
+  "description": "Display restaurant menus, food items, service pricing lists, or product catalogs with title, price, tags, description, and optional images. Features 3 visual styles including dotted/dashed separator lines, hover effects, and extensive typography controls. Perfect for menus, price sheets, service lists, and product catalogs.",
+  "source": "free",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "enum": ["style-1", "style-2", "style-3"],
+      "description": "Visual layout style"
+    },
+    "Alignment": {
+      "type": "object",
+      "default": {"md": "left", "sm": "", "xs": ""},
+      "description": "Content alignment (left, center, right)",
+      "responsive": true
+    },
+    "boxAlign": {
+      "type": "string",
+      "default": "top-left",
+      "enum": ["top-left", "top-center", "top-right", "center-left", "center-center", "center-right", "bottom-left", "bottom-center", "bottom-right"],
+      "description": "Image/icon box alignment position"
+    },
+    "hoverEffect": {
+      "type": "string",
+      "default": "horizontal",
+      "enum": ["horizontal", "vertical", "diagonal", "none"],
+      "description": "Image hover animation direction"
+    },
+    "title": {
+      "type": "string",
+      "default": "Delicious Cup Cake",
+      "description": "Item title/name"
+    },
+    "tagField": {
+      "type": "string",
+      "default": "Small|Medium|Large",
+      "description": "Tags/variations separated by pipes"
+    },
+    "price": {
+      "type": "string",
+      "default": "$4.99",
+      "description": "Price display text"
+    },
+    "description": {
+      "type": "string",
+      "default": "Cupcake ipsum dolor. Sit amet marshmallow topping cheesecake muffin. Halvah croissant candy canes bonbon candy. Apple pie jelly beans topping carrot cake danish tart cake cheesecake. Muffin danish chocolate soufflé pastry icing bonbon oat cake. Powder cake jujubes oat cake. Lemon drops tootsie roll marshmallow halvah carrot cake.",
+      "description": "Item description/details"
+    },
+    "imageField": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "Item image/photo"
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size"
+    },
+    "imgShape": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "circle", "rounded"],
+      "description": "Image shape style"
+    },
+    "maskImg": {
+      "type": "object",
+      "default": {"url": ""},
+      "description": "SVG mask image for custom shapes"
+    },
+    "titleTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography for title"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title text color"
+    },
+    "titleBG": {
+      "type": "object",
+      "default": {"openBg": 0, "bgType": "color", "bgDefaultColor": ""},
+      "description": "Title background color/gradient"
+    },
+    "titlePadding": {
+      "type": "object",
+      "default": {"md": {"top": "", "right": "", "bottom": "", "left": ""}, "unit": "px"},
+      "description": "Title padding",
+      "responsive": true
+    },
+    "lineStyle": {
+      "type": "object",
+      "default": {"openBorder": 0, "type": "", "color": "#888", "width": {"md": {"top": "", "left": "", "bottom": "", "right": ""}, "unit": "px"}},
+      "description": "Separator line border style (style-3)"
+    },
+    "tagTypo": {
+      "type": "object",
+      "default": {"openTypography": 0, "size": {"md": "", "unit": "px"}},
+      "description": "Typography for tags"
+    },
+    "tagSpace": {
+      "type": "object",
+      "default": {"md": "", "unit": "px"},
+      "description": "Space between tags",
+      "responsive": true
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "title",
+      "tagField",
+      "price",
+      "description",
+      "imageField",
+      "Alignment",
+      "titleTypo",
+      "titleColor",
+      "titleBG",
+      "titlePadding",
+      "tagTypo",
+      "tagSpace",
+      "imgShape"
+    ],
+    "requiresValidation": [
+      "style",
+      "boxAlign",
+      "hoverEffect",
+      "lineStyle",
+      "maskImg"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "styleDependencies": [
+    "Separator line styles (dotted, dashed, solid)",
+    "Image hover effects",
+    "SVG mask-image for custom shapes",
+    "Tag/badge styling",
+    "Responsive typography"
+  ],
+  "commonUseCases": [
+    "Restaurant menus",
+    "Food and beverage pricing",
+    "Service price lists",
+    "Product catalogs",
+    "Spa and salon services",
+    "Event catering menus",
+    "Coffee shop menus",
+    "Bar drink lists",
+    "Package pricing comparisons",
+    "Professional service rates"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-pricing-table",
+    "tpgb/tp-infobox",
+    "tpgb/tp-image"
+  ],
+  "capabilities": [
+    "3 visual styles with different layouts",
+    "Title, price, and description fields",
+    "Tags/variations with pipe separator",
+    "Optional item images with WordPress size selection",
+    "3 image shapes (none, circle, rounded)",
+    "SVG mask images for custom shapes",
+    "Image hover effects (horizontal, vertical, diagonal)",
+    "9 box alignment positions for images",
+    "Separator line styling (style-3)",
+    "Responsive alignment",
+    "Typography controls for title and tags",
+    "Title background and padding",
+    "Tag spacing control",
+    "Full HTML description support"
+  ],
+  "usesContext": [],
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false,
+  "examples": [
+    {
+      "description": "Simple menu item with price",
+      "attributes": {
+        "block_id": "a1b2",
+        "style": "style-1",
+        "title": "Caesar Salad",
+        "price": "$12.99",
+        "description": "Fresh romaine lettuce, parmesan cheese, croutons, and our signature dressing",
+        "tagField": "Vegetarian|Gluten-Free Option"
+      }
+    },
+    {
+      "description": "Menu item with image (style-2)",
+      "attributes": {
+        "block_id": "c3d4",
+        "style": "style-2",
+        "title": "Grilled Salmon",
+        "price": "$24.99",
+        "imageField": {"url": "/salmon.jpg"},
+        "imgShape": "circle",
+        "hoverEffect": "horizontal",
+        "boxAlign": "center-left"
+      }
+    },
+    {
+      "description": "Price list with dotted separator (style-3)",
+      "attributes": {
+        "block_id": "e5f6",
+        "style": "style-3",
+        "title": "Haircut & Styling",
+        "price": "$45",
+        "lineStyle": {"openBorder": 1, "type": "dotted", "color": "#cccccc", "width": {"md": {"bottom": "2"}, "unit": "px"}},
+        "tagField": "30 min"
+      }
+    },
+    {
+      "description": "Custom styled menu item",
+      "attributes": {
+        "block_id": "g7h8",
+        "title": "Espresso",
+        "price": "$3.50",
+        "titleTypo": {"openTypography": 1, "size": {"md": "24", "unit": "px"}},
+        "titleColor": "#2c3e50",
+        "tagField": "Single|Double",
+        "tagSpace": {"md": "10", "unit": "px"}
+      }
+    }
+  ]
+}

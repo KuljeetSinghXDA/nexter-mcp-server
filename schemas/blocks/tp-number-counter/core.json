@@ -1,0 +1,220 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-number-counter",
+  "title": "Number Counter - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "style": {
+      "type": "string",
+      "default": "style-1",
+      "enum": [
+        "style-1",
+        "style-2"
+      ],
+      "description": "Layout style: style-1 (centered), style-2 (left-aligned)"
+    },
+    "title": {
+      "type": "string",
+      "default": "Awards Won",
+      "description": "Counter title/label text"
+    },
+    "linkURL": {
+      "$ref": "definitions://link"
+    },
+    "ariaLabel": {
+      "type": "string",
+      "default": "",
+      "description": "Accessible aria-label for the link"
+    },
+    "numValue": {
+      "type": "string",
+      "default": "999",
+      "description": "Final number value (end point)"
+    },
+    "startValue": {
+      "type": "string",
+      "default": "0",
+      "description": "Starting number value (animation start)"
+    },
+    "timeDelay": {
+      "type": "string",
+      "default": "5",
+      "description": "Animation delay in milliseconds between increments"
+    },
+    "numeration": {
+      "type": "string",
+      "default": "default",
+      "enum": [
+        "default",
+        "commas",
+        "custom"
+      ],
+      "description": "Number format: default (no separators), commas (1,000), or custom"
+    },
+    "symbol": {
+      "type": "string",
+      "default": "",
+      "description": "Symbol/suffix after number (e.g., %, +, K, M)"
+    },
+    "symbolPos": {
+      "type": "string",
+      "default": "after",
+      "enum": [
+        "before",
+        "after"
+      ],
+      "description": "Symbol position relative to number"
+    },
+    "preSymbol": {
+      "type": "string",
+      "default": "",
+      "description": "Prefix symbol before number (e.g., $, €, £)"
+    },
+    "iconType": {
+      "type": "string",
+      "default": "icon",
+      "enum": [
+        "icon",
+        "img",
+        "svg"
+      ],
+      "description": "Icon type: Font Awesome icon, image, or SVG"
+    },
+    "iconStore": {
+      "type": "string",
+      "default": "fas fa-award",
+      "description": "Font Awesome icon class"
+    },
+    "imagestore": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Image upload for icon"
+    },
+    "svgIcon": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "SVG icon upload"
+    },
+    "titleTypo": {
+      "$ref": "definitions://typography"
+    },
+    "titleNmlColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (normal state)"
+    },
+    "titleHvrColor": {
+      "type": "string",
+      "default": "",
+      "description": "Title color (hover state)"
+    },
+    "titleTopSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "titleBottomSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "iconStyle": {
+      "type": "string",
+      "default": "none",
+      "enum": [
+        "none",
+        "square",
+        "rounded"
+      ],
+      "description": "Icon background style"
+    },
+    "iconWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "imgWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "verticalCenter": {
+      "type": "boolean",
+      "default": false,
+      "description": "Vertically center align content"
+    },
+    "svgDraw": {
+      "type": "string",
+      "default": "delayed",
+      "enum": [
+        "delayed",
+        "sync",
+        "oneByOne"
+      ],
+      "description": "SVG draw animation timing"
+    },
+    "svgDura": {
+      "type": "string",
+      "default": "90",
+      "description": "SVG draw animation duration (frames)"
+    },
+    "svgmaxWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "title",
+      "numValue",
+      "startValue",
+      "symbol",
+      "preSymbol",
+      "titleTypo",
+      "titleNmlColor",
+      "titleHvrColor",
+      "digitTypo",
+      "digitNmlColor",
+      "digitHvrColor",
+      "symbolTypo",
+      "symbolNmlColor",
+      "symbolHvrColor",
+      "iconStore",
+      "iconSize",
+      "icnNmlColor",
+      "icnHvrColor",
+      "normalBG",
+      "hoverBG",
+      "bgPadding"
+    ],
+    "requiresValidation": [
+      "style",
+      "numGap",
+      "timeDelay",
+      "numeration",
+      "iconType",
+      "iconStyle",
+      "linkURL"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

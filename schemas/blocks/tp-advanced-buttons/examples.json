@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-advanced-buttons",
+  "title": "Pro Buttons - Usage Examples",
+  "description": "Common usage patterns and example configurations",
+  "examples": [
+    {
+      "description": "Simple CTA button with icon",
+      "attributes": {
+        "block_id": "a1b2",
+        "btnType": "cta",
+        "ctaStyle": "style-1",
+        "btnText": "Get Started",
+        "btnIcon": true,
+        "iconName": "fas fa-arrow-right",
+        "btnBgType": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        }
+      }
+    },
+    {
+      "description": "Download button with progress (style-5)",
+      "attributes": {
+        "block_id": "c3d4",
+        "btnType": "download",
+        "dwnldStyle": "style-5",
+        "btnText": "Download PDF",
+        "dst5LoadingText": "downloading...",
+        "dst5SuccessText": "done!",
+        "downloadFile": {
+          "url": "/files/guide.pdf"
+        },
+        "downloadName": "guide.pdf"
+      }
+    },
+    {
+      "description": "CTA with emoji reactions (style-8)",
+      "attributes": {
+        "block_id": "e5f6",
+        "btnType": "cta",
+        "ctaStyle": "style-8",
+        "btnText": "Join Now",
+        "nmlEmoji": "💯",
+        "hvrEmoji": "👏"
+      }
+    },
+    {
+      "description": "CTA with extra text overlay (style-6)",
+      "attributes": {
+        "block_id": "g7h8",
+        "btnType": "cta",
+        "ctaStyle": "style-6",
+        "btnText": "Buy Now",
+        "extraText1": "Limited Time",
+        "extraText2": "50% OFF",
+        "btnAlign": "text-center"
+      }
+    }
+  ],
+  "commonPatterns": {}
+}

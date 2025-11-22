@@ -1,0 +1,427 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-row",
+  "title": "Row - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "className": {
+      "type": "string",
+      "default": "",
+      "description": "Additional CSS class names"
+    },
+    "stretchRow": {
+      "type": "boolean",
+      "default": false,
+      "description": "Stretch row to full viewport width"
+    },
+    "colDir": {
+      "type": "string",
+      "default": "",
+      "description": "Column direction override"
+    },
+    "columns": {
+      "type": "number",
+      "default": "",
+      "description": "Number of columns (auto-calculated based on tp-column children)"
+    },
+    "sectionWidth": {
+      "type": "string",
+      "default": "boxed",
+      "enum": [
+        "boxed",
+        "full"
+      ],
+      "description": "Row width mode: boxed (contained) or full (edge-to-edge)"
+    },
+    "gutterSpace": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "tagName": {
+      "type": "string",
+      "default": "div",
+      "enum": [
+        "div",
+        "section",
+        "article",
+        "header",
+        "footer",
+        "main",
+        "aside"
+      ],
+      "description": "HTML tag for semantic structure"
+    },
+    "liveCopy": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable live copy mode for template replication"
+    },
+    "currentID": {
+      "type": "number",
+      "default": "",
+      "description": "Current post/page ID for live copy"
+    },
+    "customClass": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS classes"
+    },
+    "customId": {
+      "type": "string",
+      "default": "",
+      "description": "Custom HTML ID"
+    },
+    "customCss": {
+      "type": "string",
+      "default": "",
+      "description": "Custom CSS rules for this block"
+    },
+    "shapeTWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "shapeTFlip": {
+      "type": "boolean",
+      "default": false,
+      "description": "Flip top shape divider horizontally"
+    },
+    "shapeTInvert": {
+      "type": "boolean",
+      "default": false,
+      "description": "Invert top shape divider vertically"
+    },
+    "shapeTFront": {
+      "type": "boolean",
+      "default": false,
+      "description": "Bring top shape divider to front (above content)"
+    },
+    "shapeBWidth": {
+      "$ref": "definitions://responsive-unit"
+    },
+    "shapeBFlip": {
+      "type": "boolean",
+      "default": false,
+      "description": "Flip bottom shape divider horizontally"
+    },
+    "shapeBInvert": {
+      "type": "boolean",
+      "default": false,
+      "description": "Invert bottom shape divider vertically"
+    },
+    "shapeBFront": {
+      "type": "boolean",
+      "default": false,
+      "description": "Bring bottom shape divider to front"
+    },
+    "HideDesktop": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide row on desktop (1201px+)"
+    },
+    "HideTablet": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide row on tablet (768-1200px)"
+    },
+    "HideMobile": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide row on mobile (767px and below)"
+    },
+    "animdur": {
+      "type": "string",
+      "default": "3",
+      "description": "Pro: Animation duration in seconds for color transitions",
+      "proFeature": true
+    },
+    "animDelay": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Animation delay in seconds",
+      "proFeature": true
+    },
+    "crativeImg": {
+      "$ref": "definitions://background"
+    },
+    "imgeffect": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "style-1",
+        "style-2",
+        "tilt",
+        "mouse_move"
+      ],
+      "description": "Pro: Image effect interaction type",
+      "proFeature": true
+    },
+    "intensity": {
+      "type": "string",
+      "default": "30",
+      "description": "Pro: Effect intensity (0-100)",
+      "proFeature": true
+    },
+    "perspective": {
+      "type": "string",
+      "default": "1000",
+      "description": "Pro: 3D perspective for tilt effect",
+      "proFeature": true
+    },
+    "Scale": {
+      "type": "string",
+      "default": "1",
+      "description": "Pro: Scale multiplier for effects",
+      "proFeature": true
+    },
+    "inverted": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Invert effect direction",
+      "proFeature": true
+    },
+    "scrollPara": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Enable scroll parallax effect",
+      "proFeature": true
+    },
+    "kburnseffect": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Enable Ken Burns zoom/pan effect",
+      "proFeature": true
+    },
+    "Kbeffctdir": {
+      "type": "string",
+      "default": "normal",
+      "enum": [
+        "normal",
+        "reverse"
+      ],
+      "description": "Pro: Ken Burns effect direction",
+      "proFeature": true
+    },
+    "effctDure": {
+      "type": "string",
+      "default": "14",
+      "description": "Pro: Effect duration in seconds",
+      "proFeature": true
+    },
+    "videosour": {
+      "type": "string",
+      "default": "youtube",
+      "enum": [
+        "youtube",
+        "vimeo",
+        "self-hosted"
+      ],
+      "description": "Pro: Video background source type",
+      "proFeature": true
+    },
+    "mp4Url": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: MP4 video URL for self-hosted video background",
+      "proFeature": true
+    },
+    "WebMUrl": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: WebM video URL for self-hosted video background",
+      "proFeature": true
+    },
+    "youtubeId": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: YouTube video ID for video background",
+      "proFeature": true
+    },
+    "vimeoId": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Vimeo video ID for video background",
+      "proFeature": true
+    },
+    "iframeTitle": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Accessible iframe title for video embed",
+      "proFeature": true
+    },
+    "videoloop": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Loop video background",
+      "proFeature": true
+    },
+    "videoMute": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Mute video background audio",
+      "proFeature": true
+    },
+    "videoImg": {
+      "type": "object",
+      "default": {
+        "url": ""
+      },
+      "description": "Pro: Video poster/fallback image",
+      "proFeature": true
+    },
+    "parallax": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Enable parallax effect on background",
+      "proFeature": true
+    },
+    "rowImgs": {
+      "type": "array",
+      "default": [],
+      "description": "Pro: Gallery images array for bg_gallery mode",
+      "proFeature": true
+    },
+    "midOption": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "canvas",
+        "automove-img"
+      ],
+      "description": "Pro: Middle layer option (canvas particles or auto-moving images)",
+      "proFeature": true
+    },
+    "canvasSty": {
+      "type": "string",
+      "default": "style-1",
+      "description": "Pro: Canvas particle style preset",
+      "proFeature": true
+    },
+    "particleList": {
+      "type": "array",
+      "default": [
+        {
+          "_key": "0",
+          "bubbleColor": "#8072fc"
+        },
+        {
+          "_key": "1",
+          "bubbleColor": "#6fc784"
+        },
+        {
+          "_key": "2",
+          "bubbleColor": "#ff5a6e"
+        }
+      ],
+      "description": "Pro: Particle colors repeater for canvas background",
+      "repeaterField": {
+        "bubbleColor": {
+          "type": "string",
+          "default": "",
+          "description": "Particle/bubble color"
+        }
+      },
+      "proFeature": true
+    },
+    "canShape": {
+      "type": "string",
+      "default": "circle",
+      "enum": [
+        "circle",
+        "square",
+        "triangle"
+      ],
+      "description": "Pro: Canvas particle shape",
+      "proFeature": true
+    },
+    "ctmJson": {
+      "type": "string",
+      "default": "",
+      "description": "Pro: Custom particles.js JSON configuration",
+      "proFeature": true
+    },
+    "textureImg": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "id": ""
+      },
+      "description": "Pro: Texture overlay image upload",
+      "proFeature": true
+    },
+    "wrapLink": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pro: Wrap entire row in a clickable link",
+      "proFeature": true
+    },
+    "rowUrl": {
+      "$ref": "definitions://link"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "Padding",
+      "Margin",
+      "minHeight",
+      "gutterSpace",
+      "columnPosition",
+      "verticalPosition",
+      "NormalBg",
+      "HoverBg",
+      "NormalBorder",
+      "HoverBorder",
+      "NormalBradius",
+      "HoverBradius",
+      "NormalBShadow",
+      "HoverBShadow",
+      "shapeTop",
+      "shapeTColor",
+      "shapeTWidth",
+      "shapeTHeight",
+      "shapeBottom",
+      "shapeBColor",
+      "shapeBWidth",
+      "shapeBHeight",
+      "customClass",
+      "customId",
+      "HideDesktop",
+      "HideTablet",
+      "HideMobile"
+    ],
+    "requiresValidation": [
+      "sectionWidth",
+      "height",
+      "tagName",
+      "overflow",
+      "deepBgopt",
+      "videosour",
+      "craBgeffect",
+      "imgeffect",
+      "midOption"
+    ],
+    "dangerous": [
+      "block_id",
+      "columns",
+      "className",
+      "stretchRow"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "innerBlocksAllowed": true,
+  "parentBlockRequired": false
+}

@@ -1,0 +1,333 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-animated-service-boxes",
+  "title": "Animated Service Boxes - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "mainStyleType": {
+      "type": "string",
+      "default": "image-accordion",
+      "enum": [
+        "image-accordion",
+        "sliding-boxes",
+        "article-boxes",
+        "info-banner",
+        "hover-section",
+        "fancy-box",
+        "services-element",
+        "portfolio"
+      ],
+      "description": "Main style category (8 types)"
+    },
+    "imgAcrdnStyle": {
+      "type": "string",
+      "default": "accordion-style-1",
+      "enum": [
+        "accordion-style-1",
+        "accordion-style-2"
+      ],
+      "description": "Image accordion sub-style (when mainStyleType is 'image-accordion')"
+    },
+    "imgOrientation": {
+      "type": "string",
+      "default": "accordion-vertical",
+      "enum": [
+        "accordion-vertical",
+        "accordion-horizontal"
+      ],
+      "description": "Image accordion orientation"
+    },
+    "slideStyle": {
+      "type": "string",
+      "default": "sliding-style-1",
+      "enum": [
+        "sliding-style-1",
+        "sliding-style-2",
+        "sliding-style-3",
+        "sliding-style-4"
+      ],
+      "description": "Sliding boxes sub-style"
+    },
+    "articleStyle": {
+      "type": "string",
+      "default": "article-box-style-1",
+      "enum": [
+        "article-box-style-1",
+        "article-box-style-2"
+      ],
+      "description": "Article boxes sub-style"
+    },
+    "activeSlide": {
+      "type": "string",
+      "default": "1",
+      "description": "Default active slide/accordion index (1-based)"
+    },
+    "bannerStyle": {
+      "type": "string",
+      "default": "info-banner-style-1",
+      "enum": [
+        "info-banner-style-1",
+        "info-banner-style-2"
+      ],
+      "description": "Info banner sub-style"
+    },
+    "bannerOrientation": {
+      "type": "string",
+      "default": "info-banner-left",
+      "enum": [
+        "info-banner-left",
+        "info-banner-right"
+      ],
+      "description": "Info banner image/content orientation"
+    },
+    "sectionStyle": {
+      "type": "string",
+      "default": "hover-section-style-1",
+      "enum": [
+        "hover-section-style-1",
+        "hover-section-style-2"
+      ],
+      "description": "Hover section sub-style"
+    },
+    "sectionImgPreload": {
+      "type": "boolean",
+      "default": false,
+      "description": "Preload hover section images for faster transitions"
+    },
+    "fancyBStyle": {
+      "type": "string",
+      "default": "fancy-box-style-1",
+      "enum": [
+        "fancy-box-style-1",
+        "fancy-box-style-2"
+      ],
+      "description": "Fancy box sub-style"
+    },
+    "serviceEStyle": {
+      "type": "string",
+      "default": "services-element-style-1",
+      "enum": [
+        "services-element-style-1",
+        "services-element-style-2"
+      ],
+      "description": "Services element sub-style"
+    },
+    "portfolioStyle": {
+      "type": "string",
+      "default": "portfolio-style-1",
+      "enum": [
+        "portfolio-style-1",
+        "portfolio-style-2"
+      ],
+      "description": "Portfolio sub-style"
+    },
+    "disBtn": {
+      "type": "boolean",
+      "default": false,
+      "description": "Display button/CTA in service boxes"
+    },
+    "btnStyle": {
+      "type": "string",
+      "default": "style-7",
+      "description": "Button style variant (when disBtn is true)"
+    },
+    "btnIconType": {
+      "type": "string",
+      "default": "none",
+      "enum": [
+        "none",
+        "icon"
+      ],
+      "description": "Button icon display"
+    },
+    "btnIconStore": {
+      "type": "string",
+      "default": "",
+      "description": "Font Awesome icon class for button"
+    },
+    "disIcnImg": {
+      "type": "boolean",
+      "default": false,
+      "description": "Display icon/image in service boxes"
+    },
+    "serviceBox": {
+      "type": "array",
+      "repeaterField": true,
+      "description": "Array of service/feature items",
+      "items": {
+        "title": {
+          "type": "string",
+          "default": "Service",
+          "description": "Service title"
+        },
+        "iconType": {
+          "type": "string",
+          "default": "icon",
+          "enum": [
+            "icon",
+            "image"
+          ],
+          "description": "Icon type for service"
+        },
+        "iconStore": {
+          "type": "string",
+          "default": "fab fa-whatsapp",
+          "description": "Font Awesome icon class"
+        },
+        "imgStore": {
+          "type": "object",
+          "default": {
+            "url": ""
+          },
+          "description": "Custom icon image"
+        },
+        "imageSize": {
+          "type": "string",
+          "default": "full",
+          "description": "Icon image WordPress size"
+        },
+        "subTitle": {
+          "type": "string",
+          "default": "",
+          "description": "Service subtitle/tagline"
+        },
+        "description": {
+          "type": "string",
+          "default": "Description Text will go here.",
+          "description": "Service description/details"
+        },
+        "featureImg": {
+          "type": "object",
+          "default": {
+            "url": ""
+          },
+          "description": "Featured/background image for service"
+        },
+        "btnText": {
+          "type": "string",
+          "default": "Read More",
+          "description": "Button text label"
+        },
+        "btnUrl": {
+          "type": "object",
+          "default": {
+            "url": "",
+            "target": "",
+            "nofollow": ""
+          },
+          "description": "Button link URL"
+        },
+        "ariaLabel": {
+          "type": "string",
+          "default": "",
+          "description": "Accessibility aria-label for button"
+        },
+        "contentList": {
+          "type": "string",
+          "default": "Feature 1 | Feature 2 | Feature 3 | Feature 4",
+          "description": "Pipe-separated list of features/bullet points"
+        }
+      },
+      "default": [
+        {
+          "_key": "0",
+          "title": "Marketing",
+          "subTitle": "",
+          "iconType": "icon",
+          "description": "Description Text will go here.",
+          "iconStore": "fas fa-home",
+          "imgStore": {
+            "url": ""
+          },
+          "contentList": "Feature 1 | Feature 2 | Feature 3 | Feature 4",
+          "btnText": "Read More",
+          "btnUrl": {
+            "url": "#",
+            "target": "",
+            "nofollow": ""
+          },
+          "ariaLabel": "",
+          "featureImg": {
+            "url": ""
+          }
+        },
+        {
+          "_key": "1",
+          "title": "Sales",
+          "subTitle": "",
+          "iconType": "icon",
+          "description": "Description Text will go here.",
+          "iconStore": "fas fa-home",
+          "imgStore": {
+            "url": ""
+          },
+          "contentList": "Feature 1 | Feature 2 | Feature 3 | Feature 4",
+          "btnText": "Read More",
+          "btnUrl": {
+            "url": "#",
+            "target": "",
+            "nofollow": ""
+          },
+          "ariaLabel": "",
+          "featureImg": {
+            "url": ""
+          }
+        }
+      ]
+    },
+    "showBlockContent": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide block content"
+    }
+  },
+  "required": [
+    "block_id"
+  ],
+  "editingGuidelines": {
+    "safeToModify": [
+      "serviceBox",
+      "disBtn",
+      "btnStyle",
+      "btnText",
+      "disIcnImg",
+      "imageSize",
+      "btnIconStore",
+      "btnIconPosition"
+    ],
+    "requiresValidation": [
+      "mainStyleType",
+      "imgAcrdnStyle",
+      "imgOrientation",
+      "slideStyle",
+      "articleStyle",
+      "activeSlide",
+      "imgFlexGrow",
+      "bannerStyle",
+      "bannerOrientation",
+      "sectionStyle",
+      "sectionImgPreload",
+      "fancyBStyle",
+      "serviceEStyle",
+      "portfolioStyle",
+      "btnIconType"
+    ],
+    "dangerous": [
+      "block_id"
+    ]
+  },
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}

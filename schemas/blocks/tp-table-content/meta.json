@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-table-content",
+  "version": "1.0.0",
+  "title": "Table of Contents",
+  "category": "navigation",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Auto-generate table of contents from page headings (H1-H6) for easy navigation and readability. Features 4 visual styles with nested heading support, smooth scrolling, fixed positioning, and collapsib",
+  "keywords": [
+    "table of contents",
+    "toc",
+    "page index",
+    "navigation"
+  ],
+  "useCases": [
+    "Blog post TOC",
+    "Documentation navigation",
+    "Long-form content"
+  ]
+}

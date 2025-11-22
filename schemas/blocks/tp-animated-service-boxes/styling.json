@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-animated-service-boxes",
+  "title": "Animated Service Boxes - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "imgFlexGrow": {
+      "type": "string",
+      "default": "7.5",
+      "description": "Active accordion item flex-grow value (CSS flex property)"
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "full",
+      "description": "WordPress image size for all images"
+    },
+    "btnIconPosition": {
+      "type": "string",
+      "default": "after",
+      "enum": [
+        "before",
+        "after"
+      ],
+      "description": "Button icon position relative to text"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "serviceBox",
+      "disBtn",
+      "btnStyle",
+      "btnText",
+      "disIcnImg",
+      "imageSize",
+      "btnIconStore",
+      "btnIconPosition"
+    ],
+    "requiresValidation": [
+      "mainStyleType",
+      "imgAcrdnStyle",
+      "imgOrientation",
+      "slideStyle",
+      "articleStyle",
+      "activeSlide",
+      "imgFlexGrow",
+      "bannerStyle",
+      "bannerOrientation",
+      "sectionStyle",
+      "sectionImgPreload",
+      "fancyBStyle",
+      "serviceEStyle",
+      "portfolioStyle",
+      "btnIconType"
+    ]
+  },
+  "styleDependencies": [
+    "CSS flexbox for accordion layout",
+    "CSS Grid for box layouts",
+    "Hover animations and transitions",
+    "Background image preloading (when sectionImgPreload enabled)",
+    "Icon font libraries (Font Awesome)",
+    "Responsive breakpoint adjustments"
+  ]
+}

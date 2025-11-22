@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-mobile-menu",
+  "title": "Mobile Menu - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "imageSize": {
+      "type": "string",
+      "default": "thumbnail",
+      "description": "Extra toggle image size"
+    },
+    "cntntWidth": {
+      "type": "string",
+      "default": "custom",
+      "enum": [
+        "custom",
+        "fullwidth"
+      ],
+      "description": "Slide-out content width: custom or fullwidth"
+    },
+    "displayMode": {
+      "type": "string",
+      "default": "columns",
+      "enum": [
+        "columns",
+        "swiper"
+      ],
+      "description": "Menu item display: columns or swiper slider"
+    },
+    "scrollOffsetTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Toggle menu visibility based on scroll"
+    },
+    "scrollTopValue": {
+      "type": "string",
+      "default": "",
+      "description": "Scroll value in pixels to toggle visibility"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "menu1Item",
+      "menu2Item",
+      "tglText",
+      "iconStore",
+      "imageStore",
+      "contentLink",
+      "tempList",
+      "customWH",
+      "scrollTopValue"
+    ],
+    "requiresValidation": [
+      "mmStyle",
+      "posType",
+      "fixPosType",
+      "openMenu",
+      "extraToggle",
+      "tglIconType",
+      "contentType",
+      "backendVisi",
+      "toggleDirection",
+      "oCntntStyle",
+      "cntntWidth",
+      "displayMode",
+      "pageIndicator",
+      "indiStyle",
+      "indiPos",
+      "scrollOffsetTgl"
+    ]
+  },
+  "styleDependencies": [
+    "Swiper.js or similar slider library (when displayMode is 'swiper')",
+    "Slide-out panel JavaScript (for extra toggle content)",
+    "Scroll detection JavaScript (when scrollOffsetTgl is true)",
+    "Active page indicator logic",
+    "CSS fixed/sticky positioning",
+    "Touch/swipe gesture support"
+  ]
+}

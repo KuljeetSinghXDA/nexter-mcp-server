@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-testimonials",
+  "version": "1.0.0",
+  "title": "Testimonials",
+  "category": "marketing",
+  "source": "pro",
+  "complexity": "medium",
+  "description": "Showcase customer testimonials, reviews, and feedback with multiple layout styles. Features grid and carousel displays, star ratings, avatars, author details, content height limits with scrolling, and",
+  "keywords": [
+    "testimonial",
+    "review",
+    "customer quote",
+    "social proof"
+  ],
+  "useCases": [
+    "Customer testimonials",
+    "Reviews",
+    "Social proof"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-form-time-field",
+  "title": "Pick a Time - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {},
+  "editingGuidelines": {
+    "safeToModify": [
+      "labelss",
+      "placeholder",
+      "inpSz",
+      "desctxt",
+      "error"
+    ],
+    "requiresValidation": [
+      "reqTgl",
+      "hlpTxt",
+      "descPoss"
+    ]
+  },
+  "styleDependencies": [
+    "Form Block parent styles",
+    "Time picker JavaScript library",
+    "Clock UI component"
+  ]
+}
