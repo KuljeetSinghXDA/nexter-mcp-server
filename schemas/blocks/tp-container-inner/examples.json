@@ -2,17 +2,41 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-container-inner",
   "title": "Container Inner - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Comprehensive usage patterns for the modern flexbox inner container block. This block is a child of tp-container and provides extensive flexbox layout controls as an alternative to the legacy tp-row/tp-column structure.",
+
   "examples": [
     {
-      "description": "50% width section with center alignment",
+      "name": "Basic 2-Column Flexbox Layout",
+      "description": "Simple 2-column layout using flexbox with center alignment",
+      "visualDescription": "Two equal-width columns side by side (50% each), centered vertically, 20px gap between them. On mobile: stack to full width (100%). Clean white background with subtle padding.",
+      "complexity": "simple",
+      "useCase": "Two-column content sections, side-by-side cards, split content layouts",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "ci2col",
         "Width": {
-          "md": 50,
-          "sm": 50,
-          "xs": 100,
+          "md": "50",
+          "sm": "50",
+          "xs": "100",
           "unit": "%"
+        },
+        "flexDirection": {
+          "md": "row",
+          "sm": "row",
+          "xs": "column"
+        },
+        "flexAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "flex-start"
+        },
+        "flexJustify": {
+          "md": "flex-start",
+          "sm": "flex-start",
+          "xs": "flex-start"
+        },
+        "flexGap": {
+          "md": "20",
+          "unit": "px"
         },
         "Padding": {
           "md": {
@@ -25,20 +49,60 @@
         }
       }
     },
+
     {
-      "description": "33% width section with background",
+      "name": "3-Column Flexbox Grid with Gap",
+      "description": "Three equal-width columns in a flexbox grid with consistent gaps",
+      "visualDescription": "Three 33.33% columns in a row with 30px gap between each. On tablet: 2 columns (50%). On mobile: stacks to full width. Light gray background with rounded corners.",
+      "complexity": "simple",
+      "useCase": "Feature lists, service cards, team member grids, product showcases",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "ci3col",
         "Width": {
-          "md": 33.33,
-          "sm": 50,
-          "xs": 100,
+          "md": "33.33",
+          "sm": "50",
+          "xs": "100",
           "unit": "%"
+        },
+        "flexDirection": {
+          "md": "row",
+          "sm": "row",
+          "xs": "column"
+        },
+        "flexAlign": {
+          "md": "stretch",
+          "sm": "stretch",
+          "xs": "flex-start"
+        },
+        "flexJustify": {
+          "md": "flex-start",
+          "sm": "flex-start",
+          "xs": "flex-start"
+        },
+        "flexGap": {
+          "md": "30",
+          "sm": "20",
+          "xs": "15",
+          "unit": "px"
+        },
+        "flexwrap": {
+          "md": "wrap",
+          "sm": "wrap",
+          "xs": "nowrap"
         },
         "NormalBg": {
           "openBg": 1,
           "bgType": "color",
-          "bgColor": "#f5f5f5"
+          "bgDefaultColor": "#f8f9fa"
+        },
+        "NormalBradius": {
+          "md": {
+            "top": "8",
+            "bottom": "8",
+            "left": "8",
+            "right": "8"
+          },
+          "unit": "px"
         },
         "Padding": {
           "md": {
@@ -51,71 +115,747 @@
         }
       }
     },
+
     {
-      "description": "Pro: Sticky sidebar section (25% width)",
+      "name": "Centered Content Container",
+      "description": "Full-width container with centered content both horizontally and vertically",
+      "visualDescription": "Purple gradient background spanning full width, content centered both horizontally and vertically. Minimum height 400px creates visual presence. White text with generous padding.",
+      "complexity": "simple",
+      "useCase": "Hero sections, CTA sections, centered announcements, feature highlights",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "cicenter",
         "Width": {
-          "md": 25,
-          "sm": 100,
-          "xs": 100,
+          "md": "100",
+          "sm": "100",
+          "xs": "100",
           "unit": "%"
         },
-        "stickycol": true,
-        "topSpace": "100",
-        "stickyDes": true,
-        "stickyTab": false,
-        "stickyMob": false
-      }
-    },
-    {
-      "description": "Pro: Frosted glass section with backdrop blur",
-      "attributes": {
-        "block_id": "g7h8",
-        "Width": {
-          "md": 50,
-          "sm": 100,
-          "xs": 100,
-          "unit": "%"
-        },
-        "NormalBg": {
-          "openBg": 1,
-          "bgType": "color",
-          "bgColor": "rgba(255,255,255,0.8)"
-        },
-        "conInnerFilter": {
-          "openFilter": true,
-          "isbackdrop": true,
-          "blur": 10
-        },
-        "Padding": {
-          "md": {
-            "top": "40",
-            "bottom": "40",
-            "left": "40",
-            "right": "40"
-          },
+        "minHeight": {
+          "md": "400",
+          "sm": "300",
+          "xs": "250",
           "unit": "px"
-        }
-      }
-    },
-    {
-      "description": "Column layout section (flex direction column)",
-      "attributes": {
-        "block_id": "i9j0",
-        "Width": {
-          "md": 50,
-          "sm": 100,
-          "xs": 100,
-          "unit": "%"
         },
         "flexDirection": {
           "md": "column",
           "sm": "column",
           "xs": "column"
+        },
+        "flexAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "flexJustify": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "flexGap": {
+          "md": "20",
+          "unit": "px"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#667eea",
+                "position": 0
+              },
+              {
+                "color": "#764ba2",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "Padding": {
+          "md": {
+            "top": "60",
+            "bottom": "60",
+            "left": "40",
+            "right": "40"
+          },
+          "sm": {
+            "top": "40",
+            "bottom": "40",
+            "left": "20",
+            "right": "20"
+          },
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "Flex Reverse Layout (Desktop → Mobile Order)",
+      "description": "Content that reverses order on different screen sizes using flex-direction reverse",
+      "visualDescription": "On desktop: Image on right, text on left (reverse). On tablet: Normal order (text, then image). On mobile: Stacks vertically. 40px gap, subtle border.",
+      "complexity": "medium",
+      "useCase": "Alternating content sections, image-text combos, feature showcases with varying layouts",
+      "attributes": {
+        "block_id": "cirev",
+        "Width": {
+          "md": "100",
+          "sm": "100",
+          "xs": "100",
+          "unit": "%"
+        },
+        "flexDirection": {
+          "md": "row",
+          "sm": "row",
+          "xs": "column"
+        },
+        "flexreverse": true,
+        "flexRespreverse": true,
+        "flexTabreverse": false,
+        "flexMobreverse": false,
+        "flexAlign": {
+          "md": "center",
+          "sm": "flex-start",
+          "xs": "flex-start"
+        },
+        "flexJustify": {
+          "md": "space-between",
+          "sm": "flex-start",
+          "xs": "flex-start"
+        },
+        "flexGap": {
+          "md": "40",
+          "sm": "30",
+          "xs": "20",
+          "unit": "px"
+        },
+        "NormalBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e0e0e0",
+          "width": {
+            "md": {
+              "top": "1",
+              "bottom": "1",
+              "left": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "Padding": {
+          "md": {
+            "top": "40",
+            "bottom": "40",
+            "left": "30",
+            "right": "30"
+          },
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "Responsive Flex Direction (Row → Column)",
+      "description": "Layout that changes from horizontal row to vertical column on smaller screens",
+      "visualDescription": "Desktop: Horizontal row with items side by side. Tablet: Still horizontal. Mobile: Vertical stack. Each child gets equal space on desktop, full width on mobile.",
+      "complexity": "simple",
+      "useCase": "Navigation menus, button groups, stat counters, icon lists",
+      "attributes": {
+        "block_id": "cirowcol",
+        "Width": {
+          "md": "100",
+          "sm": "100",
+          "xs": "100",
+          "unit": "%"
+        },
+        "flexDirection": {
+          "md": "row",
+          "sm": "row",
+          "xs": "column"
+        },
+        "flexAlign": {
+          "md": "stretch",
+          "sm": "stretch",
+          "xs": "flex-start"
+        },
+        "flexJustify": {
+          "md": "space-evenly",
+          "sm": "space-around",
+          "xs": "flex-start"
+        },
+        "flexGap": {
+          "md": "20",
+          "sm": "15",
+          "xs": "10",
+          "unit": "px"
+        },
+        "Padding": {
+          "md": {
+            "top": "20",
+            "bottom": "20",
+            "left": "20",
+            "right": "20"
+          },
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "Flex Wrap Grid (Cards Layout)",
+      "description": "Card grid that wraps items to new rows automatically using flex-wrap",
+      "visualDescription": "Cards arranged in flexible grid that wraps based on available space. 25px gap between all cards. Items have equal height (stretch). Wraps gracefully on smaller screens.",
+      "complexity": "medium",
+      "useCase": "Blog post grids, product cards, portfolio items, image galleries",
+      "attributes": {
+        "block_id": "ciwrap",
+        "Width": {
+          "md": "100",
+          "sm": "100",
+          "xs": "100",
+          "unit": "%"
+        },
+        "flexDirection": {
+          "md": "row",
+          "sm": "row",
+          "xs": "row"
+        },
+        "flexAlign": {
+          "md": "stretch",
+          "sm": "stretch",
+          "xs": "stretch"
+        },
+        "flexJustify": {
+          "md": "flex-start",
+          "sm": "flex-start",
+          "xs": "flex-start"
+        },
+        "flexGap": {
+          "md": "25",
+          "sm": "20",
+          "xs": "15",
+          "unit": "px"
+        },
+        "flexwrap": {
+          "md": "wrap",
+          "sm": "wrap",
+          "xs": "wrap"
+        },
+        "alignWrap": {
+          "md": "flex-start",
+          "sm": "flex-start",
+          "xs": "flex-start"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "Padding": {
+          "md": {
+            "top": "30",
+            "bottom": "30",
+            "left": "30",
+            "right": "30"
+          },
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "Sticky Sidebar Container (Pro)",
+      "description": "Sidebar that sticks to viewport while scrolling (Pro feature)",
+      "visualDescription": "30% width sidebar on desktop with sticky behavior. Stays 100px from top when scrolling. White background with shadow. Disabled on tablet and mobile (full width, no sticky).",
+      "complexity": "medium",
+      "useCase": "Sticky navigation menus, table of contents, sidebar widgets, floating CTAs",
+      "proFeature": true,
+      "attributes": {
+        "block_id": "cisticky",
+        "Width": {
+          "md": "30",
+          "sm": "100",
+          "xs": "100",
+          "unit": "%"
+        },
+        "minHeight": {
+          "md": "300",
+          "unit": "px"
+        },
+        "stickycol": true,
+        "topSpace": "40",
+        "botSpace": "40",
+        "stickyDes": true,
+        "stickyTab": false,
+        "stickyMob": false,
+        "sttopoffet": {
+          "md": "100",
+          "sm": "0",
+          "xs": "0",
+          "unit": "px"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "NormalBShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.1)"
+        },
+        "Padding": {
+          "md": {
+            "top": "30",
+            "bottom": "30",
+            "left": "20",
+            "right": "20"
+          },
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "Per-Child Flex Control (Advanced)",
+      "description": "Advanced layout with individual flex controls for each child block",
+      "visualDescription": "Container with 3 children: First child shrinks (flex-shrink: 1), second child grows to fill space (flex-grow: 1), third child has fixed basis (flex-basis: 200px). Creates dynamic responsive layout.",
+      "complexity": "expert",
+      "useCase": "Complex dashboards, custom layouts, header/content/footer sections, priority-based content display",
+      "proFeature": true,
+      "attributes": {
+        "block_id": "cichild",
+        "Width": {
+          "md": "100",
+          "sm": "100",
+          "xs": "100",
+          "unit": "%"
+        },
+        "flexDirection": {
+          "md": "row",
+          "sm": "column",
+          "xs": "column"
+        },
+        "flexAlign": {
+          "md": "stretch",
+          "sm": "flex-start",
+          "xs": "flex-start"
+        },
+        "flexJustify": {
+          "md": "flex-start",
+          "sm": "flex-start",
+          "xs": "flex-start"
+        },
+        "flexGap": {
+          "md": "20",
+          "unit": "px"
+        },
+        "showchild": true,
+        "flexChild": [
+          {
+            "_key": "child1",
+            "flexShrink": {
+              "md": "1"
+            },
+            "flexGrow": {
+              "md": "0"
+            },
+            "flexBasis": {
+              "md": "auto",
+              "unit": "%"
+            },
+            "flexselfAlign": {
+              "md": "auto",
+              "sm": "auto",
+              "xs": "auto"
+            },
+            "flexOrder": {
+              "md": "1",
+              "sm": "1",
+              "xs": "1"
+            }
+          },
+          {
+            "_key": "child2",
+            "flexShrink": {
+              "md": "0"
+            },
+            "flexGrow": {
+              "md": "1"
+            },
+            "flexBasis": {
+              "md": "0",
+              "unit": "%"
+            },
+            "flexselfAlign": {
+              "md": "auto",
+              "sm": "auto",
+              "xs": "auto"
+            },
+            "flexOrder": {
+              "md": "2",
+              "sm": "2",
+              "xs": "2"
+            }
+          },
+          {
+            "_key": "child3",
+            "flexShrink": {
+              "md": "0"
+            },
+            "flexGrow": {
+              "md": "0"
+            },
+            "flexBasis": {
+              "md": "200",
+              "unit": "px"
+            },
+            "flexselfAlign": {
+              "md": "auto",
+              "sm": "auto",
+              "xs": "auto"
+            },
+            "flexOrder": {
+              "md": "3",
+              "sm": "3",
+              "xs": "3"
+            }
+          }
+        ],
+        "Padding": {
+          "md": {
+            "top": "20",
+            "bottom": "20",
+            "left": "20",
+            "right": "20"
+          },
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "Space-Between Layout with Center Alignment",
+      "description": "Items distributed with maximum space between them, centered vertically",
+      "visualDescription": "Children spread across full width with equal space between them. Vertically centered. Perfect for headers with logo + menu + CTA button. Light background with border.",
+      "complexity": "simple",
+      "useCase": "Page headers, navigation bars, footer layouts, toolbar sections",
+      "attributes": {
+        "block_id": "cispace",
+        "Width": {
+          "md": "100",
+          "sm": "100",
+          "xs": "100",
+          "unit": "%"
+        },
+        "minHeight": {
+          "md": "80",
+          "sm": "70",
+          "xs": "60",
+          "unit": "px"
+        },
+        "flexDirection": {
+          "md": "row",
+          "sm": "row",
+          "xs": "column"
+        },
+        "flexAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "flex-start"
+        },
+        "flexJustify": {
+          "md": "space-between",
+          "sm": "space-between",
+          "xs": "flex-start"
+        },
+        "flexGap": {
+          "md": "0",
+          "sm": "0",
+          "xs": "15",
+          "unit": "px"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f8f9fa"
+        },
+        "NormalBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#dee2e6",
+          "width": {
+            "md": {
+              "top": "0",
+              "bottom": "1",
+              "left": "0",
+              "right": "0"
+            },
+            "unit": "px"
+          }
+        },
+        "Padding": {
+          "md": {
+            "top": "20",
+            "bottom": "20",
+            "left": "40",
+            "right": "40"
+          },
+          "sm": {
+            "top": "15",
+            "bottom": "15",
+            "left": "20",
+            "right": "20"
+          },
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "Full-Width Gradient Container with Clickable Link",
+      "description": "Full-width clickable container with gradient background and hover effect",
+      "visualDescription": "Full-width purple-to-blue gradient container with white text. Entire container is clickable (wrapLink). Hover state darkens gradient with smooth transition. Rounded corners and shadow create depth.",
+      "complexity": "medium",
+      "useCase": "CTA sections, clickable banners, promotional blocks, feature highlights with links",
+      "attributes": {
+        "block_id": "cilink",
+        "Width": {
+          "md": "100",
+          "sm": "100",
+          "xs": "100",
+          "unit": "%"
+        },
+        "minHeight": {
+          "md": "200",
+          "sm": "150",
+          "xs": "120",
+          "unit": "px"
+        },
+        "flexDirection": {
+          "md": "column",
+          "sm": "column",
+          "xs": "column"
+        },
+        "flexAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "flexJustify": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "flexGap": {
+          "md": "15",
+          "unit": "px"
+        },
+        "wrapLink": true,
+        "colUrl": {
+          "url": "https://example.com/promo",
+          "target": "_blank",
+          "nofollow": false
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#667eea",
+                "position": 0
+              },
+              {
+                "color": "#764ba2",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "HoverBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#5568d3",
+                "position": 0
+              },
+              {
+                "color": "#6439a0",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "NormalBradius": {
+          "md": {
+            "top": "12",
+            "bottom": "12",
+            "left": "12",
+            "right": "12"
+          },
+          "unit": "px"
+        },
+        "NormalBShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 16,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.3)"
+        },
+        "HoverBShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 12,
+          "blur": 24,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.4)"
+        },
+        "Padding": {
+          "md": {
+            "top": "50",
+            "bottom": "50",
+            "left": "40",
+            "right": "40"
+          },
+          "sm": {
+            "top": "35",
+            "bottom": "35",
+            "left": "25",
+            "right": "25"
+          },
+          "unit": "px"
         }
       }
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "Width": "Required. Responsive object with md/sm/xs values. Default: {md: 50, sm: 50, xs: 100, unit: '%'}",
+    "block_id": "Required. Unique identifier for the block.",
+    "flexDirection": "Controls layout direction. Values: 'row', 'column', 'row-reverse', 'column-reverse'. Responsive (md/sm/xs).",
+    "flexAlign": "Controls cross-axis alignment. Values: 'flex-start', 'center', 'flex-end', 'stretch', 'baseline'. Responsive.",
+    "flexJustify": "Controls main-axis alignment. Values: 'flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly'. Responsive.",
+    "flexGap": "Space between flex items. Recommended: 15-30px for desktop, 10-20px for mobile.",
+    "stickycol": "Requires stickyDes, stickyTab, or stickyMob to be true. Requires topSpace and botSpace for offset.",
+    "sttopoffet": "Top offset for sticky positioning. Different from topSpace (which is bottom offset). Default: {md: '0', unit: 'px'}",
+    "flexChild": "Requires showchild: true. Array of per-child flex controls (flexShrink, flexGrow, flexBasis, flexselfAlign, flexOrder).",
+    "wrapLink": "Requires colUrl object with url property. Makes entire container clickable.",
+    "minHeight": "Minimum height for the container. Useful for creating visual presence or full-height sections.",
+    "flexwrap": "Controls wrapping behavior. Values: 'nowrap', 'wrap', 'wrap-reverse'. Use 'wrap' for grid-like layouts.",
+    "alignWrap": "Controls spacing between wrapped rows. Only works with flexwrap: 'wrap'. Values: 'flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'stretch'."
+  },
+
+  "warnings": [
+    "CRITICAL: tp-container-inner is a child of tp-container. Always create tp-container parent first.",
+    "CRITICAL: Modern flexbox alternative to tp-row/tp-column. Don't mix legacy row/column structure with container-inner in same container.",
+    "Sticky on mobile (stickyMob: true) can cause layout issues and poor UX. Keep stickyMob: false.",
+    "topSpace and botSpace are different from sttopoffet. topSpace/botSpace are bottom offsets (default: 40), sttopoffet is top offset (default: 0).",
+    "flexChild (per-child controls) only works when showchild: true. Max recommended: 10 children for performance.",
+    "Width totals across multiple container-inner blocks should equal 100% (or less if using gap) to avoid wrapping issues.",
+    "flexDirection: 'column' makes flexAlign control horizontal alignment and flexJustify control vertical alignment (swapped).",
+    "flexreverse, flexRespreverse, flexTabreverse, flexMobreverse add '-reverse' suffix to flexDirection value.",
+    "When using wrapLink, entire container becomes clickable. Ensure child blocks don't have conflicting links.",
+    "NormalBg and HoverBg have separate openBg toggles. Set openBg: 1 for both to enable hover transition.",
+    "conInnerFilter (backdrop blur) is a Pro feature. Requires NormalBg with semi-transparent color for visual effect.",
+    "flexGap doesn't work in older browsers (pre-2021). Consider fallback padding for wider compatibility.",
+    "hideDesktop/hideTablet/hideMobile completely remove block from DOM. Use for device-specific layouts, not just hiding.",
+    "customCss should be used sparingly. Prefer using built-in attributes for maintainability."
+  ],
+
+  "commonMistakes": [
+    "Forgetting to set openBg: 1 when defining NormalBg or HoverBg (background won't appear)",
+    "Setting flexDirection but not adjusting flexAlign/flexJustify (alignment behaves unexpectedly)",
+    "Using sticky without setting topSpace/botSpace offsets (sticky element overlaps content)",
+    "Enabling sticky on mobile devices (poor UX, layout breaks)",
+    "Mixing flexDirection responsive values inconsistently (e.g., row on md, but forgot to set column on xs)",
+    "Setting Width > 100% without accounting for Padding and parent gutterSpace (causes overflow)",
+    "Using flexwrap: 'wrap' without setting alignWrap (wrapped rows may not align as expected)",
+    "Enabling showchild: true without defining flexChild array (no effect)",
+    "Setting flexChild for more children than actually exist (extra definitions ignored, confusing)",
+    "Using wrapLink with colUrl but forgetting to set url property (link won't work)",
+    "Setting minHeight in em/rem units on containers with dynamic content (unexpected behavior)",
+    "Forgetting to set flexGap unit (defaults to px, may want rem for scalability)",
+    "Using sttopoffet instead of topSpace/botSpace for sticky offset (sttopoffet is top, not bottom)",
+    "Setting reverseWrap: true without understanding it adds '-reverse' suffix to flexwrap value"
+  ],
+
+  "bestPractices": [
+    "Always use responsive Width values: md for desktop, sm for tablet, xs: 100 for mobile (full width stacking)",
+    "Set flexDirection to 'column' on xs breakpoint for mobile-friendly stacking",
+    "Use flexGap instead of margin on child blocks for consistent spacing (cleaner, more maintainable)",
+    "For sticky containers, always disable on mobile: stickyMob: false (better UX)",
+    "Set topSpace and botSpace to 40-100px for sticky elements to avoid overlap with content",
+    "Use minHeight for hero sections and visual sections (creates presence), not for content containers",
+    "For centered content, use flexDirection: 'column', flexAlign: 'center', flexJustify: 'center'",
+    "For header/navigation bars, use flexDirection: 'row', flexAlign: 'center', flexJustify: 'space-between'",
+    "When using flexwrap: 'wrap', set alignWrap to control multi-row spacing",
+    "Use flexChild (per-child controls) only for complex layouts where standard flex isn't sufficient",
+    "For clickable containers, set both NormalBg and HoverBg to provide visual feedback on hover",
+    "Use semi-transparent backgrounds with conInnerFilter for modern frosted glass effects",
+    "Keep flexGap values responsive: larger on desktop (20-30px), smaller on mobile (10-15px)",
+    "Use ZIndex sparingly and document when used (prevents stacking context conflicts)",
+    "For grid-like card layouts, use flexwrap: 'wrap' with consistent Width across cards",
+    "Test sticky elements thoroughly - set stickyDes: true, stickyTab: false, stickyMob: false as default"
+  ],
+
+  "layoutContext": {
+    "parentBlock": "tp-container",
+    "childBlocks": "Any content blocks (tp-heading, tp-image, tp-button, etc.)",
+    "siblingBlocks": "Multiple tp-container-inner blocks can exist within same tp-container for multi-column layouts",
+    "alternativeTo": "tp-row > tp-column (legacy grid structure)",
+    "modernApproach": "tp-container > tp-container-inner (modern flexbox structure)",
+    "gutterBehavior": "Parent tp-container's gutterSpace becomes padding for this block. Width is calculated after padding applied.",
+    "widthCalculation": "Width is percentage of parent tp-container minus parent's gutterSpace padding.",
+    "zIndexContext": "Stacking context relative to parent tp-container. Use ZIndex to layer multiple container-inner blocks.",
+    "responsiveCascade": "Responsive values cascade: md value used if sm/xs not set. Always set xs explicitly for mobile.",
+    "flexboxModel": "Uses CSS flexbox. flexDirection controls main/cross axis. Row = horizontal main axis, Column = vertical main axis."
+  },
+
+  "performanceConsiderations": [
+    "Max 10 container-inner blocks per tp-container recommended (more causes layout recalculation overhead)",
+    "Sticky columns (stickycol: true) use JavaScript scroll listeners. Limit to 1-2 per page for performance.",
+    "Per-child flex controls (flexChild) add specificity overhead. Use only when necessary.",
+    "Backdrop filters (conInnerFilter with isbackdrop: true) are GPU-intensive. Limit to 1-2 per page.",
+    "Gradient backgrounds (HoverBg with gradients) can cause repaints on hover. Use solid colors for better performance.",
+    "Complex flexwrap grids with many items (>20) may cause layout thrashing. Consider pagination or lazy loading.",
+    "Multiple hover effects (HoverBg, HoverBorder, HoverBShadow) together can impact animation performance.",
+    "Custom CSS (customCss) can override optimizations. Keep custom styles minimal and scoped.",
+    "Responsive flexDirection changes trigger layout recalculation on resize. Expected behavior, but be aware.",
+    "Using Width in percentages is more performant than fixed px widths (avoids recalculation on parent resize)"
+  ],
+
+  "relatedBlocks": {
+    "tp-container": "Parent block - always required",
+    "tp-row": "Alternative layout approach (legacy grid)",
+    "tp-column": "Alternative layout approach (legacy grid columns)",
+    "tp-heading": "Common child block for headings",
+    "tp-button": "Common child block for CTAs",
+    "tp-image": "Common child block for images"
+  },
+
+  "accessibilityNotes": [
+    "Flexbox order changes (flexOrder) don't change DOM order - screen readers read DOM order, not visual order",
+    "If using flexOrder to reorder content, ensure DOM order is semantic for screen readers",
+    "Clickable containers (wrapLink) should have descriptive inner text for screen readers to announce",
+    "When using hideDesktop/hideTablet/hideMobile, ensure critical content isn't hidden from assistive tech",
+    "Minimum touch target size 44x44px on mobile - ensure clickable containers meet this size",
+    "Color contrast on gradient backgrounds - test text readability with tools (WCAG AA minimum 4.5:1)",
+    "Sticky elements should not cover focusable content when keyboard navigating"
+  ]
 }
