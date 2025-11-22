@@ -2,71 +2,719 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-cta-banner",
   "title": "CTA Banner - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Comprehensive examples demonstrating all 8 style variants, hover effects, and promotional banner configurations",
   "examples": [
     {
-      "description": "Simple promotional banner (style-1)",
+      "name": "Flash Sale Banner (Style-1, Zoom Effect)",
+      "description": "High-impact flash sale banner with zoom hover effect and vibrant red theme",
+      "visualDescription": "Bold red banner with 'FLASH SALE' in large white text, '50% OFF Everything' subtitle, sale background image zooms on hover for urgency effect",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "cb001",
         "styleType": "style-1",
         "bannerImage": {
-          "url": "/promo-bg.jpg"
+          "url": "https://example.com/wp-content/uploads/flash-sale-bg.jpg",
+          "id": "401"
         },
-        "Title": "50% OFF Sale",
-        "subTitle": "Limited Time Only",
-        "desc": "Shop now and save big on all products",
+        "imageSize": "full",
+        "Title": "FLASH SALE",
+        "subTitle": "50% OFF Everything",
+        "desc": "24 hours only! Use code: <strong>FLASH50</strong>",
+        "hoverStyle": "cta_img_zoom",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "56",
+            "sm": "42",
+            "xs": "32",
+            "unit": "px"
+          },
+          "fontWeight": "800",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "2",
+            "unit": "px"
+          }
+        },
+        "titleColor": "#ffffff",
+        "titlehoverColor": "#ffe500",
+        "subtitleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "28",
+            "sm": "22",
+            "xs": "18",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "subtitleColor": "#ffffff",
+        "subtitlehoverColor": "#ffcccc"
+      },
+      "useCase": "Flash sales, limited-time offers, urgent promotions, holiday sales, clearance events, countdown deals",
+      "proFeatures": []
+    },
+    {
+      "name": "Product Launch Banner (Style-2, Vertical Slide)",
+      "description": "Elegant product launch banner with vertical slide hover effect revealing more of product image",
+      "visualDescription": "Style-2 layout with product photo background, 'Introducing Our Latest' heading, vertical slide effect reveals product details on hover",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "cb002",
+        "styleType": "style-2",
+        "bannerImage": {
+          "url": "https://example.com/wp-content/uploads/product-launch.jpg",
+          "id": "402"
+        },
+        "imageSize": "large",
+        "Title": "Introducing Our Latest Innovation",
+        "subTitle": "Pre-Order Now",
+        "desc": "Be the first to experience the future of technology.",
+        "hoverStyle": "cta_img_vertical",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "38",
+            "sm": "30",
+            "xs": "24",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "lineHeight": {
+            "md": "1.2",
+            "unit": "em"
+          }
+        },
+        "titleColor": "#2c3e50",
+        "titlehoverColor": "#667eea",
+        "subtitleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "20",
+            "sm": "18",
+            "xs": "16",
+            "unit": "px"
+          },
+          "fontWeight": "500",
+          "textTransform": "uppercase"
+        },
+        "subtitleColor": "#667eea",
+        "subtitlehoverColor": "#764ba2"
+      },
+      "useCase": "Product launches, new feature announcements, pre-order campaigns, coming soon pages, beta releases",
+      "proFeatures": []
+    },
+    {
+      "name": "Newsletter Signup CTA (Style-3, Horizontal Slide)",
+      "description": "Newsletter subscription banner with horizontal slide effect and lead magnet offer",
+      "visualDescription": "Style-3 banner with email newsletter graphics, 'Get Exclusive Updates' headline, horizontal slide creates dynamic motion",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "cb003",
+        "styleType": "style-3",
+        "bannerImage": {
+          "url": "https://example.com/wp-content/uploads/newsletter-bg.jpg",
+          "id": "403"
+        },
+        "imageSize": "full",
+        "Title": "Get Exclusive Updates",
+        "subTitle": "Join 50,000+ Subscribers",
+        "desc": "Weekly tips, deals, and insider content delivered to your inbox.",
+        "hoverStyle": "cta_img_horizontal",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "42",
+            "sm": "34",
+            "xs": "26",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "titleColor": "#ffffff",
+        "titlehoverColor": "#ffd700",
+        "subtitleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "sm": "16",
+            "xs": "14",
+            "unit": "px"
+          },
+          "fontWeight": "400"
+        },
+        "subtitleColor": "#f0f0f0",
+        "subtitlehoverColor": "#ffffff"
+      },
+      "useCase": "Newsletter signups, email list building, lead magnets, content upgrades, subscription offers, weekly updates",
+      "proFeatures": []
+    },
+    {
+      "name": "Event Promotion Banner (Style-4, Fade Effect)",
+      "description": "Event promotion banner with fade hover effect and detailed description text",
+      "visualDescription": "Style-4 layout for event with venue photo, 'Annual Conference 2025' title, fade effect softens on hover, includes date/location description",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "cb004",
+        "styleType": "style-4",
+        "bannerImage": {
+          "url": "https://example.com/wp-content/uploads/conference-venue.jpg",
+          "id": "404"
+        },
+        "imageSize": "full",
+        "Title": "Annual Conference 2025",
+        "subTitle": "Innovation & Growth Summit",
+        "desc": "<p>June 15-17, 2025 | San Francisco Convention Center</p><p>3 days of keynotes, workshops, and networking.</p>",
+        "hoverStyle": "cta_img_fade",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "48",
+            "sm": "38",
+            "xs": "28",
+            "unit": "px"
+          },
+          "fontWeight": "800"
+        },
+        "titleColor": "#ffffff",
+        "titlehoverColor": "#e74c3c",
+        "subtitleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "22",
+            "sm": "18",
+            "xs": "16",
+            "unit": "px"
+          },
+          "fontWeight": "500"
+        },
+        "subtitleColor": "#ecf0f1",
+        "subtitlehoverColor": "#ffffff"
+      },
+      "useCase": "Event promotions, conferences, webinars, workshops, trade shows, seminars, meetups, festivals",
+      "proFeatures": []
+    },
+    {
+      "name": "Free Trial CTA (Style-5, No Background Image)",
+      "description": "Clean free trial call-to-action without background image, relying on typography and hover colors",
+      "visualDescription": "Style-5 minimal layout with solid color background, 'Start Your Free Trial' in large text, purple-to-green color transition on hover",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "cb005",
+        "styleType": "style-5",
+        "bannerImage": {
+          "url": ""
+        },
+        "Title": "Start Your Free Trial",
+        "subTitle": "No Credit Card Required",
+        "desc": "Try all premium features for 14 days. Cancel anytime.",
+        "hoverStyle": "cta_img_zoom",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "52",
+            "sm": "40",
+            "xs": "30",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "titleColor": "#2c3e50",
+        "titlehoverColor": "#667eea",
+        "subtitleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "24",
+            "sm": "20",
+            "xs": "18",
+            "unit": "px"
+          },
+          "fontWeight": "500",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "1",
+            "unit": "px"
+          }
+        },
+        "subtitleColor": "#7f8c8d",
+        "subtitlehoverColor": "#27ae60"
+      },
+      "useCase": "Free trial offers, SaaS signups, software demos, app downloads, service trials, freemium conversions",
+      "proFeatures": []
+    },
+    {
+      "name": "Limited Offer Banner (Style-6, Full Styling)",
+      "description": "Limited-time offer banner with style-6 layout, zoom effect, and complete typography styling",
+      "visualDescription": "Style-6 banner with countdown urgency, 'Limited Time Offer' in bold, background product image zooms dramatically, all text elements fully styled",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "cb006",
+        "styleType": "style-6",
+        "bannerImage": {
+          "url": "https://example.com/wp-content/uploads/limited-offer-bg.jpg",
+          "id": "405"
+        },
+        "imageSize": "full",
+        "Title": "Limited Time Offer",
+        "subTitle": "Ends Tonight at Midnight",
+        "desc": "<p>🔥 <strong>Only 47 spots remaining!</strong></p><p>Lock in your discount before it's too late.</p>",
+        "hoverStyle": "cta_img_zoom",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "60",
+            "sm": "46",
+            "xs": "34",
+            "unit": "px"
+          },
+          "fontWeight": "900",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "3",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.1",
+            "unit": "em"
+          }
+        },
+        "titleColor": "#ffffff",
+        "titlehoverColor": "#ff6b6b",
+        "subtitleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "26",
+            "sm": "22",
+            "xs": "18",
+            "unit": "px"
+          },
+          "fontWeight": "600",
+          "textTransform": "uppercase"
+        },
+        "subtitleColor": "#ffe66d",
+        "subtitlehoverColor": "#ff6b6b"
+      },
+      "useCase": "Scarcity marketing, limited offers, countdown sales, last-chance deals, inventory clearance, exclusive access",
+      "proFeatures": []
+    },
+    {
+      "name": "Download Banner (Style-7, Vertical Slide, All Typography)",
+      "description": "Resource download banner with style-7 layout showcasing all typography controls",
+      "visualDescription": "Style-7 banner for eBook/guide download, vertical slide reveals author photo, comprehensive typography settings for professional appearance",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "cb007",
+        "styleType": "style-7",
+        "bannerImage": {
+          "url": "https://example.com/wp-content/uploads/ebook-cover.jpg",
+          "id": "406"
+        },
+        "imageSize": "large",
+        "Title": "Download Free eBook",
+        "subTitle": "The Complete Guide to Digital Marketing",
+        "desc": "<p>Learn proven strategies from industry experts.</p><p>📥 Instant access. No signup required.</p>",
+        "hoverStyle": "cta_img_vertical",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "44",
+            "sm": "36",
+            "xs": "28",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "lineHeight": {
+            "md": "1.3",
+            "unit": "em"
+          },
+          "fontFamily": "Georgia"
+        },
+        "titleColor": "#2c3e50",
+        "titlehoverColor": "#e67e22",
+        "subtitleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "20",
+            "sm": "18",
+            "xs": "16",
+            "unit": "px"
+          },
+          "fontWeight": "400",
+          "fontStyle": "italic",
+          "lineHeight": {
+            "md": "1.5",
+            "unit": "em"
+          }
+        },
+        "subtitleColor": "#34495e",
+        "subtitlehoverColor": "#16a085"
+      },
+      "useCase": "Content downloads, eBook offers, guide downloads, template libraries, resource hubs, whitepapers, case studies",
+      "proFeatures": []
+    },
+    {
+      "name": "Minimal Hero CTA (Style-8, Fade, Large Text)",
+      "description": "Minimalist hero-style CTA banner with style-8, fade effect, and oversized typography",
+      "visualDescription": "Style-8 clean layout with minimal background, 'Start Your Journey Today' in huge text (72px desktop), subtle fade effect on hover, modern aesthetic",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "cb008",
+        "styleType": "style-8",
+        "bannerImage": {
+          "url": "https://example.com/wp-content/uploads/minimal-hero-bg.jpg",
+          "id": "407"
+        },
+        "imageSize": "full",
+        "Title": "Start Your Journey Today",
+        "subTitle": "Transform Your Business",
+        "desc": "",
+        "hoverStyle": "cta_img_fade",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "72",
+            "sm": "54",
+            "xs": "38",
+            "unit": "px"
+          },
+          "fontWeight": "300",
+          "lineHeight": {
+            "md": "1.1",
+            "unit": "em"
+          }
+        },
+        "titleColor": "#34495e",
+        "titlehoverColor": "#2c3e50",
+        "subtitleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "32",
+            "sm": "26",
+            "xs": "20",
+            "unit": "px"
+          },
+          "fontWeight": "600",
+          "letterSpacing": {
+            "md": "2",
+            "unit": "px"
+          },
+          "textTransform": "uppercase"
+        },
+        "subtitleColor": "#95a5a6",
+        "subtitlehoverColor": "#7f8c8d"
+      },
+      "useCase": "Hero sections, homepage CTAs, landing page headers, above-fold content, minimal designs, professional services",
+      "proFeatures": []
+    }
+  ],
+  "validationRules": {
+    "styleType": "Required - Must be one of 8 styles: 'style-1' through 'style-8'. Each style has unique layout/positioning",
+    "hoverStyle": "Required - Must be 'cta_img_vertical', 'cta_img_horizontal', 'cta_img_zoom', or 'cta_img_fade'",
+    "Title": "Required string - Main headline/banner title",
+    "subTitle": "Optional string - Subtitle/tagline (recommended for context)",
+    "desc": "Optional string - Description text, supports HTML for formatting (bold, links, line breaks)",
+    "bannerImage": "Object with url property - Background image (url can be empty for solid color background)",
+    "imageSize": "WordPress image size: 'thumbnail', 'medium', 'large', 'full', or custom size name",
+    "titleTypo.openTypography": "Must be 1 to enable title typography controls",
+    "subtitleTypo.openTypography": "Must be 1 to enable subtitle typography controls",
+    "titleColor": "Hex color code for title normal state (e.g., '#ffffff')",
+    "titlehoverColor": "Hex color code for title hover state - creates smooth color transition",
+    "subtitleColor": "Hex color code for subtitle normal state",
+    "subtitlehoverColor": "Hex color code for subtitle hover state - creates smooth color transition"
+  },
+  "warnings": [
+    "⚠️ hoverStyle effects only work when bannerImage.url is provided (image required for zoom/slide/fade)",
+    "⚠️ Empty bannerImage.url displays solid color background - use for typography-focused CTAs",
+    "⚠️ desc field supports HTML - use <p>, <strong>, <em>, <br> for formatting (avoid complex HTML)",
+    "⚠️ Hover colors (titlehoverColor, subtitlehoverColor) require transition to look smooth - CSS handles this automatically",
+    "⚠️ Very large text (fontSize > 80px) may break layout on small screens - always set responsive xs values",
+    "⚠️ styleType layouts differ significantly - style-1 vs style-8 have very different text positioning",
+    "⚠️ imageSize 'full' may load very large images - use 'large' for better performance unless full resolution needed",
+    "⚠️ cta_img_zoom effect can make text harder to read if image zooms behind text - test readability",
+    "⚠️ Emoji in desc (🔥, 📥) may not render on all devices - use sparingly or provide text alternative",
+    "⚠️ openTypography must be 1 BEFORE setting fontSize, fontWeight, etc. - otherwise typography ignored",
+    "⚠️ Missing subTitle may cause layout issues in some styles - provide at least short text",
+    "⚠️ cta_img_vertical/horizontal slide distance depends on image size - may need image adjustments",
+    "⚠️ Hover effects don't work on touch devices without tap - design should work without hover states",
+    "⚠️ bannerImage aspect ratio affects layout - use consistent ratios (16:9, 4:3, etc.) across banners"
+  ],
+  "commonMistakes": [
+    "❌ Setting hoverStyle effects without bannerImage (effects won't display)",
+    "❌ Forgetting openTypography:1 before setting fontSize/fontWeight (text styles ignored)",
+    "❌ Using same color for titleColor and titlehoverColor (no hover feedback)",
+    "❌ Not setting responsive fontSize values for xs breakpoint (huge text on mobile)",
+    "❌ Using complex HTML in desc field (may break layout - keep simple)",
+    "❌ Not optimizing bannerImage (large uncompressed images slow page load)",
+    "❌ Setting imageSize:'full' for all banners (wastes bandwidth - use 'large' often sufficient)",
+    "❌ Leaving subTitle empty in styles that depend on it for layout balance",
+    "❌ Using low-contrast text colors against bannerImage (poor readability)",
+    "❌ Forgetting to test hover effects on actual devices (may look different than editor)",
+    "❌ Using cta_img_zoom on banners with important background details (zoom hides content)",
+    "❌ Not providing desc when space is available (missed opportunity for details)",
+    "❌ Using too many different hover effects on same page (inconsistent UX)",
+    "❌ Setting fontWeight values as numbers instead of strings (should be '700' not 700)",
+    "❌ Not accounting for text length - very long titles may overflow on small screens"
+  ],
+  "bestPractices": [
+    "✅ Use bannerImage from WordPress media library and set appropriate imageSize for performance",
+    "✅ Always set titlehoverColor different from titleColor for clear hover feedback",
+    "✅ Provide responsive fontSize values: large on md (48-72px), medium on sm (36-54px), small on xs (24-38px)",
+    "✅ Use desc field for additional context, CTAs, or social proof (testimonials, stats)",
+    "✅ Keep Title concise - 2-6 words max for impact (e.g., 'Start Free Trial', not full sentence)",
+    "✅ Use subTitle to add context or urgency ('Limited Time', 'No Credit Card', 'Join 10,000+ Users')",
+    "✅ Choose hover effect matching content: zoom for products, fade for minimal, slide for dynamic",
+    "✅ Optimize bannerImage to < 200KB - compress before upload, use appropriate dimensions",
+    "✅ Use cta_img_zoom for product focus, cta_img_fade for subtle transitions, cta_img_vertical/horizontal for energy",
+    "✅ Combine CTA banner with tp-button block below for complete conversion funnel",
+    "✅ Use high-contrast colors for text against bannerImage background (white on dark, dark on light)",
+    "✅ Test readability on actual background image - add overlay if text hard to read",
+    "✅ Use textTransform:'uppercase' with letterSpacing for modern, bold headlines",
+    "✅ Keep desc HTML simple: <p> for paragraphs, <strong> for emphasis, <br> for breaks only",
+    "✅ Use consistent styleType across similar banners on same page for visual coherence",
+    "✅ Set lineHeight 1.1-1.3em for titles (tight), 1.4-1.6em for descriptions (readable)",
+    "✅ Use style-1, style-2, style-3 for general CTAs; style-8 for minimal/hero sections",
+    "✅ Provide fallback solid background color via container for banners without images",
+    "✅ Use emoji sparingly in desc (🔥, ⚡, 📥) for attention, but provide text context",
+    "✅ A/B test different hover effects and colors to optimize conversions"
+  ],
+  "styleComparisons": [
+    {
+      "name": "8 Style Variants Overview",
+      "style-1": {
+        "description": "Classic centered layout",
+        "bestFor": "General promotions, sales banners, versatile CTAs",
+        "layout": "Centered text, full-width background, standard spacing"
+      },
+      "style-2": {
+        "description": "Left-aligned content layout",
+        "bestFor": "Product showcases, detailed offers, text-heavy CTAs",
+        "layout": "Left-aligned text, more space for description"
+      },
+      "style-3": {
+        "description": "Right-aligned content layout",
+        "bestFor": "Newsletter signups, alternative alignment, visual variety",
+        "layout": "Right-aligned text, image on left"
+      },
+      "style-4": {
+        "description": "Overlay with description emphasis",
+        "bestFor": "Event promotions, detailed announcements, informational CTAs",
+        "layout": "Overlay style with prominent description area"
+      },
+      "style-5": {
+        "description": "Minimal typography-focused",
+        "bestFor": "Clean CTAs, no-image banners, typography-driven design",
+        "layout": "Minimal layout, works well without background image"
+      },
+      "style-6": {
+        "description": "Bold urgency layout",
+        "bestFor": "Limited offers, scarcity marketing, high-impact CTAs",
+        "layout": "Dramatic positioning, emphasis on urgency"
+      },
+      "style-7": {
+        "description": "Sophisticated content layout",
+        "bestFor": "Downloads, premium offers, professional services",
+        "layout": "Balanced layout with space for detailed content"
+      },
+      "style-8": {
+        "description": "Hero/minimal layout",
+        "bestFor": "Hero sections, minimal designs, large typography",
+        "layout": "Clean, spacious, large text-focused"
+      }
+    },
+    {
+      "name": "Hover Effect Comparisons",
+      "cta_img_vertical": {
+        "hoverStyle": "cta_img_vertical",
+        "description": "Image slides/pans vertically on hover",
+        "visualEffect": "Background image moves up or down, revealing different parts",
+        "bestFor": "Portrait images, tall banners, dynamic feel, product reveals",
+        "performance": "Good - CSS transform based"
+      },
+      "cta_img_horizontal": {
+        "hoverStyle": "cta_img_horizontal",
+        "description": "Image slides/pans horizontally on hover",
+        "visualEffect": "Background image moves left or right",
+        "bestFor": "Landscape images, wide banners, side-to-side motion",
+        "performance": "Good - CSS transform based"
+      },
+      "cta_img_zoom": {
+        "hoverStyle": "cta_img_zoom",
+        "description": "Image zooms in on hover",
+        "visualEffect": "Background image scales up (typically 1.1x-1.2x)",
+        "bestFor": "Product focus, dramatic effect, attention-grabbing, call-to-action emphasis",
+        "performance": "Good - CSS transform scale"
+      },
+      "cta_img_fade": {
+        "hoverStyle": "cta_img_fade",
+        "description": "Image opacity fades on hover",
+        "visualEffect": "Background image becomes more or less transparent",
+        "bestFor": "Subtle transitions, minimal designs, professional CTAs, hero sections",
+        "performance": "Excellent - simple opacity change"
+      }
+    }
+  ],
+  "responsivePatterns": [
+    {
+      "name": "Large to Small Typography Scaling",
+      "description": "Scale title from 72px desktop to 38px mobile for readability",
+      "pattern": {
+        "titleTypo": {
+          "fontSize": {
+            "md": "72",
+            "sm": "54",
+            "xs": "38",
+            "unit": "px"
+          }
+        }
+      }
+    },
+    {
+      "name": "Moderate Scaling for Standard CTAs",
+      "description": "Scale from 48px desktop to 28px mobile for balanced banners",
+      "pattern": {
+        "titleTypo": {
+          "fontSize": {
+            "md": "48",
+            "sm": "38",
+            "xs": "28",
+            "unit": "px"
+          }
+        },
+        "subtitleTypo": {
+          "fontSize": {
+            "md": "22",
+            "sm": "18",
+            "xs": "16",
+            "unit": "px"
+          }
+        }
+      }
+    }
+  ],
+  "accessibilityNotes": [
+    "♿ Ensure sufficient color contrast between text (titleColor) and bannerImage background (WCAG AA: 4.5:1)",
+    "♿ Provide meaningful Title text - avoid vague CTAs like 'Click Here' (use 'Download Free Guide')",
+    "♿ Don't rely on hover effects to convey essential information - touch devices can't hover",
+    "♿ Use desc field to provide additional context for screen readers",
+    "♿ Ensure bannerImage has alt text set via WordPress media library",
+    "♿ Test color combinations in hover states for accessibility (titlehoverColor contrast)",
+    "♿ Avoid flashing or rapidly changing hover effects (can trigger seizures)",
+    "♿ Use semantic HTML in desc field (<p>, <strong>) for proper screen reader parsing",
+    "♿ Ensure CTA remains usable without images (when bannerImage fails to load)",
+    "♿ Provide clear call-to-action language in Title/subTitle for cognitive accessibility"
+  ],
+  "performanceConsiderations": [
+    "⚡ Optimize bannerImage to < 200KB - use compression tools before upload",
+    "⚡ Use appropriate imageSize - 'large' (1024px) often sufficient instead of 'full' (2000px+)",
+    "⚡ Use WebP format with JPEG fallback for 30-50% smaller file sizes",
+    "⚡ Lazy load banners below fold - WordPress handles this automatically for img tags",
+    "⚡ Limit number of CTA banners per page - too many slow initial render",
+    "⚡ CSS hover effects (zoom/fade/slide) are GPU-accelerated - very performant",
+    "⚡ Avoid excessive HTML in desc field - keep simple for faster DOM parsing",
+    "⚡ Use consistent imageSize across all banners for browser caching benefits",
+    "⚡ Consider using solid color backgrounds (empty bannerImage) for faster load times",
+    "⚡ Test on slow 3G networks - CTA banners should load quickly as they're conversion-critical"
+  ],
+  "integrationPatterns": [
+    {
+      "name": "Homepage Hero CTA",
+      "description": "Large hero CTA banner with button below",
+      "blocks": [
+        "tpgb/tp-container (hero container, full-width)",
+        "tpgb/tp-cta-banner (style-8, large text, fade effect)",
+        "tpgb/tp-button (primary CTA button, centered)"
+      ],
+      "attributes": {
+        "styleType": "style-8",
+        "hoverStyle": "cta_img_fade"
+      }
+    },
+    {
+      "name": "Promotional Section",
+      "description": "Flash sale banner with countdown and urgency",
+      "blocks": [
+        "tpgb/tp-container (promo section)",
+        "tpgb/tp-cta-banner (style-1, zoom effect, flash sale)",
+        "tpgb/tp-countdown (countdown timer below)",
+        "tpgb/tp-button (shop now button)"
+      ],
+      "attributes": {
+        "styleType": "style-1",
         "hoverStyle": "cta_img_zoom"
       }
     },
     {
-      "description": "Product showcase banner with hover effect",
+      "name": "Lead Magnet Download",
+      "description": "Download CTA with form integration",
+      "blocks": [
+        "tpgb/tp-cta-banner (style-7, download offer)",
+        "tpgb/tp-form-block (email signup form below)"
+      ],
       "attributes": {
-        "block_id": "c3d4",
-        "styleType": "style-3",
-        "bannerImage": {
-          "url": "/product.jpg"
-        },
-        "Title": "New Arrival",
-        "subTitle": "Premium Collection",
-        "hoverStyle": "cta_img_vertical",
-        "titleColor": "#ffffff",
-        "subtitleColor": "#f0f0f0"
+        "styleType": "style-7",
+        "desc": "Includes download details and benefits"
       }
     },
     {
-      "description": "Custom styled CTA with hover colors",
-      "attributes": {
-        "block_id": "e5f6",
-        "styleType": "style-5",
-        "Title": "Download Free Guide",
-        "subTitle": "Learn the Secrets",
-        "titleTypo": {
-          "openTypography": 1,
-          "size": {
-            "md": "42",
-            "unit": "px"
-          },
-          "weight": "700"
-        },
-        "titleColor": "#2c3e50",
-        "titlehoverColor": "#667eea",
-        "subtitleColor": "#7f8c8d",
-        "subtitlehoverColor": "#27ae60"
-      }
-    },
-    {
-      "description": "Minimal banner with fade effect (style-8)",
-      "attributes": {
-        "block_id": "g7h8",
-        "styleType": "style-8",
-        "bannerImage": {
-          "url": "/minimal-bg.jpg"
-        },
-        "Title": "Start Your Journey",
-        "subTitle": "Today",
-        "hoverStyle": "cta_img_fade"
-      }
+      "name": "Multiple Banner Grid",
+      "description": "Grid of 3 CTAs for different offers",
+      "blocks": [
+        "tpgb/tp-container (grid container)",
+        "tpgb/tp-row (3-column grid)",
+        "tpgb/tp-column (repeat 3 times)",
+        "tpgb/tp-cta-banner (in each column, different offers)"
+      ],
+      "notes": "Use consistent styleType and hoverStyle across all 3 for visual coherence"
     }
   ],
-  "commonPatterns": {}
+  "commonPatterns": {
+    "flashSale": {
+      "description": "High-urgency flash sale with zoom effect",
+      "attributes": {
+        "styleType": "style-1",
+        "hoverStyle": "cta_img_zoom",
+        "titleColor": "#ffffff",
+        "titlehoverColor": "#ffe500",
+        "titleTypo": {
+          "textTransform": "uppercase",
+          "fontWeight": "800"
+        }
+      }
+    },
+    "minimalHero": {
+      "description": "Clean hero CTA with large typography",
+      "attributes": {
+        "styleType": "style-8",
+        "hoverStyle": "cta_img_fade",
+        "titleTypo": {
+          "fontSize": {
+            "md": "72",
+            "unit": "px"
+          },
+          "fontWeight": "300"
+        }
+      }
+    },
+    "productLaunch": {
+      "description": "Product announcement with vertical slide",
+      "attributes": {
+        "styleType": "style-2",
+        "hoverStyle": "cta_img_vertical",
+        "titleTypo": {
+          "fontSize": {
+            "md": "38",
+            "unit": "px"
+          }
+        }
+      }
+    },
+    "newsletterSignup": {
+      "description": "Email list building with horizontal slide",
+      "attributes": {
+        "styleType": "style-3",
+        "hoverStyle": "cta_img_horizontal",
+        "subTitle": "Join X subscribers"
+      }
+    }
+  }
 }
