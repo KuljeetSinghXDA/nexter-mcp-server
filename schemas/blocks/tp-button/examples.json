@@ -2,12 +2,17 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-button",
   "title": "Advanced Button - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Comprehensive usage patterns for the advanced button block with extensive styling, hover effects, icons, and animation options.",
+
   "examples": [
     {
-      "description": "Simple primary CTA button",
+      "name": "Primary CTA Button - Style 1",
+      "description": "Standard call-to-action button with icon, centered alignment, purple background",
+      "visualDescription": "Purple (#667eea) button with white text 'Get Started'. Right arrow icon after text. Hover: darkens to #5568d3. Rounded corners (6px). Center-aligned. 15px padding top/bottom, 30px left/right.",
+      "complexity": "simple",
+      "useCase": "Primary CTAs, hero sections, sign-up buttons, main actions",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "btn001",
         "styleType": "style-1",
         "btnText": "Get Started",
         "btnLink": {
@@ -15,42 +20,443 @@
           "target": "_self",
           "nofollow": ""
         },
-        "iconType": "fontAwesome",
-        "fontAwesomeIcon": "fas fa-arrow-right",
-        "iconPosition": "iconAfter",
         "Alignment": {
-          "md": "center"
-        }
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "iconType": "fontAwesome",
+        "fontAwesomeIcon": "fa fa-arrow-right",
+        "iconPosition": "iconAfter",
+        "iconSpace": {
+          "md": "10",
+          "unit": "px"
+        },
+        "iconSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "btnHvrType": "hover-left",
+        "ariaLabel": "Sign up for our service"
       }
     },
+
     {
-      "description": "Button with hover text change",
+      "name": "Secondary Button with Outline - Style 2",
+      "description": "Outline/ghost button style with transparent background and border",
+      "visualDescription": "Transparent background with 2px purple border. Purple text. Hover: fills with purple background, white text. Left-aligned. Icon before text (chevron-right).",
+      "complexity": "simple",
+      "useCase": "Secondary actions, less prominent CTAs, alternative choices",
       "attributes": {
-        "block_id": "c3d4",
-        "styleType": "style-7",
+        "block_id": "btn002",
+        "styleType": "style-2",
         "btnText": "Learn More",
-        "hoverText": "Click Now!",
+        "btnLink": {
+          "url": "/about",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "Alignment": {
+          "md": "left",
+          "sm": "left",
+          "xs": "center"
+        },
+        "iconType": "fontAwesome",
+        "fontAwesomeIcon": "fa fa-chevron-right",
+        "iconPosition": "iconBefore",
+        "iconSpace": {
+          "md": "8",
+          "unit": "px"
+        },
         "btnHvrType": "hover-left"
       }
     },
+
     {
-      "description": "FancyBox popup button",
+      "name": "Button with Hover Text Change - Style 7",
+      "description": "Button text changes on hover to reveal alternate message",
+      "visualDescription": "Initially shows 'Download Now'. On hover, text slides left and changes to 'Get Free PDF'. Blue background (#3b82f6). White text. Download icon stays visible.",
+      "complexity": "medium",
+      "useCase": "Interactive CTAs, engaging hover effects, download buttons, creative marketing",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "btn003",
+        "styleType": "style-7",
+        "btnText": "Download Now",
+        "hoverText": "Get Free PDF",
+        "btnLink": {
+          "url": "/download/guide.pdf",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "Alignment": {
+          "md": "center"
+        },
+        "iconType": "fontAwesome",
+        "fontAwesomeIcon": "fa fa-download",
+        "iconPosition": "iconBefore",
+        "iconSpace": {
+          "md": "12",
+          "unit": "px"
+        },
+        "btnHvrType": "hover-left"
+      }
+    },
+
+    {
+      "name": "Video Popup Button with FancyBox - Style 1",
+      "description": "Button that opens video in lightbox overlay (FancyBox)",
+      "visualDescription": "Red background (#ef4444) button with 'Watch Video' text. White play icon before text. Hover: shadow expands. Clicking opens YouTube video in lightbox overlay.",
+      "complexity": "medium",
+      "useCase": "Video CTAs, demo presentations, tutorial introductions, media galleries",
+      "attributes": {
+        "block_id": "btn004",
+        "styleType": "style-1",
         "btnText": "Watch Video",
         "fancyBox": true,
         "btnLink": {
-          "url": "https://youtube.com/watch?v=...",
-          "target": "_blank"
+          "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "Alignment": {
+          "md": "center"
         },
         "iconType": "fontAwesome",
-        "fontAwesomeIcon": "fas fa-play"
+        "fontAwesomeIcon": "fa fa-play",
+        "iconPosition": "iconBefore",
+        "iconSpace": {
+          "md": "10",
+          "unit": "px"
+        },
+        "iconSize": {
+          "md": "18",
+          "unit": "px"
+        },
+        "btnHvrType": "hover-left",
+        "ariaLabel": "Play video in popup"
+      }
+    },
+
+    {
+      "name": "Icon-Only Button - Style 1",
+      "description": "Circular button with icon only, no text",
+      "visualDescription": "Small circular button (50x50px) with white shopping cart icon on green background. Hover: rotates 15deg. Right-aligned. Perfect for floating action buttons.",
+      "complexity": "simple",
+      "useCase": "Icon-only actions, floating buttons, compact CTAs, mobile-friendly interactions",
+      "attributes": {
+        "block_id": "btn005",
+        "styleType": "style-1",
+        "btnText": "",
+        "btnLink": {
+          "url": "/cart",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "Alignment": {
+          "md": "right",
+          "sm": "right",
+          "xs": "center"
+        },
+        "iconType": "fontAwesome",
+        "fontAwesomeIcon": "fa fa-shopping-cart",
+        "iconPosition": "iconAfter",
+        "iconSize": {
+          "md": "20",
+          "unit": "px"
+        },
+        "iconHvrType": "hover-top",
+        "ariaLabel": "View shopping cart"
+      }
+    },
+
+    {
+      "name": "Button with Custom Image Icon - Style 1",
+      "description": "Button using custom uploaded image as icon instead of Font Awesome",
+      "visualDescription": "White button with logo image (32x32px) before text. Logo is custom brand icon. Text 'Our Platform' in dark gray. Hover: background changes to light purple. Left-aligned.",
+      "complexity": "medium",
+      "useCase": "Branded buttons, custom icons, product-specific CTAs, unique branding",
+      "attributes": {
+        "block_id": "btn006",
+        "styleType": "style-1",
+        "btnText": "Our Platform",
+        "btnLink": {
+          "url": "/platform",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "Alignment": {
+          "md": "left"
+        },
+        "iconType": "image",
+        "imageName": {
+          "id": 123,
+          "url": "/wp-content/uploads/logo-icon.png"
+        },
+        "imageSize": "thumbnail",
+        "iconPosition": "iconBefore",
+        "iconSpace": {
+          "md": "12",
+          "unit": "px"
+        },
+        "iconSize": {
+          "md": "32",
+          "unit": "px"
+        },
+        "btnHvrType": "hover-left"
+      }
+    },
+
+    {
+      "name": "Vertical Icon Above Text - Style 1",
+      "description": "Button with icon positioned vertically above text (stacked layout)",
+      "visualDescription": "Large button with star icon (32px) centered above 'Rate Us' text. Both icon and text stack vertically. Light blue background. Hover: icon animates from top. Center-aligned.",
+      "complexity": "medium",
+      "useCase": "Feature cards, action tiles, mobile app-style buttons, large touch targets",
+      "attributes": {
+        "block_id": "btn007",
+        "styleType": "style-1",
+        "btnText": "Rate Us",
+        "btnLink": {
+          "url": "/rate",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "Alignment": {
+          "md": "center"
+        },
+        "iconType": "fontAwesome",
+        "fontAwesomeIcon": "fa fa-star",
+        "iconPosition": "iconBefore",
+        "icnVrtcal": "icon-top",
+        "iconSpace": {
+          "md": "8",
+          "unit": "px"
+        },
+        "iconSize": {
+          "md": "32",
+          "unit": "px"
+        },
+        "iconHvrType": "hover-top"
+      }
+    },
+
+    {
+      "name": "Multi-State Button - Style 3",
+      "description": "Advanced button style with multiple hover states and transitions",
+      "visualDescription": "Gradient background (purple to pink). White text 'Join Now'. Hover: gradient animates in reverse direction. Smooth 300ms transition. Icon fades in from left on hover. Center-aligned.",
+      "complexity": "advanced",
+      "useCase": "Premium CTAs, attention-grabbing actions, modern designs, landing pages",
+      "attributes": {
+        "block_id": "btn008",
+        "styleType": "style-3",
+        "btnText": "Join Now",
+        "btnLink": {
+          "url": "/join",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "Alignment": {
+          "md": "center"
+        },
+        "iconType": "fontAwesome",
+        "fontAwesomeIcon": "fa fa-arrow-right",
+        "iconPosition": "iconAfter",
+        "iconHvrType": "hover-left",
+        "btnHvrType": "hover-left"
+      }
+    },
+
+    {
+      "name": "External Link Button with nofollow - Style 1",
+      "description": "Button for external links with SEO nofollow attribute",
+      "visualDescription": "Gray button with external link icon. Text 'Visit Partner Site' with small external-link icon after. Opens in new tab. nofollow for SEO. Right-aligned.",
+      "complexity": "simple",
+      "useCase": "Affiliate links, external resources, partner links, third-party sites",
+      "attributes": {
+        "block_id": "btn009",
+        "styleType": "style-1",
+        "btnText": "Visit Partner Site",
+        "btnLink": {
+          "url": "https://partner-website.com",
+          "target": "_blank",
+          "nofollow": "nofollow"
+        },
+        "Alignment": {
+          "md": "right",
+          "sm": "center",
+          "xs": "center"
+        },
+        "iconType": "fontAwesome",
+        "fontAwesomeIcon": "fa fa-external-link",
+        "iconPosition": "iconAfter",
+        "iconSpace": {
+          "md": "8",
+          "unit": "px"
+        },
+        "iconSize": {
+          "md": "14",
+          "unit": "px"
+        },
+        "ariaLabel": "Visit partner website (opens in new tab)"
+      }
+    },
+
+    {
+      "name": "Full-Width Mobile Button - Style 1",
+      "description": "Button that becomes full-width on mobile devices for better touch targets",
+      "visualDescription": "Desktop: Standard width, left-aligned. Tablet: Same. Mobile: Expands to full width (100%), center text. Green background. Phone icon before 'Call Now' text. Large touch target.",
+      "complexity": "simple",
+      "useCase": "Mobile CTAs, call-to-action buttons, contact forms, responsive designs",
+      "attributes": {
+        "block_id": "btn010",
+        "styleType": "style-1",
+        "btnText": "Call Now",
+        "btnLink": {
+          "url": "tel:+1234567890",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "Alignment": {
+          "md": "left",
+          "sm": "left",
+          "xs": "center"
+        },
+        "iconType": "fontAwesome",
+        "fontAwesomeIcon": "fa fa-phone",
+        "iconPosition": "iconBefore",
+        "iconSpace": {
+          "md": "10",
+          "unit": "px"
+        },
+        "iconSize": {
+          "md": "18",
+          "unit": "px"
+        },
+        "btnHvrType": "hover-left",
+        "ariaLabel": "Call us at 123-456-7890"
       }
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
-    }
+
+  "validationRules": {
+    "block_id": "Required. Unique identifier for the block.",
+    "styleType": "Button visual style. Values: 'style-1' through 'style-9'. Each has unique hover/animation behavior. Default: 'style-1'.",
+    "btnText": "Button text content. Can be empty for icon-only buttons. Default: 'Buy Now'.",
+    "btnLink": "Required link object with url, target ('_self', '_blank'), nofollow ('', 'nofollow') properties.",
+    "Alignment": "Button alignment. Responsive (md/sm/xs). Values: 'left', 'center', 'right'. Default: 'left'.",
+    "iconType": "Icon source. Values: 'fontAwesome' (icon font), 'image' (uploaded image). Default: 'fontAwesome'.",
+    "fontAwesomeIcon": "Font Awesome class string (e.g., 'fa fa-arrow-right'). Requires iconType: 'fontAwesome'.",
+    "imageName": "Uploaded image object with id and url. Requires iconType: 'image'.",
+    "imageSize": "WordPress image size (thumbnail, medium, large, full). For iconType: 'image'. Default: 'full'.",
+    "iconPosition": "Icon placement relative to text. Values: 'iconBefore', 'iconAfter'. Default: 'iconAfter'.",
+    "icnVrtcal": "Vertical icon stacking. Values: 'icon-top' (icon above text), '' (horizontal). Default: ''.",
+    "iconSpace": "Space between icon and text. Responsive. Recommended: 8-12px.",
+    "iconSize": "Icon size. Responsive. For fontAwesome: font-size. For image: width/height. Recommended: 14-24px.",
+    "btnHvrType": "Hover animation direction. Values: 'hover-left', 'hover-right', 'hover-top', 'hover-bottom'. Default: 'hover-left'.",
+    "iconHvrType": "Icon hover animation. Values: 'hover-left', 'hover-right', 'hover-top', 'hover-bottom'. Default: 'hover-top'.",
+    "hoverText": "Alternate text shown on hover. Only for style-7. Button text changes to this on hover.",
+    "fancyBox": "Open link in lightbox overlay. Boolean. Use for YouTube/Vimeo videos or images. Default: false.",
+    "ariaLabel": "Accessibility label for screen readers. Highly recommended for all buttons, required for icon-only buttons.",
+    "templates": "Template ID for backend preview. Generally leave empty unless using block templates.",
+    "backendVisi": "Backend visibility toggle. Boolean. For editor-only preview. Default: false."
+  },
+
+  "warnings": [
+    "CRITICAL: Never modify or regenerate block_id - causes blocks to break.",
+    "Icon-only buttons (empty btnText) MUST have ariaLabel for accessibility (screen readers need text).",
+    "fancyBox only works with YouTube, Vimeo, image URLs, or valid media. Regular links won't open in popup.",
+    "hoverText only works with styleType: 'style-7'. Other styles ignore this attribute.",
+    "iconType: 'image' requires imageName object with valid WordPress media ID and URL.",
+    "styleType determines available hover animations. Not all btnHvrType work with all styles.",
+    "icnVrtcal: 'icon-top' stacks icon above text. Ensure iconSpace is set for proper spacing (not margin-right).",
+    "target: '_blank' (new tab) should include nofollow: 'nofollow' for external/affiliate links (SEO).",
+    "btnLink.url is required. Empty URL results in non-functional button.",
+    "Font Awesome icon classes must include 'fa' prefix: 'fa fa-icon-name' not just 'fa-icon-name'.",
+    "Multiple buttons in same container may need Alignment adjustment to avoid layout issues.",
+    "Very long btnText (>20 characters) may wrap on mobile. Test on small screens.",
+    "Custom image icons should be square aspect ratio for best appearance (e.g., 64x64px)."
+  ],
+
+  "commonMistakes": [
+    "Forgetting ariaLabel on icon-only buttons (empty btnText) - fails accessibility",
+    "Using fancyBox: true with non-media URLs (regular page links don't open in popup)",
+    "Setting hoverText on styleType != 'style-7' (no effect, ignored)",
+    "Using iconType: 'image' without providing imageName object (icon doesn't appear)",
+    "Forgetting to set iconSpace (icon smashes against text, no spacing)",
+    "Setting target: '_blank' without nofollow on affiliate/external links (SEO issue)",
+    "Using very large iconSize (>50px) with small text (disproportionate, ugly)",
+    "Setting icnVrtcal: 'icon-top' but iconSpace only sets margin-right (spacing broken)",
+    "Using non-existent Font Awesome icon classes (icon shows as square/missing glyph)",
+    "Setting btnText but wanting icon-only (set btnText: '' for icon-only buttons)",
+    "Forgetting responsive Alignment (looks fine on desktop, broken on mobile)",
+    "Using styleType values outside 'style-1' through 'style-9' (defaults to style-1)",
+    "Setting both iconBefore and iconAfter in same button (pick one, iconPosition is single value)"
+  ],
+
+  "bestPractices": [
+    "Always provide ariaLabel for accessibility, especially on icon-only buttons",
+    "Icon spacing: 8-12px provides comfortable balance between icon and text",
+    "Icon size: 14-18px for inline buttons, 24-32px for large hero buttons, 40-50px for icon-only",
+    "For external links: use target: '_blank' AND nofollow: 'nofollow' for SEO",
+    "Use center alignment (md: 'center') for primary CTAs in hero sections",
+    "Use left alignment for secondary actions and in-content buttons",
+    "Icon position: iconAfter for forward actions (Next, Submit), iconBefore for back/download",
+    "For videos: use fancyBox: true with YouTube/Vimeo URLs for inline video popup",
+    "Responsive alignment: center on mobile (xs: 'center'), left/right on desktop",
+    "Phone/email links: use tel: and mailto: protocols (e.g., 'tel:+1234567890')",
+    "Test hover effects on actual devices - some animations don't translate well to touch",
+    "Keep btnText concise (1-3 words). Long text wraps awkwardly on mobile.",
+    "Use styleType: 'style-1' for professional/corporate, 'style-3' for modern/creative",
+    "Vertical icons (icnVrtcal: 'icon-top') work best with short text (1-2 words)",
+    "Test color contrast on button backgrounds - ensure WCAG AA compliance (4.5:1 minimum)",
+    "For download buttons: use download icon (fa-download) with target: '_blank'"
+  ],
+
+  "layoutContext": {
+    "parentBlocks": "Can be used in any container (tp-container, tp-row/tp-column, tp-container-inner)",
+    "childBlocks": "None - self-contained button block",
+    "siblingBlocks": "Often paired with tp-heading, tp-pro-paragraph for complete call-to-action sections",
+    "htmlStructure": "Renders as <div class='tpgb-plus-button'><a class='button-link-wrap'><icon /><span>{btnText}</span></a></div>",
+    "alignmentBehavior": "Alignment applies to wrapper div, button inherits alignment (text-align on parent)",
+    "responsiveStrategy": "Alignment, iconSize, iconSpace all support responsive (md/sm/xs) breakpoints"
+  },
+
+  "performanceConsiderations": [
+    "Hover animations (btnHvrType, iconHvrType) are CSS-based - minimal performance impact",
+    "FancyBox (lightbox) loads additional JavaScript - slight page load overhead",
+    "Custom image icons require image loading - use optimized small images (64x64px recommended)",
+    "Multiple buttons with complex hover effects (style-3, style-6) can impact animation performance",
+    "Font Awesome icons load from icon font - ensure font is loaded for icons to appear"
+  ],
+
+  "accessibilityNotes": [
+    "CRITICAL: Icon-only buttons (empty btnText) MUST have ariaLabel describing button action",
+    "ariaLabel examples: 'Play video', 'Download PDF', 'Call us', 'View shopping cart'",
+    "Ensure button has sufficient color contrast against background (WCAG AA: 3:1 minimum for large text)",
+    "Minimum button size on mobile: 44x44px for touch targets (WCAG guideline)",
+    "External links (target: '_blank') should indicate 'opens in new tab' in ariaLabel",
+    "Icon-only buttons should have visible focus state for keyboard navigation",
+    "Don't rely on color alone to convey meaning - use icons and text together",
+    "Test with screen readers - button should announce clearly with purpose and destination"
+  },
+
+  "relatedBlocks": {
+    "tp-button-core": "WordPress core button wrapper with basic styling",
+    "tp-heading": "Often paired above button for CTA sections",
+    "tp-pro-paragraph": "Often paired above button for context/description",
+    "tp-container": "Parent container for button sections",
+    "tp-image": "Often used alongside buttons in feature cards"
+  },
+
+  "styleTypeReference": {
+    "style-1": "Standard button with fill background. Hover: background color change.",
+    "style-2": "Outline/ghost button. Hover: fills background, inverts colors.",
+    "style-3": "Advanced button with gradient and multi-state hover effects.",
+    "style-4": "Button with border effects and animations.",
+    "style-5": "Button with shadow and lift effects on hover.",
+    "style-6": "Special arrow-integrated button design.",
+    "style-7": "Button with text change on hover (btnText → hoverText).",
+    "style-8": "Button with underline/overline animations.",
+    "style-9": "Button with 3D/emboss effects."
   }
 }
