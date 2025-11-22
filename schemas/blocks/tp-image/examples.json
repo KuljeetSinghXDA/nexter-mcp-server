@@ -2,67 +2,375 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-image",
   "title": "Image - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Comprehensive usage patterns for the image block with advanced sizing, alignment, captions, links, filters, and effects.",
+
   "examples": [
     {
-      "description": "Simple centered image",
+      "name": "Simple Centered Image",
+      "description": "Basic image centered on page with standard sizing",
+      "visualDescription": "Large image (800x600px) centered horizontally. No caption or link. Clean, straightforward presentation. Uses 'large' WordPress size for optimized loading.",
+      "complexity": "simple",
+      "useCase": "Feature images, hero images, centered visual content, blog post images",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "img001",
         "tImg": {
-          "url": "https://example.com/image.jpg",
+          "url": "https://example.com/photos/feature-image.jpg",
           "Id": "123"
+        },
+        "iSize": "large",
+        "tiAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "tiCap": "none"
+      }
+    },
+
+    {
+      "name": "Linked Image with Hover Opacity",
+      "description": "Clickable image that reduces opacity on hover for visual feedback",
+      "visualDescription": "Full opacity (1.0) by default. On hover: fades to 80% opacity. Smooth transition. Opens link in new tab. Right arrow cursor on hover indicates clickable.",
+      "complexity": "simple",
+      "useCase": "Clickable banners, product images with links, promotional images, gallery thumbnails",
+      "attributes": {
+        "block_id": "img002",
+        "tImg": {
+          "url": "https://example.com/banners/promo-banner.jpg",
+          "Id": "456"
+        },
+        "iSize": "full",
+        "tiLink": {
+          "url": "https://example.com/products/special-offer",
+          "target": "_blank",
+          "nofollow": ""
         },
         "tiAlign": {
           "md": "center"
-        },
-        "iSize": "large"
-      }
-    },
-    {
-      "description": "Linked image with hover effect",
-      "attributes": {
-        "block_id": "c3d4",
-        "tImg": {
-          "url": "https://example.com/banner.jpg",
-          "Id": "456"
-        },
-        "tiLink": {
-          "url": "https://example.com/products",
-          "target": "_blank"
         },
         "inOpa": "1",
         "iHOpa": "0.8"
       }
     },
+
     {
-      "description": "Image with custom size and filter",
+      "name": "Fixed Size Image with Object-Fit Cover",
+      "description": "Image with fixed dimensions using object-fit: cover to crop proportionally",
+      "visualDescription": "Fixed 400x300px container. Image scales to cover entire area while maintaining aspect ratio. Excess cropped. Perfect for uniform image cards. Center-positioned.",
+      "complexity": "medium",
+      "useCase": "Card grids, uniform galleries, product listings, team member photos",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "img003",
         "tImg": {
-          "url": "https://example.com/photo.jpg",
+          "url": "https://example.com/products/product-01.jpg",
           "Id": "789"
         },
+        "iSize": "large",
         "iWidth": {
           "md": "400",
+          "sm": "350",
+          "xs": "300",
           "unit": "px"
         },
         "iHeig": {
           "md": "300",
+          "sm": "260",
+          "xs": "225",
           "unit": "px"
         },
         "imgFit": {
-          "md": "cover"
+          "md": "cover",
+          "sm": "cover",
+          "xs": "cover"
+        },
+        "tiAlign": {
+          "md": "left"
+        }
+      }
+    },
+
+    {
+      "name": "Grayscale Image with Hover Color",
+      "description": "Black and white image that reveals color on hover",
+      "visualDescription": "100% grayscale by default (black and white). On hover: grayscale fades to 0% revealing full color. Smooth transition creates engaging effect. Center-aligned.",
+      "complexity": "medium",
+      "useCase": "Portfolio galleries, team photos, creative presentations, interactive portfolios",
+      "attributes": {
+        "block_id": "img004",
+        "tImg": {
+          "url": "https://example.com/team/member-photo.jpg",
+          "Id": "234"
+        },
+        "iSize": "medium",
+        "tiAlign": {
+          "md": "center"
         },
         "inFilt": {
           "openFilter": true,
           "grayscale": 100
         }
       }
+    },
+
+    {
+      "name": "Image with Custom Caption",
+      "description": "Image with custom HTML caption below",
+      "visualDescription": "Image followed by centered caption text. Caption styling customizable via CSS. Clean typography. Useful for photo credits, descriptions, or context.",
+      "complexity": "simple",
+      "useCase": "Blog images with captions, photo galleries, educational content, image descriptions",
+      "attributes": {
+        "block_id": "img005",
+        "tImg": {
+          "url": "https://example.com/photos/landscape.jpg",
+          "Id": "567"
+        },
+        "iSize": "large",
+        "tiAlign": {
+          "md": "center"
+        },
+        "tiCap": "custom",
+        "ctmCap": "<p>Beautiful mountain landscape at sunset - Photo by John Doe</p>",
+        "capimg": "Image caption placeholder"
+      }
+    },
+
+    {
+      "name": "Responsive Image with Max-Width",
+      "description": "Image that scales down on smaller screens using max-width",
+      "visualDescription": "Desktop: max 600px wide. Tablet: max 500px. Mobile: max 100% (full width). Never exceeds container. Maintains aspect ratio. Left-aligned.",
+      "complexity": "simple",
+      "useCase": "Responsive layouts, flexible content widths, mobile-friendly images",
+      "attributes": {
+        "block_id": "img006",
+        "tImg": {
+          "url": "https://example.com/content/diagram.png",
+          "Id": "890"
+        },
+        "iSize": "full",
+        "imWidth": {
+          "md": "600",
+          "sm": "500",
+          "xs": "100",
+          "unit": "px"
+        },
+        "tiAlign": {
+          "md": "left",
+          "sm": "left",
+          "xs": "center"
+        }
+      }
+    },
+
+    {
+      "name": "Blurred Image with Hover Focus",
+      "description": "Image with blur effect that becomes sharp on hover",
+      "visualDescription": "5px blur by default (subtle out-of-focus effect). On hover: blur removes, image becomes sharp. Creates focus/attention effect. Center-aligned.",
+      "complexity": "medium",
+      "useCase": "Interactive galleries, attention-grabbing images, creative effects, before/after reveals",
+      "attributes": {
+        "block_id": "img007",
+        "tImg": {
+          "url": "https://example.com/gallery/photo-01.jpg",
+          "Id": "345"
+        },
+        "iSize": "large",
+        "tiAlign": {
+          "md": "center"
+        },
+        "inFilt": {
+          "openFilter": true,
+          "blur": 5
+        }
+      }
+    },
+
+    {
+      "name": "Image with Contain Fit (No Crop)",
+      "description": "Image scaled to fit container without cropping using object-fit: contain",
+      "visualDescription": "500x400px container. Image scales to fit inside without cropping. Letterboxing/pillarboxing if aspect ratios differ. Entire image always visible.",
+      "complexity": "medium",
+      "useCase": "Logos, diagrams, infographics, images requiring full visibility",
+      "attributes": {
+        "block_id": "img008",
+        "tImg": {
+          "url": "https://example.com/logos/company-logo.png",
+          "Id": "678"
+        },
+        "iSize": "medium",
+        "iWidth": {
+          "md": "500",
+          "unit": "px"
+        },
+        "iHeig": {
+          "md": "400",
+          "unit": "px"
+        },
+        "imgFit": {
+          "md": "contain"
+        },
+        "tiAlign": {
+          "md": "center"
+        }
+      }
+    },
+
+    {
+      "name": "Full-Width Hero Image",
+      "description": "Wide image spanning full container width for hero sections",
+      "visualDescription": "100% width, auto height maintaining aspect ratio. Uses 'full' size for high resolution. Center-aligned. Perfect for hero sections and wide banners.",
+      "complexity": "simple",
+      "useCase": "Hero sections, full-width banners, page headers, section backgrounds",
+      "attributes": {
+        "block_id": "img009",
+        "tImg": {
+          "url": "https://example.com/heroes/hero-banner.jpg",
+          "Id": "901"
+        },
+        "iSize": "full",
+        "imWidth": {
+          "md": "100",
+          "unit": "%"
+        },
+        "tiAlign": {
+          "md": "center"
+        }
+      }
+    },
+
+    {
+      "name": "Sepia-Toned Vintage Image",
+      "description": "Image with sepia filter for vintage/nostalgic appearance",
+      "visualDescription": "80% sepia tone creates warm vintage/old photo effect. Brown-tinted aesthetic. No hover effects. Right-aligned. Perfect for historical content or vintage themes.",
+      "complexity": "simple",
+      "useCase": "Vintage themes, historical content, nostalgic presentations, retro designs",
+      "attributes": {
+        "block_id": "img010",
+        "tImg": {
+          "url": "https://example.com/vintage/old-photo.jpg",
+          "Id": "112"
+        },
+        "iSize": "large",
+        "tiAlign": {
+          "md": "right",
+          "sm": "center",
+          "xs": "center"
+        },
+        "inFilt": {
+          "openFilter": true,
+          "sepia": 80
+        }
+      }
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
-    }
+
+  "validationRules": {
+    "block_id": "Required. Unique identifier for the block.",
+    "tImg": "Required. Image object with url (image URL) and Id (WordPress media ID). Both required for proper functionality.",
+    "iSize": "WordPress image size. Values: 'thumbnail', 'medium', 'large', 'full'. Default: 'full'. Affects served image dimensions.",
+    "tiAlign": "Image alignment. Responsive (md/sm/xs). Values: 'left', 'center', 'right'. Default: ''.",
+    "tiCap": "Caption type. Values: 'none' (no caption), 'default' (WordPress caption), 'custom' (custom HTML). Default: 'none'.",
+    "capimg": "Caption placeholder/alt text. Used when tiCap: 'default'.",
+    "ctmCap": "Custom HTML caption content. HTML source attribute. Requires tiCap: 'custom'.",
+    "tiLink": "Link object with url, target ('_self', '_blank'), nofollow ('', 'nofollow'). Makes image clickable.",
+    "iWidth": "Image width. Responsive. Sets width CSS property. Can use px, %, vw, etc.",
+    "imWidth": "Image max-width. Responsive. Prevents image from exceeding size. More flexible than iWidth.",
+    "iHeig": "Image height. Responsive. Sets height CSS property.",
+    "imgFit": "Object-fit CSS property. Values: 'cover', 'contain', 'fill', 'none', 'scale-down'. Requires fixed width/height.",
+    "inOpa": "Normal opacity. Value: 0-1 (0 = invisible, 1 = full). Default: '' (1).",
+    "iHOpa": "Hover opacity. Value: 0-1. Creates hover fade effect.",
+    "inFilt": "CSS filter object. openFilter: true to enable. Options: blur, grayscale, sepia, brightness, contrast, etc."
+  },
+
+  "warnings": [
+    "CRITICAL: Never modify or regenerate block_id - causes blocks to break.",
+    "tImg requires both url AND Id. Missing either can cause display issues.",
+    "imgFit only works when iWidth AND iHeig are both set. Otherwise ignored.",
+    "tiCap: 'custom' requires ctmCap to have content. Empty ctmCap = no caption shown.",
+    "tiCap: 'default' uses capimg as caption text. Set capimg when using default caption.",
+    "inFilt requires openFilter: true to enable. Without it, filter values ignored.",
+    "Using both iWidth (fixed) and imWidth (max) together - iWidth takes precedence, imWidth acts as fallback.",
+    "Very high blur values (>20px) can severely impact performance and look distorted.",
+    "inOpa and iHOpa use 0-1 scale, NOT 0-100 percentage.",
+    "iSize affects which image file served - 'full' = original size (large file), 'thumbnail' = smallest (fast load)."
+  ],
+
+  "commonMistakes": [
+    "Setting imgFit without both iWidth and iHeig (object-fit requires dimensions)",
+    "Using iWidth in % without parent container having defined width (unpredictable sizing)",
+    "Forgetting to set inFilt.openFilter: true when defining filters (filters don't apply)",
+    "Using inOpa: 0 (invisible image) when intending partial transparency (use 0.5-0.9)",
+    "Setting tiLink.url but forgetting target (defaults to _self, might want _blank)",
+    "Using tiCap: 'custom' without providing ctmCap HTML (no caption appears)",
+    "Setting very small iHeig with large iWidth (extreme aspect ratio distortion)",
+    "Using imgFit: 'fill' (stretches/distorts) when imgFit: 'cover' (crops) intended",
+    "Forgetting responsive tiAlign (image aligned poorly on mobile)",
+    "Using iSize: 'full' for all images (large file sizes, slow page load)"
+  ],
+
+  "bestPractices": [
+    "Use iSize: 'large' for most images - good balance of quality and file size",
+    "Use iSize: 'full' only for hero images or when high resolution critical",
+    "Use iSize: 'thumbnail' for small avatar/icon images to optimize loading",
+    "For card grids: use imgFit: 'cover' with fixed iWidth/iHeig for uniform appearance",
+    "For logos/diagrams: use imgFit: 'contain' to prevent cropping important content",
+    "Hover opacity: reduce by 10-20% (inOpa: 1, iHOpa: 0.8) for subtle effect",
+    "Responsive alignment: center on mobile (xs: 'center'), left/right on desktop",
+    "Max-width approach: use imWidth instead of iWidth for responsive flexibility",
+    "Image captions: use tiCap: 'custom' with ctmCap for full styling control",
+    "External links: use target: '_blank' for images linking to external sites",
+    "Filters: use grayscale: 100 for B&W, sepia: 60-80 for vintage, blur: 3-5 for soft focus",
+    "Always include alt text via capimg for accessibility (even if no visible caption)",
+    "Test imgFit on actual content - 'cover' crops, 'contain' letterboxes",
+    "For clickable images: add hover effect (opacity/filter change) for visual feedback"
+  ],
+
+  "layoutContext": {
+    "parentBlocks": "Can be used in any container (tp-container, tp-row/tp-column, tp-container-inner)",
+    "childBlocks": "None - self-contained image block",
+    "siblingBlocks": "Often paired with tp-heading, tp-pro-paragraph, tp-button for content sections",
+    "htmlStructure": "Renders as <figure class='tpgb-figure'><img /><figcaption>{caption}</figcaption></figure>",
+    "alignmentBehavior": "tiAlign applies text-align to wrapper and justify-content to figure",
+    "responsiveStrategy": "tiAlign, iWidth, imWidth, iHeig all support responsive (md/sm/xs) breakpoints",
+    "imageSizeContext": "iSize selects WordPress-generated image variant (affects URL and dimensions served)"
+  },
+
+  "performanceConsiderations": [
+    "iSize: 'full' serves original image - can be very large (MBs). Use 'large'/'medium' when possible.",
+    "CSS filters (blur, grayscale, etc.) can impact render performance on many images simultaneously.",
+    "Hover opacity changes trigger repaints - minimal impact for single images, noticeable for many.",
+    "Using imgFit: 'cover' with large images requires browser to decode entire image even if cropped.",
+    "Multiple high-resolution images on page - consider lazy loading (WordPress native feature).",
+    "Blur filter with large values (>10px) more expensive than other filters."
+  ],
+
+  "accessibilityNotes": [
+    "CRITICAL: All images should have alt text. Set via capimg even if tiCap: 'none'.",
+    "Alt text should describe image content meaningfully, not just say 'image'.",
+    "Decorative images can have empty alt (capimg: '') to skip screen reader announcement.",
+    "If image contains text, alt should include that text.",
+    "Clickable images (tiLink set) should have alt describing link destination/purpose.",
+    "Complex images (charts, diagrams) may need longer description - use ctmCap with tiCap: 'custom'.",
+    "Don't use 'image of' or 'picture of' in alt text - screen readers already announce 'image'.",
+    "Color-blind users: don't rely on color alone in images to convey information.",
+    "Ensure sufficient contrast in images containing text (WCAG AA: 4.5:1 minimum)."
+  },
+
+  "relatedBlocks": {
+    "tp-heading": "Often paired above image for context",
+    "tp-pro-paragraph": "Often paired with images for descriptions",
+    "tp-button": "Often paired below clickable images as alternative CTA",
+    "tp-container": "Parent container for image sections",
+    "tp-creative-image": "Advanced image block with more effects and animations"
+  },
+
+  "filterOptions": {
+    "blur": "Values: 0-20px. Blurs image. 0 = sharp, 5 = subtle blur, 10+ = very blurred.",
+    "brightness": "Values: 0-200%. 100 = normal, <100 = darker, >100 = brighter.",
+    "contrast": "Values: 0-200%. 100 = normal, <100 = low contrast, >100 = high contrast.",
+    "grayscale": "Values: 0-100%. 0 = color, 100 = full grayscale (black & white).",
+    "hue-rotate": "Values: 0-360deg. Rotates hue wheel. 0/360 = normal, 180 = opposite colors.",
+    "invert": "Values: 0-100%. 0 = normal, 100 = inverted colors (negative).",
+    "saturate": "Values: 0-200%. 100 = normal, 0 = grayscale, >100 = vibrant/oversaturated.",
+    "sepia": "Values: 0-100%. 0 = normal, 100 = full sepia (warm vintage brown tone)."
   }
 }
