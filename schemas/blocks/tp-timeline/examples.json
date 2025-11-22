@@ -2,10 +2,14 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-timeline",
   "title": "Timeline - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Create vertical timelines for company history, product roadmaps, event agendas, process steps",
+
   "examples": [
     {
-      "description": "Company history timeline",
+      "name": "Company History Timeline (Alternating)",
+      "description": "Zigzag timeline showing company milestones with icons",
+      "visualDescription": "Vertical timeline with alternating left/right cards, center line with icons, start marker (rocket icon) and end marker (flag icon), purple accent color",
+      "complexity": "medium",
       "attributes": {
         "block_id": "a1b2",
         "style": "style-1",
@@ -15,69 +19,396 @@
             "_key": "1",
             "RTitle": "1995",
             "RcTitle": "Company Founded",
-            "Rdes": "Started with a vision to change the industry",
-            "RPosition": "right"
+            "Rdes": "Started with a vision to change the industry and create innovative solutions for businesses worldwide",
+            "RPosition": "right",
+            "Rnone": "icon",
+            "Ricon": "fas fa-lightbulb",
+            "RButton": false
           },
           {
             "_key": "2",
             "RTitle": "2000",
             "RcTitle": "First Major Product",
-            "Rdes": "Launched our flagship product",
-            "RPosition": "left"
+            "Rdes": "Launched our flagship product that revolutionized the market and set new industry standards",
+            "RPosition": "left",
+            "Rnone": "icon",
+            "Ricon": "fas fa-star",
+            "RButton": false
           },
           {
             "_key": "3",
             "RTitle": "2010",
             "RcTitle": "Global Expansion",
-            "Rdes": "Opened offices in 15 countries",
-            "RPosition": "right"
+            "Rdes": "Opened offices in 15 countries and reached 1 million customers worldwide",
+            "RPosition": "right",
+            "Rnone": "icon",
+            "Ricon": "fas fa-globe",
+            "RButton": false
+          },
+          {
+            "_key": "4",
+            "RTitle": "2025",
+            "RcTitle": "AI Integration",
+            "Rdes": "Launched AI-powered features that transform how customers use our platform",
+            "RPosition": "left",
+            "Rnone": "icon",
+            "Ricon": "fas fa-robot",
+            "RButton": false
           }
         ],
         "StartPin": "icon",
         "StartIcon": "fas fa-rocket",
         "EndPin": "icon",
         "EndIcon": "fas fa-flag-checkered"
-      }
+      },
+      "useCase": "Company history, brand story, about pages, milestone showcases",
+      "notes": [
+        "Alignment='center' creates zigzag effect with alternating RPosition",
+        "Each RContent item must have unique _key (use sequential: 1, 2, 3...)",
+        "RPosition alternates: right, left, right, left for zigzag",
+        "Rnone='icon' requires Ricon with FontAwesome class",
+        "StartPin/EndPin add decorative markers to timeline endpoints"
+      ]
     },
+
     {
-      "description": "Event agenda with animated progress",
+      "name": "Product Roadmap (One-Sided with CTAs)",
+      "description": "Upcoming product releases with Learn More buttons",
+      "visualDescription": "Left-aligned timeline with all items on right side, image pins showing product icons, purple CTA buttons on each item, animated progress line on scroll",
+      "complexity": "medium",
       "attributes": {
         "block_id": "c3d4",
         "style": "style-2",
+        "Alignment": "left",
         "isAnim": true,
         "animColor": "#667eea",
         "RContent": [
           {
             "_key": "1",
-            "RTitle": "9:00 AM",
-            "RcTitle": "Registration",
-            "RButton": false
+            "RTitle": "Q2 2025",
+            "RcTitle": "Mobile App Launch",
+            "Rdes": "Native iOS and Android apps with offline sync and push notifications",
+            "RPosition": "right",
+            "Rnone": "image",
+            "Rimg": {
+              "url": "https://example.com/mobile-icon.png",
+              "id": "101"
+            },
+            "RButton": true,
+            "RBtnText": "Learn More",
+            "RUrl": {
+              "url": "https://example.com/roadmap/mobile",
+              "target": "_blank",
+              "nofollow": false
+            }
           },
           {
             "_key": "2",
-            "RTitle": "10:00 AM",
-            "RcTitle": "Keynote Speech",
-            "RButton": false
+            "RTitle": "Q3 2025",
+            "RcTitle": "Advanced Analytics",
+            "Rdes": "Real-time dashboards with custom reporting and data export capabilities",
+            "RPosition": "right",
+            "Rnone": "image",
+            "Rimg": {
+              "url": "https://example.com/analytics-icon.png",
+              "id": "102"
+            },
+            "RButton": true,
+            "RBtnText": "View Details",
+            "RUrl": {
+              "url": "https://example.com/roadmap/analytics",
+              "target": "_blank",
+              "nofollow": false
+            }
+          },
+          {
+            "_key": "3",
+            "RTitle": "Q4 2025",
+            "RcTitle": "Team Collaboration",
+            "Rdes": "Built-in chat, video calls, and shared workspaces for seamless collaboration",
+            "RPosition": "right",
+            "Rnone": "image",
+            "Rimg": {
+              "url": "https://example.com/collab-icon.png",
+              "id": "103"
+            },
+            "RButton": true,
+            "RBtnText": "Coming Soon",
+            "RUrl": {
+              "url": "https://example.com/roadmap/collaboration",
+              "target": "_self",
+              "nofollow": false
+            }
+          }
+        ],
+        "StartPin": "text",
+        "StartText": "NOW",
+        "EndPin": "text",
+        "EndText": "FUTURE"
+      },
+      "useCase": "Product roadmaps, release schedules, feature announcements, development timelines",
+      "notes": [
+        "Alignment='left' puts timeline line on left, all items on right (one-sided)",
+        "isAnim=true enables scroll-triggered animation of timeline line",
+        "animColor defines color of animated progress line (matches brand purple)",
+        "RButton=true adds CTA button to each timeline item",
+        "RBtnText is button label, RUrl defines link destination",
+        "Rnone='image' requires Rimg object with url and id",
+        "StartPin/EndPin='text' uses text labels instead of icons"
+      ]
+    },
+
+    {
+      "name": "Event Agenda (With Time Labels)",
+      "description": "Conference schedule with time slots and session details",
+      "visualDescription": "Center-aligned timeline with time labels (9:00 AM, 10:30 AM, etc.), session titles, speaker info, clock icons, white cards with shadows",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "e5f6",
+        "style": "style-1",
+        "Alignment": "center",
+        "RContent": [
+          {
+            "_key": "1",
+            "RTitle": "9:00 AM",
+            "RcTitle": "Opening Keynote",
+            "Rdes": "Welcome address and industry trends overview by Sarah Johnson, CEO",
+            "RPosition": "right",
+            "Rnone": "icon",
+            "Ricon": "fas fa-microphone"
+          },
+          {
+            "_key": "2",
+            "RTitle": "10:30 AM",
+            "RcTitle": "Workshop: AI Best Practices",
+            "Rdes": "Hands-on session covering practical AI implementation strategies",
+            "RPosition": "left",
+            "Rnone": "icon",
+            "Ricon": "fas fa-laptop-code"
           },
           {
             "_key": "3",
             "RTitle": "12:00 PM",
-            "RcTitle": "Lunch Break",
-            "RButton": false
+            "RcTitle": "Networking Lunch",
+            "Rdes": "Connect with peers and speakers over lunch in the Grand Ballroom",
+            "RPosition": "right",
+            "Rnone": "icon",
+            "Ricon": "fas fa-utensils"
+          },
+          {
+            "_key": "4",
+            "RTitle": "2:00 PM",
+            "RcTitle": "Panel Discussion",
+            "Rdes": "Industry leaders discuss future of technology and innovation",
+            "RPosition": "left",
+            "Rnone": "icon",
+            "Ricon": "fas fa-users"
+          },
+          {
+            "_key": "5",
+            "RTitle": "4:00 PM",
+            "RcTitle": "Closing Remarks",
+            "Rdes": "Event recap and announcement of next year's conference location",
+            "RPosition": "right",
+            "Rnone": "icon",
+            "Ricon": "fas fa-flag-checkered"
           }
-        ]
-      }
+        ],
+        "StartPin": "icon",
+        "StartIcon": "fas fa-clock",
+        "EndPin": "icon",
+        "EndIcon": "fas fa-check-circle"
+      },
+      "useCase": "Event agendas, conference schedules, webinar timelines, training sessions",
+      "notes": [
+        "RTitle used for time labels (9:00 AM, 10:30 AM, etc.)",
+        "RcTitle is session/event name",
+        "Rdes provides additional details (speaker, location, description)",
+        "Alternating RPosition creates engaging zigzag layout",
+        "Icons chosen to match event type (microphone, laptop, utensils, etc.)"
+      ]
     },
+
     {
-      "description": "Product roadmap with custom arrows",
+      "name": "Process Steps (With Featured Images)",
+      "description": "Step-by-step guide with visual illustrations",
+      "visualDescription": "Right-aligned timeline with numbered steps (1, 2, 3, 4), featured images showing each step visually, descriptive text, clean modern design",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "g7h8",
         "style": "style-2",
-        "ArrowStyle": "style-3",
+        "Alignment": "right",
+        "RContent": [
+          {
+            "_key": "1",
+            "RTitle": "Step 1",
+            "RcTitle": "Create Your Account",
+            "Rdes": "Sign up with your email and choose a secure password. Verification takes less than 2 minutes.",
+            "RPosition": "left",
+            "Rnone": "icon",
+            "Ricon": "fas fa-user-plus",
+            "RcType": "image",
+            "Rfimage": {
+              "url": "https://example.com/signup-screenshot.png",
+              "id": "201"
+            }
+          },
+          {
+            "_key": "2",
+            "RTitle": "Step 2",
+            "RcTitle": "Configure Your Settings",
+            "Rdes": "Customize your dashboard, set notifications, and connect integrations",
+            "RPosition": "left",
+            "Rnone": "icon",
+            "Ricon": "fas fa-cog",
+            "RcType": "image",
+            "Rfimage": {
+              "url": "https://example.com/settings-screenshot.png",
+              "id": "202"
+            }
+          },
+          {
+            "_key": "3",
+            "RTitle": "Step 3",
+            "RcTitle": "Import Your Data",
+            "Rdes": "Upload files, connect data sources, or use our migration tool for seamless transfer",
+            "RPosition": "left",
+            "Rnone": "icon",
+            "Ricon": "fas fa-upload",
+            "RcType": "image",
+            "Rfimage": {
+              "url": "https://example.com/import-screenshot.png",
+              "id": "203"
+            }
+          },
+          {
+            "_key": "4",
+            "RTitle": "Step 4",
+            "RcTitle": "Start Using Features",
+            "Rdes": "Explore all features with our interactive tour and comprehensive documentation",
+            "RPosition": "left",
+            "Rnone": "icon",
+            "Ricon": "fas fa-check-circle",
+            "RcType": "image",
+            "Rfimage": {
+              "url": "https://example.com/dashboard-screenshot.png",
+              "id": "204"
+            }
+          }
+        ],
+        "StartPin": "text",
+        "StartText": "START",
+        "EndPin": "icon",
+        "EndIcon": "fas fa-trophy"
+      },
+      "useCase": "How-to guides, onboarding flows, tutorial steps, installation guides, process documentation",
+      "notes": [
+        "Alignment='right' puts timeline on right, all content on left (one-sided)",
+        "RcType='image' enables featured image display",
+        "Rfimage object requires url and id",
+        "Use screenshots/illustrations to visually demonstrate each step",
+        "Sequential RTitle (Step 1, Step 2...) provides clear progression",
+        "All RPosition='left' for one-sided layout"
+      ]
+    },
+
+    {
+      "name": "Career Timeline (Custom Image Pins)",
+      "description": "Professional journey with company logos as pins",
+      "visualDescription": "Center timeline with company logos as pin images, job titles, date ranges, achievement highlights, professional gradient color scheme",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "i9j0",
+        "style": "style-1",
+        "Alignment": "center",
+        "RContent": [
+          {
+            "_key": "1",
+            "RTitle": "2015 - 2017",
+            "RcTitle": "Junior Developer",
+            "Rdes": "Started career at Tech Startup Inc. Learned full-stack development and agile methodologies. Contributed to 3 major product releases.",
+            "RPosition": "right",
+            "Rnone": "image",
+            "Rimg": {
+              "url": "https://example.com/company1-logo.png",
+              "id": "301"
+            }
+          },
+          {
+            "_key": "2",
+            "RTitle": "2017 - 2020",
+            "RcTitle": "Senior Developer",
+            "Rdes": "Promoted at BigCorp Solutions. Led team of 4 developers. Architected microservices platform serving 100K+ users daily.",
+            "RPosition": "left",
+            "Rnone": "image",
+            "Rimg": {
+              "url": "https://example.com/company2-logo.png",
+              "id": "302"
+            }
+          },
+          {
+            "_key": "3",
+            "RTitle": "2020 - 2023",
+            "RcTitle": "Engineering Manager",
+            "Rdes": "Joined Innovation Labs as manager. Grew team from 5 to 20 engineers. Delivered AI-powered features used by Fortune 500 clients.",
+            "RPosition": "right",
+            "Rnone": "image",
+            "Rimg": {
+              "url": "https://example.com/company3-logo.png",
+              "id": "303"
+            }
+          },
+          {
+            "_key": "4",
+            "RTitle": "2023 - Present",
+            "RcTitle": "VP of Engineering",
+            "Rdes": "Leading engineering org at Future Tech. Overseeing product development, infrastructure, and technical strategy for global platform.",
+            "RPosition": "left",
+            "Rnone": "image",
+            "Rimg": {
+              "url": "https://example.com/company4-logo.png",
+              "id": "304"
+            }
+          }
+        ],
+        "StartPin": "text",
+        "StartText": "2015",
+        "EndPin": "text",
+        "EndText": "NOW"
+      },
+      "useCase": "Personal portfolios, career pages, team member bios, professional timelines, resume websites",
+      "notes": [
+        "Rnone='image' with Rimg allows company logos as timeline pins",
+        "RTitle shows date range for each position",
+        "RcTitle is job title/position name",
+        "Rdes describes responsibilities and achievements",
+        "Company logos should be square (100x100px recommended) for consistent pin sizing",
+        "Alternating positions create visual interest for career progression"
+      ]
+    },
+
+    {
+      "name": "Project Timeline (Styled Backgrounds)",
+      "description": "Project phases with gradient backgrounds and borders",
+      "visualDescription": "Timeline with purple gradient backgrounds on cards, rounded borders, shadow effects, milestone icons, progress percentage labels",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "k1l2",
+        "style": "style-1",
+        "Alignment": "center",
+        "isAnim": true,
+        "animColor": "#764ba2",
         "BGSnBg": {
           "openBg": 1,
-          "bgType": "color",
-          "bgDefaultColor": "#f8f9fa"
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
         },
         "BGSnBrs": {
           "md": {
@@ -87,9 +418,357 @@
             "left": "8"
           },
           "unit": "px"
-        }
-      }
+        },
+        "RContent": [
+          {
+            "_key": "1",
+            "RTitle": "Phase 1 - 25%",
+            "RcTitle": "Discovery & Planning",
+            "Rdes": "Research, requirements gathering, stakeholder interviews, technical feasibility analysis",
+            "RPosition": "right",
+            "Rnone": "icon",
+            "Ricon": "fas fa-search",
+            "RButton": true,
+            "RBtnText": "View Deliverables",
+            "RUrl": {
+              "url": "https://example.com/project/phase1",
+              "target": "_blank",
+              "nofollow": false
+            }
+          },
+          {
+            "_key": "2",
+            "RTitle": "Phase 2 - 50%",
+            "RcTitle": "Design & Prototyping",
+            "Rdes": "UX wireframes, UI mockups, interactive prototypes, user testing sessions",
+            "RPosition": "left",
+            "Rnone": "icon",
+            "Ricon": "fas fa-pencil-ruler",
+            "RButton": true,
+            "RBtnText": "View Designs",
+            "RUrl": {
+              "url": "https://example.com/project/phase2",
+              "target": "_blank",
+              "nofollow": false
+            }
+          },
+          {
+            "_key": "3",
+            "RTitle": "Phase 3 - 75%",
+            "RcTitle": "Development",
+            "Rdes": "Frontend/backend implementation, API integration, database design, testing",
+            "RPosition": "right",
+            "Rnone": "icon",
+            "Ricon": "fas fa-code",
+            "RButton": true,
+            "RBtnText": "View Progress",
+            "RUrl": {
+              "url": "https://example.com/project/phase3",
+              "target": "_blank",
+              "nofollow": false
+            }
+          },
+          {
+            "_key": "4",
+            "RTitle": "Phase 4 - 100%",
+            "RcTitle": "Launch & Optimization",
+            "Rdes": "Deployment, monitoring, performance optimization, user feedback integration",
+            "RPosition": "left",
+            "Rnone": "icon",
+            "Ricon": "fas fa-rocket",
+            "RButton": true,
+            "RBtnText": "View Results",
+            "RUrl": {
+              "url": "https://example.com/project/phase4",
+              "target": "_blank",
+              "nofollow": false
+            }
+          }
+        ],
+        "StartPin": "icon",
+        "StartIcon": "fas fa-play-circle",
+        "EndPin": "icon",
+        "EndIcon": "fas fa-check-circle"
+      },
+      "useCase": "Project timelines, phase tracking, milestone showcases, development roadmaps, client dashboards",
+      "notes": [
+        "BGSnBg applies gradient background to ALL timeline items",
+        "BGSnBrs adds border radius to all cards (8px rounded corners)",
+        "isAnim=true + animColor creates scroll-triggered progress line animation",
+        "RTitle includes completion percentage (Phase 1 - 25%, etc.)",
+        "Each item has CTA button linking to detailed phase documentation",
+        "Gradient colors match brand (purple theme #667eea to #764ba2)"
+      ]
+    },
+
+    {
+      "name": "Minimal Timeline (No Pins, Text Only)",
+      "description": "Simple text-based timeline without icons or images",
+      "visualDescription": "Clean timeline with just text, no decorative pins, simple dots on timeline line, left-aligned single-column layout",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "m3n4",
+        "style": "style-2",
+        "Alignment": "left",
+        "RContent": [
+          {
+            "_key": "1",
+            "RTitle": "January 2025",
+            "RcTitle": "Project Kickoff",
+            "Rdes": "Initial team meeting and project scope definition",
+            "RPosition": "right",
+            "Rnone": "none"
+          },
+          {
+            "_key": "2",
+            "RTitle": "February 2025",
+            "RcTitle": "Requirements Complete",
+            "Rdes": "All requirements documented and approved by stakeholders",
+            "RPosition": "right",
+            "Rnone": "none"
+          },
+          {
+            "_key": "3",
+            "RTitle": "March 2025",
+            "RcTitle": "Design Phase",
+            "Rdes": "Wireframes and mockups delivered for review",
+            "RPosition": "right",
+            "Rnone": "none"
+          },
+          {
+            "_key": "4",
+            "RTitle": "April 2025",
+            "RcTitle": "Development Starts",
+            "Rdes": "Engineering team begins implementation",
+            "RPosition": "right",
+            "Rnone": "none"
+          }
+        ]
+      },
+      "useCase": "Simple project timelines, blog post summaries, quick milestone lists, minimal designs",
+      "notes": [
+        "Rnone='none' removes icons/images from timeline pins (just dots)",
+        "No StartPin/EndPin defined = minimal endpoint styling",
+        "All RPosition='right' with Alignment='left' = one-sided layout",
+        "Perfect for content-focused timelines without visual distractions",
+        "Faster rendering (no icon fonts or images to load)"
+      ]
+    },
+
+    {
+      "name": "Advanced Timeline (Custom HTML Content)",
+      "description": "Timeline with custom HTML for rich formatting",
+      "visualDescription": "Timeline items with embedded custom HTML (tables, lists, styled content), complex formatting beyond basic text",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "o5p6",
+        "style": "style-1",
+        "Alignment": "center",
+        "RContent": [
+          {
+            "_key": "1",
+            "RTitle": "Q1 2025",
+            "RcTitle": "Product Features Released",
+            "RcHTML": "<ul style='margin:0; padding-left:20px;'><li><strong>Advanced Search:</strong> AI-powered query understanding</li><li><strong>Dark Mode:</strong> System-aware theme switching</li><li><strong>Offline Mode:</strong> Full functionality without internet</li></ul>",
+            "RPosition": "right",
+            "Rnone": "icon",
+            "Ricon": "fas fa-list-check"
+          },
+          {
+            "_key": "2",
+            "RTitle": "Q2 2025",
+            "RcTitle": "Performance Improvements",
+            "RcHTML": "<table style='width:100%; border-collapse:collapse;'><tr><td><strong>Page Load:</strong></td><td>-40%</td></tr><tr><td><strong>API Response:</strong></td><td>-60%</td></tr><tr><td><strong>Bundle Size:</strong></td><td>-30%</td></tr></table>",
+            "RPosition": "left",
+            "Rnone": "icon",
+            "Ricon": "fas fa-gauge-high"
+          },
+          {
+            "_key": "3",
+            "RTitle": "Q3 2025",
+            "RcTitle": "Enterprise Features",
+            "RcHTML": "<div style='background:#f8f9fa; padding:10px; border-left:3px solid #667eea;'><p style='margin:0;'><strong>SSO Integration</strong> - SAML 2.0, OAuth 2.0, OpenID Connect</p><p style='margin:10px 0 0;'><strong>Advanced Permissions</strong> - Role-based access control with custom policies</p></div>",
+            "RPosition": "right",
+            "Rnone": "icon",
+            "Ricon": "fas fa-building"
+          }
+        ],
+        "StartPin": "icon",
+        "StartIcon": "fas fa-calendar-alt",
+        "EndPin": "text",
+        "EndText": "ROADMAP"
+      },
+      "useCase": "Complex content timelines, technical documentation, feature comparison timelines, detailed specifications",
+      "notes": [
+        "CRITICAL: RcHTML overrides Rdes field (custom HTML takes precedence)",
+        "Use RcHTML for complex formatting: tables, styled lists, custom layouts",
+        "Inline styles required (no external CSS classes in HTML)",
+        "Sanitization applies (scripts, iframes, dangerous tags removed)",
+        "Keep HTML semantic and accessible (proper headings, lists, tables)",
+        "Test HTML output carefully (may affect responsive layout)",
+        "For simple text, use Rdes instead of RcHTML"
+      ]
     }
   ],
-  "commonPatterns": {}
+
+  "commonPatterns": {
+    "styleGuide": {
+      "style-1": "Default timeline style with cards and connecting line",
+      "style-2": "Alternative timeline style (check plugin for visual differences)"
+    },
+    "alignmentGuide": {
+      "center": "Timeline line in center, items alternate left/right (zigzag)",
+      "left": "Timeline line on left, all items on right (one-sided)",
+      "right": "Timeline line on right, all items on left (one-sided)"
+    },
+    "positionGuide": {
+      "zigzag": "Alternate RPosition: right, left, right, left with Alignment='center'",
+      "oneSidedRight": "All RPosition='right' with Alignment='left'",
+      "oneSidedLeft": "All RPosition='left' with Alignment='right'"
+    },
+    "pinTypeGuide": {
+      "icon": "Rnone='icon' requires Ricon with FontAwesome class (e.g., 'fas fa-star')",
+      "image": "Rnone='image' requires Rimg object with url and id",
+      "text": "Rnone='text' requires Rtext with custom text label",
+      "none": "Rnone='none' shows simple dot (minimal design)"
+    },
+    "buttonGuide": {
+      "enabled": "RButton=true requires RBtnText and RUrl object",
+      "disabled": "RButton=false or omit RButton attribute"
+    },
+    "contentTypeGuide": {
+      "text": "Use Rdes for description text (default)",
+      "image": "Set RcType='image' and provide Rfimage object for featured image",
+      "html": "Use RcHTML for custom HTML content (overrides Rdes)"
+    },
+    "animationGuide": {
+      "enabled": "isAnim=true + animColor='#667eea' (hex color) for scroll animation",
+      "disabled": "isAnim=false or omit attribute (no animation)"
+    }
+  },
+
+  "validationRules": {
+    "RContent": "Required, array of timeline items, minimum 1 item recommended",
+    "_key": "Required for each RContent item, must be unique, use sequential strings: '1', '2', '3'...",
+    "RTitle": "Required, displayed as date/time/step label",
+    "RcTitle": "Required, main heading for timeline item",
+    "RPosition": "Required, must be 'left' or 'right'",
+    "Rnone": "Required, must be 'icon', 'image', 'text', or 'none'",
+    "Ricon": "Required when Rnone='icon', must be valid FontAwesome class (e.g., 'fas fa-star')",
+    "Rimg": "Required when Rnone='image', object with {url, id}",
+    "Rtext": "Required when Rnone='text', string value",
+    "RButton": "Boolean, if true requires RBtnText and RUrl",
+    "RUrl": "Required when RButton=true, object with {url, target, nofollow}",
+    "Rfimage": "Required when RcType='image', object with {url, id}",
+    "style": "Must be 'style-1' or 'style-2'",
+    "Alignment": "Must be 'center', 'left', or 'right'",
+    "animColor": "Required when isAnim=true, must be valid hex color (e.g., '#667eea')"
+  },
+
+  "warnings": [
+    "CRITICAL: Each RContent item must have unique _key (use '1', '2', '3'... not numbers)",
+    "CRITICAL: Rnone='icon' requires Ricon attribute (timeline will break without it)",
+    "CRITICAL: Rnone='image' requires Rimg object with url and id",
+    "CRITICAL: RButton=true requires both RBtnText and RUrl (button won't work without both)",
+    "Don't duplicate _key values (causes timeline items to malfunction)",
+    "Don't use RcHTML for simple text (use Rdes instead, RcHTML overrides Rdes)",
+    "Don't mix 'left' and 'right' RPosition with Alignment='left' (creates messy layout)",
+    "Max 20 timeline items recommended for performance (large timelines slow page)",
+    "FontAwesome library must be loaded for Rnone='icon' (icons won't display otherwise)",
+    "Large images in Rfimage slow page load (optimize images, use WebP format)",
+    "isAnim=true requires animColor attribute (animation won't work without color)",
+    "BGSnBg gradient applies to ALL items (can't have per-item backgrounds)",
+    "StartPin/EndPin must match available types: 'icon', 'image', 'text', or 'none'",
+    "Custom HTML in RcHTML must use inline styles (external classes won't work)",
+    "RcHTML content is sanitized (scripts, iframes, dangerous tags removed for security)"
+  ],
+
+  "commonMistakes": [
+    "Using number for _key instead of string (use '1', not 1)",
+    "Forgetting to set Ricon when Rnone='icon' (timeline pin appears broken)",
+    "Setting RButton=true but forgetting RBtnText or RUrl (button doesn't work)",
+    "Using Alignment='center' with all RPosition='right' (creates unbalanced layout)",
+    "Not alternating RPosition with center alignment (loses zigzag effect)",
+    "Using huge images in Rimg or Rfimage (page loads slowly, consider 100x100px for pins)",
+    "Mixing Rdes and RcHTML (RcHTML overrides Rdes, so Rdes content ignored)",
+    "Not providing animColor when isAnim=true (animation fails silently)",
+    "Using invalid FontAwesome classes in Ricon (icon doesn't display, shows placeholder)",
+    "Setting RcType='image' but forgetting Rfimage object (featured image doesn't show)",
+    "Creating 50+ timeline items (page becomes very slow, consider pagination)",
+    "Forgetting nofollow in RUrl when needed (SEO implications)",
+    "Using RcHTML without inline styles (styles don't apply, content looks broken)",
+    "Not escaping quotes in RcHTML (JSON parsing errors)",
+    "Using _key values that aren't sequential (harder to maintain, causes confusion)"
+  ],
+
+  "bestPractices": [
+    "Always use sequential string _key values: '1', '2', '3', '4'... for clarity",
+    "For zigzag timelines: Alignment='center' + alternate RPosition (right, left, right, left)",
+    "For one-sided timelines: Alignment='left' + all RPosition='right' (or vice versa)",
+    "Keep timeline items concise: RTitle (date/step), RcTitle (short heading), Rdes (1-2 sentences)",
+    "Choose icons that match content: fas fa-rocket (launch), fas fa-star (achievement), fas fa-check (completion)",
+    "Optimize images: Use 100x100px for Rimg pins, 400x300px for Rfimage, WebP format recommended",
+    "For event agendas: Use time in RTitle (9:00 AM), event name in RcTitle",
+    "For company history: Use year in RTitle (1995, 2000), milestone in RcTitle",
+    "For process steps: Use 'Step 1', 'Step 2'... in RTitle, action in RcTitle",
+    "Enable animation for long timelines: isAnim=true + animColor matching brand color",
+    "Use StartPin/EndPin to bookend timeline: 'Start' icon at top, 'Finish' icon at bottom",
+    "For minimal designs: Rnone='none' removes decorative pins (cleaner, faster)",
+    "For rich content: Use RcType='image' + Rfimage for visual context",
+    "For complex layouts: Use RcHTML but keep it semantic (proper tags, inline styles)",
+    "Test on mobile: Timelines stack vertically on small screens (xs breakpoint)",
+    "Limit to 10-15 items for optimal UX (users scan vertically, long timelines tire readers)",
+    "Use descriptive RBtnText: 'Learn More', 'View Details', 'Read Case Study' (not 'Click Here')",
+    "Match animColor to brand colors for consistency (#667eea purple theme example)",
+    "Use BGSnBg gradient sparingly (applies to all items, can be overwhelming)",
+    "For accessibility: Ensure color contrast in gradient backgrounds (WCAG AA: 4.5:1 ratio)"
+  ],
+
+  "accessibilityNotes": [
+    "Use semantic heading hierarchy (timeline often contains h3/h4 headings inside h2 sections)",
+    "Ensure sufficient color contrast (WCAG 2.1 AA: 4.5:1 for text, 3:1 for large text)",
+    "Provide alt text for images in Rimg and Rfimage (WordPress media library handles this)",
+    "Use descriptive link text in RBtnText ('Learn More About Our Product', not 'Click Here')",
+    "Don't rely solely on color to convey information (use icons + text, not just color)",
+    "Ensure timeline is keyboard navigable (buttons/links have focus states)",
+    "Test with screen readers (content announced in chronological order top-to-bottom)",
+    "Use proper heading levels in RcTitle (CSS styling, not <h1> in RcHTML)",
+    "Avoid text over gradient backgrounds without sufficient contrast or overlay",
+    "Ensure touch targets are at least 44x44px on mobile (buttons, links)",
+    "Use ARIA labels if timeline items have complex interactions",
+    "For custom HTML (RcHTML): Use semantic tags (ul/ol for lists, table for data)",
+    "Don't auto-play animations (isAnim is scroll-triggered, user-controlled)",
+    "Provide clear visual indication of timeline progression (line, dots, colors)",
+    "Test on mobile screen readers (VoiceOver iOS, TalkBack Android)"
+  ],
+
+  "performanceConsiderations": [
+    "Limit timeline items to 10-15 for optimal performance (20 max recommended)",
+    "Optimize images: Use WebP format, correct dimensions, compressed (TinyPNG, ImageOptim)",
+    "For Rimg pins: 100x100px max (small pins load faster)",
+    "For Rfimage featured images: 400x300px recommended (balance quality vs size)",
+    "Lazy load images in Rfimage (WordPress lazy loading enabled by default in modern themes)",
+    "Avoid heavy FontAwesome icon sets (use subset with only needed icons if possible)",
+    "isAnim=true adds scroll listener (minimal impact, but avoid if not needed)",
+    "BGSnBg gradients are CSS-based (performant, no image files needed)",
+    "Minimize RcHTML complexity (heavy HTML increases DOM size, slows rendering)",
+    "Test on mobile devices (timelines can be resource-intensive on slow connections)",
+    "Consider pagination for 20+ items (split into multiple timeline sections)",
+    "Avoid auto-playing videos in RcHTML (heavy on resources)",
+    "Use browser caching for images (WordPress handles this automatically)",
+    "Monitor Cumulative Layout Shift (CLS) when timeline loads (reserve space for images)",
+    "Test with slow 3G connection (Chrome DevTools network throttling)",
+    "Avoid embedding large iframes in RcHTML (external content slows page)"
+  ],
+
+  "relatedBlocks": [
+    "tpgb/tp-timeline-inner - Child timeline item block (alternative to RContent array)",
+    "tpgb/tp-heading - Heading above timeline (section title)",
+    "tpgb/tp-pro-paragraph - Intro text before timeline",
+    "tpgb/tp-container - Wrapper container for background/padding around timeline",
+    "tpgb/tp-button - External CTA buttons near timeline",
+    "tpgb/tp-image - Images in timeline context (team photos, product images)",
+    "tpgb/tp-accordion - Alternative for step-by-step content (collapsible)",
+    "tpgb/tp-tabs-tours - Alternative for multi-section content (tabbed layout)"
+  ]
 }
