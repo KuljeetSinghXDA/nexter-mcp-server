@@ -2,46 +2,530 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-form-name-field",
   "title": "Name Field - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for form name input fields",
   "examples": [
     {
-      "description": "Simple required name field",
+      "name": "Simple Required Name Field",
+      "description": "Basic name field with required validation and autocomplete",
+      "visualDescription": "Standard full-width input field with 'Name' label, placeholder text, red asterisk for required field, browser autocomplete enabled for full name",
+      "complexity": "simple",
+      "useCase": "Contact forms, registration forms, simple user input",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "name001",
         "labelss": "Full Name",
         "placeholder": "Enter your full name",
+        "reqTgl": true,
+        "autoComplete": "name",
+        "error": "Please enter your name.",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "autoComplete='name' enables browser autofill for full name",
+        "reqTgl adds red asterisk (*) next to label",
+        "Custom error message shows when field is empty on submit"
+      ]
+    },
+    {
+      "name": "Name Field with FontAwesome Icon",
+      "description": "Name field with user icon, character limit, and hover color",
+      "visualDescription": "Input field with purple user icon on left, changes to darker purple on hover, 50 character limit, validation enabled",
+      "complexity": "medium",
+      "useCase": "Modern forms, profile creation, account signup",
+      "attributes": {
+        "block_id": "name002",
+        "labelss": "Your Name",
+        "placeholder": "John Doe",
+        "nameIconType": "fontAwesome",
+        "nameIcons": "fas fa-user",
+        "icnClr": "#667eea",
+        "hvrIcnClr": "#5568d3",
+        "reqTgl": true,
+        "valName": true,
+        "maxAlphabets": "50",
+        "autoComplete": "name",
+        "error": "Name is required (max 50 characters).",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "nameIconType must be 'fontAwesome' for FontAwesome icons",
+        "nameIcons uses Font Awesome class (fas fa-user, fas fa-id-card, etc.)",
+        "valName enables name validation",
+        "maxAlphabets limits input to 50 characters",
+        "Icon color changes on hover with hvrIcnClr"
+      ]
+    },
+    {
+      "name": "Name Field with Custom Image Icon",
+      "description": "Name field using custom image icon instead of font icon",
+      "visualDescription": "Input field with custom user avatar image icon on left (24x24px), full-width on all devices",
+      "complexity": "medium",
+      "useCase": "Branded forms, custom-designed forms, theme-specific styling",
+      "attributes": {
+        "block_id": "name003",
+        "labelss": "Name",
+        "placeholder": "Enter name",
+        "nameIconType": "image",
+        "nameImage": {
+          "url": "https://example.com/user-icon.png",
+          "Id": "123"
+        },
+        "reqTgl": true,
+        "autoComplete": "name",
+        "error": "This field is required.",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "nameIconType must be 'image' for custom images",
+        "nameImage.url should be full URL to image file",
+        "nameImage.Id is WordPress media library ID",
+        "Recommended image size: 24x24px or 32x32px",
+        "Image icons don't support color customization (use SVG for color control)"
+      ]
+    },
+    {
+      "name": "Name Field with Help Text (Bottom Position)",
+      "description": "Name field with instructional help text displayed below input",
+      "visualDescription": "Standard input with gray help text below: 'Please enter your legal name as it appears on your ID', left-aligned, smaller font",
+      "complexity": "simple",
+      "useCase": "Registration forms, legal documents, official applications requiring clarification",
+      "attributes": {
+        "block_id": "name004",
+        "labelss": "Legal Name",
+        "placeholder": "As it appears on your ID",
+        "hlpTxt": true,
+        "desctxt": "Please enter your legal name as it appears on your ID",
+        "descPoss": "bottom",
+        "reqTgl": true,
+        "autoComplete": "name",
+        "error": "Legal name is required.",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "hlpTxt must be true to enable help text",
+        "desctxt contains the help text content",
+        "descPoss controls position: 'top' (above input) or 'bottom' (below input)",
+        "Help text styling controlled by parent tp-form-block"
+      ]
+    },
+    {
+      "name": "Name Field with Help Text (Top Position)",
+      "description": "Name field with help text above the input field",
+      "visualDescription": "Help text appears above input in gray italics: 'Enter first and last name separated by space', input field below with placeholder",
+      "complexity": "simple",
+      "useCase": "Forms needing upfront instructions, guided user input, multi-part name entry",
+      "attributes": {
+        "block_id": "name005",
+        "labelss": "Full Name",
+        "placeholder": "e.g., John Smith",
+        "hlpTxt": true,
+        "desctxt": "Enter first and last name separated by space",
+        "descPoss": "top",
+        "reqTgl": true,
+        "valName": true,
+        "maxAlphabets": "100",
+        "autoComplete": "name",
+        "error": "Please enter your full name.",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "descPoss='top' places help text above input",
+        "Useful for instructions users should read before typing",
+        "maxAlphabets set to 100 for longer names"
+      ]
+    },
+    {
+      "name": "First Name Field with Given-Name Autocomplete",
+      "description": "First name field using given-name autocomplete attribute",
+      "visualDescription": "Half-width input (desktop), full-width (mobile), labeled 'First Name', browser autofills given name from saved data",
+      "complexity": "medium",
+      "useCase": "Split name forms (first + last separate), user profiles, checkout forms",
+      "attributes": {
+        "block_id": "name006",
+        "labelss": "First Name",
+        "placeholder": "First name",
+        "reqTgl": true,
+        "autoComplete": "given-name",
+        "error": "First name is required.",
+        "valName": true,
+        "maxAlphabets": "50",
+        "inpSz": {
+          "md": "48",
+          "sm": "100",
+          "xs": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "autoComplete='given-name' for first name autofill",
+        "inpSz set to 48% on desktop to pair with last name field (48% + 48% + 4% gap = 100%)",
+        "Full-width on tablet/mobile for better UX",
+        "Pair with another name field using autoComplete='family-name'"
+      ]
+    },
+    {
+      "name": "Last Name Field with Family-Name Autocomplete",
+      "description": "Last name field using family-name autocomplete attribute",
+      "visualDescription": "Half-width input (desktop), full-width (mobile), labeled 'Last Name', browser autofills family name from saved data",
+      "complexity": "medium",
+      "useCase": "Split name forms (first + last separate), formal registration, e-commerce checkout",
+      "attributes": {
+        "block_id": "name007",
+        "labelss": "Last Name",
+        "placeholder": "Last name",
+        "reqTgl": true,
+        "autoComplete": "family-name",
+        "error": "Last name is required.",
+        "valName": true,
+        "maxAlphabets": "50",
+        "inpSz": {
+          "md": "48",
+          "sm": "100",
+          "xs": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "autoComplete='family-name' for last name autofill",
+        "Should be placed immediately after first name field in form",
+        "Same responsive width pattern as first name for visual consistency"
+      ]
+    },
+    {
+      "name": "Applicant Name with Custom Validation and Icon",
+      "description": "Professional name field with icon, strict validation, custom error message, and help text",
+      "visualDescription": "Purple ID card icon on left, 'Applicant Name' label with red asterisk, help text below in gray: 'Enter your full legal name (first, middle, last)', 75 character limit",
+      "complexity": "advanced",
+      "useCase": "Job applications, official forms, government applications, legal documents",
+      "attributes": {
+        "block_id": "name008",
+        "labelss": "Applicant Name",
+        "placeholder": "e.g., John Michael Smith",
+        "nameIconType": "fontAwesome",
+        "nameIcons": "fas fa-id-card",
+        "icnClr": "#667eea",
+        "hvrIcnClr": "#764ba2",
+        "reqTgl": true,
+        "valName": true,
+        "maxAlphabets": "75",
+        "autoComplete": "name",
+        "error": "Please enter your full legal name as it appears on official documents.",
+        "hlpTxt": true,
+        "desctxt": "Enter your full legal name (first, middle, last)",
+        "descPoss": "bottom",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "Combines icon, validation, help text, and custom error message",
+        "75 character limit accommodates longer names with middle names",
+        "Professional ID card icon for official context",
+        "Help text clarifies expected format"
+      ]
+    }
+  ],
+  "commonPatterns": [
+    {
+      "pattern": "simple-name-field",
+      "description": "Basic required name field",
+      "attrs": {
+        "labelss": "Name",
+        "placeholder": "Enter your name",
         "reqTgl": true,
         "autoComplete": "name"
       }
     },
     {
-      "description": "Name field with icon and validation",
-      "attributes": {
-        "block_id": "c3d4",
-        "labelss": "Your Name",
+      "pattern": "first-last-split",
+      "description": "Split first and last name fields (use two name field blocks)",
+      "fields": [
+        {
+          "labelss": "First Name",
+          "autoComplete": "given-name",
+          "inpSz": {"md": "48", "sm": "100", "xs": "100", "unit": "%"}
+        },
+        {
+          "labelss": "Last Name",
+          "autoComplete": "family-name",
+          "inpSz": {"md": "48", "sm": "100", "xs": "100", "unit": "%"}
+        }
+      ]
+    },
+    {
+      "pattern": "name-with-icon",
+      "description": "Name field with FontAwesome icon",
+      "attrs": {
+        "labelss": "Name",
         "nameIconType": "fontAwesome",
         "nameIcons": "fas fa-user",
-        "reqTgl": true,
-        "valName": true,
-        "maxAlphabets": "50",
-        "icnClr": "#667eea"
+        "icnClr": "#667eea",
+        "reqTgl": true
       }
     },
     {
-      "description": "Name field with help text",
-      "attributes": {
-        "block_id": "e5f6",
-        "labelss": "Applicant Name",
+      "pattern": "name-with-help-text",
+      "description": "Name field with instructional help text",
+      "attrs": {
+        "labelss": "Full Name",
         "hlpTxt": true,
-        "desctxt": "Please enter your legal name as it appears on your ID",
+        "desctxt": "Enter first and last name",
         "descPoss": "bottom",
         "reqTgl": true
       }
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
+  "validationRules": {
+    "labelss": "Required - Field label displayed to user",
+    "reqTgl": "Optional - Set true for required field (adds asterisk to label)",
+    "valName": "Optional - Set true to enable name validation",
+    "maxAlphabets": "Optional - Maximum character limit (string, e.g., '50')",
+    "nameIconType": "Optional - Must be 'none', 'fontAwesome', or 'image'",
+    "nameIcons": "Required if nameIconType='fontAwesome' - Font Awesome class",
+    "nameImage": "Required if nameIconType='image' - Object with url and Id",
+    "autoComplete": "Optional - 'off', 'name', 'given-name', or 'family-name'",
+    "hlpTxt": "Optional - Must be true to enable help text",
+    "desctxt": "Required if hlpTxt=true - Help text content",
+    "descPoss": "Optional - 'top' or 'bottom' (help text position)",
+    "inpSz": "Optional - Responsive width object (default: {md: '100', unit: '%'})"
+  },
+  "warnings": [
+    "⚠️ PARENT REQUIRED: nxt-name-field MUST be placed inside tp-form-block (ancestor requirement)",
+    "⚠️ ICON TYPE: nameIconType must be set before nameIcons or nameImage will work",
+    "⚠️ AUTOCOMPLETE: Use 'given-name' and 'family-name' for split name fields, not 'name'",
+    "⚠️ WIDTH PAIRING: When using split names (first+last), ensure widths add up correctly (e.g., 48% + 48% + 4% gap = 100%)",
+    "⚠️ HELP TEXT: hlpTxt must be true for desctxt to display",
+    "⚠️ VALIDATION: valName and maxAlphabets work together - valName enables validation, maxAlphabets sets limit",
+    "⚠️ STYLING: Label, input, button styling controlled by parent tp-form-block (lblClr, inpClr, etc.)",
+    "⚠️ ERROR MESSAGE: Custom error message only shows when reqTgl=true and field is empty on submit",
+    "⚠️ PLACEHOLDER vs LABEL: Both are useful - placeholder guides input format, label identifies field purpose",
+    "⚠️ RESPONSIVE WIDTH: inpSz uses md/sm/xs breakpoints - always set mobile (xs) to 100% for better UX",
+    "⚠️ ICON COLOR: icnClr and hvrIcnClr only work with nameIconType='fontAwesome', not with image icons",
+    "⚠️ IMAGE ICON SIZE: Custom image icons should be 24x24px or 32x32px for optimal display",
+    "⚠️ CHARACTER LIMIT: maxAlphabets is a string, not a number (e.g., '50', not 50)"
+  ],
+  "commonMistakes": [
+    "❌ Forgetting to set nameIconType before adding icon (icons won't appear)",
+    "❌ Using autoComplete='name' for split first/last fields (use 'given-name' and 'family-name')",
+    "❌ Setting hlpTxt=false but adding desctxt (help text won't show)",
+    "❌ Using inpSz widths that don't account for gap spacing (e.g., 50% + 50% = 100%, but gap adds extra space causing wrapping)",
+    "❌ Setting maxAlphabets without valName=true (limit won't be enforced)",
+    "❌ Using number for maxAlphabets instead of string (should be '50', not 50)",
+    "❌ Expecting icon color change with image icons (only works with fontAwesome)",
+    "❌ Not testing responsive widths on mobile (fields should be full-width on xs breakpoint)",
+    "❌ Using vague error messages like 'Required' instead of specific 'Please enter your name'",
+    "❌ Placing name field outside tp-form-block parent (block won't render correctly)",
+    "❌ Not setting autoComplete (missing out on browser autofill UX improvement)",
+    "❌ Using descPoss='middle' (only 'top' and 'bottom' are valid)"
+  ],
+  "bestPractices": [
+    "✅ Always set autoComplete for better UX (browser autofill saves user time)",
+    "✅ Use specific autocomplete values: 'given-name' for first name, 'family-name' for last name",
+    "✅ Keep labels concise (2-3 words max): 'Full Name' not 'Please Enter Your Full Name Here'",
+    "✅ Use placeholders for format guidance: 'e.g., John Smith' helps users understand expected format",
+    "✅ Add help text for complex requirements: 'Enter legal name as it appears on ID'",
+    "✅ Position help text strategically: 'top' for upfront instructions, 'bottom' for additional context",
+    "✅ Set character limits appropriate to use case: 50 for standard names, 75 for names with middle names, 100 for very long names",
+    "✅ Use icons consistently across form (if name has icon, email/phone should too)",
+    "✅ Choose icons that match context: fa-user for general, fa-id-card for official forms",
+    "✅ Provide clear, specific error messages: 'First name is required' not 'Error'",
+    "✅ Make name fields full-width on mobile (inpSz.xs = '100')",
+    "✅ For split names, use consistent width patterns: 48%/48% on desktop, 100% on mobile",
+    "✅ Enable name validation (valName) for data quality, especially in professional contexts",
+    "✅ Use descPoss='bottom' for help text by default (doesn't interfere with label reading flow)",
+    "✅ Test with long names (75+ characters) to ensure form doesn't break",
+    "✅ Consider cultural naming conventions (not all names follow first/middle/last pattern)"
+  ],
+  "autocompleteGuide": {
+    "description": "HTML autocomplete attribute values for name fields",
+    "values": {
+      "name": {
+        "description": "Full name (first and last together)",
+        "useCase": "Single name field collecting full name",
+        "example": "John Michael Smith"
+      },
+      "given-name": {
+        "description": "First name (given name)",
+        "useCase": "Split name forms - first name field",
+        "example": "John"
+      },
+      "family-name": {
+        "description": "Last name (surname)",
+        "useCase": "Split name forms - last name field",
+        "example": "Smith"
+      },
+      "additional-name": {
+        "description": "Middle name",
+        "useCase": "Forms requiring middle name separately",
+        "example": "Michael"
+      },
+      "off": {
+        "description": "Disable browser autofill",
+        "useCase": "Security-sensitive forms, unique identifiers",
+        "example": "N/A"
+      }
+    },
+    "bestPractices": [
+      "Use 'name' for single full-name fields",
+      "Use 'given-name' + 'family-name' for split name forms",
+      "Use 'additional-name' only if middle name is separate field",
+      "Use 'off' sparingly (autocomplete improves UX)"
+    ]
+  },
+  "iconTypeGuide": {
+    "description": "Icon display options for name fields",
+    "types": {
+      "none": {
+        "description": "No icon displayed",
+        "useCase": "Minimal forms, text-only designs",
+        "attributes": {"nameIconType": "none"}
+      },
+      "fontAwesome": {
+        "description": "Font Awesome icon",
+        "useCase": "Most common - wide icon selection, color customization",
+        "attributes": {
+          "nameIconType": "fontAwesome",
+          "nameIcons": "fas fa-user",
+          "icnClr": "#667eea",
+          "hvrIcnClr": "#764ba2"
+        },
+        "popularIcons": [
+          "fas fa-user (generic user)",
+          "fas fa-id-card (official forms)",
+          "fas fa-user-circle (profile/account)",
+          "fas fa-signature (signature/legal)",
+          "fas fa-address-card (contact info)"
+        ]
+      },
+      "image": {
+        "description": "Custom image icon",
+        "useCase": "Branded forms, custom designs, specific graphics",
+        "attributes": {
+          "nameIconType": "image",
+          "nameImage": {
+            "url": "https://example.com/icon.png",
+            "Id": "123"
+          }
+        },
+        "notes": [
+          "Recommended size: 24x24px or 32x32px",
+          "Supports PNG, JPG, SVG, WebP",
+          "SVG recommended for scalability and color control",
+          "No color customization via icnClr (use SVG fill for color)"
+        ]
+      }
     }
+  },
+  "responsivePatterns": {
+    "fullWidth": {
+      "description": "Full-width on all devices",
+      "inpSz": {"md": "100", "sm": "100", "xs": "100", "unit": "%"},
+      "useCase": "Most common pattern for single name fields"
+    },
+    "splitDesktopFullMobile": {
+      "description": "Side-by-side on desktop, stacked on mobile",
+      "inpSz": {"md": "48", "sm": "100", "xs": "100", "unit": "%"},
+      "useCase": "First name + last name split forms",
+      "notes": [
+        "48% allows for ~4% gap between fields on desktop",
+        "Parent tp-form-block controls gap spacing via columnGap"
+      ]
+    },
+    "thirdWidthDesktop": {
+      "description": "Three fields per row on desktop",
+      "inpSz": {"md": "32", "sm": "48", "xs": "100", "unit": "%"},
+      "useCase": "First name, middle name, last name in one row",
+      "notes": ["32% × 3 = 96%, leaving 4% for gaps"]
+    },
+    "inlineButton": {
+      "description": "Input with inline submit button (newsletter forms)",
+      "inpSz": {"md": "70", "sm": "100", "xs": "100", "unit": "%"},
+      "useCase": "Newsletter signup, search forms",
+      "notes": ["Pair with nxt-submit-button using nxt-btn-inline class"]
+    }
+  },
+  "accessibilityNotes": [
+    "🌐 WCAG 2.1 AA Compliance:",
+    "- Label must be descriptive and associated with input (labelss attribute)",
+    "- Error messages should be specific and actionable (error attribute)",
+    "- Required fields marked with asterisk (*) via reqTgl",
+    "- Help text provides additional context for screen readers (desctxt)",
+    "- Placeholder text supplements label, doesn't replace it",
+    "- autocomplete attribute improves assistive technology experience",
+    "",
+    "🎯 Focus States:",
+    "- Parent tp-form-block controls focus styling (actInpBg, actInpBdr)",
+    "- Ensure focus state has 3:1 contrast ratio with background",
+    "",
+    "⌨️ Keyboard Navigation:",
+    "- Tab key moves between fields naturally",
+    "- Enter key submits form (handled by parent tp-form-block)",
+    "",
+    "🔊 Screen Reader Considerations:",
+    "- Label read first: 'Full Name, required, edit text'",
+    "- Help text read as description",
+    "- Error message announced on validation failure",
+    "- Icon decorative only (not announced)",
+    "",
+    "🌈 Color Contrast:",
+    "- Label text must have 4.5:1 contrast with background",
+    "- Placeholder text must have 4.5:1 contrast",
+    "- Icon color (icnClr) should have 3:1 contrast if conveying information",
+    "- Error messages typically red, but must have sufficient contrast"
+  ],
+  "parentChildRelationship": {
+    "parent": "tpgb/tp-form-block",
+    "child": "tpgb/tp-form-name-field",
+    "requirement": "CRITICAL - nxt-name-field MUST be inside tp-form-block",
+    "parentControls": [
+      "Label styling (lblClr, lblTypo, lblBtmMrg, hvrLblClr)",
+      "Input styling (inpClr, plcClr, inpBg, hvrInpBg, actInpBg, inpBdr, inpBdrRds, inpPad, inpTypo)",
+      "Help text styling (typically inherits from parent typography)",
+      "Field spacing (rowGap, columnGap)",
+      "Form layout (layoutType: nxt-style-1, nxt-style-2, etc.)",
+      "Form submission behavior (actionOption, emailTo1, etc.)",
+      "Validation display (valErrMsg, failMsg, sucTypo)"
+    ],
+    "childControls": [
+      "Label text (labelss)",
+      "Icon (nameIconType, nameIcons, nameImage, icnClr, hvrIcnClr)",
+      "Placeholder text (placeholder)",
+      "Required status (reqTgl)",
+      "Validation rules (valName, maxAlphabets)",
+      "Error message (error)",
+      "Help text (hlpTxt, desctxt, descPoss)",
+      "Field width (inpSz)",
+      "Autocomplete attribute (autoComplete)"
+    ],
+    "workflow": [
+      "1. Create tp-form-block parent",
+      "2. Set parent styling (labels, inputs, buttons)",
+      "3. Add nxt-name-field child inside parent",
+      "4. Configure child-specific settings (label, icon, validation)",
+      "5. Child inherits parent styling, overrides with child-specific settings"
+    ]
   }
 }
