@@ -1,49 +1,527 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-form-date-field",
-  "title": "Pick a Date - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Pick a Date - Comprehensive Examples",
+  "description": "Calendar-based date picker for forms. Must be child of tpgb/tp-form-block. Supports min/max date validation, required validation, help text, custom sizing.",
   "examples": [
     {
-      "description": "Simple date picker",
+      "name": "Birth Date with Age Verification (18+)",
+      "description": "Date picker for birth date with validation that user is at least 18 years old",
+      "visualDescription": "Calendar picker with date range limiting selection to 1920-2007, required asterisk",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "a1b2",
-        "labelss": "Select Date",
-        "placeholder": "Pick a date",
-        "reqTgl": true
-      }
-    },
-    {
-      "description": "Birthdate with age restriction",
-      "attributes": {
-        "block_id": "c3d4",
+        "block_id": "df001",
         "labelss": "Date of Birth",
         "placeholder": "MM/DD/YYYY",
+        "reqTgl": true,
         "valDate": true,
         "minYear": 1920,
-        "maxYear": 2010,
-        "reqTgl": true,
+        "minMonth": 1,
+        "minDay": 1,
+        "maxYear": 2007,
+        "maxMonth": 12,
+        "maxDay": 31,
         "hlpTxt": true,
-        "desctxt": "You must be at least 18 years old",
-        "descPoss": "bottom"
-      }
+        "desctxt": "You must be at least 18 years old to register. Please enter your date of birth.",
+        "descPoss": "bottom",
+        "error": "Please enter your date of birth. You must be 18 or older.",
+        "uniqueid": "birth_date"
+      },
+      "useCase": "Account registration, age-restricted services, alcohol/gambling sites, adult content, legal compliance",
+      "bestPractices": [
+        "Set maxYear to current year minus 18 (e.g., 2025 - 18 = 2007)",
+        "Set minYear to reasonable minimum (e.g., 1920 for oldest living persons)",
+        "Enable validation (valDate: true) to enforce date range",
+        "Clear help text explaining age requirement",
+        "Specific error message ('must be 18 or older')",
+        "Use uniqueid for backend age calculation",
+        "Validate age on backend as well (don't trust client)"
+      ],
+      "warnings": [
+        "Update maxYear annually (2007 for 2025, 2008 for 2026, etc.)",
+        "Consider leap years when validating February dates",
+        "Different countries have different age-of-majority laws (18 vs 21)",
+        "Privacy: Store birth date securely, only share age if needed"
+      ]
     },
     {
-      "description": "Appointment booking with future dates",
+      "name": "Appointment Booking (Future Dates Only, 30-Day Window)",
+      "description": "Date picker for appointment scheduling, only allows future dates within 30 days",
+      "visualDescription": "Calendar with today as minimum, 30 days from now as maximum, required field",
+      "complexity": "advanced",
       "attributes": {
-        "block_id": "e5f6",
-        "labelss": "Appointment Date",
-        "placeholder": "Choose date",
+        "block_id": "df002",
+        "labelss": "Preferred Appointment Date",
+        "placeholder": "Select date",
+        "reqTgl": true,
+        "valDate": true,
+        "minYear": 2025,
+        "minMonth": 1,
+        "minDay": 15,
+        "maxYear": 2025,
+        "maxMonth": 2,
+        "maxDay": 14,
+        "hlpTxt": true,
+        "desctxt": "Choose a date within the next 30 days. Same-day appointments require calling our office.",
+        "descPoss": "top",
+        "error": "Please select an appointment date within the next 30 days.",
+        "uniqueid": "appointment_date"
+      },
+      "dynamicDateNote": "In production, use current date for minDate and current date + 30 days for maxDate. Values shown are examples for Jan 15, 2025 - Feb 14, 2025.",
+      "useCase": "Medical appointments, consultations, service bookings, salon appointments, interview scheduling",
+      "bestPractices": [
+        "CRITICAL: Update min/max dates dynamically (not hardcoded static dates)",
+        "Set minDate to tomorrow (block same-day bookings if not supported)",
+        "Set maxDate to booking window (e.g., +30 days, +90 days)",
+        "Explain constraints in help text ('within next 30 days')",
+        "Validate against available dates on backend (check slots)",
+        "Send confirmation email with selected date",
+        "Consider blocking weekends/holidays if business is closed"
+      ],
+      "implementationNotes": [
+        "Use JavaScript or PHP to calculate dynamic dates",
+        "Example: minDate = today, maxDate = today + 30 days",
+        "Update minYear/minMonth/minDay based on current date",
+        "Update maxYear/maxMonth/maxDay based on current date + 30",
+        "This example shows static dates for illustration only"
+      ]
+    },
+    {
+      "name": "Event Date Selection (Specific Event Range)",
+      "description": "Date picker for event with fixed start and end dates",
+      "visualDescription": "Calendar limited to conference dates (June 1-5, 2025), required field",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "df003",
+        "labelss": "Event Date",
+        "placeholder": "Select conference date",
+        "reqTgl": true,
+        "valDate": true,
+        "minYear": 2025,
+        "minMonth": 6,
+        "minDay": 1,
+        "maxYear": 2025,
+        "maxMonth": 6,
+        "maxDay": 5,
+        "hlpTxt": true,
+        "desctxt": "The conference runs from June 1-5, 2025. Select the day you'll attend.",
+        "descPoss": "top",
+        "error": "Please select a valid conference date (June 1-5, 2025).",
+        "uniqueid": "event_date"
+      },
+      "useCase": "Conference registration, multi-day event tickets, workshop selection, festival dates",
+      "bestPractices": [
+        "Set exact event start/end dates (minDate/maxDate)",
+        "Clarify date range in help text",
+        "Use for multi-day events where user picks one day",
+        "Validate selected date has available capacity on backend",
+        "Show event schedule for each date (if different activities)",
+        "Consider timezone for international events"
+      ]
+    },
+    {
+      "name": "Travel Check-in Date (Multi-Column 50%)",
+      "description": "Half-width date picker for hotel check-in, paired with check-out date",
+      "visualDescription": "50% width calendar for check-in date, allows responsive side-by-side with check-out",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "df004",
+        "labelss": "Check-in Date",
+        "placeholder": "Arrival",
+        "reqTgl": true,
+        "valDate": true,
+        "minYear": 2025,
+        "minMonth": 1,
+        "minDay": 15,
+        "maxYear": 2025,
+        "maxMonth": 12,
+        "maxDay": 31,
+        "inpSz": {
+          "md": "50",
+          "sm": "100",
+          "unit": "%"
+        },
+        "error": "Please select your check-in date.",
+        "uniqueid": "checkin_date"
+      },
+      "relatedFields": [
+        {
+          "label": "Check-out Date",
+          "uniqueid": "checkout_date",
+          "validation": "Must be after check-in date, minimum 1 night stay",
+          "note": "Pair with check-out date field (also 50% width)"
+        }
+      ],
+      "useCase": "Hotel bookings, vacation rentals, car rentals, equipment rentals, facility reservations",
+      "bestPractices": [
+        "Use 50% width to pair with check-out date side-by-side",
+        "Set minDate to today (can't check in to past)",
+        "Responsive: 50% desktop (md), 100% mobile (sm)",
+        "Validate check-out > check-in on backend",
+        "Calculate number of nights automatically",
+        "Show pricing based on selected date range",
+        "Block blackout dates (holidays, maintenance) on backend"
+      ],
+      "layoutTips": [
+        "Place check-in (50%) and check-out (50%) in same row",
+        "On mobile, stack vertically automatically",
+        "Add small visual divider or dash between fields",
+        "Use tp-row/tp-column for layout structure"
+      ]
+    },
+    {
+      "name": "Historical Date (Past Only, Research/Survey)",
+      "description": "Date picker for past dates only, used in surveys or historical data collection",
+      "visualDescription": "Calendar with dates from 1900-2024 (today), no future dates selectable",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "df005",
+        "labelss": "When did this event occur?",
+        "placeholder": "Select date",
+        "reqTgl": true,
+        "valDate": true,
+        "minYear": 1900,
+        "minMonth": 1,
+        "minDay": 1,
+        "maxYear": 2025,
+        "maxMonth": 1,
+        "maxDay": 15,
+        "hlpTxt": true,
+        "desctxt": "Please select the approximate date when this event occurred. We'll use this for our historical research.",
+        "descPoss": "bottom",
+        "error": "Please select a valid historical date.",
+        "uniqueid": "event_occurrence_date"
+      },
+      "useCase": "Historical surveys, incident reports, medical history, employment history, education dates",
+      "bestPractices": [
+        "Set maxDate to today (no future dates)",
+        "Set minDate to reasonable historical limit (e.g., 1900 for 20th century events)",
+        "Use descriptive label ('When did this event occur?' vs 'Date')",
+        "Explain purpose in help text ('historical research')",
+        "Allow approximate dates if exact date unknown",
+        "Consider date format localization (MM/DD/YYYY vs DD/MM/YYYY)"
+      ]
+    },
+    {
+      "name": "Expiration Date (Credit Card Style, Future Only)",
+      "description": "Compact date picker for expiration dates, narrow width for inline forms",
+      "visualDescription": "40% width calendar for expiration month/year, compact design",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "df006",
+        "labelss": "Expiration Date",
+        "placeholder": "MM/YYYY",
+        "reqTgl": true,
         "valDate": true,
         "minYear": 2025,
         "minMonth": 1,
         "minDay": 1,
-        "maxYear": 2026,
+        "maxYear": 2035,
         "maxMonth": 12,
         "maxDay": 31,
-        "reqTgl": true
-      }
+        "inpSz": {
+          "md": "40",
+          "sm": "100",
+          "unit": "%"
+        },
+        "error": "Please enter a valid expiration date.",
+        "uniqueid": "expiration_date"
+      },
+      "useCase": "Credit card expiration, license expiration, subscription end dates, membership expiration, document validity",
+      "bestPractices": [
+        "Use narrower width (40%) for compact payment forms",
+        "Set minDate to current month (can't expire in past)",
+        "Set maxDate to reasonable future (e.g., +10 years for credit cards)",
+        "Validate card hasn't expired on backend",
+        "Show error if expired date selected",
+        "Consider month-year picker instead of full calendar (better UX)",
+        "Responsive: 40% desktop, 100% mobile"
+      ],
+      "warnings": [
+        "Expiration dates typically don't need day component (just MM/YYYY)",
+        "Validate expiration is in future (today or later)",
+        "Credit card expires at END of month (not beginning)",
+        "Update minDate monthly (don't allow expired months)"
+      ]
+    },
+    {
+      "name": "Flexible Date Range (No Validation, Optional)",
+      "description": "Open-ended date picker with no restrictions, optional field",
+      "visualDescription": "Calendar with default 1965-2085 range, no required validation, clean design",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "df007",
+        "labelss": "Preferred Date (If Any)",
+        "placeholder": "Select a date (optional)",
+        "reqTgl": false,
+        "valDate": false,
+        "hlpTxt": true,
+        "desctxt": "If you have a preferred date in mind, select it here. Otherwise, we'll contact you to schedule.",
+        "descPoss": "bottom",
+        "uniqueid": "preferred_date"
+      },
+      "useCase": "Flexible scheduling, callback requests, general inquiries, soft preferences",
+      "bestPractices": [
+        "Make optional (reqTgl: false) for soft preferences",
+        "Disable validation (valDate: false) to allow any date",
+        "Clear label indicating optional: '(If Any)' or '(Optional)'",
+        "Help text explains what happens if not selected",
+        "Use for non-critical date selections",
+        "Allow backend flexibility (user preference, not requirement)"
+      ]
+    },
+    {
+      "name": "Inline Date Picker (With Inline Submit, 70% Width)",
+      "description": "Compact inline date picker with submit button on same line for quick lookups",
+      "visualDescription": "70% width date picker with 30% submit button inline, horizontal compact layout",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "df008",
+        "labelss": "Search by Date",
+        "placeholder": "Select date",
+        "reqTgl": true,
+        "valDate": true,
+        "minYear": 2024,
+        "minMonth": 1,
+        "minDay": 1,
+        "maxYear": 2025,
+        "maxMonth": 12,
+        "maxDay": 31,
+        "inpSz": {
+          "md": "70",
+          "sm": "100",
+          "unit": "%"
+        },
+        "error": "Please select a date to search.",
+        "uniqueid": "search_date"
+      },
+      "relatedBlocks": [
+        {
+          "block": "nxt-submit-button",
+          "note": "Add submit button with isInline: true, btnSz: {md: '30', unit: '%'} to appear on same line"
+        }
+      ],
+      "useCase": "Date-based searches, availability checks, schedule lookups, quick queries, booking systems",
+      "bestPractices": [
+        "Use 70% width for date picker (md: 70)",
+        "Add inline submit button (30% width) on same line",
+        "Submit button: isInline: true, align: 'left'",
+        "Mobile: Date picker 100%, submit button below (sm: 100)",
+        "Keep label short ('Search by Date' not 'Please Enter a Date to Search')",
+        "Use for quick actions (not multi-step forms)",
+        "Set date range relevant to search context"
+      ],
+      "implementationNotes": [
+        "Date picker inpSz: {md: '70', sm: '100', unit: '%'}",
+        "Submit button isInline: true (critical for inline layout)",
+        "Submit button btnSz: {md: '30', unit: '%'} to fit remaining space",
+        "Both fields share same parent (tp-form-block)",
+        "Inline mode auto-disabled on mobile (stack vertically)"
+      ],
+      "warnings": [
+        "Inline layout works only on desktop (md breakpoint)",
+        "Mobile always stacks vertically (ignore inline on mobile)",
+        "Don't use inline for forms with many fields",
+        "Test responsive behavior thoroughly"
+      ]
     }
   ],
-  "commonPatterns": {}
+  "commonPatterns": [
+    {
+      "pattern": "Basic Date Input",
+      "fields": ["labelss", "placeholder", "reqTgl", "error"],
+      "description": "Standard date picker with required validation"
+    },
+    {
+      "pattern": "Age-Restricted Date",
+      "fields": ["valDate: true", "maxYear: currentYear - 18"],
+      "description": "Birth date picker with 18+ age verification"
+    },
+    {
+      "pattern": "Future Dates Only",
+      "fields": ["valDate: true", "minDate: today", "maxDate: today + 30"],
+      "description": "Appointment/booking with future dates only"
+    },
+    {
+      "pattern": "Multi-Column Date",
+      "fields": ["inpSz: {md: 50, sm: 100}"],
+      "description": "Half-width for side-by-side with another date"
+    },
+    {
+      "pattern": "Inline Date + Button",
+      "fields": ["inpSz: {md: 70}", "isInline submit button"],
+      "description": "Compact inline with submit button"
+    }
+  ],
+  "validationRules": {
+    "block_id": "Required - Unique identifier",
+    "labelss": "Required - Field label displayed to user",
+    "reqTgl": "Optional - Boolean, true = required, false = optional",
+    "placeholder": "Optional - Placeholder text, can be empty string",
+    "valDate": "Optional - Boolean, true = enable min/max date validation, false = allow any date",
+    "minYear": "Conditional - Required if valDate is true, minimum year (e.g., 1965, 2025)",
+    "minMonth": "Conditional - Required if valDate is true, minimum month (1-12)",
+    "minDay": "Conditional - Required if valDate is true, minimum day (1-31)",
+    "maxYear": "Conditional - Required if valDate is true, maximum year (e.g., 2085, 2025)",
+    "maxMonth": "Conditional - Required if valDate is true, maximum month (1-12)",
+    "maxDay": "Conditional - Required if valDate is true, maximum day (1-31)",
+    "inpSz": "Optional - Responsive width {md, sm, xs, unit}, default 100%",
+    "hlpTxt": "Optional - Boolean, true = show help text, false = hide",
+    "desctxt": "Conditional - Required if hlpTxt is true, help text content",
+    "descPoss": "Optional - 'top' or 'bottom', position of help text, default 'top'",
+    "error": "Optional - Custom error message for validation",
+    "uniqueid": "Optional - Unique field identifier for backend processing",
+    "ancestor": "MUST be child of tpgb/tp-form-block"
+  },
+  "warnings": [
+    "Date picker allows manual typing (users can type invalid dates like 13/45/9999)",
+    "Validate date format and range on backend (never trust client)",
+    "Browser date picker UI varies (Chrome vs Firefox vs Safari)",
+    "Some browsers may not support date picker (fallback to text input)",
+    "Date picker format depends on browser/OS locale (MM/DD/YYYY vs DD/MM/YYYY)",
+    "Mobile date pickers behave differently than desktop (usually better UX)",
+    "Min/max dates are inclusive (minDate 2025-01-01 includes January 1, 2025)",
+    "Leap years affect February validation (Feb 29 exists only in leap years)",
+    "Timezone issues: Date picker returns date without timezone info",
+    "Static min/max dates will become outdated (use dynamic dates for current date checks)",
+    "Users can select disabled dates via keyboard in some browsers (validate on backend)",
+    "Placeholder may not show in all browsers for date input type"
+  ],
+  "commonMistakes": [
+    "Hardcoding current date (minDate: 2025-01-15) instead of dynamic 'today'",
+    "Not validating date range on backend (trusting client-side validation)",
+    "Setting invalid date ranges (maxDate before minDate)",
+    "Forgetting leap years (Feb 29 validation)",
+    "Using pixel width (inpSz: {md: '300', unit: 'px'}) instead of percentage",
+    "Not making mobile full-width (sm: 100) when using custom desktop width",
+    "Generic error messages ('This field is required') instead of context-specific",
+    "Not validating logical constraints (check-out > check-in, expiration in future)",
+    "Forgetting uniqueid for backend processing",
+    "Using date picker for month/year only (should use dropdown or separate fields)",
+    "Not considering timezone differences for international users"
+  ],
+  "bestPractices": [
+    "Use percentage width for responsive design (unit: '%')",
+    "Always set sm: 100 for mobile when using custom desktop width",
+    "Provide clear labels: 'Check-in Date' not just 'Date'",
+    "Use help text to clarify constraints, formats, requirements",
+    "Set uniqueid for easy backend processing (use snake_case)",
+    "Validate date format and range on backend (critical security)",
+    "Use dynamic dates for min/max (not hardcoded static dates)",
+    "Enable validation (valDate: true) for age checks, future dates, date ranges",
+    "Pair start/end dates (check-in/check-out, event start/end)",
+    "Use placeholder to hint at format (MM/DD/YYYY)",
+    "Make required (reqTgl: true) for critical dates",
+    "Validate logical constraints (start < end, age >= 18, expiration in future)",
+    "Test across browsers (date picker UI varies)",
+    "Consider timezone for international applications",
+    "Update min/max dates dynamically (daily/monthly for booking systems)"
+  ],
+  "accessibilityNotes": [
+    "Date picker must have clear label (labelss attribute)",
+    "Screen readers announce label and input type (date)",
+    "Placeholder text is accessible hint (not label replacement)",
+    "Error messages announced by screen readers when validation fails",
+    "Keyboard navigation: Tab to field, arrow keys to navigate calendar, Enter to select",
+    "Help text (desctxt) is associated with input for screen readers",
+    "Required fields should have visual indicator (asterisk) and aria-required",
+    "Error state should have aria-invalid when validation fails",
+    "Date picker native browser widget is generally accessible",
+    "Test with keyboard only (no mouse) to ensure full functionality",
+    "Some screen readers announce date format (MM/DD/YYYY or locale format)"
+  ],
+  "performanceConsiderations": [
+    "Date picker is native HTML input (no external library = fast)",
+    "No performance impact on page load",
+    "Browser handles date picker UI (no additional JS)",
+    "Validation happens on form submit (minimal performance cost)",
+    "Responsive width calculation is CSS-based (instant)",
+    "Help text adds minimal DOM nodes (negligible impact)",
+    "Total field weight: ~200 bytes (very lightweight)"
+  ],
+  "browserCompatibility": {
+    "Chrome": "Full support - Native calendar UI with month/year navigation",
+    "Firefox": "Full support - Native calendar UI",
+    "Safari": "Full support - Native calendar (iOS has wheel picker)",
+    "Edge": "Full support - Same as Chrome (Chromium-based)",
+    "IE11": "Fallback to text input - No native date picker (deprecated browser)",
+    "Mobile": "Excellent - Native mobile date pickers are very UX-friendly (especially iOS/Android)"
+  },
+  "dateFormatExamples": [
+    {
+      "format": "US (MM/DD/YYYY)",
+      "example": "01/15/2025",
+      "note": "Common in United States"
+    },
+    {
+      "format": "ISO 8601 (YYYY-MM-DD)",
+      "example": "2025-01-15",
+      "note": "International standard, used in databases"
+    },
+    {
+      "format": "European (DD/MM/YYYY)",
+      "example": "15/01/2025",
+      "note": "Common in Europe, UK, Australia"
+    },
+    {
+      "format": "Browser dependent",
+      "note": "Date picker uses browser/OS locale for display format"
+    }
+  ],
+  "backendValidationExample": {
+    "description": "Always validate date format and range on server",
+    "PHP": "// Validate date format and range\n$date = $_POST['appointment_date'];\n\n// Parse date\n$timestamp = strtotime($date);\nif ($timestamp === false) {\n  $errors[] = 'Invalid date format';\n}\n\n// Validate date is in future\nif ($timestamp < strtotime('today')) {\n  $errors[] = 'Appointment date must be in the future';\n}\n\n// Validate date is within 30 days\nif ($timestamp > strtotime('+30 days')) {\n  $errors[] = 'Appointment date must be within 30 days';\n}\n\n// Validate age (18+)\n$birth_date = strtotime($_POST['birth_date']);\n$age = floor((time() - $birth_date) / (365 * 24 * 60 * 60));\nif ($age < 18) {\n  $errors[] = 'You must be at least 18 years old';\n}",
+    "note": "Never trust client-side validation - always verify on server"
+  },
+  "dynamicDateCalculation": {
+    "description": "Calculate min/max dates dynamically in PHP/JS",
+    "PHP_today": "// Today as minDate\ndate('Y-m-d'); // 2025-01-15",
+    "PHP_future_30_days": "// 30 days from now as maxDate\ndate('Y-m-d', strtotime('+30 days')); // 2025-02-14",
+    "PHP_age_18": "// Max birth date for 18+ requirement\ndate('Y-m-d', strtotime('-18 years')); // 2007-01-15",
+    "JavaScript_today": "// Today in JavaScript\nconst today = new Date();\nconst minDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;",
+    "note": "Use server-side or client-side logic to set dynamic dates, not hardcoded values"
+  },
+  "useCaseSpecificTips": {
+    "Age Verification": {
+      "tips": [
+        "Update maxYear annually (current year - minimum age)",
+        "Store full birth date (for future age checks, birthday emails)",
+        "Validate age on backend (critical for compliance)",
+        "Consider privacy laws (GDPR, COPPA for children)",
+        "Provide clear error message if age requirement not met",
+        "Different age requirements: 13+ (COPPA), 18+ (adult content), 21+ (alcohol in US)"
+      ]
+    },
+    "Appointment Booking": {
+      "tips": [
+        "Block past dates (minDate: today or tomorrow)",
+        "Set booking window (maxDate: +30 days, +90 days)",
+        "Validate against available slots on backend",
+        "Consider business hours and holidays (block unavailable dates)",
+        "Send confirmation email with selected date",
+        "Allow reschedule option with similar date picker",
+        "Show timezone in confirmation for international bookings"
+      ]
+    },
+    "Event Registration": {
+      "tips": [
+        "Set exact event date range (multi-day events)",
+        "Show capacity for each date (if different)",
+        "Validate registration deadline (close registration before event)",
+        "Display event timezone clearly",
+        "Send calendar invite (.ics file) with confirmation",
+        "Handle sold-out dates (disable in calendar or show error)"
+      ]
+    },
+    "Travel Booking": {
+      "tips": [
+        "Pair check-in and check-out dates",
+        "Validate check-out > check-in (minimum 1 night)",
+        "Calculate number of nights automatically",
+        "Show pricing based on selected dates (dynamic pricing)",
+        "Block blackout dates (holidays, maintenance)",
+        "Consider timezone for international properties"
+      ]
+    }
+  }
 }
