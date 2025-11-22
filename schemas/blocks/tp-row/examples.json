@@ -1,13 +1,397 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-row",
-  "title": "Row - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Row - Usage Examples (Enhanced)",
+  "description": "Comprehensive row layout patterns verified against plugin source for pixel-perfect column layouts",
+
   "examples": [
     {
-      "description": "Simple 3-column row",
+      "name": "Simple 3-Column Row",
+      "description": "Basic row with 3 equal-width columns for standard layouts",
+      "visualDescription": "Boxed container width, 3 columns with 20px spacing, center-aligned content, 400px minimum height. Light gray background.",
+      "complexity": "simple",
+      "useCase": "Feature sections, service listings, card grids",
       "attributes": {
         "block_id": "a1b2",
+        "sectionWidth": "boxed",
+        "columns": 3,
+        "gutterSpace": {
+          "md": "20",
+          "sm": "15",
+          "unit": "px"
+        },
+        "columnPosition": "center",
+        "minHeight": {
+          "md": "400",
+          "sm": "300",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "tagName": "section"
+      },
+      "responsiveNotes": "Columns stack vertically on mobile. Gutter space reduces to 15px on tablets.",
+      "relatedBlocks": ["tp-column"],
+      "layoutNotes": "Row contains tp-column blocks. gutterSpace applies as padding to each column."
+    },
+
+    {
+      "name": "Full-Width Hero Row with Gradient",
+      "description": "Edge-to-edge row for hero sections with purple gradient and wave divider",
+      "visualDescription": "Full viewport width, 600px minimum height, purple-to-violet gradient, white wave shape divider at bottom. Content vertically centered.",
+      "complexity": "medium",
+      "useCase": "Hero sections, full-width banners, landing page headers",
+      "attributes": {
+        "block_id": "c3d4",
+        "sectionWidth": "full",
+        "stretchRow": true,
+        "minHeight": {
+          "md": "600",
+          "sm": "450",
+          "xs": "400",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "shapeBottom": "wave",
+        "shapeBColor": "#ffffff",
+        "shapeBHeight": {
+          "md": "100",
+          "sm": "60",
+          "unit": "px"
+        },
+        "shapeBFlip": false,
+        "columnPosition": "center",
+        "Padding": {
+          "md": {"top": "100", "bottom": "100", "left": "40", "right": "40"},
+          "sm": {"top": "60", "bottom": "60", "left": "20", "right": "20"},
+          "unit": "px"
+        },
+        "tagName": "header"
+      },
+      "responsiveNotes": "Row height reduces on mobile. Shape divider scales down proportionally.",
+      "visualTips": "Wave shape creates smooth transition to next section.",
+      "relatedBlocks": ["tp-column", "tp-heading", "tp-button"]
+    },
+
+    {
+      "name": "2-Column Feature Row (70/30 Split)",
+      "description": "Asymmetric 2-column layout for content with sidebar",
+      "visualDescription": "Boxed width, 2 columns (70% main content, 30% sidebar), 30px gutter, top-aligned columns. White background.",
+      "complexity": "simple",
+      "useCase": "Blog layouts, content with sidebar, feature + image combinations",
+      "attributes": {
+        "block_id": "e5f6",
+        "sectionWidth": "boxed",
+        "columns": 2,
+        "gutterSpace": {
+          "md": "30",
+          "sm": "20",
+          "xs": "15",
+          "unit": "px"
+        },
+        "columnPosition": "start",
+        "verticalPosition": "start",
+        "minHeight": {
+          "md": "500",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "Padding": {
+          "md": {"top": "80", "bottom": "80", "left": "0", "right": "0"},
+          "unit": "px"
+        },
+        "tagName": "section"
+      },
+      "columnConfiguration": [
+        {"width": "70%", "content": "Main content area"},
+        {"width": "30%", "content": "Sidebar"}
+      ],
+      "responsiveNotes": "Columns stack on mobile (sidebar below main content). Gutter reduces progressively.",
+      "layoutNotes": "Use columnPosition: 'start' to top-align columns when heights differ",
+      "relatedBlocks": ["tp-column", "tp-pro-paragraph", "tp-image"]
+    },
+
+    {
+      "name": "Video Background Row (Pro)",
+      "description": "Full-width row with YouTube video background",
+      "visualDescription": "Full width, 700px minimum height, YouTube video background (looped, muted), dark overlay for text readability.",
+      "complexity": "advanced",
+      "useCase": "Premium hero sections, video showcases, immersive landing pages",
+      "source": "pro",
+      "attributes": {
+        "block_id": "g7h8",
+        "sectionWidth": "full",
+        "stretchRow": true,
+        "deepBgopt": "bg_video",
+        "videosour": "youtube",
+        "youtubeId": "dQw4w9WgXcQ",
+        "videoloop": true,
+        "videoMute": true,
+        "videoImg": {
+          "url": "https://example.com/poster.jpg",
+          "id": "123",
+          "alt": "Video poster"
+        },
+        "overlayBg": 1,
+        "overlayBgColor": "rgba(0,0,0,0.5)",
+        "minHeight": {
+          "md": "700",
+          "sm": "500",
+          "xs": "400",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "columnPosition": "center",
+        "Padding": {
+          "md": {"top": "100", "bottom": "100", "left": "40", "right": "40"},
+          "unit": "px"
+        },
+        "tagName": "section"
+      },
+      "warnings": [
+        "Always set videoMute: true for autoplay to work (browser policy)",
+        "Provide videoImg for loading state and mobile fallback",
+        "Video backgrounds disabled on mobile for performance"
+      ],
+      "performanceNotes": "Video backgrounds increase page load time. Use compressed videos.",
+      "relatedBlocks": ["tp-column", "tp-heading"]
+    },
+
+    {
+      "name": "4-Column Service Row",
+      "description": "4 equal columns for showcasing services or features",
+      "visualDescription": "Boxed width, 4 equal columns, 25px spacing, center-aligned, light background. Perfect for icon boxes or service cards.",
+      "complexity": "simple",
+      "useCase": "Service showcases, feature grids, icon box layouts, team members",
+      "attributes": {
+        "block_id": "i9j0",
+        "sectionWidth": "boxed",
+        "columns": 4,
+        "gutterSpace": {
+          "md": "25",
+          "sm": "20",
+          "xs": "15",
+          "unit": "px"
+        },
+        "columnPosition": "center",
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f8f9fa"
+        },
+        "minHeight": {
+          "md": "400",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "Padding": {
+          "md": {"top": "60", "bottom": "60", "left": "20", "right": "20"},
+          "unit": "px"
+        },
+        "tagName": "section"
+      },
+      "responsiveNotes": "4 columns on desktop, 2 on tablet, 1 on mobile. Configure in individual tp-column blocks.",
+      "layoutNotes": "Each column should be 25% width on desktop (configured in tp-column blocks)",
+      "relatedBlocks": ["tp-column", "tp-icon-box", "tp-infobox"]
+    },
+
+    {
+      "name": "Animated Gradient Row (Pro)",
+      "description": "Row with animated multi-color gradient background",
+      "visualDescription": "Full width, 500px height, gradient animates between purple, green, pink. 5-second smooth transition loop.",
+      "complexity": "advanced",
+      "useCase": "Modern sections, creative showcases, attention-grabbing headers",
+      "source": "pro",
+      "attributes": {
+        "block_id": "k1l2",
+        "sectionWidth": "full",
+        "stretchRow": true,
+        "deepBgopt": "bg_animate_gradient",
+        "colorList": [
+          {"_key": "0", "aniColor": "#8072fc"},
+          {"_key": "1", "aniColor": "#6fc784"},
+          {"_key": "2", "aniColor": "#ff5a6e"}
+        ],
+        "animdur": "5",
+        "bgRotation": "135",
+        "bgduration": "5",
+        "minHeight": {
+          "md": "500",
+          "sm": "400",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "columnPosition": "center",
+        "Padding": {
+          "md": {"top": "80", "bottom": "80", "left": "40", "right": "40"},
+          "unit": "px"
+        },
+        "tagName": "section"
+      },
+      "visualTips": "Use 3-5 colors for smooth transitions. Longer animdur creates elegant effect.",
+      "performanceNotes": "CSS-based gradient animation has minimal performance impact",
+      "relatedBlocks": ["tp-column", "tp-heading"]
+    },
+
+    {
+      "name": "Centered Content Row with Border",
+      "description": "Boxed row with border and shadow for card-like appearance",
+      "visualDescription": "Boxed container, white background, 2px purple border, medium shadow, 12px border radius. Single centered column.",
+      "complexity": "simple",
+      "useCase": "Call-out boxes, featured content, testimonial sections",
+      "attributes": {
+        "block_id": "m3n4",
+        "sectionWidth": "boxed",
+        "columns": 1,
+        "minHeight": {
+          "md": "400",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "Border": {
+          "openBorder": 1,
+          "borderTop": {"width": "2", "style": "solid", "color": "#667eea"},
+          "borderRight": {"width": "2", "style": "solid", "color": "#667eea"},
+          "borderBottom": {"width": "2", "style": "solid", "color": "#667eea"},
+          "borderLeft": {"width": "2", "style": "solid", "color": "#667eea"}
+        },
+        "borderRadius": {
+          "md": {"top": "12", "right": "12", "bottom": "12", "left": "12"},
+          "unit": "px"
+        },
+        "BoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 24,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.12)"
+        },
+        "columnPosition": "center",
+        "Padding": {
+          "md": {"top": "60", "bottom": "60", "left": "50", "right": "50"},
+          "unit": "px"
+        },
+        "tagName": "article"
+      },
+      "visualTips": "Combining border, shadow, and radius creates professional card effect",
+      "relatedBlocks": ["tp-column", "tp-testimonials"]
+    },
+
+    {
+      "name": "Parallax Image Row (Pro)",
+      "description": "Row with parallax image background effect",
+      "visualDescription": "Full width, 600px height, background image with parallax scrolling, dark overlay for contrast.",
+      "complexity": "medium",
+      "useCase": "Visual storytelling sections, feature showcases, portfolio pages",
+      "source": "pro",
+      "attributes": {
+        "block_id": "o5p6",
+        "sectionWidth": "full",
+        "stretchRow": true,
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "image",
+          "bgImage": {
+            "url": "https://example.com/background.jpg",
+            "id": "456",
+            "position": "center center",
+            "attachment": "fixed",
+            "repeat": "no-repeat",
+            "size": "cover"
+          }
+        },
+        "overlayBg": 1,
+        "overlayBgColor": "rgba(0,0,0,0.4)",
+        "deepBgopt": "bg_image",
+        "parallax": true,
+        "minHeight": {
+          "md": "600",
+          "sm": "450",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "columnPosition": "center",
+        "Padding": {
+          "md": {"top": "100", "bottom": "100", "left": "40", "right": "40"},
+          "unit": "px"
+        },
+        "tagName": "section"
+      },
+      "warnings": [
+        "Parallax disabled on iOS/mobile - provide good static fallback",
+        "Use optimized images (<500KB) for better performance",
+        "Set parallax: true to enable effect"
+      ],
+      "relatedBlocks": ["tp-column", "tp-heading", "tp-pro-paragraph"]
+    },
+
+    {
+      "name": "Multi-Shape Divider Row",
+      "description": "Row with shape dividers on top and bottom for creative transitions",
+      "visualDescription": "Boxed width, white background, purple wave shape at top (inverted), green triangle at bottom. Creates flowing visual separation.",
+      "complexity": "medium",
+      "useCase": "Section breaks, creative layouts, modern page designs",
+      "attributes": {
+        "block_id": "q7r8",
+        "sectionWidth": "boxed",
+        "minHeight": {
+          "md": "450",
+          "unit": "px"
+        },
+        "height": "min-height",
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "shapeTop": "wave",
+        "shapeTColor": "#667eea",
+        "shapeTHeight": {"md": "80", "unit": "px"},
+        "shapeTFlip": true,
+        "shapeBottom": "triangle",
+        "shapeBColor": "#6fc784",
+        "shapeBHeight": {"md": "100", "unit": "px"},
+        "shapeBFlip": false,
+        "columnPosition": "center",
+        "Padding": {
+          "md": {"top": "60", "bottom": "60", "left": "40", "right": "40"},
+          "unit": "px"
+        },
+        "tagName": "section"
+      },
+      "visualTips": "Match shape colors to adjacent section backgrounds for seamless flow",
+      "warnings": [
+        "Available shapes: wave, triangle, curve, clouds, zigzag",
+        "Test shape heights on mobile - may need reduction"
+      ],
+      "relatedBlocks": ["tp-column"]
+    },
+
+    {
+      "name": "Space Between Columns Row",
+      "description": "3-column row with maximum space between columns",
+      "visualDescription": "Boxed width, 3 columns with space-between alignment, pushes outer columns to edges. Great for stats or metrics.",
+      "complexity": "simple",
+      "useCase": "Statistics rows, metrics display, wide-spaced features",
+      "attributes": {
+        "block_id": "s9t0",
         "sectionWidth": "boxed",
         "columns": 3,
         "gutterSpace": {
@@ -16,66 +400,167 @@
         },
         "columnPosition": "space-between",
         "minHeight": {
-          "md": "400",
+          "md": "300",
           "unit": "px"
-        }
+        },
+        "height": "min-height",
+        "Padding": {
+          "md": {"top": "60", "bottom": "60", "left": "0", "right": "0"},
+          "unit": "px"
+        },
+        "tagName": "section"
       },
-      "innerBlocks": [
-        {
-          "blockName": "tpgb/tp-column",
-          "attrs": {
-            "block_id": "c3d4"
-          }
-        },
-        {
-          "blockName": "tpgb/tp-column",
-          "attrs": {
-            "block_id": "e5f6"
-          }
-        },
-        {
-          "blockName": "tpgb/tp-column",
-          "attrs": {
-            "block_id": "g7h8"
-          }
-        }
-      ]
-    },
-    {
-      "description": "Full-width row with shape divider",
-      "attributes": {
-        "block_id": "i9j0",
-        "sectionWidth": "full",
-        "stretchRow": true,
-        "NormalBg": {
-          "openBg": 1,
-          "bgType": "color",
-          "bgColor": "#f5f5f5"
-        },
-        "shapeBottom": "wave",
-        "shapeBColor": "#ffffff",
-        "shapeBHeight": {
-          "md": "80",
-          "unit": "px"
-        }
-      }
-    },
-    {
-      "description": "Pro: Row with video background",
-      "attributes": {
-        "block_id": "k1l2",
-        "sectionWidth": "full",
-        "deepBgopt": "bg_video",
-        "videosour": "youtube",
-        "youtubeId": "dQw4w9WgXcQ",
-        "videoloop": true,
-        "videoMute": true,
-        "minHeight": {
-          "md": "600",
-          "unit": "px"
-        }
-      }
+      "layoutNotes": "columnPosition: 'space-between' distributes columns with maximum spacing between",
+      "relatedBlocks": ["tp-column", "tp-number-counter"]
     }
   ],
-  "commonPatterns": {}
+
+  "commonPatterns": {
+    "hero-row": {
+      "description": "Full-width hero with gradient and wave divider",
+      "baseAttributes": {
+        "sectionWidth": "full",
+        "stretchRow": true,
+        "minHeight": {"md": "600", "sm": "450", "unit": "px"},
+        "height": "min-height",
+        "columnPosition": "center",
+        "shapeBottom": "wave",
+        "tagName": "header"
+      }
+    },
+    "content-row": {
+      "description": "Standard boxed row for content sections",
+      "baseAttributes": {
+        "sectionWidth": "boxed",
+        "gutterSpace": {"md": "20", "unit": "px"},
+        "columnPosition": "center",
+        "tagName": "section"
+      }
+    },
+    "feature-grid": {
+      "description": "Multi-column feature showcase",
+      "baseAttributes": {
+        "sectionWidth": "boxed",
+        "columns": 3,
+        "gutterSpace": {"md": "30", "sm": "20", "unit": "px"},
+        "columnPosition": "center",
+        "tagName": "section"
+      }
+    }
+  },
+
+  "validationRules": {
+    "block_id": {
+      "required": true,
+      "pattern": "^[a-f0-9]{4}(_\\d+)?$",
+      "description": "4-character hex ID, never modify"
+    },
+    "sectionWidth": {
+      "enum": ["boxed", "full"],
+      "default": "boxed",
+      "description": "boxed = contained width, full = edge-to-edge"
+    },
+    "stretchRow": {
+      "type": "boolean",
+      "default": false,
+      "condition": "Only applies when sectionWidth = 'full'",
+      "description": "Makes row truly full-width (edge-to-edge)"
+    },
+    "columnPosition": {
+      "enum": ["start", "center", "end", "space-between", "space-around", "space-evenly"],
+      "default": "center",
+      "description": "Horizontal alignment/distribution of columns"
+    },
+    "verticalPosition": {
+      "enum": ["start", "center", "end", "stretch"],
+      "description": "Vertical alignment of column content"
+    },
+    "gutterSpace": {
+      "description": "Padding applied to each tp-column block",
+      "recommended": {"md": "15-30", "unit": "px"},
+      "warning": "Large values (>50px) can cause layout issues"
+    },
+    "minHeight": {
+      "condition": "Only applies when height = 'min-height'",
+      "recommended": {"md": "300-800", "unit": "px"},
+      "description": "Prevents row from collapsing"
+    },
+    "deepBgopt": {
+      "enum": ["bg_video", "bg_animate_gradient", "scroll_animate_color", "bg_image", "bg_gallery", "bg_color"],
+      "source": "pro",
+      "description": "Advanced background effects (Pro only)"
+    }
+  },
+
+  "warnings": [
+    "**CRITICAL**: Never modify or regenerate block_id - causes blocks to break",
+    "Row is parent of tp-column blocks - use proper nesting",
+    "gutterSpace applies as padding to child tp-column blocks, not row itself",
+    "stretchRow requires sectionWidth: 'full' to work",
+    "Video backgrounds (deepBgopt: 'bg_video') require videoMute: true for autoplay",
+    "Shape dividers may need color adjustment to match adjacent sections",
+    "Parallax effects (parallax: true) disabled on mobile devices",
+    "openBg: 1 is required before setting any background properties",
+    "openBorder: 1 is required before setting border properties",
+    "openShadow: 1 is required before setting shadow properties"
+  ],
+
+  "commonMistakes": [
+    {
+      "mistake": "Setting stretchRow without sectionWidth: 'full'",
+      "fix": "stretchRow only works when sectionWidth is 'full'",
+      "impact": "Row won't stretch to full width"
+    },
+    {
+      "mistake": "Expecting gutterSpace to add row padding",
+      "fix": "gutterSpace creates padding on child tp-column blocks, use Padding for row",
+      "impact": "No spacing appears as expected"
+    },
+    {
+      "mistake": "Setting minHeight without height: 'min-height'",
+      "fix": "Set height: 'min-height' to activate minHeight",
+      "impact": "Minimum height won't apply"
+    },
+    {
+      "mistake": "Using columnPosition with single column",
+      "fix": "columnPosition affects multiple columns, not needed for single column",
+      "impact": "Setting has no visible effect"
+    },
+    {
+      "mistake": "Not testing responsive column stacking",
+      "fix": "Configure column widths in tp-column blocks for responsive behavior",
+      "impact": "Poor mobile layout"
+    }
+  ],
+
+  "bestPractices": [
+    "Use semantic HTML tags (section, header, footer, article) for tagName",
+    "Always provide responsive values (md, sm, xs) for spacing and heights",
+    "Use gutterSpace consistently across page (15px or 30px)",
+    "Configure column responsive widths in tp-column blocks, not row",
+    "Use columnPosition: 'space-between' for stats/metrics rows",
+    "Use columnPosition: 'center' for standard content alignment",
+    "Test row layouts on all breakpoints (desktop, tablet, mobile)",
+    "Optimize background images (<500KB) for performance",
+    "Match shape divider colors to adjacent sections for seamless flow"
+  ],
+
+  "layoutContext": {
+    "rowHierarchy": "tp-row > tp-column > [content blocks]",
+    "gutterBehavior": "gutterSpace value becomes padding for all child tp-column blocks",
+    "fullWidthBehavior": "sectionWidth: 'full' + stretchRow: true creates edge-to-edge layout",
+    "boxedBehavior": "sectionWidth: 'boxed' creates centered container (uses theme's container width)",
+    "columnAlignment": "columnPosition aligns multiple columns horizontally within row",
+    "columnCount": "Number of tp-column child blocks determines actual column count",
+    "shapeContext": "Shape dividers overflow row bounds to create seamless section transitions"
+  },
+
+  "performanceConsiderations": [
+    "Video backgrounds increase page load time - use compressed videos",
+    "Parallax effects can impact scroll performance on slower devices",
+    "Animated gradients (bg_animate_gradient) are CSS-based, minimal impact",
+    "Large background images should be optimized (WebP format, compressed)",
+    "Shape dividers are SVG-based, lightweight and performant",
+    "Multiple video background rows on same page can cause performance issues"
+  ]
 }
