@@ -1,92 +1,595 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-column",
-  "title": "Column - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Column - Usage Examples (Enhanced)",
+  "description": "Comprehensive column layout patterns verified against plugin source for responsive width control and content alignment",
+
   "examples": [
     {
-      "description": "50% width column with center alignment",
+      "name": "50% Width Column (Desktop → Full Width Mobile)",
+      "description": "Half-width column on desktop, full-width on mobile - most common pattern",
+      "visualDescription": "50% width on desktop, 50% on tablet, 100% on mobile. Content centered vertically.",
+      "complexity": "simple",
+      "useCase": "2-column layouts, split content sections, feature + image combinations",
       "attributes": {
         "block_id": "a1b2",
         "Width": {
-          "md": 50,
-          "sm": 50,
-          "xs": 100,
+          "md": "50",
+          "sm": "50",
+          "xs": "100",
           "unit": "%"
         },
-        "verticalPosition": "center",
-        "horizontalPosition": "center",
-        "Padding": {
-          "md": {
-            "top": "20",
-            "bottom": "20",
-            "left": "20",
-            "right": "20"
-          },
-          "unit": "px"
+        "verticalPos": {
+          "md": "center",
+          "sm": "center",
+          "xs": "flex-start"
+        },
+        "horizontalPos": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
         }
-      }
+      },
+      "responsiveNotes": "Column takes 50% width on desktop/tablet, stacks to full width on mobile",
+      "layoutNotes": "Parent tp-row should have 2 columns for this to work as 50/50 split",
+      "relatedBlocks": ["tp-row"]
     },
+
     {
-      "description": "33% width column with background",
+      "name": "33% Width Column (3-Column Grid)",
+      "description": "One-third width column for 3-column layouts",
+      "visualDescription": "33.33% width on desktop, 50% on tablet, 100% on mobile. Perfect for feature grids.",
+      "complexity": "simple",
+      "useCase": "Service showcases, feature grids, icon box layouts",
       "attributes": {
         "block_id": "c3d4",
         "Width": {
-          "md": 33.33,
-          "sm": 50,
-          "xs": 100,
+          "md": "33.33",
+          "sm": "50",
+          "xs": "100",
           "unit": "%"
+        },
+        "verticalPos": {
+          "md": "flex-start"
+        },
+        "horizontalPos": {
+          "md": "center"
+        },
+        "blockSpace": {
+          "md": "20",
+          "unit": "px"
+        }
+      },
+      "responsiveNotes": "3 columns on desktop, 2 on tablet, 1 on mobile",
+      "layoutNotes": "Parent row should have 3 columns. blockSpace adds spacing between blocks inside column.",
+      "relatedBlocks": ["tp-row", "tp-icon-box"]
+    },
+
+    {
+      "name": "25% Width Column (4-Column Grid)",
+      "description": "Quarter-width column for 4-column layouts",
+      "visualDescription": "25% width on desktop, 50% on tablet, 100% on mobile. Ideal for team/service grids.",
+      "complexity": "simple",
+      "useCase": "Team members, service grids, portfolio items, statistics",
+      "attributes": {
+        "block_id": "e5f6",
+        "Width": {
+          "md": "25",
+          "sm": "50",
+          "xs": "100",
+          "unit": "%"
+        },
+        "verticalPos": {
+          "md": "flex-start"
+        },
+        "horizontalPos": {
+          "md": "center"
+        },
+        "blockSpace": {
+          "md": "15",
+          "unit": "px"
+        }
+      },
+      "responsiveNotes": "4 columns on desktop, 2 on tablet, 1 on mobile",
+      "layoutNotes": "Parent row should have 4 columns",
+      "relatedBlocks": ["tp-row", "tp-team-listing"]
+    },
+
+    {
+      "name": "70% Main Content Column",
+      "description": "Wider column for main content in content/sidebar layout",
+      "visualDescription": "70% width on desktop for main content, full width on mobile",
+      "complexity": "simple",
+      "useCase": "Blog layouts, content with sidebar, main content areas",
+      "attributes": {
+        "block_id": "g7h8",
+        "Width": {
+          "md": "70",
+          "sm": "100",
+          "xs": "100",
+          "unit": "%"
+        },
+        "verticalPos": {
+          "md": "flex-start"
+        },
+        "horizontalPos": {
+          "md": "flex-start"
+        },
+        "blockSpace": {
+          "md": "30",
+          "sm": "20",
+          "unit": "px"
+        },
+        "Padding": {
+          "md": {
+            "top": "0",
+            "bottom": "0",
+            "left": "0",
+            "right": "30"
+          },
+          "sm": {
+            "top": "0",
+            "bottom": "0",
+            "left": "0",
+            "right": "0"
+          },
+          "unit": "px"
+        }
+      },
+      "responsiveNotes": "Main content column - pair with 30% sidebar column. Stacks vertically on tablet/mobile.",
+      "layoutNotes": "Use with 30% width column for sidebar. Remove right padding on mobile.",
+      "relatedBlocks": ["tp-row", "tp-pro-paragraph"]
+    },
+
+    {
+      "name": "30% Sidebar Column",
+      "description": "Narrower column for sidebar in content/sidebar layout",
+      "visualDescription": "30% width on desktop for sidebar, full width on mobile (appears below main content)",
+      "complexity": "simple",
+      "useCase": "Sidebars, widget areas, secondary content",
+      "attributes": {
+        "block_id": "i9j0",
+        "Width": {
+          "md": "30",
+          "sm": "100",
+          "xs": "100",
+          "unit": "%"
+        },
+        "verticalPos": {
+          "md": "flex-start"
         },
         "NormalBg": {
           "openBg": 1,
           "bgType": "color",
-          "bgColor": "#f5f5f5"
+          "bgDefaultColor": "#f8f9fa"
         },
         "Padding": {
           "md": {
             "top": "30",
             "bottom": "30",
-            "left": "20",
-            "right": "20"
+            "left": "25",
+            "right": "25"
+          },
+          "sm": {
+            "top": "20",
+            "bottom": "20",
+            "left": "15",
+            "right": "15"
           },
           "unit": "px"
+        },
+        "Border": {
+          "openBorder": 1,
+          "borderLeft": {
+            "width": "1",
+            "style": "solid",
+            "color": "#e0e0e0"
+          }
         }
-      }
+      },
+      "visualTips": "Light background and left border visually separates sidebar from main content",
+      "relatedBlocks": ["tp-row"]
     },
+
     {
-      "description": "Pro: Sticky sidebar column (25% width)",
+      "name": "Sticky Column (Pro)",
+      "description": "Column that sticks to viewport when scrolling",
+      "visualDescription": "Column sticks to top when scrolling, with 40px top/bottom offset. Enabled on desktop/tablet only.",
+      "complexity": "advanced",
+      "useCase": "Sticky sidebars, persistent CTAs, sticky navigation",
+      "source": "pro",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "k1l2",
         "Width": {
-          "md": 25,
-          "sm": 100,
-          "xs": 100,
+          "md": "30",
+          "sm": "100",
+          "xs": "100",
           "unit": "%"
         },
         "stickycol": true,
-        "topSpace": "100",
         "stickyDes": true,
         "stickyTab": false,
-        "stickyMob": false
-      }
+        "stickyMob": false,
+        "topSpace": 40,
+        "botSpace": 40,
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "Padding": {
+          "md": {
+            "top": "30",
+            "bottom": "30",
+            "left": "25",
+            "right": "25"
+          },
+          "unit": "px"
+        }
+      },
+      "warnings": [
+        "Sticky columns only work on desktop by default (stickyDes: true)",
+        "Disable on mobile (stickyMob: false) to avoid viewport issues",
+        "topSpace/botSpace create offset from viewport edge when sticky",
+        "Parent row must have sufficient height for sticky effect to activate"
+      ],
+      "validationRules": {
+        "stickycol": "Must be true to enable sticky",
+        "stickyDes": "Enable on desktop (recommended)",
+        "stickyTab": "Enable on tablet (optional)",
+        "stickyMob": "Usually false - sticky columns problematic on mobile",
+        "topSpace": "Offset from top when sticky (default: 40px)",
+        "botSpace": "Offset from bottom when sticky (default: 40px)"
+      },
+      "relatedBlocks": ["tp-row"]
     },
+
     {
-      "description": "Reordered column (appears first on mobile)",
+      "name": "Centered Column with Background",
+      "description": "Column with background, border, and shadow for card-like appearance",
+      "visualDescription": "50% width, white background, light border, subtle shadow. Content centered both horizontally and vertically.",
+      "complexity": "medium",
+      "useCase": "Feature boxes, testimonial cards, call-out sections",
       "attributes": {
-        "block_id": "g7h8",
+        "block_id": "m3n4",
         "Width": {
-          "md": 50,
-          "sm": 50,
-          "xs": 100,
+          "md": "50",
+          "sm": "100",
+          "xs": "100",
           "unit": "%"
         },
-        "colOrder": {
-          "md": "2",
-          "sm": "2",
-          "xs": "1"
+        "verticalPos": {
+          "md": "center"
+        },
+        "horizontalPos": {
+          "md": "center"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "Border": {
+          "openBorder": 1,
+          "borderTop": {"width": "1", "style": "solid", "color": "#e0e0e0"},
+          "borderRight": {"width": "1", "style": "solid", "color": "#e0e0e0"},
+          "borderBottom": {"width": "1", "style": "solid", "color": "#e0e0e0"},
+          "borderLeft": {"width": "1", "style": "solid", "color": "#e0e0e0"}
+        },
+        "borderRadius": {
+          "md": {"top": "8", "right": "8", "bottom": "8", "left": "8"},
+          "unit": "px"
+        },
+        "BoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.08)"
+        },
+        "Padding": {
+          "md": {"top": "40", "bottom": "40", "left": "30", "right": "30"},
+          "sm": {"top": "30", "bottom": "30", "left": "20", "right": "20"},
+          "unit": "px"
+        },
+        "blockSpace": {
+          "md": "20",
+          "unit": "px"
         }
-      }
+      },
+      "visualTips": "Combining background, border, shadow, and borderRadius creates professional card effect",
+      "relatedBlocks": ["tp-row", "tp-icon-box"]
+    },
+
+    {
+      "name": "Column with Hover Effect",
+      "description": "Column that changes background and border on hover",
+      "visualDescription": "White background normally, purple gradient on hover. Border changes from gray to purple on hover.",
+      "complexity": "medium",
+      "useCase": "Interactive feature boxes, clickable cards, hover effects",
+      "attributes": {
+        "block_id": "o5p6",
+        "Width": {
+          "md": "33.33",
+          "sm": "50",
+          "xs": "100",
+          "unit": "%"
+        },
+        "verticalPos": {
+          "md": "flex-start"
+        },
+        "horizontalPos": {
+          "md": "center"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "HoverBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "NormalBorder": {
+          "openBorder": 1,
+          "borderTop": {"width": "2", "style": "solid", "color": "#e0e0e0"},
+          "borderRight": {"width": "2", "style": "solid", "color": "#e0e0e0"},
+          "borderBottom": {"width": "2", "style": "solid", "color": "#e0e0e0"},
+          "borderLeft": {"width": "2", "style": "solid", "color": "#e0e0e0"}
+        },
+        "HoverBorder": {
+          "openBorder": 1,
+          "borderTop": {"width": "2", "style": "solid", "color": "#667eea"},
+          "borderRight": {"width": "2", "style": "solid", "color": "#667eea"},
+          "borderBottom": {"width": "2", "style": "solid", "color": "#667eea"},
+          "borderLeft": {"width": "2", "style": "solid", "color": "#667eea"}
+        },
+        "Padding": {
+          "md": {"top": "40", "bottom": "40", "left": "30", "right": "30"},
+          "unit": "px"
+        },
+        "Transition": {
+          "md": "0.3",
+          "unit": "s"
+        }
+      },
+      "visualTips": "Smooth transitions create professional hover effect. Consider inverting text colors on hover.",
+      "relatedBlocks": ["tp-row", "tp-icon-box"]
+    },
+
+    {
+      "name": "Full-Width Single Column",
+      "description": "100% width column for full-width content sections",
+      "visualDescription": "Full width on all devices, centered content with max-width constraint",
+      "complexity": "simple",
+      "useCase": "Full-width headers, single-column content, centered CTAs",
+      "attributes": {
+        "block_id": "q7r8",
+        "Width": {
+          "md": "100",
+          "sm": "100",
+          "xs": "100",
+          "unit": "%"
+        },
+        "verticalPos": {
+          "md": "center"
+        },
+        "horizontalPos": {
+          "md": "center"
+        },
+        "blockSpace": {
+          "md": "30",
+          "sm": "20",
+          "unit": "px"
+        },
+        "Padding": {
+          "md": {"top": "60", "bottom": "60", "left": "20", "right": "20"},
+          "sm": {"top": "40", "bottom": "40", "left": "15", "right": "15"},
+          "unit": "px"
+        }
+      },
+      "layoutNotes": "Single column takes full width of parent row. Content inside can be centered with horizontalPos.",
+      "relatedBlocks": ["tp-row", "tp-heading"]
+    },
+
+    {
+      "name": "Clickable Column with Link",
+      "description": "Entire column acts as clickable link",
+      "visualDescription": "50% width column where entire area is clickable, with hover effect",
+      "complexity": "medium",
+      "useCase": "Feature boxes that link to pages, clickable cards, CTA sections",
+      "attributes": {
+        "block_id": "s9t0",
+        "Width": {
+          "md": "50",
+          "sm": "100",
+          "xs": "100",
+          "unit": "%"
+        },
+        "wrapLink": true,
+        "colUrl": {
+          "url": "https://example.com/feature",
+          "target": "_blank",
+          "nofollow": false
+        },
+        "verticalPos": {
+          "md": "center"
+        },
+        "horizontalPos": {
+          "md": "center"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f8f9fa"
+        },
+        "HoverBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#e9ecef"
+        },
+        "Padding": {
+          "md": {"top": "40", "bottom": "40", "left": "30", "right": "30"},
+          "unit": "px"
+        },
+        "Transition": {
+          "md": "0.2",
+          "unit": "s"
+        }
+      },
+      "warnings": [
+        "wrapLink: true makes entire column clickable",
+        "Provide colUrl with url, target, and nofollow properties",
+        "Add hover effects to indicate clickability"
+      ],
+      "relatedBlocks": ["tp-row", "tp-icon-box"]
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "block_id": {
+      "required": true,
+      "pattern": "^[a-f0-9]{4}(_\\d+)?$",
+      "description": "4-character hex ID, never modify"
+    },
+    "Width": {
+      "required": true,
+      "default": {"md": "50", "sm": "50", "xs": "100", "unit": "%"},
+      "description": "Column width - responsive values required for proper mobile layout",
+      "recommended": "Set md, sm, xs for all breakpoints. Typically: md=column%, sm=50%, xs=100%"
+    },
+    "verticalPos": {
+      "enum": ["flex-start", "center", "flex-end", "stretch"],
+      "default": {"md": "", "sm": "", "xs": ""},
+      "description": "Vertical alignment of content inside column"
+    },
+    "horizontalPos": {
+      "enum": ["flex-start", "center", "flex-end", "space-between", "space-around"],
+      "default": {"md": "", "sm": "", "xs": ""},
+      "description": "Horizontal alignment/justify-content of content inside column"
+    },
+    "blockSpace": {
+      "description": "Spacing between blocks inside column (margin-bottom on all blocks except last)",
+      "recommended": {"md": "20-30", "unit": "px"}
+    },
+    "stickycol": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable sticky column feature (Pro)",
+      "warning": "Requires sufficient parent row height to activate"
+    },
+    "stickyDes": {
+      "type": "boolean",
+      "default": false,
+      "condition": "Requires stickycol: true",
+      "description": "Enable sticky on desktop (recommended)"
+    },
+    "stickyTab": {
+      "type": "boolean",
+      "default": false,
+      "condition": "Requires stickycol: true",
+      "description": "Enable sticky on tablet (optional)"
+    },
+    "stickyMob": {
+      "type": "boolean",
+      "default": false,
+      "condition": "Requires stickycol: true",
+      "description": "Enable sticky on mobile (usually false)"
+    },
+    "wrapLink": {
+      "type": "boolean",
+      "default": false,
+      "description": "Make entire column clickable link",
+      "condition": "Requires colUrl to be set"
+    }
+  },
+
+  "warnings": [
+    "**CRITICAL**: Never modify or regenerate block_id - causes blocks to break",
+    "Column must be child of tp-row block - use proper nesting",
+    "Width values should add up to 100% across all columns in a row (accounting for gutterSpace)",
+    "Always set responsive Width values (md, sm, xs) for proper mobile layout",
+    "Typical responsive pattern: md=column%, sm=50% or 100%, xs=100%",
+    "Sticky columns (stickycol) should be disabled on mobile (stickyMob: false)",
+    "topSpace/botSpace only apply when stickycol is enabled",
+    "wrapLink requires colUrl to be set with url property",
+    "blockSpace adds margin-bottom to blocks inside column (except last block)",
+    "verticalPos and horizontalPos use flexbox values (flex-start, center, flex-end, etc.)",
+    "openBg: 1 is required before setting background properties",
+    "openBorder: 1 is required before setting border properties",
+    "openShadow: 1 is required before setting shadow properties"
+  ],
+
+  "commonMistakes": [
+    {
+      "mistake": "Not setting responsive Width values for mobile",
+      "fix": "Always set Width.xs: '100' for mobile full-width stacking",
+      "impact": "Columns don't stack properly on mobile"
+    },
+    {
+      "mistake": "Column widths don't add to 100%",
+      "fix": "Ensure all columns in row add to 100% (e.g., 50% + 50%, or 33.33% + 33.33% + 33.33%)",
+      "impact": "Broken layout with columns wrapping incorrectly"
+    },
+    {
+      "mistake": "Enabling sticky on mobile (stickyMob: true)",
+      "fix": "Set stickyMob: false - sticky columns consume too much viewport on mobile",
+      "impact": "Poor mobile UX with sticky sidebar taking all space"
+    },
+    {
+      "mistake": "Setting wrapLink without colUrl",
+      "fix": "Provide colUrl with url, target, nofollow when wrapLink is true",
+      "impact": "Column clickable but goes nowhere"
+    },
+    {
+      "mistake": "Forgetting gutterSpace from parent row",
+      "fix": "Remember parent row's gutterSpace is added as padding to each column",
+      "impact": "Actual column width is less than Width setting due to padding"
+    },
+    {
+      "mistake": "Not using blockSpace for vertical rhythm",
+      "fix": "Set blockSpace to create consistent spacing between blocks inside column",
+      "impact": "Blocks inside column have no spacing between them"
+    }
+  ],
+
+  "bestPractices": [
+    "Always set responsive Width for all breakpoints (md, sm, xs)",
+    "Common pattern: md=custom%, sm=50% or 100%, xs=100%",
+    "Use verticalPos: 'flex-start' for columns with varying heights",
+    "Use horizontalPos: 'center' to center content inside column",
+    "Set blockSpace for consistent vertical rhythm (20-30px recommended)",
+    "Use sticky columns sparingly - only for sidebars or persistent CTAs",
+    "Disable sticky on mobile (stickyMob: false) for better UX",
+    "Add hover effects (HoverBg, HoverBorder) for interactive columns",
+    "Use wrapLink for clickable feature boxes or card layouts",
+    "Test column layouts on all breakpoints (desktop, tablet, mobile)"
+  ],
+
+  "layoutContext": {
+    "columnHierarchy": "tp-row > tp-column > [content blocks]",
+    "widthBehavior": "Width sets column width as percentage or fixed value. Parent row's gutterSpace adds padding.",
+    "responsiveStacking": "Columns stack when total widths exceed 100% at breakpoint. Typically xs=100 for mobile stacking.",
+    "verticalAlignment": "verticalPos aligns blocks inside column vertically (flex align-items/align-content)",
+    "horizontalAlignment": "horizontalPos aligns blocks inside column horizontally (flex justify-content)",
+    "blockSpacing": "blockSpace adds margin-bottom to all blocks inside column except last",
+    "stickyBehavior": "Sticky columns stick to viewport when scrolling, with topSpace/botSpace offsets",
+    "clickableColumn": "wrapLink makes entire column act as link, useful for card layouts"
+  },
+
+  "performanceConsiderations": [
+    "Sticky columns use JavaScript for positioning - can impact scroll performance",
+    "Limit sticky columns to 1-2 per page for best performance",
+    "Hover effects with Transition create smooth animations - minimal performance impact",
+    "Complex backgrounds (gradients, images) in HoverBg can affect hover performance on slower devices"
+  ]
 }
