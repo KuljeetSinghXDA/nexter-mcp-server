@@ -2,69 +2,913 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-progress-bar",
   "title": "Progress Bar - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Visual progress indicators showing completion percentage with bars or circular pie charts",
+
   "examples": [
     {
-      "description": "Simple skill progress bar",
+      "name": "Basic Skill Progress Bar",
+      "description": "Simple horizontal progress bar with icon and percentage",
+      "visualDescription": "Small height blue progress bar with WordPress icon, '85%' displayed on right, clean minimal design",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "pb001",
         "layoutType": "progressbar",
         "styleType": "style-1",
         "heightType": "small-height",
-        "Title": "WordPress",
         "dynamicValue": "85",
+        "dispNumber": true,
+        "Title": "WordPress",
+        "subTitle": "",
+        "prepostSymbol": "%",
+        "sPosition": "afterNumber",
         "iconType": "iconIcon",
-        "IconName": "fab fa-wordpress"
-      }
+        "iconLibrary": "fontawesome",
+        "IconName": "fab fa-wordpress",
+        "imgPosition": "beforeTitle",
+        "iconColor": "#21759b",
+        "iconSize": {
+          "md": "20",
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "titleColor": "#333333",
+        "titleSpace": {
+          "md": "8",
+          "unit": "px"
+        },
+        "bgColor": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#21759b"
+        },
+        "emptyColor": "#e0e0e0",
+        "numTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontWeight": "500"
+        },
+        "numberColor": "#333333",
+        "numPrePostTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "12",
+            "unit": "px"
+          }
+        },
+        "numPrePostColor": "#666666"
+      },
+      "useCase": "Skill showcases, portfolio pages, resume/CV sites, about pages",
+      "relatedBlocks": ["tp-heading", "tp-icon-box", "tp-team-member-list"]
     },
+
     {
-      "description": "Large progress bar with subtitle",
+      "name": "Large Progress Bar with Subtitle and Gradient",
+      "description": "Full-height progress bar with separator (style-2) and gradient fill",
+      "visualDescription": "Thick progress bar with icon inside, title and subtitle stacked vertically, purple-to-pink gradient fill, triangular separator at progress end",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "pb002",
         "layoutType": "progressbar",
         "styleType": "style-2",
         "heightType": "large-height",
-        "Title": "Web Development",
-        "subTitle": "HTML, CSS, JavaScript",
         "dynamicValue": "92",
+        "dispNumber": true,
+        "Title": "Web Development",
+        "subTitle": "HTML, CSS, JavaScript, React",
+        "prepostSymbol": "%",
+        "sPosition": "afterNumber",
+        "iconType": "iconIcon",
+        "iconLibrary": "fontawesome",
+        "IconName": "fas fa-code",
+        "imgPosition": "beforeTitle",
+        "iconColor": "#ffffff",
+        "iconSize": {
+          "md": "28",
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "textTransform": "uppercase"
+        },
+        "titleColor": "#ffffff",
+        "titleSpace": {
+          "md": "12",
+          "unit": "px"
+        },
+        "subTitleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "13",
+            "unit": "px"
+          },
+          "fontWeight": "400",
+          "letterSpacing": {
+            "md": "0.5",
+            "unit": "px"
+          }
+        },
+        "subTitleColor": "rgba(255,255,255,0.9)",
         "bgColor": {
           "openBg": 1,
           "bgType": "gradient",
-          "bgGradient": "linear-gradient(90deg, #667eea 0%, #764ba2 100%)"
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 90,
+            "gradientColor": [
+              {
+                "color": "#667eea",
+                "position": 0
+              },
+              {
+                "color": "#764ba2",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "emptyColor": "#f0f0f0",
+        "sepColor": "#667eea",
+        "numTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "24",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "numberColor": "#333333",
+        "numPrePostTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "numPrePostColor": "#667eea",
+        "pbTopMargin": {
+          "md": "15",
+          "unit": "px"
         }
-      }
+      },
+      "useCase": "Professional portfolios, service showcases, team skill displays",
+      "relatedBlocks": ["tp-heading", "tp-pro-paragraph", "tp-container"]
     },
+
     {
-      "description": "Circular pie chart progress",
+      "name": "Circular Pie Chart Progress (75%)",
+      "description": "Circular progress indicator with gradient arc fill",
+      "visualDescription": "200px circle with 8px thick arc, green gradient (27ae60 to 2ecc71), 75% filled clockwise, percentage displayed in center",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "pb003",
         "layoutType": "piechart",
         "pieStyleType": "pieStyle-1",
-        "Title": "Project Completion",
+        "circleStyle": "style-1",
         "dynamicPieValue": "0.75",
+        "dispNumber": true,
+        "Title": "Project Completion",
+        "prepostSymbol": "%",
+        "sPosition": "afterNumber",
         "pieCircleSize": "200",
         "pieThickness": "8",
         "pieFillColor": "gradient",
         "pieColor1": "#27ae60",
-        "pieColor2": "#2ecc71"
-      }
+        "pieColor2": "#2ecc71",
+        "fillReverse": false,
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "titleColor": "#2c3e50",
+        "numTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "32",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "numberColor": "#27ae60",
+        "numPrePostTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "unit": "px"
+          },
+          "fontWeight": "500"
+        },
+        "numPrePostColor": "#2ecc71"
+      },
+      "useCase": "Project dashboards, completion trackers, goal progress, KPI displays",
+      "relatedBlocks": ["tp-heading", "tp-countdown", "tp-pricing-table"]
     },
+
     {
-      "description": "Progress bar with custom symbol",
+      "name": "Skills Comparison (Three Skill Bars)",
+      "description": "Multiple progress bars showcasing different skill levels",
+      "visualDescription": "Three stacked progress bars: React (90% blue), Node.js (75% green), MongoDB (65% leafgreen), each with matching icon and color scheme",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "g7h8",
-        "Title": "Customer Satisfaction",
-        "dynamicValue": "98",
-        "prepostSymbol": "pts",
+        "block_id": "pb004a",
+        "layoutType": "progressbar",
+        "styleType": "style-1",
+        "heightType": "small-height",
+        "dynamicValue": "90",
+        "dispNumber": true,
+        "Title": "React",
+        "prepostSymbol": "%",
         "sPosition": "afterNumber",
         "iconType": "iconIcon",
-        "IconName": "fas fa-star"
-      }
+        "IconName": "fab fa-react",
+        "iconColor": "#61dafb",
+        "iconSize": {
+          "md": "18",
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "15",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "titleColor": "#2c3e50",
+        "bgColor": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#61dafb"
+        },
+        "emptyColor": "#ecf0f1",
+        "numTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "numberColor": "#2c3e50"
+      },
+      "additionalVariants": [
+        {
+          "block_id": "pb004b",
+          "Title": "Node.js",
+          "dynamicValue": "75",
+          "IconName": "fab fa-node-js",
+          "iconColor": "#68a063",
+          "bgColor": {
+            "openBg": 1,
+            "bgType": "color",
+            "bgDefaultColor": "#68a063"
+          }
+        },
+        {
+          "block_id": "pb004c",
+          "Title": "MongoDB",
+          "dynamicValue": "65",
+          "IconName": "fas fa-leaf",
+          "iconColor": "#4db33d",
+          "bgColor": {
+            "openBg": 1,
+            "bgType": "color",
+            "bgDefaultColor": "#4db33d"
+          }
+        }
+      ],
+      "useCase": "Developer portfolios, skill matrices, team capability displays, technology stacks",
+      "relatedBlocks": ["tp-container", "tp-row", "tp-column"]
+    },
+
+    {
+      "name": "Image Icon Progress Bar",
+      "description": "Progress bar using custom uploaded image instead of FontAwesome icon",
+      "visualDescription": "Progress bar with company logo or custom icon image (50px) on left, brand-colored fill, rounded image corners",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "pb005",
+        "layoutType": "progressbar",
+        "styleType": "style-1",
+        "heightType": "small-height",
+        "dynamicValue": "88",
+        "dispNumber": true,
+        "Title": "Brand Recognition",
+        "subTitle": "Market Awareness Score",
+        "prepostSymbol": "%",
+        "sPosition": "afterNumber",
+        "iconType": "iconImage",
+        "imageName": {
+          "url": "https://example.com/wp-content/uploads/brand-logo.png",
+          "Id": "123"
+        },
+        "imageSize": "thumbnail",
+        "imgPosition": "beforeTitle",
+        "imgSize": {
+          "md": "50",
+          "unit": "px"
+        },
+        "imgBRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "titleColor": "#1a1a1a",
+        "titleSpace": {
+          "md": "12",
+          "unit": "px"
+        },
+        "subTitleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "12",
+            "unit": "px"
+          },
+          "fontWeight": "400"
+        },
+        "subTitleColor": "#666666",
+        "bgColor": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#e74c3c"
+        },
+        "emptyColor": "#f8f8f8",
+        "numTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "numberColor": "#e74c3c"
+      },
+      "useCase": "Brand metrics, company KPIs, custom achievement tracking, branded dashboards",
+      "relatedBlocks": ["tp-image", "tp-infobox", "tp-testimonials"]
+    },
+
+    {
+      "name": "Progress Bar with Custom Symbol (No Percent)",
+      "description": "Progress bar using custom pre/post symbol instead of percentage",
+      "visualDescription": "Star rating progress bar showing '4.8/5.0' instead of percentage, gold star icon, warm gradient fill",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "pb006",
+        "layoutType": "progressbar",
+        "styleType": "style-1",
+        "heightType": "small-height",
+        "dynamicValue": "96",
+        "dispNumber": true,
+        "Title": "Customer Satisfaction",
+        "prepostSymbol": "/5.0",
+        "sPosition": "afterNumber",
+        "iconType": "iconIcon",
+        "iconLibrary": "fontawesome",
+        "IconName": "fas fa-star",
+        "imgPosition": "beforeTitle",
+        "iconColor": "#f39c12",
+        "iconSize": {
+          "md": "20",
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "titleColor": "#2c3e50",
+        "bgColor": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 90,
+            "gradientColor": [
+              {
+                "color": "#f39c12",
+                "position": 0
+              },
+              {
+                "color": "#f1c40f",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "emptyColor": "#ecf0f1",
+        "numTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "numberColor": "#2c3e50",
+        "numPrePostTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontWeight": "500"
+        },
+        "numPrePostColor": "#7f8c8d"
+      },
+      "customNumberDisplay": "Shows '4.8' as number (96% of 5.0) with '/5.0' suffix",
+      "useCase": "Ratings, reviews, satisfaction scores, quality metrics, performance grades",
+      "relatedBlocks": ["tp-testimonials", "tp-pricing-table", "tp-icon-box"]
+    },
+
+    {
+      "name": "Reverse Fill Pie Chart",
+      "description": "Circular progress with counter-clockwise fill direction",
+      "visualDescription": "Large 250px pie chart filling counter-clockwise (fillReverse:true), red-to-orange gradient, thick 12px arc, 60% completion",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "pb007",
+        "layoutType": "piechart",
+        "pieStyleType": "pieStyle-1",
+        "circleStyle": "style-1",
+        "dynamicPieValue": "0.6",
+        "dispNumber": true,
+        "Title": "Storage Used",
+        "subTitle": "6.0 GB of 10 GB",
+        "prepostSymbol": "%",
+        "sPosition": "afterNumber",
+        "pieCircleSize": "250",
+        "pieThickness": "12",
+        "pieFillColor": "gradient",
+        "pieColor1": "#e74c3c",
+        "pieColor2": "#e67e22",
+        "fillReverse": true,
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "textTransform": "uppercase"
+        },
+        "titleColor": "#2c3e50",
+        "subTitleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontWeight": "400"
+        },
+        "subTitleColor": "#7f8c8d",
+        "numTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "36",
+            "unit": "px"
+          },
+          "fontWeight": "800"
+        },
+        "numberColor": "#e74c3c",
+        "numPrePostTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "20",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "numPrePostColor": "#e67e22"
+      },
+      "useCase": "Storage meters, capacity indicators, resource usage, quota displays",
+      "relatedBlocks": ["tp-countdown", "tp-heading", "tp-button"]
+    },
+
+    {
+      "name": "Complete Progress Bar (All Features)",
+      "description": "Full-featured progress bar with all styling options enabled",
+      "visualDescription": "Large height bar (style-2) with WordPress icon inside, bold title 'Full Stack Development', subtitle list, 95% gradient fill (blue-purple), large styled percentage, custom spacing",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "pb008",
+        "layoutType": "progressbar",
+        "styleType": "style-2",
+        "heightType": "large-height",
+        "dynamicValue": "95",
+        "dispNumber": true,
+        "Title": "Full Stack Development",
+        "subTitle": "Frontend • Backend • Database • DevOps",
+        "prepostSymbol": "%",
+        "sPosition": "afterNumber",
+        "iconType": "iconIcon",
+        "iconLibrary": "fontawesome",
+        "IconName": "fas fa-layer-group",
+        "imgPosition": "beforeTitle",
+        "iconColor": "#ffffff",
+        "iconSize": {
+          "md": "32",
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "20",
+            "unit": "px"
+          },
+          "fontWeight": "800",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "1",
+            "unit": "px"
+          }
+        },
+        "titleColor": "#ffffff",
+        "titleSpace": {
+          "md": "15",
+          "unit": "px"
+        },
+        "subTitleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontWeight": "500",
+          "letterSpacing": {
+            "md": "0.5",
+            "unit": "px"
+          }
+        },
+        "subTitleColor": "rgba(255,255,255,0.95)",
+        "bgColor": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#3498db",
+                "position": 0
+              },
+              {
+                "color": "#8e44ad",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "emptyColor": "#ecf0f1",
+        "sepColor": "#3498db",
+        "numTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "28",
+            "unit": "px"
+          },
+          "fontWeight": "800"
+        },
+        "numberColor": "#2c3e50",
+        "numPrePostTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "numPrePostColor": "#3498db",
+        "pbTopMargin": {
+          "md": "18",
+          "unit": "px"
+        }
+      },
+      "useCase": "Premium portfolios, senior developer profiles, agency showcases, executive dashboards",
+      "relatedBlocks": ["tp-heading", "tp-container", "tp-testimonials", "tp-team-member-list"]
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
+
+  "validationRules": {
+    "layoutType": "Required - 'progressbar' (horizontal bar) or 'piechart' (circular)",
+    "styleType": "For progressbar layout - 'style-1' (basic) or 'style-2' (with separator)",
+    "heightType": "For progressbar layout - 'small-height' or 'large-height'",
+    "pieStyleType": "For piechart layout - 'pieStyle-1' (default circular style)",
+    "circleStyle": "For piechart layout - 'style-1' (default)",
+    "dynamicValue": "Required for progressbar - string number 0-100 (e.g., '85' for 85%)",
+    "dynamicPieValue": "Required for piechart - string decimal 0-1 (e.g., '0.75' for 75%)",
+    "dispNumber": "Boolean - true shows percentage number, false hides it",
+    "pieCircleSize": "For piechart - string pixel value (e.g., '200' for 200px diameter)",
+    "pieThickness": "For piechart - string pixel value for arc thickness (e.g., '8' for 8px)",
+    "pieFillColor": "For piechart - 'normal' (single color) or 'gradient' (two colors)",
+    "pieColor1": "For piechart - first/only color (hex format)",
+    "pieColor2": "For piechart gradient - second color (hex format)",
+    "fillReverse": "For piechart - boolean, true fills counter-clockwise",
+    "Title": "Progress bar title/label - recommended for context",
+    "subTitle": "Optional subtitle/description for additional context",
+    "prepostSymbol": "Symbol after (or before) number - '%' default, can use '/100', 'pts', etc.",
+    "sPosition": "'afterNumber' (default) or 'beforeNumber' for symbol placement",
+    "iconType": "'iconIcon' (FontAwesome) or 'iconImage' (custom uploaded image)",
+    "iconLibrary": "When iconType='iconIcon' - 'fontawesome' (default)",
+    "IconName": "When iconType='iconIcon' - FontAwesome class (e.g., 'fas fa-code')",
+    "imageName.url": "When iconType='iconImage' - required image URL",
+    "imageSize": "When iconType='iconImage' - WordPress image size ('thumbnail', 'medium', 'large')",
+    "imgPosition": "'beforeTitle' (default) or 'afterTitle' for icon/image placement",
+    "bgColor.openBg": "Must be 1 to enable progress bar fill background",
+    "bgColor.bgType": "'color' (solid) or 'gradient' for multi-color fill",
+    "emptyColor": "Background color of unfilled portion (hex format)",
+    "sepColor": "For style-2 only - separator triangle color at progress end",
+    "titleTypo.openTypography": "Must be 1 to enable title typography settings",
+    "subTitleTypo.openTypography": "Must be 1 to enable subtitle typography settings",
+    "numTypo.openTypography": "Must be 1 to enable number typography settings",
+    "numPrePostTypo.openTypography": "Must be 1 to enable symbol typography settings"
+  },
+
+  "warnings": [
+    "dynamicValue vs dynamicPieValue: Use dynamicValue (0-100) for progressbar, dynamicPieValue (0-1) for piechart - wrong value type breaks display",
+    "layoutType determines which attributes work: progressbar uses dynamicValue/styleType/heightType, piechart uses dynamicPieValue/pieCircleSize/pieThickness",
+    "bgColor.openBg must be 1 to see fill color - forgetting this makes progress invisible",
+    "bgColor.bgType='gradient' requires full bgGradient object with gradientType, gradientAngle, gradientColor array",
+    "pieColor2 is IGNORED unless pieFillColor='gradient' - set pieFillColor first",
+    "heightType only applies to layoutType='progressbar' - ignored for piechart",
+    "styleType only applies to layoutType='progressbar' - style-2 adds separator triangle at progress end",
+    "sepColor only works with styleType='style-2' - ignored for style-1",
+    "iconType determines which icon attributes are used: 'iconIcon' uses IconName, 'iconImage' uses imageName.url",
+    "When iconType='iconImage', imageName.url is REQUIRED - empty URL shows broken image",
+    "pieCircleSize, pieThickness, pieFillColor, pieColor1/2, fillReverse only work with layoutType='piechart'",
+    "dynamicValue must be STRING '0'-'100', not number 0-100 (e.g., '85' not 85)",
+    "dynamicPieValue must be STRING '0.0'-'1.0', not number (e.g., '0.75' not 0.75)",
+    "openTypography:1 required before setting titleTypo/subTitleTypo/numTypo/numPrePostTypo - otherwise typography ignored",
+    "Large height bars (heightType='large-height') display icon, title, and subtitle inside the bar - ensure sufficient contrast with bgColor",
+    "For accessibility, ensure numberColor and titleColor have 4.5:1 contrast ratio with background"
+  ],
+
+  "commonMistakes": [
+    "Using dynamicValue for piechart or dynamicPieValue for progressbar - layouts require different value types",
+    "Forgetting openBg:1 in bgColor - progress bar fill invisible without it",
+    "Setting pieCircleSize/pieThickness on progressbar layout - these only work for piechart",
+    "Not enabling gradient: setting pieColor2 without pieFillColor='gradient' - second color ignored",
+    "Using number instead of string for dynamicValue ('85' not 85) - breaks progress calculation",
+    "Setting openTypography:0 but trying to configure fontSize/fontWeight - typography won't apply",
+    "Forgetting imageName.url when iconType='iconImage' - shows broken image placeholder",
+    "Using style-2 separator without setting sepColor - separator invisible or default color",
+    "Setting fillReverse on progressbar - only works for piechart",
+    "Not providing Title - progress bar lacks context, confusing for users",
+    "Using emptyColor too close to bgColor - progress difficult to see",
+    "Setting large iconSize on small-height bar - icon gets cut off",
+    "Copying bgGradient from other blocks without adjusting to bgColor format - gradient won't render",
+    "Using subTitle without subTitleTypo - subtitle displays but without custom styling",
+    "Forgetting to set dispNumber:true - percentage hidden when you want it visible"
+  ],
+
+  "bestPractices": [
+    "**Value Ranges:** Use 60-95% for skills to appear expert without seeming boastful; 96%+ seems unrealistic",
+    "**Color Psychology:** Use green (success, growth), blue (trust, stability), orange (creativity), red (urgency, alerts)",
+    "**Gradient Direction:** Horizontal gradients (90deg) work best for progressbar, subtle gradients for professional look",
+    "**Icon Consistency:** Use same icon library (FontAwesome) across all progress bars for visual harmony",
+    "**Typography Scale:** Title 16-18px, subtitle 12-14px, number 18-28px for balanced hierarchy",
+    "**Empty Color:** Use light neutral gray (#e0e0e0, #ecf0f1, #f8f8f8) for unfilled portion to avoid distraction",
+    "**Symbol Choice:** Use '%' for percentages, '/5.0' for ratings, 'pts' for points, '/100' for scores",
+    "**Spacing:** Add pbTopMargin (15-20px) to separate title from progress bar for breathing room",
+    "**Contrast:** Ensure text inside large-height bars contrasts with bgColor (white text on dark backgrounds)",
+    "**Number Placement:** Always display number (dispNumber:true) for clarity - progress bars without numbers lack context",
+    "**Pie Chart Size:** 200-250px diameter works well for desktop, smaller for mobile (responsive)",
+    "**Arc Thickness:** 5-8px for subtle pies, 10-15px for bold statement pies",
+    "**Grouping:** When showing multiple skills, sort by proficiency (highest to lowest) for better UX",
+    "**Layout Choice:** Use progressbar for multiple skills comparison, piechart for single completion metrics",
+    "**Style Selection:** style-1 for minimal designs, style-2 for modern/premium look with separator accent",
+    "**Height Selection:** small-height for compact skill lists (4-8 bars), large-height for featured/hero sections (1-3 bars)",
+    "**Accessibility:** Add meaningful Title for screen readers, ensure color contrast meets WCAG AA",
+    "**Animation:** Progress bars animate on scroll by default - place where users can see the fill animation",
+    "**Responsive Design:** Test on mobile - large pie charts may need smaller pieCircleSize on xs breakpoints"
+  ],
+
+  "layoutComparison": {
+    "progressbar": {
+      "description": "Horizontal bar that fills from left to right showing completion",
+      "bestFor": "Multiple skills comparison, stat displays, feature lists, progress tracking",
+      "keyAttributes": "dynamicValue (0-100), styleType (style-1/2), heightType (small/large)",
+      "visualCharacteristics": "Linear, easy to compare multiple bars, space-efficient vertically",
+      "useCases": "Developer skills (React 90%, Node 75%), product features, service ratings"
+    },
+    "piechart": {
+      "description": "Circular arc that fills clockwise (or counter-clockwise) showing completion",
+      "bestFor": "Single metric focus, completion status, goal progress, visual impact",
+      "keyAttributes": "dynamicPieValue (0-1), pieCircleSize, pieThickness, pieFillColor",
+      "visualCharacteristics": "Circular, attention-grabbing, takes more space, single focus",
+      "useCases": "Project completion (75%), storage usage (60%), goal achievement, KPIs"
     }
-  }
+  },
+
+  "styleComparison": {
+    "style-1": {
+      "layoutType": "progressbar",
+      "description": "Basic horizontal progress bar with rounded edges, no separator",
+      "bestFor": "Clean minimal designs, multiple skill bars, compact layouts",
+      "complexity": "simple"
+    },
+    "style-2": {
+      "layoutType": "progressbar",
+      "description": "Progress bar with triangular separator accent at progress end",
+      "bestFor": "Modern premium designs, featured progress bars, hero sections",
+      "complexity": "medium",
+      "requires": "sepColor attribute for separator triangle color"
+    },
+    "pieStyle-1": {
+      "layoutType": "piechart",
+      "description": "Circular arc progress with percentage displayed in center",
+      "bestFor": "Dashboard widgets, completion indicators, goal trackers",
+      "complexity": "simple"
+    }
+  },
+
+  "heightComparison": {
+    "small-height": {
+      "description": "Compact progress bar with icon and title above bar, number on right side",
+      "height": "~30-40px tall",
+      "bestFor": "Multiple skill lists (4-8 bars), sidebar widgets, compact displays",
+      "layoutPattern": "Icon + Title (above bar) → Progress Bar → Number (right side)"
+    },
+    "large-height": {
+      "description": "Tall progress bar with icon, title, and subtitle inside the filled area",
+      "height": "~80-100px tall",
+      "bestFor": "Hero sections, featured stats (1-3 bars), prominent displays",
+      "layoutPattern": "Icon + Title + Subtitle (inside bar) → Number (right side)",
+      "important": "Requires high contrast between text color and bgColor for readability"
+    }
+  },
+
+  "responsivePatterns": [
+    {
+      "pattern": "Adaptive Pie Size",
+      "description": "Smaller pie charts on mobile to fit screen width",
+      "attributes": {
+        "pieCircleSize": "200 on desktop, 150 on mobile"
+      },
+      "implementation": "Use responsive values in pieCircleSize attribute (currently not shown in examples, but supported)"
+    },
+    {
+      "pattern": "Stacked Skill Bars",
+      "description": "Vertical stack of progress bars for skill comparison",
+      "setup": "Place multiple progress bar blocks in single tp-column, add consistent spacing"
+    },
+    {
+      "pattern": "Grid Layout Pies",
+      "description": "2-3 pie charts in row using tp-row + tp-column for dashboard",
+      "setup": "Use tp-row with 2-3 tp-column children, one piechart per column"
+    }
+  ],
+
+  "accessibilityNotes": [
+    "**Meaningful Titles:** Always provide Title attribute - screen readers announce 'WordPress 85%' not just '85%'",
+    "**Color Contrast:** Ensure numberColor and titleColor have 4.5:1 ratio with background for WCAG AA",
+    "**Large-Height Contrast:** White text (#ffffff) on dark bgColor or dark text on light bgColor for in-bar text",
+    "**Symbol Context:** Use standard symbols (%) or clear alternatives (/5.0, pts) so screen readers announce correctly",
+    "**Number Display:** Always enable dispNumber:true - visual-only progress bars exclude screen reader users",
+    "**Semantic Markup:** Progress bars use semantic HTML <progress> element for accessibility",
+    "**Keyboard Navigation:** Progress bars are not interactive, no keyboard focus needed",
+    "**ARIA Labels:** Plugin automatically adds aria-label with title and percentage for screen readers",
+    "**Color Independence:** Don't rely solely on color to convey meaning - include number and title",
+    "**Animation:** Progress fill animates on scroll - ensure animation can be disabled for vestibular disorders (browser settings)"
+  ],
+
+  "performanceConsiderations": [
+    "**Animation Performance:** Progress fill animations use CSS transforms - hardware accelerated, performant",
+    "**Pie Chart SVG:** Pie charts render as SVG - lightweight and scalable at any size",
+    "**Icon Loading:** FontAwesome icons load from global library - ensure FA loaded once in header",
+    "**Image Icons:** If using iconType='iconImage', optimize images (compress, use SVG) for faster load",
+    "**Gradient Rendering:** CSS gradients are performant - no image assets needed",
+    "**Multiple Bars:** Limit to 8-10 progress bars per page section to avoid DOM bloat",
+    "**Lazy Loading:** Consider lazy loading progress bars below the fold to prioritize above-fold content",
+    "**Responsive Images:** Use responsive imageSize values (thumbnail for mobile, medium for desktop) to avoid oversized downloads",
+    "**Color Values:** Use hex (#667eea) or rgba format - avoid named colors for better browser compatibility",
+    "**Minimal Typography:** Don't enable openTypography:1 unless customizing - reduces CSS specificity overhead"
+  ],
+
+  "integrationPatterns": [
+    "**About Page Skills:** Place 4-6 small-height progress bars in tp-column for skill showcase",
+    "**Team Member Profiles:** Combine with tp-team-member-list, add 2-3 progress bars per member for expertise",
+    "**Service Pages:** Use large-height bars with gradient fills to highlight service quality metrics",
+    "**Portfolio Hero:** Feature 1-2 large pie charts showing project completion or client satisfaction",
+    "**Sidebar Widgets:** Stack 3-4 small-height bars in sidebar to show blog stats or achievements",
+    "**Pricing Tables:** Add progress bars to tp-pricing-table to show feature completeness per plan",
+    "**Dashboard Pages:** Grid of 3-4 pie charts using tp-row + tp-column for KPI overview",
+    "**Resume/CV Sites:** Multiple skill bars grouped by category (Languages, Frameworks, Tools)",
+    "**Product Pages:** Show product ratings or feature completeness with styled progress bars",
+    "**Testimonial Sections:** Add star-based progress bars (/5.0 symbol) near tp-testimonials for rating context"
+  ],
+
+  "commonPatterns": [
+    {
+      "pattern": "Developer Skill Stack",
+      "description": "4-6 stacked small-height bars showing programming language proficiency",
+      "attributes": {
+        "layoutType": "progressbar",
+        "styleType": "style-1",
+        "heightType": "small-height",
+        "iconType": "iconIcon"
+      },
+      "setup": "Use language-specific FA icons (fab fa-js, fab fa-python, fab fa-react) with matching brand colors"
+    },
+    {
+      "pattern": "Project Completion Dashboard",
+      "description": "Grid of 3 pie charts showing different project phases",
+      "attributes": {
+        "layoutType": "piechart",
+        "pieCircleSize": "200",
+        "pieThickness": "8",
+        "pieFillColor": "gradient"
+      },
+      "setup": "Place in tp-row with 3 tp-columns, one piechart per column, use green (complete), blue (in-progress), gray (pending)"
+    },
+    {
+      "pattern": "Service Quality Metrics",
+      "description": "2-3 large-height bars with gradient fills for premium service display",
+      "attributes": {
+        "styleType": "style-2",
+        "heightType": "large-height",
+        "bgColor": {
+          "bgType": "gradient"
+        }
+      },
+      "setup": "Use high values (90%+), bold titles, premium gradients (purple-pink, blue-teal)"
+    },
+    {
+      "pattern": "Rating Display (Star-Based)",
+      "description": "Single progress bar showing rating out of 5 with star icon",
+      "attributes": {
+        "IconName": "fas fa-star",
+        "prepostSymbol": "/5.0",
+        "iconColor": "#f39c12"
+      },
+      "setup": "Set dynamicValue to (rating/5)*100 (e.g., 4.8/5.0 = 96%)"
+    },
+    {
+      "pattern": "Storage/Capacity Meter",
+      "description": "Pie chart with reverse fill showing resource usage",
+      "attributes": {
+        "layoutType": "piechart",
+        "fillReverse": true,
+        "pieFillColor": "gradient",
+        "pieColor1": "#e74c3c",
+        "pieColor2": "#e67e22"
+      },
+      "setup": "Use warm colors (red-orange) for high usage warning, add subtitle with actual values"
+    },
+    {
+      "pattern": "Multi-Category Skill Matrix",
+      "description": "Grouped progress bars by skill category (Frontend, Backend, Tools)",
+      "setup": "Use tp-heading between groups, 3-4 bars per group, consistent color per category"
+    },
+    {
+      "pattern": "Team Expertise Overview",
+      "description": "Each team member photo with 2-3 skill bars showing specialties",
+      "setup": "Integrate with tp-team-member-list, small custom image icons, compact small-height bars"
+    },
+    {
+      "pattern": "Minimalist Single-Color Bars",
+      "description": "Clean monochrome progress bars for professional sites",
+      "attributes": {
+        "bgColor": {
+          "bgType": "color",
+          "bgDefaultColor": "#2c3e50"
+        },
+        "emptyColor": "#ecf0f1"
+      },
+      "setup": "Use single brand color for all bars, no icons, simple sans-serif typography"
+    }
+  ]
 }
