@@ -2,10 +2,14 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-repeater-block",
   "title": "Repeater - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Parent container for repeatable content grids, supports manual blocks or ACF repeater fields",
+
   "examples": [
     {
-      "description": "Simple 3-column grid",
+      "name": "Simple 3-Column Card Grid",
+      "description": "Basic grid with manual content blocks",
+      "visualDescription": "3-column grid on desktop, 2 on tablet, 1 on mobile, 20px gaps between cards",
+      "complexity": "simple",
       "attributes": {
         "block_id": "a1b2",
         "sourceOpt": "none",
@@ -16,16 +20,39 @@
         },
         "columnsGap": {
           "md": "20",
+          "sm": "15",
+          "xs": "10",
           "unit": "px"
         },
         "rowGap": {
           "md": "20",
+          "sm": "15",
+          "xs": "10",
           "unit": "px"
         }
-      }
+      },
+      "childBlocks": [
+        "Manually add tp-container blocks as children",
+        "Each tp-container represents one grid item (card, testimonial, etc.)",
+        "Number of child blocks determines grid items"
+      ],
+      "useCase": "Product showcases, service cards, feature grids, manual content collections",
+      "notes": [
+        "sourceOpt='none' means manual content (add child blocks in editor)",
+        "gridColumns.md='3' creates 3-column layout on desktop",
+        "gridColumns.sm='2' stacks to 2 columns on tablet",
+        "gridColumns.xs='1' stacks to 1 column on mobile",
+        "columnsGap sets horizontal spacing between grid items",
+        "rowGap sets vertical spacing between rows",
+        "Responsive gaps (md/sm/xs) reduce spacing on smaller screens"
+      ]
     },
+
     {
-      "description": "ACF repeater field display",
+      "name": "ACF Team Members Repeater (4 Columns)",
+      "description": "Display ACF repeater field data in grid layout",
+      "visualDescription": "4-column team member grid with photos, names, roles pulled from ACF repeater field, 30px gaps",
+      "complexity": "advanced",
       "attributes": {
         "block_id": "c3d4",
         "sourceOpt": "acf",
@@ -47,10 +74,31 @@
           "md": "30",
           "unit": "px"
         }
-      }
+      },
+      "childBlocks": [
+        "Add ONE template child block (e.g., tp-container)",
+        "Template repeats for each ACF repeater item",
+        "Use dynamic tags in child blocks to display ACF subfields",
+        "Example: {{acf:name}}, {{acf:role}}, {{acf:photo}}"
+      ],
+      "useCase": "Team directories, staff listings, member showcases from ACF data",
+      "notes": [
+        "sourceOpt='acf' pulls data from ACF repeater field",
+        "repField='team_members' is the ACF repeater field name",
+        "postOpt.value='123' is the post ID containing the ACF data",
+        "postOpt.label='About Page' is display label (for editor reference)",
+        "Block automatically loops through all ACF repeater items",
+        "Child template block is repeated for each ACF row",
+        "Use ACF dynamic tags in child blocks to display subfield data",
+        "If ACF field has 8 items, grid shows 8 cards automatically"
+      ]
     },
+
     {
-      "description": "Responsive testimonial grid with padding",
+      "name": "Testimonial Grid (2 Columns with Padding)",
+      "description": "2-column testimonial layout with container padding",
+      "visualDescription": "2-column grid with 40px padding around entire container, 40px gaps between testimonial cards",
+      "complexity": "medium",
       "attributes": {
         "block_id": "e5f6",
         "sourceOpt": "none",
@@ -66,18 +114,437 @@
             "left": "20",
             "right": "20"
           },
+          "sm": {
+            "top": "30",
+            "bottom": "30",
+            "left": "15",
+            "right": "15"
+          },
           "unit": "px"
         },
         "columnsGap": {
           "md": "40",
+          "sm": "20",
           "unit": "px"
         },
         "rowGap": {
           "md": "40",
+          "sm": "20",
           "unit": "px"
         }
-      }
+      },
+      "childBlocks": [
+        "tp-container with testimonial content (quote, name, company)",
+        "Each child container = one testimonial card",
+        "Add as many child blocks as needed (manually)"
+      ],
+      "useCase": "Testimonials, reviews, client quotes, customer stories",
+      "notes": [
+        "contPad adds padding inside repeater container (around all grid items)",
+        "contPad.md.top='40' adds 40px top padding on desktop",
+        "contPad.sm reduces padding on tablet (30px vs 40px)",
+        "Useful for adding breathing room around entire grid",
+        "Combine with columnsGap/rowGap for double spacing (padding + gap)",
+        "2-column layout works well for testimonials (not too wide)",
+        "Stacks to 1 column on tablet/mobile for readability"
+      ]
+    },
+
+    {
+      "name": "ACF Services Grid (3 Columns, Current Post)",
+      "description": "Display services from ACF repeater on current post",
+      "visualDescription": "3-column service grid with icons, titles, descriptions from ACF repeater field on current post",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "g7h8",
+        "sourceOpt": "acf",
+        "repField": "services",
+        "postOpt": {
+          "label": "Current Post",
+          "value": ""
+        },
+        "gridColumns": {
+          "md": "3",
+          "sm": "2",
+          "xs": "1"
+        },
+        "columnsGap": {
+          "md": "25",
+          "unit": "px"
+        },
+        "rowGap": {
+          "md": "25",
+          "unit": "px"
+        }
+      },
+      "childBlocks": [
+        "tp-container template with service icon, heading, description",
+        "Use ACF dynamic tags: {{acf:service_icon}}, {{acf:service_title}}, {{acf:service_description}}"
+      ],
+      "useCase": "Service offerings, feature lists, product features from ACF",
+      "notes": [
+        "postOpt.value='' (empty) means current post",
+        "Useful for single post templates (each post has its own services)",
+        "repField='services' must exist as ACF repeater on current post",
+        "Block automatically gets data from current post in context",
+        "Great for reusable templates across multiple posts",
+        "Each post can have different number of services (grid adapts)",
+        "If post has 0 services, grid is empty (no error)"
+      ]
+    },
+
+    {
+      "name": "Product Showcase (4 Columns, Tight Gaps)",
+      "description": "4-column product grid with minimal spacing",
+      "visualDescription": "4-column tight grid, 10px gaps, clean and compact layout for product images",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "i9j0",
+        "sourceOpt": "none",
+        "gridColumns": {
+          "md": "4",
+          "sm": "3",
+          "xs": "2"
+        },
+        "columnsGap": {
+          "md": "10",
+          "unit": "px"
+        },
+        "rowGap": {
+          "md": "10",
+          "unit": "px"
+        }
+      },
+      "childBlocks": [
+        "tp-image blocks for product photos",
+        "Or tp-container with image + title + price"
+      ],
+      "useCase": "Product grids, image galleries, portfolio showcases, logo collections",
+      "notes": [
+        "4 columns on desktop for compact, efficient use of space",
+        "xs='2' maintains 2-column grid even on mobile (for small images)",
+        "Small gaps (10px) create tight, cohesive grid",
+        "Good for uniform-sized items (product images, logos)",
+        "Increase gaps to 20-30px for more breathing room if needed",
+        "Works well with equal-sized images/cards"
+      ]
+    },
+
+    {
+      "name": "ACF FAQ Grid (2 Columns from Options Page)",
+      "description": "Display FAQs from ACF repeater on site options page",
+      "visualDescription": "2-column FAQ grid with questions and answers from global ACF options, responsive stacking",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "k1l2",
+        "sourceOpt": "acf",
+        "repField": "faq_items",
+        "postOpt": {
+          "label": "Site Options",
+          "value": "option"
+        },
+        "gridColumns": {
+          "md": "2",
+          "sm": "1",
+          "xs": "1"
+        },
+        "columnsGap": {
+          "md": "30",
+          "unit": "px"
+        },
+        "rowGap": {
+          "md": "30",
+          "unit": "px"
+        }
+      },
+      "childBlocks": [
+        "tp-accordion or tp-container template",
+        "Use ACF dynamic tags: {{acf:question}}, {{acf:answer}}"
+      ],
+      "useCase": "Site-wide FAQs, global content, shared data across pages",
+      "notes": [
+        "postOpt.value='option' pulls from ACF Options Page",
+        "Requires ACF Pro with Options Page enabled",
+        "repField='faq_items' must exist on Options Page",
+        "Same FAQs appear on all pages using this template",
+        "Great for site-wide content (FAQs, team, services)",
+        "Edit once in ACF Options, updates everywhere",
+        "Alternative: use postOpt.value='123' for specific page"
+      ]
+    },
+
+    {
+      "name": "Blog Features Grid (Single Column, Large Gaps)",
+      "description": "Vertical stacked layout with large spacing",
+      "visualDescription": "Single-column vertical layout with 60px gaps between feature blocks, magazine-style",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "m3n4",
+        "sourceOpt": "none",
+        "gridColumns": {
+          "md": "1",
+          "sm": "1",
+          "xs": "1"
+        },
+        "columnsGap": {
+          "md": "0",
+          "unit": "px"
+        },
+        "rowGap": {
+          "md": "60",
+          "sm": "40",
+          "xs": "30",
+          "unit": "px"
+        }
+      },
+      "childBlocks": [
+        "tp-container blocks with heading + paragraph + image + button",
+        "Each child = one feature section"
+      ],
+      "useCase": "Blog-style content, long-form features, vertical timelines, step-by-step guides",
+      "notes": [
+        "gridColumns='1' creates single-column vertical stack",
+        "columnsGap='0' since there's only 1 column (no horizontal gaps needed)",
+        "rowGap='60' creates generous vertical spacing",
+        "Responsive rowGap reduces spacing on smaller screens (60→40→30)",
+        "Good for narrative content, reading flow",
+        "Alternative to using multiple tp-container blocks directly",
+        "Advantage: consistent spacing controlled in one place"
+      ]
+    },
+
+    {
+      "name": "ACF Portfolio Grid (Masonry-Style with Custom Layout)",
+      "description": "3-column portfolio grid from ACF with layout template selection",
+      "visualDescription": "3-column portfolio grid with project images, titles, categories from ACF, custom layout template applied",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "o5p6",
+        "sourceOpt": "acf",
+        "repField": "portfolio_projects",
+        "postOpt": {
+          "label": "Portfolio Page",
+          "value": "456"
+        },
+        "gridColumns": {
+          "md": "3",
+          "sm": "2",
+          "xs": "1"
+        },
+        "columnsGap": {
+          "md": "20",
+          "unit": "px"
+        },
+        "rowGap": {
+          "md": "20",
+          "unit": "px"
+        },
+        "selectedLayout": "portfolio-card-layout",
+        "contPad": {
+          "md": {
+            "top": "0",
+            "bottom": "0",
+            "left": "0",
+            "right": "0"
+          },
+          "unit": "px"
+        }
+      },
+      "childBlocks": [
+        "tp-container template with project image, title, category, link",
+        "Use ACF subfields: {{acf:project_image}}, {{acf:project_title}}, {{acf:project_category}}, {{acf:project_url}}"
+      ],
+      "useCase": "Portfolio showcases, project galleries, case study grids, work samples",
+      "notes": [
+        "selectedLayout='portfolio-card-layout' applies saved layout template",
+        "Layout templates can be predefined in theme/plugin",
+        "repField='portfolio_projects' is ACF repeater with project data",
+        "postOpt.value='456' gets data from specific portfolio page",
+        "Each ACF row = one portfolio item in grid",
+        "ACF subfields might include: image, title, category, description, link",
+        "Grid auto-adjusts based on number of portfolio items",
+        "contPad set to 0 for edge-to-edge grid (no container padding)"
+      ]
     }
   ],
-  "commonPatterns": {}
+
+  "commonPatterns": {
+    "sourceOptGuide": {
+      "none": "Manual content - add child blocks directly in editor (static content)",
+      "acf": "ACF Repeater - pull data from ACF repeater field (dynamic content)"
+    },
+    "gridColumnsGuide": {
+      "recommended": {
+        "cards": "3-4 columns on desktop, 2 on tablet, 1 on mobile",
+        "testimonials": "2-3 columns on desktop, 1-2 on tablet, 1 on mobile",
+        "images": "4-6 columns on desktop, 3-4 on tablet, 2 on mobile",
+        "features": "2-3 columns on desktop, 1-2 on tablet, 1 on mobile",
+        "vertical": "1 column on all devices (stacked layout)"
+      }
+    },
+    "acfSetupGuide": {
+      "step1": "Create ACF Repeater field (e.g., 'team_members')",
+      "step2": "Add subfields (e.g., name, role, photo, bio)",
+      "step3": "Set repField='team_members' in repeater block",
+      "step4": "Set postOpt.value to post ID (or 'option' for Options Page, '' for current post)",
+      "step5": "Add ONE child template block (represents one repeater item)",
+      "step6": "Use ACF dynamic tags in child blocks: {{acf:name}}, {{acf:role}}, etc.",
+      "step7": "Template automatically repeats for all ACF rows"
+    },
+    "postOptGuide": {
+      "specificPost": {"value": "123", "label": "About Page"},
+      "currentPost": {"value": "", "label": "Current Post"},
+      "optionsPage": {"value": "option", "label": "Site Options"}
+    },
+    "gapRecommendations": {
+      "tight": "10px - compact grids, image galleries, logo grids",
+      "standard": "20-30px - most content grids, cards, testimonials",
+      "generous": "40-60px - spacious layouts, featured content, hero sections",
+      "minimal": "0-5px - seamless grids, no visual separation"
+    },
+    "contextProvided": {
+      "tpgb/dynamicRepField": "Provides ACF repeater field name to child blocks",
+      "tpgb/dynamicPost": "Provides post ID context to child blocks",
+      "usage": "Child blocks can access ACF data via these context values"
+    }
+  },
+
+  "validationRules": {
+    "block_id": "Required, unique 4-character hex identifier",
+    "sourceOpt": "Required, must be 'none' or 'acf'",
+    "repField": "Required when sourceOpt='acf', must be valid ACF repeater field name",
+    "postOpt.value": "Required when sourceOpt='acf', post ID (number), 'option', or '' (current post)",
+    "postOpt.label": "Optional, display label for editor (any string)",
+    "gridColumns.md": "Required, number 1-12 (recommended 1-6)",
+    "gridColumns.sm": "Optional, number 1-12 (typically 1-4)",
+    "gridColumns.xs": "Optional, number 1-12 (typically 1-2)",
+    "columnsGap": "Optional, responsive object with md/sm/xs + unit",
+    "rowGap": "Optional, responsive object with md/sm/xs + unit",
+    "contPad": "Optional, responsive padding object with top/right/bottom/left + unit",
+    "selectedLayout": "Optional, string (layout template ID)"
+  },
+
+  "warnings": [
+    "CRITICAL: sourceOpt='acf' requires repField and postOpt to be set (block won't display data without them)",
+    "CRITICAL: repField must match exact ACF repeater field name (case-sensitive)",
+    "When sourceOpt='acf', add only ONE child template block (not multiple - it auto-repeats)",
+    "When sourceOpt='none', add multiple child blocks manually (one per grid item)",
+    "postOpt.value must be valid post ID, 'option', or '' - invalid ID shows no data",
+    "ACF repeater field must exist on specified post (check field location rules)",
+    "Child blocks in ACF mode must use ACF dynamic tags ({{acf:fieldname}}) to display data",
+    "Empty ACF repeater (0 rows) shows empty grid (no error, no content)",
+    "gridColumns > 6 may create very narrow columns on desktop (test responsiveness)",
+    "Large rowGap (> 80px) may create excessive white space (test visual hierarchy)",
+    "contPad adds padding around entire grid (not per-item) - may conflict with page padding",
+    "selectedLayout requires predefined layout template (may not work if template doesn't exist)",
+    "Don't use repeater block for single item (use tp-container directly instead)",
+    "ACF Pro required for sourceOpt='acf' functionality",
+    "Options Page (postOpt.value='option') requires ACF Pro with Options Page enabled"
+  ],
+
+  "commonMistakes": [
+    "Setting sourceOpt='acf' but not providing repField (no data displays)",
+    "Using wrong ACF field name in repField (typo, case mismatch)",
+    "Adding multiple child blocks when sourceOpt='acf' (only need ONE template)",
+    "Forgetting to use ACF dynamic tags in child blocks (shows placeholder text, not data)",
+    "Setting postOpt.value to invalid post ID (no data found)",
+    "Using postOpt.value='option' without ACF Options Page enabled (error)",
+    "Not setting responsive gridColumns (only md, missing sm/xs breakpoints)",
+    "Using same gaps for all breakpoints (50px gap looks huge on mobile)",
+    "Setting contPad on page and repeater (double padding, excessive spacing)",
+    "Using gridColumns='5' or '7' (awkward layouts, prefer 2/3/4/6 for cleaner grids)",
+    "Forgetting that ACF repeater loops automatically (expecting to add items in editor)",
+    "Using sourceOpt='none' when data should be dynamic (defeats purpose of ACF)",
+    "Not testing with 0 ACF items (empty state, broken layouts)",
+    "Using repeater for 1-2 items (overkill, use regular blocks instead)",
+    "Mixing manual blocks with ACF mode (doesn't work, choose one approach)"
+  ],
+
+  "bestPractices": [
+    "Use sourceOpt='acf' for dynamic, database-driven content (team, services, FAQs)",
+    "Use sourceOpt='none' for static, curated content (specific features, hand-picked items)",
+    "Set all responsive breakpoints (md/sm/xs) for gridColumns and gaps",
+    "Reduce gaps on smaller screens (e.g., 30px desktop → 20px tablet → 10px mobile)",
+    "For ACF mode, use descriptive repField names (team_members, not tm or members1)",
+    "Set postOpt.label to human-readable name ('About Page', not 'Post 123')",
+    "Test with 0, 1, 3, and 12+ ACF items (ensure grid looks good at all counts)",
+    "Use contPad sparingly (only when grid needs internal spacing)",
+    "Prefer 2-4 columns for most content (6+ columns too narrow on desktop)",
+    "Use 1-2 columns on mobile for readability (3+ too cramped)",
+    "For image grids, use uniform image sizes/ratios (prevents layout shifts)",
+    "Document ACF subfield names in template (helps maintainability)",
+    "Use postOpt.value='' for reusable templates (works on any post)",
+    "Use postOpt.value='option' for site-wide data (global team, FAQs)",
+    "Keep child template blocks simple (complex templates hard to maintain)",
+    "Add fallback content in child blocks (in case ACF data missing)",
+    "Test ACF mode in editor and frontend (preview may differ)",
+    "Use selectedLayout only if you have predefined templates (optional feature)",
+    "Combine with ACF conditional logic for advanced filtering"
+  ],
+
+  "accessibilityNotes": [
+    "Ensure grid has semantic structure (use proper headings in child blocks)",
+    "Don't rely solely on visual grid for content organization (screen readers read linearly)",
+    "Provide descriptive alt text for images in child blocks",
+    "Ensure keyboard navigation works for interactive child elements",
+    "Test with screen reader (grid items should announce in logical order)",
+    "Use ARIA landmarks if grid represents distinct page sections",
+    "Ensure sufficient color contrast in child block content (WCAG 2.1 AA)",
+    "Don't use grid gaps as only visual separator (add borders/backgrounds if needed)",
+    "Test focus indicators on keyboard navigation",
+    "Ensure touch targets in child blocks are at least 44x44px on mobile",
+    "Provide skip links if grid is very long (helps keyboard users)"
+  ],
+
+  "performanceConsiderations": [
+    "ACF mode: Large repeaters (50+ items) may slow page load (consider pagination)",
+    "Lazy load images in child blocks (especially in ACF mode with many items)",
+    "Limit grid to 20-30 items max (use pagination or load more for larger datasets)",
+    "Optimize ACF queries (select only needed subfields, avoid unnecessary data)",
+    "Test with max expected items (if ACF could have 100 items, test with 100)",
+    "Avoid complex child templates in ACF mode (keep templates lightweight)",
+    "Use CSS grid (native browser support, performant)",
+    "Minimize JavaScript in child blocks (grid already adds overhead)",
+    "Consider virtual scrolling for very large grids (100+ items)",
+    "Test on mobile networks (ACF data fetching can be slow on 3G)"
+  ],
+
+  "acfIntegrationGuide": {
+    "requiredPlugin": "Advanced Custom Fields (ACF) or ACF Pro",
+    "setupSteps": [
+      "1. Install ACF/ACF Pro plugin",
+      "2. Create Field Group (e.g., 'Team Members')",
+      "3. Add Repeater Field (e.g., field name: 'team_members')",
+      "4. Add Subfields (e.g., name [text], role [text], photo [image], bio [textarea])",
+      "5. Set Location Rules (show on specific post types/pages)",
+      "6. Publish Field Group",
+      "7. Edit target post/page, fill in repeater data",
+      "8. In repeater block: set sourceOpt='acf', repField='team_members', postOpt.value=[post ID]",
+      "9. Add child template block, use {{acf:name}}, {{acf:role}}, etc.",
+      "10. Save and preview"
+    ],
+    "dynamicTagFormat": "{{acf:subfield_name}} - replace 'subfield_name' with actual ACF subfield",
+    "commonSubfields": {
+      "text": "{{acf:title}}, {{acf:name}}, {{acf:description}}",
+      "image": "{{acf:photo}}, {{acf:logo}}, {{acf:thumbnail}}",
+      "url": "{{acf:website}}, {{acf:link}}, {{acf:linkedin_url}}",
+      "wysiwyg": "{{acf:bio}}, {{acf:content}}, {{acf:full_description}}"
+    },
+    "troubleshooting": [
+      "No data showing? Check repField name matches ACF field exactly",
+      "Wrong post data? Verify postOpt.value is correct post ID",
+      "Subfield not displaying? Ensure dynamic tag syntax is correct: {{acf:fieldname}}",
+      "Empty grid? ACF repeater may have 0 rows on that post",
+      "Permission error? Check ACF field location rules include target post type"
+    ]
+  },
+
+  "relatedBlocks": [
+    "tpgb/tp-container - Common child block for grid items",
+    "tpgb/tp-heading - Child block for titles",
+    "tpgb/tp-image - Child block for images",
+    "tpgb/tp-pro-paragraph - Child block for descriptions",
+    "tpgb/tp-button - Child block for CTAs",
+    "tpgb/tp-accordion - Can be child block for FAQ grids"
+  ]
 }
