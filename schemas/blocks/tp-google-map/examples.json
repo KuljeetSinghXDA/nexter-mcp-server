@@ -2,10 +2,14 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-google-map",
   "title": "Google Map - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Embed Google Maps with single or multiple locations, custom pins, styled maps, overlay content. Perfect for contact pages, store locators, event venues.",
+
   "examples": [
     {
-      "description": "Simple single location map with custom pin",
+      "name": "Single Location (Business/Office)",
+      "description": "Simple map showing one business location with custom pin and default controls",
+      "visualDescription": "400px height roadmap centered on business location (New York), custom pin icon, zoom level 14, all standard controls enabled (zoom, street view, etc.)",
+      "complexity": "simple",
       "attributes": {
         "block_id": "a1b2",
         "locationPoint": [
@@ -13,22 +17,49 @@
             "_key": "0",
             "latitude": "40.7580",
             "longitude": "-73.9855",
+            "address": "Times Square, New York, NY",
             "latOrAddr": "latitude",
             "pinIcon": {
-              "url": "/custom-pin.png"
-            }
+              "url": "https://example.com/custom-pin.png",
+              "id": "101"
+            },
+            "pinIconSize": "thumbnail"
           }
         ],
         "mapHeight": {
-          "md": 400,
+          "md": "400",
+          "sm": "350",
+          "xs": "300",
           "unit": "px"
         },
         "Zoom": "14",
-        "gmapType": "roadmap"
-      }
+        "gmapType": "roadmap",
+        "scrollWheel": true,
+        "panCtrl": true,
+        "Draggable": true,
+        "zoomCtrl": true,
+        "mapTypeCtrl": true,
+        "scaleCtrl": true,
+        "fullScreenCtrl": true,
+        "streetViewCtrl": true
+      },
+      "useCase": "Contact pages, office location, single business address, about pages",
+      "notes": [
+        "latitude/longitude provides precise location (40.7580, -73.9855 = Times Square NYC)",
+        "latOrAddr='latitude' means use lat/long coordinates (not address geocoding)",
+        "Zoom: 1=world, 5=continent, 10=city, 15=streets, 20=buildings (14 is good for business)",
+        "gmapType='roadmap' is standard street map view",
+        "Custom pinIcon replaces default red Google marker (thumbnail = 150x150px)",
+        "All control toggles set to true (user can zoom, pan, switch views, etc.)",
+        "Responsive mapHeight: 400px desktop, 350px tablet, 300px mobile"
+      ]
     },
+
     {
-      "description": "Multiple store locations with overlay content",
+      "name": "Multiple Locations (Store Locator)",
+      "description": "Map showing 3 store locations across USA with default pins",
+      "visualDescription": "500px height map showing 3 cities (LA, NYC, Chicago), zoomed out to show all locations (zoom 4), standard red pins, no custom styling",
+      "complexity": "medium",
       "attributes": {
         "block_id": "c3d4",
         "locationPoint": [
@@ -36,65 +67,541 @@
             "_key": "0",
             "latitude": "34.0522",
             "longitude": "-118.2437",
-            "latOrAddr": "latitude"
+            "address": "Los Angeles Store",
+            "latOrAddr": "latitude",
+            "pinIcon": {
+              "url": ""
+            }
           },
           {
             "_key": "1",
             "latitude": "40.7128",
             "longitude": "-74.0060",
-            "latOrAddr": "latitude"
+            "address": "New York Store",
+            "latOrAddr": "latitude",
+            "pinIcon": {
+              "url": ""
+            }
           },
           {
             "_key": "2",
             "latitude": "41.8781",
             "longitude": "-87.6298",
-            "latOrAddr": "latitude"
+            "address": "Chicago Store",
+            "latOrAddr": "latitude",
+            "pinIcon": {
+              "url": ""
+            }
           }
         ],
         "mapHeight": {
-          "md": 500,
+          "md": "500",
           "unit": "px"
         },
         "Zoom": "4",
-        "contentTgl": true,
-        "title": "Our Locations",
-        "description": "Visit any of our 3 locations nationwide",
-        "titleColor": "#2c3e50",
-        "contentBG": {
-          "openBg": 1,
-          "bgType": "color",
-          "bgDefaultColor": "rgba(255,255,255,0.9)"
-        }
-      }
+        "gmapType": "roadmap"
+      },
+      "useCase": "Store locators, multi-location businesses, branch maps, franchise locations, service areas",
+      "notes": [
+        "Multiple locationPoint items create multiple pins on same map",
+        "_key must be unique for each location (0, 1, 2...)",
+        "Zoom=4 shows entire USA (good for nationwide locations)",
+        "Empty pinIcon.url uses default Google red marker",
+        "address field is for reference only when latOrAddr='latitude' (coordinates used for positioning)",
+        "Map auto-centers to show all pins when multiple locations present",
+        "Add more locations by adding items to locationPoint array"
+      ]
     },
+
     {
-      "description": "Custom styled satellite map",
+      "name": "Address-Based Geocoding (No Coordinates)",
+      "description": "Map location using street address instead of latitude/longitude",
+      "visualDescription": "350px height map showing Google HQ in Mountain View CA, located via address geocoding, standard controls",
+      "complexity": "simple",
       "attributes": {
         "block_id": "e5f6",
-        "gmapType": "satellite",
-        "customStyleTgl": true,
-        "customStyle": "style-3",
-        "streetViewCtrl": false,
-        "Zoom": "18"
-      }
+        "locationPoint": [
+          {
+            "_key": "0",
+            "latOrAddr": "address",
+            "addr": "1600 Amphitheatre Parkway, Mountain View, CA 94043",
+            "latitude": "",
+            "longitude": "",
+            "pinIcon": {
+              "url": ""
+            }
+          }
+        ],
+        "mapHeight": {
+          "md": "350",
+          "unit": "px"
+        },
+        "Zoom": "15",
+        "gmapType": "roadmap"
+      },
+      "useCase": "When you only have street address (no coordinates), event venues, contact pages, address-based locations",
+      "notes": [
+        "CRITICAL: latOrAddr='address' switches from coordinates to geocoding",
+        "addr field contains full street address for geocoding",
+        "Google Maps API converts address to lat/long automatically (requires API key)",
+        "latitude and longitude fields can be empty when using address mode",
+        "Address should be specific: street number, street name, city, state, zip",
+        "Geocoding may fail for vague addresses ('downtown' won't work, '123 Main St, City, State' will)",
+        "Zoom=15 good for street-level view of specific address"
+      ]
     },
+
     {
-      "description": "Address-based location (geocoding)",
+      "name": "Custom Styled Map (Monochrome)",
+      "description": "Grayscale styled map with custom appearance (no standard colors)",
+      "visualDescription": "Monochrome black and white map, custom style-3 applied, satellite view toggle disabled, artistic appearance for modern design",
+      "complexity": "medium",
       "attributes": {
         "block_id": "g7h8",
         "locationPoint": [
           {
             "_key": "0",
-            "latOrAddr": "address",
-            "addr": "1600 Amphitheatre Parkway, Mountain View, CA"
+            "latitude": "51.5074",
+            "longitude": "-0.1278",
+            "address": "London, UK",
+            "latOrAddr": "latitude",
+            "pinIcon": {
+              "url": ""
+            }
           }
         ],
         "mapHeight": {
-          "md": 350,
+          "md": "450",
           "unit": "px"
-        }
-      }
+        },
+        "Zoom": "12",
+        "gmapType": "roadmap",
+        "customStyleTgl": true,
+        "customStyle": "style-3",
+        "mapTypeCtrl": false,
+        "streetViewCtrl": false
+      },
+      "useCase": "Modern minimalist designs, branded maps, artistic presentations, portfolio sites",
+      "notes": [
+        "customStyleTgl=true enables predefined custom map styling",
+        "customStyle options: 'style-1', 'style-2', 'style-3', etc. (check plugin for available styles)",
+        "Custom styles change colors, labels, road appearance (e.g., monochrome, retro, night mode)",
+        "mapTypeCtrl=false hides map type switcher (user can't change to satellite)",
+        "streetViewCtrl=false hides street view pegman icon",
+        "Disabling controls creates cleaner appearance for design-focused sites",
+        "Custom styles override gmapType colors but roadmap/satellite structure remains"
+      ]
+    },
+
+    {
+      "name": "Overlay Content (Info Box)",
+      "description": "Map with toggleable overlay info box showing title and description",
+      "visualDescription": "Map with white semi-transparent overlay box in corner, 'Our Locations' title in dark gray, description text, toggle switch to show/hide content",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "i9j0",
+        "locationPoint": [
+          {
+            "_key": "0",
+            "latitude": "48.8566",
+            "longitude": "2.3522",
+            "address": "Paris, France",
+            "latOrAddr": "latitude",
+            "pinIcon": {
+              "url": ""
+            }
+          }
+        ],
+        "mapHeight": {
+          "md": "400",
+          "unit": "px"
+        },
+        "Zoom": "13",
+        "contentTgl": true,
+        "title": "Visit Our Paris Office",
+        "description": "Located in the heart of the city. Open Monday-Friday, 9AM-6PM. Free parking available.",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "24",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "titleColor": "#2c3e50",
+        "descTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          }
+        },
+        "descColor": "#7f8c8d",
+        "contentBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(255, 255, 255, 0.95)"
+        },
+        "toggleColor": "rgba(0, 0, 0, 0.4)",
+        "tglActiveClr": "#667eea"
+      },
+      "useCase": "Contact pages with additional info, event venues with details, business hours display, location instructions",
+      "notes": [
+        "contentTgl=true enables overlay content box on map",
+        "title and description appear in overlay box (supports HTML)",
+        "contentBG with rgba(255,255,255,0.95) creates semi-transparent white background",
+        "titleTypo and descTypo control text styling (font size, weight, etc.)",
+        "titleColor and descColor set text colors",
+        "toggleColor and tglActiveClr style the toggle switch (show/hide content)",
+        "Overlay box is toggleable (user can show/hide with switch icon)",
+        "Keep description concise (2-3 sentences max for readability in overlay)"
+      ]
+    },
+
+    {
+      "name": "Satellite View (Aerial Photography)",
+      "description": "Satellite imagery map with aerial photos instead of drawn map",
+      "visualDescription": "Satellite photo view showing aerial imagery of Grand Canyon, zoom 18 for close-up detail, hybrid labels optional",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "k1l2",
+        "locationPoint": [
+          {
+            "_key": "0",
+            "latitude": "36.0544",
+            "longitude": "-112.1401",
+            "address": "Grand Canyon, AZ",
+            "latOrAddr": "latitude",
+            "pinIcon": {
+              "url": ""
+            }
+          }
+        ],
+        "mapHeight": {
+          "md": "500",
+          "unit": "px"
+        },
+        "Zoom": "18",
+        "gmapType": "satellite"
+      },
+      "useCase": "Property showcases, real estate, outdoor venues, geographic features, aerial views",
+      "notes": [
+        "gmapType='satellite' shows aerial photography instead of drawn roads",
+        "gmapType options: 'roadmap' (default), 'satellite' (aerial photos), 'hybrid' (satellite + labels), 'terrain' (topographic)",
+        "Zoom=18 provides very close aerial view (good for property details)",
+        "Satellite view best for showcasing buildings, landscapes, property boundaries",
+        "Hybrid combines satellite imagery with road/label overlays",
+        "Not all areas have high-resolution satellite imagery (zoom out if pixelated)"
+      ]
+    },
+
+    {
+      "name": "Terrain View (Topographic)",
+      "description": "Terrain map showing elevation and topographic features",
+      "visualDescription": "Terrain map of Rocky Mountains showing elevation shading, mountain ranges, valleys, topographic relief",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "m3n4",
+        "locationPoint": [
+          {
+            "_key": "0",
+            "latitude": "39.7392",
+            "longitude": "-104.9903",
+            "address": "Denver, CO",
+            "latOrAddr": "latitude",
+            "pinIcon": {
+              "url": ""
+            }
+          }
+        ],
+        "mapHeight": {
+          "md": "450",
+          "unit": "px"
+        },
+        "Zoom": "8",
+        "gmapType": "terrain"
+      },
+      "useCase": "Outdoor events, hiking trails, geographic education, mountainous regions, topographic references",
+      "notes": [
+        "gmapType='terrain' shows elevation and landforms (mountains, valleys)",
+        "Terrain view uses shading to indicate elevation changes",
+        "Best for mountainous or hilly regions (flat areas show little terrain detail)",
+        "Zoom 6-10 good for regional terrain overview",
+        "Combine with lower zoom to show larger geographic context"
+      ]
+    },
+
+    {
+      "name": "Minimal Map (Controls Disabled)",
+      "description": "Static-looking map with most user controls disabled for clean presentation",
+      "visualDescription": "Clean map with no scroll zoom, no street view, no drag, minimal UI, just displays location without interaction clutter",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "o5p6",
+        "locationPoint": [
+          {
+            "_key": "0",
+            "latitude": "37.7749",
+            "longitude": "-122.4194",
+            "address": "San Francisco, CA",
+            "latOrAddr": "latitude",
+            "pinIcon": {
+              "url": ""
+            }
+          }
+        ],
+        "mapHeight": {
+          "md": "300",
+          "unit": "px"
+        },
+        "Zoom": "13",
+        "scrollWheel": false,
+        "panCtrl": false,
+        "Draggable": false,
+        "zoomCtrl": true,
+        "mapTypeCtrl": false,
+        "scaleCtrl": false,
+        "fullScreenCtrl": false,
+        "streetViewCtrl": false
+      },
+      "useCase": "Simple location display, minimal designs, when interaction not needed, print-friendly maps",
+      "notes": [
+        "scrollWheel=false prevents accidental zoom on page scroll",
+        "Draggable=false prevents map panning (static position)",
+        "panCtrl=false hides pan control arrows",
+        "mapTypeCtrl=false hides map/satellite switcher",
+        "scaleCtrl=false hides scale bar",
+        "fullScreenCtrl=false hides fullscreen button",
+        "streetViewCtrl=false hides pegman icon",
+        "zoomCtrl=true kept enabled for basic zoom in/out",
+        "Use when map is for reference only (not interactive exploration)",
+        "Prevents user frustration from accidentally interacting with map while scrolling page"
+      ]
     }
   ],
-  "commonPatterns": {}
+
+  "commonPatterns": {
+    "locationModes": {
+      "coordinates": {
+        "description": "Use latitude/longitude for precise positioning",
+        "attributes": {
+          "latOrAddr": "latitude",
+          "latitude": "40.7580",
+          "longitude": "-73.9855"
+        },
+        "bestFor": "Precise locations, known coordinates, multiple pins, performance (no geocoding API call)",
+        "notes": "Fastest method, no dependency on geocoding API"
+      },
+      "address": {
+        "description": "Use street address for geocoding (Google converts to coordinates)",
+        "attributes": {
+          "latOrAddr": "address",
+          "addr": "1600 Amphitheatre Parkway, Mountain View, CA 94043",
+          "latitude": "",
+          "longitude": ""
+        },
+        "bestFor": "When only street address available, user-friendly address display",
+        "notes": "Requires Google Geocoding API, may have daily quota limits, address must be specific"
+      }
+    },
+    "mapTypes": {
+      "roadmap": "Standard street map with roads and labels (default)",
+      "satellite": "Aerial photography without labels",
+      "hybrid": "Satellite imagery with road/label overlays",
+      "terrain": "Topographic view showing elevation and landforms"
+    },
+    "zoomLevels": {
+      "world": "1-3: Entire continents visible",
+      "continent": "4-6: Country/region level",
+      "city": "10-12: City-wide view",
+      "streets": "13-17: Street-level detail",
+      "buildings": "18-21: Individual buildings, very close"
+    },
+    "controlToggles": {
+      "scrollWheel": "Mouse wheel zoom (true=enabled, false=prevents accidental zoom on page scroll)",
+      "panCtrl": "Pan control arrows (true=show, false=hide)",
+      "Draggable": "Click-and-drag map panning (true=enabled, false=static)",
+      "zoomCtrl": "Zoom +/- buttons (true=show, false=hide)",
+      "mapTypeCtrl": "Map/Satellite switcher (true=show, false=hide)",
+      "scaleCtrl": "Scale bar (true=show, false=hide)",
+      "fullScreenCtrl": "Fullscreen button (true=show, false=hide)",
+      "streetViewCtrl": "Pegman street view icon (true=show, false=hide)"
+    },
+    "customStyling": {
+      "description": "Apply predefined map color schemes",
+      "attributes": {
+        "customStyleTgl": true,
+        "customStyle": "style-1"
+      },
+      "availableStyles": "style-1, style-2, style-3, etc. (check plugin documentation for specific style previews)",
+      "notes": "Custom styles change map colors, labels, road appearance for branded/artistic looks"
+    },
+    "overlayContent": {
+      "description": "Add toggleable info box on map",
+      "attributes": {
+        "contentTgl": true,
+        "title": "Location Title",
+        "description": "Additional info here",
+        "contentBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(255,255,255,0.9)"
+        }
+      },
+      "bestFor": "Contact pages, location details, business hours, directions",
+      "notes": "Semi-transparent background (rgba) allows map to show through"
+    }
+  },
+
+  "validationRules": {
+    "locationPoint": "Required, array with at least 1 location, each item needs _key",
+    "_key": "Required for each locationPoint item, must be unique, use sequential: '0', '1', '2'...",
+    "latOrAddr": "Required, must be 'latitude' or 'address'",
+    "latitude": "Required when latOrAddr='latitude', decimal degrees format (e.g., 40.7580)",
+    "longitude": "Required when latOrAddr='latitude', decimal degrees format (e.g., -73.9855)",
+    "addr": "Required when latOrAddr='address', full street address with city, state, zip",
+    "pinIcon": "Optional, object with {url, id}, url empty uses default Google marker",
+    "pinIconSize": "Optional, WordPress image size ('thumbnail', 'medium', 'large', 'full')",
+    "mapHeight": "Required, responsive object {md, sm, xs, unit}, min 200px recommended",
+    "Zoom": "Required, number 1-21 (decimal allowed like 8.5), higher = closer",
+    "gmapType": "Required, must be 'roadmap', 'satellite', 'hybrid', or 'terrain'",
+    "customStyle": "Required when customStyleTgl=true, options vary by plugin (style-1, style-2...)",
+    "contentTgl": "Boolean, if true requires title or description",
+    "Google Maps API Key": "CRITICAL: Block requires valid Google Maps JavaScript API key configured in WordPress settings"
+  },
+
+  "warnings": [
+    "CRITICAL: Requires Google Maps JavaScript API key (configure in WordPress admin or plugin settings)",
+    "CRITICAL: Google Maps API has usage quotas and billing (may incur costs for high traffic)",
+    "CRITICAL: latOrAddr='address' requires Geocoding API enabled (separate from Maps API)",
+    "Don't use vague addresses with geocoding ('downtown' won't work, use full street address)",
+    "Don't forget unique _key for each locationPoint item (duplicates cause rendering issues)",
+    "Zoom too high (20+) may show no imagery (zoom out if map appears blank)",
+    "Satellite imagery quality varies by region (urban areas better than rural)",
+    "Custom styles may not be compatible with all gmapType values (test combinations)",
+    "scrollWheel=true can cause page scroll frustration (users accidentally zoom map while scrolling page)",
+    "Multiple locations with high zoom may only show one pin (map can't fit all - lower zoom or use bounds)",
+    "Geocoding (latOrAddr='address') is slower than coordinates (API lookup required)",
+    "Geocoding may fail for new addresses, international formats, or ambiguous locations",
+    "pinIcon with large image slows page load (use optimized 100x100px PNG/WebP)",
+    "Overlay content (contentTgl=true) may cover map on mobile (keep description short)",
+    "Disabling all controls (Draggable=false, zoomCtrl=false, etc.) makes map unusable for exploration"
+  ],
+
+  "commonMistakes": [
+    "Forgetting to configure Google Maps API key (map shows 'For development purposes only' watermark or doesn't load)",
+    "Using latOrAddr='latitude' without providing latitude/longitude values",
+    "Using latOrAddr='address' without Geocoding API enabled (map doesn't center correctly)",
+    "Providing incomplete addresses ('123 Main St' without city/state - geocoding fails)",
+    "Using duplicate _key values in locationPoint array (causes pin conflicts)",
+    "Setting Zoom too high (21) for rural areas (satellite imagery may be blank)",
+    "Setting Zoom too low (1-3) for single location (map too zoomed out to see pin)",
+    "Enabling customStyleTgl without setting customStyle value (no style applied)",
+    "Setting contentTgl=true without providing title or description (empty overlay box)",
+    "Not optimizing pinIcon images (large images slow page load)",
+    "Forgetting to set mapHeight (map collapses to 0 height)",
+    "Using scrollWheel=true on pages with lots of scrolling (users accidentally zoom map)",
+    "Mixing latitude/longitude with addr field when latOrAddr='latitude' (addr ignored, confusion)",
+    "Not testing on mobile (overlay content may be unreadable, controls too small)",
+    "Using invalid gmapType value (must be exactly 'roadmap', 'satellite', 'hybrid', or 'terrain')"
+  ],
+
+  "bestPractices": [
+    "Always use unique _key values: '0', '1', '2', '3'... for locationPoint items",
+    "For single precise location: use latOrAddr='latitude' with exact coordinates (fastest, most reliable)",
+    "For user-friendly address: use latOrAddr='address' with full street address (easier for content editors)",
+    "Set responsive mapHeight: {md: 400-500px, sm: 350px, xs: 300px} for good visibility",
+    "For single location: Zoom=12-15 (street-level detail)",
+    "For multiple locations: Zoom=4-8 (fit all pins in view, map auto-adjusts center)",
+    "For minimal designs: disable streetViewCtrl, mapTypeCtrl, scaleCtrl, fullScreenCtrl",
+    "For static reference maps: scrollWheel=false, Draggable=false (prevents accidental interaction)",
+    "For interactive exploration: keep all controls enabled (default settings)",
+    "Optimize custom pin icons: 100x100px PNG or WebP, compressed, use pinIconSize='thumbnail'",
+    "Use gmapType='roadmap' for general locations, 'satellite' for property/buildings, 'terrain' for hiking/outdoor",
+    "For overlay content: semi-transparent background (rgba 0.9-0.95 opacity) so map shows through",
+    "Keep overlay description to 2-3 sentences max (avoid scrolling inside overlay)",
+    "Use customStyleTgl for branded maps (match site color scheme with style-1/style-2/style-3)",
+    "Test on mobile: ensure controls are accessible, text is readable, height appropriate",
+    "For store locators: use multiple locationPoint items, Zoom=4-6, no overlay content (cleaner)",
+    "For contact pages: use single location, contentTgl=true with business hours/address in overlay",
+    "Test API key limits: monitor Google Cloud Console for usage (avoid unexpected billing)",
+    "Cache map tiles when possible (WordPress caching plugins help)",
+    "Consider accessibility: provide text address below map for screen reader users"
+  ],
+
+  "accessibilityNotes": [
+    "Provide text address below or near map (screen readers can't read visual maps)",
+    "Use descriptive title in overlay content (e.g., 'Main Office Location' not 'Map')",
+    "Ensure overlay text has sufficient contrast (WCAG AA: 4.5:1 for body text)",
+    "Make overlay toggleable (contentTgl allows users to hide if blocking content)",
+    "Avoid relying solely on map for critical location info (provide text address separately)",
+    "Test keyboard navigation (Google Maps has built-in keyboard support, ensure not disabled)",
+    "Provide alternative directions link (e.g., link to Google Maps directions page)",
+    "Use semantic HTML around map (heading above map, address below)",
+    "Don't auto-play animations or transitions (Google Maps default behavior is user-controlled)",
+    "Ensure touch targets are at least 44x44px (Google's default controls meet this, but verify on mobile)",
+    "Test with screen readers (NVDA, JAWS, VoiceOver) - map should announce as interactive region",
+    "Consider adding aria-label to map container describing purpose (e.g., 'Office location map')"
+  ],
+
+  "performanceConsiderations": [
+    "Limit locationPoint items to 10-20 max (many pins slow map rendering)",
+    "Optimize pinIcon images: 100x100px max, WebP format, compressed (TinyPNG)",
+    "Use pinIconSize='thumbnail' (150x150px) not 'full' (original size may be huge)",
+    "For many locations (20+): consider clustering plugins or separate location pages",
+    "Lazy load map (load only when user scrolls near it, reduces initial page load)",
+    "Use latOrAddr='latitude' instead of 'address' when possible (no geocoding API call = faster)",
+    "Cache geocoding results server-side if using addresses (avoid repeated API calls)",
+    "Monitor Google Maps API usage (excessive calls incur costs, optimize with caching)",
+    "Minimize map height on mobile (300px vs 500px desktop - less data to render)",
+    "Disable unused controls to reduce UI complexity (mapTypeCtrl, scaleCtrl if not needed)",
+    "Avoid multiple Google Maps on same page (each map loads full API, use single map with multiple pins instead)",
+    "Use customStyleTgl sparingly (custom styles add rendering overhead)",
+    "Test on slow 3G connection (Chrome DevTools throttling) - map tiles may load slowly",
+    "Consider static map image for print/email (Google Static Maps API for non-interactive use)",
+    "Defer Google Maps API script loading (load after critical page content)",
+    "Use intersection observer for lazy loading (only load map when visible in viewport)"
+  ],
+
+  "apiSetupGuide": {
+    "googleMapsApiKey": {
+      "description": "How to get and configure Google Maps API key (REQUIRED for this block to work)",
+      "steps": [
+        "1. Go to Google Cloud Console: https://console.cloud.google.com/",
+        "2. Create new project or select existing project",
+        "3. Enable 'Maps JavaScript API' (for map display)",
+        "4. Enable 'Geocoding API' if using latOrAddr='address' (for address lookups)",
+        "5. Go to Credentials section and create API key",
+        "6. Restrict API key (optional but recommended):",
+        "   - Application restrictions: HTTP referrers (your website domain)",
+        "   - API restrictions: Maps JavaScript API, Geocoding API",
+        "7. Copy API key",
+        "8. In WordPress admin, go to plugin settings (TheP Plus > Google Maps or similar)",
+        "9. Paste API key in 'Google Maps API Key' field",
+        "10. Save settings and test map block"
+      ],
+      "billing": [
+        "Google Maps API requires billing account (credit card) even for free tier",
+        "Free tier: $200 monthly credit (covers ~28,000 map loads)",
+        "Pricing: ~$7 per 1,000 map loads after free credit",
+        "Geocoding API: ~$5 per 1,000 requests",
+        "Monitor usage in Google Cloud Console to avoid unexpected charges"
+      ],
+      "troubleshooting": [
+        "Map shows 'For development purposes only' → API key not configured or invalid",
+        "Map shows gray box → API key restrictions too strict (check HTTP referrers)",
+        "Map doesn't center on address → Geocoding API not enabled",
+        "Map shows error 'This page can't load Google Maps correctly' → Billing not enabled on API project",
+        "Pin doesn't appear → Check latitude/longitude values, ensure _key is unique"
+      ]
+    }
+  },
+
+  "relatedBlocks": [
+    "tpgb/tp-heading - Heading above map (section title like 'Find Us')",
+    "tpgb/tp-pro-paragraph - Text below map (address, directions, business hours)",
+    "tpgb/tp-container - Wrapper container for map section with background/padding",
+    "tpgb/tp-button - CTA button near map ('Get Directions', 'Contact Us')",
+    "tpgb/tp-social-feed - Social media feed showing location tags (complement to map)"
+  ]
 }
