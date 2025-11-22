@@ -2,32 +2,758 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-blockquote",
   "title": "Blockquote - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for typographic quotations",
   "examples": [
     {
-      "description": "Simple centered quote",
+      "name": "Simple Testimonial (Style 1)",
+      "description": "Clean blockquote with centered alignment for customer testimonials",
+      "visualDescription": "Simple quote text with author name below, centered alignment, subtle gray text, clean typography",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "bq001",
         "style": "style-1",
-        "content": "The only way to do great work is to love what you do.",
+        "content": "You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future.",
         "authorName": "Steve Jobs",
         "contentAlignment": "center",
-        "textNormalColor": "#333333"
-      }
+        "typography": {
+          "openTypography": 1,
+          "size": {
+            "md": "18",
+            "sm": "16",
+            "xs": "14",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          },
+          "fontWeight": "400"
+        },
+        "textNormalColor": "#555555",
+        "boxPadding": {
+          "md": {
+            "top": "20",
+            "right": "20",
+            "bottom": "20",
+            "left": "20"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Customer testimonials, reviews, simple quotes on landing pages"
     },
     {
-      "description": "Left-aligned quote without author",
+      "name": "Classic Quote with Large Icon (Style 2)",
+      "description": "Traditional blockquote with large decorative quote mark icon",
+      "visualDescription": "Large purple quote icon in top-left, quote text indented, author attribution in smaller italic text, elegant serif typography",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "c3d4",
-        "content": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+        "block_id": "bq002",
+        "style": "style-2",
+        "content": "The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle.",
+        "authorName": "— Steve Jobs, Stanford Commencement 2005",
+        "contentAlignment": "left",
+        "quoteIcon": "fas fa-quote-left",
+        "qiconSize": {
+          "md": "80",
+          "sm": "60",
+          "xs": "50",
+          "unit": "px"
+        },
+        "quoteColor": "#667eea",
+        "iconLoffset": {
+          "md": "20",
+          "unit": "px"
+        },
+        "iconToffset": {
+          "md": "10",
+          "unit": "px"
+        },
+        "typography": {
+          "openTypography": 1,
+          "size": {
+            "md": "20",
+            "sm": "18",
+            "xs": "16",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.8",
+            "unit": "em"
+          },
+          "fontWeight": "400",
+          "fontFamily": "Georgia"
+        },
+        "authorTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontStyle": "italic",
+          "fontWeight": "300"
+        },
+        "textNormalColor": "#333333",
+        "authorNormalColor": "#888888",
+        "boxPadding": {
+          "md": {
+            "top": "40",
+            "right": "30",
+            "bottom": "30",
+            "left": "120"
+          },
+          "sm": {
+            "left": "100"
+          },
+          "xs": {
+            "left": "80"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Blog articles, editorial content, magazine-style quotes, thought leadership pieces"
+    },
+    {
+      "name": "Featured Quote with Gradient Background",
+      "description": "Eye-catching blockquote with gradient background and shadow for emphasis",
+      "visualDescription": "Purple-to-blue gradient background, white text, centered alignment, elevated with shadow, rounded corners, high-impact design",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "bq003",
+        "style": "style-1",
+        "content": "Innovation distinguishes between a leader and a follower. Think different, think ahead.",
+        "authorName": "Steve Jobs",
+        "contentAlignment": "center",
+        "typography": {
+          "openTypography": 1,
+          "size": {
+            "md": "22",
+            "sm": "18",
+            "xs": "16",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.5",
+            "unit": "em"
+          },
+          "fontWeight": "600"
+        },
+        "textNormalColor": "#ffffff",
+        "catBg": {
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#667eea",
+                "position": 0
+              },
+              {
+                "color": "#764ba2",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "boxPadding": {
+          "md": {
+            "top": "50",
+            "right": "40",
+            "bottom": "50",
+            "left": "40"
+          },
+          "sm": {
+            "top": "40",
+            "right": "30",
+            "bottom": "40",
+            "left": "30"
+          },
+          "unit": "px"
+        },
+        "borderRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "catBoxShadow": {
+          "openShadow": 1,
+          "blur": 30,
+          "color": "rgba(102, 126, 234, 0.3)",
+          "horizontal": 0,
+          "inset": 0,
+          "spread": 0,
+          "vertical": 15
+        }
+      },
+      "useCase": "Hero sections, featured testimonials, call-out quotes, keynote presentations"
+    },
+    {
+      "name": "Book Review Quote with Attribution",
+      "description": "Detailed quote with custom author typography for book reviews or citations",
+      "visualDescription": "Left-aligned quote, serif font for body, sans-serif for author, distinct typography hierarchy, academic/editorial style",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "bq004",
+        "style": "style-1",
+        "content": "This book changed the way I think about design and simplicity. Every page offers profound insights into creating products people love. A must-read for anyone in tech.",
+        "authorName": "Tim Cook, CEO Apple Inc.",
+        "contentAlignment": "left",
+        "typography": {
+          "openTypography": 1,
+          "size": {
+            "md": "18",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.7",
+            "unit": "em"
+          },
+          "fontWeight": "400",
+          "fontFamily": "Georgia",
+          "fontStyle": "italic"
+        },
+        "textNormalColor": "#444444",
+        "boxPadding": {
+          "md": {
+            "top": "25",
+            "right": "30",
+            "bottom": "25",
+            "left": "30"
+          },
+          "unit": "px"
+        },
+        "borderNormal": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e0e0e0",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "borderRadius": {
+          "md": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        },
+        "catBg": {
+          "bgType": "color",
+          "bgDefaultColor": "#fafafa"
+        }
+      },
+      "useCase": "Book reviews, editorial testimonials, professional endorsements, case study quotes"
+    },
+    {
+      "name": "Pull Quote with Left Border Accent",
+      "description": "Minimalist quote with bold left border accent for in-article pull quotes",
+      "visualDescription": "Thick purple left border (5px), left-aligned text, increased font size, subtle background, magazine pull-quote style",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "bq005",
+        "style": "style-1",
+        "content": "Great design is not just what it looks like and feels like. Great design is how it works.",
         "authorName": "",
-        "contentAlignment": "left"
-      }
+        "contentAlignment": "left",
+        "typography": {
+          "openTypography": 1,
+          "size": {
+            "md": "24",
+            "sm": "20",
+            "xs": "18",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.4",
+            "unit": "em"
+          },
+          "fontWeight": "700"
+        },
+        "textNormalColor": "#333333",
+        "boxPadding": {
+          "md": {
+            "top": "20",
+            "right": "25",
+            "bottom": "20",
+            "left": "25"
+          },
+          "unit": "px"
+        },
+        "borderNormal": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {
+              "top": "0",
+              "left": "5",
+              "bottom": "0",
+              "right": "0"
+            },
+            "unit": "px"
+          }
+        },
+        "catBg": {
+          "bgType": "color",
+          "bgDefaultColor": "#f8f9fa"
+        }
+      },
+      "useCase": "Blog pull quotes, in-article highlights, content emphasis, sidebar callouts"
+    },
+    {
+      "name": "Interactive Quote with Hover Effects",
+      "description": "Dynamic blockquote with color changes and shadow elevation on hover",
+      "visualDescription": "Starts gray with subtle shadow, on hover transforms to purple gradient with elevated shadow, smooth transitions, engaging interaction",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "bq006",
+        "style": "style-1",
+        "content": "Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work.",
+        "authorName": "Steve Jobs",
+        "contentAlignment": "center",
+        "typography": {
+          "openTypography": 1,
+          "size": {
+            "md": "19",
+            "sm": "17",
+            "xs": "15",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          },
+          "fontWeight": "500"
+        },
+        "textNormalColor": "#555555",
+        "textHoverColor": "#ffffff",
+        "catBg": {
+          "bgType": "color",
+          "bgDefaultColor": "#f5f5f5"
+        },
+        "catBgHover": {
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#667eea",
+                "position": 0
+              },
+              {
+                "color": "#764ba2",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "boxPadding": {
+          "md": {
+            "top": "35",
+            "right": "35",
+            "bottom": "35",
+            "left": "35"
+          },
+          "unit": "px"
+        },
+        "borderRadius": {
+          "md": {
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "catBoxShadow": {
+          "openShadow": 1,
+          "blur": 10,
+          "color": "rgba(0, 0, 0, 0.1)",
+          "horizontal": 0,
+          "inset": 0,
+          "spread": 0,
+          "vertical": 5
+        },
+        "catBoxShadowHover": {
+          "openShadow": 1,
+          "blur": 25,
+          "color": "rgba(102, 126, 234, 0.4)",
+          "horizontal": 0,
+          "inset": 0,
+          "spread": 5,
+          "vertical": 10
+        }
+      },
+      "useCase": "Interactive testimonial grids, clickable quote cards, portfolio reviews, service highlights"
+    },
+    {
+      "name": "Minimal Centered Hero Quote",
+      "description": "Large, minimal quote for hero sections with maximum visual impact",
+      "visualDescription": "Extra-large font (32px), centered, no author, no background, pure typography, high-contrast, minimal padding",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "bq007",
+        "style": "style-1",
+        "content": "Stay hungry. Stay foolish.",
+        "authorName": "",
+        "contentAlignment": "center",
+        "typography": {
+          "openTypography": 1,
+          "size": {
+            "md": "42",
+            "sm": "32",
+            "xs": "24",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.3",
+            "unit": "em"
+          },
+          "fontWeight": "700",
+          "letterSpacing": {
+            "md": "-0.5",
+            "unit": "px"
+          }
+        },
+        "textNormalColor": "#1a1a1a",
+        "boxPadding": {
+          "md": {
+            "top": "60",
+            "right": "20",
+            "bottom": "60",
+            "left": "20"
+          },
+          "sm": {
+            "top": "40",
+            "bottom": "40"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Hero sections, landing page headers, inspirational sections, minimal portfolio pages"
+    },
+    {
+      "name": "Award Winner Quote - Complete Features",
+      "description": "Premium styled quote with all advanced features for maximum visual impact",
+      "visualDescription": "Large quote icon (80px), gradient background, white text, rounded corners, elevated shadow, author attribution, complete styling",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "bq008",
+        "style": "style-2",
+        "content": "This product revolutionized our workflow. The attention to detail, intuitive design, and powerful features make it the best tool in its category. We've seen 300% productivity gains.",
+        "authorName": "— Sarah Johnson, VP Product at TechCorp",
+        "contentAlignment": "left",
+        "quoteIcon": "fas fa-quote-left",
+        "qiconSize": {
+          "md": "90",
+          "sm": "70",
+          "xs": "55",
+          "unit": "px"
+        },
+        "quoteColor": "#ffffff",
+        "iconLoffset": {
+          "md": "25",
+          "sm": "20",
+          "xs": "15",
+          "unit": "px"
+        },
+        "iconToffset": {
+          "md": "20",
+          "sm": "15",
+          "xs": "10",
+          "unit": "px"
+        },
+        "typography": {
+          "openTypography": 1,
+          "size": {
+            "md": "22",
+            "sm": "18",
+            "xs": "16",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.7",
+            "unit": "em"
+          },
+          "fontWeight": "400"
+        },
+        "authorTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "15",
+            "sm": "14",
+            "xs": "13",
+            "unit": "px"
+          },
+          "fontStyle": "italic",
+          "fontWeight": "500"
+        },
+        "textNormalColor": "#ffffff",
+        "authorNormalColor": "rgba(255, 255, 255, 0.85)",
+        "authorHoverColor": "#ffffff",
+        "catBg": {
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#667eea",
+                "position": 0
+              },
+              {
+                "color": "#764ba2",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "catBgHover": {
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#764ba2",
+                "position": 0
+              },
+              {
+                "color": "#667eea",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "boxPadding": {
+          "md": {
+            "top": "50",
+            "right": "40",
+            "bottom": "40",
+            "left": "140"
+          },
+          "sm": {
+            "top": "40",
+            "right": "30",
+            "bottom": "30",
+            "left": "110"
+          },
+          "xs": {
+            "top": "35",
+            "right": "25",
+            "bottom": "25",
+            "left": "90"
+          },
+          "unit": "px"
+        },
+        "borderRadius": {
+          "md": {
+            "top": "15",
+            "right": "15",
+            "bottom": "15",
+            "left": "15"
+          },
+          "unit": "px"
+        },
+        "HvrborderRadius": {
+          "md": {
+            "top": "20",
+            "right": "20",
+            "bottom": "20",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "catBoxShadow": {
+          "openShadow": 1,
+          "blur": 35,
+          "color": "rgba(102, 126, 234, 0.35)",
+          "horizontal": 0,
+          "inset": 0,
+          "spread": 0,
+          "vertical": 15
+        },
+        "catBoxShadowHover": {
+          "openShadow": 1,
+          "blur": 45,
+          "color": "rgba(118, 75, 162, 0.45)",
+          "horizontal": 0,
+          "inset": 0,
+          "spread": 5,
+          "vertical": 20
+        }
+      },
+      "useCase": "Award testimonials, featured client reviews, case study highlights, success story quotes, premium landing pages"
     }
   ],
+
+  "validationRules": {
+    "block_id": "Required - Unique identifier for the block",
+    "style": "Required - Must be 'style-1' (simple) or 'style-2' (with quote icon)",
+    "content": "Required - The quote text content (HTML allowed)",
+    "authorName": "Optional - Author attribution (can be empty for anonymous quotes)",
+    "quoteIcon": "Style-2 only - FontAwesome class (e.g., 'fas fa-quote-left')",
+    "qiconSize": "Style-2 only - Icon size, recommended 50-100px for visibility",
+    "iconLoffset": "Style-2 only - Horizontal position of quote icon",
+    "iconToffset": "Style-2 only - Vertical position of quote icon",
+    "quoteColor": "Style-2 only - Color of the quote icon",
+    "authorTypo": "Style-2 only - Typography settings for author attribution",
+    "authorNormalColor": "Style-2 only - Author text color",
+    "authorHoverColor": "Style-2 only - Author hover color",
+    "contentAlignment": "Text alignment: left, center, right",
+    "typography.openTypography": "Must be 1 to enable typography settings",
+    "boxPadding": "Responsive padding - use larger left padding for style-2 to accommodate quote icon",
+    "catBg.bgType": "Background type: 'color' or 'gradient'",
+    "catBoxShadow.openShadow": "Must be 1 to enable shadow"
+  },
+
+  "warnings": [
+    "⚠️ Style-2 specific attributes (quoteIcon, qiconSize, authorTypo, etc.) only work when style='style-2'",
+    "⚠️ For style-2, ensure left padding (boxPadding.left) is large enough (100-140px) to accommodate the quote icon",
+    "⚠️ Quote icon requires FontAwesome to be loaded (check theme/plugin dependencies)",
+    "⚠️ HTML content in 'content' attribute is allowed but must be properly escaped",
+    "⚠️ Author name can be empty - useful for anonymous quotes or when attribution is unnecessary",
+    "⚠️ Quote icon positioning (iconLoffset, iconToffset) is absolute - test on all breakpoints",
+    "⚠️ Gradient backgrounds require bgType='gradient' and properly structured gradientColor array",
+    "⚠️ Hover effects (catBgHover, catBoxShadowHover, textHoverColor) require both normal and hover states for smooth transitions",
+    "⚠️ Large shadow blur values (>30px) may impact performance on mobile devices",
+    "⚠️ contentAlignment affects both quote text and author name alignment",
+    "⚠️ Typography settings require openTypography=1 to take effect",
+    "⚠️ Border radius changes on hover (HvrborderRadius) may cause visual jumps - use subtle differences"
+  ],
+
+  "commonMistakes": [
+    "❌ Using style-2 attributes with style='style-1' (they won't render)",
+    "❌ Setting openTypography=0 while configuring font sizes (typography won't apply)",
+    "❌ Insufficient left padding on style-2 causing quote icon to overlap text",
+    "❌ Forgetting to set quoteIcon when using style-2 (no icon will appear)",
+    "❌ Using px units for responsive typography (prefer rem/em for better scaling)",
+    "❌ Not testing quote icon position on mobile breakpoints (may need adjustment)",
+    "❌ Applying authorTypo settings to style-1 (only works on style-2)",
+    "❌ Using very long quotes without adequate line-height (reduces readability)",
+    "❌ Setting gradient with only one color (need at least 2 colors with different positions)",
+    "❌ Not setting bgType='gradient' when using bgGradient object (will default to color)",
+    "❌ Enabling hover effects without normal states (causes abrupt transitions)",
+    "❌ Using dark text on dark backgrounds (check color contrast for accessibility)",
+    "❌ Forgetting unit property in responsive objects (defaults may not match intention)",
+    "❌ Setting openShadow=0 while configuring shadow properties (shadow won't render)",
+    "❌ Using identical normal and hover states (defeats purpose of interactivity)"
+  ],
+
+  "bestPractices": [
+    "✅ Use style-1 for simple, clean quotes; style-2 for editorial/classic blockquotes",
+    "✅ Keep quote length under 3-4 sentences for better readability",
+    "✅ Use semantic HTML in content (e.g., <em> for emphasis, <strong> for important text)",
+    "✅ Provide author attribution for credibility unless anonymity is required",
+    "✅ Match quote typography to your site's overall design system",
+    "✅ Use responsive font sizes (md/sm/xs) to ensure readability on all devices",
+    "✅ Apply subtle hover effects to make quotes feel interactive (but not distracting)",
+    "✅ Use contrasting colors for quote icon vs background in style-2",
+    "✅ Maintain adequate padding to prevent text from touching container edges",
+    "✅ Use box shadows sparingly - subtle shadows (blur: 10-20px) often look better",
+    "✅ Test gradient backgrounds with white and dark text to ensure readability",
+    "✅ Use left border accent (borderNormal left-only) for minimal pull-quote style",
+    "✅ Center-align short, impactful quotes; left-align longer testimonials",
+    "✅ Use italic fontStyle for authorTypo to differentiate from quote text",
+    "✅ For hero sections, use large typography (32-48px) with minimal styling",
+    "✅ Apply consistent border radius values (same on all corners) for clean look",
+    "✅ Use rgba colors for subtle overlays and shadow effects",
+    "✅ Set lineHeight to 1.5-1.8em for comfortable reading",
+    "✅ For pull quotes in articles, use bold fontWeight (600-700) to stand out",
+    "✅ Keep quote icon size proportional to text size (icon ~2-3x larger than text)"
+  ],
+
+  "styleVariations": {
+    "style-1": {
+      "description": "Simple blockquote without quote icon",
+      "bestFor": "Testimonials, customer reviews, clean minimal quotes",
+      "keyAttributes": ["content", "authorName", "contentAlignment", "typography", "boxPadding"]
+    },
+    "style-2": {
+      "description": "Classic blockquote with large decorative quote icon",
+      "bestFor": "Editorial content, magazine-style quotes, thought leadership, book reviews",
+      "keyAttributes": ["content", "authorName", "quoteIcon", "qiconSize", "iconLoffset", "iconToffset", "quoteColor", "authorTypo"],
+      "requiredSetup": "Ensure left padding is 100-140px to accommodate quote icon"
+    }
+  },
+
+  "responsivePatterns": [
+    "📱 Reduce font sizes on mobile: md:20px → sm:18px → xs:16px",
+    "📱 Decrease quote icon size on smaller screens: md:80px → sm:60px → xs:50px",
+    "📱 Reduce left padding on mobile for style-2: md:140px → sm:110px → xs:90px",
+    "📱 Adjust boxPadding proportionally across breakpoints",
+    "📱 Test quote icon position (iconLoffset, iconToffset) on all breakpoints",
+    "📱 Consider reducing line-height slightly on mobile to save vertical space",
+    "📱 Simplify hover effects on touch devices (they may not trigger properly)"
+  ],
+
+  "accessibilityNotes": [
+    "♿ Use semantic <blockquote> HTML in content for screen readers",
+    "♿ Ensure color contrast ratio of 4.5:1 minimum for text (WCAG AA)",
+    "♿ Author attribution should be marked up with <cite> tag when possible",
+    "♿ Avoid using color alone to convey meaning (e.g., use both color and icon)",
+    "♿ Ensure hover effects don't convey critical information (not accessible on touch)",
+    "♿ Test with screen readers to verify proper quote attribution announcement",
+    "♿ Large text (18px+) requires only 3:1 contrast ratio (WCAG AA Large Text)",
+    "♿ Quote icons are decorative - ensure they use aria-hidden if rendered as images"
+  ],
+
+  "performanceConsiderations": [
+    "⚡ Avoid very large shadow blur values (>40px) on mobile - impacts paint performance",
+    "⚡ Use solid colors instead of gradients when possible for better rendering",
+    "⚡ Gradient backgrounds are GPU-accelerated but still heavier than solid colors",
+    "⚡ Hover effects with multiple property changes may cause repaints - keep minimal",
+    "⚡ FontAwesome icons add ~100KB to page load if not already included",
+    "⚡ Border radius with large values can impact rendering on older devices",
+    "⚡ Use will-change: transform on hover effects for smoother transitions (CSS)",
+    "⚡ Limit number of blockquotes with complex styling on a single page (<5 recommended)"
+  ],
+
+  "integrationPatterns": [
+    "🔗 Use within testimonial carousels (tp-anything-carousel) for rotating customer quotes",
+    "🔗 Combine with tp-container for full-width quote sections",
+    "🔗 Place in tp-column for side-by-side testimonial comparisons",
+    "🔗 Use isRptBlock=true when inside tp-repeater-block for ACF-powered quotes",
+    "🔗 Integrate with dynamic content via usesContext for post-specific quotes",
+    "🔗 Pair with tp-heading above for section titles ('What Our Customers Say')",
+    "🔗 Use in tp-accordion-inner for expandable FAQ quotes",
+    "🔗 Combine multiple blockquotes in a grid layout for testimonial pages"
+  ],
+
   "commonPatterns": {
-    "default": {
-      "block_id": "example"
+    "testimonialCard": {
+      "description": "Quote card with gradient background, centered text, shadow",
+      "attributes": ["style=style-1", "contentAlignment=center", "catBg.bgType=gradient", "catBoxShadow.openShadow=1", "borderRadius"]
+    },
+    "pullQuote": {
+      "description": "In-article highlight with left border accent",
+      "attributes": ["style=style-1", "contentAlignment=left", "borderNormal.width.left=5px", "fontWeight=700", "fontSize=24px"]
+    },
+    "editorialQuote": {
+      "description": "Classic magazine-style with large quote icon",
+      "attributes": ["style=style-2", "quoteIcon=fas fa-quote-left", "qiconSize.md=80px", "boxPadding.left=120px", "fontFamily=Georgia"]
+    },
+    "heroQuote": {
+      "description": "Large, minimal, centered quote for hero sections",
+      "attributes": ["style=style-1", "contentAlignment=center", "fontSize.md=42px", "fontWeight=700", "authorName=empty"]
+    },
+    "interactiveQuote": {
+      "description": "Quote with hover color and background changes",
+      "attributes": ["textHoverColor", "catBgHover", "catBoxShadowHover", "smooth transitions"]
     }
   }
 }

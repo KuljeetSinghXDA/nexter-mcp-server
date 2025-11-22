@@ -2,31 +2,573 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-timeline-inner",
   "title": "Timeline Inner - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Child timeline item block. Alternative to RContent array in parent tp-timeline. Each timeline item is a separate block for easier management.",
+
   "examples": [
     {
-      "description": "Basic timeline event with icon",
+      "name": "Basic Timeline Event (With Icon)",
+      "description": "Simple timeline item with FontAwesome icon and description",
+      "visualDescription": "Timeline item with lightbulb icon, 'Company Founded' heading, '1995' label, description text on white card",
+      "complexity": "simple",
       "attributes": {
         "block_id": "a1b2",
+        "index": 0,
+        "repetKey": "item-0",
+        "RPosition": "right",
+        "RTitle": "1995",
         "RcTitle": "Company Founded",
-        "description": "We started our journey with a vision to change the industry.",
-        "Ricon": "fas fa-rocket",
-        "PinStyle": "style-1",
-        "RcAlign": "text-left"
-      }
+        "description": "Started with a vision to change the industry and create innovative solutions for businesses worldwide",
+        "Rnone": "icon",
+        "Ricon": "fas fa-lightbulb",
+        "RButton": false
+      },
+      "parentBlock": "tpgb/tp-timeline",
+      "parentAttributes": {
+        "style": "style-1",
+        "Alignment": "center"
+      },
+      "useCase": "Company history, milestones, brand story, about pages",
+      "notes": [
+        "CRITICAL: Must be child of tpgb/tp-timeline block (won't work standalone)",
+        "index starts at 0 for first item, increments for each subsequent item",
+        "repetKey should be unique identifier (e.g., 'item-0', 'item-1', 'event-2')",
+        "RPosition='right' with parent Alignment='center' creates zigzag layout",
+        "Rnone='icon' requires Ricon with FontAwesome class",
+        "description field holds main content text"
+      ]
     },
+
     {
-      "description": "Timeline item with button CTA",
+      "name": "Timeline Item with CTA Button",
+      "description": "Timeline item with call-to-action button and link",
+      "visualDescription": "Timeline item with star icon, 'Product Launch' heading, 'Q2 2025' label, description text, purple 'Learn More' button",
+      "complexity": "simple",
       "attributes": {
         "block_id": "c3d4",
+        "index": 1,
+        "repetKey": "item-1",
+        "RPosition": "left",
+        "RTitle": "Q2 2025",
         "RcTitle": "Product Launch",
-        "RTitle": "Version 1.0",
-        "description": "Our flagship product was released to the public.",
+        "description": "Our flagship product was released to the public with groundbreaking features",
+        "Rnone": "icon",
         "Ricon": "fas fa-star",
         "RButton": true,
         "RBtnText": "Learn More"
-      }
+      },
+      "parentBlock": "tpgb/tp-timeline",
+      "parentAttributes": {
+        "style": "style-1",
+        "Alignment": "center"
+      },
+      "useCase": "Product roadmaps, announcements, release schedules",
+      "notes": [
+        "RButton=true enables CTA button display",
+        "RBtnText defines button label text",
+        "Button links and styling controlled by parent tp-timeline block settings",
+        "RPosition='left' alternates from previous item for zigzag effect",
+        "Use descriptive RBtnText ('Learn More', 'View Details', not 'Click Here')"
+      ]
+    },
+
+    {
+      "name": "Event Agenda Item (Time-Based)",
+      "description": "Conference schedule item with time and speaker details",
+      "visualDescription": "Timeline item with microphone icon, '9:00 AM' time label, 'Opening Keynote' heading, speaker details in description",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "e5f6",
+        "index": 0,
+        "repetKey": "session-morning",
+        "RPosition": "right",
+        "RTitle": "9:00 AM",
+        "RcTitle": "Opening Keynote",
+        "description": "Welcome address and industry trends overview by Sarah Johnson, CEO",
+        "Rnone": "icon",
+        "Ricon": "fas fa-microphone",
+        "RcAlign": "text-left"
+      },
+      "parentBlock": "tpgb/tp-timeline",
+      "parentAttributes": {
+        "style": "style-1",
+        "Alignment": "center"
+      },
+      "useCase": "Event agendas, conference schedules, webinar timelines, training sessions",
+      "notes": [
+        "RTitle used for time labels (9:00 AM, 2:30 PM, etc.)",
+        "RcTitle is session/event name",
+        "description provides speaker, location, or session details",
+        "RcAlign controls text alignment within timeline item (text-left, text-center, text-right)",
+        "Choose icons that match session type (microphone, laptop, users, etc.)"
+      ]
+    },
+
+    {
+      "name": "Process Step (Numbered)",
+      "description": "Step-by-step guide item with step number and action",
+      "visualDescription": "Timeline item with user-plus icon, 'Step 1' label, 'Create Your Account' heading, signup instructions in description",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "g7h8",
+        "index": 0,
+        "repetKey": "step-1",
+        "RPosition": "left",
+        "RTitle": "Step 1",
+        "RcTitle": "Create Your Account",
+        "description": "Sign up with your email and choose a secure password. Verification takes less than 2 minutes.",
+        "Rnone": "icon",
+        "Ricon": "fas fa-user-plus"
+      },
+      "parentBlock": "tpgb/tp-timeline",
+      "parentAttributes": {
+        "style": "style-2",
+        "Alignment": "right"
+      },
+      "useCase": "How-to guides, onboarding flows, tutorial steps, installation guides, process documentation",
+      "notes": [
+        "Use sequential RTitle: 'Step 1', 'Step 2', 'Step 3'...",
+        "parent Alignment='right' with all items RPosition='left' creates one-sided layout",
+        "One-sided layout works well for sequential processes (top-to-bottom flow)",
+        "Icons should match action (user-plus for signup, cog for settings, upload for import)",
+        "Keep description concise (1-2 sentences per step)"
+      ]
+    },
+
+    {
+      "name": "Career Timeline Item (Custom Image Pin)",
+      "description": "Professional experience with company logo as pin",
+      "visualDescription": "Timeline item with company logo as pin image, '2015 - 2017' date range, 'Junior Developer' title, achievement highlights",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "i9j0",
+        "index": 0,
+        "repetKey": "job-techstartup",
+        "RPosition": "right",
+        "RTitle": "2015 - 2017",
+        "RcTitle": "Junior Developer",
+        "description": "Started career at Tech Startup Inc. Learned full-stack development and agile methodologies. Contributed to 3 major product releases.",
+        "Rnone": "image"
+      },
+      "parentBlock": "tpgb/tp-timeline",
+      "parentAttributes": {
+        "style": "style-1",
+        "Alignment": "center"
+      },
+      "childBlocks": [
+        "NOTE: When Rnone='image', add tp-image block as child to display custom pin image",
+        "The tp-image block will be rendered as the timeline pin marker",
+        "Company logos work well (100x100px square recommended)"
+      ],
+      "useCase": "Personal portfolios, career pages, team member bios, professional timelines, resume websites",
+      "notes": [
+        "Rnone='image' allows child tp-image block to be used as pin marker",
+        "Unlike RContent array (which uses Rimg attribute), child blocks use actual tp-image",
+        "Add tp-image as child block with company logo",
+        "RTitle shows date range for each position",
+        "RcTitle is job title/position name",
+        "description covers responsibilities and achievements"
+      ]
+    },
+
+    {
+      "name": "Minimal Timeline Item (No Pin)",
+      "description": "Simple text-based timeline item without decorative icon",
+      "visualDescription": "Clean timeline item with just text, simple dot on timeline line, no icon or image, minimal design",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "k1l2",
+        "index": 0,
+        "repetKey": "milestone-jan",
+        "RPosition": "right",
+        "RTitle": "January 2025",
+        "RcTitle": "Project Kickoff",
+        "description": "Initial team meeting and project scope definition",
+        "Rnone": "none"
+      },
+      "parentBlock": "tpgb/tp-timeline",
+      "parentAttributes": {
+        "style": "style-2",
+        "Alignment": "left"
+      },
+      "useCase": "Simple project timelines, blog summaries, quick milestone lists, minimal designs",
+      "notes": [
+        "Rnone='none' removes icon/image from timeline pin (just shows dot)",
+        "Perfect for content-focused timelines without visual distractions",
+        "Faster rendering (no icon fonts or images to load)",
+        "Works well with parent Alignment='left' for one-sided minimal layout",
+        "Keeps focus on content (RTitle, RcTitle, description)"
+      ]
+    },
+
+    {
+      "name": "Complex Timeline Item (Rich Content)",
+      "description": "Timeline item with nested content blocks for advanced formatting",
+      "visualDescription": "Timeline item with icon, heading, and rich content including nested heading, paragraph, list, and button blocks",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "m3n4",
+        "index": 0,
+        "repetKey": "feature-q1",
+        "RPosition": "right",
+        "RTitle": "Q1 2025",
+        "RcTitle": "Product Features Released",
+        "Rnone": "icon",
+        "Ricon": "fas fa-list-check"
+      },
+      "parentBlock": "tpgb/tp-timeline",
+      "parentAttributes": {
+        "style": "style-1",
+        "Alignment": "center"
+      },
+      "childBlocks": [
+        "Add nested content blocks as children of tp-timeline-inner:",
+        "  - tp-heading (h4) for subheading",
+        "  - tp-pro-paragraph for text content",
+        "  - tp-list for feature lists",
+        "  - tp-button for CTAs",
+        "Child blocks appear INSIDE timeline item card"
+      ],
+      "useCase": "Complex timelines with rich content, feature showcases, detailed specifications, multi-section items",
+      "notes": [
+        "IMPORTANT: Child blocks render INSIDE timeline item (below description)",
+        "Don't use description attribute if you want full control with child blocks",
+        "Use child blocks for complex formatting: lists, images, tables, buttons",
+        "Keep child block count reasonable (3-5 max per item for performance)",
+        "Test on mobile (child blocks stack vertically in timeline item)",
+        "This is the main advantage over RContent array (can't add child blocks to array items)"
+      ]
+    },
+
+    {
+      "name": "Multiple Timeline Items (Full Example)",
+      "description": "Complete timeline with 4 child timeline-inner blocks",
+      "visualDescription": "Parent tp-timeline with 4 tp-timeline-inner children creating alternating zigzag company history timeline",
+      "complexity": "medium",
+      "attributes": "SEE FULL STRUCTURE BELOW",
+      "parentBlock": "tpgb/tp-timeline",
+      "fullStructure": {
+        "blockName": "tpgb/tp-timeline",
+        "attrs": {
+          "block_id": "timeline-parent",
+          "style": "style-1",
+          "Alignment": "center",
+          "StartPin": "icon",
+          "StartIcon": "fas fa-rocket",
+          "EndPin": "icon",
+          "EndIcon": "fas fa-flag-checkered"
+        },
+        "innerBlocks": [
+          {
+            "blockName": "tpgb/tp-timeline-inner",
+            "attrs": {
+              "block_id": "item1",
+              "index": 0,
+              "repetKey": "year-1995",
+              "RPosition": "right",
+              "RTitle": "1995",
+              "RcTitle": "Company Founded",
+              "description": "Started with a vision to change the industry",
+              "Rnone": "icon",
+              "Ricon": "fas fa-lightbulb"
+            }
+          },
+          {
+            "blockName": "tpgb/tp-timeline-inner",
+            "attrs": {
+              "block_id": "item2",
+              "index": 1,
+              "repetKey": "year-2000",
+              "RPosition": "left",
+              "RTitle": "2000",
+              "RcTitle": "First Major Product",
+              "description": "Launched flagship product that revolutionized the market",
+              "Rnone": "icon",
+              "Ricon": "fas fa-star"
+            }
+          },
+          {
+            "blockName": "tpgb/tp-timeline-inner",
+            "attrs": {
+              "block_id": "item3",
+              "index": 2,
+              "repetKey": "year-2010",
+              "RPosition": "right",
+              "RTitle": "2010",
+              "RcTitle": "Global Expansion",
+              "description": "Opened offices in 15 countries, reached 1M customers",
+              "Rnone": "icon",
+              "Ricon": "fas fa-globe"
+            }
+          },
+          {
+            "blockName": "tpgb/tp-timeline-inner",
+            "attrs": {
+              "block_id": "item4",
+              "index": 3,
+              "repetKey": "year-2025",
+              "RPosition": "left",
+              "RTitle": "2025",
+              "RcTitle": "AI Integration",
+              "description": "Launched AI-powered features transforming user experience",
+              "Rnone": "icon",
+              "Ricon": "fas fa-robot"
+            }
+          }
+        ]
+      },
+      "useCase": "Any timeline requiring easy management of individual items, or rich content per item (nested blocks)",
+      "notes": [
+        "Parent tp-timeline defines overall style, alignment, start/end pins",
+        "Each tp-timeline-inner child defines one timeline item",
+        "index must be sequential: 0, 1, 2, 3...",
+        "repetKey should be unique for each item",
+        "RPosition alternates (right, left, right, left) for zigzag with parent Alignment='center'",
+        "This approach is easier to manage than RContent array (each item is a separate block)",
+        "Allows nested child blocks inside each timeline item (not possible with RContent array)",
+        "Best for 5-15 timeline items (more items = use RContent array for better performance)"
+      ]
     }
   ],
-  "commonPatterns": {}
+
+  "comparisonWithParent": {
+    "tpTimelineRContentArray": {
+      "description": "Parent tp-timeline with RContent array attribute",
+      "advantages": [
+        "All timeline items defined in one place (parent attributes)",
+        "Better performance for many items (single block, not multiple)",
+        "Easier to duplicate/copy entire timeline",
+        "Simpler JSON structure"
+      ],
+      "limitations": [
+        "Can't add child blocks inside timeline items (text/HTML only)",
+        "Harder to edit individual items (need to find in array)",
+        "Complex RContent structure (nested objects)",
+        "Limited to predefined fields (RTitle, RcTitle, Rdes, etc.)"
+      ],
+      "bestFor": "Simple timelines with text content, 10+ items, no nested blocks needed"
+    },
+    "tpTimelineInnerChildBlocks": {
+      "description": "Parent tp-timeline with tp-timeline-inner child blocks",
+      "advantages": [
+        "Each timeline item is a separate block (easier to manage)",
+        "Can add nested child blocks inside each item (headings, images, lists, buttons)",
+        "Visual editing in block editor (drag/drop items)",
+        "Easier to reorder items (block editor UI)",
+        "Can mix different content types per item"
+      ],
+      "limitations": [
+        "More blocks = slightly slower performance (5-15 items recommended)",
+        "More complex block tree structure",
+        "Each item is separate entity (harder to duplicate entire timeline)"
+      ],
+      "bestFor": "Rich content timelines, nested blocks needed, visual editing, 5-15 items"
+    }
+  },
+
+  "commonPatterns": {
+    "indexing": {
+      "description": "index attribute must start at 0 and increment sequentially",
+      "pattern": "index: 0, 1, 2, 3, 4...",
+      "important": "Don't skip numbers, don't use negatives, don't duplicate"
+    },
+    "repetKey": {
+      "description": "Unique identifier for each timeline item",
+      "pattern": "Descriptive strings: 'item-0', 'year-1995', 'step-1', 'event-morning'",
+      "important": "Must be unique across all timeline-inner blocks in same parent"
+    },
+    "positioning": {
+      "zigzag": "Parent Alignment='center' + alternate child RPosition (right, left, right, left)",
+      "oneSidedRight": "Parent Alignment='left' + all children RPosition='right'",
+      "oneSidedLeft": "Parent Alignment='right' + all children RPosition='left'"
+    },
+    "pinTypes": {
+      "icon": "Rnone='icon' + Ricon='fas fa-star' (FontAwesome class)",
+      "image": "Rnone='image' + add tp-image child block as pin marker",
+      "text": "Rnone='text' + custom text label (not commonly used in child blocks)",
+      "none": "Rnone='none' for minimal dot-only design"
+    },
+    "richContent": {
+      "description": "Add nested blocks as children of tp-timeline-inner",
+      "allowedChildren": [
+        "tp-heading - Subheadings inside timeline item",
+        "tp-pro-paragraph - Text content",
+        "tp-list - Bulleted/numbered lists",
+        "tp-image - Images inside item (not for pin marker)",
+        "tp-button - CTA buttons",
+        "tp-container - Wrapper for styled sections"
+      ],
+      "important": "Child blocks render INSIDE timeline item card, below description text"
+    }
+  },
+
+  "validationRules": {
+    "parentRequired": "CRITICAL: Must be child of tpgb/tp-timeline block (won't work standalone)",
+    "index": "Required, must be number starting at 0, sequential (0, 1, 2, 3...)",
+    "repetKey": "Required, must be unique string identifier",
+    "RPosition": "Required, must be 'left' or 'right'",
+    "RTitle": "Optional, displayed as date/time/step label",
+    "RcTitle": "Optional, main heading for timeline item",
+    "description": "Optional, description text (omit if using only child blocks)",
+    "Rnone": "Optional, must be 'icon', 'image', 'text', or 'none'",
+    "Ricon": "Required when Rnone='icon', must be valid FontAwesome class",
+    "RButton": "Boolean, if true requires RBtnText",
+    "RBtnText": "Required when RButton=true",
+    "style": "Inherited from parent tp-timeline, don't set on child",
+    "layout": "Inherited from parent tp-timeline, don't set on child",
+    "PinStyle": "Optional, pin visual style (usually inherited from parent)"
+  },
+
+  "warnings": [
+    "CRITICAL: tp-timeline-inner MUST be child of tpgb/tp-timeline (won't render standalone)",
+    "CRITICAL: Don't set style or layout on tp-timeline-inner (inherited from parent)",
+    "CRITICAL: index must be sequential starting at 0 (gaps cause rendering issues)",
+    "CRITICAL: repetKey must be unique (duplicates cause item conflicts)",
+    "Don't use both description attribute AND child blocks (choose one approach)",
+    "Rnone='icon' requires Ricon with valid FontAwesome class",
+    "Rnone='image' requires tp-image child block (not Rimg attribute like RContent array)",
+    "RButton=true requires RBtnText (button styling comes from parent)",
+    "Max 15 child timeline-inner blocks recommended (use RContent array for more items)",
+    "Each timeline-inner adds DOM elements (impacts performance vs RContent array)",
+    "Parent timeline controls overall styling (start/end pins, alignment, animations)",
+    "Don't mix RContent array and child timeline-inner blocks in same parent (use one approach)",
+    "RPosition must coordinate with parent Alignment (right/left/center zigzag pattern)",
+    "Child blocks inside timeline-inner appear BELOW description text",
+    "Heavy nested content in child blocks can impact mobile performance"
+  ],
+
+  "commonMistakes": [
+    "Forgetting that tp-timeline-inner requires parent tp-timeline",
+    "Using number for index instead of starting at 0",
+    "Skipping index numbers (0, 2, 4 instead of 0, 1, 2, 3)",
+    "Using duplicate repetKey values (causes item conflicts)",
+    "Setting style on child instead of parent (style is inherited)",
+    "Using Rnone='image' with Rimg attribute (should use tp-image child block instead)",
+    "Not alternating RPosition with parent Alignment='center' (loses zigzag)",
+    "Adding 20+ timeline-inner blocks (use RContent array for many items)",
+    "Forgetting RButton=true requires RBtnText",
+    "Using Rnone='icon' without Ricon attribute (pin appears broken)",
+    "Mixing description text with rich child blocks (confusing content flow)",
+    "Not making repetKey unique (copy-paste error)",
+    "Trying to use timeline-inner without parent timeline",
+    "Using invalid FontAwesome class in Ricon (icon doesn't display)",
+    "Not coordinating RPosition pattern with parent Alignment setting"
+  ],
+
+  "bestPractices": [
+    "Always use sequential index starting at 0: 0, 1, 2, 3, 4...",
+    "Use descriptive repetKey values: 'year-1995', 'step-1', 'event-morning'",
+    "Coordinate RPosition with parent Alignment for desired layout (zigzag vs one-sided)",
+    "For zigzag: parent Alignment='center' + alternate child RPosition (right, left, right, left)",
+    "For one-sided: parent Alignment='left' + all children RPosition='right'",
+    "Choose timeline-inner child blocks when you need nested content (headings, images, lists)",
+    "Choose RContent array when you have simple text items or 10+ items",
+    "Use Rnone='icon' with matching content-appropriate icons (fas fa-rocket, fas fa-star)",
+    "Use Rnone='none' for minimal designs (just dots, no decorative icons)",
+    "Keep description concise (1-2 sentences) if using child blocks for main content",
+    "Limit to 5-15 timeline-inner blocks per parent for optimal performance",
+    "Test on mobile (child blocks stack vertically inside timeline item)",
+    "Use RButton=true + RBtnText for CTAs in timeline items",
+    "Don't duplicate parent settings on child (style, layout, Alignment are inherited)",
+    "Use unique block_id for each timeline-inner block",
+    "When using Rnone='image', add tp-image child block as first child (renders as pin)",
+    "For career timelines: use company logos as image pins (100x100px square)",
+    "For process steps: use sequential RTitle ('Step 1', 'Step 2') with Rnone='icon'",
+    "For events: use time in RTitle ('9:00 AM') with session icons"
+  ],
+
+  "accessibilityNotes": [
+    "Use semantic heading hierarchy (RcTitle should match parent context level)",
+    "Ensure sufficient color contrast (inherited from parent timeline styling)",
+    "Provide meaningful RTitle and RcTitle values (screen readers announce these)",
+    "Use descriptive RBtnText for buttons ('Learn More About Product', not 'Click Here')",
+    "Don't rely solely on icons to convey information (use RTitle + RcTitle + description)",
+    "Ensure timeline is keyboard navigable (buttons/links have focus states)",
+    "Test with screen readers (items announced in chronological order)",
+    "Use proper heading levels in child blocks (h3, h4, not h1)",
+    "Avoid text over backgrounds without sufficient contrast",
+    "Ensure touch targets are at least 44x44px on mobile (buttons, links)",
+    "For image pins: provide alt text in tp-image child block",
+    "Don't auto-play media in child blocks (user-controlled only)",
+    "Provide clear visual indication of timeline progression (parent controls line/pins)",
+    "Test on mobile screen readers (VoiceOver iOS, TalkBack Android)"
+  ],
+
+  "performanceConsiderations": [
+    "Limit to 5-15 timeline-inner blocks per parent (more = use RContent array)",
+    "Each child block adds DOM elements (vs RContent array = lighter)",
+    "Optimize images in child blocks (WebP format, compressed, lazy loading)",
+    "Avoid heavy child blocks (large iframes, auto-play videos)",
+    "For 10+ items: prefer RContent array (better performance than many child blocks)",
+    "Test on mobile devices (multiple child blocks can slow rendering)",
+    "Keep nested child blocks to 3-5 per timeline-inner item",
+    "Use Rnone='none' for minimal design (faster than loading icon fonts)",
+    "Lazy load images in tp-image child blocks (WordPress default)",
+    "Monitor Cumulative Layout Shift (CLS) when timeline loads",
+    "Test with slow 3G connection (Chrome DevTools throttling)",
+    "Consider pagination for very long timelines (split into sections)",
+    "Avoid embedding external content in child blocks (heavy on resources)"
+  ],
+
+  "relatedBlocks": [
+    "tpgb/tp-timeline - Parent timeline container (REQUIRED)",
+    "tpgb/tp-heading - Nested heading inside timeline-inner item",
+    "tpgb/tp-pro-paragraph - Nested text content inside item",
+    "tpgb/tp-image - Nested image (or pin marker when Rnone='image')",
+    "tpgb/tp-button - Nested CTA button inside item",
+    "tpgb/tp-list - Nested list inside item",
+    "tpgb/tp-container - Wrapper for styled sections inside item"
+  ],
+
+  "migrationGuide": {
+    "fromRContentToChildBlocks": {
+      "description": "How to convert tp-timeline RContent array to tp-timeline-inner child blocks",
+      "steps": [
+        "1. Create parent tp-timeline block (same as before, remove RContent array)",
+        "2. For each item in RContent array, create one tp-timeline-inner child block",
+        "3. Map RContent[0] → tp-timeline-inner with index=0, RContent[1] → index=1, etc.",
+        "4. Copy _key from RContent to repetKey in timeline-inner",
+        "5. Copy RTitle, RcTitle, Rdes, RPosition, Rnone, Ricon from RContent to timeline-inner",
+        "6. If RContent had RButton, copy to timeline-inner RButton + RBtnText",
+        "7. If RContent had Rfimage, add tp-image child block inside timeline-inner",
+        "8. If RContent had RcHTML, replace with nested child blocks (tp-heading, tp-paragraph, etc.)"
+      ],
+      "example": {
+        "before": {
+          "blockName": "tpgb/tp-timeline",
+          "attrs": {
+            "RContent": [
+              {
+                "_key": "1",
+                "RTitle": "1995",
+                "RcTitle": "Founded",
+                "Rdes": "Started company",
+                "RPosition": "right",
+                "Rnone": "icon",
+                "Ricon": "fas fa-lightbulb"
+              }
+            ]
+          }
+        },
+        "after": {
+          "blockName": "tpgb/tp-timeline",
+          "attrs": {},
+          "innerBlocks": [
+            {
+              "blockName": "tpgb/tp-timeline-inner",
+              "attrs": {
+                "index": 0,
+                "repetKey": "1",
+                "RTitle": "1995",
+                "RcTitle": "Founded",
+                "description": "Started company",
+                "RPosition": "right",
+                "Rnone": "icon",
+                "Ricon": "fas fa-lightbulb"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
 }

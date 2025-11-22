@@ -2,47 +2,623 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-form-email-field",
   "title": "Email Address - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for form email input fields",
   "examples": [
     {
-      "description": "Simple required email field",
+      "name": "Simple Required Email Field",
+      "description": "Basic email field with required validation and autocomplete",
+      "visualDescription": "Standard full-width input field with 'Email Address' label, placeholder text, red asterisk for required field, browser autocomplete enabled",
+      "complexity": "simple",
+      "useCase": "Contact forms, registration forms, simple email collection",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "email001",
         "labelss": "Email Address",
+        "placeholder": "your@email.com",
+        "reqTgl": true,
+        "autoComplete": "email",
+        "error": "Please enter a valid email address.",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "autoComplete='email' enables browser autofill for email addresses",
+        "reqTgl=true adds red asterisk (*) next to label and validates on submit",
+        "Email format validated automatically (must contain @ and domain)",
+        "Custom error message shows when field is empty or invalid on submit"
+      ]
+    },
+    {
+      "name": "Email Field with FontAwesome Icon",
+      "description": "Email field with envelope icon and hover color change",
+      "visualDescription": "Input field with purple envelope icon on left, changes to darker purple on hover, full-width, email validation",
+      "complexity": "medium",
+      "useCase": "Modern forms, newsletter signups, professional contact forms",
+      "attributes": {
+        "block_id": "email002",
+        "labelss": "Your Email",
+        "placeholder": "Enter your email address",
+        "iconType": "fontAwesome",
+        "icons": "fas fa-envelope",
+        "icnClr": "#667eea",
+        "hvrIcnClr": "#5568d3",
+        "reqTgl": true,
+        "autoComplete": "email",
+        "error": "A valid email address is required.",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "iconType must be 'fontAwesome' for FontAwesome icons",
+        "icons uses Font Awesome class (fas fa-envelope, fas fa-at, far fa-envelope-open, etc.)",
+        "Icon color changes on hover with hvrIcnClr",
+        "Email validation is automatic (checks for @ and valid domain format)"
+      ]
+    },
+    {
+      "name": "Email Field with Custom Image Icon",
+      "description": "Email field using custom image icon instead of font icon",
+      "visualDescription": "Input field with custom email icon image on left (24x24px), full-width on all devices",
+      "complexity": "medium",
+      "useCase": "Branded forms, custom-designed forms, theme-specific styling",
+      "attributes": {
+        "block_id": "email003",
+        "labelss": "Email",
+        "placeholder": "email@example.com",
+        "iconType": "image",
+        "ButtonImage": {
+          "url": "https://example.com/email-icon.png",
+          "Id": "456"
+        },
+        "reqTgl": true,
+        "autoComplete": "email",
+        "error": "This field is required.",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "iconType must be 'image' for custom images",
+        "ButtonImage.url should be full URL to image file",
+        "ButtonImage.Id is WordPress media library ID",
+        "Recommended image size: 24x24px or 32x32px",
+        "Image icons don't support color customization (use SVG for color control)"
+      ]
+    },
+    {
+      "name": "Newsletter Signup with Help Text",
+      "description": "Email field with privacy reassurance help text below input",
+      "visualDescription": "Standard input with gray help text below: 'We'll never share your email with anyone else', left-aligned, smaller font",
+      "complexity": "simple",
+      "useCase": "Newsletter signups, subscription forms, privacy-conscious forms",
+      "attributes": {
+        "block_id": "email004",
+        "labelss": "Subscribe to Newsletter",
+        "placeholder": "email@example.com",
+        "hlpTxt": true,
+        "desctxt": "We'll never share your email with anyone else. Unsubscribe anytime.",
+        "descPoss": "bottom",
+        "reqTgl": true,
+        "autoComplete": "email",
+        "error": "Please provide a valid email to subscribe.",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "hlpTxt must be true to enable help text",
+        "desctxt contains the help text content",
+        "descPoss='bottom' places help text below input",
+        "Help text builds trust by addressing privacy concerns",
+        "Help text styling controlled by parent tp-form-block"
+      ]
+    },
+    {
+      "name": "Newsletter Form with Inline Submit Button",
+      "description": "Email field optimized for inline layout with submit button on same row",
+      "visualDescription": "70% width email input on left, 28% width submit button on right (2% gap), full-width on mobile, placeholder guides format",
+      "complexity": "medium",
+      "useCase": "Newsletter signups, footer email collection, hero section CTAs",
+      "attributes": {
+        "block_id": "email005",
+        "labelss": "Email Address",
+        "placeholder": "Enter your email",
+        "iconType": "fontAwesome",
+        "icons": "fas fa-envelope-open",
+        "icnClr": "#667eea",
+        "reqTgl": true,
+        "autoComplete": "email",
+        "error": "Valid email required.",
+        "inpSz": {
+          "md": "68",
+          "sm": "100",
+          "xs": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "childBlocks": ["nxt-submit-button with nxt-btn-inline class"],
+      "notes": [
+        "inpSz.md='68' allows ~30% for submit button plus 2% gap",
+        "Submit button needs nxt-btn-inline class to sit on same row",
+        "Full-width on mobile (sm/xs) for better UX - button stacks below",
+        "Parent tp-form-block layoutType should support inline buttons (nxt-newsstyle-1, nxt-newsstyle-3, nxt-newsstyle-4)",
+        "Set columnGap to 0 or small value (4-8px) in parent tp-form-block"
+      ]
+    },
+    {
+      "name": "Email Field with Custom Validation Error",
+      "description": "Email field with specific error message for business context",
+      "visualDescription": "Professional contact form email field with custom error: 'Please provide a valid business email address', envelope icon, full-width",
+      "complexity": "simple",
+      "useCase": "B2B forms, professional contact, business inquiries",
+      "attributes": {
+        "block_id": "email006",
+        "labelss": "Business Email",
+        "placeholder": "name@company.com",
+        "iconType": "fontAwesome",
+        "icons": "fas fa-briefcase",
+        "icnClr": "#667eea",
+        "reqTgl": true,
+        "autoComplete": "email",
+        "error": "Please provide a valid business email address.",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "Custom error message clarifies expected input (business email)",
+        "Briefcase icon reinforces professional context",
+        "Placeholder example shows expected format (name@company.com)",
+        "Note: Built-in validation only checks email format, not if it's 'business'"
+      ]
+    },
+    {
+      "name": "Email Field with Help Text (Top Position)",
+      "description": "Email field with instructional help text above the input",
+      "visualDescription": "Help text appears above input in gray: 'Use your primary email for account recovery', input field below with envelope icon",
+      "complexity": "simple",
+      "useCase": "Account creation, registration forms, forms needing upfront email guidance",
+      "attributes": {
+        "block_id": "email007",
+        "labelss": "Email Address",
+        "placeholder": "your@email.com",
+        "iconType": "fontAwesome",
+        "icons": "fas fa-envelope",
+        "icnClr": "#667eea",
+        "hlpTxt": true,
+        "desctxt": "Use your primary email for account recovery and important notifications",
+        "descPoss": "top",
+        "reqTgl": true,
+        "autoComplete": "email",
+        "error": "Email is required for account creation.",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "descPoss='top' places help text above input",
+        "Useful for instructions users should read before typing",
+        "Help text explains why email is important (account recovery)"
+      ]
+    },
+    {
+      "name": "Professional Contact Email with All Features",
+      "description": "Comprehensive email field with icon, hover state, help text, custom error",
+      "visualDescription": "Purple @ symbol icon on left, changes to gradient purple on hover, help text below in gray, full-width, professional styling",
+      "complexity": "advanced",
+      "useCase": "High-value contact forms, professional applications, detailed forms",
+      "attributes": {
+        "block_id": "email008",
+        "labelss": "Contact Email",
+        "placeholder": "e.g., john.doe@example.com",
+        "iconType": "fontAwesome",
+        "icons": "fas fa-at",
+        "icnClr": "#667eea",
+        "hvrIcnClr": "#764ba2",
+        "hlpTxt": true,
+        "desctxt": "We'll use this email to respond to your inquiry within 24 hours",
+        "descPoss": "bottom",
+        "reqTgl": true,
+        "autoComplete": "email",
+        "error": "A valid email address is required so we can respond to your inquiry.",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "Combines icon, hover color, help text, and custom error message",
+        "@ symbol icon (fas fa-at) is modern alternative to envelope",
+        "Help text sets expectations (24 hour response time)",
+        "Error message is specific and explains why email is needed"
+      ]
+    }
+  ],
+  "commonPatterns": [
+    {
+      "pattern": "simple-email-field",
+      "description": "Basic required email field",
+      "attrs": {
+        "labelss": "Email",
         "placeholder": "your@email.com",
         "reqTgl": true,
         "autoComplete": "email"
       }
     },
     {
-      "description": "Email field with icon",
-      "attributes": {
-        "block_id": "c3d4",
-        "labelss": "Your Email",
-        "iconType": "fontAwesome",
-        "icons": "fas fa-envelope",
+      "pattern": "newsletter-signup",
+      "description": "Newsletter email field with privacy help text",
+      "attrs": {
+        "labelss": "Email Address",
         "placeholder": "Enter your email",
+        "hlpTxt": true,
+        "desctxt": "We'll never share your email. Unsubscribe anytime.",
+        "descPoss": "bottom",
         "reqTgl": true,
-        "icnClr": "#667eea",
-        "hvrIcnClr": "#764ba2"
+        "autoComplete": "email"
       }
     },
     {
-      "description": "Newsletter signup with help text",
-      "attributes": {
-        "block_id": "e5f6",
-        "labelss": "Subscribe to Newsletter",
-        "placeholder": "email@example.com",
-        "hlpTxt": true,
-        "desctxt": "We'll never share your email with anyone else",
-        "descPoss": "bottom",
-        "reqTgl": true
+      "pattern": "inline-email-button",
+      "description": "Email field with inline submit button",
+      "attrs": {
+        "labelss": "Email",
+        "placeholder": "your@email.com",
+        "reqTgl": true,
+        "inpSz": {"md": "68", "sm": "100", "xs": "100", "unit": "%"}
+      },
+      "childBlocks": ["nxt-submit-button with nxt-btn-inline"]
+    },
+    {
+      "pattern": "email-with-icon",
+      "description": "Email field with FontAwesome envelope icon",
+      "attrs": {
+        "labelss": "Email",
+        "iconType": "fontAwesome",
+        "icons": "fas fa-envelope",
+        "icnClr": "#667eea",
+        "reqTgl": true,
+        "autoComplete": "email"
       }
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
+  "validationRules": {
+    "labelss": "Required - Field label displayed to user",
+    "reqTgl": "Optional - Set true for required field (adds asterisk to label, validates on submit)",
+    "iconType": "Optional - Must be 'none', 'fontAwesome', or 'image'",
+    "icons": "Required if iconType='fontAwesome' - Font Awesome class",
+    "ButtonImage": "Required if iconType='image' - Object with url and Id",
+    "autoComplete": "Optional - 'off' or 'email' (recommended: 'email')",
+    "hlpTxt": "Optional - Must be true to enable help text",
+    "desctxt": "Required if hlpTxt=true - Help text content",
+    "descPoss": "Optional - 'top' or 'bottom' (help text position)",
+    "inpSz": "Optional - Responsive width object (default: {md: '100', unit: '%'})",
+    "error": "Optional - Custom error message (shown on validation failure)"
+  },
+  "warnings": [
+    "⚠️ PARENT REQUIRED: nxt-email-field MUST be placed inside tp-form-block (ancestor requirement)",
+    "⚠️ ICON TYPE: iconType must be set before icons or ButtonImage will work",
+    "⚠️ AUTOMATIC VALIDATION: Email format validated automatically (must contain @ and valid domain)",
+    "⚠️ INLINE BUTTON: For inline submit button, use inpSz ~68-70% and add nxt-btn-inline class to submit button",
+    "⚠️ HELP TEXT: hlpTxt must be true for desctxt to display",
+    "⚠️ STYLING: Label, input, button styling controlled by parent tp-form-block (lblClr, inpClr, etc.)",
+    "⚠️ ERROR MESSAGE: Custom error message only shows when reqTgl=true and email is empty/invalid on submit",
+    "⚠️ PLACEHOLDER vs LABEL: Both are useful - placeholder guides format, label identifies field purpose",
+    "⚠️ RESPONSIVE WIDTH: inpSz uses md/sm/xs breakpoints - always set mobile (xs) to 100% for better UX",
+    "⚠️ ICON COLOR: icnClr and hvrIcnClr only work with iconType='fontAwesome', not with image icons",
+    "⚠️ IMAGE ICON SIZE: Custom image icons should be 24x24px or 32x32px for optimal display",
+    "⚠️ AUTOCOMPLETE: Always use autoComplete='email' for better UX (browser autofill)",
+    "⚠️ ATTRIBUTE NAME: Image icon uses 'ButtonImage', not 'emailImage' or 'iconImage'"
+  ],
+  "commonMistakes": [
+    "❌ Forgetting to set iconType before adding icon (icons won't appear)",
+    "❌ Using iconType='image' but providing 'emailImage' instead of 'ButtonImage' (attribute name is ButtonImage)",
+    "❌ Setting hlpTxt=false but adding desctxt (help text won't show)",
+    "❌ Using inpSz=50% for inline button (leaves no room for button - use 68-70% instead)",
+    "❌ Not setting autoComplete='email' (missing out on browser autofill UX)",
+    "❌ Expecting icon color change with image icons (only works with fontAwesome)",
+    "❌ Not testing responsive widths on mobile (fields should be full-width on xs breakpoint)",
+    "❌ Using generic error message 'Required' instead of specific 'Please enter a valid email address'",
+    "❌ Placing email field outside tp-form-block parent (block won't render correctly)",
+    "❌ Using descPoss='middle' (only 'top' and 'bottom' are valid)",
+    "❌ Forgetting nxt-btn-inline class on submit button for inline layout",
+    "❌ Setting reqTgl=false for newsletter signups (email should always be required)"
+  ],
+  "bestPractices": [
+    "✅ Always set autoComplete='email' for better UX (browser autofill saves user time)",
+    "✅ Keep labels concise: 'Email' or 'Email Address' not 'Please Enter Your Email Address Here'",
+    "✅ Use placeholders for format guidance: 'your@email.com' or 'name@company.com'",
+    "✅ Add help text for privacy-conscious forms: 'We'll never share your email'",
+    "✅ Position help text strategically: 'bottom' for privacy notes, 'top' for instructions",
+    "✅ Use icons consistently across form (if email has icon, name/phone should too)",
+    "✅ Choose icons that match context: fa-envelope for general, fa-at for modern, fa-briefcase for business",
+    "✅ Provide clear, specific error messages: 'A valid email address is required' not 'Error'",
+    "✅ Make email fields full-width on mobile (inpSz.xs = '100')",
+    "✅ For inline button layouts, use 68-70% width on desktop, 100% on mobile",
+    "✅ Always set reqTgl=true for email fields (email is usually required)",
+    "✅ Use descPoss='bottom' for help text by default (doesn't interfere with label reading flow)",
+    "✅ For newsletter signups, include unsubscribe mention in help text (builds trust)",
+    "✅ Test email validation with various formats (gmail.com, custom domains, plus addressing)",
+    "✅ For business contexts, use placeholder like 'name@company.com' to set expectations",
+    "✅ Combine icon + hover color for polished modern forms"
+  ],
+  "autocompleteGuide": {
+    "description": "HTML autocomplete attribute values for email fields",
+    "values": {
+      "email": {
+        "description": "Email address",
+        "useCase": "All email fields (recommended)",
+        "example": "john.doe@example.com",
+        "browserBehavior": "Autofills saved email addresses"
+      },
+      "off": {
+        "description": "Disable browser autofill",
+        "useCase": "Security-sensitive forms, unique identifiers (not recommended for most cases)",
+        "example": "N/A",
+        "browserBehavior": "No autofill suggestions"
+      }
+    },
+    "bestPractices": [
+      "✅ Always use 'email' for email fields (improves UX)",
+      "❌ Don't use 'off' unless absolutely necessary (degrades UX)",
+      "Browser autofill increases form completion rates by 30-40%"
+    ]
+  },
+  "iconTypeGuide": {
+    "description": "Icon display options for email fields",
+    "types": {
+      "none": {
+        "description": "No icon displayed",
+        "useCase": "Minimal forms, text-only designs",
+        "attributes": {"iconType": "none"}
+      },
+      "fontAwesome": {
+        "description": "Font Awesome icon",
+        "useCase": "Most common - wide icon selection, color customization",
+        "attributes": {
+          "iconType": "fontAwesome",
+          "icons": "fas fa-envelope",
+          "icnClr": "#667eea",
+          "hvrIcnClr": "#764ba2"
+        },
+        "popularIcons": [
+          "fas fa-envelope (classic email envelope)",
+          "far fa-envelope (outline envelope)",
+          "fas fa-envelope-open (open envelope)",
+          "fas fa-at (@ symbol - modern)",
+          "fas fa-paper-plane (send/submit context)",
+          "fas fa-inbox (inbox/receive context)",
+          "fas fa-briefcase (business email)"
+        ]
+      },
+      "image": {
+        "description": "Custom image icon",
+        "useCase": "Branded forms, custom designs, specific graphics",
+        "attributes": {
+          "iconType": "image",
+          "ButtonImage": {
+            "url": "https://example.com/icon.png",
+            "Id": "456"
+          }
+        },
+        "notes": [
+          "Recommended size: 24x24px or 32x32px",
+          "Supports PNG, JPG, SVG, WebP",
+          "SVG recommended for scalability and color control",
+          "No color customization via icnClr (use SVG fill for color)",
+          "Attribute name is 'ButtonImage', not 'emailImage'"
+        ]
+      }
+    }
+  },
+  "responsivePatterns": {
+    "fullWidth": {
+      "description": "Full-width on all devices",
+      "inpSz": {"md": "100", "sm": "100", "xs": "100", "unit": "%"},
+      "useCase": "Most common pattern for standalone email fields"
+    },
+    "inlineButton": {
+      "description": "Email field with inline submit button on same row",
+      "inpSz": {"md": "68", "sm": "100", "xs": "100", "unit": "%"},
+      "useCase": "Newsletter signups, footer email collection, hero CTAs",
+      "notes": [
+        "68% email + 30% button + 2% gap = 100%",
+        "Submit button needs nxt-btn-inline class",
+        "Button stacks below on mobile (sm/xs)",
+        "Parent tp-form-block layoutType should be nxt-newsstyle-1, nxt-newsstyle-3, or nxt-newsstyle-4"
+      ]
+    },
+    "halfWidthDesktop": {
+      "description": "Half-width on desktop, full-width on mobile",
+      "inpSz": {"md": "48", "sm": "100", "xs": "100", "unit": "%"},
+      "useCase": "Multi-column forms (email + phone on same row)",
+      "notes": [
+        "48% allows for ~4% gap between fields on desktop",
+        "Parent tp-form-block controls gap spacing via columnGap"
+      ]
+    }
+  },
+  "emailValidationGuide": {
+    "description": "Understanding automatic email validation in nxt-email-field",
+    "automaticValidation": {
+      "description": "Email fields have built-in browser validation",
+      "rules": [
+        "Must contain @ symbol",
+        "Must have valid domain after @ (e.g., example.com)",
+        "Cannot start or end with @ or .",
+        "Must have at least one character before @",
+        "Standard HTML5 email validation pattern"
+      ],
+      "examples": {
+        "valid": [
+          "user@example.com",
+          "john.doe@company.co.uk",
+          "name+tag@gmail.com",
+          "user123@domain.io"
+        ],
+        "invalid": [
+          "plaintext (no @)",
+          "@example.com (nothing before @)",
+          "user@ (no domain)",
+          "user@.com (invalid domain)",
+          "user name@example.com (space in address)"
+        ]
+      }
+    },
+    "customValidation": {
+      "description": "Additional validation can be handled by parent tp-form-block",
+      "parentAttributes": [
+        "valErrMsg: Enable custom validation messages",
+        "failMsg: Message shown on validation failure",
+        "sucTypo, sucClr: Success message styling"
+      ],
+      "notes": [
+        "Built-in validation only checks format, not if email exists",
+        "Cannot validate business vs personal email (requires custom server-side logic)",
+        "Cannot block disposable email domains without custom validation"
+      ]
+    }
+  },
+  "accessibilityNotes": [
+    "🌐 WCAG 2.1 AA Compliance:",
+    "- Label must be descriptive and associated with input (labelss attribute)",
+    "- Error messages should be specific and actionable (error attribute)",
+    "- Required fields marked with asterisk (*) via reqTgl",
+    "- Help text provides additional context for screen readers (desctxt)",
+    "- Placeholder text supplements label, doesn't replace it",
+    "- autocomplete='email' improves assistive technology experience",
+    "",
+    "🎯 Focus States:",
+    "- Parent tp-form-block controls focus styling (actInpBg, actInpBdr)",
+    "- Ensure focus state has 3:1 contrast ratio with background",
+    "",
+    "⌨️ Keyboard Navigation:",
+    "- Tab key moves between fields naturally",
+    "- Enter key submits form (handled by parent tp-form-block)",
+    "",
+    "🔊 Screen Reader Considerations:",
+    "- Label read first: 'Email Address, required, edit text'",
+    "- Help text read as description",
+    "- Error message announced on validation failure: 'Invalid entry, A valid email address is required'",
+    "- Icon decorative only (not announced)",
+    "",
+    "🌈 Color Contrast:",
+    "- Label text must have 4.5:1 contrast with background",
+    "- Placeholder text must have 4.5:1 contrast",
+    "- Icon color (icnClr) should have 3:1 contrast if conveying information",
+    "- Error messages typically red, but must have sufficient contrast (4.5:1)",
+    "",
+    "📧 Email-Specific Accessibility:",
+    "- Always include 'Email' or 'Email Address' in label (don't just use icon)",
+    "- Error messages should clarify format: 'Please enter a valid email address like name@example.com'",
+    "- Help text can explain why email is needed: 'for account recovery' or 'to send confirmation'"
+  ],
+  "parentChildRelationship": {
+    "parent": "tpgb/tp-form-block",
+    "child": "tpgb/tp-form-email-field",
+    "requirement": "CRITICAL - nxt-email-field MUST be inside tp-form-block",
+    "parentControls": [
+      "Label styling (lblClr, lblTypo, lblBtmMrg, hvrLblClr)",
+      "Input styling (inpClr, plcClr, inpBg, hvrInpBg, actInpBg, inpBdr, inpBdrRds, inpPad, inpTypo)",
+      "Help text styling (typically inherits from parent typography)",
+      "Field spacing (rowGap, columnGap)",
+      "Form layout (layoutType: nxt-style-1, nxt-newsstyle-1, etc.)",
+      "Form submission behavior (actionOption, emailTo1, etc.)",
+      "Validation display (valErrMsg, failMsg, sucTypo)",
+      "Email integration (Mailchimp, ConvertKit, etc.)"
+    ],
+    "childControls": [
+      "Label text (labelss)",
+      "Icon (iconType, icons, ButtonImage, icnClr, hvrIcnClr)",
+      "Placeholder text (placeholder)",
+      "Required status (reqTgl)",
+      "Error message (error)",
+      "Help text (hlpTxt, desctxt, descPoss)",
+      "Field width (inpSz)",
+      "Autocomplete attribute (autoComplete)"
+    ],
+    "workflow": [
+      "1. Create tp-form-block parent",
+      "2. Configure parent form action (Email, Mailchimp, etc.)",
+      "3. Set parent styling (labels, inputs, buttons)",
+      "4. Add nxt-email-field child inside parent",
+      "5. Configure child-specific settings (label, icon, placeholder)",
+      "6. Email value automatically used in form submission via [nxt_email] placeholder"
+    ],
+    "emailPlaceholder": {
+      "description": "Email field value can be used in parent tp-form-block email templates",
+      "placeholder": "[nxt_email]",
+      "usage": [
+        "emailTo1: Use [nxt_email] to send copy to user",
+        "replyTo: Use [nxt_email] for reply-to address",
+        "Email body: Use [nxt_email] to include user's email in message",
+        "Subject: Use [nxt_email] to personalize subject line"
+      ],
+      "example": {
+        "parent": "tp-form-block",
+        "parentAttrs": {
+          "emailTo2": "[nxt_email]",
+          "subject2": "Thanks for contacting us!",
+          "frmEmai2": "noreply@example.com",
+          "replyTo2": "support@example.com"
+        },
+        "description": "Sends confirmation email to user's entered email address"
+      }
+    }
+  },
+  "integrationPatterns": {
+    "mailchimp": {
+      "description": "Collecting email for Mailchimp newsletter subscription",
+      "parentSetup": {
+        "actionOption": "[{\"value\": \"Mailchimp\", \"label\": \"Mailchimp\"}]",
+        "mailchmpApiki": "your-mailchimp-api-key",
+        "mailchmpAud": "your-audience-id"
+      },
+      "childSetup": {
+        "labelss": "Email Address",
+        "placeholder": "your@email.com",
+        "reqTgl": true,
+        "autoComplete": "email"
+      },
+      "notes": [
+        "Email value automatically sent to Mailchimp on form submit",
+        "No additional configuration needed in child block",
+        "Can combine with name field for better Mailchimp data"
+      ]
+    },
+    "emailNotification": {
+      "description": "Sending email notification with user's email",
+      "parentSetup": {
+        "actionOption": "[{\"value\": \"Email\", \"label\": \"Email\"}]",
+        "emailTo1": "admin@example.com",
+        "subject1": "New Form Submission",
+        "replyTo": "[nxt_email]"
+      },
+      "childSetup": {
+        "labelss": "Your Email",
+        "reqTgl": true,
+        "autoComplete": "email"
+      },
+      "notes": [
+        "replyTo set to [nxt_email] allows direct reply to user",
+        "Can use [nxt_email] in email body to show user's email",
+        "Can send copy to user with emailTo2: '[nxt_email]'"
+      ]
     }
   }
 }

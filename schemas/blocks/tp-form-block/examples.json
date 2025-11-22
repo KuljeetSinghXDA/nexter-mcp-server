@@ -2,13 +2,30 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-form-block",
   "title": "Form - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for the parent form container (styles all child form fields)",
   "examples": [
     {
-      "description": "Simple contact form styling",
+      "name": "Simple Contact Form Styling",
+      "description": "Basic form with clean styling for labels, inputs, and submit button",
+      "visualDescription": "Gray labels, white inputs with light gray borders, 4px border radius, standard padding",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "form001",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"Email\", \"label\": \"Email\"}]",
+        "emailTo1": "admin@example.com",
+        "subject1": "New Contact Form Submission",
+        "autoRespMsg": "Thank you for your message. We'll get back to you soon!",
         "lblClr": "#2c3e50",
+        "lblTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"},
+          "fontWeight": "500"
+        },
+        "lblBtmMrg": {
+          "md": "8",
+          "unit": "px"
+        },
         "inpClr": "#2c3e50",
         "plcClr": "#95a5a6",
         "inpBg": "#ffffff",
@@ -34,43 +51,195 @@
             "left": "4"
           },
           "unit": "px"
+        },
+        "inpPad": {
+          "md": {
+            "top": "12",
+            "right": "15",
+            "bottom": "12",
+            "left": "15"
+          },
+          "unit": "px"
+        },
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "hvrBtnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#764ba2"
+        },
+        "btnPad": {
+          "md": {
+            "top": "12",
+            "right": "30",
+            "bottom": "12",
+            "left": "30"
+          },
+          "unit": "px"
+        },
+        "btnBdrRds": {
+          "md": {
+            "top": "4",
+            "right": "4",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        },
+        "rowGap": {
+          "md": "20",
+          "unit": "px"
         }
-      }
+      },
+      "useCase": "Contact forms, inquiry forms, general-purpose forms",
+      "childBlocks": [
+        "nxt-name-field",
+        "nxt-email-field",
+        "nxt-message-field",
+        "nxt-submit-button"
+      ]
     },
     {
-      "description": "Modern form with custom styling",
+      "name": "Modern Form with Gradient Button",
+      "description": "Contemporary styling with filled backgrounds and gradient submit button",
+      "visualDescription": "Light blue-gray input backgrounds, white on hover, purple gradient submit button",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "form002",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"Email\", \"label\": \"Email\"}]",
+        "emailTo1": "support@example.com",
+        "subject1": "New Form Submission",
+        "lblClr": "#333333",
         "lblTypo": {
           "openTypography": 1,
-          "size": {
-            "md": "14",
-            "unit": "px"
-          },
-          "weight": "600"
+          "fontSize": {"md": "14", "unit": "px"},
+          "fontWeight": "600"
         },
         "lblBtmMrg": {
           "md": "8",
           "unit": "px"
         },
-        "inpPad": {
+        "inpClr": "#2c3e50",
+        "plcClr": "#95a5a6",
+        "inpBg": "#f7f9fc",
+        "hvrInpBg": "#ffffff",
+        "inpBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e0e0e0",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "hvrInpBdrClr": "#667eea",
+        "actInpBdrClr": "#667eea",
+        "inpBdrRds": {
           "md": {
-            "top": "12",
-            "bottom": "12",
-            "left": "15",
-            "right": "15"
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
           },
           "unit": "px"
         },
-        "inpBg": "#f7f9fc",
-        "hvrInpBg": "#ffffff",
-        "hvrInpBdrClr": "#667eea"
-      }
+        "inpPad": {
+          "md": {
+            "top": "14",
+            "right": "18",
+            "bottom": "14",
+            "left": "18"
+          },
+          "unit": "px"
+        },
+        "btnClr": "#ffffff",
+        "hvrBtnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "hvrBtnBgClr": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#764ba2", "position": 0},
+              {"color": "#667eea", "position": 100}
+            ]
+          }
+        },
+        "btnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "btnPad": {
+          "md": {
+            "top": "15",
+            "right": "35",
+            "bottom": "15",
+            "left": "35"
+          },
+          "unit": "px"
+        },
+        "btnBdrRds": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "rowGap": {
+          "md": "18",
+          "unit": "px"
+        }
+      },
+      "useCase": "Modern websites, SaaS applications, premium forms"
     },
     {
-      "description": "Minimal bordered form",
+      "name": "Minimal Underline-Only Form",
+      "description": "Minimalist design with transparent backgrounds and bottom borders only",
+      "visualDescription": "No background, only bottom border, purple on focus, clean modern look",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "form003",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"Email\", \"label\": \"Email\"}]",
+        "emailTo1": "hello@example.com",
+        "lblClr": "#333333",
+        "lblTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "13", "unit": "px"},
+          "fontWeight": "500",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "1", "unit": "px"}
+        },
+        "inpClr": "#2c3e50",
+        "plcClr": "#b0b0b0",
         "inpBg": "transparent",
         "inpBdr": {
           "openBorder": 1,
@@ -86,6 +255,8 @@
             "unit": "px"
           }
         },
+        "hvrInpBdrClr": "#667eea",
+        "actInpBdrClr": "#667eea",
         "inpBdrRds": {
           "md": {
             "top": "0",
@@ -95,13 +266,168 @@
           },
           "unit": "px"
         },
-        "hvrInpBdrClr": "#667eea"
-      }
+        "inpPad": {
+          "md": {
+            "top": "10",
+            "right": "0",
+            "bottom": "10",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "btnPad": {
+          "md": {
+            "top": "12",
+            "right": "25",
+            "bottom": "12",
+            "left": "25"
+          },
+          "unit": "px"
+        },
+        "btnBdrRds": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "rowGap": {
+          "md": "25",
+          "unit": "px"
+        }
+      },
+      "useCase": "Portfolio sites, minimalist designs, creative agencies"
     },
     {
-      "description": "Custom checkbox/radio styling",
+      "name": "Newsletter Signup Form",
+      "description": "Horizontal inline layout for email signup (email + submit button side-by-side)",
+      "visualDescription": "Email field and button in one row, gradient button, responsive column gap",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "g7h8",
+        "block_id": "form004",
+        "layoutType": "nxt-newsstyle-1",
+        "actionOption": "[{\"value\": \"Email\", \"label\": \"Email\"}, {\"value\": \"Mailchimp\", \"label\": \"Mailchimp\"}]",
+        "emailTo1": "newsletter@example.com",
+        "subject1": "New Newsletter Subscriber",
+        "mailchmpApiki": "your-mailchimp-api-key",
+        "mailchmpAud": "your-audience-id",
+        "lblClr": "#333333",
+        "lblBtmMrg": {
+          "md": "6",
+          "unit": "px"
+        },
+        "inpClr": "#2c3e50",
+        "plcClr": "#999999",
+        "inpBg": "#ffffff",
+        "inpBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#dcdcdc",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "inpBdrRds": {
+          "md": {
+            "top": "4",
+            "right": "0",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        },
+        "inpPad": {
+          "md": {
+            "top": "14",
+            "right": "18",
+            "bottom": "14",
+            "left": "18"
+          },
+          "unit": "px"
+        },
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "btnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "btnPad": {
+          "md": {
+            "top": "14",
+            "right": "30",
+            "bottom": "14",
+            "left": "30"
+          },
+          "unit": "px"
+        },
+        "btnBdrRds": {
+          "md": {
+            "top": "0",
+            "right": "4",
+            "bottom": "4",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "columnGap": {
+          "md": "0",
+          "unit": "px"
+        },
+        "formAlign": {
+          "md": "center"
+        }
+      },
+      "useCase": "Newsletter signups, blog subscriptions, email capture forms",
+      "childBlocks": [
+        "nxt-email-field",
+        "nxt-submit-button"
+      ],
+      "warnings": [
+        "layoutType 'nxt-newsstyle-1' creates horizontal inline layout",
+        "Mailchimp integration requires API key and audience ID",
+        "Set columnGap to 0 for connected button look (no gap between input and button)"
+      ]
+    },
+    {
+      "name": "Custom Checkbox/Radio Styling",
+      "description": "Form with styled checkboxes and radio buttons (purple accent)",
+      "visualDescription": "20px custom checkboxes/radios, purple background when checked, custom text labels",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "form005",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"Email\", \"label\": \"Email\"}]",
+        "emailTo1": "forms@example.com",
+        "lblClr": "#333333",
+        "inpClr": "#2c3e50",
+        "plcClr": "#95a5a6",
+        "inpBg": "#ffffff",
         "chkRadSz": {
           "md": "20",
           "unit": "px"
@@ -109,10 +435,478 @@
         "chkRadBg": {
           "openBg": 1,
           "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "chkRadBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#dcdcdc",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "chkdChkRadBg": {
+          "openBg": 1,
+          "bgType": "color",
           "bgDefaultColor": "#667eea"
+        },
+        "chkdChkRadClr": "#ffffff",
+        "chkdChkRadBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "chkRadTxtClr": "#333333",
+        "hvrChkRadTxtClr": "#667eea",
+        "chkRadTxtTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "fontWeight": "400"
+        },
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "rowGap": {
+          "md": "18",
+          "unit": "px"
         }
-      }
+      },
+      "useCase": "Surveys, registration forms, preference forms, consent forms",
+      "childBlocks": [
+        "nxt-checkbox-field",
+        "nxt-radio-field",
+        "nxt-submit-button"
+      ]
+    },
+    {
+      "name": "Form with Custom Validation Messages",
+      "description": "Contact form with custom error messages and success styling",
+      "visualDescription": "Standard styling with custom validation/error messages, loader color",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "form006",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"Email\", \"label\": \"Email\"}]",
+        "emailTo1": "contact@example.com",
+        "subject1": "New Website Inquiry",
+        "autoRespMsg": "Thanks for reaching out! We'll respond within 24 hours.",
+        "valErrMsg": "Oops! Please check the highlighted fields and try again.",
+        "failMsg": "Sorry, something went wrong. Please try again later or email us directly.",
+        "lblClr": "#2c3e50",
+        "inpClr": "#2c3e50",
+        "plcClr": "#95a5a6",
+        "inpBg": "#ffffff",
+        "inpBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#dcdcdc",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "inpPad": {
+          "md": {
+            "top": "12",
+            "right": "15",
+            "bottom": "12",
+            "left": "15"
+          },
+          "unit": "px"
+        },
+        "sucTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "fontWeight": "500"
+        },
+        "sucClr": "#27ae60",
+        "ldrClr": "#667eea",
+        "descColor": "#7f8c8d",
+        "descTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "13", "unit": "px"},
+          "fontStyle": "italic"
+        },
+        "reqIcn": true,
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "rowGap": {
+          "md": "20",
+          "unit": "px"
+        }
+      },
+      "useCase": "Contact forms, inquiry forms with custom messaging",
+      "childBlocks": [
+        "nxt-name-field",
+        "nxt-email-field",
+        "nxt-phone-field",
+        "nxt-message-field",
+        "nxt-submit-button"
+      ]
+    },
+    {
+      "name": "Advanced Email Configuration (2 Recipients)",
+      "description": "Form with dual email recipients, CC/BCC, custom headers, and reply-to",
+      "visualDescription": "Standard form styling with advanced email routing configuration",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "form007",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"Email\", \"label\": \"Email\"}]",
+        "emailTo1": "sales@example.com",
+        "subject1": "New Sales Inquiry from Website",
+        "ccEmail1": "manager@example.com",
+        "bccEmail1": "archive@example.com",
+        "emailHdg": "New Sales Lead",
+        "frmEmail": "[nxt_email]",
+        "frmNme": "[nxt_name]",
+        "replyTo": "[nxt_email]",
+        "emailTo2": "[nxt_email]",
+        "subject2": "Thank you for contacting us!",
+        "emailHdg2": "We received your message",
+        "frmEmai2": "sales@example.com",
+        "frmNme2": "Sales Team",
+        "replyTo2": "sales@example.com",
+        "autoRespMsg": "Thank you! We've sent a confirmation to your email.",
+        "lblClr": "#2c3e50",
+        "inpClr": "#2c3e50",
+        "inpBg": "#ffffff",
+        "inpPad": {
+          "md": {
+            "top": "12",
+            "right": "15",
+            "bottom": "12",
+            "left": "15"
+          },
+          "unit": "px"
+        },
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "rowGap": {
+          "md": "20",
+          "unit": "px"
+        }
+      },
+      "useCase": "Sales forms, support tickets, forms requiring admin + user notifications",
+      "warnings": [
+        "emailTo1 sends to administrator (internal notification)",
+        "emailTo2 sends to user (auto-responder confirmation)",
+        "Use [nxt_name], [nxt_email] placeholders to dynamically insert form field values",
+        "CC/BCC fields support multiple emails separated by commas"
+      ]
+    },
+    {
+      "name": "Responsive Form with Gap Spacing",
+      "description": "Form with responsive row/column gaps for mobile-optimized layouts",
+      "visualDescription": "Larger gaps on desktop (24px), smaller on mobile (15px), centered alignment",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "form008",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"Email\", \"label\": \"Email\"}]",
+        "emailTo1": "info@example.com",
+        "lblClr": "#333333",
+        "inpClr": "#2c3e50",
+        "plcClr": "#95a5a6",
+        "inpBg": "#f8f9fa",
+        "hvrInpBg": "#ffffff",
+        "inpBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e0e0e0",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "hvrInpBdrClr": "#667eea",
+        "inpBdrRds": {
+          "md": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        },
+        "inpPad": {
+          "md": {
+            "top": "14",
+            "right": "18",
+            "bottom": "14",
+            "left": "18"
+          },
+          "sm": {
+            "top": "12",
+            "right": "15",
+            "bottom": "12",
+            "left": "15"
+          },
+          "xs": {
+            "top": "10",
+            "right": "12",
+            "bottom": "10",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "btnPad": {
+          "md": {
+            "top": "14",
+            "right": "35",
+            "bottom": "14",
+            "left": "35"
+          },
+          "sm": {
+            "top": "12",
+            "right": "28",
+            "bottom": "12",
+            "left": "28"
+          },
+          "xs": {
+            "top": "10",
+            "right": "22",
+            "bottom": "10",
+            "left": "22"
+          },
+          "unit": "px"
+        },
+        "btnBdrRds": {
+          "md": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        },
+        "rowGap": {
+          "md": "24",
+          "sm": "18",
+          "xs": "15",
+          "unit": "px"
+        },
+        "columnGap": {
+          "md": "20",
+          "sm": "15",
+          "xs": "0",
+          "unit": "px"
+        },
+        "formAlign": {
+          "md": "center",
+          "xs": "flex-start"
+        }
+      },
+      "useCase": "Mobile-first forms, responsive layouts, multi-column forms",
+      "responsiveStrategy": "Larger spacing on desktop for readability, tighter spacing on mobile to reduce scrolling"
     }
   ],
-  "commonPatterns": {}
+  "commonPatterns": {
+    "contactForm": {
+      "description": "Standard contact form (name, email, message, submit)",
+      "requiredAttributes": ["layoutType", "actionOption", "emailTo1"],
+      "recommendedChildBlocks": ["nxt-name-field", "nxt-email-field", "nxt-message-field", "nxt-submit-button"]
+    },
+    "newsletterSignup": {
+      "description": "Inline email + submit button for newsletter",
+      "requiredAttributes": ["layoutType: nxt-newsstyle-1", "actionOption", "emailTo1"],
+      "recommendedChildBlocks": ["nxt-email-field", "nxt-submit-button"],
+      "recommendedSettings": {
+        "columnGap": "0px (for connected look)"
+      }
+    },
+    "surveyForm": {
+      "description": "Form with checkboxes, radios, and custom validation",
+      "requiredAttributes": ["layoutType", "actionOption", "chkRadSz", "chkRadBg"],
+      "recommendedChildBlocks": ["nxt-checkbox-field", "nxt-radio-field", "nxt-submit-button"]
+    }
+  },
+  "validationRules": {
+    "block_id": "Required, unique identifier",
+    "layoutType": "Required, determines form layout (nxt-style-1, nxt-style-2, nxt-newsstyle-1, etc.)",
+    "actionOption": "Required, array of form actions (Email, Mailchimp, ConvertKit, etc.)",
+    "emailTo1": "Required when actionOption includes Email",
+    "subject1": "Optional, default 'New Form Submission'",
+    "emailTo2": "Optional, for dual recipient (admin + user notifications)",
+    "mailchmpApiki": "Required when actionOption includes Mailchimp",
+    "mailchmpAud": "Required when actionOption includes Mailchimp",
+    "rowGap": "Optional, space between form rows (default varies by layout)",
+    "columnGap": "Optional, space between form columns (for multi-column layouts)"
+  },
+  "warnings": [
+    "tp-form-block is a PARENT container - it styles ALL child form field blocks",
+    "Always add child blocks (nxt-name-field, nxt-email-field, etc.) inside tp-form-block",
+    "layoutType affects form display (style-1 = vertical, newsstyle-1 = horizontal inline)",
+    "actionOption determines where form data goes (Email, Mailchimp, Webhook, etc.)",
+    "emailTo1 and emailTo2 serve different purposes (admin notification vs user confirmation)",
+    "Mailchimp/ConvertKit integration requires API keys stored in settings",
+    "Use [nxt_name], [nxt_email] placeholders in email templates to insert form field values",
+    "Setting columnGap to 0 creates 'connected' button look (no gap between input and button)",
+    "reqIcn: true adds asterisk (*) to required field labels",
+    "inpBdr, btnBdr, chkRadBdr require openBorder: 1 to activate",
+    "Typography objects require openTypography: 1 before setting values",
+    "Background objects require openBg: 1 to activate",
+    "valErrMsg and failMsg customize error messages shown to users"
+  ],
+  "commonMistakes": [
+    "Forgetting to add child form field blocks inside tp-form-block",
+    "Not setting actionOption (form won't know where to send data)",
+    "Not setting emailTo1 when using Email action",
+    "Setting layoutType to newsstyle but adding multiple fields (intended for email+button only)",
+    "Not setting API keys for Mailchimp/ConvertKit integrations",
+    "Using incorrect placeholder format (should be [nxt_fieldname], not {fieldname})",
+    "Setting border width without openBorder: 1",
+    "Setting typography without openTypography: 1",
+    "Not testing email delivery (check spam folders, SMTP settings)",
+    "Forgetting to set responsive gaps (rowGap, columnGap) for mobile",
+    "Setting inpBg and hvrInpBg to same color (no visual feedback on hover)",
+    "Not setting actInpBdrClr for focus state (important for accessibility)"
+  ],
+  "bestPractices": [
+    "Always set clear, descriptive email subjects (subject1, subject2)",
+    "Use custom validation messages (valErrMsg, failMsg) for better UX",
+    "Set autoRespMsg to confirm form submission to users",
+    "Add CC/BCC for important forms (sales, support)",
+    "Use emailTo2 for auto-responder confirmations to users",
+    "Set responsive gaps (rowGap, columnGap) with md/sm/xs breakpoints",
+    "Apply hover states (hvrInpBg, hvrInpBdrClr) for visual feedback",
+    "Apply focus states (actInpBdrClr, actInpBg) for accessibility",
+    "Use gradient buttons (btnBgClr with bgType: gradient) for modern look",
+    "Set reqIcn: true to show asterisks on required fields",
+    "Add helper text (descColor, descTypo) for field instructions",
+    "Style checkboxes/radios (chkRadSz, chkdChkRadBg) to match brand",
+    "Use placeholder colors (plcClr, hvrPlc, actPlc) for subtle guidance",
+    "Set loader color (ldrClr) to match brand during form submission",
+    "Center-align newsletter forms (formAlign: center) for better presentation",
+    "Use larger padding on desktop (inpPad, btnPad) for easier clicking"
+  ],
+  "formActionsGuide": {
+    "Email": {
+      "description": "Send form data via email",
+      "requiredAttributes": ["emailTo1", "subject1"],
+      "optionalAttributes": ["emailTo2", "ccEmail1", "bccEmail1", "replyTo"],
+      "example": "actionOption: [{\"value\": \"Email\", \"label\": \"Email\"}]"
+    },
+    "Mailchimp": {
+      "description": "Add subscriber to Mailchimp audience",
+      "requiredAttributes": ["mailchmpApiki", "mailchmpAud"],
+      "setup": "Get API key and audience ID from Mailchimp dashboard",
+      "example": "actionOption: [{\"value\": \"Email\", \"label\": \"Email\"}, {\"value\": \"Mailchimp\", \"label\": \"Mailchimp\"}]"
+    },
+    "ConvertKit": {
+      "description": "Add subscriber to ConvertKit form",
+      "requiredAttributes": ["ktApiKey", "availableForms"],
+      "setup": "Get API key from ConvertKit account settings"
+    },
+    "GetResponse": {
+      "description": "Add subscriber to GetResponse campaign",
+      "requiredAttributes": ["getResApiKey", "getRetkn"]
+    },
+    "Discord": {
+      "description": "Send notification to Discord channel",
+      "requiredAttributes": ["disUrl", "disName"],
+      "setup": "Create webhook URL in Discord channel settings"
+    },
+    "Slack": {
+      "description": "Send notification to Slack channel",
+      "requiredAttributes": ["slackTkn", "slackChnl"],
+      "setup": "Create Slack app and get OAuth token"
+    },
+    "Webhook": {
+      "description": "Send form data to custom webhook URL",
+      "requiredAttributes": ["webhookurl"],
+      "useCase": "Integration with Zapier, Make, custom APIs"
+    }
+  },
+  "layoutTypesGuide": {
+    "nxt-style-1": {
+      "description": "Standard vertical form layout",
+      "useCase": "Contact forms, multi-field forms",
+      "visualAppearance": "Fields stacked vertically with configurable row gaps"
+    },
+    "nxt-style-2": {
+      "description": "Alternative vertical layout variant",
+      "differences": "May have different default styling"
+    },
+    "nxt-newsstyle-1": {
+      "description": "Horizontal inline layout (email + button side-by-side)",
+      "useCase": "Newsletter signups, email capture",
+      "visualAppearance": "Email field and submit button in one row",
+      "warnings": ["Intended for simple forms (email + submit only)", "Set columnGap to 0 for connected button look"]
+    },
+    "nxt-newsstyle-3": {
+      "description": "Alternative newsletter layout variant"
+    },
+    "nxt-newsstyle-4": {
+      "description": "Alternative newsletter layout variant"
+    }
+  },
+  "emailPlaceholdersGuide": {
+    "availablePlaceholders": [
+      "[nxt_name] - Name field value",
+      "[nxt_email] - Email field value",
+      "[nxt_phone] - Phone field value",
+      "[nxt_message] - Message field value",
+      "[nxt_number] - Number field value",
+      "[nxt_url] - URL field value",
+      "[nxt_date] - Date field value",
+      "[nxt_time] - Time field value"
+    ],
+    "usage": "Use in frmEmail, frmNme, replyTo, email body templates",
+    "example": "frmEmail: [nxt_email], frmNme: [nxt_name], replyTo: [nxt_email]"
+  },
+  "accessibilityNotes": [
+    "Set reqIcn: true to show asterisks on required fields",
+    "Use descriptive labels (lblClr, lblTypo) for screen readers",
+    "Ensure color contrast meets WCAG AA standards (4.5:1 minimum)",
+    "Set actInpBdrClr for clear focus indication",
+    "Use placeholder text as hints, not as labels",
+    "Ensure button text is descriptive (not just 'Submit')",
+    "Add helper text (descColor, descTypo) for field instructions",
+    "Test keyboard navigation (Tab to move, Enter to submit)",
+    "Ensure error messages (valErrMsg) are clear and actionable",
+    "Set success messages (autoRespMsg) to confirm submission"
+  ]
 }

@@ -2,45 +2,706 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-form-phone-field",
   "title": "Phone Number - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for form phone input fields",
   "examples": [
     {
-      "description": "Simple phone field with default pattern",
+      "name": "Simple Required Phone Field (US Format)",
+      "description": "Basic phone field with US default country and standard US pattern",
+      "visualDescription": "Standard full-width input with country flag dropdown (US selected), placeholder showing US format '555 123 4567', red asterisk for required field",
+      "complexity": "simple",
+      "useCase": "US-based contact forms, simple phone collection, standard business forms",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "phone001",
         "labelss": "Phone Number",
         "reqTgl": true,
         "autoComplete": "tel",
-        "defCountry": "US"
-      }
-    },
-    {
-      "description": "Phone field with icon and help text",
-      "attributes": {
-        "block_id": "c3d4",
-        "labelss": "Contact Number",
-        "phnIconType": "fontAwesome",
-        "phnIcons": "fas fa-phone",
-        "icnClr": "#667eea",
-        "reqTgl": true,
-        "hlpTxt": true,
-        "desctxt": "Enter your phone number with country code",
-        "descPoss": "bottom"
-      }
-    },
-    {
-      "description": "Custom pattern for international format",
-      "attributes": {
-        "block_id": "e5f6",
-        "labelss": "Mobile",
-        "patt": "^\\\\+?[1-9]\\\\d{1,14}$",
+        "defCountry": "US",
+        "patt": "^\\d{3} \\d{3} \\d{4}$",
+        "error": "Please enter a valid phone number in format: 555 123 4567",
         "countryWidth": {
           "md": "80",
           "unit": "px"
         },
-        "reqTgl": true
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "defCountry='US' sets United States as default in country dropdown",
+        "patt validates US format: 3 digits, space, 3 digits, space, 4 digits",
+        "autoComplete='tel' enables browser autofill for phone numbers",
+        "countryWidth controls width of country flag dropdown (80px recommended)",
+        "Users can change country via dropdown to enter international numbers"
+      ]
+    },
+    {
+      "name": "Phone Field with FontAwesome Icon",
+      "description": "Phone field with phone icon and hover color change",
+      "visualDescription": "Input field with purple phone icon on left, changes to darker purple on hover, country dropdown, full-width",
+      "complexity": "medium",
+      "useCase": "Modern forms, professional contact forms, visually enhanced phone input",
+      "attributes": {
+        "block_id": "phone002",
+        "labelss": "Contact Number",
+        "phnIconType": "fontAwesome",
+        "phnIcons": "fas fa-phone",
+        "icnClr": "#667eea",
+        "hvrIcnClr": "#5568d3",
+        "reqTgl": true,
+        "autoComplete": "tel",
+        "defCountry": "US",
+        "patt": "^\\d{3} \\d{3} \\d{4}$",
+        "error": "A valid contact number is required.",
+        "countryWidth": {
+          "md": "80",
+          "unit": "px"
+        },
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "phnIconType must be 'fontAwesome' for FontAwesome icons",
+        "phnIcons uses Font Awesome class (fas fa-phone, fas fa-mobile, etc.)",
+        "Icon color changes on hover with hvrIcnClr",
+        "Icon appears to the left of country dropdown"
+      ]
+    },
+    {
+      "name": "Phone Field with Custom Image Icon",
+      "description": "Phone field using custom image icon instead of font icon",
+      "visualDescription": "Input field with custom phone icon image (24x24px), country dropdown, full-width on all devices",
+      "complexity": "medium",
+      "useCase": "Branded forms, custom-designed forms, theme-specific styling",
+      "attributes": {
+        "block_id": "phone003",
+        "labelss": "Phone",
+        "phnIconType": "image",
+        "phnImage": {
+          "url": "https://example.com/phone-icon.png",
+          "Id": "789"
+        },
+        "reqTgl": true,
+        "autoComplete": "tel",
+        "defCountry": "US",
+        "patt": "^\\d{3} \\d{3} \\d{4}$",
+        "error": "This field is required.",
+        "countryWidth": {
+          "md": "80",
+          "unit": "px"
+        },
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "phnIconType must be 'image' for custom images",
+        "phnImage.url should be full URL to image file",
+        "phnImage.Id is WordPress media library ID",
+        "Recommended image size: 24x24px or 32x32px",
+        "Image icons don't support color customization (use SVG for color control)"
+      ]
+    },
+    {
+      "name": "International Phone with UK Default",
+      "description": "Phone field configured for UK numbers with international pattern",
+      "visualDescription": "Country dropdown showing UK flag by default, input accepts UK format '020 1234 5678', wider country dropdown (100px)",
+      "complexity": "medium",
+      "useCase": "UK-based forms, international contact forms, region-specific phone collection",
+      "attributes": {
+        "block_id": "phone004",
+        "labelss": "Telephone Number",
+        "phnIconType": "fontAwesome",
+        "phnIcons": "fas fa-phone-alt",
+        "icnClr": "#667eea",
+        "reqTgl": true,
+        "autoComplete": "tel",
+        "defCountry": "GB",
+        "patt": "^\\d{3,5} \\d{4} \\d{4}$",
+        "error": "Please enter a valid UK telephone number.",
+        "countryWidth": {
+          "md": "100",
+          "unit": "px"
+        },
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "defCountry='GB' sets United Kingdom as default",
+        "patt validates UK format: 3-5 digits (area code), space, 4 digits, space, 4 digits",
+        "countryWidth set to 100px for better visibility",
+        "Common UK area codes: 020 (London), 0161 (Manchester), 0131 (Edinburgh)"
+      ]
+    },
+    {
+      "name": "Mobile Number with Custom Pattern",
+      "description": "Phone field specifically for mobile numbers with mobile-specific validation",
+      "visualDescription": "Mobile phone icon, country dropdown, validates mobile format 'XXX XXX XXXX', placeholder shows mobile example",
+      "complexity": "medium",
+      "useCase": "Mobile-only forms, SMS verification signup, mobile contact collection",
+      "attributes": {
+        "block_id": "phone005",
+        "labelss": "Mobile Number",
+        "phnIconType": "fontAwesome",
+        "phnIcons": "fas fa-mobile-alt",
+        "icnClr": "#667eea",
+        "reqTgl": true,
+        "autoComplete": "tel-national",
+        "defCountry": "US",
+        "patt": "^\\d{3} \\d{3} \\d{4}$",
+        "error": "Please enter a valid mobile number.",
+        "hlpTxt": true,
+        "desctxt": "We'll send a verification code to this number",
+        "descPoss": "bottom",
+        "countryWidth": {
+          "md": "80",
+          "unit": "px"
+        },
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "fas fa-mobile-alt icon indicates mobile phone specifically",
+        "autoComplete='tel-national' for national mobile number format",
+        "Help text explains purpose (verification code)",
+        "Same pattern as regular phone, but context differs"
+      ]
+    },
+    {
+      "name": "Phone Field with Help Text (Top Position)",
+      "description": "Phone field with instructional help text above the input",
+      "visualDescription": "Help text appears above input in gray: 'Include your area code', country dropdown and input below with phone icon",
+      "complexity": "simple",
+      "useCase": "Forms needing upfront phone instructions, international forms, clarification needed",
+      "attributes": {
+        "block_id": "phone006",
+        "labelss": "Phone Number",
+        "phnIconType": "fontAwesome",
+        "phnIcons": "fas fa-phone",
+        "icnClr": "#667eea",
+        "hlpTxt": true,
+        "desctxt": "Include your area code. Select country from dropdown if outside US.",
+        "descPoss": "top",
+        "reqTgl": true,
+        "autoComplete": "tel",
+        "defCountry": "US",
+        "patt": "^\\d{3} \\d{3} \\d{4}$",
+        "error": "Please enter your phone number with area code.",
+        "countryWidth": {
+          "md": "90",
+          "unit": "px"
+        },
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "descPoss='top' places help text above input",
+        "Useful for instructions users should read before selecting country/typing",
+        "Help text explains how to use country dropdown"
+      ]
+    },
+    {
+      "name": "International Phone with Flexible Pattern",
+      "description": "Phone field accepting international formats with flexible validation",
+      "visualDescription": "Country dropdown (wider 120px), accepts any international format starting with optional +, 1-15 digits",
+      "complexity": "advanced",
+      "useCase": "Global forms, international business, multi-region contact collection",
+      "attributes": {
+        "block_id": "phone007",
+        "labelss": "Phone Number (International)",
+        "phnIconType": "fontAwesome",
+        "phnIcons": "fas fa-globe",
+        "icnClr": "#667eea",
+        "reqTgl": true,
+        "autoComplete": "tel",
+        "defCountry": "",
+        "patt": "^\\+?[1-9]\\d{1,14}$",
+        "error": "Please enter a valid international phone number (with or without + country code).",
+        "hlpTxt": true,
+        "desctxt": "International format: +1 555 123 4567 or select country and enter number",
+        "descPoss": "bottom",
+        "countryWidth": {
+          "md": "120",
+          "unit": "px"
+        },
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "defCountry='' shows no default country (user must select)",
+        "patt='^\\+?[1-9]\\d{1,14}$' validates international E.164 format",
+        "Accepts optional + prefix, 1-15 digits total",
+        "fas fa-globe icon indicates international context",
+        "countryWidth=120px for better country name visibility",
+        "Help text shows example with + prefix"
+      ]
+    },
+    {
+      "name": "Professional Contact Phone with All Features",
+      "description": "Comprehensive phone field with icon, hover state, help text, custom error, responsive country dropdown",
+      "visualDescription": "Purple phone-square icon on left, changes to gradient purple on hover, country dropdown (90px), help text below in gray, full-width",
+      "complexity": "advanced",
+      "useCase": "High-value contact forms, professional applications, detailed business forms",
+      "attributes": {
+        "block_id": "phone008",
+        "labelss": "Business Phone",
+        "phnIconType": "fontAwesome",
+        "phnIcons": "fas fa-phone-square",
+        "icnClr": "#667eea",
+        "hvrIcnClr": "#764ba2",
+        "hlpTxt": true,
+        "desctxt": "We'll use this number to contact you during business hours (9 AM - 5 PM EST)",
+        "descPoss": "bottom",
+        "reqTgl": true,
+        "autoComplete": "tel",
+        "defCountry": "US",
+        "patt": "^\\d{3} \\d{3} \\d{4}$",
+        "error": "A valid business phone number is required so we can discuss your inquiry.",
+        "countryWidth": {
+          "md": "90",
+          "sm": "80",
+          "xs": "70",
+          "unit": "px"
+        },
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "parentBlock": "tpgb/tp-form-block",
+      "notes": [
+        "Combines icon, hover color, help text, and custom error message",
+        "fas fa-phone-square icon for professional business context",
+        "Help text sets expectations (business hours, contact purpose)",
+        "Error message is specific and explains why phone is needed",
+        "Responsive countryWidth (90px desktop, 80px tablet, 70px mobile)"
+      ]
+    }
+  ],
+  "commonPatterns": [
+    {
+      "pattern": "simple-phone-field",
+      "description": "Basic required phone field with US default",
+      "attrs": {
+        "labelss": "Phone Number",
+        "reqTgl": true,
+        "autoComplete": "tel",
+        "defCountry": "US",
+        "patt": "^\\d{3} \\d{3} \\d{4}$"
+      }
+    },
+    {
+      "pattern": "international-phone",
+      "description": "International phone field with flexible validation",
+      "attrs": {
+        "labelss": "Phone Number",
+        "reqTgl": true,
+        "autoComplete": "tel",
+        "defCountry": "",
+        "patt": "^\\+?[1-9]\\d{1,14}$",
+        "countryWidth": {"md": "120", "unit": "px"}
+      }
+    },
+    {
+      "pattern": "mobile-number",
+      "description": "Mobile-specific phone field",
+      "attrs": {
+        "labelss": "Mobile Number",
+        "phnIconType": "fontAwesome",
+        "phnIcons": "fas fa-mobile-alt",
+        "icnClr": "#667eea",
+        "reqTgl": true,
+        "autoComplete": "tel-national",
+        "defCountry": "US"
+      }
+    },
+    {
+      "pattern": "phone-with-icon",
+      "description": "Phone field with FontAwesome icon",
+      "attrs": {
+        "labelss": "Phone",
+        "phnIconType": "fontAwesome",
+        "phnIcons": "fas fa-phone",
+        "icnClr": "#667eea",
+        "reqTgl": true,
+        "autoComplete": "tel"
       }
     }
   ],
-  "commonPatterns": {}
+  "validationRules": {
+    "labelss": "Required - Field label displayed to user",
+    "reqTgl": "Optional - Set true for required field (adds asterisk to label)",
+    "patt": "Optional - Regex pattern for validation (default: '^\\d{3} \\d{3} \\d{4}$' for US)",
+    "defCountry": "Optional - Default country code (e.g., 'US', 'GB', 'IN', '' for none)",
+    "phnIconType": "Optional - Must be 'none', 'fontAwesome', or 'image'",
+    "phnIcons": "Required if phnIconType='fontAwesome' - Font Awesome class",
+    "phnImage": "Required if phnIconType='image' - Object with url and Id",
+    "autoComplete": "Optional - 'off', 'tel', 'tel-national', 'tel-local' (recommended: 'tel')",
+    "hlpTxt": "Optional - Must be true to enable help text",
+    "desctxt": "Required if hlpTxt=true - Help text content",
+    "descPoss": "Optional - 'top' or 'bottom' (help text position)",
+    "countryWidth": "Optional - Responsive width for country dropdown (default varies, 80-120px recommended)",
+    "inpSz": "Optional - Responsive width object (default: {md: '100', unit: '%'})",
+    "error": "Optional - Custom error message (shown on validation failure)"
+  },
+  "warnings": [
+    "⚠️ PARENT REQUIRED: nxt-phone-field MUST be placed inside tp-form-block (ancestor requirement)",
+    "⚠️ ICON TYPE: phnIconType must be set before phnIcons or phnImage will work",
+    "⚠️ PATTERN VALIDATION: patt uses regex - ensure proper escaping (\\d for digits, \\\\ for backslash)",
+    "⚠️ COUNTRY CODES: defCountry uses ISO 3166-1 alpha-2 codes (US, GB, CA, AU, IN, etc.)",
+    "⚠️ COUNTRY WIDTH: countryWidth affects dropdown width - too narrow cuts off country names",
+    "⚠️ HELP TEXT: hlpTxt must be true for desctxt to display",
+    "⚠️ STYLING: Label, input, button styling controlled by parent tp-form-block (lblClr, inpClr, etc.)",
+    "⚠️ ERROR MESSAGE: Custom error message only shows when reqTgl=true and phone is empty/invalid on submit",
+    "⚠️ RESPONSIVE WIDTH: inpSz uses md/sm/xs breakpoints - always set mobile (xs) to 100% for better UX",
+    "⚠️ ICON COLOR: icnClr and hvrIcnClr only work with phnIconType='fontAwesome', not with image icons",
+    "⚠️ IMAGE ICON SIZE: Custom image icons should be 24x24px or 32x32px for optimal display",
+    "⚠️ AUTOCOMPLETE: Use 'tel' for general phone, 'tel-national' for national format, 'tel-local' for local",
+    "⚠️ PATTERN DEFAULT: Default pattern (^\\d{3} \\d{3} \\d{4}$) is US-specific - change for other regions"
+  ],
+  "commonMistakes": [
+    "❌ Forgetting to escape backslashes in patt (use \\\\d not \\d in JSON)",
+    "❌ Using invalid country codes (use ISO alpha-2: 'US' not 'USA', 'GB' not 'UK')",
+    "❌ Setting countryWidth too narrow (50px cuts off country names - use 80-120px)",
+    "❌ Not changing patt when changing defCountry (US pattern won't work for UK numbers)",
+    "❌ Setting hlpTxt=false but adding desctxt (help text won't show)",
+    "❌ Forgetting to set phnIconType before adding icon (icons won't appear)",
+    "❌ Expecting icon color change with image icons (only works with fontAwesome)",
+    "❌ Not testing responsive widths on mobile (fields should be full-width on xs breakpoint)",
+    "❌ Using generic error message 'Required' instead of specific 'Please enter a valid phone number'",
+    "❌ Placing phone field outside tp-form-block parent (block won't render correctly)",
+    "❌ Using descPoss='middle' (only 'top' and 'bottom' are valid)",
+    "❌ Not setting autoComplete='tel' (missing out on browser autofill UX)"
+  ],
+  "bestPractices": [
+    "✅ Always set autoComplete='tel' for better UX (browser autofill saves user time)",
+    "✅ Choose defCountry based on your primary audience region",
+    "✅ Set countryWidth to 80-120px for good balance (80px minimal, 120px for full country names)",
+    "✅ Use patt appropriate to defCountry (US: '^\\d{3} \\d{3} \\d{4}$', UK: '^\\d{3,5} \\d{4} \\d{4}$', International: '^\\+?[1-9]\\d{1,14}$')",
+    "✅ Keep labels concise: 'Phone Number' or 'Mobile' not 'Please Enter Your Phone Number Here'",
+    "✅ Add help text for international forms: 'Select country from dropdown if outside [default country]'",
+    "✅ Position help text strategically: 'top' for upfront instructions, 'bottom' for additional context",
+    "✅ Use icons consistently across form (if phone has icon, name/email should too)",
+    "✅ Choose icons that match context: fa-phone for general, fa-mobile-alt for mobile, fa-globe for international",
+    "✅ Provide clear, specific error messages: 'Please enter a valid phone number in format: 555 123 4567'",
+    "✅ Make phone fields full-width on mobile (inpSz.xs = '100')",
+    "✅ For international forms, use flexible pattern: '^\\+?[1-9]\\d{1,14}$'",
+    "✅ Test pattern with various formats from target countries",
+    "✅ Use descPoss='bottom' for help text by default (doesn't interfere with label reading flow)",
+    "✅ For mobile-specific fields, use 'Mobile Number' label and fa-mobile-alt icon",
+    "✅ Combine icon + hover color for polished modern forms"
+  ],
+  "autocompleteGuide": {
+    "description": "HTML autocomplete attribute values for phone fields",
+    "values": {
+      "tel": {
+        "description": "Full telephone number including country code",
+        "useCase": "General phone fields (most common)",
+        "example": "+1 555 123 4567",
+        "browserBehavior": "Autofills saved phone numbers"
+      },
+      "tel-country-code": {
+        "description": "Country code component",
+        "useCase": "Separate country code field (rare)",
+        "example": "+1",
+        "browserBehavior": "Autofills country code only"
+      },
+      "tel-national": {
+        "description": "National phone number without country code",
+        "useCase": "National format fields, mobile numbers",
+        "example": "555 123 4567",
+        "browserBehavior": "Autofills national format"
+      },
+      "tel-local": {
+        "description": "Local phone number without area code",
+        "useCase": "Local-only fields (rare)",
+        "example": "123 4567",
+        "browserBehavior": "Autofills local number"
+      },
+      "off": {
+        "description": "Disable browser autofill",
+        "useCase": "Security-sensitive forms (not recommended)",
+        "example": "N/A",
+        "browserBehavior": "No autofill suggestions"
+      }
+    },
+    "bestPractices": [
+      "✅ Use 'tel' for most phone fields (recommended)",
+      "✅ Use 'tel-national' for mobile-specific or national-only fields",
+      "❌ Don't use 'off' unless absolutely necessary (degrades UX)",
+      "Browser autofill increases form completion rates by 30-40%"
+    ]
+  },
+  "iconTypeGuide": {
+    "description": "Icon display options for phone fields",
+    "types": {
+      "none": {
+        "description": "No icon displayed",
+        "useCase": "Minimal forms, text-only designs",
+        "attributes": {"phnIconType": "none"}
+      },
+      "fontAwesome": {
+        "description": "Font Awesome icon",
+        "useCase": "Most common - wide icon selection, color customization",
+        "attributes": {
+          "phnIconType": "fontAwesome",
+          "phnIcons": "fas fa-phone",
+          "icnClr": "#667eea",
+          "hvrIcnClr": "#764ba2"
+        },
+        "popularIcons": [
+          "fas fa-phone (classic landline phone)",
+          "fas fa-phone-alt (modern phone)",
+          "fas fa-mobile-alt (mobile phone)",
+          "fas fa-phone-square (business phone in square)",
+          "fas fa-globe (international phone)",
+          "fas fa-headset (support/customer service)",
+          "fas fa-tty (TTY/accessibility)"
+        ]
+      },
+      "image": {
+        "description": "Custom image icon",
+        "useCase": "Branded forms, custom designs, specific graphics",
+        "attributes": {
+          "phnIconType": "image",
+          "phnImage": {
+            "url": "https://example.com/icon.png",
+            "Id": "789"
+          }
+        },
+        "notes": [
+          "Recommended size: 24x24px or 32x32px",
+          "Supports PNG, JPG, SVG, WebP",
+          "SVG recommended for scalability and color control",
+          "No color customization via icnClr (use SVG fill for color)"
+        ]
+      }
+    }
+  },
+  "countryCodeGuide": {
+    "description": "Common country codes for defCountry attribute",
+    "codes": {
+      "US": {
+        "country": "United States",
+        "dialCode": "+1",
+        "pattern": "^\\d{3} \\d{3} \\d{4}$",
+        "example": "555 123 4567"
+      },
+      "GB": {
+        "country": "United Kingdom",
+        "dialCode": "+44",
+        "pattern": "^\\d{3,5} \\d{4} \\d{4}$",
+        "example": "020 1234 5678"
+      },
+      "CA": {
+        "country": "Canada",
+        "dialCode": "+1",
+        "pattern": "^\\d{3} \\d{3} \\d{4}$",
+        "example": "416 555 1234"
+      },
+      "AU": {
+        "country": "Australia",
+        "dialCode": "+61",
+        "pattern": "^\\d{4} \\d{3} \\d{3}$",
+        "example": "0412 345 678"
+      },
+      "IN": {
+        "country": "India",
+        "dialCode": "+91",
+        "pattern": "^\\d{5} \\d{5}$",
+        "example": "98765 43210"
+      },
+      "DE": {
+        "country": "Germany",
+        "dialCode": "+49",
+        "pattern": "^\\d{3,5} \\d{5,10}$",
+        "example": "030 12345678"
+      },
+      "FR": {
+        "country": "France",
+        "dialCode": "+33",
+        "pattern": "^\\d{2} \\d{2} \\d{2} \\d{2} \\d{2}$",
+        "example": "01 23 45 67 89"
+      }
+    },
+    "international": {
+      "description": "Flexible pattern for any country",
+      "pattern": "^\\+?[1-9]\\d{1,14}$",
+      "notes": [
+        "Follows E.164 international format",
+        "Optional + prefix",
+        "1-15 digits total",
+        "Starts with non-zero digit",
+        "Use when defCountry='' (no default)"
+      ]
+    }
+  },
+  "validationPatternGuide": {
+    "description": "Understanding phone validation patterns (patt attribute)",
+    "regexBasics": {
+      "\\d": "Matches any digit (0-9)",
+      "\\d{3}": "Matches exactly 3 digits",
+      "\\d{1,14}": "Matches 1 to 14 digits",
+      "^": "Start of string",
+      "$": "End of string",
+      "\\+?": "Optional + symbol",
+      "\\s": "Space character",
+      "[1-9]": "Any digit 1-9 (excludes 0)"
+    },
+    "examples": {
+      "usFormat": {
+        "pattern": "^\\d{3} \\d{3} \\d{4}$",
+        "description": "US phone: 555 123 4567",
+        "breakdown": "3 digits, space, 3 digits, space, 4 digits"
+      },
+      "ukFormat": {
+        "pattern": "^\\d{3,5} \\d{4} \\d{4}$",
+        "description": "UK phone: 020 1234 5678 or 01234 5678 9012",
+        "breakdown": "3-5 digits (area code), space, 4 digits, space, 4 digits"
+      },
+      "international": {
+        "pattern": "^\\+?[1-9]\\d{1,14}$",
+        "description": "International E.164: +1 5551234567",
+        "breakdown": "Optional +, starts with 1-9, then 1-14 more digits"
+      },
+      "flexible": {
+        "pattern": "^[0-9\\s\\+\\-\\(\\)]+$",
+        "description": "Very flexible: accepts digits, spaces, +, -, (, )",
+        "breakdown": "Allows various formatting characters"
+      }
+    },
+    "escaping": {
+      "description": "Regex patterns in JSON require double backslash escaping",
+      "correct": "\"patt\": \"^\\\\d{3} \\\\d{3} \\\\d{4}$\"",
+      "incorrect": "\"patt\": \"^\\d{3} \\d{3} \\d{4}$\"",
+      "why": "JSON uses \\ as escape character, so \\d becomes \\\\d"
+    }
+  },
+  "responsivePatterns": {
+    "fullWidth": {
+      "description": "Full-width on all devices",
+      "inpSz": {"md": "100", "sm": "100", "xs": "100", "unit": "%"},
+      "countryWidth": {"md": "90", "sm": "80", "xs": "70", "unit": "px"},
+      "useCase": "Most common pattern for phone fields"
+    },
+    "halfWidthDesktop": {
+      "description": "Half-width on desktop, full-width on mobile",
+      "inpSz": {"md": "48", "sm": "100", "xs": "100", "unit": "%"},
+      "countryWidth": {"md": "80", "unit": "px"},
+      "useCase": "Multi-column forms (phone + email on same row)",
+      "notes": [
+        "48% allows for ~4% gap between fields on desktop",
+        "Parent tp-form-block controls gap spacing via columnGap"
+      ]
+    }
+  },
+  "accessibilityNotes": [
+    "🌐 WCAG 2.1 AA Compliance:",
+    "- Label must be descriptive and associated with input (labelss attribute)",
+    "- Error messages should be specific and actionable (error attribute)",
+    "- Required fields marked with asterisk (*) via reqTgl",
+    "- Help text provides additional context for screen readers (desctxt)",
+    "- autocomplete='tel' improves assistive technology experience",
+    "",
+    "🎯 Focus States:",
+    "- Parent tp-form-block controls focus styling (actInpBg, actInpBdr)",
+    "- Ensure focus state has 3:1 contrast ratio with background",
+    "- Country dropdown must be keyboard accessible (up/down arrows to select)",
+    "",
+    "⌨️ Keyboard Navigation:",
+    "- Tab key moves between country dropdown and phone input",
+    "- Enter/Space opens country dropdown",
+    "- Up/Down arrows navigate country list",
+    "- Type country name to search/filter countries",
+    "- Enter key submits form (handled by parent tp-form-block)",
+    "",
+    "🔊 Screen Reader Considerations:",
+    "- Label read first: 'Phone Number, required, edit text'",
+    "- Country dropdown announced: 'Country selector, United States selected'",
+    "- Help text read as description",
+    "- Error message announced on validation failure: 'Invalid entry, Please enter a valid phone number'",
+    "- Icon decorative only (not announced)",
+    "",
+    "🌈 Color Contrast:",
+    "- Label text must have 4.5:1 contrast with background",
+    "- Country dropdown text must have 4.5:1 contrast",
+    "- Icon color (icnClr) should have 3:1 contrast if conveying information",
+    "- Error messages typically red, but must have sufficient contrast (4.5:1)",
+    "",
+    "📞 Phone-Specific Accessibility:",
+    "- Always include 'Phone' or 'Phone Number' in label (don't just use icon)",
+    "- Error messages should clarify format: 'Please enter a valid phone number in format: 555 123 4567'",
+    "- Help text can explain international usage: 'Select country from dropdown if outside US'",
+    "- Country dropdown should support type-ahead search for accessibility"
+  ],
+  "parentChildRelationship": {
+    "parent": "tpgb/tp-form-block",
+    "child": "tpgb/tp-form-phone-field",
+    "requirement": "CRITICAL - nxt-phone-field MUST be inside tp-form-block",
+    "parentControls": [
+      "Label styling (lblClr, lblTypo, lblBtmMrg, hvrLblClr)",
+      "Input styling (inpClr, plcClr, inpBg, hvrInpBg, actInpBg, inpBdr, inpBdrRds, inpPad, inpTypo)",
+      "Country dropdown styling (inherits from input styles)",
+      "Help text styling (typically inherits from parent typography)",
+      "Field spacing (rowGap, columnGap)",
+      "Form layout (layoutType: nxt-style-1, nxt-newsstyle-1, etc.)",
+      "Form submission behavior (actionOption, emailTo1, etc.)",
+      "Validation display (valErrMsg, failMsg, sucTypo)"
+    ],
+    "childControls": [
+      "Label text (labelss)",
+      "Icon (phnIconType, phnIcons, phnImage, icnClr, hvrIcnClr)",
+      "Country dropdown width (countryWidth)",
+      "Default country (defCountry)",
+      "Validation pattern (patt)",
+      "Required status (reqTgl)",
+      "Error message (error)",
+      "Help text (hlpTxt, desctxt, descPoss)",
+      "Field width (inpSz)",
+      "Autocomplete attribute (autoComplete)"
+    ],
+    "workflow": [
+      "1. Create tp-form-block parent",
+      "2. Set parent styling (labels, inputs, buttons)",
+      "3. Add nxt-phone-field child inside parent",
+      "4. Configure child-specific settings (default country, pattern, icon)",
+      "5. Phone value automatically used in form submission via [nxt_phone] placeholder"
+    ],
+    "phonePlaceholder": {
+      "description": "Phone field value can be used in parent tp-form-block email templates",
+      "placeholder": "[nxt_phone]",
+      "usage": [
+        "Email body: Use [nxt_phone] to include user's phone in message",
+        "Subject: Use [nxt_phone] to personalize subject line",
+        "SMS integration: Use [nxt_phone] for SMS notifications (if configured)"
+      ],
+      "example": {
+        "parent": "tp-form-block",
+        "parentAttrs": {
+          "emailTo1": "admin@example.com",
+          "subject1": "New Contact Request",
+          "emailMessage": "New contact from [nxt_name] at [nxt_email]. Phone: [nxt_phone]"
+        },
+        "description": "Sends admin notification with user's phone number"
+      }
+    }
+  }
 }

@@ -2,47 +2,502 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-infobox",
   "title": "Infobox - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for information boxes with icons, titles, and descriptions",
   "examples": [
     {
-      "description": "Simple feature box with icon",
+      "name": "Simple Feature Box with Icon (Style 1)",
+      "description": "Basic info box with FontAwesome icon, title, and description",
+      "visualDescription": "Centered layout, rocket icon above title, short description below, clean minimal design",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "ib001",
+        "layoutType": "listing",
         "styleType": "style-1",
-        "Title": "Fast Performance",
-        "Description": "Optimized for speed and efficiency",
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "Title": "Lightning Fast Performance",
+        "Description": "Optimized for speed and efficiency with cutting-edge technology that delivers results in milliseconds.",
         "iconType": "icon",
         "IconName": "fas fa-rocket",
-        "Alignment": {
-          "md": "center"
+        "dispPinText": false,
+        "IBoxLinkTgl": false,
+        "IBoxLink": {
+          "url": "",
+          "target": "",
+          "nofollow": ""
         }
-      }
+      },
+      "useCase": "Feature highlights, service showcases, USP sections, benefit lists"
     },
     {
-      "description": "Info box with badge and link",
+      "name": "Info Box with 'New' Badge and Link",
+      "description": "Clickable info box with pin badge to highlight new features",
+      "visualDescription": "Icon + title + description, 'New' badge in corner, entire box clickable, hover effects",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "c3d4",
-        "Title": "Premium Feature",
-        "Description": "Exclusive access to advanced tools",
+        "block_id": "ib002",
+        "layoutType": "listing",
+        "styleType": "style-1",
+        "Alignment": {
+          "md": "center"
+        },
+        "Title": "Premium AI Features",
+        "Description": "Exclusive access to advanced AI-powered tools and automation that transform your workflow.",
+        "iconType": "icon",
+        "IconName": "fas fa-star",
         "dispPinText": true,
         "pinText": "New",
         "IBoxLinkTgl": true,
         "IBoxLink": {
-          "url": "/premium",
-          "target": "_self"
+          "url": "/premium-features",
+          "target": "_self",
+          "nofollow": ""
         }
-      }
+      },
+      "useCase": "New feature announcements, premium offerings, upgrade prompts, highlighted content"
     },
     {
-      "description": "Number-based info box",
+      "name": "Number-Based Process Steps",
+      "description": "Info box with large number text instead of icon for process steps",
+      "visualDescription": "Large '01' text in place of icon, left-aligned, step-by-step guide format",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "e5f6",
-        "Title": "Step One",
-        "Description": "Start by creating your account",
+        "block_id": "ib003",
+        "layoutType": "listing",
+        "styleType": "style-1",
+        "Alignment": {
+          "md": "left"
+        },
+        "Title": "Create Your Account",
+        "Description": "Sign up with your email address and choose a secure password. Verification takes less than 2 minutes.",
         "iconType": "text",
-        "textIcon": "01"
-      }
+        "textIcon": "01",
+        "dispPinText": false,
+        "IBoxLinkTgl": false
+      },
+      "useCase": "Process steps, how-to guides, numbered instructions, sequential workflows"
+    },
+    {
+      "name": "Image Icon Info Box",
+      "description": "Info box using custom image instead of FontAwesome icon",
+      "visualDescription": "Custom image icon (logo/illustration), centered title, description, professional branding",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ib004",
+        "layoutType": "listing",
+        "styleType": "style-1",
+        "Alignment": {
+          "md": "center"
+        },
+        "Title": "Enterprise Solutions",
+        "Description": "Tailored solutions for large organizations with dedicated support and custom integrations.",
+        "iconType": "image",
+        "imageName": {
+          "url": "https://example.com/path/to/custom-icon.png",
+          "id": ""
+        },
+        "imageSize": "full",
+        "dispPinText": false,
+        "IBoxLinkTgl": false
+      },
+      "useCase": "Brand-specific features, partner logos, custom illustrations, unique graphics"
+    },
+    {
+      "name": "Style 2 Layout (Icon + Content Side-by-Side)",
+      "description": "Alternative layout with icon on left, content on right",
+      "visualDescription": "Icon positioned left side, title and description to the right, horizontal layout, left-aligned text",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ib005",
+        "layoutType": "listing",
+        "styleType": "style-2",
+        "Alignment": {
+          "md": "left"
+        },
+        "Title": "24/7 Customer Support",
+        "Description": "Round-the-clock assistance from our dedicated support team via chat, email, or phone.",
+        "iconType": "icon",
+        "IconName": "fas fa-headset",
+        "dispPinText": false,
+        "IBoxLinkTgl": false
+      },
+      "useCase": "Service lists, contact information, feature descriptions, horizontal card layouts"
+    },
+    {
+      "name": "Style 3 with Decorative Border",
+      "description": "Info box with decorative bottom border accent under title",
+      "visualDescription": "Icon, title with accent border beneath, description, centered alignment, elegant separator",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ib006",
+        "layoutType": "listing",
+        "styleType": "style-3",
+        "Alignment": {
+          "md": "center"
+        },
+        "Title": "Secure & Encrypted",
+        "Description": "Bank-level 256-bit encryption protects your data at rest and in transit, ensuring complete privacy.",
+        "iconType": "icon",
+        "IconName": "fas fa-shield-alt",
+        "dispPinText": false,
+        "IBoxLinkTgl": false
+      },
+      "useCase": "Premium features, highlighted services, elegant presentations, formal layouts"
+    },
+    {
+      "name": "Carousel Mode with Multiple Info Boxes",
+      "description": "Multiple info boxes in a slider/carousel format with navigation",
+      "visualDescription": "Rotating carousel with 3 info boxes, navigation buttons, slide transitions, testimonials or features",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ib007",
+        "layoutType": "carousel",
+        "styleType": "style-1",
+        "Alignment": {
+          "md": "center"
+        },
+        "iboxcarousel": [
+          {
+            "_key": "0",
+            "Title": "Blazing Fast Speed",
+            "Description": "Experience lightning-fast load times and instant responses with our optimized infrastructure.",
+            "iconType": "icon",
+            "IconName": "fas fa-bolt",
+            "dispPinText": false,
+            "IBoxLinkTgl": false,
+            "btnText": "",
+            "btnUrl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "imageName": {
+              "url": ""
+            },
+            "svgIcon": {
+              "url": ""
+            },
+            "textIcon": ""
+          },
+          {
+            "_key": "1",
+            "Title": "Rock-Solid Security",
+            "Description": "Advanced encryption and security protocols keep your data safe from unauthorized access.",
+            "iconType": "icon",
+            "IconName": "fas fa-lock",
+            "dispPinText": false,
+            "IBoxLinkTgl": false,
+            "btnText": "",
+            "btnUrl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "imageName": {
+              "url": ""
+            },
+            "svgIcon": {
+              "url": ""
+            },
+            "textIcon": ""
+          },
+          {
+            "_key": "2",
+            "Title": "24/7 Expert Support",
+            "Description": "Our dedicated team is always available to help you succeed with prompt and friendly assistance.",
+            "iconType": "icon",
+            "IconName": "fas fa-headset",
+            "dispPinText": false,
+            "IBoxLinkTgl": false,
+            "btnText": "",
+            "btnUrl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "imageName": {
+              "url": ""
+            },
+            "svgIcon": {
+              "url": ""
+            },
+            "textIcon": ""
+          }
+        ]
+      },
+      "useCase": "Testimonial sliders, rotating features, multi-service showcases, carousel presentations"
+    },
+    {
+      "name": "Complete Info Box with Button",
+      "description": "Full-featured info box with icon, badge, link, and action button",
+      "visualDescription": "Icon, 'Premium' badge, title, description, 'Learn More' button, clickable box, complete feature showcase",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "ib008",
+        "layoutType": "listing",
+        "styleType": "style-1",
+        "Alignment": {
+          "md": "center"
+        },
+        "Title": "Advanced Analytics Dashboard",
+        "Description": "Comprehensive insights with real-time data visualization, custom reports, and predictive analytics powered by machine learning.",
+        "iconType": "icon",
+        "IconName": "fas fa-chart-line",
+        "dispPinText": true,
+        "pinText": "Premium",
+        "IBoxLinkTgl": true,
+        "IBoxLink": {
+          "url": "/analytics",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "carouselBtn": true,
+        "carBtnStyle": "style-7",
+        "carBtnIconType": "none"
+      },
+      "useCase": "Premium feature boxes, detailed service showcases, call-to-action cards, upgrade prompts"
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "block_id": "Required - Unique identifier for the block",
+    "layoutType": "'listing' (single box) or 'carousel' (multiple boxes in slider)",
+    "styleType": "'style-1' (default), 'style-2' (side-by-side), or 'style-3' (with border accent)",
+    "Alignment.md": "left, center, or right - Controls content alignment",
+    "Title": "Required - The info box heading text",
+    "Description": "Required - The info box description/content text",
+    "iconType": "'icon' (FontAwesome), 'text' (number/letter), 'image' (uploaded), or 'svg' (custom SVG)",
+    "IconName": "Required when iconType='icon' - FontAwesome class (e.g., 'fas fa-rocket')",
+    "textIcon": "Required when iconType='text' - Text to display (e.g., '01', 'A')",
+    "imageName.url": "Required when iconType='image' - URL to uploaded image",
+    "svgIcon.url": "Required when iconType='svg' - URL to custom SVG file",
+    "imageSize": "WordPress image size when iconType='image' (thumbnail, medium, large, full)",
+    "dispPinText": "Boolean - Enable/disable pin badge display (true/false)",
+    "pinText": "Badge text when dispPinText=true (e.g., 'New', 'Hot', 'Premium')",
+    "IBoxLinkTgl": "Boolean - Makes entire info box clickable when true",
+    "IBoxLink.url": "URL when IBoxLinkTgl=true",
+    "IBoxLink.target": "_self (same tab) or _blank (new tab)",
+    "iboxcarousel": "Array of info box objects when layoutType='carousel'",
+    "iboxcarousel[]._key": "Required - Unique key for each carousel item",
+    "carouselBtn": "Boolean - Display button inside carousel items",
+    "carBtnStyle": "Button style variant (style-1 through style-11)",
+    "carBtnIconType": "'none', 'icon', or custom button icon type"
+  },
+
+  "warnings": [
+    "⚠️ iconType must match icon source: 'icon' needs IconName, 'text' needs textIcon, 'image' needs imageName.url",
+    "⚠️ dispPinText requires pinText to display the badge (badge won't show without text)",
+    "⚠️ IBoxLinkTgl makes entire box clickable - ensure clear visual indication (hover effect)",
+    "⚠️ layoutType='carousel' requires iboxcarousel array with at least 1 item",
+    "⚠️ Each iboxcarousel item requires unique _key value (use '0', '1', '2', etc.)",
+    "⚠️ styleType affects layout: style-1 (vertical), style-2 (horizontal), style-3 (with border)",
+    "⚠️ Alignment works differently on style-3 (affects border position too)",
+    "⚠️ carouselBtn only applies when layoutType='carousel'",
+    "⚠️ Large image icons (imageName) should be optimized (<100KB recommended)",
+    "⚠️ Text icons (textIcon) work best with 1-3 characters (longer text may not fit)",
+    "⚠️ IBoxLink with target='_blank' should include nofollow for external links (SEO)",
+    "⚠️ Pin badges position may vary by style - test on all style types"
+  ],
+
+  "commonMistakes": [
+    "❌ Using IconName when iconType='text' (icon won't show, need textIcon instead)",
+    "❌ Setting dispPinText=true without pinText (empty badge appears)",
+    "❌ Using iboxcarousel array when layoutType='listing' (array ignored)",
+    "❌ Forgetting _key property on carousel items (React rendering issues)",
+    "❌ Using duplicate _key values in carousel items (only one item renders)",
+    "❌ Setting IBoxLinkTgl=false while configuring IBoxLink.url (link ignored)",
+    "❌ Using very long textIcon (>5 characters) that overflows container",
+    "❌ Not optimizing image icons (large files cause slow loading)",
+    "❌ Using target='_blank' for internal links (creates bad UX)",
+    "❌ Setting carouselBtn=true when layoutType='listing' (button won't appear)",
+    "❌ Forgetting to provide Title or Description (info box appears incomplete)",
+    "❌ Using wrong iconType for source (e.g., iconType='image' but providing IconName)"
+  ],
+
+  "bestPractices": [
+    "✅ Use iconType='icon' for standard features (fast, wide icon library)",
+    "✅ Use iconType='text' for numbered steps or labeled categories (01, 02, A, B)",
+    "✅ Use iconType='image' for brand logos or custom illustrations (unique graphics)",
+    "✅ Keep Title concise (2-5 words) for better readability",
+    "✅ Keep Description to 2-3 sentences (50-100 words) for scannable content",
+    "✅ Use dispPinText for highlighting new, premium, or important features",
+    "✅ Use IBoxLinkTgl sparingly - not all info boxes need to be clickable",
+    "✅ Apply center alignment for standalone feature boxes, left for list-style layouts",
+    "✅ Use style-1 for vertical icon-above-text layouts (most common)",
+    "✅ Use style-2 for horizontal icon-left, text-right layouts (space-efficient)",
+    "✅ Use style-3 for elegant presentations with decorative border accents",
+    "✅ Group 3-4 info boxes in a row for feature grids (use tp-column)",
+    "✅ Use layoutType='carousel' for testimonials or rotating feature showcases",
+    "✅ Provide 3-5 carousel items for good rotation variety (not too few/many)",
+    "✅ Optimize image icons: max 200x200px, compressed, SVG preferred",
+    "✅ Use consistent iconType across multiple boxes for visual harmony",
+    "✅ Test clickable boxes (IBoxLinkTgl) on mobile - ensure easy tapping",
+    "✅ Use descriptive pin badge text ('New', 'Premium', 'Hot') not generic ('Info')",
+    "✅ Match info box styling to overall site design (colors, fonts, spacing)"
+  ],
+
+  "layoutTypeComparison": {
+    "listing": {
+      "description": "Single standalone info box",
+      "bestFor": "Feature grids, service showcases, benefit lists, process steps",
+      "attributes": "Uses root-level Title, Description, iconType, etc.",
+      "note": "Most common mode - simple and straightforward"
+    },
+    "carousel": {
+      "description": "Multiple info boxes in rotating slider/carousel",
+      "bestFor": "Testimonials, rotating features, space-saving showcases",
+      "attributes": "Uses iboxcarousel array with multiple items",
+      "requirement": "Each item needs _key, Title, Description, iconType",
+      "note": "Adds complexity but saves vertical space"
+    }
+  },
+
+  "styleTypeComparison": {
+    "style-1": {
+      "description": "Vertical layout - icon above title above description",
+      "layout": "Icon → Title → Description (stacked vertically)",
+      "alignment": "Usually center-aligned for symmetry",
+      "bestFor": "Feature highlights, service boxes, benefit cards",
+      "note": "Most popular and versatile style"
+    },
+    "style-2": {
+      "description": "Horizontal layout - icon left, content right",
+      "layout": "Icon (left) | Title + Description (right)",
+      "alignment": "Usually left-aligned for readability",
+      "bestFor": "List-style features, contact info, service details",
+      "note": "Space-efficient for content-heavy boxes"
+    },
+    "style-3": {
+      "description": "Vertical with decorative border accent under title",
+      "layout": "Icon → Title → Accent Border → Description",
+      "alignment": "Usually center-aligned, border follows alignment",
+      "bestFor": "Premium features, elegant presentations, formal layouts",
+      "note": "Adds visual polish with border accent"
+    }
+  },
+
+  "iconTypeOptions": {
+    "icon": {
+      "description": "FontAwesome icon library",
+      "attribute": "IconName",
+      "example": "'fas fa-rocket', 'fab fa-wordpress'",
+      "pros": "Huge library, lightweight, scalable, consistent",
+      "cons": "Limited to available icons, may feel generic",
+      "bestFor": "Standard features (speed, security, support, etc.)"
+    },
+    "text": {
+      "description": "Plain text (numbers, letters)",
+      "attribute": "textIcon",
+      "example": "'01', '02', 'A', 'B', '★'",
+      "pros": "Perfect for numbered lists, custom symbols",
+      "cons": "Limited styling, works best with 1-3 characters",
+      "bestFor": "Process steps, numbered guides, categorical labels"
+    },
+    "image": {
+      "description": "Uploaded image file (PNG, JPG, SVG)",
+      "attribute": "imageName.url",
+      "example": "URL to custom icon/logo/illustration",
+      "pros": "Completely custom, brand-specific",
+      "cons": "Requires image upload, larger file size",
+      "bestFor": "Brand logos, custom illustrations, unique graphics"
+    },
+    "svg": {
+      "description": "Custom SVG file",
+      "attribute": "svgIcon.url",
+      "example": "URL to SVG file",
+      "pros": "Scalable, small file size, custom shapes",
+      "cons": "Requires SVG creation, upload process",
+      "bestFor": "Custom icons, brand elements, unique shapes"
+    }
+  },
+
+  "responsivePatterns": [
+    "📱 Test alignment on mobile - centered boxes may look better left-aligned on small screens",
+    "📱 Reduce icon sizes on mobile if using large custom images",
+    "📱 Consider stacking info boxes vertically on mobile (even in style-2)",
+    "📱 Ensure clickable boxes (IBoxLinkTgl) have adequate touch target size (44px+)",
+    "📱 Pin badges may need repositioning on mobile - test corner placement",
+    "📱 Shorter Description text on mobile for better scanability",
+    "📱 Carousel navigation buttons should be easily tappable on mobile (larger hit area)",
+    "📱 Test text icon readability on mobile (may need larger size)",
+    "📱 Reduce Description length or use ellipsis on mobile to prevent overflow",
+    "📱 Test style-2 horizontal layout on mobile - may need to switch to style-1 (vertical)"
+  ],
+
+  "accessibilityNotes": [
+    "♿ Icons are decorative - Title and Description provide actual content",
+    "♿ Ensure clickable boxes (IBoxLinkTgl) have visible focus states for keyboard nav",
+    "♿ Pin badges should supplement, not replace main content",
+    "♿ Use descriptive Title text - screen readers announce this as heading",
+    "♿ Ensure color contrast of 4.5:1 minimum for text (WCAG AA)",
+    "♿ Icon-only content is inaccessible - always provide Title + Description",
+    "♿ Carousel controls need keyboard accessibility (arrow keys, Tab navigation)",
+    "♿ Test with screen readers to verify proper announcement order",
+    "♿ Links (IBoxLink) should have descriptive text, not just 'Click here'",
+    "♿ Ensure hover effects don't hide critical information"
+  },
+
+  "performanceConsiderations": [
+    "⚡ FontAwesome icons add ~70KB if not already loaded (iconType='icon')",
+    "⚡ Image icons should be optimized: <100KB, compressed, proper dimensions",
+    "⚡ SVG icons are smallest and scalable - preferred over PNG/JPG",
+    "⚡ Carousel mode adds slider JavaScript - test load time with many items",
+    "⚡ Clickable boxes (IBoxLinkTgl) add <a> wrapper - minimal performance impact",
+    "⚡ Multiple info boxes on page (3-9 typical) have cumulative rendering cost",
+    "⚡ Large Description text increases DOM size - keep concise",
+    "⚡ Pin badges add extra DOM nodes - minimal impact",
+    "⚡ Style-2 and style-3 have slightly more CSS - negligible difference",
+    "⚡ Test scroll performance with many info boxes (20+) on same page"
+  ],
+
+  "integrationPatterns": [
+    "🔗 Place in tp-column for 3-column feature grids (common layout)",
+    "🔗 Use in tp-container for full-width feature sections",
+    "🔗 Combine with tp-heading above for 'Our Features' sections",
+    "🔗 Use with tp-button below for extended CTAs",
+    "🔗 Place in tp-accordion-inner for expandable feature details",
+    "🔗 Use carousel mode in hero sections for rotating testimonials",
+    "🔗 Combine multiple info boxes in tp-row for structured layouts",
+    "🔗 Use in tp-tabs-tours for feature comparisons across tabs",
+    "🔗 Pair with tp-icon-box for custom icon + info box combinations",
+    "🔗 Use in tp-repeater-block for ACF-powered dynamic info boxes"
+  ],
+
+  "commonPatterns": {
+    "featureHighlight": {
+      "description": "Standard feature box with icon and description",
+      "attributes": ["layoutType=listing", "styleType=style-1", "iconType=icon", "center aligned"]
+    },
+    "processSteps": {
+      "description": "Numbered steps with text icons",
+      "attributes": ["iconType=text", "textIcon=01/02/03", "left aligned", "sequential content"]
+    },
+    "premiumFeature": {
+      "description": "Featured box with 'New' or 'Premium' badge",
+      "attributes": ["dispPinText=true", "pinText=Premium/New", "IBoxLinkTgl=true", "clickable"]
+    },
+    "serviceShowcase": {
+      "description": "Horizontal layout for services",
+      "attributes": ["styleType=style-2", "iconType=icon", "left aligned", "detailed description"]
+    },
+    "brandedFeature": {
+      "description": "Custom image icon for brand-specific features",
+      "attributes": ["iconType=image", "imageName.url set", "brand logo/illustration"]
+    },
+    "testimonialCarousel": {
+      "description": "Rotating testimonials or features",
+      "attributes": ["layoutType=carousel", "iboxcarousel array", "3-5 items", "navigation"]
+    },
+    "elegantPresentation": {
+      "description": "Style-3 with decorative border",
+      "attributes": ["styleType=style-3", "center aligned", "border accent under title"]
+    },
+    "actionableFeature": {
+      "description": "Complete box with button and link",
+      "attributes": ["IBoxLinkTgl=true", "carouselBtn=true", "dispPinText=true", "full-featured"]
+    }
+  }
 }

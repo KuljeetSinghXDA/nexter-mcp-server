@@ -2,34 +2,574 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-switcher",
   "title": "Switcher - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for content/layout toggle functionality",
   "examples": [
     {
-      "description": "Simple pricing switcher (monthly/yearly)",
+      "name": "Simple Pricing Switcher (Monthly/Yearly)",
+      "description": "Basic style-1 toggle for switching pricing plans",
+      "visualDescription": "Purple pill-shaped toggle with labels on each side, smooth sliding knob animation",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "swt001",
         "title1": "Monthly",
         "title2": "Yearly",
+        "source1": "content",
+        "source2": "content",
         "switchStyle": "style-1",
-        "switchalign": "text-center"
+        "switchalign": "text-center",
+        "showBtn": true,
+        "switchColor": "#ffffff",
+        "swichBgcolor": "#e0e0e0",
+        "ActswichBgcolor": "#667eea",
+        "labelColor": "#333333",
+        "ActlabelColor": "#667eea",
+        "toggleSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "labSpacebet": {
+          "md": "15",
+          "unit": "px"
+        },
+        "switchBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.1)"
+        }
       },
+      "useCase": "Pricing tables, subscription plans, billing cycle toggles",
       "innerBlocks": [
         {
           "blockName": "tpgb/tp-switch-inner",
-          "attrs": {
-            "block_id": "c3d4",
-            "index": 0
-          }
+          "note": "Add pricing table blocks for monthly plan here"
         },
         {
           "blockName": "tpgb/tp-switch-inner",
-          "attrs": {
-            "block_id": "e5f6",
-            "index": 1
-          }
+          "note": "Add pricing table blocks for yearly plan here"
+        }
+      ]
+    },
+    {
+      "name": "Style-2 Toggle with Icons",
+      "description": "Rounded toggle switcher with FontAwesome icons beside labels",
+      "visualDescription": "Circular toggle button, home/briefcase icons, active label turns blue",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "swt002",
+        "title1": "Personal",
+        "title2": "Business",
+        "source1": "content",
+        "source2": "content",
+        "switchStyle": "style-2",
+        "switchalign": "text-center",
+        "lblIcon": true,
+        "switch1Icn": "fas fa-home",
+        "switch2Icn": "fas fa-briefcase",
+        "swiIconSize": {
+          "md": "18",
+          "unit": "px"
+        },
+        "swiIconSpac": {
+          "md": "8",
+          "unit": "px"
+        },
+        "switchColor": "#ffffff",
+        "swichBgcolor": "#f5f5f5",
+        "ActswichBgcolor": "#764ba2",
+        "iconNcolor": "#999999",
+        "iconHvrcolor": "#764ba2",
+        "labelColor": "#666666",
+        "ActlabelColor": "#764ba2",
+        "label1Typo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "fontWeight": "500"
+        },
+        "label2Typo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "fontWeight": "500"
+        }
+      },
+      "useCase": "Plan comparison, feature toggles, user type selection",
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "note": "Personal plan features"
+        },
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "note": "Business plan features"
+        }
+      ]
+    },
+    {
+      "name": "Style-3 Underline Toggle",
+      "description": "Minimalist text-based toggle with animated underline indicator",
+      "visualDescription": "Two labels side-by-side, gradient underline slides to active label",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "swt003",
+        "title1": "Features",
+        "title2": "Pricing",
+        "source1": "content",
+        "source2": "content",
+        "switchStyle": "style-3",
+        "switchalign": "text-center",
+        "lineColor": "#667eea",
+        "lineOffset": {
+          "md": "2",
+          "unit": "px"
+        },
+        "lineHeight": {
+          "md": "3",
+          "unit": "px"
+        },
+        "labelColor": "#999999",
+        "ActlabelColor": "#667eea",
+        "label1Typo": {
+          "openTypography": 1,
+          "fontSize": {"md": "18", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "1", "unit": "px"}
+        },
+        "label2Typo": {
+          "openTypography": 1,
+          "fontSize": {"md": "18", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "1", "unit": "px"}
+        }
+      },
+      "useCase": "Modern landing pages, tab alternatives, section switchers",
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "note": "Features content"
+        },
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "note": "Pricing content"
+        }
+      ]
+    },
+    {
+      "name": "Style-4 Button Toggle (Full Width)",
+      "description": "Full-width button-style toggle with sliding background",
+      "visualDescription": "Two buttons side-by-side, purple background slides to active button",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "swt004",
+        "title1": "Sign In",
+        "title2": "Sign Up",
+        "source1": "content",
+        "source2": "content",
+        "switchStyle": "style-4",
+        "switchalign": "text-center",
+        "switchWidth": {
+          "md": "400",
+          "sm": "100",
+          "unit": "px"
+        },
+        "wrapRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "swichBgcolor": "#f0f0f0",
+        "ActswichBgcolor": "#667eea",
+        "labelColor": "#666666",
+        "ActlabelColor": "#ffffff",
+        "label1Typo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "label2Typo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "switchBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(102,126,234,0.2)"
+        }
+      },
+      "useCase": "Login/signup forms, authentication pages, user type selection",
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "note": "Sign in form"
+        },
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "note": "Sign up form"
+        }
+      ]
+    },
+    {
+      "name": "Template-Based Switcher (Pro Feature)",
+      "description": "Switch between reusable WordPress templates",
+      "visualDescription": "Style-1 toggle switching between two complex saved templates",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "swt005",
+        "title1": "Grid View",
+        "title2": "List View",
+        "source1": "template",
+        "source2": "template",
+        "blockTemp1": "product-grid-template",
+        "blockTemp2": "product-list-template",
+        "switchStyle": "style-1",
+        "switchalign": "text-left",
+        "lblIcon": true,
+        "switch1Icn": "fas fa-th",
+        "switch2Icn": "fas fa-list",
+        "switchColor": "#ffffff",
+        "swichBgcolor": "#e0e0e0",
+        "ActswichBgcolor": "#667eea"
+      },
+      "useCase": "Product catalogs, blog layouts, portfolio views",
+      "warnings": [
+        "blockTemp1/blockTemp2 must be valid WordPress template slugs (from Saved Templates)",
+        "Templates must exist in Nexter > Saved Templates before using",
+        "source must be 'template' for template mode to work"
+      ],
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "note": "Content loaded from 'product-grid-template'"
+        },
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "note": "Content loaded from 'product-list-template'"
+        }
+      ]
+    },
+    {
+      "name": "Carousel Integration",
+      "description": "Switch between different carousel slides using carouselId",
+      "visualDescription": "Toggle controls carousel navigation, different content sets per switch",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "swt006",
+        "title1": "Before",
+        "title2": "After",
+        "source1": "content",
+        "source2": "content",
+        "carouselId": "carousel_abc123",
+        "switchStyle": "style-2",
+        "switchalign": "text-center",
+        "switchColor": "#ffffff",
+        "swichBgcolor": "#f5f5f5",
+        "ActswichBgcolor": "#764ba2"
+      },
+      "useCase": "Before/after comparisons, image galleries, testimonial carousels",
+      "warnings": [
+        "carouselId must match the block_id of a tp-carousel block on the same page",
+        "Carousel block must have matching slides for each switch state",
+        "Only works with tp-carousel and tp-anything-slide blocks"
+      ],
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "note": "Before carousel content"
+        },
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "note": "After carousel content"
+        }
+      ]
+    },
+    {
+      "name": "Advanced Styled Switcher (All Features)",
+      "description": "Fully customized style-1 toggle with all styling options",
+      "visualDescription": "Purple gradient background toggle, custom typography, shadows, icons, 18px spacing",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "swt007",
+        "title1": "Standard",
+        "title2": "Premium",
+        "source1": "content",
+        "source2": "content",
+        "switchStyle": "style-1",
+        "switchalign": "text-center",
+        "showBtn": true,
+        "lblIcon": true,
+        "switch1Icn": "fas fa-star-half-alt",
+        "switch2Icn": "fas fa-star",
+        "swiIconSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "swiIconSpac": {
+          "md": "6",
+          "unit": "px"
+        },
+        "switchColor": "#ffffff",
+        "swichBgcolor": "#d0d0d0",
+        "ActswichBgcolor": "#667eea",
+        "iconNcolor": "#888888",
+        "iconHvrcolor": "#667eea",
+        "labelColor": "#555555",
+        "ActlabelColor": "#667eea",
+        "toggleSize": {
+          "md": "18",
+          "sm": "16",
+          "xs": "14",
+          "unit": "px"
+        },
+        "labSpacebet": {
+          "md": "18",
+          "sm": "12",
+          "xs": "8",
+          "unit": "px"
+        },
+        "label1Typo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "label2Typo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "switchBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 3,
+          "blur": 10,
+          "spread": 1,
+          "color": "rgba(102,126,234,0.15)"
+        },
+        "desc1Typo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "lineHeight": {"md": "1.6", "unit": "em"}
+        },
+        "desc1Color": "#666666",
+        "desc2Typo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "lineHeight": {"md": "1.6", "unit": "em"}
+        },
+        "desc2Color": "#666666"
+      },
+      "useCase": "Premium pricing pages, high-end product comparisons, conversion-focused layouts",
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "note": "Standard plan content with pricing"
+        },
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "note": "Premium plan content with pricing"
+        }
+      ]
+    },
+    {
+      "name": "Responsive Switcher (Mobile-Optimized)",
+      "description": "Style-4 toggle with responsive sizing for all breakpoints",
+      "visualDescription": "Full-width on mobile (100%), 400px on tablet/desktop, adjusts font sizes",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "swt008",
+        "title1": "Option A",
+        "title2": "Option B",
+        "source1": "content",
+        "source2": "content",
+        "switchStyle": "style-4",
+        "switchalign": "text-center",
+        "switchWidth": {
+          "md": "400",
+          "sm": "350",
+          "xs": "100",
+          "unit": "px"
+        },
+        "wrapRadius": {
+          "md": {
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "swichBgcolor": "#f8f8f8",
+        "ActswichBgcolor": "#667eea",
+        "labelColor": "#666666",
+        "ActlabelColor": "#ffffff",
+        "label1Typo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "label2Typo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "fontWeight": "600"
+        }
+      },
+      "useCase": "Mobile-first designs, responsive layouts, touch-friendly interfaces",
+      "responsiveStrategy": "Full-width on mobile for easy tapping, constrained width on larger screens for visual hierarchy",
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "note": "Option A content (responsive)"
+        },
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "note": "Option B content (responsive)"
         }
       ]
     }
   ],
-  "commonPatterns": {}
+  "commonPatterns": {
+    "pricingSwitcher": {
+      "description": "Monthly/Yearly billing toggle for pricing tables",
+      "requiredAttributes": ["title1", "title2", "switchStyle", "switchalign"],
+      "recommendedStyle": "style-1 or style-2"
+    },
+    "contentViewSwitcher": {
+      "description": "Grid/List view toggle for content layouts",
+      "requiredAttributes": ["title1", "title2", "lblIcon", "switch1Icn", "switch2Icn"],
+      "recommendedStyle": "style-1 with icons"
+    },
+    "authenticationToggle": {
+      "description": "Login/Signup form switcher",
+      "requiredAttributes": ["title1", "title2", "switchStyle"],
+      "recommendedStyle": "style-4 (button style)"
+    },
+    "beforeAfterComparison": {
+      "description": "Before/after content comparison with optional carousel",
+      "requiredAttributes": ["title1", "title2", "source1", "source2"],
+      "optionalAttributes": ["carouselId"]
+    }
+  },
+  "validationRules": {
+    "block_id": "Required, unique identifier",
+    "title1": "Required, label for first switch option",
+    "title2": "Required, label for second switch option",
+    "source1": "Required, must be 'content' or 'template'",
+    "source2": "Required, must be 'content' or 'template'",
+    "blockTemp1": "Required when source1='template', must be valid template slug",
+    "blockTemp2": "Required when source2='template', must be valid template slug",
+    "switchStyle": "Required, must be 'style-1', 'style-2', 'style-3', or 'style-4'",
+    "carouselId": "Optional, must match block_id of existing tp-carousel block",
+    "innerBlocks": "Must contain exactly 2 tp-switch-inner child blocks"
+  },
+  "warnings": [
+    "Always add exactly 2 tp-switch-inner child blocks (one for each switch state)",
+    "switchStyle determines which styling attributes are applicable (check style conditions)",
+    "Template mode (source='template') requires valid template slugs from Saved Templates",
+    "carouselId integration only works with tp-carousel blocks on the same page",
+    "lblIcon requires switch1Icn and switch2Icn to be set with valid icon class names",
+    "style-3 uses lineColor, lineOffset, lineHeight (not switchColor/swichBgcolor)",
+    "style-4 uses switchWidth and wrapRadius (not available for other styles)",
+    "labSpacebet only applies to style-1 and style-2",
+    "toggleSize only applies to style-1 and style-2",
+    "Don't set switchColor/swichBgcolor for style-3 (underline only)",
+    "Always set openTypography: 1 before setting typography values"
+  ],
+  "commonMistakes": [
+    "Forgetting to add tp-switch-inner child blocks (switcher won't display content)",
+    "Setting blockTemp1/blockTemp2 but leaving source as 'content'",
+    "Using template slugs that don't exist in WordPress",
+    "Mixing style-specific attributes (e.g., lineColor with style-1)",
+    "Not setting carouselId correctly (must match exact block_id)",
+    "Forgetting to set lblIcon: true when adding icons",
+    "Using invalid icon class names for switch1Icn/switch2Icn",
+    "Setting responsive values without unit property",
+    "Not testing on all breakpoints (md/sm/xs)",
+    "Forgetting showBtn: false when you want to hide the toggle (edge case)",
+    "Setting typography attributes without openTypography: 1 first",
+    "Adding more or less than 2 tp-switch-inner blocks"
+  ],
+  "bestPractices": [
+    "Use style-1 or style-2 for pricing/plan comparisons",
+    "Use style-3 for modern, minimalist designs",
+    "Use style-4 for authentication/form toggles",
+    "Add icons (lblIcon: true) for visual clarity and better UX",
+    "Use template mode for complex, reusable content layouts",
+    "Set responsive font sizes (md/sm/xs) for better mobile experience",
+    "Use meaningful labels (e.g., 'Monthly'/'Yearly', not 'Switch 1'/'Switch 2')",
+    "Apply box shadows (switchBshadow) for depth and visual hierarchy",
+    "Use contrasting colors for active/inactive states",
+    "Set ActlabelColor and ActswichBgcolor to match brand colors",
+    "For pricing switchers, center-align (switchalign: 'text-center')",
+    "Test toggle transitions on all devices",
+    "Use carouselId integration for before/after image comparisons",
+    "Keep label text concise (1-2 words) for better mobile display",
+    "Set appropriate labSpacebet to prevent label/toggle overlap",
+    "Use uppercase typography (textTransform: 'uppercase') for style-3"
+  ],
+  "parentChildRelationship": {
+    "parent": "tpgb/tp-switcher",
+    "children": ["tpgb/tp-switch-inner"],
+    "relationship": "one-to-many (exactly 2 required)",
+    "childRequirements": [
+      "Exactly 2 tp-switch-inner blocks required",
+      "First child = content for switch state 1",
+      "Second child = content for switch state 2",
+      "Each child can contain any other Nexter blocks",
+      "Child blocks are hidden/shown based on toggle state"
+    ],
+    "parentControls": [
+      "Parent (tp-switcher) controls toggle UI appearance",
+      "Parent manages switch state (active/inactive)",
+      "Parent determines content source (content vs template)",
+      "Parent handles carousel integration (carouselId)",
+      "Children (tp-switch-inner) only contain the actual content"
+    ]
+  },
+  "styleSpecificGuidance": {
+    "style1": {
+      "description": "Pill-shaped toggle with sliding knob",
+      "applicableAttributes": ["switchColor", "swichBgcolor", "ActswichBgcolor", "labSpacebet", "toggleSize", "switchBshadow"],
+      "visualAppearance": "iOS-style pill toggle with circular knob that slides left/right"
+    },
+    "style2": {
+      "description": "Rounded toggle (similar to style-1 but different visual design)",
+      "applicableAttributes": ["switchColor", "swichBgcolor", "ActswichBgcolor", "labSpacebet", "toggleSize", "switchBshadow"],
+      "visualAppearance": "Rounded rectangular toggle with circular knob"
+    },
+    "style3": {
+      "description": "Minimalist text-based toggle with animated underline",
+      "applicableAttributes": ["lineColor", "lineOffset", "lineHeight"],
+      "notApplicable": ["switchColor", "swichBgcolor", "ActswichBgcolor", "labSpacebet", "toggleSize"],
+      "visualAppearance": "Two text labels with gradient underline that slides to active label"
+    },
+    "style4": {
+      "description": "Full-width button-style toggle with sliding background",
+      "applicableAttributes": ["switchWidth", "wrapRadius", "swichBgcolor", "ActswichBgcolor", "switchBshadow"],
+      "notApplicable": ["lineColor", "lineOffset", "lineHeight", "labSpacebet", "toggleSize"],
+      "visualAppearance": "Two buttons side-by-side with colored background sliding to active button"
+    }
+  },
+  "accessibilityNotes": [
+    "Switcher is keyboard accessible (Tab to focus, Space/Enter to toggle)",
+    "Active state is visually distinct (ActlabelColor, ActswichBgcolor)",
+    "Use meaningful label text for screen readers",
+    "Ensure color contrast meets WCAG AA standards (4.5:1 minimum)",
+    "Icons should supplement text labels, not replace them",
+    "Touch target size should be at least 44x44px on mobile",
+    "Avoid using color alone to indicate state (use icons or text)"
+  ]
 }

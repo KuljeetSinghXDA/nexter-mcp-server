@@ -2,67 +2,615 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-image",
   "title": "Image - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for the Image block",
   "examples": [
     {
-      "description": "Simple centered image",
+      "name": "Simple Responsive Image - Centered",
+      "description": "Basic centered image with responsive sizing and lazy loading",
+      "visualDescription": "Centered image, max-width 100% on mobile, auto on desktop, full size, smooth 0.3s transitions, lazy loading enabled",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "img01",
         "tImg": {
-          "url": "https://example.com/image.jpg",
+          "url": "https://example.com/images/product-hero.jpg",
           "Id": "123"
+        },
+        "iSize": "large",
+        "tiAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "imWidth": {
+          "md": "800",
+          "sm": "600",
+          "xs": "100",
+          "unit": "px"
+        },
+        "intran": "0.3",
+        "dislazyLoad": false
+      },
+      "useCase": "Blog post images, product photos, general content images, hero images",
+      "responsiveNotes": "max-width scales down on smaller screens (800px → 600px → 100% on mobile)",
+      "accessibilityNotes": "Always set alt text on WordPress media when uploading images"
+    },
+    {
+      "name": "Linked Image with Hover Opacity Effect",
+      "description": "Clickable image that becomes slightly transparent on hover",
+      "visualDescription": "Full opacity normally, reduces to 85% opacity on hover with smooth 0.4s transition, opens in new tab",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "img02",
+        "tImg": {
+          "url": "https://example.com/images/banner-cta.jpg",
+          "Id": "456"
+        },
+        "iSize": "full",
+        "tiLink": {
+          "url": "/products/featured-item",
+          "target": "_blank",
+          "nofollow": ""
         },
         "tiAlign": {
           "md": "center"
         },
-        "iSize": "large"
-      }
-    },
-    {
-      "description": "Linked image with hover effect",
-      "attributes": {
-        "block_id": "c3d4",
-        "tImg": {
-          "url": "https://example.com/banner.jpg",
-          "Id": "456"
-        },
-        "tiLink": {
-          "url": "https://example.com/products",
-          "target": "_blank"
-        },
         "inOpa": "1",
-        "iHOpa": "0.8"
-      }
+        "iHOpa": "0.85",
+        "intran": "0.4"
+      },
+      "useCase": "Clickable banners, product thumbnails with links, call-to-action images, linked portfolio items",
+      "warnings": [
+        "Don't set opacity too low on hover - images should remain clearly visible (minimum 0.6 recommended)",
+        "Always provide link context - users should know where the image link leads"
+      ]
     },
     {
-      "description": "Image with custom size and filter",
+      "name": "Grayscale to Color Hover Effect",
+      "description": "Image starts in grayscale, transitions to full color on hover",
+      "visualDescription": "100% grayscale (black & white) normally, smoothly transitions to full color on hover over 0.5 seconds",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "img03",
         "tImg": {
-          "url": "https://example.com/photo.jpg",
+          "url": "https://example.com/images/team-member.jpg",
           "Id": "789"
         },
+        "iSize": "medium",
+        "tiAlign": {
+          "md": "center"
+        },
+        "inFilt": {
+          "openFilter": true,
+          "grayscale": 100
+        },
+        "iHfilt": {
+          "openFilter": true,
+          "grayscale": 0
+        },
+        "intran": "0.5"
+      },
+      "useCase": "Team member photos, portfolio galleries, before/after effects, interactive galleries",
+      "warnings": [
+        "Filter transitions may not work smoothly on older browsers (IE11, older Safari)",
+        "CPU-intensive filters (blur with high values) can cause performance issues on mobile"
+      ]
+    },
+    {
+      "name": "Circular Profile Image with Border",
+      "description": "Perfectly circular image with colored border, ideal for avatars",
+      "visualDescription": "200×200px circular image (50% border radius), 4px solid purple border, center aligned, slight shadow",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "img04",
+        "tImg": {
+          "url": "https://example.com/images/author-avatar.jpg",
+          "Id": "321"
+        },
+        "iSize": "thumbnail",
+        "tiAlign": {
+          "md": "center"
+        },
         "iWidth": {
-          "md": "400",
+          "md": "200",
+          "sm": "150",
+          "xs": "120",
           "unit": "px"
         },
         "iHeig": {
-          "md": "300",
+          "md": "200",
+          "sm": "150",
+          "xs": "120",
           "unit": "px"
         },
         "imgFit": {
           "md": "cover"
         },
-        "inFilt": {
-          "openFilter": true,
-          "grayscale": 100
+        "ibrad": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "ibord": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {
+              "top": "4",
+              "left": "4",
+              "bottom": "4",
+              "right": "4"
+            },
+            "unit": "px"
+          }
+        },
+        "ishadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.2)"
         }
+      },
+      "useCase": "Author bios, team member avatars, user profiles, testimonial photos, comment avatars",
+      "responsiveNotes": "Image size reduces from 200px → 150px → 120px on smaller screens while maintaining perfect circle",
+      "warnings": [
+        "For perfect circles, iWidth and iHeig must have identical values at each breakpoint",
+        "Use imgFit: 'cover' to prevent image distortion - crops to fill circle",
+        "Border radius in % creates circles only when width = height"
+      ]
+    },
+    {
+      "name": "Image with Caption Below",
+      "description": "Image with styled caption text displayed below",
+      "visualDescription": "Image with gray caption text below (15px spacing), italic style, center-aligned caption, light gray background",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "img05",
+        "tImg": {
+          "url": "https://example.com/images/landscape-photo.jpg",
+          "Id": "654"
+        },
+        "iSize": "large",
+        "tiAlign": {
+          "md": "center"
+        },
+        "tiCap": "below",
+        "ctmCap": "Photo taken at sunrise in the Swiss Alps",
+        "icapTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "14",
+            "unit": "px"
+          },
+          "weight": "400",
+          "style": "italic"
+        },
+        "icapColor": "#64748b",
+        "icapAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "icapbgColor": "#f8fafc",
+        "icapSpa": {
+          "md": "15",
+          "unit": "px"
+        }
+      },
+      "useCase": "Photography portfolios, image credits, descriptive captions, educational content, art galleries",
+      "warnings": [
+        "tiCap must not be 'none' for caption to display - use 'below' or other caption mode",
+        "ctmCap supports HTML - use sparingly (bold, italic, links only)",
+        "Caption styling (icapTypo, icapColor, etc.) only applies when tiCap is not 'none'"
+      ],
+      "validationRules": {
+        "tiCap": "Must be set to a value other than 'none' (e.g., 'below') for caption to appear",
+        "ctmCap": "Required when tiCap is not 'none' - the actual caption text"
       }
+    },
+    {
+      "name": "Card Image with Shadow and Rounded Corners",
+      "description": "Image styled as a card component with rounded corners and shadow",
+      "visualDescription": "12px rounded corners, soft shadow (0 8px 16px), full-width on mobile, subtle hover shadow increase",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "img06",
+        "tImg": {
+          "url": "https://example.com/images/blog-thumbnail.jpg",
+          "Id": "987"
+        },
+        "iSize": "large",
+        "tiAlign": {
+          "md": "left"
+        },
+        "imWidth": {
+          "md": "600",
+          "xs": "100",
+          "unit": "px"
+        },
+        "ibrad": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "ishadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 16,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.1)"
+        },
+        "tiLink": {
+          "url": "/blog/article-name",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "intran": "0.3"
+      },
+      "useCase": "Blog post thumbnails, product cards, featured images, card-based layouts, grid galleries",
+      "responsiveNotes": "max-width 600px on desktop, 100% width on mobile for responsive card design"
+    },
+    {
+      "name": "Full-Width Hero Image with Object-Fit Cover",
+      "description": "Full-width hero image that maintains aspect ratio by cropping",
+      "visualDescription": "100% width, 500px height on desktop (300px mobile), crops to fill container while maintaining aspect ratio, center-center object position",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "img07",
+        "tImg": {
+          "url": "https://example.com/images/hero-background.jpg",
+          "Id": "147"
+        },
+        "iSize": "full",
+        "tiAlign": {
+          "md": "center"
+        },
+        "iWidth": {
+          "md": "100",
+          "sm": "100",
+          "xs": "100",
+          "unit": "%"
+        },
+        "iHeig": {
+          "md": "500",
+          "sm": "400",
+          "xs": "300",
+          "unit": "px"
+        },
+        "imgFit": {
+          "md": "cover"
+        },
+        "inOpa": "1"
+      },
+      "useCase": "Hero sections, full-width banners, page headers, background images with fixed height",
+      "warnings": [
+        "imgFit: 'cover' will crop images - ensure important content is centered",
+        "Fixed height (iHeig) with 100% width requires object-fit to prevent distortion",
+        "Different heights per breakpoint (md/sm/xs) allow responsive hero sections"
+      ],
+      "validationRules": {
+        "imgFit": "Use 'cover' when setting both width and height to prevent image distortion",
+        "iWidth + iHeig": "When both are set, object-fit determines how image fills space"
+      },
+      "relatedPatterns": [
+        "Hero sections with overlay text",
+        "Full-width page headers",
+        "Background image containers"
+      ]
+    },
+    {
+      "name": "Advanced: Absolutely Positioned Decorative Image",
+      "description": "Image positioned absolutely for decorative overlays or floating elements",
+      "visualDescription": "Small decorative graphic (80px) positioned at top-right of parent container (20px from top, 30px from right), 50% opacity",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "img08",
+        "tImg": {
+          "url": "https://example.com/images/decorative-element.png",
+          "Id": "258"
+        },
+        "iSize": "thumbnail",
+        "iWidth": {
+          "md": "80",
+          "sm": "60",
+          "xs": "50",
+          "unit": "px"
+        },
+        "globalPosition": {
+          "md": "absolute"
+        },
+        "gloabhorizoOri": "right",
+        "glohoriOffset": {
+          "md": "30",
+          "sm": "20",
+          "xs": "15",
+          "unit": "px"
+        },
+        "gloabverticalOri": "top",
+        "gloverticalOffset": {
+          "md": "20",
+          "sm": "15",
+          "xs": "10",
+          "unit": "px"
+        },
+        "inOpa": "0.5",
+        "intran": "0.3",
+        "dislazyLoad": true
+      },
+      "useCase": "Decorative graphics, floating badges, corner embellishments, overlay elements, design accents",
+      "warnings": [
+        "globalPosition: 'absolute' requires parent container to have position: relative",
+        "Absolutely positioned images don't affect document flow - can overlap other content",
+        "gloabhorizoOri and gloabverticalOri must be set before offsets work ('left'/'right' and 'top'/'bottom')",
+        "Consider disabling lazy load (dislazyLoad: true) for above-fold positioned images"
+      ],
+      "validationRules": {
+        "globalPosition": "Must be 'absolute' or 'fixed' for offset positioning to work",
+        "gloabhorizoOri": "Required when using glohoriOffset - set to 'left' or 'right'",
+        "gloabverticalOri": "Required when using gloverticalOffset - set to 'top' or 'bottom'"
+      },
+      "commonMistakes": [
+        "Setting offsets without setting globalPosition to 'absolute' or 'fixed'",
+        "Forgetting to set orientation (gloabhorizoOri/gloabverticalOri) before offsets",
+        "Not adding position: relative to parent container"
+      ],
+      "relatedPatterns": [
+        "Corner badges on product images",
+        "Decorative elements on hero sections",
+        "Floating watermarks"
+      ]
     }
   ],
   "commonPatterns": {
-    "default": {
-      "block_id": "example"
+    "responsive_max_width": {
+      "description": "Image with responsive max-width that scales down on smaller screens",
+      "attributes": {
+        "imWidth": {
+          "md": "800",
+          "sm": "600",
+          "xs": "100",
+          "unit": "px"
+        },
+        "tiAlign": {
+          "md": "center"
+        }
+      }
+    },
+    "circular_profile_image": {
+      "description": "Perfect circle image with equal width and height",
+      "attributes": {
+        "iWidth": {
+          "md": "150",
+          "unit": "px"
+        },
+        "iHeig": {
+          "md": "150",
+          "unit": "px"
+        },
+        "imgFit": {
+          "md": "cover"
+        },
+        "ibrad": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        }
+      }
+    },
+    "grayscale_hover_effect": {
+      "description": "Grayscale to color transition on hover",
+      "attributes": {
+        "inFilt": {
+          "openFilter": true,
+          "grayscale": 100
+        },
+        "iHfilt": {
+          "openFilter": true,
+          "grayscale": 0
+        },
+        "intran": "0.5"
+      }
+    },
+    "card_shadow_and_radius": {
+      "description": "Card-style image with shadow and rounded corners",
+      "attributes": {
+        "ibrad": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "ishadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 16,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.1)"
+        }
+      }
+    },
+    "full_width_hero_cover": {
+      "description": "Full-width image with fixed height using object-fit cover",
+      "attributes": {
+        "iWidth": {
+          "md": "100",
+          "unit": "%"
+        },
+        "iHeig": {
+          "md": "500",
+          "sm": "400",
+          "xs": "300",
+          "unit": "px"
+        },
+        "imgFit": {
+          "md": "cover"
+        }
+      }
     }
+  },
+  "validationRules": {
+    "block_id": "Required - unique identifier for the image block",
+    "tImg": "Required - image object containing url and Id from WordPress media library",
+    "tImg.url": "Required - full URL to the image file",
+    "tImg.Id": "Required - WordPress attachment ID (used for srcset and responsive images)",
+    "iSize": "Optional - WordPress image size (thumbnail/medium/large/full), defaults to 'full'",
+    "tiAlign": "Optional - image alignment (left/center/right) per breakpoint",
+    "tiCap": "Required for captions - set to 'below' or caption mode (not 'none')",
+    "ctmCap": "Required when tiCap is not 'none' - the caption text content",
+    "imgFit": "Recommended when setting both iWidth and iHeig - use 'cover' or 'contain' to prevent distortion",
+    "globalPosition": "Must be 'absolute' or 'fixed' for positioning offsets to work",
+    "gloabhorizoOri": "Required with glohoriOffset - set to 'left' or 'right'",
+    "gloabverticalOri": "Required with gloverticalOffset - set to 'top' or 'bottom'"
+  },
+  "warnings": [
+    "Never modify block_id after image creation - breaks references",
+    "tImg.Id must match actual WordPress attachment ID - incorrect ID breaks srcset",
+    "For perfect circles: iWidth and iHeig must be identical at each breakpoint",
+    "imgFit: 'cover' crops images - ensure important content is centered",
+    "Opacity values (inOpa, iHOpa) range from 0 (invisible) to 1 (fully visible)",
+    "Filter effects (blur, grayscale) can be CPU-intensive on mobile - test performance",
+    "Absolutely positioned images (globalPosition: 'absolute') require parent with position: relative",
+    "Caption styles (icapTypo, icapColor, etc.) only apply when tiCap is not 'none'",
+    "Lazy loading (dislazyLoad: false) is default - disable for above-fold images",
+    "Border radius in % creates circles only when width = height",
+    "Setting both iWidth and iHeig without imgFit can cause image distortion"
+  ],
+  "commonMistakes": [
+    "Setting caption attributes (icapTypo, icapColor) without changing tiCap from 'none'",
+    "Using iWidth and iHeig together without imgFit (causes distortion)",
+    "Setting border radius to 50% on non-square images (creates ovals, not circles)",
+    "Forgetting to set openFilter: true in inFilt/iHfilt before defining filter values",
+    "Using globalPosition without setting orientation (gloabhorizoOri/gloabverticalOri) first",
+    "Setting opacity too low (< 0.5) making images invisible or hard to see",
+    "Using lazy loading (dislazyLoad: false) on hero images above the fold (delays loading)",
+    "Not configuring responsive values for iWidth/iHeig on fixed-size images",
+    "Setting border (ibord) without openBorder: 1 (border won't display)",
+    "Using high blur values in filters on mobile (performance issues)"
+  ],
+  "bestPractices": [
+    "Always use WordPress media library for tImg - includes automatic srcset for responsive images",
+    "Set iSize to appropriate WordPress size ('large' for most content, 'full' for hero images)",
+    "Use imWidth (max-width) instead of iWidth for responsive images that scale down",
+    "Configure responsive values (md/sm/xs) for image sizes on different screen sizes",
+    "Use imgFit: 'cover' when setting fixed dimensions to prevent distortion",
+    "Keep opacity values above 0.6 for readability and accessibility",
+    "Use intran: '0.3' to '0.5' for smooth hover transitions (not too fast, not too slow)",
+    "For circular images: set equal width/height + 50% border radius + imgFit: 'cover'",
+    "Disable lazy loading (dislazyLoad: true) for above-fold images (faster LCP)",
+    "Use filters sparingly - grayscale and brightness are safest for performance",
+    "Always test absolutely positioned images on all breakpoints (may overlap on mobile)",
+    "Provide meaningful alt text via WordPress media library for accessibility"
+  ],
+  "responsiveStrategy": {
+    "description": "Image block adapts to screen sizes using md (desktop), sm (tablet), xs (mobile) breakpoints",
+    "breakpoints": {
+      "md": "Desktop/default - typically 1024px and above",
+      "sm": "Tablet - typically 768px to 1023px",
+      "xs": "Mobile - typically below 768px"
+    },
+    "recommendedApproach": "Configure md first (desktop), then override sm/xs only where needed. Empty sm/xs values inherit from md.",
+    "commonResponsivePatterns": [
+      "Use percentage widths on mobile for full-width images: iWidth md: '800px' → xs: '100%'",
+      "Reduce fixed heights on smaller screens: iHeig md: '500px' → sm: '400px' → xs: '300px'",
+      "Scale circular images down: iWidth/iHeig md: '200px' → sm: '150px' → xs: '120px'",
+      "Use max-width (imWidth) for images that should scale: imWidth md: '800px' → xs: '100%'",
+      "Center-align images on mobile even if left-aligned on desktop: tiAlign md: 'left' → xs: 'center'"
+    ]
+  },
+  "accessibilityNotes": [
+    "Alt text is managed via WordPress media library - always provide descriptive alt text when uploading",
+    "For decorative images, use empty alt text (alt='') - set in WordPress media library",
+    "Ensure sufficient color contrast for caption text (icapColor) - WCAG AA: 4.5:1 minimum",
+    "Linked images should have clear context - user should know where link leads",
+    "Don't rely solely on color filters to convey meaning (e.g., red filter = error)",
+    "For text embedded in images, provide equivalent text in caption or surrounding content",
+    "Test keyboard navigation for linked images - should be focusable and activatable"
+  ],
+  "filterOptionsReference": {
+    "description": "CSS filter effects available in inFilt and iHfilt attributes",
+    "filters": {
+      "grayscale": "0-100 - Converts image to grayscale (0 = color, 100 = black & white)",
+      "blur": "0-20px - Applies Gaussian blur (higher = more blur, CPU-intensive)",
+      "brightness": "0-200 - Adjusts brightness (100 = normal, < 100 = darker, > 100 = brighter)",
+      "contrast": "0-200 - Adjusts contrast (100 = normal, < 100 = low contrast, > 100 = high contrast)",
+      "saturate": "0-200 - Adjusts color saturation (0 = grayscale, 100 = normal, > 100 = vivid)",
+      "sepia": "0-100 - Applies sepia tone (0 = none, 100 = full sepia)",
+      "hue-rotate": "0-360deg - Rotates hue (shifts colors around color wheel)"
+    },
+    "usage": {
+      "openFilter": "Must be set to true before filter values are applied",
+      "combining_filters": "Multiple filters can be used together (e.g., grayscale + brightness)",
+      "hover_effects": "Use inFilt for normal state, iHfilt for hover state with different values",
+      "performance": "Blur is most CPU-intensive - use sparingly, especially on mobile"
+    },
+    "examples": [
+      {
+        "name": "Grayscale to color",
+        "inFilt": {"openFilter": true, "grayscale": 100},
+        "iHfilt": {"openFilter": true, "grayscale": 0}
+      },
+      {
+        "name": "Brighten on hover",
+        "inFilt": {"openFilter": true, "brightness": 100},
+        "iHfilt": {"openFilter": true, "brightness": 120}
+      },
+      {
+        "name": "Sepia tone",
+        "inFilt": {"openFilter": true, "sepia": 80}
+      }
+    ]
+  },
+  "objectFitReference": {
+    "description": "How imgFit (object-fit) controls image scaling within container",
+    "values": {
+      "cover": "Image fills container completely, cropping if needed to maintain aspect ratio (recommended for fixed dimensions)",
+      "contain": "Image fits entirely within container, may show letterboxing/pillarboxing to maintain aspect ratio",
+      "fill": "Image stretches to fill container, ignoring aspect ratio (can cause distortion)",
+      "none": "Image displays at natural size, may overflow or not fill container",
+      "scale-down": "Shows image at smaller of 'none' or 'contain'"
+    },
+    "when_to_use": {
+      "cover": "Use when you want image to fill fixed dimensions without distortion (crops image)",
+      "contain": "Use when you want entire image visible within fixed dimensions (may show gaps)",
+      "fill": "Rarely used - causes distortion unless image matches container aspect ratio exactly",
+      "none": "Use when you want image at natural size regardless of container"
+    },
+    "note": "Object-fit is most useful when both iWidth and iHeig are set to fixed values"
+  },
+  "lazyLoadingGuidance": {
+    "description": "When to disable lazy loading (dislazyLoad attribute)",
+    "default": "dislazyLoad: false (lazy loading enabled by default)",
+    "disable_when": [
+      "Image is above the fold (visible without scrolling) - improves LCP (Largest Contentful Paint)",
+      "Image is a hero/banner at top of page",
+      "Image is critical for initial page render",
+      "Image is used for absolutely positioned decorative elements that should load immediately"
+    ],
+    "keep_enabled_when": [
+      "Image is below the fold (not visible on initial load)",
+      "Image is in a gallery or grid with many images",
+      "Image is at bottom of long article",
+      "Page has many images (prioritize above-fold loading)"
+    ],
+    "performance_note": "Lazy loading improves initial page load time by deferring offscreen images. Disable only for critical above-fold images."
   }
 }

@@ -2,42 +2,542 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-video",
   "title": "Video - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Embed YouTube, Vimeo, or self-hosted videos with custom thumbnails, play icons, and animations",
+
   "examples": [
     {
-      "description": "Simple YouTube video embed",
+      "name": "Simple YouTube Video Embed",
+      "description": "Basic YouTube video with controls",
+      "visualDescription": "YouTube video player with standard controls, no related videos at end, privacy-enhanced mode",
+      "complexity": "simple",
       "attributes": {
         "block_id": "a1b2",
         "VideoType": "youtube",
         "YoutubeID": "dQw4w9WgXcQ",
         "controls": true,
-        "rel": false
-      }
+        "rel": false,
+        "yt_privacy": true,
+        "iframeTitle": "Product Demo Video"
+      },
+      "useCase": "Product demos, tutorials, promotional videos, how-to guides",
+      "notes": [
+        "VideoType='youtube' for YouTube videos",
+        "YoutubeID is the video ID from YouTube URL (not full URL)",
+        "controls=true shows play/pause, volume, fullscreen controls",
+        "rel=false hides related videos at end (better UX)",
+        "yt_privacy=true uses youtube-nocookie.com (privacy-enhanced mode)",
+        "iframeTitle improves accessibility (screen reader announcement)"
+      ]
     },
+
     {
-      "description": "YouTube video with custom thumbnail",
+      "name": "YouTube Video with Custom Thumbnail",
+      "description": "YouTube video with custom banner image and play icon",
+      "visualDescription": "Custom thumbnail image covers video until clicked, centered play icon overlay, smooth fade-in when video starts",
+      "complexity": "medium",
       "attributes": {
         "block_id": "c3d4",
         "VideoType": "youtube",
         "YoutubeID": "dQw4w9WgXcQ",
         "ShowBannerImg": true,
         "BannerImg": {
-          "url": "https://example.com/thumbnail.jpg"
+          "url": "https://example.com/video-thumbnail.jpg",
+          "Id": "123"
         },
-        "autoPlay": false
-      }
+        "BannerImgSize": "full",
+        "VideoTitle": "Watch Our Product Demo",
+        "VideoTitleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "24", "sm": "20", "xs": "18", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "TitleColor": "#ffffff",
+        "TitleBgColor": "rgba(0, 0, 0, 0.7)",
+        "IconAlign": "center",
+        "autoPlay": false,
+        "controls": true,
+        "rel": false,
+        "iframeTitle": "Product demonstration video"
+      },
+      "useCase": "Marketing videos, testimonials, case studies, product showcases",
+      "notes": [
+        "ShowBannerImg=true enables custom thumbnail (hides default YouTube thumbnail)",
+        "BannerImg.url is the custom thumbnail image URL",
+        "BannerImgSize='full' uses full WordPress image size",
+        "VideoTitle appears as caption overlay on thumbnail",
+        "TitleColor + TitleBgColor style the caption (white text on semi-transparent black)",
+        "IconAlign='center' centers the play icon (options: center, left, right)",
+        "autoPlay=false requires user click to play (better UX, accessibility)",
+        "Thumbnail disappears when video starts playing"
+      ]
     },
+
     {
-      "description": "Vimeo video with schema markup",
+      "name": "Vimeo Video with Player Color",
+      "description": "Vimeo video with custom player color and metadata",
+      "visualDescription": "Vimeo player with purple controls/progress bar, video title, author byline, author portrait visible",
+      "complexity": "simple",
       "attributes": {
         "block_id": "e5f6",
         "VideoType": "vimeo",
         "VimeoID": "123456789",
+        "VideoColor": "#667eea",
+        "VimeoTitle": true,
+        "VimeoByline": true,
+        "VimeoPortrait": true,
+        "controls": true,
+        "autoPlay": false,
+        "loop": false,
+        "iframeTitle": "Company culture video"
+      },
+      "useCase": "Company culture videos, creative portfolios, professional video content",
+      "notes": [
+        "VideoType='vimeo' for Vimeo videos",
+        "VimeoID is the video ID from Vimeo URL (e.g., vimeo.com/123456789)",
+        "VideoColor sets Vimeo player controls color (hex code)",
+        "VimeoTitle=true shows video title inside player",
+        "VimeoByline=true shows video author name",
+        "VimeoPortrait=true shows author's profile picture",
+        "Vimeo player has cleaner, more professional look than YouTube",
+        "Set all three to false for minimal player (just video + controls)"
+      ]
+    },
+
+    {
+      "name": "Self-Hosted Video with Fallback",
+      "description": "MP4 video hosted on your server with fallback image",
+      "visualDescription": "Custom video player with your MP4 file, browser-native controls, fallback image if video fails to load",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "g7h8",
+        "VideoType": "self-hosted",
+        "mp4Url": {
+          "url": "https://example.com/wp-content/uploads/2024/my-video.mp4",
+          "Id": "456"
+        },
+        "controls": true,
+        "autoPlay": false,
+        "muted": false,
+        "loop": false,
+        "fallbackImage": {
+          "url": "https://example.com/video-poster.jpg",
+          "Id": "789"
+        },
+        "VideoBRadius": {
+          "md": {"top": "8", "right": "8", "bottom": "8", "left": "8"},
+          "unit": "px"
+        },
+        "iframeTitle": "Tutorial video"
+      },
+      "useCase": "Private videos, training materials, internal communications, videos without YouTube/Vimeo accounts",
+      "notes": [
+        "VideoType='self-hosted' for MP4 files on your server",
+        "mp4Url.url is the direct URL to .mp4 file",
+        "fallbackImage shows if video fails to load (acts as poster frame)",
+        "Self-hosted videos give you full control (no third-party branding)",
+        "Ensure video is optimized for web (H.264 codec, compressed)",
+        "Consider CDN for better performance (large MP4 files)",
+        "Browser-native controls style varies by browser",
+        "VideoBRadius adds rounded corners to video player"
+      ]
+    },
+
+    {
+      "name": "Video with Animated Play Icon",
+      "description": "YouTube video with pulsing play icon animation",
+      "visualDescription": "Custom thumbnail with centered play icon that pulses continuously, drawing attention to video, purple gradient background on icon",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "i9j0",
+        "VideoType": "youtube",
+        "YoutubeID": "dQw4w9WgXcQ",
+        "ShowBannerImg": true,
+        "BannerImg": {
+          "url": "https://example.com/hero-video-thumbnail.jpg"
+        },
+        "IconAlign": "center",
+        "ContinueAnim": true,
+        "ContinueAnimEffect": "pulse",
+        "ContinueAnimHover": false,
+        "ContinueAnimDur": "2",
+        "PlayIconSize": "120",
+        "IconRadius": {
+          "md": {"top": "50", "right": "50", "bottom": "50", "left": "50"},
+          "unit": "%"
+        },
+        "controls": true,
+        "rel": false,
+        "iframeTitle": "Hero video"
+      },
+      "useCase": "Hero sections, landing pages, attention-grabbing videos, call-to-action videos",
+      "notes": [
+        "ContinueAnim=true enables icon animation",
+        "ContinueAnimEffect='pulse' creates pulsing effect (options: pulse, rotating, drop_waves)",
+        "ContinueAnimHover=false animates continuously (true = only on hover)",
+        "ContinueAnimDur='2' sets animation duration (2 seconds per cycle)",
+        "PlayIconSize='120' sets icon size to 120px (default: 100px)",
+        "IconRadius with 50% creates circular play icon",
+        "Pulse animation is subtle, professional (rotating is more aggressive)",
+        "drop_waves creates ripple effect (dramatic, attention-grabbing)"
+      ]
+    },
+
+    {
+      "name": "Video Popup (Lightbox Mode)",
+      "description": "Video opens in lightbox/modal overlay when clicked",
+      "visualDescription": "Small video thumbnail with play icon, clicking opens full-screen video lightbox overlay with close button",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "k1l2",
+        "VideoType": "youtube",
+        "YoutubeID": "dQw4w9WgXcQ",
+        "VideoPopup": true,
+        "ShowBannerImg": true,
+        "BannerImg": {
+          "url": "https://example.com/video-preview.jpg"
+        },
+        "VideoTitle": "Click to Watch",
+        "VideoTitleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "18", "unit": "px"}
+        },
+        "TitleColor": "#333333",
+        "IconAlign": "center",
+        "PlayIconSize": "80",
+        "autoPlay": true,
+        "controls": true,
+        "rel": false,
+        "iframeTitle": "Popup video player"
+      },
+      "useCase": "Video galleries, portfolio showcases, testimonial collections, space-saving video embeds",
+      "notes": [
+        "VideoPopup=true opens video in lightbox overlay (instead of inline)",
+        "Thumbnail stays small, video opens full-screen when clicked",
+        "autoPlay=true auto-plays when lightbox opens (user initiated action)",
+        "Great for saving space on page (multiple videos without long page)",
+        "User can close lightbox to return to page",
+        "Works with YouTube, Vimeo, and self-hosted videos",
+        "Ensure BannerImg aspect ratio matches video (16:9 recommended)",
+        "Lightbox has dark overlay behind video (focuses attention)"
+      ]
+    },
+
+    {
+      "name": "Video with Schema Markup (SEO)",
+      "description": "YouTube video with structured data for search engines",
+      "visualDescription": "Standard YouTube embed with invisible schema markup for Google search results, video may appear in video search with thumbnail and metadata",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "m3n4",
+        "VideoType": "youtube",
+        "YoutubeID": "dQw4w9WgXcQ",
         "markupSch": true,
-        "VideoTitle": "Product Demo Video",
-        "VideoColor": "#3498db"
-      }
+        "VideoTitle": "How to Use Our Product - Complete Tutorial",
+        "VideoDesc": "Learn how to set up and use our product in this comprehensive tutorial. Covers installation, configuration, and advanced features.",
+        "ShowBannerImg": true,
+        "BannerImg": {
+          "url": "https://example.com/tutorial-thumbnail.jpg"
+        },
+        "controls": true,
+        "showinfo": true,
+        "rel": false,
+        "iframeTitle": "Product tutorial video"
+      },
+      "useCase": "Tutorial videos, product demonstrations, educational content, videos targeting search traffic",
+      "notes": [
+        "markupSch=true adds VideoObject schema markup (SEO benefit)",
+        "VideoTitle is used in schema as video name (be descriptive, keyword-rich)",
+        "VideoDesc is used in schema as description (150-200 characters, explain video content)",
+        "BannerImg is used as schema thumbnail (helps video appear in Google search)",
+        "Schema markup helps video appear in Google Video Search results",
+        "Can improve click-through rates from search engines",
+        "Ensure VideoTitle and VideoDesc accurately describe video content",
+        "Schema data is invisible to users, only read by search engines"
+      ]
+    },
+
+    {
+      "name": "Styled Video with Border and Shadow",
+      "description": "Video player with custom styling (border, shadow, hover effects)",
+      "visualDescription": "YouTube video with purple border, subtle shadow, rounded corners; on hover, shadow deepens and slight scale transform",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "o5p6",
+        "VideoType": "youtube",
+        "YoutubeID": "dQw4w9WgXcQ",
+        "controls": true,
+        "rel": false,
+        "VideoBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {"top": "3", "right": "3", "bottom": "3", "left": "3"},
+            "unit": "px"
+          }
+        },
+        "VideoBRadius": {
+          "md": {"top": "12", "right": "12", "bottom": "12", "left": "12"},
+          "unit": "px"
+        },
+        "BoxShadow": {
+          "openShadow": 1,
+          "horizontal": "0",
+          "vertical": "4",
+          "blur": "20",
+          "spread": "0",
+          "color": "rgba(102, 126, 234, 0.3)"
+        },
+        "VideoBorderH": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#764ba2",
+          "width": {
+            "md": {"top": "3", "right": "3", "bottom": "3", "left": "3"},
+            "unit": "px"
+          }
+        },
+        "BoxShadowH": {
+          "openShadow": 1,
+          "horizontal": "0",
+          "vertical": "8",
+          "blur": "30",
+          "spread": "0",
+          "color": "rgba(118, 75, 162, 0.4)"
+        },
+        "TransformH": "scale(1.02)",
+        "iframeTitle": "Featured video"
+      },
+      "useCase": "Featured videos, premium content, styled landing pages, design-focused websites",
+      "notes": [
+        "VideoBorder adds border to video player (normal state)",
+        "VideoBRadius rounds corners (12px creates subtle rounding)",
+        "BoxShadow adds drop shadow (purple glow effect at 30% opacity)",
+        "VideoBorderH changes border color on hover (purple to darker purple gradient)",
+        "BoxShadowH deepens shadow on hover (larger blur, more spread)",
+        "TransformH='scale(1.02)' slightly enlarges video on hover (subtle lift effect)",
+        "Hover effects create interactive, premium feel",
+        "Ensure border/shadow colors match site design",
+        "Don't overdo transform (scale > 1.05 is jarring)",
+        "Rounded corners may clip video controls slightly (test in browser)"
+      ]
     }
   ],
-  "commonPatterns": {}
+
+  "commonPatterns": {
+    "videoTypeGuide": {
+      "youtube": "YouTube videos (most common, best performance, auto-generated thumbnails)",
+      "vimeo": "Vimeo videos (professional, cleaner player, customizable player color)",
+      "self-hosted": "MP4 files on your server (full control, no third-party branding, larger file sizes)"
+    },
+    "videoIdFormats": {
+      "youtube": "Extract ID from URL: youtube.com/watch?v=dQw4w9WgXcQ → 'dQw4w9WgXcQ'",
+      "vimeo": "Extract ID from URL: vimeo.com/123456789 → '123456789'",
+      "self-hosted": "Full URL to .mp4 file: https://example.com/video.mp4"
+    },
+    "thumbnailModes": {
+      "default": "ShowBannerImg=false (use video platform's auto-generated thumbnail)",
+      "custom": "ShowBannerImg=true + BannerImg.url (upload custom thumbnail image)"
+    },
+    "playIconOptions": {
+      "default": "No VideoIcon set (uses default circular play icon)",
+      "custom": "VideoIcon.url set (upload custom play icon image, e.g., branded icon)",
+      "size": "PlayIconSize controls icon dimensions (default: 100px, recommend: 80-150px)",
+      "alignment": "IconAlign: center (default), left, right"
+    },
+    "animationEffects": {
+      "pulse": "Icon scales up/down rhythmically (subtle, professional)",
+      "rotating": "Icon spins continuously (attention-grabbing, playful)",
+      "drop_waves": "Ripple effect emanates from icon (dramatic, modern)"
+    },
+    "youtubeOptions": {
+      "controls": "Show/hide player controls (default: true)",
+      "rel": "Show related videos at end (false = hide, better UX)",
+      "yt_privacy": "Use youtube-nocookie.com (GDPR-friendly, no tracking cookies)",
+      "showinfo": "Show video title and uploader before playing (deprecated by YouTube)",
+      "ModestBranding": "Remove YouTube logo from control bar (partial, YouTube still shows logo)"
+    },
+    "vimeoOptions": {
+      "VideoColor": "Custom player color (hex code, e.g., #667eea)",
+      "VimeoTitle": "Show video title in player (default: true)",
+      "VimeoByline": "Show author name (default: true)",
+      "VimeoPortrait": "Show author portrait (default: true)"
+    },
+    "autoPlayBehavior": {
+      "inline": "autoPlay=true plays video on page load (bad UX, avoid unless muted)",
+      "popup": "autoPlay=true in VideoPopup mode is OK (user-initiated click)",
+      "muted": "autoPlay=true + muted=true is acceptable (background videos)",
+      "accessibility": "Avoid autoPlay unless muted (screen reader users, bandwidth concerns)"
+    }
+  },
+
+  "validationRules": {
+    "block_id": "Required, unique 4-character hex identifier",
+    "VideoType": "Required, must be 'youtube', 'vimeo', or 'self-hosted'",
+    "YoutubeID": "Required when VideoType='youtube', must be valid YouTube video ID",
+    "VimeoID": "Required when VideoType='vimeo', must be valid Vimeo video ID",
+    "mp4Url": "Required when VideoType='self-hosted', must be valid .mp4 URL",
+    "controls": "Optional, boolean (true/false), default: true",
+    "autoPlay": "Optional, boolean (true/false), default: false",
+    "muted": "Optional, boolean (true/false), default: false",
+    "loop": "Optional, boolean (true/false), default: false",
+    "rel": "Optional, boolean (true/false), default: false (YouTube only)",
+    "yt_privacy": "Optional, boolean (true/false), default: false (YouTube only)",
+    "ShowBannerImg": "Optional, boolean (true/false), default: false",
+    "BannerImg.url": "Required when ShowBannerImg=true, must be valid image URL",
+    "VideoTitle": "Optional, string (appears on banner if ShowBannerImg=true)",
+    "VideoDesc": "Optional, string (used in schema markup if markupSch=true)",
+    "VideoPopup": "Optional, boolean (true/false), default: false",
+    "markupSch": "Optional, boolean (true/false), default: false",
+    "iframeTitle": "Recommended for accessibility, string describing video content",
+    "VideoColor": "Optional, hex color code (Vimeo only)",
+    "ContinueAnim": "Optional, boolean (true/false), default: false",
+    "ContinueAnimEffect": "Required if ContinueAnim=true, must be 'pulse', 'rotating', or 'drop_waves'",
+    "PlayIconSize": "Optional, number (pixels), default: 100",
+    "IconAlign": "Optional, must be 'center', 'left', or 'right', default: 'center'"
+  },
+
+  "warnings": [
+    "CRITICAL: autoPlay=true without muted=true is bad UX (unexpected sound, accessibility issues)",
+    "CRITICAL: Use correct VideoType for video platform (youtube vs vimeo vs self-hosted)",
+    "Don't use YouTube video ID for VimeoID or vice versa (video won't load)",
+    "ShowBannerImg=true requires BannerImg.url (video won't show without thumbnail)",
+    "Custom thumbnails should match video aspect ratio (16:9 recommended)",
+    "yt_privacy=true may break some YouTube features (analytics, annotations)",
+    "rel=false may not work on all YouTube embeds (YouTube controls this)",
+    "Self-hosted videos should be optimized for web (H.264, compressed, < 50MB)",
+    "VideoPopup=true may conflict with page popups/modals (test thoroughly)",
+    "ContinueAnim=true can be distracting (use sparingly, test with users)",
+    "drop_waves animation is resource-intensive (avoid on mobile-heavy sites)",
+    "Schema markup (markupSch=true) requires VideoTitle and VideoDesc (improves SEO)",
+    "iframeTitle should be descriptive for screen readers (e.g., 'Product demo video')",
+    "Large PlayIconSize (> 150px) may look awkward on small thumbnails",
+    "Border radius may clip video controls slightly (test in browser)",
+    "Transform effects (scale, rotate) may cause layout shifts (test on different screen sizes)"
+  ],
+
+  "commonMistakes": [
+    "Using full YouTube URL instead of just video ID (use 'dQw4w9WgXcQ', not 'https://youtube.com/watch?v=dQw4w9WgXcQ')",
+    "Setting autoPlay=true without muted=true (unexpected sound annoys users)",
+    "Enabling ShowBannerImg but not providing BannerImg.url (video won't display)",
+    "Using low-quality custom thumbnails (blurry, wrong aspect ratio)",
+    "Setting VideoPopup=true and autoPlay=true (video starts playing before lightbox opens)",
+    "Forgetting iframeTitle (fails accessibility audits)",
+    "Using VideoType='youtube' with VimeoID set (video won't load)",
+    "Setting ContinueAnimEffect without ContinueAnim=true (animation doesn't run)",
+    "Using very long VideoTitle that overflows banner (keep to 8-10 words max)",
+    "Setting markupSch=true without VideoDesc (schema incomplete)",
+    "Using self-hosted videos > 100MB (slow page load, poor mobile performance)",
+    "Not testing video on mobile (controls may be too small, autoPlay blocked)",
+    "Setting rel=true (shows unrelated videos at end, drives users away from site)",
+    "Using rotating animation continuously (distracting, makes users dizzy)",
+    "Forgetting to set yt_privacy=true (GDPR compliance issue for EU visitors)"
+  ],
+
+  "bestPractices": [
+    "Always set iframeTitle for accessibility (describe video content)",
+    "Use yt_privacy=true for GDPR compliance (YouTube privacy-enhanced mode)",
+    "Set rel=false to hide related videos (keep users on your site)",
+    "Avoid autoPlay unless video is muted (better UX, accessibility)",
+    "Use custom thumbnails (ShowBannerImg=true) for branding, better CTR",
+    "Optimize custom thumbnails (WebP format, 1280x720px, < 200KB)",
+    "Keep VideoTitle concise (8-10 words max) to prevent overflow",
+    "Use markupSch=true for tutorial/educational videos (SEO benefit)",
+    "Write detailed VideoDesc when using schema (150-200 characters)",
+    "For hero videos, use ContinueAnimEffect='pulse' (subtle, professional)",
+    "For attention-grabbing videos, use drop_waves (dramatic, modern)",
+    "Test videos on mobile devices (controls, thumbnail size, autoPlay behavior)",
+    "Use VideoPopup=true for video galleries (saves space, better UX)",
+    "For self-hosted videos, use CDN and optimize (H.264, < 50MB)",
+    "Set controls=true (users expect standard video controls)",
+    "Use 16:9 aspect ratio thumbnails (standard for videos)",
+    "For Vimeo, set VideoColor to match brand (consistent design)",
+    "Hide Vimeo metadata (VimeoTitle/Byline/Portrait=false) for minimal player",
+    "Use loop=true for background videos (subtle, continuous)",
+    "Add subtle border/shadow for visual separation from content",
+    "Test hover effects on touch devices (may not work as expected)"
+  ],
+
+  "accessibilityNotes": [
+    "CRITICAL: Always set iframeTitle (screen readers announce this)",
+    "CRITICAL: Don't autoPlay videos with sound (distracts screen reader users)",
+    "Ensure video has captions/subtitles (not controlled by this block, add in YouTube/Vimeo)",
+    "Provide text alternative or transcript near video (for deaf users)",
+    "Ensure play icon has sufficient contrast (minimum 3:1 ratio)",
+    "Test keyboard navigation (Space/Enter should play video)",
+    "Ensure video controls are keyboard accessible (browser-native controls are)",
+    "Don't rely solely on video to convey information (provide text summary)",
+    "For decorative videos (background), use empty iframeTitle or aria-hidden",
+    "Ensure focus indicator is visible on play icon (test with Tab key)",
+    "Avoid flashing content in videos (can trigger seizures)",
+    "Test with screen reader (NVDA, JAWS, VoiceOver) to verify announcements",
+    "Provide audio description track for visual-only content (if applicable)"
+  ],
+
+  "performanceConsiderations": [
+    "YouTube/Vimeo videos are lazy-loaded (good performance)",
+    "Self-hosted videos should be < 50MB (larger files slow page load)",
+    "Use custom thumbnails to defer video loading (ShowBannerImg=true)",
+    "Optimize custom thumbnails (WebP format, compressed, responsive sizes)",
+    "Avoid autoPlay (videos load on page load, increases bandwidth)",
+    "Use VideoPopup=true to lazy-load videos (only load when clicked)",
+    "For self-hosted videos, use CDN (faster delivery, lower server load)",
+    "Compress MP4 files (H.264 codec, CRF 23, 1080p max for web)",
+    "Test on mobile networks (slow 3G/4G, videos may timeout)",
+    "Limit videos per page (3-5 max, more impacts performance)",
+    "Use drop_waves animation sparingly (CSS-intensive, impacts mobile)",
+    "Avoid large PlayIconSize on mobile (scales down, wastes resources)",
+    "Test cumulative layout shift (CLS) with videos (ensure stable aspect ratio)",
+    "Consider poster frame (fallbackImage) for self-hosted videos (faster perceived load)"
+  ],
+
+  "seoConsiderations": [
+    "Enable schema markup (markupSch=true) for tutorial/educational videos",
+    "Write keyword-rich VideoTitle (used in schema, search results)",
+    "Write detailed VideoDesc (150-200 chars, describes content accurately)",
+    "Use high-quality custom thumbnails (influences click-through rate)",
+    "Ensure thumbnail is 16:9 aspect ratio, min 1280x720px (schema requirement)",
+    "Host videos on YouTube/Vimeo when possible (better indexing than self-hosted)",
+    "Add video transcript on page (helps search engines understand content)",
+    "Use descriptive iframeTitle (may be used by search engines)",
+    "Avoid duplicate video embeds across pages (may dilute search ranking)",
+    "Link to video source (YouTube/Vimeo page) for additional context",
+    "Use video sitemaps for self-hosted videos (helps Google discover them)",
+    "Ensure page title/headings mention video topic (contextual relevance)"
+  ],
+
+  "useCaseGuide": {
+    "productDemos": {
+      "setup": "YouTube/Vimeo, custom thumbnail, schema markup, no autoPlay",
+      "example": "Show product features, how-tos, setup guides"
+    },
+    "heroVideos": {
+      "setup": "YouTube/Vimeo, custom thumbnail, pulse animation, no autoPlay, 16:9",
+      "example": "Full-width hero section, brand story, company intro"
+    },
+    "backgroundVideos": {
+      "setup": "Self-hosted MP4, autoPlay=true, muted=true, loop=true, controls=false",
+      "example": "Subtle background movement, texture, ambiance"
+    },
+    "testimonials": {
+      "setup": "YouTube/Vimeo, custom thumbnail with customer photo, popup mode",
+      "example": "Customer reviews, case studies, success stories"
+    },
+    "tutorials": {
+      "setup": "YouTube/Vimeo, schema markup, controls=true, rel=false",
+      "example": "How-to guides, educational content, training materials"
+    },
+    "videoGalleries": {
+      "setup": "Multiple videos with VideoPopup=true, custom thumbnails, grid layout",
+      "example": "Portfolio showcases, project galleries, video collections"
+    }
+  },
+
+  "relatedBlocks": [
+    "tpgb/tp-container - Wrap video for background/styling",
+    "tpgb/tp-heading - Video title/description outside player",
+    "tpgb/tp-button - CTA button next to video",
+    "tpgb/tp-row - Multi-column video layouts",
+    "tpgb/tp-column - Side-by-side video + text"
+  ]
 }

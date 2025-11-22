@@ -2,57 +2,1167 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-accordion",
   "title": "Accordion - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for the Accordion block",
   "examples": [
     {
-      "description": "Simple FAQ accordion with 3 items",
+      "name": "Simple FAQ Accordion - 3 Items",
+      "description": "Basic FAQ accordion with plus/minus toggle icons, one item open at a time",
+      "visualDescription": "3 accordion items, purple active title (#6f14f1), plus icon changes to minus when expanded, light gray background on active title, 10px padding, 5px spacing between items",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "acc01",
         "toggleIcon": true,
         "iconName": "fas fa-plus",
         "ActiconName": "fas fa-minus",
+        "iconAlign": "end",
+        "tgiconSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "tgiconColor": "#666666",
+        "tgiconActcolor": "#6f14f1",
         "defaultAct": "0",
         "atOneOpen": true,
+        "onHvrtab": "click",
+        "titleTag": "h3",
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "18",
+            "sm": "16",
+            "xs": "15",
+            "unit": "px"
+          },
+          "weight": "600"
+        },
         "titleColor": "#333333",
-        "titleActcolor": "#6f14f1"
+        "titleActcolor": "#6f14f1",
+        "titlePadding": {
+          "md": {
+            "top": "15",
+            "right": "20",
+            "bottom": "15",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "titleActbgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f7f7f7"
+        },
+        "accorBetspace": {
+          "md": "5",
+          "unit": "px"
+        },
+        "descPadding": {
+          "md": {
+            "top": "15",
+            "right": "20",
+            "bottom": "15",
+            "left": "20"
+          },
+          "unit": "px"
+        }
       },
       "innerBlocks": [
         {
-          "blockName": "tpgb/tp-accordion-inner"
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "What is your return policy?",
+            "desc": "<p>We offer a 30-day money-back guarantee on all products. Simply contact our support team within 30 days of purchase for a full refund.</p>"
+          }
         },
         {
-          "blockName": "tpgb/tp-accordion-inner"
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "How long does shipping take?",
+            "desc": "<p>Standard shipping typically takes 5-7 business days. Express shipping (2-3 days) is available at checkout.</p>"
+          }
         },
         {
-          "blockName": "tpgb/tp-accordion-inner"
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Do you ship internationally?",
+            "desc": "<p>Yes, we ship to over 50 countries worldwide. International shipping times vary by location (7-14 business days).</p>"
+          }
         }
-      ]
+      ],
+      "useCase": "FAQ sections, help pages, product documentation, support centers",
+      "responsiveNotes": "Font size reduces from 18px (desktop) to 15px (mobile) for better readability",
+      "accessibilityNotes": "titleTag uses semantic h3 for proper heading hierarchy"
     },
     {
-      "description": "Accordion with expand/collapse all button",
+      "name": "Accordion with Expand/Collapse All Button",
+      "description": "Accordion with button to expand or collapse all items at once",
+      "visualDescription": "Blue 'Show All' / 'Hide All' button positioned before accordion items, right-aligned, allows expanding/collapsing all items simultaneously",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "acc02",
         "toggleIcon": true,
+        "iconName": "fas fa-chevron-down",
+        "ActiconName": "fas fa-chevron-up",
+        "atOneOpen": false,
         "expCollBtn": true,
         "collBtnPos": "before",
         "expandText": "Show All",
         "collapseText": "Hide All",
         "collBtnAlign": {
-          "md": "right"
+          "md": "right",
+          "sm": "center",
+          "xs": "center"
+        },
+        "exCollTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "14",
+            "unit": "px"
+          },
+          "weight": "500"
+        },
+        "excollColor": "#667eea",
+        "excollHColor": "#5568d3",
+        "exClPadding": {
+          "md": {
+            "top": "8",
+            "right": "16",
+            "bottom": "8",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "exClMargin": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "15",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "titlePadding": {
+          "md": {
+            "top": "12",
+            "right": "15",
+            "bottom": "12",
+            "left": "15"
+          },
+          "unit": "px"
         }
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Product Features",
+            "desc": "<p>Our product includes advanced features...</p>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Technical Specifications",
+            "desc": "<p>Detailed technical specifications...</p>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Warranty Information",
+            "desc": "<p>2-year warranty coverage...</p>"
+          }
+        }
+      ],
+      "useCase": "Long documentation, product specifications, knowledge bases where users may want to view all content at once",
+      "warnings": [
+        "atOneOpen must be false when using expCollBtn - otherwise expand all won't work properly",
+        "collBtnPos 'before' shows button above accordion, 'after' shows it below"
+      ],
+      "validationRules": {
+        "expCollBtn": "When true, requires expandText and collapseText to be set",
+        "atOneOpen": "Should be false when using expCollBtn for expand all to work correctly"
       }
     },
     {
-      "description": "How-To schema enabled accordion",
+      "name": "How-To Schema Accordion for SEO",
+      "description": "Accordion with structured data markup for Google rich results",
+      "visualDescription": "Step-by-step accordion with How-To schema metadata, helps appear in Google's How-To rich results, includes title, description, and step instructions",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "acc03",
         "markupSch": true,
         "howTotitle": "How to Install WordPress",
-        "howTodesc": "Complete guide to installing WordPress on your server",
-        "howTostep": "Follow these steps:",
-        "toggleIcon": true
-      }
+        "howTodesc": "Complete step-by-step guide to installing WordPress on your web server",
+        "howTostep": "Follow these steps to install WordPress:",
+        "toggleIcon": true,
+        "iconName": "fas fa-angle-down",
+        "ActiconName": "fas fa-angle-up",
+        "defaultAct": "0",
+        "atOneOpen": true,
+        "titleTag": "h4",
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "16",
+            "unit": "px"
+          },
+          "weight": "600"
+        },
+        "titleColor": "#2c3e50",
+        "titleActcolor": "#3498db",
+        "titlePadding": {
+          "md": {
+            "top": "12",
+            "right": "15",
+            "bottom": "12",
+            "left": "15"
+          },
+          "unit": "px"
+        },
+        "titleBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e0e0e0",
+          "width": {
+            "md": {
+              "top": "0",
+              "left": "0",
+              "bottom": "1",
+              "right": "0"
+            },
+            "unit": "px"
+          }
+        }
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Step 1: Download WordPress",
+            "desc": "<p>Visit WordPress.org and download the latest version of WordPress. Extract the ZIP file to your computer.</p>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Step 2: Upload Files to Server",
+            "desc": "<p>Using FTP client, upload the extracted WordPress files to your web server's public_html directory.</p>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Step 3: Create Database",
+            "desc": "<p>Log into your hosting control panel and create a new MySQL database and user for WordPress.</p>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Step 4: Run Installation",
+            "desc": "<p>Navigate to your domain and follow the WordPress 5-minute installation wizard.</p>"
+          }
+        }
+      ],
+      "useCase": "Tutorial pages, how-to guides, installation instructions, recipe steps, DIY guides",
+      "warnings": [
+        "markupSch: true enables How-To schema - ensure howTotitle, howTodesc, and howTostep are properly filled",
+        "How-To schema helps Google show rich results but requires accurate step-by-step content",
+        "Each accordion item becomes a 'step' in the schema - use clear, actionable titles"
+      ],
+      "validationRules": {
+        "markupSch": "When true, howTotitle and howTodesc are required for valid schema",
+        "howTotitle": "Required when markupSch is true - main How-To title",
+        "howTodesc": "Required when markupSch is true - brief description of the how-to"
+      },
+      "relatedPatterns": [
+        "Step-by-step tutorials",
+        "Recipe instructions (with How-To schema)",
+        "Installation guides",
+        "DIY project instructions"
+      ]
+    },
+    {
+      "name": "Gradient Accordion with Border Radius",
+      "description": "Visually striking accordion with gradient backgrounds and rounded corners",
+      "visualDescription": "Purple-to-blue gradient on active titles (135deg), 8px border radius, smooth transitions, white text, subtle shadow effects",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "acc04",
+        "toggleIcon": true,
+        "iconName": "fas fa-plus",
+        "ActiconName": "fas fa-minus",
+        "iconAlign": "end",
+        "tgiconColor": "#ffffff",
+        "tgiconActcolor": "#ffffff",
+        "tgiconSize": {
+          "md": "14",
+          "unit": "px"
+        },
+        "defaultAct": "",
+        "atOneOpen": true,
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "17",
+            "unit": "px"
+          },
+          "weight": "600"
+        },
+        "titleColor": "#333333",
+        "titleActcolor": "#ffffff",
+        "titlePadding": {
+          "md": {
+            "top": "16",
+            "right": "20",
+            "bottom": "16",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "titlebgType": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f8f9fa"
+        },
+        "titleActbgtype": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#667eea",
+            "color2": "#764ba2",
+            "type": "linear",
+            "direction": "135",
+            "start": 0,
+            "stop": 100
+          }
+        },
+        "titleBradius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "titleActBradius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "0",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "titleActBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.3)"
+        },
+        "accorBetspace": {
+          "md": "10",
+          "unit": "px"
+        },
+        "descPadding": {
+          "md": {
+            "top": "20",
+            "right": "20",
+            "bottom": "20",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "descBRedius": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "descbgType": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f8f9fa"
+        }
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Premium Features",
+            "desc": "<p>Access to all premium features including advanced analytics, priority support, and custom integrations.</p>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Team Collaboration",
+            "desc": "<p>Invite unlimited team members, assign roles and permissions, and collaborate in real-time.</p>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Advanced Security",
+            "desc": "<p>Enterprise-grade security with 2FA, SSO integration, and encrypted data storage.</p>"
+          }
+        }
+      ],
+      "useCase": "Premium features showcase, pricing plan details, service offerings, modern design aesthetics",
+      "warnings": [
+        "titleActBradius should have bottom radius set to 0 when content has top radius to create seamless connection",
+        "Gradient backgrounds require openBg: 1 and bgType: 'gradient' in titleActbgtype"
+      ],
+      "bestPractices": [
+        "Use contrasting text colors on gradient backgrounds for readability (white on dark gradients)",
+        "Match border radius on title and content for cohesive design",
+        "Add subtle shadows on active state for depth"
+      ]
+    },
+    {
+      "name": "Accordion with Inner Content Icons",
+      "description": "Accordion items with FontAwesome icons next to each title",
+      "visualDescription": "Each accordion title has a custom icon (home, cog, user), icons colored teal, 10px gap between icon and text, icons change color when active",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "acc05",
+        "toggleIcon": true,
+        "iconName": "fas fa-caret-down",
+        "ActiconName": "fas fa-caret-up",
+        "iconAlign": "end",
+        "atOneOpen": true,
+        "inIconSize": {
+          "md": "20",
+          "unit": "px"
+        },
+        "inIconColor": "#14b8a6",
+        "inIconActcolor": "#0d9488",
+        "inIconGap": {
+          "md": "10",
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "16",
+            "unit": "px"
+          },
+          "weight": "500"
+        },
+        "titleColor": "#374151",
+        "titleActcolor": "#0d9488",
+        "titlePadding": {
+          "md": {
+            "top": "14",
+            "right": "18",
+            "bottom": "14",
+            "left": "18"
+          },
+          "unit": "px"
+        },
+        "titleBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e7eb",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "titleBradius": {
+          "md": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        },
+        "accorBetspace": {
+          "md": "8",
+          "unit": "px"
+        }
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Dashboard Overview",
+            "innerIcon": true,
+            "iconFonts": "font_awesome",
+            "innericonName": "fas fa-tachometer-alt",
+            "desc": "<p>Get a comprehensive overview of your account activity, statistics, and recent updates.</p>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Settings & Configuration",
+            "innerIcon": true,
+            "iconFonts": "font_awesome",
+            "innericonName": "fas fa-cog",
+            "desc": "<p>Customize your preferences, notification settings, and integration options.</p>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "User Profile",
+            "innerIcon": true,
+            "iconFonts": "font_awesome",
+            "innericonName": "fas fa-user",
+            "desc": "<p>Manage your profile information, password, and privacy settings.</p>"
+          }
+        }
+      ],
+      "useCase": "Feature lists with icons, settings panels, categorized content, navigation accordions",
+      "warnings": [
+        "innerIcon must be set to true in each tp-accordion-inner child block for icons to appear",
+        "innericonName must be a valid FontAwesome class (e.g., 'fas fa-home')",
+        "inIconColor styles icons in accordion header, separate from toggle icons (tgiconColor)"
+      ],
+      "validationRules": {
+        "innerIcon": "Set in each tp-accordion-inner child block (not parent)",
+        "innericonName": "Required when innerIcon is true - must be valid FontAwesome icon class"
+      },
+      "commonMistakes": [
+        "Setting innerIcon on parent (tp-accordion) instead of children (tp-accordion-inner)",
+        "Forgetting to set innericonName when innerIcon is true",
+        "Confusing inIconColor (content icons) with tgiconColor (toggle icons)"
+      ]
+    },
+    {
+      "name": "Minimal Border-Only Accordion",
+      "description": "Clean minimal design with only borders, no backgrounds",
+      "visualDescription": "Transparent backgrounds, 1px bottom border on each title, blue text on active, simple and clean design, no shadows or gradients",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "acc06",
+        "toggleIcon": true,
+        "iconName": "fas fa-plus",
+        "ActiconName": "fas fa-minus",
+        "iconAlign": "end",
+        "tgiconColor": "#9ca3af",
+        "tgiconActcolor": "#3b82f6",
+        "tgiconSize": {
+          "md": "12",
+          "unit": "px"
+        },
+        "atOneOpen": true,
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "15",
+            "unit": "px"
+          },
+          "weight": "500"
+        },
+        "titleColor": "#6b7280",
+        "titleActcolor": "#3b82f6",
+        "titlePadding": {
+          "md": {
+            "top": "12",
+            "right": "0",
+            "bottom": "12",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "titlebgType": {
+          "openBg": 0
+        },
+        "titleActbgtype": {
+          "openBg": 0
+        },
+        "titleBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e7eb",
+          "width": {
+            "md": {
+              "top": "0",
+              "left": "0",
+              "bottom": "1",
+              "right": "0"
+            },
+            "unit": "px"
+          }
+        },
+        "accorBetspace": {
+          "md": "0",
+          "unit": "px"
+        },
+        "descPadding": {
+          "md": {
+            "top": "15",
+            "right": "0",
+            "bottom": "15",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "descbgType": {
+          "openBg": 0
+        }
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "General Questions",
+            "desc": "<p>Find answers to commonly asked general questions about our service.</p>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Billing & Payments",
+            "desc": "<p>Information about billing cycles, payment methods, and invoice management.</p>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Technical Support",
+            "desc": "<p>Get help with technical issues, troubleshooting, and system requirements.</p>"
+          }
+        }
+      ],
+      "useCase": "Minimal designs, text-heavy layouts, documentation sites, modern clean interfaces",
+      "bestPractices": [
+        "Works well on white backgrounds",
+        "Great for content-first designs",
+        "Use subtle color changes for active state (not backgrounds)"
+      ]
+    },
+    {
+      "name": "Hover-Triggered Accordion",
+      "description": "Accordion that opens on hover instead of click",
+      "visualDescription": "Items expand when mouse hovers over title, no need to click, quick preview of content on hover, useful for quick scanning",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "acc07",
+        "onHvrtab": "hover",
+        "atOneOpen": true,
+        "toggleIcon": true,
+        "iconName": "fas fa-chevron-right",
+        "ActiconName": "fas fa-chevron-down",
+        "iconAlign": "start",
+        "tgiconColor": "#6b7280",
+        "tgiconActcolor": "#10b981",
+        "tgiconGap": {
+          "md": "8",
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "16",
+            "unit": "px"
+          },
+          "weight": "500"
+        },
+        "titleColor": "#1f2937",
+        "titleHvrcolor": "#10b981",
+        "titleActcolor": "#10b981",
+        "titlePadding": {
+          "md": {
+            "top": "10",
+            "right": "15",
+            "bottom": "10",
+            "left": "15"
+          },
+          "unit": "px"
+        },
+        "titlebgType": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f9fafb"
+        },
+        "accorBetspace": {
+          "md": "4",
+          "unit": "px"
+        }
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Quick Preview 1",
+            "desc": "<p>Hover over the title to see this content without clicking.</p>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Quick Preview 2",
+            "desc": "<p>This accordion opens automatically when you hover over it.</p>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Quick Preview 3",
+            "desc": "<p>Great for quick scanning of content without clicking.</p>"
+          }
+        }
+      ],
+      "useCase": "Quick content previews, navigation menus, feature lists where users scan quickly",
+      "warnings": [
+        "onHvrtab: 'hover' doesn't work well on touch devices (mobile/tablet) - items won't open",
+        "May cause accessibility issues for keyboard navigation users",
+        "Not recommended for critical content that users must access on mobile"
+      ],
+      "accessibilityNotes": "Hover-triggered accordions are not accessible via keyboard - use onHvrtab: 'click' for better accessibility",
+      "bestPractices": [
+        "Only use hover trigger for desktop-only experiences",
+        "Provide alternative navigation for mobile users",
+        "Use click trigger (default) for accessible, mobile-friendly accordions"
+      ]
+    },
+    {
+      "name": "Advanced: Styled Accordion with All Features",
+      "description": "Comprehensive example showcasing all styling options",
+      "visualDescription": "Complex styled accordion with gradient backgrounds, borders, shadows, expand/collapse button, custom colors, rounded corners, and proper spacing",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "acc08",
+        "toggleIcon": true,
+        "iconName": "fas fa-plus-circle",
+        "ActiconName": "fas fa-minus-circle",
+        "iconAlign": "end",
+        "tgiconColor": "#8b5cf6",
+        "tgiconActcolor": "#7c3aed",
+        "tgiconSize": {
+          "md": "18",
+          "unit": "px"
+        },
+        "tgiconGap": {
+          "md": "12",
+          "unit": "px"
+        },
+        "atOneOpen": false,
+        "defaultAct": "0",
+        "expCollBtn": true,
+        "collBtnPos": "before",
+        "expandText": "View All Details",
+        "collapseText": "Hide All Details",
+        "collBtnAlign": {
+          "md": "right"
+        },
+        "exCollTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "13",
+            "unit": "px"
+          },
+          "weight": "600",
+          "transform": "uppercase"
+        },
+        "excollColor": "#8b5cf6",
+        "excollHColor": "#7c3aed",
+        "exClPadding": {
+          "md": {
+            "top": "6",
+            "right": "12",
+            "bottom": "6",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "excollBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(139, 92, 246, 0.1)"
+        },
+        "exClMargin": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "20",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "18",
+            "sm": "16",
+            "xs": "15",
+            "unit": "px"
+          },
+          "weight": "600"
+        },
+        "titleColor": "#1f2937",
+        "titleActcolor": "#ffffff",
+        "titleHvrcolor": "#6b7280",
+        "titlePadding": {
+          "md": {
+            "top": "18",
+            "right": "24",
+            "bottom": "18",
+            "left": "24"
+          },
+          "sm": {
+            "top": "14",
+            "right": "18",
+            "bottom": "14",
+            "left": "18"
+          },
+          "unit": "px"
+        },
+        "titlebgType": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "titleBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e7eb",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "titleBradius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "titleBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 4,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.05)"
+        },
+        "titleActbgtype": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#8b5cf6",
+            "color2": "#7c3aed",
+            "type": "linear",
+            "direction": "135",
+            "start": 0,
+            "stop": 100
+          }
+        },
+        "titleActborder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#7c3aed",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "titleActBradius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "0",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "titleActBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(139, 92, 246, 0.3)"
+        },
+        "accorBetspace": {
+          "md": "12",
+          "unit": "px"
+        },
+        "descTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "15",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          }
+        },
+        "descColor": "#4b5563",
+        "descPadding": {
+          "md": {
+            "top": "20",
+            "right": "24",
+            "bottom": "20",
+            "left": "24"
+          },
+          "unit": "px"
+        },
+        "descbgType": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#faf5ff"
+        },
+        "descBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#7c3aed",
+          "width": {
+            "md": {
+              "top": "0",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "descBRedius": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        }
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Premium Features Overview",
+            "desc": "<p>Unlock the full potential of our platform with advanced features including real-time analytics, custom integrations, and dedicated support.</p>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Customization Options",
+            "desc": "<p>Tailor every aspect of your experience with extensive customization options, theme builder, and white-label solutions.</p>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attributes": {
+            "title": "Enterprise Support",
+            "desc": "<p>Get priority 24/7 support with dedicated account management, onboarding assistance, and guaranteed response times.</p>"
+          }
+        }
+      ],
+      "useCase": "High-end marketing pages, premium features showcase, enterprise product pages",
+      "warnings": [
+        "This example uses many styling options simultaneously - may be overkill for simple use cases",
+        "Gradient backgrounds require openBg: 1 and bgType: 'gradient'",
+        "Active border radius (titleActBradius) should match content radius for seamless connection"
+      ],
+      "bestPractices": [
+        "Use white text on dark gradient backgrounds for readability",
+        "Match border colors between active title and content for cohesive design",
+        "Reduce padding on mobile breakpoints for better use of screen space",
+        "Test all states (normal, hover, active) to ensure proper contrast and readability"
+      ],
+      "relatedPatterns": [
+        "Premium pricing tables with expandable feature lists",
+        "Product showcases with detailed specifications",
+        "Marketing pages with rich visual design"
+      ]
     }
   ],
-  "commonPatterns": {}
+  "commonPatterns": {
+    "simple_faq": {
+      "description": "Basic FAQ accordion with toggle icons and one item open at a time",
+      "attributes": {
+        "toggleIcon": true,
+        "iconName": "fas fa-plus",
+        "ActiconName": "fas fa-minus",
+        "atOneOpen": true,
+        "onHvrtab": "click"
+      }
+    },
+    "expand_collapse_all": {
+      "description": "Accordion with button to expand/collapse all items",
+      "attributes": {
+        "expCollBtn": true,
+        "collBtnPos": "before",
+        "expandText": "Show All",
+        "collapseText": "Hide All",
+        "atOneOpen": false
+      }
+    },
+    "how_to_schema": {
+      "description": "Accordion with How-To structured data for SEO",
+      "attributes": {
+        "markupSch": true,
+        "howTotitle": "How to...",
+        "howTodesc": "Description of the how-to...",
+        "howTostep": "Follow these steps:"
+      }
+    },
+    "minimal_border_only": {
+      "description": "Clean minimal design with borders only, no backgrounds",
+      "attributes": {
+        "titlebgType": {"openBg": 0},
+        "titleActbgtype": {"openBg": 0},
+        "descbgType": {"openBg": 0},
+        "titleBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "width": {"md": {"top": "0", "left": "0", "bottom": "1", "right": "0"}, "unit": "px"}
+        }
+      }
+    }
+  },
+  "validationRules": {
+    "block_id": "Required - unique identifier for the accordion block",
+    "toggleIcon": "Boolean - when true, requires iconName and ActiconName",
+    "iconName": "Required when toggleIcon is true - closed state icon (e.g., 'fas fa-plus')",
+    "ActiconName": "Required when toggleIcon is true - open state icon (e.g., 'fas fa-minus')",
+    "defaultAct": "String - index of default active accordion (e.g., '0' for first item, '' for none)",
+    "atOneOpen": "Boolean - when true, only one accordion can be open at a time",
+    "expCollBtn": "When true, requires expandText and collapseText",
+    "markupSch": "When true, requires howTotitle and howTodesc for valid How-To schema",
+    "innerBlocks": "Array of tp-accordion-inner child blocks - minimum 1 item required",
+    "onHvrtab": "Either 'click' (default) or 'hover' - hover doesn't work on mobile"
+  },
+  "warnings": [
+    "Never modify block_id after accordion creation - breaks references",
+    "atOneOpen and expCollBtn conflict - set atOneOpen: false when using expand all button",
+    "onHvrtab: 'hover' doesn't work on touch devices (mobile/tablet)",
+    "How-To schema (markupSch) requires proper howTotitle, howTodesc, and step content for SEO benefits",
+    "innerIcon is set on child blocks (tp-accordion-inner), not parent (tp-accordion)",
+    "Gradient backgrounds require openBg: 1 and bgType: 'gradient' in titleActbgtype",
+    "Active border radius (titleActBradius) bottom should be 0 when content has top radius for seamless join",
+    "Toggle icons (tgiconColor) are separate from inner content icons (inIconColor)",
+    "defaultAct uses string index ('0', '1', '2') not numbers"
+  ],
+  "commonMistakes": [
+    "Setting atOneOpen: true with expCollBtn: true (expand all won't work)",
+    "Using onHvrtab: 'hover' for critical mobile content (won't open on touch devices)",
+    "Forgetting to set openTypography: 1 in titleTypo before customizing fonts",
+    "Setting innerIcon on parent instead of individual tp-accordion-inner children",
+    "Not providing both iconName and ActiconName when toggleIcon is true",
+    "Using number for defaultAct instead of string (should be '0' not 0)",
+    "Forgetting markupSch requirements (howTotitle, howTodesc) when enabling How-To schema",
+    "Not setting innericonName when innerIcon: true in child blocks",
+    "Confusing inIconColor (content icons) with tgiconColor (toggle icons)",
+    "Setting same border radius for titleActBradius and descBRedius (creates gap)"
+  ],
+  "bestPractices": [
+    "Always use atOneOpen: true for FAQ sections to keep interface clean",
+    "Use semantic heading tags (titleTag: 'h2', 'h3', etc.) for proper document hierarchy",
+    "Provide descriptive expandText/collapseText when using expCollBtn (not just 'Show/Hide')",
+    "Use How-To schema (markupSch) for tutorial and instruction content to appear in Google rich results",
+    "Set defaultAct to '0' to have first item open by default (better UX for important content)",
+    "Use subtle color changes for active state rather than dramatic background shifts",
+    "Match titleActBradius bottom (0) with descBRedius top (0) for seamless accordion",
+    "Test on mobile devices when using hover trigger - provide click alternative",
+    "Use expCollBtn for long accordions (5+ items) to improve user experience",
+    "Configure responsive padding (md/sm/xs) to optimize for all screen sizes",
+    "Use clear, actionable titles for accordion items (questions in FAQ, steps in tutorials)"
+  ],
+  "responsiveStrategy": {
+    "description": "Accordion adapts to screen sizes using md (desktop), sm (tablet), xs (mobile) breakpoints",
+    "breakpoints": {
+      "md": "Desktop/default - typically 1024px and above",
+      "sm": "Tablet - typically 768px to 1023px",
+      "xs": "Mobile - typically below 768px"
+    },
+    "recommendedApproach": "Configure md first, then override sm/xs only where needed. Empty values inherit from md.",
+    "commonResponsivePatterns": [
+      "Reduce title font size on mobile: titleTypo.size md: '18px' → xs: '15px'",
+      "Reduce padding on mobile: titlePadding md: 18px → sm: 14px → xs: 12px",
+      "Center expand/collapse button on mobile: collBtnAlign md: 'right' → xs: 'center'",
+      "Smaller toggle icons on mobile: tgiconSize md: '18px' → xs: '14px'",
+      "Reduce spacing between items on mobile: accorBetspace md: '12px' → xs: '6px'"
+    ]
+  },
+  "accessibilityNotes": [
+    "Use semantic heading tags (titleTag: 'h2', 'h3', 'h4') for proper document structure",
+    "Avoid onHvrtab: 'hover' - not accessible via keyboard navigation (use 'click' instead)",
+    "Ensure sufficient color contrast for title text (WCAG AA: 4.5:1 minimum)",
+    "Toggle icons should have clear visual state change (+ to -, chevron rotation)",
+    "Test keyboard navigation - users should be able to open/close accordions with Enter/Space",
+    "Provide clear, descriptive titles - screen readers announce these as buttons",
+    "Don't rely solely on color to indicate active state - use icons, borders, or both"
+  ],
+  "parentChildRelationship": {
+    "description": "tp-accordion is the parent container, tp-accordion-inner are child items",
+    "parentBlock": "tpgb/tp-accordion - Controls overall accordion behavior and styling",
+    "childBlock": "tpgb/tp-accordion-inner - Individual accordion items with title and content",
+    "relationship": "Parent-child relationship is critical - accordion won't work without child blocks",
+    "parentAttributes": [
+      "toggleIcon, iconName, ActiconName - Toggle icon settings (affects all children)",
+      "atOneOpen - Behavior for all children (only one open at a time)",
+      "expCollBtn - Expand/collapse all button (affects all children)",
+      "titleTypo, titleColor, titlePadding - Default styling for all child titles",
+      "descTypo, descColor, descPadding - Default styling for all child content"
+    ],
+    "childAttributes": [
+      "title - Individual accordion item title",
+      "desc - Individual accordion item content (HTML)",
+      "innerIcon, innericonName - Optional icon next to this specific item's title",
+      "contentType - Content type for this specific item"
+    ],
+    "workflow": "1. Create tp-accordion parent block with styling. 2. Add tp-accordion-inner child blocks for each item. 3. Configure title/desc in each child. 4. Optional: Add innerIcon to specific children."
+  },
+  "howToSchemaGuidance": {
+    "description": "Using How-To schema for SEO and Google rich results",
+    "when_to_use": [
+      "Tutorial pages with step-by-step instructions",
+      "Installation guides",
+      "DIY project instructions",
+      "Recipe instructions (cooking steps)",
+      "Troubleshooting guides"
+    ],
+    "required_attributes": {
+      "markupSch": "Set to true to enable How-To schema",
+      "howTotitle": "Main title of the how-to (e.g., 'How to Install WordPress')",
+      "howTodesc": "Brief description of what the how-to accomplishes",
+      "howTostep": "Optional - introductory text before steps"
+    },
+    "how_it_works": "Each tp-accordion-inner child becomes a 'step' in the How-To schema with the title as the step name and desc as the step details",
+    "seo_benefits": [
+      "Appears in Google rich results with enhanced visibility",
+      "Can show in Google's How-To carousel",
+      "May display step count and images in search results",
+      "Improves click-through rates from search"
+    ],
+    "best_practices": [
+      "Use clear, actionable step titles (e.g., 'Step 1: Download WordPress')",
+      "Provide detailed step descriptions in desc field",
+      "Keep steps in logical order (first to last)",
+      "Use 3-10 steps for optimal results (too few or too many reduces effectiveness)",
+      "Test schema with Google's Rich Results Test tool"
+    ]
+  }
 }

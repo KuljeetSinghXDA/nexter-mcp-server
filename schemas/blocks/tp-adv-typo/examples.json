@@ -2,13 +2,255 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-adv-typo",
   "title": "Advanced Typography - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Creative typography with gradient fills, strokes, marquee scrolling, circular text, underline effects, and blend modes. Perfect for hero sections, creative headings, announcements.",
+
   "examples": [
     {
-      "description": "Gradient stroke text",
+      "name": "Gradient Stroke Text (Hero Title)",
+      "description": "Large heading with purple gradient stroke and transparent fill",
+      "visualDescription": "Bold text with 2px purple-to-pink gradient stroke outline, transparent inside, creates hollow outlined effect perfect for hero sections",
+      "complexity": "medium",
       "attributes": {
         "block_id": "a1b2",
+        "typoListing": "normal",
         "typoText": "Creative Typography",
+        "strokeFill": true,
+        "gradientTgl": true,
+        "strokeWidth": {
+          "md": "2",
+          "sm": "1.5",
+          "xs": "1",
+          "unit": "px"
+        },
+        "strokeNGColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "fillNColor": "transparent",
+        "typoTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "72",
+            "sm": "56",
+            "xs": "40",
+            "unit": "px"
+          },
+          "fontWeight": "900",
+          "textTransform": "uppercase"
+        }
+      },
+      "useCase": "Hero headings, section titles, creative headers, portfolio titles",
+      "notes": [
+        "strokeFill=true enables stroke effects",
+        "gradientTgl=true uses gradient instead of solid color",
+        "strokeNGColor is gradient (linear-gradient or radial-gradient)",
+        "fillNColor='transparent' creates hollow outlined text effect",
+        "Responsive strokeWidth: 2px desktop, 1.5px tablet, 1px mobile",
+        "Large font sizes (72px) work best with stroke effects"
+      ]
+    },
+
+    {
+      "name": "Marquee Scrolling Announcement",
+      "description": "Infinite scrolling text for announcements or news ticker",
+      "visualDescription": "Text scrolls horizontally from right to left continuously, emojis included, speed 15s per loop, infinite repetition",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "c3d4",
+        "typoListing": "normal",
+        "typoText": "🎉 Limited Time Offer - 50% Off All Products This Week Only! 🎉 Free Shipping on Orders Over $50! 🎉",
+        "marquee": true,
+        "marqueeDir": "left",
+        "marqueeLoop": "-1",
+        "marqueeAni": "15",
+        "typoTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "20",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "typoNColor": "#ffffff",
+        "background": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 90,
+            "gradientColor": [
+              {"color": "#ff6b6b", "position": 0},
+              {"color": "#ee5a6f", "position": 100}
+            ]
+          }
+        }
+      },
+      "useCase": "Announcements, news tickers, promotional banners, sale notifications, event updates",
+      "notes": [
+        "marquee=true enables horizontal scrolling",
+        "marqueeDir: 'left' (right to left), 'right' (left to right)",
+        "marqueeLoop: -1 (infinite), or positive number for limited loops",
+        "marqueeAni: speed in seconds (15 = slow, 5 = fast)",
+        "Emojis work in typoText for visual appeal",
+        "Background gradient makes announcement stand out"
+      ]
+    },
+
+    {
+      "name": "Circular Text Logo",
+      "description": "Text arranged in circular path for logos or decorative elements",
+      "visualDescription": "Brand name text curved along circular path, repeating pattern with separator bullets, perfect for circular logo badges",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "e5f6",
+        "typoListing": "normal",
+        "typoText": "Your Brand Name • Est. 2024 • Premium Quality • ",
+        "cirTextEn": true,
+        "cirTextPath": "M 100,100 m -75,0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0",
+        "cirTextRev": false,
+        "typoTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "2",
+            "unit": "px"
+          }
+        }
+      },
+      "useCase": "Circular logos, badge designs, decorative text, certificates, seals",
+      "notes": [
+        "cirTextEn=true enables circular text path",
+        "cirTextPath is SVG path definition (circle formula: M centerX,centerY m -radius,0 a radius,radius 0 1,0 diameter,0 a radius,radius 0 1,0 -diameter,0)",
+        "cirTextRev=true reverses text direction (clockwise vs counter-clockwise)",
+        "Use bullet separator • for repeating pattern",
+        "Text should be repetitive with separator to fill circle",
+        "Smaller font sizes (14-18px) work better on curved paths"
+      ]
+    },
+
+    {
+      "name": "Multiple Text Items with Effects",
+      "description": "Multiple words with different creative effects",
+      "visualDescription": "Three words stacked: 'Creative' with stroke outline, 'Typography' with wavy underline, 'Design' with blend mode effect",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "g7h8",
+        "typoListing": "multiple",
+        "textListing": [
+          {
+            "_key": "0",
+            "lText": "Creative",
+            "strokeFill": true,
+            "strokeNColor": "#667eea",
+            "strokeWidth": {
+              "md": "2",
+              "unit": "px"
+            },
+            "fillNColor": "transparent",
+            "typoTypo": {
+              "openTypography": 1,
+              "fontSize": {
+                "md": "64",
+                "unit": "px"
+              },
+              "fontWeight": "900"
+            }
+          },
+          {
+            "_key": "1",
+            "lText": "Typography",
+            "advUnderline": "overlay",
+            "overlayStyle": "style-3",
+            "oulayColor": "#764ba2",
+            "typoTypo": {
+              "openTypography": 1,
+              "fontSize": {
+                "md": "64",
+                "unit": "px"
+              },
+              "fontWeight": "700"
+            }
+          },
+          {
+            "_key": "2",
+            "lText": "Design",
+            "blendMode": true,
+            "blendVariation": "difference",
+            "typoTypo": {
+              "openTypography": 1,
+              "fontSize": {
+                "md": "64",
+                "unit": "px"
+              },
+              "fontWeight": "500"
+            }
+          }
+        ]
+      },
+      "useCase": "Creative headlines, artistic text displays, hero sections with stacked words, portfolio headers",
+      "notes": [
+        "typoListing='multiple' enables textListing array",
+        "Each textListing item has unique _key (sequential: '0', '1', '2'...)",
+        "Each item can have different effects: stroke, underline, blend mode",
+        "advUnderline='overlay' adds decorative underline (wavy, zig-zag, etc.)",
+        "overlayStyle options: 'style-1', 'style-2', 'style-3'...",
+        "blendMode creates CSS blend-mode effects (difference, multiply, screen, etc.)",
+        "All items inherit base styling but can override with own typoTypo"
+      ]
+    },
+
+    {
+      "name": "Solid Stroke with Fill",
+      "description": "Text with colored stroke outline and solid fill (double color effect)",
+      "visualDescription": "Blue text with 3px white stroke outline, creates outlined effect while maintaining readable fill",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "i9j0",
+        "typoListing": "normal",
+        "typoText": "Bold Statement",
+        "strokeFill": true,
+        "gradientTgl": false,
+        "strokeWidth": {
+          "md": "3",
+          "unit": "px"
+        },
+        "strokeNColor": "#ffffff",
+        "fillNColor": "#3498db",
+        "typoTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "56",
+            "unit": "px"
+          },
+          "fontWeight": "800"
+        }
+      },
+      "useCase": "Headings that need to stand out on image backgrounds, high-contrast text, overlaid text",
+      "notes": [
+        "gradientTgl=false uses solid colors (strokeNColor, not strokeNGColor)",
+        "strokeNColor is stroke outline color (white creates halo effect)",
+        "fillNColor is text fill color (blue for visibility)",
+        "White stroke on colored fill improves readability over busy backgrounds",
+        "3px stroke provides strong contrast without being too thick"
+      ]
+    },
+
+    {
+      "name": "Hover Color Change Effect",
+      "description": "Text with different colors on hover for interactive elements",
+      "visualDescription": "Purple text that transitions to pink gradient stroke on hover, smooth color change animation",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "k1l2",
+        "typoListing": "normal",
+        "typoText": "Hover Me",
+        "tTextLink": {
+          "url": "/learn-more",
+          "target": "_self",
+          "nofollow": false
+        },
         "strokeFill": true,
         "gradientTgl": true,
         "strokeWidth": {
@@ -16,54 +258,251 @@
           "unit": "px"
         },
         "strokeNGColor": "linear-gradient(90deg, #667eea 0%, #764ba2 100%)",
-        "fillNColor": "transparent"
-      }
-    },
-    {
-      "description": "Marquee scrolling announcement",
-      "attributes": {
-        "block_id": "c3d4",
-        "typoText": "🎉 Limited Time Offer - 50% Off All Products 🎉",
-        "marquee": true,
-        "marqueeDir": "left",
-        "marqueeLoop": "-1",
-        "marqueeAni": "15"
-      }
-    },
-    {
-      "description": "Circular text logo",
-      "attributes": {
-        "block_id": "e5f6",
-        "typoText": "Your Brand Name • Est. 2024 • ",
-        "cirTextEn": true,
-        "cirTextPath": "M 100,100 m -75,0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
-      }
-    },
-    {
-      "description": "Multiple text items with different effects",
-      "attributes": {
-        "block_id": "g7h8",
-        "typoListing": "multiple",
-        "textListing": [
-          {
-            "lText": "Creative",
-            "strokeFill": true,
-            "strokeNColor": "#667eea",
-            "fillNColor": "transparent"
+        "strokeHGColor": "linear-gradient(90deg, #ff6b6b 0%, #ee5a6f 100%)",
+        "fillNColor": "transparent",
+        "fillHColor": "rgba(102, 126, 234, 0.1)",
+        "typoTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "48",
+            "unit": "px"
           },
-          {
-            "lText": "Typography",
-            "advUnderline": "overlay",
-            "overlayStyle": "style-3"
+          "fontWeight": "700"
+        }
+      },
+      "useCase": "Interactive links, call-to-action text, navigation elements, clickable headings",
+      "notes": [
+        "tTextLink makes entire text clickable (url, target, nofollow)",
+        "strokeHGColor is hover gradient (different from strokeNGColor)",
+        "fillHColor is hover fill (semi-transparent purple tint on hover)",
+        "Smooth transition between normal and hover states",
+        "Use contrasting gradients for clear hover feedback"
+      ]
+    },
+
+    {
+      "name": "Underline Effect Variations",
+      "description": "Creative underline styles (wavy, zig-zag, double line) on text",
+      "visualDescription": "Text with wavy underline decoration, customizable color and style, adds visual flair to headings",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "m3n4",
+        "typoListing": "normal",
+        "typoText": "Underlined Text",
+        "advUnderline": "overlay",
+        "overlayStyle": "style-2",
+        "oulayColor": "#667eea",
+        "oulayWidth": {
+          "md": "100",
+          "unit": "%"
+        },
+        "oulayHeight": {
+          "md": "8",
+          "unit": "px"
+        },
+        "oulayOffset": {
+          "md": "-5",
+          "unit": "px"
+        },
+        "typoTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "42",
+            "unit": "px"
           },
-          {
-            "lText": "Design",
-            "blendMode": true,
-            "blendVariation": "difference"
-          }
-        ]
-      }
+          "fontWeight": "600"
+        }
+      },
+      "useCase": "Section headings, highlighted text, emphasis, decorative titles",
+      "notes": [
+        "advUnderline='overlay' enables decorative underline effects",
+        "overlayStyle options: 'style-1' (straight), 'style-2' (wavy), 'style-3' (zig-zag), etc.",
+        "oulayColor defines underline color",
+        "oulayWidth: 100% spans full text width, less for partial underline",
+        "oulayHeight: thickness of underline decoration (6-10px recommended)",
+        "oulayOffset: vertical position relative to text baseline (negative = above, positive = below)"
+      ]
+    },
+
+    {
+      "name": "Text with Background Clip Gradient",
+      "description": "Gradient fill inside text using background-clip technique",
+      "visualDescription": "Text filled with purple-to-pink gradient, no stroke, gradient flows through letterforms",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "o5p6",
+        "typoListing": "normal",
+        "typoText": "Gradient Text",
+        "strokeFill": false,
+        "typoNGColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "gradColor": true,
+        "typoTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "60",
+            "unit": "px"
+          },
+          "fontWeight": "800"
+        }
+      },
+      "useCase": "Modern headings, brand text, hero titles, colorful displays",
+      "notes": [
+        "strokeFill=false disables stroke (using fill gradient instead)",
+        "gradColor=true enables gradient text fill",
+        "typoNGColor is gradient for text fill (uses background-clip: text)",
+        "Creates smooth gradient inside letterforms (not outline)",
+        "Different effect from strokeNGColor (which is outline gradient)",
+        "Works best with bold, thick fonts (800+ weight)"
+      ]
     }
   ],
-  "commonPatterns": {}
+
+  "commonPatterns": {
+    "typoListing": {
+      "normal": "Single text item (typoText attribute)",
+      "multiple": "Multiple text items (textListing array, each with own effects)"
+    },
+    "strokeEffects": {
+      "solidStroke": "strokeFill=true, gradientTgl=false, strokeNColor (solid)",
+      "gradientStroke": "strokeFill=true, gradientTgl=true, strokeNGColor (gradient)",
+      "hollowText": "strokeFill=true, fillNColor='transparent' (outline only)",
+      "doubleColor": "strokeFill=true, fillNColor + strokeNColor (both visible)"
+    },
+    "marqueeSettings": {
+      "slow": "marqueeAni='15' (15 seconds per loop)",
+      "medium": "marqueeAni='10' (10 seconds)",
+      "fast": "marqueeAni='5' (5 seconds)",
+      "infinite": "marqueeLoop='-1'",
+      "limited": "marqueeLoop='3' (3 loops then stop)"
+    },
+    "circularText": {
+      "formula": "M centerX,centerY m -radius,0 a radius,radius 0 1,0 diameter,0 a radius,radius 0 1,0 -diameter,0",
+      "example": "M 100,100 m -75,0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0 (75px radius circle)",
+      "reverse": "cirTextRev=true (counter-clockwise direction)"
+    },
+    "underlineStyles": {
+      "overlay": "advUnderline='overlay' with overlayStyle='style-1/2/3...'",
+      "straight": "overlayStyle='style-1'",
+      "wavy": "overlayStyle='style-2'",
+      "zigzag": "overlayStyle='style-3'"
+    },
+    "blendModes": {
+      "enabled": "blendMode=true, blendVariation='difference/multiply/screen/overlay/darken/lighten...'",
+      "creative": "Works best over images or colored backgrounds"
+    }
+  },
+
+  "validationRules": {
+    "typoText": "Required when typoListing='normal', main text content",
+    "textListing": "Required when typoListing='multiple', array of text items with _key",
+    "_key": "Required for each textListing item, unique sequential: '0', '1', '2'...",
+    "strokeFill": "Boolean, if true requires strokeWidth and either strokeNColor or strokeNGColor",
+    "gradientTgl": "Boolean, if true use strokeNGColor (gradient), if false use strokeNColor (solid)",
+    "marquee": "Boolean, if true requires marqueeDir, marqueeLoop, marqueeAni",
+    "marqueeDir": "Must be 'left' or 'right'",
+    "marqueeLoop": "Number, -1 for infinite, positive for limited loops",
+    "cirTextEn": "Boolean, if true requires cirTextPath (SVG path)",
+    "advUnderline": "If set to 'overlay', requires overlayStyle",
+    "blendMode": "Boolean, if true requires blendVariation"
+  },
+
+  "warnings": [
+    "CRITICAL: Stroke effects require strokeFill=true (won't show without it)",
+    "CRITICAL: Gradient stroke requires gradientTgl=true + strokeNGColor (not strokeNColor)",
+    "CRITICAL: Circular text requires valid SVG path in cirTextPath (syntax errors break display)",
+    "Don't use very small stroke widths (<1px) - nearly invisible",
+    "Don't use very large stroke widths (>5px) - text becomes unreadable",
+    "Marquee with marqueeLoop=-1 loops forever (ensure user can scroll past)",
+    "Circular text works best with 12-18px font size (larger text doesn't curve well)",
+    "fillNColor='transparent' with no stroke creates invisible text",
+    "Multiple textListing items with same _key cause conflicts",
+    "advUnderline='overlay' requires overlayStyle or underline won't show",
+    "blendMode effects only visible when text is over images/backgrounds",
+    "Long typoText in circular path may overlap (keep text short or increase radius)",
+    "Marquee on mobile can be jarring (consider disabling or slowing down)",
+    "Gradient text (background-clip) not supported in very old browsers (IE11)"
+  ],
+
+  "commonMistakes": [
+    "Setting strokeFill=true but forgetting strokeWidth (no stroke appears)",
+    "Using strokeNColor with gradientTgl=true (should use strokeNGColor for gradients)",
+    "Enabling marquee without setting marqueeAni (marquee doesn't move)",
+    "Forgetting cirTextPath when cirTextEn=true (circular text doesn't render)",
+    "Using complex circular path without understanding SVG path syntax (broken display)",
+    "Setting typoListing='multiple' without providing textListing array",
+    "Not setting unique _key for textListing items (conflicts)",
+    "Using fillNColor='transparent' without stroke (invisible text)",
+    "Setting blendMode without background (blend effect not visible)",
+    "Using very long text in circular path (overlapping, unreadable)",
+    "Not setting marqueeDir when marquee=true (defaults may not match intent)",
+    "Forgetting overlayStyle when advUnderline='overlay' (underline doesn't show)",
+    "Using incompatible colors (light stroke on light background = invisible)",
+    "Not testing on mobile (stroke widths too thick, text too large)",
+    "Using too many effects simultaneously (stroke + gradient + underline + blend = chaotic)"
+  ],
+
+  "bestPractices": [
+    "For hero titles: Use large font (60-80px) with gradient stroke + transparent fill",
+    "For announcements: Use marquee with contrasting background, speed 10-15s",
+    "For circular logos: Keep text short, use 14-16px font, repeat pattern with separators",
+    "For multiple items: Limit to 3-4 items max per block (avoid overcrowding)",
+    "Use responsive strokeWidth: 2px desktop, 1.5px tablet, 1px mobile",
+    "For readability over images: Use white stroke + colored fill (halo effect)",
+    "Choose stroke colors with high contrast to background",
+    "For gradients: Use 2-3 colors max (more colors = muddled)",
+    "Test circular text with different radius values to find best curve",
+    "For marquee: Speed 15s for promotional text, 8s for urgent announcements",
+    "Use blend modes sparingly (only when intentional artistic effect needed)",
+    "For underlines: 6-10px height, -5px to -10px offset for good spacing",
+    "Combine effects thoughtfully: stroke + gradient (good), stroke + gradient + blend + underline (too much)",
+    "Use fontWeight 700+ for stroke effects (thin fonts get lost with stroke)",
+    "For gradient text fill: Use bold fonts (800-900 weight) for best visibility",
+    "Test on dark and light backgrounds to ensure visibility",
+    "Use ariaLabel for screen reader accessibility when using decorative text",
+    "Keep marquee content concise (1-2 sentences max for readability)",
+    "For linked text (tTextLink): Use clear hover effects (fillHColor, strokeHColor)",
+    "Optimize font loading (only load font weights you actually use: 700, 800, 900)"
+  ],
+
+  "accessibilityNotes": [
+    "Use high contrast between text and background (WCAG AA: 4.5:1 ratio minimum)",
+    "Ensure stroke + fill combination maintains sufficient contrast",
+    "Gradient text should have fallback solid color for accessibility",
+    "Marquee text can cause motion sickness (provide pause control or disable for users who request reduced motion)",
+    "Circular text can be hard to read (use for decorative purposes only, provide alternative linear text)",
+    "Use ariaLabel attribute in textListing items for screen reader context",
+    "Don't rely solely on color to convey information (use text labels)",
+    "Ensure text remains readable when CSS fails to load (fallback to default styles)",
+    "For linked text (tTextLink): Provide clear focus states for keyboard navigation",
+    "Avoid pure decorative text that conveys no content (or use aria-hidden)",
+    "Test with screen readers (NVDA, JAWS) to ensure text is announced correctly",
+    "Blend mode effects are purely visual (ensure content is understandable without them)",
+    "For multiple textListing items: Ensure reading order makes sense for screen readers"
+  ],
+
+  "performanceConsiderations": [
+    "Limit textListing items to 5-10 max (each item adds DOM elements)",
+    "Marquee adds continuous animation loop (impacts battery on mobile)",
+    "Circular text uses SVG path calculations (slightly heavier rendering)",
+    "Gradient strokes with background-clip can be GPU-intensive (use sparingly)",
+    "Multiple blend modes on same page impact rendering performance",
+    "Use CSS will-change for marquee animations (improves smoothness)",
+    "Optimize font file loading (only load weights you use)",
+    "For gradient effects: Use CSS gradients instead of gradient images (faster)",
+    "Limit simultaneous animated effects (marquee + blend + stroke on one page = slow)",
+    "Test on low-end mobile devices (effects can cause lag)",
+    "Use font-display: swap in @font-face for faster perceived loading",
+    "For circular text: Cache SVG path calculations (browser handles this automatically)",
+    "Avoid very complex SVG paths in cirTextPath (simple circles are fastest)"
+  ],
+
+  "relatedBlocks": [
+    "tpgb/tp-heading - Standard heading block (simpler alternative)",
+    "tpgb/tp-heading-animation - Animated heading (typewriter, rotating text)",
+    "tpgb/tp-pro-paragraph - Paragraph text (for body content)",
+    "tpgb/tp-blockquote - Quote styling (for emphasized text)",
+    "tpgb/tp-button - Button with text (for CTAs)",
+    "tpgb/tp-icon-box - Icon with text (combine with typography)",
+    "tpgb/tp-container - Wrapper for background effects with text overlay"
+  ]
 }

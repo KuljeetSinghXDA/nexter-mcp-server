@@ -2,52 +2,677 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-pricing-table",
   "title": "Pricing Table - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for pricing tables",
   "examples": [
     {
-      "description": "Basic pricing table with discount",
+      "name": "Simple Basic Plan",
+      "description": "Minimal pricing table with essential information",
+      "visualDescription": "Clean pricing card: 'Basic Plan' title, '$19/month' price, centered alignment, simple feature list with checkmarks",
+      "complexity": "simple",
+      "useCase": "Starter plans, simple pricing pages, minimal designs",
       "attributes": {
-        "block_id": "a1b2",
-        "title": "Premium Plan",
-        "subTitle": "For Growing Teams",
+        "block_id": "price001",
+        "style": "style-1",
+        "title": "Basic Plan",
+        "subTitle": "Perfect for individuals",
+        "titleAlign": {"md": "center"},
+        "preText": "$",
+        "priceValue": "19",
+        "postText": "/month",
+        "priceAlign": {"md": "center"},
+        "contentStyle": "stylish",
+        "stylishList": [
+          {"listDesc": "5 Projects", "iconStore": "fas fa-check", "showIcon": true},
+          {"listDesc": "10GB Storage", "iconStore": "fas fa-check", "showIcon": true},
+          {"listDesc": "Email Support", "iconStore": "fas fa-check", "showIcon": true}
+        ],
+        "ctaText": "Get Started",
+        "ctaAlign": {"md": "center"}
+      },
+      "notes": [
+        "style='style-1' is default clean design",
+        "stylishList creates icon-based feature list",
+        "Each feature needs showIcon:true to display icon",
+        "ctaText becomes clickable button (styled by parent)"
+      ]
+    },
+    {
+      "name": "Premium Plan with Discount",
+      "description": "Pricing table showing original price crossed out and discounted price",
+      "visualDescription": "Purple pricing card: 'Premium' title, strikethrough '$79/month', prominent '$49/month' in purple, savings badge",
+      "complexity": "medium",
+      "useCase": "Sales, promotions, limited-time offers, annual billing discounts",
+      "attributes": {
+        "block_id": "price002",
+        "style": "style-1",
+        "title": "Premium",
+        "subTitle": "For growing teams",
+        "titleAlign": {"md": "center"},
         "preText": "$",
         "priceValue": "49",
         "postText": "/month",
         "disPrePrice": true,
+        "prevPreText": "$",
         "prevPriceValue": "79",
-        "titleAlign": {
-          "md": "center"
-        },
-        "priceAlign": {
-          "md": "center"
-        }
+        "prevPostText": "/month",
+        "priceAlign": {"md": "center"},
+        "contentStyle": "stylish",
+        "stylishList": [
+          {"listDesc": "Unlimited Projects", "iconStore": "fas fa-check-circle", "showIcon": true},
+          {"listDesc": "100GB Storage", "iconStore": "fas fa-check-circle", "showIcon": true},
+          {"listDesc": "Priority Support", "iconStore": "fas fa-check-circle", "showIcon": true},
+          {"listDesc": "Advanced Analytics", "iconStore": "fas fa-check-circle", "showIcon": true}
+        ],
+        "ctaText": "Upgrade Now",
+        "ctaAlign": {"md": "center"}
+      },
+      "notes": [
+        "disPrePrice=true shows previous price with strikethrough",
+        "Previous price displays above current price",
+        "Great for showing value/savings",
+        "Use check-circle icons for premium feel"
+      ]
+    },
+    {
+      "name": "Enterprise Plan with Custom Icon",
+      "description": "High-tier pricing table with custom icon and extensive features",
+      "visualDescription": "Dark pricing card: Purple building icon at top, 'Enterprise' title, 'Contact Us' price, comprehensive feature list, 'Contact Sales' button",
+      "complexity": "medium",
+      "useCase": "Enterprise plans, custom pricing, contact-based pricing",
+      "attributes": {
+        "block_id": "price003",
+        "style": "style-1",
+        "iconType": "icon",
+        "iconStore": "fas fa-building",
+        "iconSize": {"md": "48", "unit": "px"},
+        "iconWidth": {"md": "100", "unit": "px"},
+        "icnNmlColor": "#667eea",
+        "title": "Enterprise",
+        "subTitle": "For large organizations",
+        "titleAlign": {"md": "center"},
+        "preText": "",
+        "priceValue": "Contact Us",
+        "postText": "",
+        "priceAlign": {"md": "center"},
+        "contentStyle": "stylish",
+        "stylishList": [
+          {"listDesc": "Unlimited Everything", "iconStore": "fas fa-infinity", "showIcon": true},
+          {"listDesc": "Dedicated Account Manager", "iconStore": "fas fa-user-tie", "showIcon": true},
+          {"listDesc": "24/7 Phone Support", "iconStore": "fas fa-headset", "showIcon": true},
+          {"listDesc": "Custom Integrations", "iconStore": "fas fa-code-branch", "showIcon": true},
+          {"listDesc": "SLA Guarantee", "iconStore": "fas fa-shield-alt", "showIcon": true}
+        ],
+        "ctaText": "Contact Sales",
+        "ctaAlign": {"md": "center"}
+      },
+      "notes": [
+        "iconType='icon' enables Font Awesome icon at top",
+        "iconSize controls icon font size",
+        "iconWidth controls icon container size (square)",
+        "Use 'Contact Us' for custom pricing",
+        "Different icons per feature adds visual interest"
+      ]
+    },
+    {
+      "name": "Recommended Plan with Ribbon",
+      "description": "Popular pricing plan with 'Recommended' ribbon badge",
+      "visualDescription": "Highlighted pricing card with purple 'Recommended' ribbon in top-right corner, slightly elevated, '$39/month' prominent display",
+      "complexity": "medium",
+      "useCase": "Highlighting most popular plan, guiding user choice, recommended options",
+      "attributes": {
+        "block_id": "price004",
+        "style": "style-1",
+        "title": "Professional",
+        "subTitle": "Most popular choice",
+        "titleAlign": {"md": "center"},
+        "preText": "$",
+        "priceValue": "39",
+        "postText": "/month",
+        "priceAlign": {"md": "center"},
+        "disRibbon": true,
+        "ribbonStyle": "style-1",
+        "ribbonText": "Recommended",
+        "contentStyle": "stylish",
+        "stylishList": [
+          {"listDesc": "50 Projects", "iconStore": "fas fa-check", "showIcon": true},
+          {"listDesc": "50GB Storage", "iconStore": "fas fa-check", "showIcon": true},
+          {"listDesc": "Priority Email Support", "iconStore": "fas fa-check", "showIcon": true},
+          {"listDesc": "Basic Analytics", "iconStore": "fas fa-check", "showIcon": true},
+          {"listDesc": "API Access", "iconStore": "fas fa-check", "showIcon": true}
+        ],
+        "ctaText": "Choose Plan",
+        "ctaAlign": {"md": "center"}
+      },
+      "notes": [
+        "disRibbon=true enables ribbon badge",
+        "ribbonStyle controls ribbon appearance (style-1, style-2, style-3)",
+        "ribbonText customizable ('Recommended', 'Popular', 'Best Value', etc.)",
+        "Ribbon draws attention to preferred plan",
+        "Typically styled differently in parent container (border, shadow, scale)"
+      ]
+    },
+    {
+      "name": "Annual Pricing with Large Discount",
+      "description": "Annual billing option showing significant savings",
+      "visualDescription": "Pricing card: '$99/year' large, strikethrough '$228/year' above, '57% off' badge, 'Save $129' highlighted",
+      "complexity": "medium",
+      "useCase": "Annual subscriptions, yearly billing, maximize revenue through longer commitments",
+      "attributes": {
+        "block_id": "price005",
+        "style": "style-1",
+        "title": "Premium Annual",
+        "subTitle": "Save 57% with annual billing",
+        "titleAlign": {"md": "center"},
+        "preText": "$",
+        "priceValue": "99",
+        "postText": "/year",
+        "disPrePrice": true,
+        "prevPreText": "$",
+        "prevPriceValue": "228",
+        "prevPostText": "/year",
+        "priceAlign": {"md": "center"},
+        "disRibbon": true,
+        "ribbonStyle": "style-1",
+        "ribbonText": "Save $129",
+        "contentStyle": "stylish",
+        "stylishList": [
+          {"listDesc": "All Premium features", "iconStore": "fas fa-star", "showIcon": true},
+          {"listDesc": "Billed once per year", "iconStore": "fas fa-calendar-alt", "showIcon": true},
+          {"listDesc": "2 months free", "iconStore": "fas fa-gift", "showIcon": true}
+        ],
+        "ctaText": "Get Annual Plan",
+        "ctaAlign": {"md": "center"}
+      },
+      "notes": [
+        "Emphasize savings in subTitle and ribbon",
+        "Show monthly equivalent math (12 × $19 = $228, save $129)",
+        "Gift icon emphasizes 'free months' value",
+        "Annual pricing increases customer lifetime value"
+      ]
+    },
+    {
+      "name": "Feature-Rich Plan with Read More",
+      "description": "Extensive feature list with expandable read more functionality",
+      "visualDescription": "Pricing card showing first 3 features, '+ Show all options' link, expands to reveal 10+ features when clicked",
+      "complexity": "advanced",
+      "useCase": "Plans with many features, avoiding overwhelming users, progressive disclosure",
+      "attributes": {
+        "block_id": "price006",
+        "style": "style-1",
+        "title": "Ultimate",
+        "subTitle": "Everything you need",
+        "titleAlign": {"md": "center"},
+        "preText": "$",
+        "priceValue": "99",
+        "postText": "/month",
+        "priceAlign": {"md": "center"},
+        "contentStyle": "stylish",
+        "readMoreToggle": true,
+        "showListToggle": "3",
+        "readMoreText": "+ Show all features",
+        "readLessText": "- Show less",
+        "stylishList": [
+          {"listDesc": "Unlimited Projects", "iconStore": "fas fa-check", "showIcon": true},
+          {"listDesc": "Unlimited Storage", "iconStore": "fas fa-check", "showIcon": true},
+          {"listDesc": "24/7 Support", "iconStore": "fas fa-check", "showIcon": true},
+          {"listDesc": "Advanced Analytics", "iconStore": "fas fa-chart-line", "showIcon": true},
+          {"listDesc": "Custom Branding", "iconStore": "fas fa-palette", "showIcon": true},
+          {"listDesc": "White Label Option", "iconStore": "fas fa-tag", "showIcon": true},
+          {"listDesc": "Priority Updates", "iconStore": "fas fa-rocket", "showIcon": true},
+          {"listDesc": "Dedicated Manager", "iconStore": "fas fa-user-shield", "showIcon": true}
+        ],
+        "ctaText": "Get Ultimate",
+        "ctaAlign": {"md": "center"}
+      },
+      "notes": [
+        "readMoreToggle=true enables expand/collapse",
+        "showListToggle='3' shows first 3 features initially",
+        "readMoreText/readLessText customize toggle button labels",
+        "Great for plans with 6+ features",
+        "Keeps pricing table compact while showing all value"
+      ]
+    },
+    {
+      "name": "WYSIWYG Content Style",
+      "description": "Pricing table using HTML content instead of structured feature list",
+      "visualDescription": "Pricing card with rich HTML content area: formatted text, bullet points, bold highlights, custom layout",
+      "complexity": "medium",
+      "useCase": "Custom layouts, detailed descriptions, formatted content, unique pricing presentations",
+      "attributes": {
+        "block_id": "price007",
+        "style": "style-1",
+        "title": "Starter",
+        "subTitle": "Get started today",
+        "titleAlign": {"md": "center"},
+        "preText": "$",
+        "priceValue": "29",
+        "postText": "/month",
+        "priceAlign": {"md": "center"},
+        "contentStyle": "wysiwyg",
+        "wyContent": "<p><strong>Perfect for small teams</strong></p><ul><li>Up to 5 team members</li><li>10GB cloud storage</li><li>Email support</li><li>Basic reports</li></ul><p><em>Upgrade anytime as you grow</em></p>",
+        "ctaText": "Start Free Trial",
+        "ctaAlign": {"md": "center"}
+      },
+      "notes": [
+        "contentStyle='wysiwyg' enables HTML content",
+        "wyContent accepts HTML markup (p, ul, li, strong, em, etc.)",
+        "More flexible than stylishList but less structured",
+        "Good for custom formatting and layout",
+        "Can include links, images, custom styling"
+      ]
+    },
+    {
+      "name": "Complete Pricing Table with All Features",
+      "description": "Comprehensive pricing table demonstrating all available features",
+      "visualDescription": "Premium pricing card: Crown icon, gradient background, 'Best Value' ribbon, discount pricing, icon-based features with tooltips, call-to-action button",
+      "complexity": "expert",
+      "useCase": "Showcase pricing tables, premium tiers, complete feature demonstrations",
+      "attributes": {
+        "block_id": "price008",
+        "style": "style-1",
+        "iconType": "icon",
+        "iconStore": "fas fa-crown",
+        "iconSize": {"md": "52", "unit": "px"},
+        "iconWidth": {"md": "110", "unit": "px"},
+        "iconStyle": "square",
+        "icnNmlColor": "#FFD700",
+        "icnHvrColor": "#FFA500",
+        "title": "Business Pro",
+        "subTitle": "Complete business solution",
+        "titleAlign": {"md": "center"},
+        "preText": "$",
+        "priceValue": "149",
+        "postText": "/month",
+        "disPrePrice": true,
+        "prevPreText": "$",
+        "prevPriceValue": "199",
+        "prevPostText": "/month",
+        "priceAlign": {"md": "center"},
+        "disRibbon": true,
+        "ribbonStyle": "style-1",
+        "ribbonText": "Best Value",
+        "contentStyle": "stylish",
+        "readMoreToggle": true,
+        "showListToggle": "4",
+        "readMoreText": "+ View all 12 features",
+        "readLessText": "- Show less features",
+        "stylishList": [
+          {
+            "listDesc": "Unlimited everything",
+            "iconStore": "fas fa-infinity",
+            "iconNmlColor": "#667eea",
+            "iconHvrColor": "#764ba2",
+            "showIcon": true,
+            "eIcnToggle": true,
+            "eIconStore": "fas fa-question-circle",
+            "eIconNColor": "#999999",
+            "tooltipText": "Unlimited projects, users, storage, and bandwidth"
+          },
+          {
+            "listDesc": "24/7 Premium Support",
+            "iconStore": "fas fa-headset",
+            "iconNmlColor": "#667eea",
+            "showIcon": true
+          },
+          {
+            "listDesc": "Advanced Security",
+            "iconStore": "fas fa-shield-alt",
+            "iconNmlColor": "#667eea",
+            "showIcon": true
+          },
+          {
+            "listDesc": "Custom Integrations",
+            "iconStore": "fas fa-plug",
+            "iconNmlColor": "#667eea",
+            "showIcon": true
+          },
+          {
+            "listDesc": "White Label",
+            "iconStore": "fas fa-tag",
+            "iconNmlColor": "#667eea",
+            "showIcon": true
+          },
+          {
+            "listDesc": "Priority Updates",
+            "iconStore": "fas fa-rocket",
+            "iconNmlColor": "#667eea",
+            "showIcon": true
+          }
+        ],
+        "ctaText": "Start Business Pro",
+        "ctaAlign": {"md": "center"}
+      },
+      "notes": [
+        "Combines all major features: icon, discount, ribbon, read more",
+        "Crown icon conveys premium/business tier",
+        "Gold icon color (#FFD700) for premium feel",
+        "iconStyle='square' creates square icon background",
+        "eIcnToggle enables extra tooltip icon on first feature",
+        "tooltipText provides additional feature explanation",
+        "Icon colors (iconNmlColor) create visual hierarchy",
+        "Read more hides features 5-6 initially"
+      ]
+    }
+  ],
+  "commonPatterns": [
+    {
+      "pattern": "simple-plan",
+      "description": "Basic pricing table with feature list",
+      "attrs": {
+        "title": "Basic",
+        "preText": "$",
+        "priceValue": "19",
+        "postText": "/month",
+        "contentStyle": "stylish",
+        "stylishList": [
+          {"listDesc": "Feature 1", "iconStore": "fas fa-check", "showIcon": true}
+        ]
       }
     },
     {
-      "description": "Pricing table with feature list",
-      "attributes": {
-        "block_id": "c3d4",
+      "pattern": "discount-plan",
+      "description": "Pricing with discount/previous price",
+      "attrs": {
+        "title": "Premium",
+        "preText": "$",
+        "priceValue": "49",
+        "postText": "/month",
+        "disPrePrice": true,
+        "prevPriceValue": "79"
+      }
+    },
+    {
+      "pattern": "recommended-plan",
+      "description": "Highlighted plan with ribbon",
+      "attrs": {
+        "title": "Professional",
+        "disRibbon": true,
+        "ribbonText": "Recommended",
+        "preText": "$",
+        "priceValue": "39",
+        "postText": "/month"
+      }
+    },
+    {
+      "pattern": "enterprise-plan",
+      "description": "Custom pricing with contact option",
+      "attrs": {
         "title": "Enterprise",
-        "contentStyle": "stylish",
-        "stylishList": [
-          {
-            "listDesc": "Unlimited Users",
-            "listIcon": "fas fa-check",
-            "showIcon": true
-          },
-          {
-            "listDesc": "Priority Support",
-            "listIcon": "fas fa-check",
-            "showIcon": true
-          },
-          {
-            "listDesc": "Custom Integration",
-            "listIcon": "fas fa-check",
-            "showIcon": true
-          }
-        ]
+        "iconType": "icon",
+        "iconStore": "fas fa-building",
+        "priceValue": "Contact Us",
+        "ctaText": "Contact Sales"
       }
     }
   ],
-  "commonPatterns": {}
+  "validationRules": {
+    "title": "Required - Plan name displayed to users",
+    "subTitle": "Optional - Plan description/tagline",
+    "style": "Optional - Overall table style (style-1, style-2, style-3)",
+    "titleStyle": "Optional - Title section style",
+    "iconType": "Optional - 'none', 'icon', or 'img'",
+    "iconStore": "Required if iconType='icon' - Font Awesome class",
+    "imgStore": "Required if iconType='img' - Image object with url",
+    "preText": "Optional - Currency symbol or prefix (default: '$')",
+    "priceValue": "Required - Price amount or text ('99.99', 'Contact Us', 'Free')",
+    "postText": "Optional - Period or suffix ('/month', '/year', 'forever')",
+    "disPrePrice": "Optional - Set true to show previous/discount price",
+    "prevPriceValue": "Required if disPrePrice=true - Original price",
+    "contentStyle": "Required - 'wysiwyg' or 'stylish' (default: 'wysiwyg')",
+    "stylishList": "Required if contentStyle='stylish' - Array of features",
+    "wyContent": "Required if contentStyle='wysiwyg' - HTML content",
+    "readMoreToggle": "Optional - Enable expand/collapse for features",
+    "showListToggle": "Required if readMoreToggle=true - Number of visible features (string)",
+    "ctaText": "Optional - Call-to-action button text",
+    "disRibbon": "Optional - Set true to enable ribbon badge",
+    "ribbonText": "Required if disRibbon=true - Ribbon label text"
+  },
+  "warnings": [
+    "⚠️ CONTENT STYLE: Must choose between 'wysiwyg' (HTML) or 'stylish' (icon list) - cannot use both",
+    "⚠️ FEATURE LIST: Each stylishList item needs showIcon:true to display icon",
+    "⚠️ DISCOUNT PRICE: disPrePrice requires prevPriceValue to be set",
+    "⚠️ READ MORE: showListToggle is a string ('3', '5'), not a number",
+    "⚠️ ICON TYPE: iconType='icon' requires iconStore (Font Awesome), iconType='img' requires imgStore",
+    "⚠️ RIBBON: disRibbon=true requires ribbonText to be set",
+    "⚠️ CTA STYLING: ctaText button styling controlled by parent/theme, not by pricing table",
+    "⚠️ TOOLTIPS: eIcnToggle enables extra info icon with tooltip (requires tooltipText)",
+    "⚠️ ICON COLORS: iconNmlColor/iconHvrColor in stylishList items control per-feature icon colors",
+    "⚠️ ALIGNMENT: All alignments (titleAlign, priceAlign, ctaAlign) are responsive objects",
+    "⚠️ WYSIWYG: HTML content may need sanitization - avoid unsafe tags/scripts",
+    "⚠️ PRICE TEXT: priceValue can be text ('Contact Us', 'Free') not just numbers"
+  ],
+  "commonMistakes": [
+    "❌ Setting contentStyle='stylish' but not providing stylishList array",
+    "❌ Forgetting showIcon:true on stylishList items (icons won't appear)",
+    "❌ Using number for showListToggle (should be string: '3' not 3)",
+    "❌ Setting disPrePrice=true without prevPriceValue (no discount shown)",
+    "❌ Setting ribbonText without disRibbon=true (ribbon won't appear)",
+    "❌ Using iconType='icon' without iconStore (no icon shown)",
+    "❌ Mixing wysiwyg and stylish content styles in same plan",
+    "❌ Not setting eIcnToggle=true when adding tooltips (tooltip icon won't show)",
+    "❌ Using alignment values as strings ('center') instead of objects ({md: 'center'})",
+    "❌ Adding too many features without readMoreToggle (overwhelming users)",
+    "❌ Using generic CTA text like 'Buy' instead of specific 'Start Free Trial'"
+  ],
+  "bestPractices": [
+    "✅ Use descriptive plan names: 'Professional' not 'Plan 2', 'Starter' not 'Basic'",
+    "✅ Keep subTitle concise: 'For growing teams' not 'This plan is designed for teams that are growing'",
+    "✅ Show discounts prominently: Use disPrePrice=true and ribbonText='Save 25%'",
+    "✅ Limit visible features to 3-5, use readMoreToggle for 6+ features",
+    "✅ Use consistent icons: fa-check for standard features, custom icons for premium features",
+    "✅ Make recommended plan stand out: Use ribbon, different styling, larger size",
+    "✅ Use 'Contact Us' for enterprise pricing instead of specific numbers",
+    "✅ Add tooltips (eIcnToggle) for complex features that need explanation",
+    "✅ Keep CTA text action-oriented: 'Start Free Trial' not 'Click Here'",
+    "✅ For annual plans, emphasize savings: 'Save $100/year' in subTitle or ribbon",
+    "✅ Use iconType='icon' for professional appearance (crown, star, building icons)",
+    "✅ Align title, price, CTA to center for balanced design",
+    "✅ Test with long feature descriptions to ensure layout doesn't break",
+    "✅ Use stylish list over wysiwyg for structured, scannable features",
+    "✅ Limit to 3-4 pricing tiers to avoid overwhelming users",
+    "✅ Place most popular/recommended plan in the middle for visibility"
+  ],
+  "styleGuide": {
+    "description": "Pricing table style variations",
+    "styles": {
+      "style-1": {
+        "description": "Clean modern card design",
+        "useCase": "Most common, professional appearance",
+        "visualAppearance": "White card with subtle shadow, clear separation of sections"
+      },
+      "style-2": {
+        "description": "Outlined/bordered design",
+        "useCase": "Minimalist designs, less emphasis on cards",
+        "visualAppearance": "Border-only design, no background fill"
+      },
+      "style-3": {
+        "description": "Gradient or colored background",
+        "useCase": "Bold designs, highlighting premium tiers",
+        "visualAppearance": "Colored background, often gradient, white text"
+      }
+    }
+  },
+  "featureListGuide": {
+    "description": "Creating effective feature lists with stylishList",
+    "structure": {
+      "listDesc": "Feature description text",
+      "iconStore": "Font Awesome icon class (fas fa-check, fas fa-times, etc.)",
+      "showIcon": "Boolean - must be true to display icon",
+      "iconNmlColor": "Optional - Icon color (hex/rgba)",
+      "iconHvrColor": "Optional - Hover icon color",
+      "eIcnToggle": "Optional - Enable extra info icon with tooltip",
+      "eIconStore": "Optional - Extra icon class (usually fas fa-question-circle)",
+      "tooltipText": "Optional - Tooltip content for extra icon"
+    },
+    "examples": {
+      "checkmark": {
+        "listDesc": "Unlimited storage",
+        "iconStore": "fas fa-check",
+        "showIcon": true
+      },
+      "crossmark": {
+        "listDesc": "Email support (coming soon)",
+        "iconStore": "fas fa-times",
+        "iconNmlColor": "#cccccc",
+        "showIcon": true
+      },
+      "withTooltip": {
+        "listDesc": "Advanced analytics",
+        "iconStore": "fas fa-chart-line",
+        "showIcon": true,
+        "eIcnToggle": true,
+        "eIconStore": "fas fa-question-circle",
+        "tooltipText": "Real-time dashboards with custom reports and data export"
+      },
+      "coloredIcon": {
+        "listDesc": "Priority support",
+        "iconStore": "fas fa-headset",
+        "iconNmlColor": "#667eea",
+        "iconHvrColor": "#764ba2",
+        "showIcon": true
+      }
+    },
+    "iconRecommendations": [
+      "fas fa-check (standard feature inclusion)",
+      "fas fa-check-circle (premium/verified feature)",
+      "fas fa-times (feature not included)",
+      "fas fa-star (highlighted/special feature)",
+      "fas fa-infinity (unlimited feature)",
+      "fas fa-crown (premium feature)",
+      "fas fa-shield-alt (security feature)",
+      "fas fa-rocket (performance feature)",
+      "fas fa-headset (support feature)",
+      "fas fa-cloud (cloud/storage feature)"
+    ]
+  },
+  "ribbonGuide": {
+    "description": "Using ribbons to highlight pricing plans",
+    "ribbonStyles": {
+      "style-1": "Corner ribbon (top-right diagonal)",
+      "style-2": "Horizontal banner across top",
+      "style-3": "Pill badge (rounded rectangle)"
+    },
+    "commonRibbonText": [
+      "Recommended",
+      "Most Popular",
+      "Best Value",
+      "Limited Time",
+      "Save 25%",
+      "New",
+      "Hot Deal",
+      "Enterprise"
+    ],
+    "usage": {
+      "recommended": {
+        "ribbonText": "Recommended",
+        "useCase": "Guide users to preferred plan",
+        "notes": "Typically on mid-tier plan"
+      },
+      "discount": {
+        "ribbonText": "Save $100",
+        "useCase": "Emphasize annual billing savings",
+        "notes": "Use with disPrePrice to show value"
+      },
+      "new": {
+        "ribbonText": "New Plan",
+        "useCase": "Recently launched tier",
+        "notes": "Creates urgency and interest"
+      }
+    }
+  },
+  "pricingStrategyGuide": {
+    "description": "Best practices for pricing presentation",
+    "strategies": {
+      "threetiered": {
+        "description": "Basic, Professional, Enterprise (most common)",
+        "layout": ["Basic ($19)", "Professional ($39) - Recommended", "Enterprise (Contact Us)"],
+        "notes": "Middle option typically converts best"
+      },
+      "annualDiscount": {
+        "description": "Show monthly price with annual savings",
+        "example": {
+          "title": "Professional Annual",
+          "priceValue": "390",
+          "postText": "/year",
+          "disPrePrice": true,
+          "prevPriceValue": "468",
+          "subTitle": "Save $78 vs monthly"
+        },
+        "notes": "Emphasize total savings, not monthly equivalent"
+      },
+      "freemium": {
+        "description": "Free tier to attract users",
+        "example": {
+          "title": "Free",
+          "priceValue": "0",
+          "postText": "forever",
+          "ctaText": "Start Free"
+        },
+        "notes": "Great for user acquisition, convert to paid later"
+      }
+    }
+  },
+  "accessibilityNotes": [
+    "🌐 WCAG 2.1 AA Compliance:",
+    "- Plan titles must be clear and descriptive (title attribute)",
+    "- Price must be readable by screen readers (proper semantic markup)",
+    "- Feature list items should use list markup (automatic with stylishList)",
+    "- CTA buttons must have sufficient contrast (4.5:1 text, 3:1 button)",
+    "- Ribbon text must be readable (adequate contrast, minimum 14px font)",
+    "",
+    "🎯 Focus States:",
+    "- CTA button must have visible focus indicator",
+    "- Read more toggle must be keyboard accessible",
+    "- Tooltip triggers must work with keyboard (Enter/Space)",
+    "",
+    "⌨️ Keyboard Navigation:",
+    "- Tab to CTA button, Enter/Space to activate",
+    "- Tab to read more toggle, Enter/Space to expand/collapse",
+    "- Tooltip icons accessible via Tab + Enter",
+    "",
+    "🔊 Screen Reader Considerations:",
+    "- Title announced: 'Professional plan'",
+    "- Price announced: '39 dollars per month'",
+    "- Previous price announced: 'Originally 79 dollars, now 39 dollars'",
+    "- Features announced as list items",
+    "- Ribbon announced: 'Recommended plan'",
+    "- Tooltips announced when activated",
+    "",
+    "🌈 Color Contrast:",
+    "- Title text: 4.5:1 contrast with background",
+    "- Price text: 4.5:1 contrast (usually larger, 3:1 acceptable)",
+    "- Feature text: 4.5:1 contrast",
+    "- Icons: 3:1 contrast if conveying information",
+    "- Ribbon: 4.5:1 contrast for text",
+    "- Previous price strikethrough must still be readable",
+    "",
+    "💡 Best Practices:",
+    "- Don't rely on color alone to highlight recommended plan (use ribbon + text)",
+    "- Provide text alternative for icon-only features",
+    "- Ensure tooltips work on keyboard and touch devices",
+    "- Use semantic HTML in wysiwyg content (p, ul, li, strong)"
+  ],
+  "layoutRecommendations": {
+    "threeColumn": {
+      "description": "Most common pricing page layout",
+      "planCount": 3,
+      "planNames": ["Basic", "Professional", "Enterprise"],
+      "highlights": "Middle plan with ribbon",
+      "notes": "Use CSS Grid or Flexbox for equal height cards"
+    },
+    "twoColumn": {
+      "description": "Simple comparison (free vs paid)",
+      "planCount": 2,
+      "planNames": ["Free", "Premium"],
+      "highlights": "Premium plan on right",
+      "notes": "50/50 split, emphasize premium benefits"
+    },
+    "fourColumn": {
+      "description": "Comprehensive options",
+      "planCount": 4,
+      "planNames": ["Free", "Starter", "Professional", "Enterprise"],
+      "highlights": "Professional plan recommended",
+      "notes": "May be overwhelming, consider hiding on mobile"
+    }
+  }
 }

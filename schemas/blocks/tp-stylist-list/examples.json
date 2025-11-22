@@ -2,60 +2,1266 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-stylist-list",
   "title": "Stylish List - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for icon lists with advanced features",
   "examples": [
     {
-      "description": "Simple feature list with checkmarks",
+      "name": "Simple Feature List with Checkmarks",
+      "description": "Clean vertical list with checkmark icons for feature lists or benefits",
+      "visualDescription": "Green check icons, left-aligned, simple text, minimal spacing, classic feature list design",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "sl001",
+        "listType": "vertical",
+        "alignment": {
+          "md": "left"
+        },
         "listsRepeater": [
           {
+            "_key": "0",
             "description": "Unlimited Projects",
-            "iconFontawesome": "fas fa-check",
-            "selectIcon": "fontawesome"
-          },
-          {
-            "description": "24/7 Support",
-            "iconFontawesome": "fas fa-check",
-            "selectIcon": "fontawesome"
-          },
-          {
-            "description": "Advanced Analytics",
-            "iconFontawesome": "fas fa-check",
             "selectIcon": "fontawesome",
-            "hintText": "New",
-            "hintBgColor": "#27ae60"
+            "iconFontawesome": "fas fa-check-circle",
+            "tooltipTypo": {
+              "openTypography": 0
+            },
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "iconImg": {
+              "url": ""
+            }
+          },
+          {
+            "_key": "1",
+            "description": "24/7 Premium Support",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-check-circle",
+            "tooltipTypo": {
+              "openTypography": 0
+            },
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "iconImg": {
+              "url": ""
+            }
+          },
+          {
+            "_key": "2",
+            "description": "Advanced Analytics Dashboard",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-check-circle",
+            "tooltipTypo": {
+              "openTypography": 0
+            },
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "iconImg": {
+              "url": ""
+            }
+          },
+          {
+            "_key": "3",
+            "description": "Priority Email Support",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-check-circle",
+            "tooltipTypo": {
+              "openTypography": 0
+            },
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "iconImg": {
+              "url": ""
+            }
           }
-        ]
-      }
+        ],
+        "iconNormalColor": "#27ae60",
+        "iconSize": {
+          "md": "18",
+          "unit": "px"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "16",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          }
+        },
+        "textNormalColor": "#333333",
+        "textIndent": {
+          "md": "10",
+          "unit": "px"
+        },
+        "listSpaceBetween": {
+          "md": "15",
+          "unit": "px"
+        }
+      },
+      "useCase": "Pricing tables, feature lists, product benefits, service inclusions"
     },
     {
-      "description": "List with links and tooltips",
+      "name": "Feature List with 'New' Badges",
+      "description": "Feature list with hint badges to highlight new or special features",
+      "visualDescription": "Check icons, feature text, 'New' and 'Pro' badges on right side, green/purple badge colors, professional layout",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "c3d4",
-        "hover_bg_style": true,
+        "block_id": "sl002",
+        "listType": "vertical",
+        "alignment": {
+          "md": "left"
+        },
         "listsRepeater": [
           {
-            "description": "Documentation",
-            "iconFontawesome": "fas fa-book",
-            "descurl": {
-              "url": "/docs",
-              "target": "_self"
+            "_key": "0",
+            "description": "Team Collaboration Tools",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-users",
+            "tooltipTypo": {
+              "openTypography": 0
             },
-            "tooltipText": "Read our comprehensive documentation"
+            "tooltipText": "",
+            "hintText": "New",
+            "hintColor": "#ffffff",
+            "hintBgColor": "#27ae60",
+            "descurl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "iconImg": {
+              "url": ""
+            }
           },
           {
-            "description": "API Reference",
-            "iconFontawesome": "fas fa-code",
-            "descurl": {
-              "url": "/api",
-              "target": "_self"
+            "_key": "1",
+            "description": "Real-time Synchronization",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-sync",
+            "tooltipTypo": {
+              "openTypography": 0
             },
-            "tooltipText": "Explore our API"
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "iconImg": {
+              "url": ""
+            }
+          },
+          {
+            "_key": "2",
+            "description": "AI-Powered Insights",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-brain",
+            "tooltipTypo": {
+              "openTypography": 0
+            },
+            "tooltipText": "",
+            "hintText": "Pro",
+            "hintColor": "#ffffff",
+            "hintBgColor": "#9b59b6",
+            "descurl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "iconImg": {
+              "url": ""
+            }
+          },
+          {
+            "_key": "3",
+            "description": "Automated Backups",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-database",
+            "tooltipTypo": {
+              "openTypography": 0
+            },
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "iconImg": {
+              "url": ""
+            }
           }
-        ]
-      }
+        ],
+        "iconNormalColor": "#667eea",
+        "iconSize": {
+          "md": "20",
+          "unit": "px"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "16",
+            "unit": "px"
+          },
+          "fontWeight": "500"
+        },
+        "textNormalColor": "#333333",
+        "textIndent": {
+          "md": "12",
+          "unit": "px"
+        },
+        "listSpaceBetween": {
+          "md": "18",
+          "unit": "px"
+        },
+        "pinAlignment": "right",
+        "pinTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "11",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "textTransform": "uppercase"
+        },
+        "pinPadding": {
+          "md": {
+            "top": "4",
+            "right": "8",
+            "bottom": "4",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "pinBRadius": {
+          "md": {
+            "top": "3",
+            "right": "3",
+            "bottom": "3",
+            "left": "3"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Product feature announcements, changelog lists, upgrade comparison, feature highlights"
+    },
+    {
+      "name": "Horizontal Social Media Links",
+      "description": "Horizontal list with social media icons linking to profile pages",
+      "visualDescription": "Social icons in row, centered alignment, even spacing, clean horizontal layout, hover color changes",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "sl003",
+        "listType": "horizontal",
+        "alignment": {
+          "md": "center"
+        },
+        "listsRepeater": [
+          {
+            "_key": "0",
+            "description": "Facebook",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fab fa-facebook",
+            "tooltipTypo": {
+              "openTypography": 0
+            },
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "https://facebook.com/yourpage",
+              "target": "_blank",
+              "nofollow": "nofollow"
+            },
+            "iconImg": {
+              "url": ""
+            }
+          },
+          {
+            "_key": "1",
+            "description": "Twitter",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fab fa-twitter",
+            "tooltipTypo": {
+              "openTypography": 0
+            },
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "https://twitter.com/yourhandle",
+              "target": "_blank",
+              "nofollow": "nofollow"
+            },
+            "iconImg": {
+              "url": ""
+            }
+          },
+          {
+            "_key": "2",
+            "description": "LinkedIn",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fab fa-linkedin",
+            "tooltipTypo": {
+              "openTypography": 0
+            },
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "https://linkedin.com/in/yourprofile",
+              "target": "_blank",
+              "nofollow": "nofollow"
+            },
+            "iconImg": {
+              "url": ""
+            }
+          },
+          {
+            "_key": "3",
+            "description": "Instagram",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fab fa-instagram",
+            "tooltipTypo": {
+              "openTypography": 0
+            },
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "https://instagram.com/yourhandle",
+              "target": "_blank",
+              "nofollow": "nofollow"
+            },
+            "iconImg": {
+              "url": ""
+            }
+          }
+        ],
+        "iconNormalColor": "#555555",
+        "iconHoverColor": "#667eea",
+        "iconSize": {
+          "md": "24",
+          "sm": "20",
+          "xs": "18",
+          "unit": "px"
+        },
+        "textTypo": {
+          "openTypography": 0
+        },
+        "horizontalSpaceBetween": {
+          "md": "25",
+          "sm": "20",
+          "xs": "15",
+          "unit": "px"
+        },
+        "listSpaceBetween": {
+          "md": "10",
+          "unit": "px"
+        }
+      },
+      "useCase": "Social media links, footer social icons, author bio sections, contact pages"
+    },
+    {
+      "name": "Advanced Styled Icons with Backgrounds",
+      "description": "List with circular background icons, borders, and shadows for premium look",
+      "visualDescription": "Purple circular backgrounds, white icons, box shadows, rounded borders, hover scale effect, premium design",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "sl004",
+        "listType": "vertical",
+        "alignment": {
+          "md": "left"
+        },
+        "listsRepeater": [
+          {
+            "_key": "0",
+            "description": "Secure Cloud Storage",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-cloud-upload-alt",
+            "tooltipTypo": {
+              "openTypography": 0
+            },
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "iconImg": {
+              "url": ""
+            }
+          },
+          {
+            "_key": "1",
+            "description": "256-bit Encryption",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-lock",
+            "tooltipTypo": {
+              "openTypography": 0
+            },
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "iconImg": {
+              "url": ""
+            }
+          },
+          {
+            "_key": "2",
+            "description": "Two-Factor Authentication",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-shield-alt",
+            "tooltipTypo": {
+              "openTypography": 0
+            },
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "iconImg": {
+              "url": ""
+            }
+          }
+        ],
+        "iconAdvancedStyle": true,
+        "iconWidth": {
+          "md": "50",
+          "sm": "45",
+          "xs": "40",
+          "unit": "px"
+        },
+        "iconNormalColor": "#ffffff",
+        "iconHoverColor": "#ffffff",
+        "iconSize": {
+          "md": "20",
+          "unit": "px"
+        },
+        "iconBg": {
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#667eea",
+            "color2": "#764ba2",
+            "type": "linear",
+            "direction": "135",
+            "start": 0,
+            "stop": 100,
+            "radial": "center",
+            "clip": false
+          }
+        },
+        "iconBgHover": {
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#764ba2",
+            "color2": "#667eea",
+            "type": "linear",
+            "direction": "135",
+            "start": 0,
+            "stop": 100,
+            "radial": "center",
+            "clip": false
+          }
+        },
+        "iconBorderRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "iconBoxShadow": {
+          "openShadow": 1,
+          "blur": 15,
+          "color": "rgba(102, 126, 234, 0.3)",
+          "horizontal": 0,
+          "inset": 0,
+          "spread": 0,
+          "vertical": 5
+        },
+        "iconBoxShadowHover": {
+          "openShadow": 1,
+          "blur": 20,
+          "color": "rgba(118, 75, 162, 0.4)",
+          "horizontal": 0,
+          "inset": 0,
+          "spread": 3,
+          "vertical": 8
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "17",
+            "unit": "px"
+          },
+          "fontWeight": "500"
+        },
+        "textNormalColor": "#333333",
+        "textIndent": {
+          "md": "15",
+          "unit": "px"
+        },
+        "listSpaceBetween": {
+          "md": "20",
+          "unit": "px"
+        }
+      },
+      "useCase": "Security features, premium services, value propositions, USP highlights"
+    },
+    {
+      "name": "List with Tooltips on Hover",
+      "description": "Interactive list with Tippy.js tooltips showing detailed information on hover",
+      "visualDescription": "Info icons, hover triggers tooltips with dark background and white text, top placement, smooth animations",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "sl005",
+        "listType": "vertical",
+        "alignment": {
+          "md": "left"
+        },
+        "listsRepeater": [
+          {
+            "_key": "0",
+            "description": "API Rate Limits",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-tachometer-alt",
+            "tooltipTypo": {
+              "openTypography": 1,
+              "size": {
+                "md": "14",
+                "unit": "px"
+              }
+            },
+            "tooltipText": "1000 requests per minute on Pro plan",
+            "tooltipColor": "#ffffff",
+            "hintText": "",
+            "descurl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "iconImg": {
+              "url": ""
+            }
+          },
+          {
+            "_key": "1",
+            "description": "Data Retention",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-history",
+            "tooltipTypo": {
+              "openTypography": 1,
+              "size": {
+                "md": "14",
+                "unit": "px"
+              }
+            },
+            "tooltipText": "All data retained for 90 days, with optional extended archiving",
+            "tooltipColor": "#ffffff",
+            "hintText": "",
+            "descurl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "iconImg": {
+              "url": ""
+            }
+          },
+          {
+            "_key": "2",
+            "description": "Support Response Time",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-headset",
+            "tooltipTypo": {
+              "openTypography": 1,
+              "size": {
+                "md": "14",
+                "unit": "px"
+              }
+            },
+            "tooltipText": "Average response time: 2 hours for priority tickets",
+            "tooltipColor": "#ffffff",
+            "hintText": "",
+            "descurl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            },
+            "iconImg": {
+              "url": ""
+            }
+          }
+        ],
+        "iconNormalColor": "#667eea",
+        "iconSize": {
+          "md": "18",
+          "unit": "px"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "16",
+            "unit": "px"
+          }
+        },
+        "textNormalColor": "#333333",
+        "textIndent": {
+          "md": "12",
+          "unit": "px"
+        },
+        "listSpaceBetween": {
+          "md": "16",
+          "unit": "px"
+        },
+        "tipPlacement": "top",
+        "tipTriggers": "mouseenter",
+        "tipAnimation": "fade",
+        "tipArrow": true,
+        "tipArrowColor": "#333333",
+        "tipBg": {
+          "bgType": "color",
+          "bgDefaultColor": "#333333",
+          "bgGradient": []
+        },
+        "tipPadding": {
+          "md": {
+            "top": "8",
+            "right": "12",
+            "bottom": "8",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "tipBorderRadius": {
+          "md": {
+            "top": "4",
+            "right": "4",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        },
+        "tipMaxWidth": "250"
+      },
+      "useCase": "Technical specs, FAQ quick answers, feature explanations, documentation links"
+    },
+    {
+      "name": "Read More Toggle - Long Feature List",
+      "description": "Long list with 'Show More' toggle to initially display only 3 items",
+      "visualDescription": "Shows 3 items initially, '+Show all' link below expands to show all 10 items, '-Less' collapses back",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "sl006",
+        "listType": "vertical",
+        "alignment": {
+          "md": "left"
+        },
+        "readMoreToggle": true,
+        "showListToggle": "3",
+        "readMoreText": "+ Show all features",
+        "readLessText": "- Show less",
+        "listsRepeater": [
+          {
+            "_key": "0",
+            "description": "Unlimited bandwidth",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-infinity",
+            "tooltipTypo": {"openTypography": 0},
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {"url": "", "target": "", "nofollow": ""},
+            "iconImg": {"url": ""}
+          },
+          {
+            "_key": "1",
+            "description": "Free SSL certificate",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-certificate",
+            "tooltipTypo": {"openTypography": 0},
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {"url": "", "target": "", "nofollow": ""},
+            "iconImg": {"url": ""}
+          },
+          {
+            "_key": "2",
+            "description": "Daily backups",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-save",
+            "tooltipTypo": {"openTypography": 0},
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {"url": "", "target": "", "nofollow": ""},
+            "iconImg": {"url": ""}
+          },
+          {
+            "_key": "3",
+            "description": "1-click installer",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-mouse-pointer",
+            "tooltipTypo": {"openTypography": 0},
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {"url": "", "target": "", "nofollow": ""},
+            "iconImg": {"url": ""}
+          },
+          {
+            "_key": "4",
+            "description": "Email accounts",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-envelope",
+            "tooltipTypo": {"openTypography": 0},
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {"url": "", "target": "", "nofollow": ""},
+            "iconImg": {"url": ""}
+          },
+          {
+            "_key": "5",
+            "description": "SSD storage",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-hdd",
+            "tooltipTypo": {"openTypography": 0},
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {"url": "", "target": "", "nofollow": ""},
+            "iconImg": {"url": ""}
+          },
+          {
+            "_key": "6",
+            "description": "CDN integration",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-globe",
+            "tooltipTypo": {"openTypography": 0},
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {"url": "", "target": "", "nofollow": ""},
+            "iconImg": {"url": ""}
+          },
+          {
+            "_key": "7",
+            "description": "Staging environment",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-flask",
+            "tooltipTypo": {"openTypography": 0},
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {"url": "", "target": "", "nofollow": ""},
+            "iconImg": {"url": ""}
+          }
+        ],
+        "iconNormalColor": "#27ae60",
+        "iconSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "15",
+            "unit": "px"
+          }
+        },
+        "textNormalColor": "#555555",
+        "textIndent": {
+          "md": "10",
+          "unit": "px"
+        },
+        "listSpaceBetween": {
+          "md": "12",
+          "unit": "px"
+        },
+        "toggleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "toggleNormalColor": "#667eea",
+        "toggleHoverColor": "#764ba2",
+        "toggleIndent": {
+          "md": "15",
+          "unit": "px"
+        }
+      },
+      "useCase": "Pricing tables with many features, hosting plans, product specifications, long feature lists"
+    },
+    {
+      "name": "List with Separator Lines",
+      "description": "Vertical list with separator lines between items for clear visual division",
+      "visualDescription": "Full-width items, light gray separator lines between each item, clean organized layout",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "sl007",
+        "listType": "vertical",
+        "alignment": {
+          "md": "left"
+        },
+        "listsRepeater": [
+          {
+            "_key": "0",
+            "description": "Project Management",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-tasks",
+            "tooltipTypo": {"openTypography": 0},
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "/features/project-management",
+              "target": "_self",
+              "nofollow": ""
+            },
+            "iconImg": {"url": ""}
+          },
+          {
+            "_key": "1",
+            "description": "Time Tracking",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-clock",
+            "tooltipTypo": {"openTypography": 0},
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "/features/time-tracking",
+              "target": "_self",
+              "nofollow": ""
+            },
+            "iconImg": {"url": ""}
+          },
+          {
+            "_key": "2",
+            "description": "Team Collaboration",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-users",
+            "tooltipTypo": {"openTypography": 0},
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "/features/collaboration",
+              "target": "_self",
+              "nofollow": ""
+            },
+            "iconImg": {"url": ""}
+          },
+          {
+            "_key": "3",
+            "description": "File Sharing",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-folder-open",
+            "tooltipTypo": {"openTypography": 0},
+            "tooltipText": "",
+            "hintText": "",
+            "descurl": {
+              "url": "/features/file-sharing",
+              "target": "_self",
+              "nofollow": ""
+            },
+            "iconImg": {"url": ""}
+          }
+        ],
+        "iconNormalColor": "#667eea",
+        "iconHoverColor": "#764ba2",
+        "iconSize": {
+          "md": "20",
+          "unit": "px"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "16",
+            "unit": "px"
+          },
+          "fontWeight": "500"
+        },
+        "textNormalColor": "#333333",
+        "textHoverColor": "#667eea",
+        "textIndent": {
+          "md": "12",
+          "unit": "px"
+        },
+        "listSpaceBetween": {
+          "md": "15",
+          "unit": "px"
+        },
+        "separatorColor": "#e0e0e0",
+        "textPadding": {
+          "md": {
+            "top": "12",
+            "right": "0",
+            "bottom": "12",
+            "left": "0"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Navigation lists, table of contents, resource links, documentation menus"
+    },
+    {
+      "name": "Hover Inverse Effect - Dim Others on Hover",
+      "description": "Advanced hover effect where hovering one item dims all others",
+      "visualDescription": "Normal state: all items full opacity. Hover state: hovered item stays bright, others fade to 40% opacity",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "sl008",
+        "listType": "vertical",
+        "alignment": {
+          "md": "left"
+        },
+        "hover_bg_style": true,
+        "hoverInverseEffect": true,
+        "unhoverItemOpacity": "0.4",
+        "effectArea": "individual",
+        "listsRepeater": [
+          {
+            "_key": "0",
+            "description": "Premium WordPress Hosting",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fab fa-wordpress",
+            "tooltipTypo": {"openTypography": 0},
+            "tooltipText": "",
+            "hintText": "$29/mo",
+            "hintColor": "#667eea",
+            "hintBgColor": "transparent",
+            "descurl": {"url": "", "target": "", "nofollow": ""},
+            "iconImg": {"url": ""},
+            "hoverBgItem": {
+              "bgType": "color",
+              "bgDefaultColor": "#f8f9fa"
+            }
+          },
+          {
+            "_key": "1",
+            "description": "Managed Cloud Hosting",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-cloud",
+            "tooltipTypo": {"openTypography": 0},
+            "tooltipText": "",
+            "hintText": "$49/mo",
+            "hintColor": "#667eea",
+            "hintBgColor": "transparent",
+            "descurl": {"url": "", "target": "", "nofollow": ""},
+            "iconImg": {"url": ""},
+            "hoverBgItem": {
+              "bgType": "color",
+              "bgDefaultColor": "#f8f9fa"
+            }
+          },
+          {
+            "_key": "2",
+            "description": "Dedicated Server Solutions",
+            "selectIcon": "fontawesome",
+            "iconFontawesome": "fas fa-server",
+            "tooltipTypo": {"openTypography": 0},
+            "tooltipText": "",
+            "hintText": "$99/mo",
+            "hintColor": "#667eea",
+            "hintBgColor": "transparent",
+            "descurl": {"url": "", "target": "", "nofollow": ""},
+            "iconImg": {"url": ""},
+            "hoverBgItem": {
+              "bgType": "color",
+              "bgDefaultColor": "#f8f9fa"
+            }
+          }
+        ],
+        "iconNormalColor": "#667eea",
+        "iconHoverColor": "#764ba2",
+        "iconSize": {
+          "md": "22",
+          "unit": "px"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "18",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "textNormalColor": "#333333",
+        "textHoverColor": "#667eea",
+        "textIndent": {
+          "md": "15",
+          "unit": "px"
+        },
+        "listSpaceBetween": {
+          "md": "5",
+          "unit": "px"
+        },
+        "textPadding": {
+          "md": {
+            "top": "15",
+            "right": "15",
+            "bottom": "15",
+            "left": "15"
+          },
+          "unit": "px"
+        },
+        "textBRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "pinAlignment": "right",
+        "pinTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "16",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        }
+      },
+      "useCase": "Pricing comparisons, product selection, interactive service menus, focus-on-hover designs"
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "block_id": "Required - Unique identifier for the block",
+    "listsRepeater": "Required - Array of list items, minimum 1 item",
+    "listsRepeater[].description": "Required - Text content for each list item",
+    "listsRepeater[].selectIcon": "Required - 'fontawesome' or 'image' for icon type",
+    "listsRepeater[].iconFontawesome": "Required when selectIcon='fontawesome' - FontAwesome class",
+    "listsRepeater[].iconImg.url": "Required when selectIcon='image' - Image URL",
+    "listsRepeater[]._key": "Required - Unique key for each item (string or number)",
+    "listType": "'vertical' or 'horizontal' - Controls list direction",
+    "alignment.md": "left, center, right, or justify",
+    "iconAdvancedStyle": "Must be true to enable iconWidth, iconBorder, iconBg, iconBoxShadow",
+    "readMoreToggle": "Must be true to enable read more functionality",
+    "showListToggle": "Number as string (e.g., '3') - Items to show initially when readMoreToggle=true",
+    "readMoreText": "Text for expand button (default: '+ Show all options')",
+    "readLessText": "Text for collapse button (default: '- Less options')",
+    "pinAlignment": "'left' or 'right' - Position of hint badges",
+    "hoverInverseEffect": "Must be true to enable unhoverItemOpacity",
+    "tipPlacement": "top, bottom, left, right - Tooltip position",
+    "tipTriggers": "mouseenter, click, focus - Tooltip trigger event",
+    "separatorColor": "Hex color - Creates border lines between items when set"
+  },
+
+  "warnings": [
+    "⚠️ iconAdvancedStyle must be true to use iconWidth, iconBorder, iconBg, iconBoxShadow (otherwise they're ignored)",
+    "⚠️ listsRepeater[].selectIcon must match icon source: 'fontawesome' requires iconFontawesome, 'image' requires iconImg.url",
+    "⚠️ Each listsRepeater item requires unique _key value (use sequential numbers: '0', '1', '2', etc.)",
+    "⚠️ readMoreToggle requires showListToggle (number of initially visible items) to function",
+    "⚠️ Tooltips require Tippy.js library to be loaded (included with TPGB plugin)",
+    "⚠️ hintText badges require hintColor and hintBgColor to be visible",
+    "⚠️ horizontalSpaceBetween only applies when listType='horizontal'",
+    "⚠️ descurl.url creates clickable links - entire list item becomes clickable",
+    "⚠️ separatorColor creates full-width border lines - requires width:100% on items",
+    "⚠️ hoverInverseEffect only works when hover_bg_style=true or hoverBgItem is set",
+    "⚠️ iconWidth creates fixed-size icon containers - ensure value is large enough for icon",
+    "⚠️ Typography settings require openTypography=1 to take effect",
+    "⚠️ Horizontal lists may wrap on mobile - test with responsive breakpoints",
+    "⚠️ Long lists without readMoreToggle may cause page scroll issues",
+    "⚠️ External links (descurl.target='_blank') should include nofollow for SEO"
+  ],
+
+  "commonMistakes": [
+    "❌ Forgetting _key property on listsRepeater items (required for React rendering)",
+    "❌ Using duplicate _key values (causes rendering conflicts)",
+    "❌ Setting iconAdvancedStyle=false while configuring iconBg/iconWidth (won't render)",
+    "❌ Using iconFontawesome when selectIcon='image' (icon won't show)",
+    "❌ Not setting readMoreToggle=true when using showListToggle (toggle won't appear)",
+    "❌ Setting hintText without hintBgColor (badge may be invisible)",
+    "❌ Using horizontalSpaceBetween with listType='vertical' (no effect)",
+    "❌ Not providing tooltipText when configuring tooltip styles (empty tooltip)",
+    "❌ Forgetting to set openTypography=1 before setting font sizes",
+    "❌ Using very small iconWidth values (<30px) that cut off icons",
+    "❌ Setting pinAlignment without providing hintText on items (no badges to position)",
+    "❌ Using hoverInverseEffect without hover_bg_style or hoverBgItem (no visual change)",
+    "❌ Creating long horizontal lists that break mobile layout (test responsiveness)",
+    "❌ Using showListToggle='all' instead of a number (must be numeric string like '3')",
+    "❌ Not testing tooltip placement on different screen positions (may go off-screen)"
+  ],
+
+  "bestPractices": [
+    "✅ Use sequential numeric _key values ('0', '1', '2') for simplicity and consistency",
+    "✅ Keep list item descriptions concise (1-2 lines) for better readability",
+    "✅ Use iconAdvancedStyle for premium designs with backgrounds and shadows",
+    "✅ Enable readMoreToggle for lists with >5-6 items to avoid overwhelming users",
+    "✅ Show 3-5 items initially with readMoreToggle (sweet spot for most use cases)",
+    "✅ Use hintText badges sparingly to highlight 'New', 'Pro', 'Hot' features",
+    "✅ Set descriptive tooltipText for technical features that need explanation",
+    "✅ Use horizontal lists for social media icons, tags, or navigation",
+    "✅ Add separatorColor for clean division in navigation or menu-style lists",
+    "✅ Use circular iconBorderRadius (50%) with equal iconWidth for round icons",
+    "✅ Apply hover effects (iconHoverColor, textHoverColor) for better interactivity",
+    "✅ Use hoverInverseEffect for pricing comparisons or product selections",
+    "✅ Set responsive iconSize (md/sm/xs) for better mobile experience",
+    "✅ Use textIndent (10-15px) to create comfortable spacing between icon and text",
+    "✅ Apply listSpaceBetween (15-20px) for comfortable vertical spacing",
+    "✅ Use FontAwesome brand icons (fab) for social media, regular (fas) for features",
+    "✅ Set target='_blank' and nofollow='nofollow' for external descurl links",
+    "✅ Use gradient iconBg for modern, eye-catching icon backgrounds",
+    "✅ Test tooltips on all screen sizes - adjust tipPlacement as needed",
+    "✅ Use consistent icon sizes within a single list for visual harmony"
+  ],
+
+  "styleFeatures": {
+    "listType": {
+      "vertical": {
+        "description": "Items stacked vertically",
+        "bestFor": "Feature lists, navigation menus, specifications",
+        "spacing": "Use listSpaceBetween for vertical gaps"
+      },
+      "horizontal": {
+        "description": "Items arranged horizontally in a row",
+        "bestFor": "Social media icons, tags, categories, navigation",
+        "spacing": "Use horizontalSpaceBetween for horizontal gaps",
+        "note": "May wrap to multiple lines on mobile"
+      }
+    },
+    "iconAdvancedStyle": {
+      "description": "Enables background, border, shadow, and fixed sizing for icons",
+      "requirements": "Must be true to use iconWidth, iconBg, iconBorder, iconBoxShadow",
+      "bestFor": "Premium designs, service highlights, feature showcases"
+    },
+    "readMoreToggle": {
+      "description": "Show/hide functionality for long lists",
+      "requirements": "Set showListToggle to number of initially visible items",
+      "bestFor": "Feature lists >5 items, pricing tables, specifications",
+      "customization": "Customize readMoreText and readLessText labels"
+    },
+    "hintBadges": {
+      "description": "Small badges/pins attached to list items (e.g., 'New', 'Pro')",
+      "positioning": "Use pinAlignment ('left' or 'right')",
+      "styling": "Control with pinTypo, pinPadding, pinBRadius",
+      "bestFor": "Highlighting new features, pricing labels, status indicators"
+    },
+    "tooltips": {
+      "description": "Tippy.js powered hover tooltips for additional information",
+      "triggers": "tipTriggers: mouseenter (hover), click, or focus",
+      "placement": "tipPlacement: top, bottom, left, right",
+      "styling": "tipBg, tipPadding, tipBorderRadius, tipBoxShadow",
+      "bestFor": "Technical explanations, help text, feature details"
+    },
+    "hoverInverseEffect": {
+      "description": "Dims all items except the hovered one",
+      "requirements": "Set hoverInverseEffect=true and unhoverItemOpacity (0-1)",
+      "bestFor": "Pricing tables, product comparisons, focus-driven designs",
+      "note": "Creates dramatic focus effect on hover"
+    }
+  },
+
+  "responsivePatterns": [
+    "📱 Reduce iconSize on mobile: md:20px → sm:18px → xs:16px",
+    "📱 Adjust iconWidth for advanced icons: md:50px → sm:45px → xs:40px",
+    "📱 Decrease horizontalSpaceBetween on mobile: md:25px → sm:20px → xs:15px",
+    "📱 Reduce textIndent on mobile to save space: md:15px → sm:12px → xs:10px",
+    "📱 Test horizontal lists on mobile - they may wrap to multiple rows",
+    "📱 Adjust listSpaceBetween for mobile: md:20px → sm:16px → xs:12px",
+    "📱 Consider switching horizontal to vertical on mobile for better UX",
+    "📱 Reduce font sizes in textTypo for mobile readability",
+    "📱 Test tooltips on mobile - they may go off-screen (adjust tipPlacement)",
+    "📱 Reduce textPadding on mobile for better space utilization"
+  ],
+
+  "accessibilityNotes": [
+    "♿ Use semantic link markup for descurl items (creates proper <a> tags)",
+    "♿ Ensure sufficient color contrast for text (4.5:1 minimum WCAG AA)",
+    "♿ Icon color alone shouldn't convey meaning - text should be descriptive",
+    "♿ Tooltips should supplement, not replace essential information",
+    "♿ Test keyboard navigation for linked items (Tab key accessibility)",
+    "♿ Provide alt text if using iconImg custom images",
+    "♿ Ensure hover effects don't hide critical information from touch users",
+    "♿ Use descriptive description text - screen readers announce this content",
+    "♿ HintText badges should enhance, not replace main description",
+    "♿ Test with screen readers to verify proper list structure announcement"
+  ],
+
+  "performanceConsiderations": [
+    "⚡ Long lists (>20 items) should use readMoreToggle to avoid render overhead",
+    "⚡ Tooltips add Tippy.js library (~20KB) if not already loaded",
+    "⚡ FontAwesome adds ~70KB font file if not already included in theme",
+    "⚡ Gradient backgrounds (iconBg) are GPU-accelerated but heavier than solid colors",
+    "⚡ hoverInverseEffect triggers opacity changes on all items - test with many items",
+    "⚡ Box shadows with large blur values (>20px) can impact paint performance",
+    "⚡ Custom iconImg images should be optimized (<50KB per icon recommended)",
+    "⚡ Limit number of hover effects in a single list for better performance",
+    "⚡ Avoid very large iconWidth values (>100px) unless necessary",
+    "⚡ Test scroll performance with 20+ items on mobile devices"
+  ],
+
+  "integrationPatterns": [
+    "🔗 Use in tp-column for side-by-side feature comparisons",
+    "🔗 Place inside tp-container for full-width feature sections",
+    "🔗 Combine with tp-heading above for 'Features' or 'Benefits' sections",
+    "🔗 Use horizontally in footer for social media links",
+    "🔗 Integrate with tp-pricing-table to list plan features",
+    "🔗 Use with tp-accordion-inner for expandable feature details",
+    "🔗 Combine multiple lists in tp-tabs-tours for categorized features",
+    "🔗 Use in sidebar widgets for navigation or resource links",
+    "🔗 Pair with tp-button below for 'Get Started' CTAs",
+    "🔗 Use with tp-repeater-block for ACF-powered dynamic lists"
+  ],
+
+  "commonPatterns": {
+    "featureCheckList": {
+      "description": "Simple vertical list with check icons for pricing/features",
+      "attributes": ["listType=vertical", "iconFontawesome=fas fa-check-circle", "iconNormalColor=green", "simple styling"]
+    },
+    "socialMediaIcons": {
+      "description": "Horizontal row of social icons with links",
+      "attributes": ["listType=horizontal", "iconFontawesome=fab fa-*", "descurl with target=_blank", "center alignment"]
+    },
+    "badgedFeatures": {
+      "description": "Features with 'New' or 'Pro' badges",
+      "attributes": ["hintText set on select items", "hintBgColor for badge background", "pinAlignment=right"]
+    },
+    "advancedStyledIcons": {
+      "description": "Icons with circular backgrounds and shadows",
+      "attributes": ["iconAdvancedStyle=true", "iconWidth=50px", "iconBorderRadius=50%", "iconBg gradient", "iconBoxShadow"]
+    },
+    "tooltipHelpList": {
+      "description": "List with hover tooltips for explanations",
+      "attributes": ["tooltipText on each item", "tipPlacement=top", "tipBg dark color", "tooltip styling"]
+    },
+    "readMoreFeatureList": {
+      "description": "Long feature list with show/hide toggle",
+      "attributes": ["readMoreToggle=true", "showListToggle=3", "readMoreText custom", "8+ items"]
+    },
+    "separatedNavList": {
+      "description": "Navigation list with separator lines",
+      "attributes": ["separatorColor set", "descurl links", "textPadding for clickable area", "vertical layout"]
+    },
+    "hoverFocusList": {
+      "description": "Interactive list that dims others on hover",
+      "attributes": ["hoverInverseEffect=true", "unhoverItemOpacity=0.4", "hoverBgItem set", "hover_bg_style=true"]
+    }
+  }
 }

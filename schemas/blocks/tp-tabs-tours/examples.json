@@ -2,84 +2,644 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-tabs-tours",
   "title": "Tabs Tours - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for the Tabs Tours block",
   "examples": [
     {
-      "description": "Simple horizontal tabs with icons",
+      "name": "Simple Horizontal Tabs - 3 Items",
+      "description": "Basic horizontal tabs with icons, top navigation",
+      "visualDescription": "3 tabs horizontally aligned at top, each with FontAwesome icon and title, purple active tab color, clean minimal design",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "tabs01",
         "tabLayout": "horizontal",
         "navPosition": "top",
+        "activeTab": "1",
+        "onhoverTab": "click",
         "tablistRepeater": [
           {
+            "_key": "0",
             "tabTitle": "Features",
+            "innerIcon": true,
+            "iconFonts": "font_awesome",
             "innericonName": "fas fa-star",
-            "innerIcon": true,
-            "tabDescription": "Discover our amazing features."
+            "contentType": "content",
+            "tabDescription": "<p>Discover our amazing features including advanced analytics, real-time collaboration, and powerful integrations.</p>"
           },
           {
+            "_key": "1",
             "tabTitle": "Pricing",
-            "innericonName": "fas fa-dollar-sign",
             "innerIcon": true,
-            "tabDescription": "View our pricing plans."
+            "iconFonts": "font_awesome",
+            "innericonName": "fas fa-dollar-sign",
+            "contentType": "content",
+            "tabDescription": "<p>Flexible pricing plans for teams of all sizes. Start free and scale as you grow.</p>"
           },
           {
+            "_key": "2",
             "tabTitle": "Support",
-            "innericonName": "fas fa-headset",
             "innerIcon": true,
-            "tabDescription": "Get help from our team."
+            "iconFonts": "font_awesome",
+            "innericonName": "fas fa-headset",
+            "contentType": "content",
+            "tabDescription": "<p>24/7 priority support with dedicated account management and onboarding assistance.</p>"
           }
         ]
-      }
+      },
+      "useCase": "Product features, service offerings, pricing plans, FAQ sections",
+      "responsiveNotes": "Tabs stack vertically on mobile automatically when hideToggle is not set",
+      "accessibilityNotes": "Each tab title acts as a button for keyboard navigation"
     },
     {
-      "description": "Vertical tabs with custom styling",
+      "name": "Vertical Tabs with Left Navigation",
+      "description": "Vertical tabs with navigation on the left side, custom width",
+      "visualDescription": "250px wide left sidebar with vertical tabs, content area on right, gradient background on active tab, 8px border radius",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "tabs02",
         "tabLayout": "vertical",
         "navPosition": "left",
+        "activeTab": "0",
         "vernavWidth": {
           "md": "250",
+          "sm": "200",
+          "xs": "100",
           "unit": "px"
         },
-        "titleColor": "#2c3e50",
-        "titleActcolor": "#667eea",
-        "tabbgType": {
-          "openBg": 1,
-          "bgType": "color",
-          "bgDefaultColor": "#f7f9fc"
-        }
-      }
-    },
-    {
-      "description": "Tabs with underline and hover activation",
-      "attributes": {
-        "block_id": "e5f6",
-        "onhoverTab": "hover",
-        "underline": true,
-        "ulineColor": "#667eea",
-        "activeTab": "1"
-      }
-    },
-    {
-      "description": "Template-based tabs with swiper effect",
-      "attributes": {
-        "block_id": "g7h8",
-        "swiperEffect": true,
         "tablistRepeater": [
           {
-            "tabTitle": "Overview",
-            "contentType": "template",
-            "blockTemp": "tab-template-1"
+            "_key": "0",
+            "tabTitle": "Dashboard",
+            "innerIcon": true,
+            "innericonName": "fas fa-tachometer-alt",
+            "tabDescription": "<p>Overview of your account activity, statistics, and recent updates.</p>"
           },
           {
-            "tabTitle": "Details",
-            "contentType": "template",
-            "blockTemp": "tab-template-2"
+            "_key": "1",
+            "tabTitle": "Settings",
+            "innerIcon": true,
+            "innericonName": "fas fa-cog",
+            "tabDescription": "<p>Configure your preferences, notifications, and integration settings.</p>"
+          },
+          {
+            "_key": "2",
+            "tabTitle": "Profile",
+            "innerIcon": true,
+            "innericonName": "fas fa-user",
+            "tabDescription": "<p>Manage your profile information, password, and privacy settings.</p>"
+          },
+          {
+            "_key": "3",
+            "tabTitle": "Billing",
+            "innerIcon": true,
+            "innericonName": "fas fa-credit-card",
+            "tabDescription": "<p>View invoices, update payment methods, and manage subscriptions.</p>"
           }
         ]
+      },
+      "useCase": "Admin panels, settings pages, dashboards, account management, sidebar navigation",
+      "responsiveNotes": "vernavWidth reduces from 250px (desktop) to 100% width on mobile",
+      "warnings": [
+        "tabLayout must be 'vertical' for navPosition 'left' or 'right' to work",
+        "vernavWidth only applies when tabLayout is 'vertical'"
+      ],
+      "validationRules": {
+        "vernavWidth": "Only applies when tabLayout is 'vertical'",
+        "navPosition": "Use 'left' or 'right' only with vertical layout, 'top' or 'bottom' with horizontal"
       }
+    },
+    {
+      "name": "Tabs with Full-Width Icons Above Text",
+      "description": "Icons displayed above text in full-width mode",
+      "visualDescription": "Large icons (40px) centered above tab titles, full-width icon containers, clean spacing, purple icons on active",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "tabs03",
+        "tabLayout": "horizontal",
+        "navPosition": "top",
+        "fullwidthIcon": true,
+        "activeTab": "1",
+        "iconSize": {
+          "md": "40",
+          "sm": "32",
+          "xs": "28",
+          "unit": "px"
+        },
+        "iconColor": "#6b7280",
+        "iconActcolor": "#667eea",
+        "iconSpacing": {
+          "md": "12",
+          "unit": "px"
+        },
+        "tablistRepeater": [
+          {
+            "_key": "0",
+            "tabTitle": "Strategy",
+            "innerIcon": true,
+            "innericonName": "fas fa-chess",
+            "tabDescription": "<p>Develop winning strategies with our expert consulting and planning services.</p>"
+          },
+          {
+            "_key": "1",
+            "tabTitle": "Design",
+            "innerIcon": true,
+            "innericonName": "fas fa-palette",
+            "tabDescription": "<p>Create stunning designs with our award-winning creative team.</p>"
+          },
+          {
+            "_key": "2",
+            "tabTitle": "Development",
+            "innerIcon": true,
+            "innericonName": "fas fa-code",
+            "tabDescription": "<p>Build robust applications with cutting-edge technology and best practices.</p>"
+          }
+        ]
+      },
+      "useCase": "Service showcases, process steps, feature highlights, icon-heavy designs",
+      "warnings": [
+        "fullwidthIcon: true places icons above text instead of next to it",
+        "iconSpacing changes from horizontal (padding-right) to vertical (padding-bottom) when fullwidthIcon is true"
+      ],
+      "bestPractices": [
+        "Use larger iconSize (32-48px) with fullwidthIcon for better visual impact",
+        "Provide clear, concise tab titles when icons are above text"
+      ]
+    },
+    {
+      "name": "Hover-Activated Tabs with Underline",
+      "description": "Tabs that activate on hover instead of click, with animated underline",
+      "visualDescription": "Tabs change on hover, 3px purple underline slides under active tab with smooth animation, no backgrounds, clean minimal design",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "tabs04",
+        "tabLayout": "horizontal",
+        "navPosition": "top",
+        "onhoverTab": "hover",
+        "activeTab": "0",
+        "tablistRepeater": [
+          {
+            "_key": "0",
+            "tabTitle": "Overview",
+            "tabDescription": "<p>Get a quick overview of our platform capabilities and features.</p>"
+          },
+          {
+            "_key": "1",
+            "tabTitle": "Details",
+            "tabDescription": "<p>Dive deep into technical specifications and implementation details.</p>"
+          },
+          {
+            "_key": "2",
+            "tabTitle": "Reviews",
+            "tabDescription": "<p>See what our customers are saying about their experience.</p>"
+          }
+        ]
+      },
+      "useCase": "Quick previews, desktop-only experiences, product showcases where users scan quickly",
+      "warnings": [
+        "onhoverTab: 'hover' doesn't work on touch devices (mobile/tablet) - tabs won't switch",
+        "Not recommended for critical content that must be accessible on mobile",
+        "May cause accessibility issues for keyboard navigation users"
+      ],
+      "accessibilityNotes": "Hover-activated tabs are not accessible via keyboard - use onhoverTab: 'click' for better accessibility",
+      "bestPractices": [
+        "Only use hover activation for desktop-only experiences",
+        "Provide alternative navigation for mobile users",
+        "Use click activation (default) for accessible, mobile-friendly tabs"
+      ]
+    },
+    {
+      "name": "Swiper Effect Tabs with Smooth Transitions",
+      "description": "Tabs with swipe effect for smooth content transitions",
+      "visualDescription": "Content slides in from right when switching tabs, smooth 300ms animation, works well on touch devices, swipe gestures supported",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "tabs05",
+        "tabLayout": "horizontal",
+        "navPosition": "top",
+        "swiperEffect": true,
+        "activeTab": "0",
+        "tablistRepeater": [
+          {
+            "_key": "0",
+            "tabTitle": "Step 1",
+            "innerIcon": true,
+            "innericonName": "fas fa-download",
+            "tabDescription": "<p>Download our app from the App Store or Google Play.</p>"
+          },
+          {
+            "_key": "1",
+            "tabTitle": "Step 2",
+            "innerIcon": true,
+            "innericonName": "fas fa-user-plus",
+            "tabDescription": "<p>Create your account with email or social login.</p>"
+          },
+          {
+            "_key": "2",
+            "tabTitle": "Step 3",
+            "innerIcon": true,
+            "innericonName": "fas fa-rocket",
+            "tabDescription": "<p>Start using all features immediately, no credit card required.</p>"
+          }
+        ]
+      },
+      "useCase": "Step-by-step guides, onboarding flows, tutorials, mobile-friendly content",
+      "warnings": [
+        "swiperEffect requires all tab content to be preloaded - may impact performance with many tabs",
+        "Swipe gestures only work on touch devices (mobile/tablet)"
+      ],
+      "bestPractices": [
+        "Use swiperEffect for sequential content (steps, timelines, processes)",
+        "Limit to 3-5 tabs for best performance with swiper",
+        "Test swipe gestures on actual mobile devices"
+      ]
+    },
+    {
+      "name": "Tabs with Template Content (Pro)",
+      "description": "Tabs loading content from reusable block templates",
+      "visualDescription": "Each tab loads pre-built template blocks, allows complex layouts per tab, template IDs referenced in blockTemp",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "tabs06",
+        "tabLayout": "horizontal",
+        "navPosition": "top",
+        "activeTab": "0",
+        "tablistRepeater": [
+          {
+            "_key": "0",
+            "tabTitle": "Free Plan",
+            "contentType": "template",
+            "blockTemp": "pricing-free-template",
+            "innerIcon": true,
+            "innericonName": "fas fa-gift"
+          },
+          {
+            "_key": "1",
+            "tabTitle": "Pro Plan",
+            "contentType": "template",
+            "blockTemp": "pricing-pro-template",
+            "innerIcon": true,
+            "innericonName": "fas fa-star"
+          },
+          {
+            "_key": "2",
+            "tabTitle": "Enterprise",
+            "contentType": "template",
+            "blockTemp": "pricing-enterprise-template",
+            "innerIcon": true,
+            "innericonName": "fas fa-building"
+          }
+        ]
+      },
+      "useCase": "Pricing tables with complex layouts, product comparisons, feature matrices, reusable content blocks",
+      "warnings": [
+        "contentType: 'template' requires blockTemp to be set with valid template ID/slug",
+        "Template blocks must exist in WordPress before tabs will display content",
+        "Template content is not visible in block editor - only on frontend"
+      ],
+      "validationRules": {
+        "contentType": "Either 'content' (default) or 'template'",
+        "blockTemp": "Required when contentType is 'template' - must be valid template slug"
+      },
+      "relatedPatterns": [
+        "Pricing comparison tables across multiple plans",
+        "Product feature comparisons",
+        "Complex layouts that need to be reused"
+      ]
+    },
+    {
+      "name": "Responsive Tabs with Mobile Accordion",
+      "description": "Tabs that convert to accordion on mobile for better UX",
+      "visualDescription": "Horizontal tabs on desktop (md), accordion on mobile (xs), hideToggle controls when to switch, seamless responsive behavior",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "tabs07",
+        "tabLayout": "horizontal",
+        "navPosition": "top",
+        "activeTab": "0",
+        "hideToggle": {
+          "md": false,
+          "sm": false,
+          "xs": true
+        },
+        "tablistRepeater": [
+          {
+            "_key": "0",
+            "tabTitle": "Product Info",
+            "innerIcon": true,
+            "innericonName": "fas fa-info-circle",
+            "tabDescription": "<p>Detailed product information, specifications, and compatibility.</p>"
+          },
+          {
+            "_key": "1",
+            "tabTitle": "Reviews",
+            "innerIcon": true,
+            "innericonName": "fas fa-star",
+            "tabDescription": "<p>Customer reviews and ratings from verified purchasers.</p>"
+          },
+          {
+            "_key": "2",
+            "tabTitle": "Shipping",
+            "innerIcon": true,
+            "innericonName": "fas fa-truck",
+            "tabDescription": "<p>Shipping options, costs, and estimated delivery times.</p>"
+          }
+        ]
+      },
+      "useCase": "E-commerce product pages, content-heavy pages that need different layouts on mobile vs desktop",
+      "warnings": [
+        "hideToggle.xs: true converts tabs to accordion on mobile",
+        "Test mobile accordion behavior - ensures content is accessible on small screens"
+      ],
+      "bestPractices": [
+        "Use hideToggle for responsive tab-to-accordion conversion on mobile",
+        "Test on actual mobile devices to ensure accordion works properly",
+        "Consider mobile-first design when planning tab content"
+      ],
+      "responsiveNotes": "hideToggle controls whether tabs display at each breakpoint - when hidden, content becomes accordion"
+    },
+    {
+      "name": "Advanced: Styled Tabs with Icons and Outer Separators",
+      "description": "Comprehensive example with all styling features",
+      "visualDescription": "Gradient active tab, rounded borders, icon backgrounds, outer separator icons between tabs, custom spacing, shadows",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "tabs08",
+        "tabLayout": "horizontal",
+        "navPosition": "top",
+        "activeTab": "1",
+        "onhoverTab": "click",
+        "fullwidthIcon": false,
+        "iconSize": {
+          "md": "20",
+          "unit": "px"
+        },
+        "iconColor": "#6b7280",
+        "iconActcolor": "#ffffff",
+        "iconwidth": {
+          "md": "44",
+          "unit": "px"
+        },
+        "iniconBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f3f4f6"
+        },
+        "HviniconBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "iconBor": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e7eb",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "iconBradius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "iconSpacing": {
+          "md": "12",
+          "unit": "px"
+        },
+        "outiconSize": {
+          "md": "14",
+          "unit": "px"
+        },
+        "outiconColor": "#d1d5db",
+        "outiconActColor": "#667eea",
+        "outiconSpa": {
+          "md": "15",
+          "unit": "px"
+        },
+        "tablistRepeater": [
+          {
+            "_key": "0",
+            "tabTitle": "Features",
+            "innerIcon": true,
+            "innericonName": "fas fa-rocket",
+            "outerIcon": true,
+            "outericonName": "fas fa-chevron-right",
+            "tabDescription": "<p>Comprehensive feature list with advanced capabilities...</p>"
+          },
+          {
+            "_key": "1",
+            "tabTitle": "Integrations",
+            "innerIcon": true,
+            "innericonName": "fas fa-plug",
+            "outerIcon": true,
+            "outericonName": "fas fa-chevron-right",
+            "tabDescription": "<p>Connect with your favorite tools and services...</p>"
+          },
+          {
+            "_key": "2",
+            "tabTitle": "API",
+            "innerIcon": true,
+            "innericonName": "fas fa-code",
+            "outerIcon": false,
+            "tabDescription": "<p>Powerful REST API for custom integrations...</p>"
+          }
+        ]
+      },
+      "useCase": "High-end marketing pages, feature showcases, premium designs",
+      "warnings": [
+        "outerIcon creates separator icons between tabs - set on individual tab items",
+        "Last tab should have outerIcon: false to avoid trailing separator",
+        "iconwidth creates circular icons only when border-radius is 50%"
+      ],
+      "bestPractices": [
+        "Use outerIcon for visual separation between tabs",
+        "Circular icons (iconwidth + 50% radius) work well with full-width icon mode",
+        "Ensure sufficient contrast between icon colors and backgrounds",
+        "Test all states: normal, hover, active"
+      ]
     }
   ],
-  "commonPatterns": {}
+  "commonPatterns": {
+    "simple_horizontal": {
+      "description": "Basic horizontal tabs with icons at top",
+      "attributes": {
+        "tabLayout": "horizontal",
+        "navPosition": "top",
+        "activeTab": "0",
+        "onhoverTab": "click"
+      }
+    },
+    "vertical_left_sidebar": {
+      "description": "Vertical tabs with left sidebar navigation",
+      "attributes": {
+        "tabLayout": "vertical",
+        "navPosition": "left",
+        "vernavWidth": {"md": "250", "unit": "px"}
+      }
+    },
+    "fullwidth_icons": {
+      "description": "Icons displayed above tab titles in full-width containers",
+      "attributes": {
+        "fullwidthIcon": true,
+        "iconSize": {"md": "40", "unit": "px"},
+        "iconSpacing": {"md": "12", "unit": "px"}
+      }
+    },
+    "responsive_accordion": {
+      "description": "Tabs convert to accordion on mobile",
+      "attributes": {
+        "hideToggle": {
+          "md": false,
+          "xs": true
+        }
+      }
+    }
+  },
+  "validationRules": {
+    "block_id": "Required - unique identifier for tabs block",
+    "tabLayout": "Either 'horizontal' or 'vertical' - determines tab orientation",
+    "navPosition": "For horizontal: 'top' or 'bottom'. For vertical: 'left' or 'right'",
+    "tablistRepeater": "Array of tab items - minimum 2 items required for meaningful tabs",
+    "activeTab": "String - index of default active tab (e.g., '0' for first, '1' for second)",
+    "onhoverTab": "Either 'click' (default, accessible) or 'hover' (desktop-only)",
+    "vernavWidth": "Only applies when tabLayout is 'vertical' - sets sidebar width",
+    "contentType": "In each tab item: either 'content' (default) or 'template'",
+    "blockTemp": "Required when contentType is 'template' - WordPress template slug",
+    "innerIcon": "Boolean in each tab item - when true, requires innericonName",
+    "outerIcon": "Boolean in each tab item - adds separator icon after tab"
+  },
+  "warnings": [
+    "Never modify block_id after tabs creation - breaks references",
+    "onhoverTab: 'hover' doesn't work on touch devices (mobile/tablet)",
+    "tabLayout and navPosition must be compatible (horizontal with top/bottom, vertical with left/right)",
+    "vernavWidth only applies when tabLayout is 'vertical'",
+    "fullwidthIcon places icons above text instead of next to it - increases tab height",
+    "swiperEffect preloads all tab content - may impact performance with many tabs",
+    "Template tabs (contentType: 'template') require existing WordPress templates",
+    "outerIcon on last tab creates trailing separator - set to false on last item",
+    "activeTab uses string index ('0', '1', '2') not numbers",
+    "hideToggle.xs: true converts tabs to accordion on mobile - test thoroughly"
+  ],
+  "commonMistakes": [
+    "Using navPosition: 'left' with tabLayout: 'horizontal' (incompatible)",
+    "Forgetting to set vernavWidth when using vertical layout",
+    "Using onhoverTab: 'hover' for critical mobile content",
+    "Setting outerIcon: true on the last tab (creates trailing separator)",
+    "Using number for activeTab instead of string (should be '0' not 0)",
+    "Not setting blockTemp when contentType is 'template'",
+    "Setting fullwidthIcon without increasing iconSize (icons too small)",
+    "Forgetting to set innericonName when innerIcon: true",
+    "Not testing hideToggle behavior on actual mobile devices",
+    "Using swiperEffect with 10+ tabs (performance issues)"
+  ],
+  "bestPractices": [
+    "Use horizontal layout for 2-5 tabs, vertical for 4+ tabs or sidebar navigation",
+    "Set activeTab to first tab ('0') or most important tab for better UX",
+    "Use click activation (onhoverTab: 'click') for accessibility and mobile compatibility",
+    "Provide icons for visual distinction between tabs (improves scanability)",
+    "Use fullwidthIcon mode for icon-heavy designs with short tab titles",
+    "Configure vernavWidth responsively (md: 250px → sm: 200px → xs: 100%)",
+    "Use hideToggle to convert tabs to accordion on mobile for better UX",
+    "Limit tabs to 5-7 items for best user experience (more = overwhelming)",
+    "Use semantic tab titles that clearly describe content",
+    "Test on mobile devices - tabs should be easy to tap (minimum 44×44px)",
+    "Use swiperEffect for sequential content (steps, processes, tutorials)"
+  ],
+  "responsiveStrategy": {
+    "description": "Tabs adapt to screen sizes using md (desktop), sm (tablet), xs (mobile) breakpoints",
+    "breakpoints": {
+      "md": "Desktop/default - typically 1024px and above",
+      "sm": "Tablet - typically 768px to 1023px",
+      "xs": "Mobile - typically below 768px"
+    },
+    "recommendedApproach": "Configure md first, then override sm/xs only where needed. Use hideToggle to convert tabs to accordion on mobile.",
+    "commonResponsivePatterns": [
+      "Convert tabs to accordion on mobile: hideToggle md: false → xs: true",
+      "Reduce vertical nav width on mobile: vernavWidth md: '250px' → xs: '100%'",
+      "Smaller icons on mobile: iconSize md: '40px' → xs: '28px'",
+      "Full-width tabs on mobile for easier tapping",
+      "Stack tab content vertically on small screens automatically"
+    ]
+  },
+  "accessibilityNotes": [
+    "Tabs should be keyboard navigable - Arrow keys to switch tabs, Tab to move to content",
+    "Use onhoverTab: 'click' for keyboard accessibility (hover doesn't work)",
+    "Tab titles act as buttons - provide clear, descriptive text",
+    "Ensure sufficient color contrast for tab text (WCAG AA: 4.5:1 minimum)",
+    "Active tab should have clear visual indicator (color, underline, border)",
+    "Use semantic HTML - tabs use proper ARIA roles automatically",
+    "Test keyboard navigation - users should be able to access all tabs via keyboard"
+  ],
+  "layoutModes": {
+    "description": "Tabs support two layout modes with different navigation positions",
+    "horizontal": {
+      "description": "Tabs arranged in a row",
+      "validNavPositions": ["top", "bottom"],
+      "useCase": "2-5 tabs, feature showcases, product information",
+      "visualPattern": "Tab1 | Tab2 | Tab3 (horizontal row)"
+    },
+    "vertical": {
+      "description": "Tabs arranged in a column (sidebar)",
+      "validNavPositions": ["left", "right"],
+      "useCase": "4+ tabs, admin panels, settings pages, dashboards",
+      "visualPattern": "Tab1\\nTab2\\nTab3 (vertical column)",
+      "requiredAttribute": "vernavWidth - sets sidebar width"
+    }
+  },
+  "templateMode": {
+    "description": "Using WordPress block templates for tab content",
+    "when_to_use": [
+      "Complex tab content that needs to be reused",
+      "Pricing tables with detailed feature lists",
+      "Product comparison tables",
+      "Content that changes frequently (update template, affects all instances)"
+    ],
+    "setup": {
+      "step1": "Create reusable block template in WordPress",
+      "step2": "Note the template slug (e.g., 'pricing-pro-template')",
+      "step3": "Set contentType: 'template' in tab item",
+      "step4": "Set blockTemp to template slug"
+    },
+    "warnings": [
+      "Template must exist before tabs will display content",
+      "Template content not visible in block editor - only on frontend",
+      "Deleting template breaks tab content"
+    ],
+    "bestPractices": [
+      "Use descriptive template names (pricing-free, features-pro, etc.)",
+      "Keep templates focused (one per tab use case)",
+      "Document which tabs use which templates"
+    ]
+  },
+  "iconModes": {
+    "description": "Different ways to display icons in tabs",
+    "inline_icons": {
+      "description": "Icons appear next to tab titles (default)",
+      "setting": "fullwidthIcon: false",
+      "useCase": "Standard tabs, compact designs",
+      "spacing": "iconSpacing controls horizontal space between icon and text"
+    },
+    "fullwidth_icons": {
+      "description": "Icons appear above tab titles in full-width containers",
+      "setting": "fullwidthIcon: true",
+      "useCase": "Icon-heavy designs, visual showcases, large icons",
+      "spacing": "iconSpacing controls vertical space between icon and text",
+      "recommendation": "Use larger iconSize (32-48px) for better visual impact"
+    },
+    "outer_icons": {
+      "description": "Separator icons between tabs",
+      "setting": "outerIcon: true (per tab item)",
+      "useCase": "Visual separation, step indicators, process flows",
+      "warning": "Set outerIcon: false on last tab to avoid trailing separator"
+    }
+  }
 }

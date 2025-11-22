@@ -2,44 +2,564 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-icon-box",
   "title": "Icon - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for standalone icons",
   "examples": [
     {
-      "description": "Simple icon with default view",
+      "name": "Simple Default Icon",
+      "description": "Plain icon without background or border, basic styling",
+      "visualDescription": "Purple star icon, centered, 48px size, no background, clean simple look",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "ico001",
         "icon": "fontAwesome",
-        "fIcon": "fas fa-heart",
+        "fIcon": "fas fa-star",
+        "iview": "default",
+        "iAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "iColor": "#667eea",
+        "ihColor": "#764ba2",
+        "ioSize": {
+          "md": "48",
+          "sm": "40",
+          "xs": "36",
+          "unit": "px"
+        },
+        "iLink": {
+          "url": "",
+          "target": "",
+          "nofollow": ""
+        }
+      },
+      "useCase": "Decorative icons, section dividers, simple visual accents, list markers"
+    },
+    {
+      "name": "Stacked Icon with Circular Background",
+      "description": "Icon with solid circular background for premium look",
+      "visualDescription": "White check icon on purple circular background, 60px container, shadow effect, elegant design",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ico002",
+        "icon": "fontAwesome",
+        "fIcon": "fas fa-check",
+        "iview": "stacked",
+        "iAlign": {
+          "md": "center"
+        },
+        "iColor": "#667eea",
+        "ihColor": "#764ba2",
+        "iseColor": "#ffffff",
+        "isehColor": "#ffffff",
+        "ioSize": {
+          "md": "24",
+          "unit": "px"
+        },
+        "iopadd": {
+          "md": "18",
+          "sm": "16",
+          "xs": "14",
+          "unit": "px"
+        },
+        "ioBRed": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "iLink": {
+          "url": "",
+          "target": "",
+          "nofollow": ""
+        }
+      },
+      "useCase": "Feature highlights, service icons, success indicators, achievement badges"
+    },
+    {
+      "name": "Framed Icon with Border Circle",
+      "description": "Icon with circular border outline, no background fill",
+      "visualDescription": "Blue envelope icon with matching blue circular border (2px), transparent interior, outlined style",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ico003",
+        "icon": "fontAwesome",
+        "fIcon": "fas fa-envelope",
+        "iview": "framed",
+        "iAlign": {
+          "md": "center"
+        },
+        "iColor": "#3498db",
+        "ihColor": "#2980b9",
+        "iseColor": "transparent",
+        "isehColor": "#ecf0f1",
+        "ioSize": {
+          "md": "22",
+          "unit": "px"
+        },
+        "iopadd": {
+          "md": "16",
+          "unit": "px"
+        },
+        "ioBor": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#3498db",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "ioBRed": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "iLink": {
+          "url": "",
+          "target": "",
+          "nofollow": ""
+        }
+      },
+      "useCase": "Contact sections, outlined CTAs, minimal design elements, icon buttons"
+    },
+    {
+      "name": "Linked Icon with Hover Effect",
+      "description": "Clickable icon that links to external URL with color transition on hover",
+      "visualDescription": "Green link icon, changes to dark green on hover, clickable to external page, opens new tab",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ico004",
+        "icon": "fontAwesome",
+        "fIcon": "fas fa-external-link-alt",
+        "iview": "default",
+        "iAlign": {
+          "md": "left"
+        },
+        "iColor": "#27ae60",
+        "ihColor": "#229954",
+        "ioSize": {
+          "md": "32",
+          "unit": "px"
+        },
+        "iLink": {
+          "url": "https://example.com",
+          "target": "_blank",
+          "nofollow": "nofollow"
+        }
+      },
+      "useCase": "External links, document downloads, social media icons, navigation links"
+    },
+    {
+      "name": "Rotated Icon for Visual Interest",
+      "description": "Icon with rotation applied for dynamic visual effect",
+      "visualDescription": "Orange lightning bolt icon rotated 15 degrees clockwise, creates dynamic diagonal orientation",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ico005",
+        "icon": "fontAwesome",
+        "fIcon": "fas fa-bolt",
         "iview": "default",
         "iAlign": {
           "md": "center"
         },
-        "iColor": "#e74c3c"
-      }
-    },
-    {
-      "description": "Stacked icon with background",
-      "attributes": {
-        "block_id": "c3d4",
-        "fIcon": "fas fa-check",
-        "iview": "stacked",
-        "iColor": "#27ae60"
-      }
-    },
-    {
-      "description": "Linked framed icon",
-      "attributes": {
-        "block_id": "e5f6",
-        "fIcon": "fas fa-external-link-alt",
-        "iview": "framed",
-        "iLink": {
-          "url": "https://example.com",
-          "target": "_blank"
+        "iColor": "#e67e22",
+        "ihColor": "#d35400",
+        "ioSize": {
+          "md": "42",
+          "unit": "px"
         },
-        "iColor": "#3498db",
-        "ihColor": "#2980b9"
-      }
+        "ioRotate": {
+          "md": "15",
+          "unit": "deg"
+        },
+        "iLink": {
+          "url": "",
+          "target": "",
+          "nofollow": ""
+        }
+      },
+      "useCase": "Dynamic accents, energy/speed indicators, attention-grabbing elements"
+    },
+    {
+      "name": "Custom SVG/Image Icon",
+      "description": "Custom uploaded image or SVG instead of FontAwesome",
+      "visualDescription": "Custom logo or graphic as icon, max-width 80px, responsive scaling, brand identity",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ico006",
+        "icon": "Ctm-svg",
+        "fIcon": "",
+        "isvg": {
+          "url": "https://example.com/path/to/custom-icon.svg"
+        },
+        "iview": "default",
+        "iAlign": {
+          "md": "center"
+        },
+        "ioSize": {
+          "md": "80",
+          "sm": "70",
+          "xs": "60",
+          "unit": "px"
+        },
+        "iLink": {
+          "url": "",
+          "target": "",
+          "nofollow": ""
+        }
+      },
+      "useCase": "Custom brand icons, logos, unique graphics, illustrations, proprietary symbols"
+    },
+    {
+      "name": "Absolutely Positioned Icon (Floating Badge)",
+      "description": "Icon with absolute positioning for overlay effects or corner badges",
+      "visualDescription": "Small red notification badge icon positioned in top-right corner (absolute), useful for overlays",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ico007",
+        "icon": "fontAwesome",
+        "fIcon": "fas fa-bell",
+        "iview": "stacked",
+        "iAlign": {
+          "md": "center"
+        },
+        "iColor": "#e74c3c",
+        "ihColor": "#c0392b",
+        "iseColor": "#ffffff",
+        "ioSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "iopadd": {
+          "md": "8",
+          "unit": "px"
+        },
+        "ioBRed": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "globalPosition": {
+          "md": "absolute",
+          "sm": "absolute",
+          "xs": "absolute"
+        },
+        "glohoriOffset": {
+          "md": "10",
+          "unit": "px"
+        },
+        "gloverticalOffset": {
+          "md": "10",
+          "unit": "px"
+        },
+        "gloabhorizoOri": "right",
+        "gloabverticalOri": "top",
+        "iLink": {
+          "url": "",
+          "target": "",
+          "nofollow": ""
+        }
+      },
+      "useCase": "Notification badges, corner decorations, overlay elements, floating indicators"
+    },
+    {
+      "name": "Large Stacked Icon with Rounded Square Background",
+      "description": "Premium icon with rounded square background and generous padding",
+      "visualDescription": "Large white shield icon on gradient purple background, rounded corners (not circle), 20px padding, high-impact design",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ico008",
+        "icon": "fontAwesome",
+        "fIcon": "fas fa-shield-alt",
+        "iview": "stacked",
+        "iAlign": {
+          "md": "center"
+        },
+        "iColor": "#667eea",
+        "ihColor": "#764ba2",
+        "iseColor": "#ffffff",
+        "isehColor": "#ffffff",
+        "ioSize": {
+          "md": "40",
+          "sm": "36",
+          "xs": "32",
+          "unit": "px"
+        },
+        "iopadd": {
+          "md": "25",
+          "sm": "22",
+          "xs": "20",
+          "unit": "px"
+        },
+        "ioBRed": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "iLink": {
+          "url": "",
+          "target": "",
+          "nofollow": ""
+        }
+      },
+      "useCase": "Hero section icons, feature showcases, large call-outs, security/trust indicators"
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "block_id": "Required - Unique identifier for the block",
+    "icon": "Required - 'fontAwesome' for FA icons or 'Ctm-svg' for custom images/SVG",
+    "fIcon": "Required when icon='fontAwesome' - FontAwesome class (e.g., 'fas fa-star')",
+    "isvg.url": "Required when icon='Ctm-svg' - URL to custom image/SVG file",
+    "iview": "Required - 'default' (plain), 'stacked' (background), or 'framed' (border)",
+    "iAlign.md": "left, center, or right - Controls horizontal alignment",
+    "iColor": "Color behavior depends on iview: default=icon color, stacked=background, framed=icon+border",
+    "ihColor": "Hover color - same behavior as iColor based on iview",
+    "iseColor": "Secondary color - stacked=icon color, framed=background color",
+    "isehColor": "Secondary hover color - matches iseColor behavior",
+    "ioSize": "Icon size in px - font-size for FontAwesome, max-width for custom SVG/images",
+    "ioRotate": "Rotation in degrees - 0-360 or negative values",
+    "iopadd": "Padding around icon - creates larger clickable/visual area",
+    "ioBRed": "Border radius - use 50% for perfect circles, px values for rounded squares",
+    "ioBor": "Border styling - only applies when iview='framed'",
+    "globalPosition": "CSS position property - relative, absolute, or fixed",
+    "glohoriOffset": "Horizontal offset when globalPosition is absolute/fixed",
+    "gloverticalOffset": "Vertical offset when globalPosition is absolute/fixed",
+    "gloabhorizoOri": "'left' or 'right' - which edge to offset from horizontally (undefined = needs manual setting)",
+    "gloabverticalOri": "'top' or 'bottom' - which edge to offset from vertically (undefined = needs manual setting)",
+    "iLink.url": "Optional - Makes entire icon clickable",
+    "iLink.target": "_self (same tab) or _blank (new tab)",
+    "iLink.nofollow": "Set to 'nofollow' for SEO no-follow links"
+  },
+
+  "warnings": [
+    "⚠️ icon type must match icon source: 'fontAwesome' requires fIcon, 'Ctm-svg' requires isvg.url",
+    "⚠️ iColor behavior changes based on iview: default=icon, stacked=background, framed=icon+border",
+    "⚠️ iseColor only applies to iview='stacked' (icon color) or 'framed' (background color)",
+    "⚠️ ioBor border settings only work when iview='framed' (ignored for default/stacked)",
+    "⚠️ For perfect circles, use ioBRed=50% on all corners AND equal iopadd on all sides",
+    "⚠️ globalPosition=absolute requires parent container with position:relative",
+    "⚠️ gloabhorizoOri and gloabverticalOri are required when using globalPosition=absolute/fixed",
+    "⚠️ Custom SVG/images (icon='Ctm-svg') use ioSize as max-width, not font-size",
+    "⚠️ Rotation (ioRotate) applies to all iview types but may look odd with backgrounds",
+    "⚠️ Large iopadd values on stacked/framed views create large icon containers",
+    "⚠️ iLink makes entire icon clickable - ensure sufficient size for touch targets (44px min recommended)",
+    "⚠️ External links (target='_blank') should include nofollow='nofollow' for SEO best practices"
+  ],
+
+  "commonMistakes": [
+    "❌ Using fIcon when icon='Ctm-svg' (FontAwesome class won't render custom image)",
+    "❌ Setting isvg.url when icon='fontAwesome' (custom image URL ignored)",
+    "❌ Expecting iseColor to work on iview='default' (only works on stacked/framed)",
+    "❌ Setting ioBor when iview='stacked' or 'default' (border only applies to framed)",
+    "❌ Using unequal ioBRed values expecting perfect circle (need 50% on all corners)",
+    "❌ Setting globalPosition=absolute without defining gloabhorizoOri/gloabverticalOri",
+    "❌ Forgetting to set parent container to position:relative for absolute positioning",
+    "❌ Using very small ioSize values (<16px) that hurt accessibility and mobile usability",
+    "❌ Not setting responsive ioSize values (md/sm/xs) for mobile scaling",
+    "❌ Using rotation on stacked/framed icons without considering background rotation",
+    "❌ Setting iLink.target='_blank' without nofollow for external links (SEO penalty)",
+    "❌ Creating very small clickable icons (<24px) that are hard to tap on mobile"
+  ],
+
+  "bestPractices": [
+    "✅ Use iview='default' for simple decorative icons without backgrounds",
+    "✅ Use iview='stacked' for premium icons with solid backgrounds (features, services)",
+    "✅ Use iview='framed' for outlined icons with borders (minimal, elegant designs)",
+    "✅ Set ioBRed=50% for perfect circular icons (both stacked and framed)",
+    "✅ Use responsive ioSize values (md/sm/xs) to scale icons on different screens",
+    "✅ Apply iopadd=15-25px for comfortable icon container sizing on stacked/framed",
+    "✅ Use hover effects (ihColor, isehColor) for interactive icons and links",
+    "✅ Keep icon sizes accessible: minimum 24px for decorative, 44px for clickable",
+    "✅ Use FontAwesome for standard icons, Ctm-svg for brand logos or unique graphics",
+    "✅ Center-align icons (iAlign.md='center') for standalone display",
+    "✅ Left-align icons when they're inline with text or in lists",
+    "✅ Use subtle rotation (10-15deg) for dynamic effect without disorientation",
+    "✅ Set target='_blank' and nofollow='nofollow' for external link icons",
+    "✅ Use globalPosition=absolute for corner badges, overlay indicators, floating elements",
+    "✅ Test absolute positioning on all breakpoints (md/sm/xs) - may need different offsets",
+    "✅ Use stacked icons with gradient backgrounds for modern, premium look",
+    "✅ Keep iopadd consistent for uniform sizing across multiple icons",
+    "✅ Use contrasting colors for icon vs background (WCAG AA: 4.5:1 ratio minimum)",
+    "✅ Avoid very bright colors for large stacked icons (can be overwhelming)"
+  ],
+
+  "viewStyles": {
+    "default": {
+      "description": "Plain icon without background or border",
+      "colorBehavior": "iColor controls icon color directly",
+      "bestFor": "Decorative icons, list markers, simple accents, inline icons",
+      "padding": "iopadd creates space around icon but no visual container",
+      "example": "Simple star icon in purple"
+    },
+    "stacked": {
+      "description": "Icon with solid background fill (typically circular or rounded square)",
+      "colorBehavior": "iColor=background color, iseColor=icon color",
+      "bestFor": "Feature highlights, service icons, call-outs, premium designs",
+      "padding": "iopadd creates visible background container size",
+      "example": "White check icon on purple circular background",
+      "note": "Use ioBRed=50% for circles, px values for rounded squares"
+    },
+    "framed": {
+      "description": "Icon with border outline, transparent or filled background",
+      "colorBehavior": "iColor=icon+border color, iseColor=background fill",
+      "bestFor": "Outlined icons, minimal designs, bordered buttons, elegant accents",
+      "padding": "iopadd creates space between icon and border",
+      "border": "Controlled via ioBor (width, type, color)",
+      "example": "Blue envelope icon with matching blue circular border",
+      "note": "Set iseColor='transparent' for hollow outline effect"
+    }
+  },
+
+  "colorMapping": {
+    "default_view": {
+      "iColor": "Icon color",
+      "ihColor": "Icon hover color",
+      "iseColor": "Not used (ignored)",
+      "isehColor": "Not used (ignored)"
+    },
+    "stacked_view": {
+      "iColor": "Background fill color",
+      "ihColor": "Background hover color",
+      "iseColor": "Icon color (inside)",
+      "isehColor": "Icon hover color (inside)"
+    },
+    "framed_view": {
+      "iColor": "Icon + Border color",
+      "ihColor": "Icon + Border hover color",
+      "iseColor": "Background fill color",
+      "isehColor": "Background fill hover color"
+    }
+  },
+
+  "positioningGuide": {
+    "relative": {
+      "description": "Default positioning in normal document flow",
+      "offsets": "glohoriOffset and gloverticalOffset not used",
+      "useCase": "Normal inline or block-level icon placement"
+    },
+    "absolute": {
+      "description": "Positioned relative to nearest positioned ancestor",
+      "requirements": "Parent container must have position:relative, fixed, or absolute",
+      "offsets": "glohoriOffset + gloverticalOffset define distance from edges",
+      "origins": "gloabhorizoOri (left/right) + gloabverticalOri (top/bottom)",
+      "useCase": "Corner badges, overlay icons, floating indicators",
+      "example": "Notification bell in top-right corner: gloabhorizoOri='right', gloabverticalOri='top', offsets=10px"
+    },
+    "fixed": {
+      "description": "Positioned relative to viewport (stays visible on scroll)",
+      "offsets": "glohoriOffset + gloverticalOffset define distance from viewport edges",
+      "useCase": "Sticky icons, back-to-top buttons, fixed nav elements",
+      "warning": "Fixed icons cover content on scroll - use sparingly"
+    }
+  },
+
+  "responsivePatterns": [
+    "📱 Reduce ioSize on mobile: md:48px → sm:40px → xs:36px",
+    "📱 Adjust iopadd for smaller containers: md:20px → sm:18px → xs:16px",
+    "📱 Test absolute positioning on all breakpoints (may need different offsets)",
+    "📱 Consider hiding decorative icons on mobile to save vertical space",
+    "📱 Ensure clickable icons meet 44px minimum touch target size on mobile",
+    "📱 Reduce rotation angle on mobile if it causes layout issues",
+    "📱 Test custom SVG/images at small sizes to ensure they remain recognizable",
+    "📱 Adjust iAlign for mobile: centered icons may look better left-aligned on small screens",
+    "📱 Use smaller glohoriOffset/gloverticalOffset on mobile for better edge positioning",
+    "📱 Test framed icons with borders on mobile - may need thinner borders (1px vs 2px)"
+  ],
+
+  "accessibilityNotes": [
+    "♿ Icons should be decorative or paired with descriptive text for screen readers",
+    "♿ For clickable icons, ensure 44×44px minimum touch target (combine ioSize + iopadd)",
+    "♿ Ensure sufficient color contrast between icon and background (4.5:1 WCAG AA)",
+    "♿ For stacked/framed, check contrast between iseColor and iColor",
+    "♿ Use semantic links when iLink is set (proper <a> tags generated)",
+    "♿ Don't rely on icon color alone to convey meaning (add text labels)",
+    "♿ Test with screen magnification - very small icons become unrecognizable",
+    "♿ For custom SVG icons, consider adding aria-label or title attributes",
+    "♿ Avoid excessive rotation that makes icons unrecognizable",
+    "♿ Test keyboard navigation for linked icons (Tab key focus)",
+    "♿ Ensure hover effects don't hide critical information (visual cues only)"
+  ],
+
+  "performanceConsiderations": [
+    "⚡ FontAwesome adds ~70KB font file if not already loaded in theme",
+    "⚡ Custom SVG/images should be optimized: <20KB per icon, compressed",
+    "⚡ Use SVG format instead of PNG/JPG for custom icons (scalable, smaller)",
+    "⚡ Avoid very large ioSize values (>200px) for FontAwesome icons (rendering cost)",
+    "⚡ Limit number of absolutely positioned icons (layout reflow cost)",
+    "⚡ Gradient backgrounds on stacked icons are heavier than solid colors",
+    "⚡ Rotation (transform) is GPU-accelerated but avoid on many icons simultaneously",
+    "⚡ Test scroll performance with fixed positioned icons (can cause jank)",
+    "⚡ Use icon sprites or symbol definitions for multiple custom SVG icons",
+    "⚡ Avoid animating ioRotate via CSS (better to use dedicated animation blocks)"
+  ],
+
+  "integrationPatterns": [
+    "🔗 Use above tp-heading for icon + title combinations",
+    "🔗 Place inside tp-column for multi-icon feature grids",
+    "🔗 Combine with tp-button for icon + text button layouts",
+    "🔗 Use in tp-icon-box layouts (wait, this IS icon-box) - standalone usage",
+    "🔗 Place absolutely inside tp-container for corner decorations",
+    "🔗 Use with tp-stylist-list for custom icon list markers (alternative to list icons)",
+    "🔗 Combine with tp-pro-paragraph for inline icon + text combinations",
+    "🔗 Use in tp-accordion-inner as custom accordion toggle icons",
+    "🔗 Place in tp-pricing-table for plan badges or feature icons",
+    "🔗 Use with tp-testimonials for quote icons or star ratings"
+  ],
+
+  "commonPatterns": {
+    "decorativeAccent": {
+      "description": "Simple decorative icon without background",
+      "attributes": ["iview=default", "center aligned", "medium size (32-48px)", "single color"]
+    },
+    "featureIcon": {
+      "description": "Icon with circular background for features/services",
+      "attributes": ["iview=stacked", "ioBRed=50%", "iopadd=15-25px", "contrasting colors", "center aligned"]
+    },
+    "outlinedIcon": {
+      "description": "Icon with circular border outline, no fill",
+      "attributes": ["iview=framed", "iseColor=transparent", "ioBor.width=2px", "ioBRed=50%", "iopadd=15-20px"]
+    },
+    "linkedIcon": {
+      "description": "Clickable icon that opens external link",
+      "attributes": ["iLink.url set", "target=_blank", "nofollow=nofollow", "hover effects", "minimum 44px total size"]
+    },
+    "cornerBadge": {
+      "description": "Small floating icon in corner (notification, badge)",
+      "attributes": ["globalPosition=absolute", "small size (16-24px)", "gloabhorizoOri=right/left", "gloabverticalOri=top/bottom", "offsets=10-20px"]
+    },
+    "customLogo": {
+      "description": "Custom brand logo or unique graphic",
+      "attributes": ["icon=Ctm-svg", "isvg.url set", "larger size (60-100px)", "center aligned", "responsive scaling"]
+    },
+    "rotatedDynamic": {
+      "description": "Icon with rotation for visual interest",
+      "attributes": ["ioRotate=10-25deg", "iview=default usually", "subtle angle", "dynamic/energy themes"]
+    },
+    "premiumStacked": {
+      "description": "Large icon with rounded square background",
+      "attributes": ["iview=stacked", "ioBRed=10-15px", "large iopadd=20-30px", "gradient background option", "high-impact size"]
+    }
+  }
 }
