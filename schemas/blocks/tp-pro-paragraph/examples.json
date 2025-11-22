@@ -2,46 +2,649 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-pro-paragraph",
   "title": "Paragraph - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Comprehensive usage patterns for the enhanced paragraph block with advanced text styling, drop caps, columns, and typography controls.",
+
   "examples": [
     {
-      "description": "Simple paragraph with heading",
+      "name": "Simple Paragraph with Heading",
+      "description": "Basic paragraph with optional heading and standard styling",
+      "visualDescription": "Black text on white background, left-aligned. H2 heading 'Our Mission' followed by paragraph text. Clean, readable typography with standard spacing.",
+      "complexity": "simple",
+      "useCase": "About sections, service descriptions, general content blocks, mission statements",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "pp001",
         "Showtitle": true,
         "title": "Our Mission",
         "titleTag": "h2",
-        "content": "We are committed to providing the best service to our customers.",
+        "descTag": "p",
+        "content": "We are committed to providing exceptional service and innovative solutions to our customers. Our team works tirelessly to ensure every project exceeds expectations and delivers measurable results.",
         "alignment": {
-          "md": "left"
+          "md": "left",
+          "sm": "left",
+          "xs": "left"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "16",
+            "sm": "15",
+            "xs": "14",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          }
+        },
+        "textColor": "#333333",
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "32",
+            "sm": "28",
+            "xs": "24",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "lineHeight": {
+            "md": "1.3",
+            "unit": "em"
+          }
+        },
+        "titleColor": "#1a1a1a",
+        "titleBtmSpace": {
+          "md": "20",
+          "sm": "15",
+          "xs": "12",
+          "unit": "px"
         }
       }
     },
+
     {
-      "description": "Centered paragraph without heading",
+      "name": "Drop Cap - Default Style",
+      "description": "Paragraph with enlarged first letter (drop cap) in default style",
+      "visualDescription": "First letter 'T' is 3x larger in purple color, floats to the left with text wrapping around it. Creates classic magazine article aesthetic. 10px margin between drop cap and text.",
+      "complexity": "simple",
+      "useCase": "Blog posts, magazine articles, editorial content, story introductions",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "pp002",
         "Showtitle": false,
-        "content": "This is a centered paragraph of text.",
+        "descTag": "p",
+        "content": "The art of typography has evolved tremendously over centuries. From hand-carved wooden blocks to digital fonts, the way we present text has always been crucial to effective communication. Today's designers have unprecedented control over every aspect of typography.",
         "alignment": {
-          "md": "center"
+          "md": "left"
         },
-        "textColor": "#333333"
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "18",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.7",
+            "unit": "em"
+          }
+        },
+        "textColor": "#2c3e50",
+        "dropCap": true,
+        "dcapView": "",
+        "dcapCol": "#667eea",
+        "tcapspac": "10",
+        "dcapTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "60",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "lineHeight": {
+            "md": "1",
+            "unit": "em"
+          }
+        }
       }
     },
+
     {
-      "description": "Paragraph with custom link colors",
+      "name": "Drop Cap - Stacked Style",
+      "description": "Drop cap with colored background box (stacked style)",
+      "visualDescription": "First letter 'I' in white text on purple gradient background box. Box has slight padding (15px). Creates modern, bold magazine look. Text wraps around the colored box.",
+      "complexity": "simple",
+      "useCase": "Feature articles, highlighted stories, premium content, editorial pieces",
       "attributes": {
-        "block_id": "e5f6",
-        "content": "Visit our <a href='/contact'>contact page</a> for more information.",
-        "linkColor": "#0066cc",
-        "linkHoverColor": "#003d7a"
+        "block_id": "pp003",
+        "Showtitle": false,
+        "descTag": "p",
+        "content": "Innovation drives everything we do. From concept to execution, our team pushes boundaries and explores new possibilities. We believe that great design comes from questioning conventions and embracing creative risks.",
+        "alignment": {
+          "md": "left"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "17",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          }
+        },
+        "textColor": "#333333",
+        "dropCap": true,
+        "dcapView": "stacked",
+        "dcapCol": "#667eea",
+        "dcapseCol": "#ffffff",
+        "tcapspac": "12",
+        "tcapSize": "15",
+        "dcapTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "50",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        }
+      }
+    },
+
+    {
+      "name": "Drop Cap - Framed Style",
+      "description": "Drop cap with border frame around first letter",
+      "visualDescription": "First letter 'E' in purple with 3px purple border frame. Rounded corners (8px border-radius). Clean, elegant look. 15px padding inside frame, 12px margin to text.",
+      "complexity": "simple",
+      "useCase": "Elegant articles, professional blogs, corporate content, styled paragraphs",
+      "attributes": {
+        "block_id": "pp004",
+        "Showtitle": false,
+        "descTag": "p",
+        "content": "Excellence is not a destination, it's a continuous journey. Every project teaches us something new, every challenge makes us stronger, and every success inspires us to reach higher. This philosophy guides our work every single day.",
+        "alignment": {
+          "md": "left"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "17",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          }
+        },
+        "textColor": "#2c3e50",
+        "dropCap": true,
+        "dcapView": "framed",
+        "dcapCol": "#667eea",
+        "dcapseCol": "#f8f9fa",
+        "tcapspac": "12",
+        "tcapSize": "15",
+        "tcapbrad": "8",
+        "boWidth": {
+          "md": {
+            "top": "3",
+            "right": "3",
+            "bottom": "3",
+            "left": "3"
+          },
+          "unit": "px"
+        },
+        "dcapTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "48",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        }
+      }
+    },
+
+    {
+      "name": "Two-Column Magazine Layout",
+      "description": "Paragraph text split into two columns like a newspaper/magazine",
+      "visualDescription": "Text flows in two equal-width columns with 30px gap between them. Justified alignment. Creates professional magazine aesthetic. Responsive: single column on mobile.",
+      "complexity": "medium",
+      "useCase": "Magazine layouts, long-form articles, editorial content, newspaper-style sections",
+      "attributes": {
+        "block_id": "pp005",
+        "Showtitle": true,
+        "title": "The Future of Design",
+        "titleTag": "h3",
+        "descTag": "p",
+        "content": "Design is evolving at an unprecedented pace. New technologies, changing user behaviors, and shifting cultural contexts all contribute to how we approach visual communication today. The tools we use are more powerful than ever, but the fundamental principles of good design remain constant. Understanding this balance between innovation and tradition is crucial for any modern designer. As we look ahead, artificial intelligence, virtual reality, and new interaction paradigms will continue to reshape our field. But at the heart of it all, design will always be about solving problems and creating meaningful connections between people and ideas.",
+        "alignment": {
+          "md": "justify",
+          "sm": "left",
+          "xs": "left"
+        },
+        "pCol": {
+          "md": "2",
+          "sm": "1",
+          "xs": "1"
+        },
+        "pcolspac": {
+          "md": "30",
+          "sm": "0",
+          "xs": "0",
+          "unit": "px"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "16",
+            "sm": "15",
+            "xs": "14",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.7",
+            "unit": "em"
+          }
+        },
+        "textColor": "#333333",
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "28",
+            "sm": "24",
+            "xs": "20",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "titleColor": "#1a1a1a",
+        "titleBtmSpace": {
+          "md": "25",
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "Centered Paragraph with Custom Link Colors",
+      "description": "Center-aligned paragraph with branded link colors and hover states",
+      "visualDescription": "Center-aligned text with purple links (#667eea). Links turn darker purple on hover (#5568d3). Smooth color transition. Medium-large font size (18px) for prominence.",
+      "complexity": "simple",
+      "useCase": "Hero sections, CTA descriptions, centered content blocks, landing page text",
+      "attributes": {
+        "block_id": "pp006",
+        "Showtitle": false,
+        "descTag": "p",
+        "content": "Ready to transform your digital presence? <a href='/services'>Explore our services</a> and see how we can help you achieve your goals. Our team is standing by to <a href='/contact'>answer your questions</a> and get started today.",
+        "alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "18",
+            "sm": "16",
+            "xs": "15",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          }
+        },
+        "textColor": "#4a5568",
+        "linkColor": "#667eea",
+        "linkHoverColor": "#5568d3"
+      }
+    },
+
+    {
+      "name": "List Paragraph with Custom Spacing",
+      "description": "Paragraph containing bulleted list with custom margin and padding",
+      "visualDescription": "Heading followed by bulleted list. List has 20px left margin, 15px left padding, 10px spacing between items. Clean hierarchy. Dark text on light background.",
+      "complexity": "simple",
+      "useCase": "Feature lists, benefit descriptions, process steps, informational content",
+      "attributes": {
+        "block_id": "pp007",
+        "Showtitle": true,
+        "title": "Key Benefits",
+        "titleTag": "h3",
+        "descTag": "div",
+        "content": "<p>Our platform offers everything you need to succeed:</p><ul><li>Intuitive drag-and-drop interface</li><li>Real-time collaboration tools</li><li>Advanced analytics dashboard</li><li>24/7 customer support</li><li>Enterprise-grade security</li></ul>",
+        "alignment": {
+          "md": "left"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "16",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          }
+        },
+        "textColor": "#2d3748",
+        "ulMargin": {
+          "md": {
+            "top": "15",
+            "bottom": "15",
+            "left": "20",
+            "right": "0"
+          },
+          "unit": "px"
+        },
+        "ulPadding": {
+          "md": {
+            "top": "0",
+            "bottom": "0",
+            "left": "15",
+            "right": "0"
+          },
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "24",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "titleColor": "#1a202c",
+        "titleBtmSpace": {
+          "md": "15",
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "Quote-Style Paragraph with Text Shadow",
+      "description": "Italicized paragraph with subtle text shadow for quote/testimonial styling",
+      "visualDescription": "Large italic text (22px) with subtle gray text shadow (2px vertical, 2px blur). Center-aligned. Creates elegant quote/testimonial appearance. Light shadow adds depth.",
+      "complexity": "medium",
+      "useCase": "Testimonials, pull quotes, featured text, client feedback, highlighted statements",
+      "attributes": {
+        "block_id": "pp008",
+        "Showtitle": false,
+        "descTag": "p",
+        "content": "Working with this team has been an absolute game-changer for our business. Their attention to detail and creative vision exceeded all our expectations.",
+        "alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "left"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "22",
+            "sm": "20",
+            "xs": "18",
+            "unit": "px"
+          },
+          "fontStyle": "italic",
+          "fontWeight": "500",
+          "lineHeight": {
+            "md": "1.5",
+            "unit": "em"
+          }
+        },
+        "textColor": "#4a5568",
+        "textShadow": {
+          "openShadow": 1,
+          "typeShadow": "text-shadow",
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 4,
+          "color": "rgba(0,0,0,0.1)"
+        }
+      }
+    },
+
+    {
+      "name": "Three-Column Magazine Layout",
+      "description": "Text in three columns for dense content presentation",
+      "visualDescription": "Content flows across three equal columns with 25px gap. Justified text. Heading spans full width above columns. Desktop only - stacks to single column on tablet/mobile.",
+      "complexity": "medium",
+      "useCase": "Newspaper layouts, dense articles, multi-column editorial, magazine pages",
+      "attributes": {
+        "block_id": "pp009",
+        "Showtitle": true,
+        "title": "A Brief History of Typography",
+        "titleTag": "h2",
+        "descTag": "p",
+        "content": "Typography has been fundamental to human communication for millennia. From ancient carved inscriptions to Gutenberg's revolutionary printing press, the evolution of letterforms reflects our cultural and technological progress. The Renaissance brought new attention to type design as an art form. Craftsmen like Claude Garamond and Giambattista Bodoni created typefaces that remain influential today. The Industrial Revolution introduced mechanical typesetting, dramatically increasing production speed. The 20th century saw an explosion of typographic innovation. Movements like Bauhaus championed functional, geometric sans-serif designs. The digital age has democratized typography, giving everyone access to thousands of fonts. Yet the fundamental principles of good typography - legibility, hierarchy, and aesthetic harmony - remain as important as ever. Understanding these principles helps us communicate more effectively in any medium.",
+        "alignment": {
+          "md": "justify",
+          "sm": "left",
+          "xs": "left"
+        },
+        "pCol": {
+          "md": "3",
+          "sm": "2",
+          "xs": "1"
+        },
+        "pcolspac": {
+          "md": "25",
+          "sm": "20",
+          "xs": "0",
+          "unit": "px"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "15",
+            "sm": "14",
+            "xs": "14",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          }
+        },
+        "textColor": "#2c3e50",
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "36",
+            "sm": "28",
+            "xs": "24",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "lineHeight": {
+            "md": "1.2",
+            "unit": "em"
+          }
+        },
+        "titleColor": "#1a1a1a",
+        "titleBtmSpace": {
+          "md": "30",
+          "sm": "20",
+          "xs": "15",
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "Paragraph with Heading Hover Effect",
+      "description": "Paragraph with title that has hover text shadow effect",
+      "visualDescription": "H3 heading 'Why Choose Us' above paragraph. Heading gains purple glow shadow on hover (smooth transition). Paragraph has standard styling. Heading changes from dark gray to purple on hover.",
+      "complexity": "medium",
+      "useCase": "Interactive sections, feature highlights, service descriptions, hover-enhanced content",
+      "attributes": {
+        "block_id": "pp010",
+        "Showtitle": true,
+        "title": "Why Choose Us",
+        "titleTag": "h3",
+        "descTag": "p",
+        "content": "We combine years of industry experience with cutting-edge technology to deliver results that matter. Our client-first approach ensures every project receives personalized attention and strategic thinking.",
+        "alignment": {
+          "md": "left"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "16",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          }
+        },
+        "textColor": "#4a5568",
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "28",
+            "sm": "24",
+            "xs": "20",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "titleColor": "#2d3748",
+        "titleBtmSpace": {
+          "md": "15",
+          "unit": "px"
+        },
+        "titleShadow": {
+          "openShadow": 0
+        },
+        "HovertitleShadow": {
+          "openShadow": 1,
+          "typeShadow": "text-shadow",
+          "horizontal": 0,
+          "vertical": 0,
+          "blur": 20,
+          "color": "rgba(102, 126, 234, 0.6)"
+        }
       }
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
-    }
+
+  "validationRules": {
+    "block_id": "Required. Unique identifier for the block.",
+    "content": "Required. Main paragraph text content. Can include HTML for formatting (links, lists, etc.).",
+    "Showtitle": "Boolean. Controls visibility of optional title. Default: true.",
+    "title": "Conditional - required if Showtitle: true. Heading text above paragraph.",
+    "titleTag": "HTML heading tag for title. Values: 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'. Default: 'h3'.",
+    "descTag": "HTML tag for content wrapper. Values: 'p', 'div', 'span'. Default: 'p'. Use 'div' for lists.",
+    "alignment": "Responsive text alignment. Values: 'left', 'center', 'right', 'justify'. Responsive (md/sm/xs).",
+    "textTypo": "Typography object for paragraph text. Requires openTypography: 1 to enable.",
+    "textColor": "Hex/rgba color for paragraph text. Applied to all content.",
+    "linkColor": "Color for <a> links within content. Requires links in content.",
+    "linkHoverColor": "Hover color for links. Works with linkColor.",
+    "dropCap": "Boolean. Enable drop cap (enlarged first letter). Default: false.",
+    "dcapView": "Drop cap style. Values: '' (default), 'stacked' (background box), 'framed' (border). Requires dropCap: true.",
+    "dcapCol": "Drop cap color. For default/framed: text color. For stacked: background color.",
+    "dcapseCol": "Secondary color. For stacked: text color. For framed: background color.",
+    "tcapspac": "Drop cap margin-right in px. Recommended: 8-15px.",
+    "tcapSize": "Drop cap padding in px. For stacked/framed. Recommended: 10-20px.",
+    "tcapbrad": "Border radius in px for framed drop cap. Recommended: 5-10px.",
+    "boWidth": "Border width object for framed drop cap. Responsive with top/right/bottom/left.",
+    "pCol": "Number of CSS columns. Responsive (md/sm/xs). Values: 1-4. Desktop only recommended.",
+    "pcolspac": "Gap between columns. Responsive. Recommended: 20-40px.",
+    "ulMargin": "Margin for <ul> and <ol> lists. Responsive object with top/right/bottom/left.",
+    "ulPadding": "Padding for <ul> and <ol> lists. Responsive object with top/right/bottom/left.",
+    "titleBtmSpace": "Space below title in px. Responsive. Recommended: 15-30px.",
+    "textShadow": "Text shadow object for paragraph. Requires openShadow: 1.",
+    "titleShadow": "Text shadow for title. Requires Showtitle: true and openShadow: 1."
+  },
+
+  "warnings": [
+    "CRITICAL: Never modify or regenerate block_id - causes blocks to break.",
+    "Drop cap (dropCap: true) only affects first <p> tag's first letter. Won't work with descTag: 'span'.",
+    "Multi-column layout (pCol > 1) can break on narrow screens. Always set sm: 1, xs: 1 for mobile.",
+    "dcapView: 'stacked' requires both dcapCol (background) and dcapseCol (text color) to be visible.",
+    "dcapView: 'framed' requires boWidth to be set for border to appear.",
+    "Links in content require proper <a> tags. linkColor/linkHoverColor only style <a> elements.",
+    "titleTypo only works when Showtitle: true. Otherwise ignored.",
+    "descTag: 'p' wraps content in <p> tag. Use 'div' for content with lists/complex HTML.",
+    "textTypo.openTypography must be 1 to enable typography controls. Default: 0.",
+    "Column count (pCol) doesn't work in older browsers (pre-2011). Gracefully degrades to single column.",
+    "textShadow with large blur values (>10px) can impact text readability. Use sparingly.",
+    "alignment: 'justify' can create awkward spacing on narrow screens. Use left/center for mobile.",
+    "ulMargin/ulPadding use !important - will override child block styles.",
+    "Drop cap with very large tcapspac (>20px) can create awkward text wrapping."
+  ],
+
+  "commonMistakes": [
+    "Forgetting to set openTypography: 1 when defining textTypo or titleTypo (no effect)",
+    "Setting dropCap: true but not setting dcapCol (drop cap appears in default text color)",
+    "Using dcapView: 'stacked' without dcapseCol (white text on white background, invisible)",
+    "Setting pCol > 1 on all breakpoints (mobile text in tiny columns, unreadable)",
+    "Using descTag: 'p' with list content (creates invalid HTML: <p><ul>...)",
+    "Setting linkColor but not having any <a> tags in content (no effect)",
+    "Forgetting to set Showtitle: false when no title wanted (empty heading appears)",
+    "Setting titleBtmSpace when Showtitle: false (no effect, spacing not applied)",
+    "Using boWidth without setting dcapView: 'framed' (border ignored)",
+    "Setting tcapSize/tcapbrad without dropCap: true (no effect)",
+    "Using very small pcolspac (<15px) with multi-column (columns too cramped)",
+    "Setting openShadow: 1 in textShadow but leaving default values (unwanted shadow appears)",
+    "Using alignment: 'justify' with short content (awkward spacing)",
+    "Forgetting responsive values for pCol (3 columns on mobile = unreadable)"
+  ],
+
+  "bestPractices": [
+    "Always set responsive alignment: md/sm/xs for optimal mobile experience",
+    "For drop caps, use tcapspac: 10-15px for balanced spacing between letter and text",
+    "Multi-column layouts: set pCol to 2-3 on desktop (md), 1 on mobile (xs) for readability",
+    "Column gap: 25-40px on desktop provides good separation without breaking flow",
+    "For magazine layouts, use alignment: 'justify' on desktop, 'left' on mobile",
+    "Drop cap stacked style: use contrasting colors (dark background, light text or vice versa)",
+    "Drop cap framed style: border width 2-4px works best, avoid thicker borders",
+    "Title spacing: 15-25px bottom margin creates good visual separation",
+    "Link colors: ensure sufficient contrast (WCAG AA: 4.5:1 minimum) against background",
+    "Hover colors: should be noticeably different (20-30% darker/lighter) for feedback",
+    "Text shadows: keep blur small (2-4px) and low opacity (0.1-0.3) for subtlety",
+    "List spacing: ulMargin left: 20px, ulPadding left: 15px creates standard indentation",
+    "For quotes/testimonials: use italic font style, center alignment, larger size (20-24px)",
+    "Typography size: 16-18px body text on desktop, 14-16px on mobile for readability",
+    "Line height: 1.5-1.7 for body text provides comfortable reading experience",
+    "Always test multi-column on actual devices - columns can break unexpectedly"
+  ],
+
+  "layoutContext": {
+    "parentBlocks": "Can be used in any container (tp-container, tp-row/tp-column, tp-container-inner)",
+    "childBlocks": "None - self-contained content block",
+    "siblingBlocks": "Commonly paired with tp-heading, tp-button, tp-image for complete sections",
+    "htmlStructure": "Renders as <div class='tpgb-pro-paragraph'><heading>{title}</heading><div>{content}</div></div>",
+    "dropCapBehavior": "CSS ::first-letter pseudo-element targets first <p> tag's first character",
+    "columnBehavior": "CSS columns property - browser automatically balances content across columns",
+    "responsiveStrategy": "Typography sizes, alignment, and column count all support responsive (md/sm/xs) breakpoints"
+  },
+
+  "performanceConsiderations": [
+    "Text shadows (textShadow) can impact rendering performance with many paragraphs on page",
+    "Multi-column layouts (pCol > 1) trigger additional layout calculations - limit use on mobile",
+    "Drop caps with complex styling (stacked/framed) add minimal overhead - safe to use freely",
+    "Link hover effects require repaints - not a concern for normal usage",
+    "Very long paragraphs (>2000 words) with multi-column can cause layout thrashing on scroll",
+    "Custom list spacing (ulMargin/ulPadding) uses !important - can't be overridden by child styles"
+  ],
+
+  "accessibilityNotes": [
+    "Use semantic titleTag (h1-h6) in proper hierarchy - h1 for main title, h2 for sections, etc.",
+    "Don't skip heading levels (h2 → h4) - screen readers use heading hierarchy for navigation",
+    "Ensure link colors (linkColor) have sufficient contrast against textColor (4.5:1 minimum)",
+    "Drop caps are decorative - ensure first letter is still readable by screen readers (it is)",
+    "Multi-column text can confuse screen readers - content read sequentially, not column-by-column",
+    "Text shadows should not be the only way to distinguish text - ensure color contrast still good",
+    "alignment: 'justify' can create awkward spacing for dyslexic readers - use left-align for accessibility",
+    "Ensure interactive elements (links) are clearly distinguishable through color AND underline/styling"
+  ],
+
+  "relatedBlocks": {
+    "tp-heading": "For standalone headings without paragraph content",
+    "tp-button": "Often paired after paragraph for CTAs",
+    "tp-image": "Commonly used alongside paragraphs in content sections",
+    "tp-container": "Parent container for paragraph blocks",
+    "tp-accordion": "Can contain paragraph blocks in collapsible sections"
   }
 }
