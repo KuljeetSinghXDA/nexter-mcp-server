@@ -1,31 +1,57 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-button-core",
-  "title": "Button - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Button (Core) - Usage Examples",
+  "description": "WordPress core button wrapper with Nexter styling enhancements. Simpler alternative to tp-button (Advanced Button) with essential features.",
+
   "examples": [
     {
-      "description": "Simple button with icon",
+      "name": "Simple Button with Icon",
+      "description": "Basic button with text and icon, center-aligned",
+      "visualDescription": "Purple button with white 'Get Started' text. Right arrow icon after text with 10px spacing. Center-aligned. Rounded corners (5px). Standard padding.",
+      "complexity": "simple",
+      "useCase": "Primary CTAs, basic action buttons, simple links",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "btnc001",
         "btxt": "Get Started",
         "bLink": {
           "url": "/signup",
-          "target": "",
+          "target": "_self",
           "nofollow": ""
         },
-        "biType": "fontAwesome",
-        "bIcon": "fas fa-arrow-right",
         "bAlign": {
-          "md": "center"
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "biType": "icon",
+        "bIcon": "fa fa-arrow-right",
+        "bipos": "1",
+        "bispac": {
+          "md": "10",
+          "unit": "px"
         }
       }
     },
+
     {
-      "description": "Styled button with custom colors",
+      "name": "Styled Button with Custom Colors",
+      "description": "Button with custom background, text color, padding, and border radius",
+      "visualDescription": "Purple (#667eea) background button with white text. Rounded corners (5px). Generous padding (15px vertical, 30px horizontal). Clean, modern look.",
+      "complexity": "simple",
+      "useCase": "Branded buttons, custom-colored CTAs, design-matched buttons",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "btnc002",
         "btxt": "Learn More",
+        "bLink": {
+          "url": "/about",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "bAlign": {
+          "md": "left"
+        },
+        "biType": "none",
         "btColor": "#ffffff",
         "btBg": {
           "openBg": 1,
@@ -51,11 +77,309 @@
           "unit": "px"
         }
       }
+    },
+
+    {
+      "name": "Button with Icon Before Text",
+      "description": "Button with icon positioned before (left of) text",
+      "visualDescription": "Blue button with download icon on left side of 'Download' text. Icon order: 0 (before), text order: 1 (after). 8px gap between icon and text. Left-aligned.",
+      "complexity": "simple",
+      "useCase": "Download buttons, back buttons, icons indicating action direction",
+      "attributes": {
+        "block_id": "btnc003",
+        "btxt": "Download",
+        "bLink": {
+          "url": "/download/file.pdf",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "bAlign": {
+          "md": "left"
+        },
+        "biType": "icon",
+        "bIcon": "fa fa-download",
+        "bipos": "0",
+        "bispac": {
+          "md": "8",
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "Button with Custom Image Icon",
+      "description": "Button using uploaded image as icon instead of Font Awesome",
+      "visualDescription": "White button with custom brand logo image (24x24px) before text. Logo is uploaded WordPress media. Text 'Our Platform' in dark text. Left-aligned.",
+      "complexity": "medium",
+      "useCase": "Branded buttons with custom logos, product-specific icons, unique branding",
+      "attributes": {
+        "block_id": "btnc004",
+        "btxt": "Our Platform",
+        "bLink": {
+          "url": "/platform",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "bAlign": {
+          "md": "left"
+        },
+        "biType": "image",
+        "bImg": {
+          "url": "/wp-content/uploads/logo-icon.png",
+          "Id": "123"
+        },
+        "bipos": "0",
+        "bispac": {
+          "md": "12",
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "Responsive Aligned Button",
+      "description": "Button with different alignment across breakpoints",
+      "visualDescription": "Desktop: right-aligned. Tablet: center-aligned. Mobile: center-aligned (full-width friendly). Green button with phone icon. Responsive design pattern.",
+      "complexity": "simple",
+      "useCase": "Responsive layouts, mobile-optimized buttons, adaptive alignment",
+      "attributes": {
+        "block_id": "btnc005",
+        "btxt": "Call Now",
+        "bLink": {
+          "url": "tel:+1234567890",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "bAlign": {
+          "md": "right",
+          "sm": "center",
+          "xs": "center"
+        },
+        "biType": "icon",
+        "bIcon": "fa fa-phone",
+        "bipos": "0",
+        "bispac": {
+          "md": "10",
+          "sm": "8",
+          "xs": "8",
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "External Link Button with Target Blank",
+      "description": "Button for external website links that open in new tab",
+      "visualDescription": "Gray button with external link icon. Text 'Visit Site' with external-link icon after. Opens in new tab. Right-aligned. Nofollow attribute for SEO.",
+      "complexity": "simple",
+      "useCase": "External links, partner sites, affiliate links, third-party resources",
+      "attributes": {
+        "block_id": "btnc006",
+        "btxt": "Visit Site",
+        "bLink": {
+          "url": "https://external-website.com",
+          "target": "_blank",
+          "nofollow": "nofollow"
+        },
+        "bAlign": {
+          "md": "right"
+        },
+        "biType": "icon",
+        "bIcon": "fa fa-external-link",
+        "bipos": "1",
+        "bispac": {
+          "md": "8",
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "Gradient Background Button",
+      "description": "Button with gradient background instead of solid color",
+      "visualDescription": "Purple-to-pink gradient background. White text 'Join Now'. Icon after text. Center-aligned. Modern, eye-catching appearance. Smooth gradient flow.",
+      "complexity": "medium",
+      "useCase": "Modern designs, attention-grabbing CTAs, premium buttons, landing pages",
+      "attributes": {
+        "block_id": "btnc007",
+        "btxt": "Join Now",
+        "bLink": {
+          "url": "/join",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "bAlign": {
+          "md": "center"
+        },
+        "biType": "icon",
+        "bIcon": "fa fa-arrow-right",
+        "bipos": "1",
+        "bispac": {
+          "md": "10",
+          "unit": "px"
+        },
+        "btColor": "#ffffff",
+        "btBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#667eea",
+                "position": 0
+              },
+              {
+                "color": "#764ba2",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "brad": {
+          "md": {
+            "top": "8",
+            "bottom": "8",
+            "left": "8",
+            "right": "8"
+          },
+          "unit": "px"
+        },
+        "btPad": {
+          "md": {
+            "top": "15",
+            "bottom": "15",
+            "left": "35",
+            "right": "35"
+          },
+          "unit": "px"
+        }
+      }
+    },
+
+    {
+      "name": "Icon-Only Button (No Text)",
+      "description": "Button with only icon, no text visible (text for accessibility only)",
+      "visualDescription": "Small circular button with shopping cart icon only. No visible text. White icon on green background. Icon-only design. Right-aligned for floating effect.",
+      "complexity": "simple",
+      "useCase": "Icon-only CTAs, compact buttons, mobile-friendly actions, floating buttons",
+      "attributes": {
+        "block_id": "btnc008",
+        "btxt": "Cart",
+        "bLink": {
+          "url": "/cart",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "bAlign": {
+          "md": "right"
+        },
+        "biType": "icon",
+        "bIcon": "fa fa-shopping-cart",
+        "bipos": "0",
+        "bispac": {
+          "md": "0",
+          "unit": "px"
+        }
+      }
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
-    }
+
+  "validationRules": {
+    "block_id": "Required. Unique identifier for the block.",
+    "btxt": "Button text content. HTML source attribute. Can be empty for icon-only (but include for accessibility).",
+    "bLink": "Required link object with url, target ('_self', '_blank'), nofollow ('', 'nofollow').",
+    "bAlign": "Button alignment. Responsive (md/sm/xs). Values: 'left', 'center', 'right'. Default: 'left'.",
+    "biType": "Icon type. Values: 'none' (no icon), 'icon' (Font Awesome), 'image' (uploaded). Default: 'none'.",
+    "bIcon": "Font Awesome icon class (e.g., 'fa fa-arrow-right'). Requires biType: 'icon'.",
+    "bImg": "Uploaded image object with url and Id. Requires biType: 'image'.",
+    "bipos": "Icon order/position. Values: '0' (before text), '1' (after text). Uses CSS order property.",
+    "bispac": "Icon spacing (column-gap between icon and text). Responsive. Recommended: 8-12px.",
+    "btTypo": "Button typography object (font, size, weight, etc.). Standard typography structure.",
+    "btColor": "Button text color. Hex or rgba value.",
+    "btBg": "Button background. Object with openBg, bgType (color/gradient), bgDefaultColor or bgGradient.",
+    "brad": "Border radius. Responsive object with top/right/bottom/left. Creates rounded corners.",
+    "btPad": "Button padding. Responsive object with top/right/bottom/left. Controls button size."
+  },
+
+  "warnings": [
+    "CRITICAL: Never modify or regenerate block_id - causes blocks to break.",
+    "Icon-only buttons should still have btxt for accessibility (screen readers), but can hide with CSS.",
+    "biType: 'icon' requires bIcon Font Awesome class. Missing class = no icon appears.",
+    "biType: 'image' requires bImg object with valid url and Id. Missing = no icon appears.",
+    "bipos uses CSS order: '0' = icon first, '1' = text first. Defaults may vary by browser.",
+    "bispac only applies when biType != 'none'. Ignored if no icon.",
+    "target: '_blank' should include nofollow: 'nofollow' for external/affiliate links (SEO).",
+    "bLink.url required. Empty URL results in non-functional button.",
+    "btBg.openBg must be 1 to enable background. Default: 0 (no background).",
+    "Gradient backgrounds require bgType: 'gradient' and bgGradient object with gradientColor array."
+  ],
+
+  "commonMistakes": [
+    "Setting biType: 'icon' without providing bIcon (no icon appears)",
+    "Setting biType: 'image' without providing bImg object (no icon appears)",
+    "Forgetting bisp ac when adding icon (icon smashes against text, no spacing)",
+    "Using bipos values other than '0' or '1' (unexpected layout)",
+    "Setting btBg properties but leaving openBg: 0 (background doesn't appear)",
+    "Using gradient without proper bgGradient structure (falls back to default)",
+    "Setting target: '_blank' without nofollow on external links (SEO issue)",
+    "Forgetting responsive bAlign (button alignment breaks on mobile)",
+    "Using very large brad values with small padding (creates oval/pill shape unintentionally)"
+  ],
+
+  "bestPractices": [
+    "Icon spacing: 8-12px (bispac) provides comfortable balance between icon and text",
+    "Icon position: bipos '0' (before) for back/download actions, '1' (after) for forward/next actions",
+    "Padding: 12-15px vertical, 25-35px horizontal creates standard button size",
+    "Border radius: 4-8px for modern rounded look, 20-30px for pill-shaped buttons",
+    "External links: always use target: '_blank' AND nofollow: 'nofollow' for SEO",
+    "Responsive alignment: center on mobile (xs: 'center'), left/right on desktop",
+    "Color contrast: ensure text color has 4.5:1 contrast ratio against background (WCAG AA)",
+    "Icon-only buttons: include btxt for screen readers, hide visually with CSS if needed",
+    "For phone links: use tel: protocol (e.g., 'tel:+1234567890')",
+    "For email links: use mailto: protocol (e.g., 'mailto:email@example.com')",
+    "Keep btxt concise (1-3 words) for better mobile display",
+    "Test hover states - ensure visual feedback on interaction"
+  ],
+
+  "layoutContext": {
+    "parentBlocks": "Can be used in any container (tp-container, tp-row/tp-column, tp-container-inner)",
+    "childBlocks": "None - self-contained button block",
+    "siblingBlocks": "Often paired with tp-heading, tp-pro-paragraph for CTA sections",
+    "htmlStructure": "Renders as <div class='tpgb-button-core'><a class='tpgb-btn-wrap'><icon /><span>{btxt}</span></a></div>",
+    "alignmentBehavior": "bAlign applies text-align to wrapper div, button inherits alignment",
+    "iconPositioning": "Uses CSS flexbox order property: bipos '0' = order:0 (first), '1' = order:1 (last)",
+    "responsiveStrategy": "bAlign, bispac, brad, btPad all support responsive (md/sm/xs) breakpoints"
+  },
+
+  "performanceConsiderations": [
+    "Font Awesome icons load from icon font - ensure font loaded for icons to appear",
+    "Custom image icons (biType: 'image') require image loading - use small optimized images",
+    "Gradient backgrounds are CSS-based - minimal performance impact",
+    "Multiple buttons with custom images can impact page load - optimize images"
+  ],
+
+  "accessibilityNotes": [
+    "Icon-only buttons should include btxt for screen readers (hidden visually with CSS)",
+    "Ensure button text clearly describes action (e.g., 'Download PDF', not just 'Click')",
+    "Minimum button size on mobile: 44x44px for touch targets (use btPad to achieve)",
+    "Color contrast: ensure btColor vs btBg has 4.5:1 minimum contrast ratio (WCAG AA)",
+    "External links (target: '_blank') should indicate 'opens in new tab' for screen readers",
+    "Test with keyboard navigation - ensure visible focus state",
+    "Don't rely on color alone - use text and icons together to convey meaning"
+  },
+
+  "relatedBlocks": {
+    "tp-button": "Advanced button block with more styling options and hover effects",
+    "tp-heading": "Often paired above button in CTA sections",
+    "tp-pro-paragraph": "Often paired above button for context/description",
+    "tp-container": "Parent container for button sections",
+    "tp-image": "Often used alongside buttons in feature cards"
+  },
+
+  "comparisonWithAdvancedButton": {
+    "tp-button-core": "WordPress core wrapper. Simpler, fewer options. Best for basic buttons with standard styling.",
+    "tp-button": "Advanced custom button. 9 style presets, hover effects, text change on hover, FancyBox support. Best for complex CTAs."
   }
 }
