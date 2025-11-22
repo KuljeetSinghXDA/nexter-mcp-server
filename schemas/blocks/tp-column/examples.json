@@ -1,21 +1,386 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-column",
-  "title": "Column - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Column - Production Examples & Patterns",
+  "description": "Comprehensive real-world examples for column widths, responsive behavior, alignment, and sticky columns",
+
   "examples": [
     {
-      "description": "50% width column with center alignment",
+      "name": "Equal 3-Column Layout (33.33% each)",
+      "description": "Standard 3-column grid where each column takes 33.33% width on desktop, stacks on mobile",
+      "visualDescription": "Three equal-width columns side by side on desktop (33.33% each). On tablet (sm), columns become 50% wide (2 columns, then 1). On mobile (xs), all columns stack to 100% width. 20px padding inside each column.",
+      "complexity": "simple",
+      "useCase": "Feature sections, service listings, team grids, product showcases",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "c001",
+        "Width": {
+          "md": 33.33,
+          "sm": 50,
+          "xs": 100,
+          "unit": "%"
+        },
+        "Padding": {
+          "md": {
+            "top": "20",
+            "bottom": "20",
+            "left": "20",
+            "right": "20"
+          },
+          "sm": {
+            "top": "15",
+            "bottom": "15",
+            "left": "15",
+            "right": "15"
+          },
+          "unit": "px"
+        },
+        "blockSpace": {
+          "md": "20",
+          "sm": "15",
+          "xs": "15",
+          "unit": "px"
+        }
+      },
+      "responsiveNotes": "Classic 3→2→1 column pattern. Parent tp-row should have columns: 3 and appropriate gutterSpace.",
+      "layoutNotes": "blockSpace adds bottom margin between blocks inside column. Combined with row gutterSpace, creates consistent grid spacing.",
+      "relatedBlocks": ["tp-row", "tp-icon-box", "tp-pricing-table"],
+      "parentRow": "Use in tp-row with columns: 3, sectionWidth: 'boxed'"
+    },
+
+    {
+      "name": "2-Column Main + Sidebar (70% + 30%)",
+      "description": "Asymmetric 2-column layout with wide main content area and narrow sidebar",
+      "visualDescription": "Main content column at 70% width, sidebar at 30% on desktop. On tablet (sm), both become 100% and stack. Main content column has white background, sidebar has light gray (#f8f9fa).",
+      "complexity": "simple",
+      "useCase": "Blog layouts, documentation pages, article layouts with sidebar widgets",
+      "examples": [
+        {
+          "name": "Main Content Column (70%)",
+          "attributes": {
+            "block_id": "c002",
+            "Width": {
+              "md": 70,
+              "sm": 100,
+              "xs": 100,
+              "unit": "%"
+            },
+            "Padding": {
+              "md": {
+                "top": "40",
+                "bottom": "40",
+                "left": "30",
+                "right": "30"
+              },
+              "sm": {
+                "top": "30",
+                "bottom": "30",
+                "left": "20",
+                "right": "20"
+              },
+              "unit": "px"
+            },
+            "NormalBg": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#ffffff"
+            },
+            "blockSpace": {
+              "md": "30",
+              "sm": "20",
+              "unit": "px"
+            }
+          }
+        },
+        {
+          "name": "Sidebar Column (30%)",
+          "attributes": {
+            "block_id": "c003",
+            "Width": {
+              "md": 30,
+              "sm": 100,
+              "xs": 100,
+              "unit": "%"
+            },
+            "Padding": {
+              "md": {
+                "top": "30",
+                "bottom": "30",
+                "left": "20",
+                "right": "20"
+              },
+              "sm": {
+                "top": "20",
+                "bottom": "20",
+                "left": "20",
+                "right": "20"
+              },
+              "unit": "px"
+            },
+            "NormalBg": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#f8f9fa"
+            },
+            "blockSpace": {
+              "md": "25",
+              "sm": "20",
+              "unit": "px"
+            }
+          }
+        }
+      ],
+      "responsiveNotes": "Sidebar stacks below main content on tablet/mobile. Use colOrder to reorder if needed.",
+      "parentRow": "Use in tp-row with columns: 2, columnPosition: 'space-between'",
+      "relatedBlocks": ["tp-row", "tp-pro-paragraph", "tp-image"]
+    },
+
+    {
+      "name": "4-Column Product Grid (25% each)",
+      "description": "Four equal columns for product/portfolio grid that adapts to 2 columns on tablet, 1 on mobile",
+      "visualDescription": "4 equal columns at 25% width each on desktop. Each column has white background, subtle border, and hover shadow effect. On tablet: 50% (2 columns). On mobile: 100% (stacked).",
+      "complexity": "medium",
+      "useCase": "Product grids, portfolio items, image galleries, team member cards",
+      "attributes": {
+        "block_id": "c004",
+        "Width": {
+          "md": 25,
+          "sm": 50,
+          "xs": 100,
+          "unit": "%"
+        },
+        "Padding": {
+          "md": {
+            "top": "30",
+            "bottom": "30",
+            "left": "25",
+            "right": "25"
+          },
+          "sm": {
+            "top": "25",
+            "bottom": "25",
+            "left": "20",
+            "right": "20"
+          },
+          "unit": "px"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "NormalBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e0e0e0",
+          "width": {
+            "md": {
+              "top": "1",
+              "bottom": "1",
+              "left": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "NormalBShadow": {
+          "openShadow": 0
+        },
+        "HoverBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 15,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.1)"
+        },
+        "NormalBradius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "blockSpace": {
+          "md": "20",
+          "sm": "15",
+          "unit": "px"
+        },
+        "verticalPosition": "flex-start",
+        "horizontalPosition": "center"
+      },
+      "responsiveNotes": "Classic 4→2→1 pattern. Hover shadow creates interactive card feel.",
+      "parentRow": "Use in tp-row with columns: 4, gutterSpace: {md: '20', unit: 'px'}",
+      "relatedBlocks": ["tp-row", "tp-image", "tp-heading", "tp-button"]
+    },
+
+    {
+      "name": "Sticky Sidebar Column (Pro)",
+      "description": "Sidebar column that sticks to viewport while scrolling on desktop, normal on mobile",
+      "visualDescription": "30% width sidebar column on desktop that becomes sticky when scrolling past 100px from top. Stays sticky until bottom spacing (40px) is reached. Light gray background, subtle shadow. Normal behavior on tablet/mobile.",
+      "complexity": "advanced",
+      "useCase": "Sticky sidebars, fixed navigation menus, persistent sidebar widgets, table of contents",
+      "source": "pro",
+      "attributes": {
+        "block_id": "c005",
+        "Width": {
+          "md": 30,
+          "sm": 100,
+          "xs": 100,
+          "unit": "%"
+        },
+        "stickycol": true,
+        "topSpace": "100",
+        "botSpace": "40",
+        "stickyDes": true,
+        "stickyTab": false,
+        "stickyMob": false,
+        "Padding": {
+          "md": {
+            "top": "30",
+            "bottom": "30",
+            "left": "25",
+            "right": "25"
+          },
+          "unit": "px"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f8f9fa"
+        },
+        "NormalBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.08)"
+        },
+        "NormalBradius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "zIndex": {
+          "md": "10"
+        },
+        "blockSpace": {
+          "md": "20",
+          "unit": "px"
+        }
+      },
+      "responsiveNotes": "Sticky only on desktop (stickyDes: true). Normal scroll on tablet/mobile for better UX.",
+      "warnings": [
+        "stickycol: true required to enable sticky behavior",
+        "topSpace: distance from viewport top before column becomes sticky (px)",
+        "botSpace: distance from viewport bottom to stop sticky (px)",
+        "Set zIndex high enough to appear above content (recommended 10-999)",
+        "Sticky disabled on tablet/mobile by default (stickyTab: false, stickyMob: false)",
+        "Test sticky behavior with varying content heights",
+        "Sidebar content should not exceed viewport height or it won't sticky properly"
+      ],
+      "validationRules": {
+        "stickycol": "Must be true to enable sticky",
+        "topSpace": "String value in pixels (e.g., '100')",
+        "botSpace": "String value in pixels (e.g., '40')",
+        "stickyDes/stickyTab/stickyMob": "Boolean - enable sticky per device",
+        "zIndex": "Should be set to avoid z-index conflicts"
+      },
+      "parentRow": "Use in tp-row with columns: 2, columnPosition: 'space-between'",
+      "relatedBlocks": ["tp-row"]
+    },
+
+    {
+      "name": "Column with Centered Content",
+      "description": "Column with content vertically and horizontally centered, perfect for hero sections or CTAs",
+      "visualDescription": "50% width column with all content centered both vertically and horizontally. Purple gradient background, white text, rounded corners. Minimum height ensures vertical centering works.",
+      "complexity": "simple",
+      "useCase": "Hero sections, call-to-action areas, centered feature highlights, promotional content",
+      "attributes": {
+        "block_id": "c006",
         "Width": {
           "md": 50,
-          "sm": 50,
+          "sm": 100,
           "xs": 100,
           "unit": "%"
         },
         "verticalPosition": "center",
         "horizontalPosition": "center",
+        "Padding": {
+          "md": {
+            "top": "60",
+            "bottom": "60",
+            "left": "40",
+            "right": "40"
+          },
+          "sm": {
+            "top": "40",
+            "bottom": "40",
+            "left": "30",
+            "right": "30"
+          },
+          "unit": "px"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "NormalBradius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "blockSpace": {
+          "md": "15",
+          "unit": "px"
+        }
+      },
+      "visualTips": "verticalPosition: 'center' + horizontalPosition: 'center' creates perfect centering. Parent row should have adequate minHeight for vertical centering to be visible.",
+      "alignmentOptions": {
+        "verticalPosition": ["flex-start", "center", "flex-end", "stretch"],
+        "horizontalPosition": ["flex-start", "center", "flex-end", "space-between", "space-around"]
+      },
+      "parentRow": "Use in tp-row with minHeight: {md: '400', unit: 'px'}",
+      "relatedBlocks": ["tp-heading", "tp-button"]
+    },
+
+    {
+      "name": "Reordered Column (Mobile First)",
+      "description": "Column that appears in different positions on mobile vs desktop using flex order",
+      "visualDescription": "On desktop: appears as 3rd column (order: 3). On tablet: appears as 2nd column (order: 2). On mobile: appears first (order: 1). Useful for prioritizing content on mobile.",
+      "complexity": "medium",
+      "useCase": "Mobile-first designs, reordering content priority, feature highlighting, responsive content strategy",
+      "attributes": {
+        "block_id": "c007",
+        "Width": {
+          "md": 33.33,
+          "sm": 50,
+          "xs": 100,
+          "unit": "%"
+        },
+        "colOrder": {
+          "md": "3",
+          "sm": "2",
+          "xs": "1"
+        },
         "Padding": {
           "md": {
             "top": "20",
@@ -24,69 +389,559 @@
             "right": "20"
           },
           "unit": "px"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#fff3cd"
+        },
+        "NormalBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#ffc107",
+          "width": {
+            "md": {
+              "top": "2",
+              "bottom": "2",
+              "left": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
         }
-      }
+      },
+      "responsiveNotes": "Uses CSS flexbox order property. Lower numbers appear first. All sibling columns should have colOrder set for predictable behavior.",
+      "warnings": [
+        "colOrder uses flexbox order property - values are relative to siblings",
+        "If only one column has order, others default to order: 0",
+        "For predictable results, set colOrder on all columns in row",
+        "Negative values allowed (e.g., '-1' appears before '0')",
+        "Order values can be any integer (string format)"
+      ],
+      "commonPatterns": [
+        "Desktop: Sidebar (order 1) + Main (order 2) → Mobile: Main (order 1) + Sidebar (order 2)",
+        "Desktop: Image (order 1) + Text (order 2) → Mobile: Text (order 1) + Image (order 2)",
+        "Prioritize important content first on mobile regardless of desktop layout"
+      ],
+      "parentRow": "Use in tp-row with multiple columns",
+      "relatedBlocks": ["tp-row"]
     },
+
     {
-      "description": "33% width column with background",
+      "name": "Column with Custom Border & Shadow",
+      "description": "Styled column with solid border and shadow effects for card-like appearance",
+      "visualDescription": "Column styled as elevated card: white background, 2px purple border, rounded corners (8px), medium shadow. On hover: border color changes, shadow increases. Perfect for clickable cards or feature boxes.",
+      "complexity": "simple",
+      "useCase": "Feature cards, product cards, team member cards, clickable content boxes",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "c008",
         "Width": {
           "md": 33.33,
           "sm": 50,
           "xs": 100,
           "unit": "%"
         },
+        "Padding": {
+          "md": {
+            "top": "40",
+            "bottom": "40",
+            "left": "30",
+            "right": "30"
+          },
+          "sm": {
+            "top": "30",
+            "bottom": "30",
+            "left": "25",
+            "right": "25"
+          },
+          "unit": "px"
+        },
         "NormalBg": {
           "openBg": 1,
           "bgType": "color",
-          "bgColor": "#f5f5f5"
+          "bgDefaultColor": "#ffffff"
+        },
+        "HoverBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f8f9fa"
+        },
+        "NormalBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {
+              "top": "2",
+              "bottom": "2",
+              "left": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "HoverBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#764ba2",
+          "width": {
+            "md": {
+              "top": "2",
+              "bottom": "2",
+              "left": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "NormalBradius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "NormalBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.1)"
+        },
+        "HoverBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.15)"
+        },
+        "blockSpace": {
+          "md": "20",
+          "unit": "px"
+        },
+        "horizontalPosition": "center"
+      },
+      "visualTips": "Combining border, shadow, and hover states creates interactive card effect. Border color transition + shadow increase signals interactivity.",
+      "parentRow": "Use in tp-row with columns: 3, gutterSpace: {md: '20'}",
+      "relatedBlocks": ["tp-icon-box", "tp-heading", "tp-button"]
+    },
+
+    {
+      "name": "Full-Width Column (100%)",
+      "description": "Single full-width column spanning entire row width, used for full-width content sections",
+      "visualDescription": "100% width column on all breakpoints. Light gray background, generous padding. Content blocks inside have 30px bottom margin for spacing.",
+      "complexity": "simple",
+      "useCase": "Full-width hero content, full-width text sections, single-column layouts, centered content areas",
+      "attributes": {
+        "block_id": "c009",
+        "Width": {
+          "md": 100,
+          "sm": 100,
+          "xs": 100,
+          "unit": "%"
         },
         "Padding": {
           "md": {
+            "top": "80",
+            "bottom": "80",
+            "left": "40",
+            "right": "40"
+          },
+          "sm": {
+            "top": "60",
+            "bottom": "60",
+            "left": "30",
+            "right": "30"
+          },
+          "xs": {
+            "top": "40",
+            "bottom": "40",
+            "left": "20",
+            "right": "20"
+          },
+          "unit": "px"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#fafafa"
+        },
+        "blockSpace": {
+          "md": "30",
+          "sm": "20",
+          "xs": "15",
+          "unit": "px"
+        },
+        "horizontalPosition": "center"
+      },
+      "responsiveNotes": "Padding scales down on smaller screens for better mobile UX.",
+      "parentRow": "Use in tp-row with columns: 1 or no columns attribute",
+      "relatedBlocks": ["tp-heading", "tp-pro-paragraph", "tp-button"]
+    },
+
+    {
+      "name": "Narrow Centered Column (50%)",
+      "description": "Centered column at 50% width for focused content presentation",
+      "visualDescription": "50% width column centered in row on desktop. Full width on mobile. White background, shadow, rounded corners. Perfect for centered forms, CTAs, or narrow content.",
+      "complexity": "simple",
+      "useCase": "Centered forms, newsletter signups, narrow content, focused CTAs, login pages",
+      "attributes": {
+        "block_id": "c010",
+        "Width": {
+          "md": 50,
+          "sm": 70,
+          "xs": 100,
+          "unit": "%"
+        },
+        "Padding": {
+          "md": {
+            "top": "50",
+            "bottom": "50",
+            "left": "40",
+            "right": "40"
+          },
+          "sm": {
+            "top": "40",
+            "bottom": "40",
+            "left": "30",
+            "right": "30"
+          },
+          "xs": {
             "top": "30",
             "bottom": "30",
             "left": "20",
             "right": "20"
           },
           "unit": "px"
-        }
-      }
-    },
-    {
-      "description": "Pro: Sticky sidebar column (25% width)",
-      "attributes": {
-        "block_id": "e5f6",
-        "Width": {
-          "md": 25,
-          "sm": 100,
-          "xs": 100,
-          "unit": "%"
         },
-        "stickycol": true,
-        "topSpace": "100",
-        "stickyDes": true,
-        "stickyTab": false,
-        "stickyMob": false
-      }
+        "Margin": {
+          "md": {
+            "top": "0",
+            "bottom": "0",
+            "left": "auto",
+            "right": "auto"
+          },
+          "unit": "px"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "NormalBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 16,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.08)"
+        },
+        "NormalBradius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "blockSpace": {
+          "md": "25",
+          "sm": "20",
+          "unit": "px"
+        }
+      },
+      "visualTips": "Margin: {left: 'auto', right: 'auto'} centers column when width < 100%. Parent row should have sufficient width.",
+      "parentRow": "Use in tp-row with columns: 1, sectionWidth: 'boxed'",
+      "relatedBlocks": ["tp-form-block", "tp-heading", "tp-button"]
     },
+
     {
-      "description": "Reordered column (appears first on mobile)",
+      "name": "Column with Top/Left Alignment",
+      "description": "Column with content aligned to top-left (default flexbox start positions)",
+      "visualDescription": "33.33% width column with content aligned to top (vertically) and left (horizontally). White background, subtle border. Natural left-aligned layout for text-heavy content.",
+      "complexity": "simple",
+      "useCase": "Text content, blog posts, articles, list items, standard content flow",
       "attributes": {
-        "block_id": "g7h8",
+        "block_id": "c011",
         "Width": {
-          "md": 50,
+          "md": 33.33,
           "sm": 50,
           "xs": 100,
           "unit": "%"
         },
-        "colOrder": {
-          "md": "2",
-          "sm": "2",
-          "xs": "1"
+        "verticalPosition": "flex-start",
+        "horizontalPosition": "flex-start",
+        "Padding": {
+          "md": {
+            "top": "30",
+            "bottom": "30",
+            "left": "25",
+            "right": "25"
+          },
+          "unit": "px"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "NormalBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#eeeeee",
+          "width": {
+            "md": {
+              "top": "1",
+              "bottom": "1",
+              "left": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "blockSpace": {
+          "md": "20",
+          "unit": "px"
         }
-      }
+      },
+      "alignmentNotes": "flex-start = top/left alignment. Use 'center' for centered, 'flex-end' for bottom/right, 'space-between' for justified.",
+      "parentRow": "Use in tp-row with columns: 3",
+      "relatedBlocks": ["tp-pro-paragraph", "tp-heading", "tp-stylist-list"]
     }
   ],
-  "commonPatterns": {}
+
+  "commonPatterns": {
+    "3-column-equal": {
+      "description": "3 equal columns (33.33% each) → 2 columns (50%) → 1 column (100%)",
+      "widths": {"md": 33.33, "sm": 50, "xs": 100, "unit": "%"}
+    },
+    "4-column-grid": {
+      "description": "4 columns (25% each) → 2 columns (50%) → 1 column (100%)",
+      "widths": {"md": 25, "sm": 50, "xs": 100, "unit": "%"}
+    },
+    "2-column-sidebar": {
+      "description": "Main content (70%) + Sidebar (30%) → stacked (100% each)",
+      "main": {"md": 70, "sm": 100, "xs": 100, "unit": "%"},
+      "sidebar": {"md": 30, "sm": 100, "xs": 100, "unit": "%"}
+    },
+    "centered-narrow": {
+      "description": "Centered 50% column → full width on mobile",
+      "widths": {"md": 50, "sm": 70, "xs": 100, "unit": "%"},
+      "margin": {"left": "auto", "right": "auto"}
+    }
+  },
+
+  "validationRules": {
+    "block_id": {
+      "required": true,
+      "pattern": "^[a-f0-9]{4}(_\\d+)?$",
+      "description": "4-character hex ID, never modify after creation"
+    },
+    "Width": {
+      "required": true,
+      "responsive": true,
+      "type": "number (percentage)",
+      "range": "1-100",
+      "description": "Column width as percentage. md + sm + xs values for responsive behavior.",
+      "recommendations": {
+        "3-column": "33.33% each",
+        "4-column": "25% each",
+        "2-column-equal": "50% each",
+        "sidebar": "70% main + 30% sidebar"
+      }
+    },
+    "verticalPosition": {
+      "enum": ["flex-start", "center", "flex-end", "stretch"],
+      "description": "Vertical alignment of content inside column (flexbox align-items)",
+      "values": {
+        "flex-start": "Align to top",
+        "center": "Center vertically",
+        "flex-end": "Align to bottom",
+        "stretch": "Stretch to fill height"
+      }
+    },
+    "horizontalPosition": {
+      "enum": ["flex-start", "center", "flex-end", "space-between", "space-around"],
+      "description": "Horizontal alignment of content inside column (flexbox justify-content)",
+      "values": {
+        "flex-start": "Align to left",
+        "center": "Center horizontally",
+        "flex-end": "Align to right",
+        "space-between": "Distribute space between items",
+        "space-around": "Equal space around items"
+      }
+    },
+    "blockSpace": {
+      "responsive": true,
+      "description": "Bottom margin between child blocks inside column",
+      "recommended": {"md": "15-30", "unit": "px"}
+    },
+    "stickycol": {
+      "type": "boolean",
+      "default": false,
+      "source": "pro",
+      "description": "Enable sticky column behavior"
+    },
+    "topSpace": {
+      "type": "string",
+      "condition": "Only applies when stickycol: true",
+      "description": "Top offset in pixels before column becomes sticky (e.g., '100')"
+    },
+    "botSpace": {
+      "type": "string",
+      "condition": "Only applies when stickycol: true",
+      "description": "Bottom spacing in pixels where sticky stops (e.g., '40')"
+    },
+    "stickyDes/stickyTab/stickyMob": {
+      "type": "boolean",
+      "condition": "Only applies when stickycol: true",
+      "description": "Enable sticky behavior on specific devices (desktop/tablet/mobile)"
+    },
+    "colOrder": {
+      "responsive": true,
+      "type": "string (integer)",
+      "description": "CSS flexbox order for reordering columns. Lower values appear first. Can be negative.",
+      "example": {"md": "3", "sm": "2", "xs": "1"}
+    },
+    "Padding": {
+      "responsive": true,
+      "description": "Internal spacing inside column",
+      "recommended": "Scale down on mobile (md: 30px → xs: 20px)"
+    },
+    "Margin": {
+      "responsive": true,
+      "description": "External spacing outside column. Use {left: 'auto', right: 'auto'} to center column."
+    }
+  },
+
+  "warnings": [
+    "**CRITICAL**: Never modify or regenerate block_id - causes blocks to break",
+    "Column must be inside tp-row parent block",
+    "Width percentages in row should total ~100% (accounting for gutterSpace)",
+    "Parent row's gutterSpace becomes padding on columns - plan total spacing accordingly",
+    "Sticky columns (stickycol: true) require Pro version",
+    "Sticky columns need sufficient height difference between column and viewport to work",
+    "colOrder affects visual order, not DOM order (impacts accessibility)",
+    "verticalPosition/horizontalPosition work with flexbox - ensure content wraps properly",
+    "blockSpace adds margin between child blocks - can accumulate with other spacing",
+    "openBg: 1 required before setting background properties",
+    "openBorder: 1 required before setting border properties",
+    "openShadow: 1 required before setting shadow properties",
+    "Margin auto (left/right) only centers when column width < 100%"
+  ],
+
+  "commonMistakes": [
+    {
+      "mistake": "Column widths totaling > 100% in row",
+      "fix": "Ensure all column widths + gutterSpace don't exceed 100%",
+      "impact": "Columns wrap or overflow, breaking layout"
+    },
+    {
+      "mistake": "Setting sticky column without topSpace/botSpace",
+      "fix": "Always set topSpace (e.g., '100') and botSpace (e.g., '40') for sticky columns",
+      "impact": "Sticky behavior may not work as expected"
+    },
+    {
+      "mistake": "Forgetting responsive width values",
+      "fix": "Always set md, sm, xs width values for proper responsive behavior",
+      "impact": "Column doesn't adapt to mobile, poor UX"
+    },
+    {
+      "mistake": "Using colOrder on one column but not siblings",
+      "fix": "If using colOrder, set it on all columns in row for predictable results",
+      "impact": "Unexpected column ordering"
+    },
+    {
+      "mistake": "Setting background without openBg: 1",
+      "fix": "Always set openBg: 1 before bgType, bgDefaultColor, etc.",
+      "impact": "Background won't render"
+    },
+    {
+      "mistake": "Expecting verticalPosition to work without row minHeight",
+      "fix": "Parent row needs minHeight for vertical alignment to be visible",
+      "impact": "Vertical centering appears broken"
+    },
+    {
+      "mistake": "Sticky column content exceeding viewport height",
+      "fix": "Keep sticky column content shorter than viewport height",
+      "impact": "Sticky behavior fails or content gets cut off"
+    },
+    {
+      "mistake": "Not testing column stacking on mobile",
+      "fix": "Always test xs breakpoint on actual mobile devices",
+      "impact": "Layout breaks or has poor spacing on mobile"
+    }
+  ],
+
+  "bestPractices": [
+    "Always provide responsive Width values (md, sm, xs)",
+    "Use standard column patterns: 33.33% (3-col), 25% (4-col), 50% (2-col)",
+    "Stack columns to 100% width on mobile (xs: 100) unless specifically needed",
+    "Scale down Padding on mobile to maximize content space",
+    "Use blockSpace consistently (15-30px) for visual rhythm",
+    "Sticky columns work best for sidebars 30% width or less",
+    "Use colOrder sparingly - can hurt accessibility if overused",
+    "Combine verticalPosition + horizontalPosition for perfect centering",
+    "Use Margin auto (left/right) to center narrower columns",
+    "Test hover states (HoverBg, HoverBorder, HoverBShadow) for interactive columns",
+    "Keep sticky column content concise - under viewport height",
+    "Use semantic widths: 70/30 for main+sidebar, 50/50 for equal split"
+  ],
+
+  "layoutContext": {
+    "columnHierarchy": "tp-row > tp-column > [content blocks]",
+    "widthBehavior": "Width is percentage of parent row width. Includes padding from row's gutterSpace.",
+    "gutterInteraction": "Parent row's gutterSpace becomes padding on column wrapper. Column's Padding is additional internal spacing.",
+    "stickyBehavior": "Sticky columns use position: sticky. Requires topSpace offset and sufficient scrollable height.",
+    "orderBehavior": "colOrder uses CSS flexbox order. Lower numbers appear first. Default is 0.",
+    "alignmentBehavior": "verticalPosition/horizontalPosition use flexbox. Column inner uses flex container for child blocks."
+  },
+
+  "performanceConsiderations": [
+    "Sticky columns use position: sticky - modern CSS, performant",
+    "Avoid excessive shadows on many columns - can impact paint performance",
+    "Gradients in column backgrounds are GPU-accelerated, minimal impact",
+    "Test mobile performance with stacked columns - many tall columns can cause scroll lag"
+  ],
+
+  "responsiveStrategy": {
+    "breakpoints": {
+      "md": "Desktop (≥1024px typically)",
+      "sm": "Tablet (768px-1023px typically)",
+      "xs": "Mobile (<768px typically)"
+    },
+    "cascadeBehavior": "Width values cascade: md → sm → xs. If sm not set, uses md. If xs not set, uses sm or md.",
+    "commonPatterns": {
+      "3-to-2-to-1": "{md: 33.33, sm: 50, xs: 100}",
+      "4-to-2-to-1": "{md: 25, sm: 50, xs: 100}",
+      "sidebar-stack": "Main {md: 70, sm: 100} + Sidebar {md: 30, sm: 100}",
+      "half-to-full": "{md: 50, sm: 100, xs: 100}"
+    },
+    "mobileConsiderations": [
+      "Stack to 100% width on mobile unless specific need",
+      "Reduce Padding on mobile (md: 30px → xs: 20px)",
+      "Reduce blockSpace on mobile for tighter spacing",
+      "Use colOrder to prioritize important content first on mobile",
+      "Disable sticky on mobile (stickyMob: false) for better UX",
+      "Test touch targets - ensure sufficient spacing between clickable elements"
+    ]
+  },
+
+  "accessibilityNotes": {
+    "semanticConsiderations": [
+      "colOrder changes visual order, not DOM/reading order - screen readers follow DOM",
+      "If using colOrder for mobile-first content, ensure DOM order also makes semantic sense",
+      "Don't rely solely on visual alignment - ensure logical content flow in HTML"
+    ],
+    "colorContrast": [
+      "Ensure text over column backgrounds meets WCAG AA (4.5:1 normal, 3:1 large)",
+      "Test border colors for sufficient contrast with background",
+      "Gradient backgrounds should maintain contrast at all points"
+    ]
+  }
 }
