@@ -2,55 +2,264 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-hotspot",
   "title": "Hotspot - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for interactive images with clickable hotspot pins and tooltips",
   "examples": [
     {
-      "description": "Product feature showcase with 3 hotspots",
+      "name": "Product Feature Showcase (Icon Pins with Tooltips)",
+      "description": "Product image with multiple feature hotspots using icon pins, different tooltip placements, wave animations",
+      "visualDescription": "Smartphone product image with 5 icon pins (camera, battery, fingerprint, screen, speaker) at specific positions, each with tooltips showing on hover, subtle wave ripples on normal state",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "hs001",
         "hotspotImage": {
-          "url": "/product-image.jpg"
+          "url": "https://example.com/wp-content/uploads/smartphone-product.jpg",
+          "id": "501"
         },
+        "imageSize": "full",
         "pinlistRepeater": [
           {
             "_key": "0",
+            "pinType": "icon",
+            "pinIconType": "font_awesome",
             "pinIcon": "fas fa-camera",
-            "leftPos": "20",
-            "topPos": "30",
-            "tooltipText": "High-resolution 48MP camera",
-            "tipPlacement": "top"
+            "DleftAuto": true,
+            "leftPos": 20,
+            "DtopAuto": true,
+            "topPos": 15,
+            "itemTooltip": true,
+            "tooltipText": "<strong>48MP Triple Camera</strong><br>Ultra-wide, telephoto, and night mode",
+            "tooltipContentType": "text",
+            "tipPlacement": "top",
+            "tipArrow": true,
+            "tipTriggers": "mouseenter",
+            "tipTheme": "light",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#667eea80",
+            "piniconColor": "#667eea",
+            "pinBgcolor": "#ffffff",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#667eea",
+            "ariaLabel": "Camera features"
           },
           {
             "_key": "1",
+            "pinType": "icon",
             "pinIcon": "fas fa-battery-full",
-            "leftPos": "50",
-            "topPos": "70",
-            "tooltipText": "All-day battery life",
-            "tipPlacement": "right"
+            "DleftAuto": true,
+            "leftPos": 75,
+            "DtopAuto": true,
+            "topPos": 40,
+            "tooltipText": "<strong>5000mAh Battery</strong><br>All-day battery life with fast charging",
+            "tipPlacement": "right",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#10b98180",
+            "piniconColor": "#10b981",
+            "pinBgcolor": "#ffffff",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#10b981"
           },
           {
             "_key": "2",
+            "pinType": "icon",
             "pinIcon": "fas fa-fingerprint",
-            "leftPos": "80",
-            "topPos": "50",
-            "tooltipText": "Biometric security",
-            "tipPlacement": "left"
+            "DleftAuto": true,
+            "leftPos": 50,
+            "DtopAuto": true,
+            "topPos": 70,
+            "tooltipText": "<strong>Biometric Security</strong><br>In-display fingerprint sensor",
+            "tipPlacement": "bottom",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#f59e0b80",
+            "piniconColor": "#f59e0b",
+            "pinBgcolor": "#ffffff",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#f59e0b"
+          },
+          {
+            "_key": "3",
+            "pinType": "icon",
+            "pinIcon": "fas fa-mobile-alt",
+            "DleftAuto": true,
+            "leftPos": 25,
+            "DtopAuto": true,
+            "topPos": 45,
+            "tooltipText": "<strong>6.7\" AMOLED Display</strong><br>120Hz refresh rate, HDR10+",
+            "tipPlacement": "left",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#8b5cf680",
+            "piniconColor": "#8b5cf6",
+            "pinBgcolor": "#ffffff",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#8b5cf6"
+          },
+          {
+            "_key": "4",
+            "pinType": "icon",
+            "pinIcon": "fas fa-volume-up",
+            "DleftAuto": true,
+            "leftPos": 70,
+            "DtopAuto": true,
+            "topPos": 20,
+            "tooltipText": "<strong>Stereo Speakers</strong><br>Dolby Atmos support",
+            "tipPlacement": "top-end",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#ec489980",
+            "piniconColor": "#ec4899",
+            "pinBgcolor": "#ffffff",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#ec4899"
           }
-        ]
-      }
+        ],
+        "iconSize": {
+          "md": "20",
+          "unit": "px"
+        },
+        "pinWidth": {
+          "md": "50",
+          "unit": "px"
+        },
+        "pinRadius": {
+          "md": "50",
+          "unit": "%"
+        },
+        "pinBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.15)"
+        }
+      },
+      "useCase": "E-commerce product showcases, tech specs visualization, feature highlights, product landing pages"
     },
     {
-      "description": "Interactive infographic with custom pins",
+      "name": "Interactive Infographic (Text Pins with Numbered Steps)",
+      "description": "Process infographic with numbered text pins showing workflow steps, styled tooltips with custom colors",
+      "visualDescription": "Workflow diagram with numbered pins (1-6) in purple gradient circles, dark tooltips with white text appearing on hover",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "hs002",
+        "hotspotImage": {
+          "url": "https://example.com/wp-content/uploads/workflow-diagram.jpg",
+          "id": "502"
+        },
+        "imageSize": "full",
         "pinlistRepeater": [
           {
             "_key": "0",
             "pinType": "text",
             "pinText": "1",
-            "tooltipText": "First step in the process",
+            "DleftAuto": true,
+            "leftPos": 15,
+            "DtopAuto": true,
+            "topPos": 20,
+            "tooltipText": "<strong>Discovery Phase</strong><br>Research and requirement gathering",
+            "toltipAlign": "left",
+            "tipPlacement": "right",
+            "tipTheme": "dark",
             "contEffect": "normal_drop_waves",
-            "waveColor": "#667eea80"
+            "waveColor": "#667eea80",
+            "piniconColor": "#ffffff",
+            "pinBgcolor": "#667eea",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#764ba2",
+            "tooltipColor": "#ffffff"
+          },
+          {
+            "_key": "1",
+            "pinType": "text",
+            "pinText": "2",
+            "DleftAuto": true,
+            "leftPos": 30,
+            "DtopAuto": true,
+            "topPos": 35,
+            "tooltipText": "<strong>Planning Phase</strong><br>Define scope, timeline, and resources",
+            "toltipAlign": "left",
+            "tipPlacement": "right",
+            "tipTheme": "dark",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#667eea80",
+            "piniconColor": "#ffffff",
+            "pinBgcolor": "#667eea",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#764ba2"
+          },
+          {
+            "_key": "2",
+            "pinType": "text",
+            "pinText": "3",
+            "DleftAuto": true,
+            "leftPos": 45,
+            "DtopAuto": true,
+            "topPos": 50,
+            "tooltipText": "<strong>Design Phase</strong><br>Create wireframes and prototypes",
+            "toltipAlign": "left",
+            "tipPlacement": "top",
+            "tipTheme": "dark",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#667eea80",
+            "piniconColor": "#ffffff",
+            "pinBgcolor": "#667eea",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#764ba2"
+          },
+          {
+            "_key": "3",
+            "pinType": "text",
+            "pinText": "4",
+            "DleftAuto": true,
+            "leftPos": 60,
+            "DtopAuto": true,
+            "topPos": 35,
+            "tooltipText": "<strong>Development Phase</strong><br>Build and code the solution",
+            "toltipAlign": "left",
+            "tipPlacement": "left",
+            "tipTheme": "dark",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#667eea80",
+            "piniconColor": "#ffffff",
+            "pinBgcolor": "#667eea",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#764ba2"
+          },
+          {
+            "_key": "4",
+            "pinType": "text",
+            "pinText": "5",
+            "DleftAuto": true,
+            "leftPos": 75,
+            "DtopAuto": true,
+            "topPos": 20,
+            "tooltipText": "<strong>Testing Phase</strong><br>QA testing and bug fixes",
+            "toltipAlign": "left",
+            "tipPlacement": "left",
+            "tipTheme": "dark",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#667eea80",
+            "piniconColor": "#ffffff",
+            "pinBgcolor": "#667eea",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#764ba2"
+          },
+          {
+            "_key": "5",
+            "pinType": "text",
+            "pinText": "6",
+            "DleftAuto": true,
+            "leftPos": 85,
+            "DtopAuto": true,
+            "topPos": 40,
+            "tooltipText": "<strong>Launch Phase</strong><br>Deployment and monitoring",
+            "toltipAlign": "left",
+            "tipPlacement": "bottom-start",
+            "tipTheme": "dark",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#667eea80",
+            "piniconColor": "#ffffff",
+            "pinBgcolor": "#667eea",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#764ba2"
           }
         ],
         "textTypo": {
@@ -58,30 +267,1146 @@
           "size": {
             "md": "18",
             "unit": "px"
-          }
+          },
+          "fontWeight": "700"
         },
         "txtPadding": {
-          "md": "12",
+          "md": "15",
           "unit": "px"
+        },
+        "txtRadius": {
+          "md": "50",
+          "unit": "%"
         }
-      }
+      },
+      "useCase": "Process diagrams, workflow infographics, step-by-step guides, educational content"
     },
     {
-      "description": "Floor plan with clickable rooms",
+      "name": "Floor Plan (Click-Triggered Interactive Tooltips)",
+      "description": "Real estate floor plan with clickable room hotspots, interactive tooltips with detailed HTML content",
+      "visualDescription": "Architectural floor plan with icon pins on each room, tooltips stay open when clicked allowing mouse interaction, dark translucent theme",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "hs003",
+        "hotspotImage": {
+          "url": "https://example.com/wp-content/uploads/floor-plan.jpg",
+          "id": "503"
+        },
+        "imageSize": "full",
         "pinlistRepeater": [
           {
             "_key": "0",
             "pinType": "icon",
+            "pinIcon": "fas fa-couch",
+            "DleftAuto": true,
+            "leftPos": 30,
+            "DtopAuto": true,
+            "topPos": 40,
+            "tooltipText": "<h4 style='margin:0 0 10px 0;'>Living Room</h4><p style='margin:0;'>Spacious 20x15 area with hardwood floors<br><strong>Features:</strong> Bay window, fireplace, recessed lighting</p>",
+            "toltipAlign": "left",
+            "tipPlacement": "top",
             "tipTriggers": "click",
             "tipInteractive": true,
-            "tipMaxWidth": "300",
-            "tooltipText": "<h4>Living Room</h4><p>Spacious 20x15 area with hardwood floors</p>"
+            "tipTheme": "translucent",
+            "tipMaxWidth": "320",
+            "contEffect": "hover_drop_waves",
+            "waveColor": "#667eea80",
+            "piniconColor": "#667eea",
+            "pinBgcolor": "#ffffff",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#667eea",
+            "ariaLabel": "Living room details"
+          },
+          {
+            "_key": "1",
+            "pinType": "icon",
+            "pinIcon": "fas fa-utensils",
+            "DleftAuto": true,
+            "leftPos": 60,
+            "DtopAuto": true,
+            "topPos": 25,
+            "tooltipText": "<h4 style='margin:0 0 10px 0;'>Kitchen</h4><p style='margin:0;'>Modern 12x10 galley kitchen<br><strong>Appliances:</strong> Stainless steel, granite countertops</p>",
+            "toltipAlign": "left",
+            "tipPlacement": "right",
+            "tipTriggers": "click",
+            "tipInteractive": true,
+            "tipTheme": "translucent",
+            "tipMaxWidth": "320",
+            "contEffect": "hover_drop_waves",
+            "waveColor": "#10b98180",
+            "piniconColor": "#10b981",
+            "pinBgcolor": "#ffffff",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#10b981"
+          },
+          {
+            "_key": "2",
+            "pinType": "icon",
+            "pinIcon": "fas fa-bed",
+            "DleftAuto": true,
+            "leftPos": 70,
+            "DtopAuto": true,
+            "topPos": 60,
+            "tooltipText": "<h4 style='margin:0 0 10px 0;'>Master Bedroom</h4><p style='margin:0;'>Generous 16x14 suite<br><strong>Features:</strong> Walk-in closet, en-suite bathroom, balcony access</p>",
+            "toltipAlign": "left",
+            "tipPlacement": "left",
+            "tipTriggers": "click",
+            "tipInteractive": true,
+            "tipTheme": "translucent",
+            "tipMaxWidth": "320",
+            "contEffect": "hover_drop_waves",
+            "waveColor": "#8b5cf680",
+            "piniconColor": "#8b5cf6",
+            "pinBgcolor": "#ffffff",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#8b5cf6"
+          },
+          {
+            "_key": "3",
+            "pinType": "icon",
+            "pinIcon": "fas fa-bath",
+            "DleftAuto": true,
+            "leftPos": 75,
+            "DtopAuto": true,
+            "topPos": 80,
+            "tooltipText": "<h4 style='margin:0 0 10px 0;'>Master Bathroom</h4><p style='margin:0;'>Luxurious 8x10 en-suite<br><strong>Features:</strong> Double vanity, walk-in shower, soaking tub</p>",
+            "toltipAlign": "left",
+            "tipPlacement": "bottom",
+            "tipTriggers": "click",
+            "tipInteractive": true,
+            "tipTheme": "translucent",
+            "tipMaxWidth": "320",
+            "contEffect": "hover_drop_waves",
+            "waveColor": "#ec489980",
+            "piniconColor": "#ec4899",
+            "pinBgcolor": "#ffffff",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#ec4899"
           }
-        ]
-      }
+        ],
+        "iconSize": {
+          "md": "22",
+          "unit": "px"
+        },
+        "pinWidth": {
+          "md": "55",
+          "unit": "px"
+        },
+        "pinRadius": {
+          "md": "50",
+          "unit": "%"
+        }
+      },
+      "useCase": "Real estate floor plans, interactive maps, room annotations, property showcases"
+    },
+    {
+      "name": "Image Pins (Custom Images as Markers)",
+      "description": "Team photo with custom image pins showing team member avatars, tooltips with bio information",
+      "visualDescription": "Group photo with circular avatar images as pins, positioned over each person, tooltips show names and roles on hover",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "hs004",
+        "hotspotImage": {
+          "url": "https://example.com/wp-content/uploads/team-photo.jpg",
+          "id": "504"
+        },
+        "imageSize": "full",
+        "pinlistRepeater": [
+          {
+            "_key": "0",
+            "pinType": "image",
+            "pinImage": {
+              "url": "https://example.com/wp-content/uploads/avatar-sarah.jpg",
+              "id": "510"
+            },
+            "pinimgSize": "thumbnail",
+            "DleftAuto": true,
+            "leftPos": 20,
+            "DtopAuto": true,
+            "topPos": 30,
+            "tooltipText": "<strong>Sarah Johnson</strong><br>CEO & Founder<br><em>15 years of industry experience</em>",
+            "toltipAlign": "center",
+            "tipPlacement": "top",
+            "tipTheme": "light",
+            "contEffect": "image_drop_waves",
+            "waveColor": "#667eea80",
+            "ariaLabel": "Sarah Johnson profile",
+            "pinUrl": {
+              "url": "https://example.com/team/sarah-johnson",
+              "target": "_blank",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "1",
+            "pinType": "image",
+            "pinImage": {
+              "url": "https://example.com/wp-content/uploads/avatar-michael.jpg",
+              "id": "511"
+            },
+            "pinimgSize": "thumbnail",
+            "DleftAuto": true,
+            "leftPos": 45,
+            "DtopAuto": true,
+            "topPos": 25,
+            "tooltipText": "<strong>Michael Chen</strong><br>CTO<br><em>Tech visionary and architect</em>",
+            "toltipAlign": "center",
+            "tipPlacement": "top",
+            "tipTheme": "light",
+            "contEffect": "image_drop_waves",
+            "waveColor": "#10b98180",
+            "pinUrl": {
+              "url": "https://example.com/team/michael-chen",
+              "target": "_blank",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "2",
+            "pinType": "image",
+            "pinImage": {
+              "url": "https://example.com/wp-content/uploads/avatar-emma.jpg",
+              "id": "512"
+            },
+            "pinimgSize": "thumbnail",
+            "DleftAuto": true,
+            "leftPos": 70,
+            "DtopAuto": true,
+            "topPos": 35,
+            "tooltipText": "<strong>Emma Rodriguez</strong><br>Head of Design<br><em>Award-winning designer</em>",
+            "toltipAlign": "center",
+            "tipPlacement": "top",
+            "tipTheme": "light",
+            "contEffect": "image_drop_waves",
+            "waveColor": "#f59e0b80",
+            "pinUrl": {
+              "url": "https://example.com/team/emma-rodriguez",
+              "target": "_blank",
+              "nofollow": ""
+            }
+          }
+        ],
+        "imgSize": {
+          "md": "80",
+          "unit": "px"
+        },
+        "pinimgWidth": {
+          "md": "100",
+          "unit": "px"
+        },
+        "pinimgRadius": {
+          "md": "50",
+          "unit": "%"
+        },
+        "pinimgBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 6,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.25)"
+        },
+        "pinimgHvrBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 30,
+          "spread": 0,
+          "color": "rgba(102,126,234,0.4)"
+        }
+      },
+      "useCase": "Team photos with bios, group annotations, avatar markers, people identification"
+    },
+    {
+      "name": "Responsive Positioning (Tablet & Mobile Adjustments)",
+      "description": "Product showcase with pins repositioned for different screen sizes to avoid overlap",
+      "visualDescription": "Desktop pins positioned optimally, tablet and mobile views adjust pin positions to accommodate portrait orientation and smaller screens",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "hs005",
+        "hotspotImage": {
+          "url": "https://example.com/wp-content/uploads/laptop-product.jpg",
+          "id": "505"
+        },
+        "imageSize": "full",
+        "pinlistRepeater": [
+          {
+            "_key": "0",
+            "pinType": "icon",
+            "pinIcon": "fas fa-microchip",
+            "DleftAuto": true,
+            "leftPos": 35,
+            "DtopAuto": true,
+            "topPos": 30,
+            "TabRespo": true,
+            "TleftPos": 40,
+            "TtopPos": 35,
+            "MleftPos": 45,
+            "MtopPos": 25,
+            "tooltipText": "<strong>M2 Pro Chip</strong><br>Up to 12-core CPU, 19-core GPU",
+            "tipPlacement": "top",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#667eea80",
+            "piniconColor": "#667eea",
+            "pinBgcolor": "#ffffff",
+            "tiprespo": true,
+            "tipMaxWidth": "300",
+            "tiptabWidth": "250",
+            "tipmobWidth": "200"
+          },
+          {
+            "_key": "1",
+            "pinType": "icon",
+            "pinIcon": "fas fa-keyboard",
+            "DleftAuto": true,
+            "leftPos": 50,
+            "DtopAuto": true,
+            "topPos": 60,
+            "TabRespo": true,
+            "TleftPos": 50,
+            "TtopPos": 55,
+            "MleftPos": 50,
+            "MtopPos": 50,
+            "tooltipText": "<strong>Magic Keyboard</strong><br>Backlit keys with scissor mechanism",
+            "tipPlacement": "bottom",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#10b98180",
+            "piniconColor": "#10b981",
+            "pinBgcolor": "#ffffff",
+            "tiprespo": true,
+            "tipMaxWidth": "300",
+            "tiptabWidth": "250",
+            "tipmobWidth": "200"
+          },
+          {
+            "_key": "2",
+            "pinType": "icon",
+            "pinIcon": "fas fa-desktop",
+            "DleftAuto": true,
+            "leftPos": 50,
+            "DtopAuto": true,
+            "topPos": 25,
+            "TabRespo": true,
+            "TleftPos": 50,
+            "TtopPos": 20,
+            "MleftPos": 50,
+            "MtopPos": 15,
+            "tooltipText": "<strong>16.2\" Liquid Retina XDR</strong><br>3456 x 2234 resolution, ProMotion 120Hz",
+            "tipPlacement": "top",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#8b5cf680",
+            "piniconColor": "#8b5cf6",
+            "pinBgcolor": "#ffffff",
+            "tiprespo": true,
+            "tipMaxWidth": "320",
+            "tiptabWidth": "260",
+            "tipmobWidth": "220"
+          }
+        ],
+        "iconSize": {
+          "md": "24",
+          "sm": "20",
+          "xs": "18",
+          "unit": "px"
+        },
+        "pinWidth": {
+          "md": "60",
+          "sm": "50",
+          "xs": "45",
+          "unit": "px"
+        },
+        "pinRadius": {
+          "md": "50",
+          "unit": "%"
+        }
+      },
+      "useCase": "Responsive product showcases, mobile-friendly annotations, adaptive layouts"
+    },
+    {
+      "name": "Styled Tooltips (Custom Backgrounds, Borders, Shadows)",
+      "description": "Infographic with fully styled tooltips using gradient backgrounds, custom borders, and shadows",
+      "visualDescription": "Vibrant infographic with colorful pins, tooltips have purple gradient backgrounds, white borders, large shadows, and rounded corners",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "hs006",
+        "hotspotImage": {
+          "url": "https://example.com/wp-content/uploads/data-visualization.jpg",
+          "id": "506"
+        },
+        "imageSize": "full",
+        "pinlistRepeater": [
+          {
+            "_key": "0",
+            "pinType": "icon",
+            "pinIcon": "fas fa-chart-line",
+            "DleftAuto": true,
+            "leftPos": 25,
+            "DtopAuto": true,
+            "topPos": 40,
+            "tooltipText": "<strong>Revenue Growth</strong><br>+156% YoY increase in Q4 2023",
+            "tooltipTypo": {
+              "openTypography": 1,
+              "size": {
+                "md": "15",
+                "unit": "px"
+              },
+              "fontWeight": "400",
+              "lineHeight": {
+                "md": "1.6",
+                "unit": "em"
+              }
+            },
+            "tooltipColor": "#ffffff",
+            "toltipAlign": "left",
+            "tipPlacement": "right",
+            "tipMaxWidth": "280",
+            "tipPadding": {
+              "md": {
+                "top": "16",
+                "right": "20",
+                "bottom": "16",
+                "left": "20"
+              },
+              "unit": "px"
+            },
+            "tipBorder": {
+              "openBorder": 1,
+              "type": "solid",
+              "color": "#ffffff",
+              "width": {
+                "md": {
+                  "top": "2",
+                  "left": "2",
+                  "bottom": "2",
+                  "right": "2"
+                },
+                "unit": "px"
+              }
+            },
+            "tipBorderRadius": {
+              "md": {
+                "top": "12",
+                "right": "12",
+                "bottom": "12",
+                "left": "12"
+              },
+              "unit": "px"
+            },
+            "tipBg": {
+              "openBg": 1,
+              "bgType": "gradient",
+              "bgGradient": {
+                "gradientType": "linear",
+                "gradientAngle": 135,
+                "gradientColor": [
+                  {
+                    "color": "#667eea",
+                    "position": 0
+                  },
+                  {
+                    "color": "#764ba2",
+                    "position": 100
+                  }
+                ]
+              }
+            },
+            "tipBoxShadow": {
+              "openShadow": 1,
+              "horizontal": 0,
+              "vertical": 8,
+              "blur": 30,
+              "spread": 0,
+              "color": "rgba(102,126,234,0.4)"
+            },
+            "tipArrow": true,
+            "tipArrowColor": "#667eea",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#667eea80",
+            "piniconColor": "#667eea",
+            "pinBgcolor": "#ffffff"
+          },
+          {
+            "_key": "1",
+            "pinType": "icon",
+            "pinIcon": "fas fa-users",
+            "DleftAuto": true,
+            "leftPos": 55,
+            "DtopAuto": true,
+            "topPos": 30,
+            "tooltipText": "<strong>User Base</strong><br>2.4M active users worldwide",
+            "tooltipTypo": {
+              "openTypography": 1,
+              "size": {
+                "md": "15",
+                "unit": "px"
+              },
+              "fontWeight": "400",
+              "lineHeight": {
+                "md": "1.6",
+                "unit": "em"
+              }
+            },
+            "tooltipColor": "#ffffff",
+            "toltipAlign": "left",
+            "tipPlacement": "top",
+            "tipMaxWidth": "280",
+            "tipPadding": {
+              "md": {
+                "top": "16",
+                "right": "20",
+                "bottom": "16",
+                "left": "20"
+              },
+              "unit": "px"
+            },
+            "tipBorder": {
+              "openBorder": 1,
+              "type": "solid",
+              "color": "#ffffff",
+              "width": {
+                "md": {
+                  "top": "2",
+                  "left": "2",
+                  "bottom": "2",
+                  "right": "2"
+                },
+                "unit": "px"
+              }
+            },
+            "tipBorderRadius": {
+              "md": {
+                "top": "12",
+                "right": "12",
+                "bottom": "12",
+                "left": "12"
+              },
+              "unit": "px"
+            },
+            "tipBg": {
+              "openBg": 1,
+              "bgType": "gradient",
+              "bgGradient": {
+                "gradientType": "linear",
+                "gradientAngle": 135,
+                "gradientColor": [
+                  {
+                    "color": "#10b981",
+                    "position": 0
+                  },
+                  {
+                    "color": "#059669",
+                    "position": 100
+                  }
+                ]
+              }
+            },
+            "tipBoxShadow": {
+              "openShadow": 1,
+              "horizontal": 0,
+              "vertical": 8,
+              "blur": 30,
+              "spread": 0,
+              "color": "rgba(16,185,129,0.4)"
+            },
+            "tipArrow": true,
+            "tipArrowColor": "#10b981",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#10b98180",
+            "piniconColor": "#10b981",
+            "pinBgcolor": "#ffffff"
+          },
+          {
+            "_key": "2",
+            "pinType": "icon",
+            "pinIcon": "fas fa-globe",
+            "DleftAuto": true,
+            "leftPos": 75,
+            "DtopAuto": true,
+            "topPos": 55,
+            "tooltipText": "<strong>Global Reach</strong><br>Available in 120+ countries",
+            "tooltipTypo": {
+              "openTypography": 1,
+              "size": {
+                "md": "15",
+                "unit": "px"
+              },
+              "fontWeight": "400",
+              "lineHeight": {
+                "md": "1.6",
+                "unit": "em"
+              }
+            },
+            "tooltipColor": "#ffffff",
+            "toltipAlign": "left",
+            "tipPlacement": "left",
+            "tipMaxWidth": "280",
+            "tipPadding": {
+              "md": {
+                "top": "16",
+                "right": "20",
+                "bottom": "16",
+                "left": "20"
+              },
+              "unit": "px"
+            },
+            "tipBorder": {
+              "openBorder": 1,
+              "type": "solid",
+              "color": "#ffffff",
+              "width": {
+                "md": {
+                  "top": "2",
+                  "left": "2",
+                  "bottom": "2",
+                  "right": "2"
+                },
+                "unit": "px"
+              }
+            },
+            "tipBorderRadius": {
+              "md": {
+                "top": "12",
+                "right": "12",
+                "bottom": "12",
+                "left": "12"
+              },
+              "unit": "px"
+            },
+            "tipBg": {
+              "openBg": 1,
+              "bgType": "gradient",
+              "bgGradient": {
+                "gradientType": "linear",
+                "gradientAngle": 135,
+                "gradientColor": [
+                  {
+                    "color": "#f59e0b",
+                    "position": 0
+                  },
+                  {
+                    "color": "#d97706",
+                    "position": 100
+                  }
+                ]
+              }
+            },
+            "tipBoxShadow": {
+              "openShadow": 1,
+              "horizontal": 0,
+              "vertical": 8,
+              "blur": 30,
+              "spread": 0,
+              "color": "rgba(245,158,11,0.4)"
+            },
+            "tipArrow": true,
+            "tipArrowColor": "#f59e0b",
+            "contEffect": "normal_drop_waves",
+            "waveColor": "#f59e0b80",
+            "piniconColor": "#f59e0b",
+            "pinBgcolor": "#ffffff"
+          }
+        ],
+        "iconSize": {
+          "md": "22",
+          "unit": "px"
+        },
+        "pinWidth": {
+          "md": "55",
+          "unit": "px"
+        },
+        "pinRadius": {
+          "md": "50",
+          "unit": "%"
+        }
+      },
+      "useCase": "Data visualizations, statistics infographics, analytics dashboards, branded content"
+    },
+    {
+      "name": "Follow Cursor Tooltip (Dynamic Tooltip Positioning)",
+      "description": "Interactive image with tooltip that follows the mouse cursor movement",
+      "visualDescription": "Product image with a single pin, tooltip dynamically follows cursor as user moves mouse near the pin, creating a fluid interactive experience",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "hs007",
+        "hotspotImage": {
+          "url": "https://example.com/wp-content/uploads/watch-product.jpg",
+          "id": "507"
+        },
+        "imageSize": "full",
+        "pinlistRepeater": [
+          {
+            "_key": "0",
+            "pinType": "icon",
+            "pinIcon": "fas fa-info-circle",
+            "DleftAuto": true,
+            "leftPos": 50,
+            "DtopAuto": true,
+            "topPos": 50,
+            "tooltipText": "<strong>Smartwatch Pro</strong><br>Track your fitness, monitor health, stay connected<br><em>Hover and move your mouse to see the tooltip follow</em>",
+            "toltipAlign": "center",
+            "tipPlacement": "top",
+            "tipTriggers": "mouseenter",
+            "followCursor": true,
+            "tipTheme": "dark",
+            "tipMaxWidth": "280",
+            "contEffect": "none",
+            "piniconColor": "#3b82f6",
+            "pinBgcolor": "#ffffff",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#3b82f6",
+            "ariaLabel": "Product information"
+          }
+        ],
+        "iconSize": {
+          "md": "26",
+          "unit": "px"
+        },
+        "pinWidth": {
+          "md": "60",
+          "unit": "px"
+        },
+        "pinRadius": {
+          "md": "50",
+          "unit": "%"
+        },
+        "pinBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 15,
+          "spread": 0,
+          "color": "rgba(59,130,246,0.3)"
+        },
+        "pinHvrBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 6,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(59,130,246,0.5)"
+        }
+      },
+      "useCase": "Single product highlights, dynamic interactions, mouse-following tooltips, engaging UX"
+    },
+    {
+      "name": "Hover Overlay Effect (Image Darkening with Pin Transforms)",
+      "description": "Interactive before/after comparison with hover overlay that darkens the image and scales up pins",
+      "visualDescription": "Comparison image that darkens with semi-transparent overlay on pin hover, pins scale up with CSS transform, creating dramatic reveal effect",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "hs008",
+        "hotspotImage": {
+          "url": "https://example.com/wp-content/uploads/before-after.jpg",
+          "id": "508"
+        },
+        "imageSize": "full",
+        "pinlistRepeater": [
+          {
+            "_key": "0",
+            "pinType": "icon",
+            "pinIcon": "fas fa-search-plus",
+            "DleftAuto": true,
+            "leftPos": 30,
+            "DtopAuto": true,
+            "topPos": 50,
+            "tooltipText": "<strong>Before:</strong> Standard resolution<br><em>Click to compare with enhanced version</em>",
+            "tipPlacement": "right",
+            "tipTheme": "light",
+            "contEffect": "hover_drop_waves",
+            "waveColor": "#ef444480",
+            "piniconColor": "#ef4444",
+            "pinBgcolor": "#ffffff",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#ef4444"
+          },
+          {
+            "_key": "1",
+            "pinType": "icon",
+            "pinIcon": "fas fa-magic",
+            "DleftAuto": true,
+            "leftPos": 70,
+            "DtopAuto": true,
+            "topPos": 50,
+            "tooltipText": "<strong>After:</strong> AI-enhanced 4K resolution<br><em>Notice the clarity and detail</em>",
+            "tipPlacement": "left",
+            "tipTheme": "light",
+            "contEffect": "hover_drop_waves",
+            "waveColor": "#10b98180",
+            "piniconColor": "#10b981",
+            "pinBgcolor": "#ffffff",
+            "piniconHvrColor": "#ffffff",
+            "pinHvrBgcolor": "#10b981"
+          }
+        ],
+        "iconSize": {
+          "md": "24",
+          "unit": "px"
+        },
+        "pinWidth": {
+          "md": "60",
+          "unit": "px"
+        },
+        "pinRadius": {
+          "md": "50",
+          "unit": "%"
+        },
+        "hveOverlay": true,
+        "hvrBgoverlay": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(0,0,0,0.6)"
+        },
+        "transfoemcss": "scale(1.15) rotate(5deg)",
+        "pinBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.2)"
+        },
+        "pinHvrBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 25,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.4)"
+        }
+      },
+      "useCase": "Before/after comparisons, dramatic reveals, interactive showcases, attention-grabbing CTAs"
     }
   ],
-  "commonPatterns": {}
+  "validationRules": [
+    "block_id is required and must be unique 4-character hex string",
+    "hotspotImage.url is required for background image",
+    "pinlistRepeater must have at least 1 pin (array with _key for each item)",
+    "Each pin must have a _key field for React rendering",
+    "leftPos and topPos are numbers (20, not '20') representing percentages 0-100",
+    "pinType must be 'icon', 'image', or 'text'",
+    "When pinType='icon': pinIcon is required (Font Awesome class)",
+    "When pinType='image': pinImage.url is required",
+    "When pinType='text': pinText is required",
+    "DleftAuto/DrightAuto: only one can be true (position from left OR right, not both)",
+    "DtopAuto/DbottomAuto: only one can be true (position from top OR bottom, not both)",
+    "Tablet responsive: TabRespo must be true to use TleftPos, TtopPos, TrightPos, TbottomPos",
+    "Mobile responsive: MobRespo must be true to use MleftPos, MtopPos, MrightPos, MbottomPos",
+    "tipPlacement has 12 options: top/right/bottom/left with optional -start/-end suffixes",
+    "tipTriggers: 'mouseenter' (hover), 'click', 'focus', or 'manual'",
+    "tipTheme: 'light', 'dark', or 'translucent'",
+    "contEffect: 'normal_drop_waves', 'image_drop_waves', 'hover_drop_waves', or 'none'",
+    "tipInteractive requires tipTriggers='click' to be useful (keeps tooltip open)",
+    "followCursor creates dynamic tooltip positioning following mouse movement",
+    "tipMaxWidth is a number string (pixels) for tooltip width",
+    "tiprespo enables responsive tooltip widths (requires tiptabWidth and tipmobWidth)",
+    "Global styling (iconSize, pinWidth, etc.) applies to all pins of that type",
+    "Per-pin styling (piniconColor, pinBgcolor, etc.) overrides global styling",
+    "Hover overlay (hveOverlay=true) requires hvrBgoverlay background configuration",
+    "transfoemcss accepts any valid CSS transform string (e.g., 'scale(1.2) rotate(5deg)')"
+  ],
+  "warnings": [
+    "Don't use DleftAuto=true and DrightAuto=true simultaneously (conflict)",
+    "Don't use DtopAuto=true and DbottomAuto=true simultaneously (conflict)",
+    "Position values (leftPos, topPos) are percentages 0-100, not pixel values",
+    "Position defaults: leftPos=20, topPos=25 (when Auto flags are true)",
+    "Tablet/mobile positioning only works when TabRespo/MobRespo are enabled",
+    "followCursor tooltip follows mouse, which can be disorienting for users if overused",
+    "tipInteractive with tipTriggers='mouseenter' may cause tooltip to stay open unintentionally",
+    "HTML in tooltipText is allowed but must be properly escaped/sanitized",
+    "Wave effects (contEffect) add CSS animations that may affect performance with many pins",
+    "Global styling attributes apply to ALL pins of that type (icon/image/text)",
+    "Per-pin colors (piniconColor, etc.) don't require openBg or openTypography toggles",
+    "Tooltip responsive widths (tiprespo) require explicit px values for tablet/mobile",
+    "tipArrowColor must match tooltip background for seamless appearance",
+    "Hover overlay (hveOverlay) darkens the entire hotspot image, not individual pins",
+    "transfoemcss affects ALL pins on hover, not individual pins",
+    "Max 20-30 pins recommended for performance (too many can slow page load)",
+    "pinUrl makes the entire pin clickable, which may conflict with tooltip interaction",
+    "Accessibility: Always provide ariaLabel for pins, especially when using icons",
+    "Tooltip HTML content should be concise (max 2-3 lines) for best UX"
+  ],
+  "commonMistakes": [
+    "Using string '20' instead of number 20 for leftPos/topPos (should be numbers)",
+    "Setting both DleftAuto and DrightAuto to true (creates positioning conflict)",
+    "Forgetting to set TabRespo=true before using TleftPos/TtopPos",
+    "Forgetting to set MobRespo=true before using MleftPos/MtopPos",
+    "Using tipInteractive without tipTriggers='click' (doesn't work with hover)",
+    "Forgetting _key field in pinlistRepeater items (breaks React rendering)",
+    "Not setting itemTooltip=false when tooltip isn't needed (shows default tooltip)",
+    "Using tipMaxWidth without unit (should be number string like '300', not '300px')",
+    "Copying same _key for multiple pins (each pin needs unique _key: '0', '1', '2'...)",
+    "Not matching tipArrowColor with tipBg color (creates visual disconnect)",
+    "Using too many pins (20+) on mobile devices (causes performance issues)",
+    "Forgetting to set pinType when switching between icon/image/text pins",
+    "Using openTypography toggle for tooltip text (tooltipTypo doesn't require it in pin context)",
+    "Not testing responsive positioning on actual tablet/mobile devices",
+    "Using complex HTML in tooltipText without testing for overflow"
+  ],
+  "bestPractices": [
+    "Limit to 5-10 pins per hotspot image for best UX and performance",
+    "Use consistent pin styling (colors, sizes) across all pins for visual harmony",
+    "Always provide ariaLabel for accessibility (screen readers)",
+    "Use descriptive tooltipText with HTML formatting for clarity (<strong>, <br>, <em>)",
+    "Test responsive positioning (TabRespo, MobRespo) on actual devices",
+    "Use tipPlacement strategically to avoid tooltip overflow off-screen",
+    "For clickable pins: Use tipTriggers='click' + tipInteractive=true",
+    "For hover pins: Use tipTriggers='mouseenter' (default)",
+    "Match tipArrowColor with tooltip background color for seamless integration",
+    "Use wave effects (contEffect) sparingly for subtle animation",
+    "For mobile: Reduce pin sizes and increase spacing to avoid tap conflicts",
+    "Use semantic HTML in tooltipText (headings, paragraphs, emphasis)",
+    "Provide alternative text/labels when using icon-only pins",
+    "Use hover states (piniconHvrColor, pinHvrBgcolor) to indicate interactivity",
+    "Test tooltip width (tipMaxWidth) to ensure content doesn't wrap awkwardly",
+    "Use image pins (pinType='image') for team photos or avatar markers",
+    "Use text pins (pinType='text') for numbered lists or step sequences",
+    "Use icon pins (pinType='icon') for feature callouts or annotations",
+    "Set responsive tooltip widths (tiprespo) for better mobile experience",
+    "Use follow cursor (followCursor=true) sparingly for special interactive effects",
+    "Document pin positions in comments (e.g., leftPos: 50 // center of image)",
+    "Use hover overlay (hveOverlay) for dramatic before/after reveals",
+    "Combine transfoemcss with box shadows for 3D lift effect on hover",
+    "Use gradient backgrounds (tipBg) for modern, eye-catching tooltips",
+    "Keep tooltip content concise (2-3 lines max) for scannable UX"
+  ],
+  "styleComparisons": [
+    {
+      "title": "Pin Types",
+      "options": [
+        {
+          "value": "icon",
+          "description": "Font Awesome icon pins (requires pinIcon class)",
+          "bestFor": "Feature callouts, annotations, UI elements",
+          "attributes": "iconSize, pinWidth, pinRadius for global styling"
+        },
+        {
+          "value": "image",
+          "description": "Custom image pins (requires pinImage.url)",
+          "bestFor": "Team photos, avatar markers, custom graphics",
+          "attributes": "imgSize, pinimgWidth, pinimgRadius for global styling"
+        },
+        {
+          "value": "text",
+          "description": "Text label pins (requires pinText)",
+          "bestFor": "Numbered sequences, labeled steps, initials",
+          "attributes": "textTypo, txtPadding, txtRadius for global styling"
+        }
+      ]
+    },
+    {
+      "title": "Wave Effects (contEffect)",
+      "options": [
+        {
+          "value": "normal_drop_waves",
+          "description": "Continuous wave ripples on normal state",
+          "visualOutcome": "Subtle pulsing animation always visible",
+          "bestFor": "Drawing attention to pins, ambient motion"
+        },
+        {
+          "value": "image_drop_waves",
+          "description": "Wave ripples triggered by image hover (not pin hover)",
+          "visualOutcome": "Waves appear when hovering anywhere on the image",
+          "bestFor": "Image-wide interactivity cues"
+        },
+        {
+          "value": "hover_drop_waves",
+          "description": "Wave ripples triggered by pin hover",
+          "visualOutcome": "Waves appear only when hovering directly on pin",
+          "bestFor": "Pin-specific hover feedback"
+        },
+        {
+          "value": "none",
+          "description": "No wave animation",
+          "visualOutcome": "Clean, minimal design without motion",
+          "bestFor": "Professional/corporate designs, minimal animations"
+        }
+      ]
+    },
+    {
+      "title": "Tooltip Placements (tipPlacement)",
+      "options": [
+        {
+          "value": "top / top-start / top-end",
+          "description": "Tooltip appears above pin (center/left/right aligned)",
+          "bestFor": "Pins near bottom of image"
+        },
+        {
+          "value": "right / right-start / right-end",
+          "description": "Tooltip appears to right of pin (center/top/bottom aligned)",
+          "bestFor": "Pins on left side of image"
+        },
+        {
+          "value": "bottom / bottom-start / bottom-end",
+          "description": "Tooltip appears below pin (center/left/right aligned)",
+          "bestFor": "Pins near top of image"
+        },
+        {
+          "value": "left / left-start / left-end",
+          "description": "Tooltip appears to left of pin (center/top/bottom aligned)",
+          "bestFor": "Pins on right side of image"
+        }
+      ]
+    },
+    {
+      "title": "Tooltip Triggers (tipTriggers)",
+      "options": [
+        {
+          "value": "mouseenter",
+          "description": "Tooltip shows on hover (default)",
+          "bestFor": "Most common use case, quick info reveals"
+        },
+        {
+          "value": "click",
+          "description": "Tooltip shows on click, stays open",
+          "bestFor": "Interactive tooltips with links, detailed content"
+        },
+        {
+          "value": "focus",
+          "description": "Tooltip shows on keyboard focus",
+          "bestFor": "Accessibility, keyboard navigation"
+        },
+        {
+          "value": "manual",
+          "description": "Programmatic control (requires custom JS)",
+          "bestFor": "Advanced custom interactions"
+        }
+      ]
+    },
+    {
+      "title": "Tooltip Themes (tipTheme)",
+      "options": [
+        {
+          "value": "light",
+          "description": "Light background, dark text (default Tippy.js style)",
+          "visualOutcome": "White/light gray background with dark text",
+          "bestFor": "General use, high readability"
+        },
+        {
+          "value": "dark",
+          "description": "Dark background, light text",
+          "visualOutcome": "Dark gray/black background with white text",
+          "bestFor": "Modern designs, reduced visual clutter"
+        },
+        {
+          "value": "translucent",
+          "description": "Semi-transparent background",
+          "visualOutcome": "Frosted glass effect, shows content behind",
+          "bestFor": "Overlay effects, sophisticated designs"
+        }
+      ]
+    }
+  ],
+  "responsivePatterns": [
+    {
+      "pattern": "Tablet Adjustments",
+      "description": "Reposition pins for tablet portrait/landscape orientation",
+      "implementation": "Set TabRespo=true, then provide TleftPos/TtopPos values that work better for tablet screens",
+      "example": "Desktop leftPos=35 → Tablet TleftPos=40 (shift right 5%)"
+    },
+    {
+      "pattern": "Mobile Stacking",
+      "description": "Move pins to avoid overlap on small mobile screens",
+      "implementation": "Set MobRespo=true, then provide MleftPos/MtopPos values with more spacing",
+      "example": "Desktop topPos=30 → Mobile MtopPos=25 (shift up 5% to avoid content)"
+    },
+    {
+      "pattern": "Responsive Pin Sizing",
+      "description": "Reduce pin and icon sizes on smaller screens for better touch targets",
+      "implementation": "Use responsive units in iconSize, pinWidth (md/sm/xs breakpoints)",
+      "example": "iconSize: {md: '24', sm: '20', xs: '18', unit: 'px'}"
+    },
+    {
+      "pattern": "Responsive Tooltip Widths",
+      "description": "Adjust tooltip width to fit mobile screens without overflow",
+      "implementation": "Set tiprespo=true, provide tipMaxWidth (desktop), tiptabWidth (tablet), tipmobWidth (mobile)",
+      "example": "tipMaxWidth: '300', tiptabWidth: '250', tipmobWidth: '200'"
+    }
+  ],
+  "accessibilityNotes": [
+    "Always provide ariaLabel for each pin describing its purpose",
+    "Use semantic HTML in tooltipText (headings, paragraphs, lists)",
+    "Ensure sufficient color contrast in tooltips (WCAG AA: 4.5:1 for text)",
+    "Support keyboard navigation: tipTriggers='focus' for keyboard users",
+    "Don't rely solely on color to convey information (use icons + text)",
+    "Provide text alternatives for image pins (ariaLabel)",
+    "Test with screen readers to ensure tooltip content is announced",
+    "Use descriptive pinUrl link text when pins are clickable",
+    "Ensure tooltips are dismissible (Escape key should close)",
+    "Avoid auto-playing animations (contEffect='none' for accessibility mode)"
+  ],
+  "performanceConsiderations": [
+    "Limit to 10-15 pins per image (20+ can cause render lag)",
+    "Optimize hotspotImage size using WordPress imageSize parameter",
+    "Use wave effects sparingly (CSS animations consume resources)",
+    "Lazy load hotspot images for below-fold content",
+    "Minimize HTML in tooltipText (keep content lightweight)",
+    "Use icon pins instead of image pins when possible (smaller file size)",
+    "Optimize pinImage files to <50KB for image pins",
+    "Avoid followCursor on mobile (causes layout thrashing on touch)",
+    "Use CSS transforms (transfoemcss) instead of JS animations",
+    "Cache Tippy.js library for faster subsequent page loads"
+  ],
+  "integrationPatterns": [
+    {
+      "pattern": "E-commerce Product Annotations",
+      "description": "Combine with product images to highlight features and specs",
+      "blocks": ["tp-image", "tp-hotspot", "tp-button"],
+      "example": "Product image → Hotspot pins for features → CTA button below"
+    },
+    {
+      "pattern": "Real Estate Virtual Tours",
+      "description": "Floor plans with clickable room hotspots linking to room detail pages",
+      "blocks": ["tp-hotspot", "tp-tabs-tours", "tp-image"],
+      "example": "Floor plan hotspot → Tab content with room photos → Virtual tour integration"
+    },
+    {
+      "pattern": "Team Directory with Photos",
+      "description": "Group photo with image pins showing team member profiles",
+      "blocks": ["tp-hotspot", "tp-team-listing", "tp-infobox"],
+      "example": "Team photo hotspot → Individual team member cards → Contact info boxes"
+    },
+    {
+      "pattern": "Interactive Infographics",
+      "description": "Data visualization with numbered text pins revealing statistics",
+      "blocks": ["tp-hotspot", "tp-number-counter", "tp-progress-bar"],
+      "example": "Infographic hotspot → Animated number counters → Progress visualization"
+    }
+  ],
+  "commonPatterns": [
+    {
+      "pattern": "Basic Product Showcase",
+      "attributes": {
+        "pinType": "icon",
+        "contEffect": "normal_drop_waves",
+        "tipPlacement": "top",
+        "tipTheme": "light"
+      }
+    },
+    {
+      "pattern": "Clickable Floor Plan",
+      "attributes": {
+        "tipTriggers": "click",
+        "tipInteractive": true,
+        "tipTheme": "translucent",
+        "contEffect": "hover_drop_waves"
+      }
+    },
+    {
+      "pattern": "Team Photo Annotations",
+      "attributes": {
+        "pinType": "image",
+        "contEffect": "image_drop_waves",
+        "pinimgRadius": {"md": "50", "unit": "%"}
+      }
+    },
+    {
+      "pattern": "Numbered Process Steps",
+      "attributes": {
+        "pinType": "text",
+        "contEffect": "normal_drop_waves",
+        "tipTheme": "dark",
+        "tipPlacement": "right"
+      }
+    }
+  ]
 }
