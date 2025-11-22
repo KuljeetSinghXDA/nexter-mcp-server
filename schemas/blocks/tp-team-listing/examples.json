@@ -2,51 +2,1080 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-team-listing",
   "title": "Team Member - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Comprehensive examples demonstrating grid/carousel layouts, social links, and team member showcases",
   "examples": [
     {
-      "description": "Simple team grid with 3 members",
+      "name": "Executive Team Grid (Style-1, 4 Members)",
+      "description": "Professional executive team showcase with photos, titles, and contact links",
+      "visualDescription": "4-column grid of executive team members with large photos, names, job titles, and email/LinkedIn links in style-1 layout",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "tl001",
+        "Style": "style-1",
+        "layout": "grid",
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "TeamMemberR": [
+          {
+            "_key": "0",
+            "TName": "Sarah Johnson",
+            "TDesig": "Chief Executive Officer",
+            "TCateg": "Executive",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/sarah-johnson.jpg",
+              "Id": "301"
+            },
+            "MailUrl": {
+              "url": "mailto:sarah@company.com",
+              "target": "",
+              "nofollow": ""
+            },
+            "WsUrl": {
+              "url": "https://linkedin.com/in/sarahjohnson",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "CusUrl": {
+              "url": "https://company.com/team/sarah-johnson",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "1",
+            "TName": "Michael Chen",
+            "TDesig": "Chief Technology Officer",
+            "TCateg": "Executive",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/michael-chen.jpg",
+              "Id": "302"
+            },
+            "MailUrl": {
+              "url": "mailto:michael@company.com",
+              "target": "",
+              "nofollow": ""
+            },
+            "WsUrl": {
+              "url": "https://linkedin.com/in/michaelchen",
+              "target": "_blank",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "2",
+            "TName": "Emily Rodriguez",
+            "TDesig": "Chief Financial Officer",
+            "TCateg": "Executive",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/emily-rodriguez.jpg",
+              "Id": "303"
+            },
+            "MailUrl": {
+              "url": "mailto:emily@company.com",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "3",
+            "TName": "David Kim",
+            "TDesig": "Chief Marketing Officer",
+            "TCateg": "Executive",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/david-kim.jpg",
+              "Id": "304"
+            },
+            "MailUrl": {
+              "url": "mailto:david@company.com",
+              "target": "",
+              "nofollow": ""
+            },
+            "FbUrl": {
+              "url": "https://facebook.com/davidkim",
+              "target": "_blank",
+              "nofollow": ""
+            }
+          }
+        ]
+      },
+      "useCase": "Executive team pages, leadership showcases, C-suite introductions, corporate About Us pages",
+      "proFeatures": []
+    },
+    {
+      "name": "Design Team with Social Links (Style-2, 3 Members)",
+      "description": "Creative team showcase with Facebook, email, and portfolio website links",
+      "visualDescription": "3-member design team grid with casual photos, creative titles, and multiple social media links in style-2 card layout",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "tl002",
+        "Style": "style-2",
         "layout": "grid",
         "Alignment": {
           "md": "center"
         },
         "TeamMemberR": [
           {
-            "TName": "John Smith",
-            "TDesig": "CEO & Founder",
+            "_key": "0",
+            "TName": "Alex Rivera",
+            "TDesig": "Lead UI/UX Designer",
+            "TCateg": "Design",
             "TImage": {
-              "url": "",
-              "Id": ""
-            },
-            "FbUrl": {
-              "url": "https://facebook.com/john",
-              "target": "_blank"
+              "url": "https://example.com/wp-content/uploads/alex-rivera.jpg",
+              "Id": "305"
             },
             "MailUrl": {
-              "url": "mailto:john@company.com"
+              "url": "mailto:alex@company.com",
+              "target": "",
+              "nofollow": ""
+            },
+            "WsUrl": {
+              "url": "https://alexrivera.design",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "FbUrl": {
+              "url": "https://facebook.com/alexrivera",
+              "target": "_blank",
+              "nofollow": ""
             }
           },
           {
-            "TName": "Jane Doe",
-            "TDesig": "CTO",
+            "_key": "1",
+            "TName": "Priya Patel",
+            "TDesig": "Senior Graphic Designer",
+            "TCateg": "Design",
             "TImage": {
-              "url": "",
-              "Id": ""
+              "url": "https://example.com/wp-content/uploads/priya-patel.jpg",
+              "Id": "306"
+            },
+            "MailUrl": {
+              "url": "mailto:priya@company.com",
+              "target": "",
+              "nofollow": ""
+            },
+            "WsUrl": {
+              "url": "https://dribbble.com/priyapatel",
+              "target": "_blank",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "2",
+            "TName": "Jordan Lee",
+            "TDesig": "Motion Designer",
+            "TCateg": "Design",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/jordan-lee.jpg",
+              "Id": "307"
+            },
+            "MailUrl": {
+              "url": "mailto:jordan@company.com",
+              "target": "",
+              "nofollow": ""
+            },
+            "WsUrl": {
+              "url": "https://vimeo.com/jordanlee",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "FbUrl": {
+              "url": "https://facebook.com/jordanleemotion",
+              "target": "_blank",
+              "nofollow": ""
+            }
+          }
+        ]
+      },
+      "useCase": "Creative agency teams, design department pages, portfolio team sections, studio member showcases",
+      "proFeatures": []
+    },
+    {
+      "name": "Carousel Team Showcase (Style-3, 6 Members)",
+      "description": "Scrolling carousel of team members with automatic rotation for large teams",
+      "visualDescription": "Horizontal carousel showcasing 6 team members, auto-scrolling, with arrows and dots navigation in style-3 layout",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "tl003",
+        "Style": "style-3",
+        "layout": "carousel",
+        "Alignment": {
+          "md": "center"
+        },
+        "TeamMemberR": [
+          {
+            "_key": "0",
+            "TName": "Dr. Lisa Martinez",
+            "TDesig": "Head of Research",
+            "TCateg": "Research",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/lisa-martinez.jpg",
+              "Id": "308"
+            },
+            "MailUrl": {
+              "url": "mailto:lisa@company.com",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "1",
+            "TName": "James Wilson",
+            "TDesig": "Senior Data Scientist",
+            "TCateg": "Research",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/james-wilson.jpg",
+              "Id": "309"
+            },
+            "MailUrl": {
+              "url": "mailto:james@company.com",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "2",
+            "TName": "Aisha Thompson",
+            "TDesig": "Research Analyst",
+            "TCateg": "Research",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/aisha-thompson.jpg",
+              "Id": "310"
+            },
+            "MailUrl": {
+              "url": "mailto:aisha@company.com",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "3",
+            "TName": "Carlos Mendez",
+            "TDesig": "Lab Technician",
+            "TCateg": "Research",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/carlos-mendez.jpg",
+              "Id": "311"
+            },
+            "MailUrl": {
+              "url": "mailto:carlos@company.com",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "4",
+            "TName": "Nina Kowalski",
+            "TDesig": "Research Coordinator",
+            "TCateg": "Research",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/nina-kowalski.jpg",
+              "Id": "312"
+            },
+            "MailUrl": {
+              "url": "mailto:nina@company.com",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "5",
+            "TName": "Dr. Raj Sharma",
+            "TDesig": "Senior Researcher",
+            "TCateg": "Research",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/raj-sharma.jpg",
+              "Id": "313"
+            },
+            "MailUrl": {
+              "url": "mailto:raj@company.com",
+              "target": "",
+              "nofollow": ""
+            }
+          }
+        ]
+      },
+      "useCase": "Large team showcases, research teams, department overviews, rotating team displays, space-constrained layouts",
+      "proFeatures": []
+    },
+    {
+      "name": "Advisory Board (Style-1, Formal Layout)",
+      "description": "Formal advisory board members with links to full biographies",
+      "visualDescription": "Professional advisory board grid with formal headshots, credentials, and links to detailed bio pages via CusUrl",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "tl004",
+        "Style": "style-1",
+        "layout": "grid",
+        "Alignment": {
+          "md": "center"
+        },
+        "TeamMemberR": [
+          {
+            "_key": "0",
+            "TName": "Dr. Robert Anderson",
+            "TDesig": "Board Chair, Former CEO TechCorp",
+            "TCateg": "Advisory Board",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/robert-anderson.jpg",
+              "Id": "314"
+            },
+            "CusUrl": {
+              "url": "https://company.com/advisory/robert-anderson",
+              "target": "",
+              "nofollow": ""
+            },
+            "WsUrl": {
+              "url": "https://linkedin.com/in/robertanderson",
+              "target": "_blank",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "1",
+            "TName": "Jennifer Wu, PhD",
+            "TDesig": "Advisor, Stanford Professor",
+            "TCateg": "Advisory Board",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/jennifer-wu.jpg",
+              "Id": "315"
+            },
+            "CusUrl": {
+              "url": "https://company.com/advisory/jennifer-wu",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "2",
+            "TName": "Marcus Johnson",
+            "TDesig": "Strategic Advisor, Venture Capitalist",
+            "TCateg": "Advisory Board",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/marcus-johnson.jpg",
+              "Id": "316"
+            },
+            "CusUrl": {
+              "url": "https://company.com/advisory/marcus-johnson",
+              "target": "",
+              "nofollow": ""
+            },
+            "WsUrl": {
+              "url": "https://linkedin.com/in/marcusjohnson",
+              "target": "_blank",
+              "nofollow": ""
+            }
+          }
+        ]
+      },
+      "useCase": "Advisory board pages, board of directors, mentor showcases, industry expert listings, consultant teams",
+      "proFeatures": []
+    },
+    {
+      "name": "Startup Team (Style-2, All Social Links)",
+      "description": "Young startup team with comprehensive social media presence across all platforms",
+      "visualDescription": "Casual startup team grid with photos, roles, and full social media suite (Facebook, email, website) in style-2 cards",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "tl005",
+        "Style": "style-2",
+        "layout": "grid",
+        "Alignment": {
+          "md": "left"
+        },
+        "TeamMemberR": [
+          {
+            "_key": "0",
+            "TName": "Taylor Morgan",
+            "TDesig": "Co-Founder & CEO",
+            "TCateg": "Founders",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/taylor-morgan.jpg",
+              "Id": "317"
+            },
+            "MailUrl": {
+              "url": "mailto:taylor@startup.com",
+              "target": "",
+              "nofollow": ""
+            },
+            "FbUrl": {
+              "url": "https://facebook.com/taylormorgan",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "WsUrl": {
+              "url": "https://twitter.com/taylormorgan",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "CusUrl": {
+              "url": "https://medium.com/@taylormorgan",
+              "target": "_blank",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "1",
+            "TName": "Sam Nguyen",
+            "TDesig": "Co-Founder & CTO",
+            "TCateg": "Founders",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/sam-nguyen.jpg",
+              "Id": "318"
+            },
+            "MailUrl": {
+              "url": "mailto:sam@startup.com",
+              "target": "",
+              "nofollow": ""
+            },
+            "FbUrl": {
+              "url": "https://facebook.com/samnguyen",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "WsUrl": {
+              "url": "https://github.com/samnguyen",
+              "target": "_blank",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "2",
+            "TName": "Maya Jackson",
+            "TDesig": "Head of Product",
+            "TCateg": "Product",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/maya-jackson.jpg",
+              "Id": "319"
+            },
+            "MailUrl": {
+              "url": "mailto:maya@startup.com",
+              "target": "",
+              "nofollow": ""
+            },
+            "WsUrl": {
+              "url": "https://linkedin.com/in/mayajackson",
+              "target": "_blank",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "3",
+            "TName": "Chris O'Brien",
+            "TDesig": "Lead Developer",
+            "TCateg": "Engineering",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/chris-obrien.jpg",
+              "Id": "320"
+            },
+            "MailUrl": {
+              "url": "mailto:chris@startup.com",
+              "target": "",
+              "nofollow": ""
+            },
+            "WsUrl": {
+              "url": "https://github.com/chrisobrien",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "FbUrl": {
+              "url": "https://facebook.com/chrisobrien",
+              "target": "_blank",
+              "nofollow": ""
+            }
+          }
+        ]
+      },
+      "useCase": "Startup team pages, founder introductions, small company teams, agency member showcases, bootstrap teams",
+      "proFeatures": [],
+      "notes": "WsUrl can be used for any website - Twitter, GitHub, LinkedIn, personal sites. Use CusUrl for additional links like Medium, blog, portfolio."
+    },
+    {
+      "name": "Small Team Grid (Style-3, 2 Members, Centered)",
+      "description": "Minimal two-person team display with centered alignment for small businesses",
+      "visualDescription": "2-member centered grid with large photos, job titles, and email contact in style-3 clean layout",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "tl006",
+        "Style": "style-3",
+        "layout": "grid",
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "TeamMemberR": [
+          {
+            "_key": "0",
+            "TName": "Amanda Foster",
+            "TDesig": "Owner & Creative Director",
+            "TCateg": "Leadership",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/amanda-foster.jpg",
+              "Id": "321"
+            },
+            "MailUrl": {
+              "url": "mailto:amanda@studio.com",
+              "target": "",
+              "nofollow": ""
+            },
+            "WsUrl": {
+              "url": "https://instagram.com/amandafoster",
+              "target": "_blank",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "1",
+            "TName": "Ben Carter",
+            "TDesig": "Operations Manager",
+            "TCateg": "Leadership",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/ben-carter.jpg",
+              "Id": "322"
+            },
+            "MailUrl": {
+              "url": "mailto:ben@studio.com",
+              "target": "",
+              "nofollow": ""
+            }
+          }
+        ]
+      },
+      "useCase": "Small businesses, freelance partnerships, co-founder teams, boutique agencies, consulting duos",
+      "proFeatures": []
+    },
+    {
+      "name": "Sales Team Directory (Style-1, 8 Members, Grid)",
+      "description": "Large team directory for sales department with contact info and territories",
+      "visualDescription": "8-member sales team grid with photos, regions in TCateg, email contact, organized in 4-column responsive grid",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "tl007",
+        "Style": "style-1",
+        "layout": "grid",
+        "Alignment": {
+          "md": "left"
+        },
+        "TeamMemberR": [
+          {
+            "_key": "0",
+            "TName": "Rachel Green",
+            "TDesig": "VP of Sales",
+            "TCateg": "National",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/rachel-green.jpg",
+              "Id": "323"
+            },
+            "MailUrl": {
+              "url": "mailto:rachel@company.com",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "1",
+            "TName": "Tom Bradley",
+            "TDesig": "Regional Sales Manager",
+            "TCateg": "West Coast",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/tom-bradley.jpg",
+              "Id": "324"
+            },
+            "MailUrl": {
+              "url": "mailto:tom@company.com",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "2",
+            "TName": "Lisa Wang",
+            "TDesig": "Regional Sales Manager",
+            "TCateg": "East Coast",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/lisa-wang.jpg",
+              "Id": "325"
+            },
+            "MailUrl": {
+              "url": "mailto:lisa@company.com",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "3",
+            "TName": "Kevin Morales",
+            "TDesig": "Account Executive",
+            "TCateg": "West Coast",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/kevin-morales.jpg",
+              "Id": "326"
+            },
+            "MailUrl": {
+              "url": "mailto:kevin@company.com",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "4",
+            "TName": "Sophie Turner",
+            "TDesig": "Account Executive",
+            "TCateg": "East Coast",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/sophie-turner.jpg",
+              "Id": "327"
+            },
+            "MailUrl": {
+              "url": "mailto:sophie@company.com",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "5",
+            "TName": "Derek Powell",
+            "TDesig": "Sales Development Rep",
+            "TCateg": "Midwest",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/derek-powell.jpg",
+              "Id": "328"
+            },
+            "MailUrl": {
+              "url": "mailto:derek@company.com",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "6",
+            "TName": "Natalie Brooks",
+            "TDesig": "Sales Development Rep",
+            "TCateg": "South",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/natalie-brooks.jpg",
+              "Id": "329"
+            },
+            "MailUrl": {
+              "url": "mailto:natalie@company.com",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "7",
+            "TName": "Mike Stevens",
+            "TDesig": "Inside Sales Representative",
+            "TCateg": "National",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/mike-stevens.jpg",
+              "Id": "330"
+            },
+            "MailUrl": {
+              "url": "mailto:mike@company.com",
+              "target": "",
+              "nofollow": ""
+            }
+          }
+        ]
+      },
+      "useCase": "Sales team directories, contact pages, regional team lists, department showcases, large team grids",
+      "proFeatures": [],
+      "notes": "TCateg field used to show territories/regions. Can be used for filtering if plugin supports category filters."
+    },
+    {
+      "name": "Customer Support Team (Style-2, Left-Aligned, 5 Members)",
+      "description": "Support team with friendly photos, roles, and direct contact links for customer service pages",
+      "visualDescription": "5-member support team grid, left-aligned, with approachable photos, support roles, email links in style-2 friendly layout",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "tl008",
+        "Style": "style-2",
+        "layout": "grid",
+        "Alignment": {
+          "md": "left",
+          "sm": "center",
+          "xs": "center"
+        },
+        "TeamMemberR": [
+          {
+            "_key": "0",
+            "TName": "Jessica Park",
+            "TDesig": "Customer Success Manager",
+            "TCateg": "Support",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/jessica-park.jpg",
+              "Id": "331"
+            },
+            "MailUrl": {
+              "url": "mailto:jessica@support.com",
+              "target": "",
+              "nofollow": ""
+            },
+            "CusUrl": {
+              "url": "https://support.com/contact/jessica",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "1",
+            "TName": "Omar Hassan",
+            "TDesig": "Senior Support Specialist",
+            "TCateg": "Support",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/omar-hassan.jpg",
+              "Id": "332"
+            },
+            "MailUrl": {
+              "url": "mailto:omar@support.com",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "2",
+            "TName": "Hannah Miller",
+            "TDesig": "Support Specialist",
+            "TCateg": "Support",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/hannah-miller.jpg",
+              "Id": "333"
+            },
+            "MailUrl": {
+              "url": "mailto:hannah@support.com",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "3",
+            "TName": "Luis Fernandez",
+            "TDesig": "Technical Support Engineer",
+            "TCateg": "Support",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/luis-fernandez.jpg",
+              "Id": "334"
+            },
+            "MailUrl": {
+              "url": "mailto:luis@support.com",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "4",
+            "TName": "Claire Davidson",
+            "TDesig": "Onboarding Specialist",
+            "TCateg": "Support",
+            "TImage": {
+              "url": "https://example.com/wp-content/uploads/claire-davidson.jpg",
+              "Id": "335"
+            },
+            "MailUrl": {
+              "url": "mailto:claire@support.com",
+              "target": "",
+              "nofollow": ""
+            }
+          }
+        ]
+      },
+      "useCase": "Customer support pages, help center team, service team showcases, contact pages with team members",
+      "proFeatures": [],
+      "notes": "CusUrl can link to individual support contact forms or live chat pages for direct customer access."
+    }
+  ],
+  "validationRules": {
+    "layout": "Required - Must be 'grid' or 'carousel'. Grid displays all members statically, carousel creates slider",
+    "Style": "Visual style variant string (e.g., 'style-1', 'style-2', 'style-3'). Each style has unique card design",
+    "TeamMemberR": "Required array - Minimum 1 team member object required for display",
+    "TeamMemberR[].TName": "Required string - Team member's full name",
+    "TeamMemberR[].TDesig": "String - Job title or designation (e.g., 'CEO', 'Senior Developer')",
+    "TeamMemberR[].TImage": "Object with url and Id properties - Team member photo (url can be empty for placeholder)",
+    "TeamMemberR[].TCateg": "Optional string - Category/department for filtering (e.g., 'Executive', 'Design', 'Sales')",
+    "TeamMemberR[].MailUrl": "Object - Email mailto link (url: 'mailto:email@domain.com', target, nofollow)",
+    "TeamMemberR[].FbUrl": "Object - Facebook profile URL (url, target:'_blank', nofollow)",
+    "TeamMemberR[].WsUrl": "Object - Website/social URL (LinkedIn, Twitter, GitHub, personal site, etc.)",
+    "TeamMemberR[].CusUrl": "Object - Custom URL for bio pages, contact forms, portfolio, etc.",
+    "TeamMemberR[]._key": "String - Unique key for array item (use index or unique ID)",
+    "Alignment": "Responsive object with md/sm/xs. Values: 'left', 'center', 'right' for text alignment",
+    "target": "For URL objects - Use '_blank' to open in new tab, empty string for same tab",
+    "nofollow": "For URL objects - SEO attribute, typically empty string unless intentional nofollow"
+  },
+  "warnings": [
+    "⚠️ TeamMemberR array requires minimum 1 member - empty array will display nothing",
+    "⚠️ TImage.url can be empty (shows placeholder), but object with url/Id properties required",
+    "⚠️ MailUrl should use 'mailto:' prefix (e.g., 'mailto:email@domain.com')",
+    "⚠️ All social URL objects require url, target, nofollow properties (even if empty strings)",
+    "⚠️ _key is important for React rendering - use unique values (index numbers or IDs)",
+    "⚠️ Carousel layout may not work well with < 3 members (grid recommended for small teams)",
+    "⚠️ Very large TeamMemberR arrays (> 50 members) may cause performance issues in carousel mode",
+    "⚠️ TCateg is for display/filtering only - doesn't automatically filter unless plugin supports it",
+    "⚠️ WsUrl is generic 'website' field - can be used for any platform (LinkedIn, Twitter, GitHub, etc.)",
+    "⚠️ CusUrl is for additional custom links - bio pages, portfolios, contact forms, blog posts",
+    "⚠️ Facebook links should use full URL format: https://facebook.com/username",
+    "⚠️ Missing TName will cause display issues - always provide name for each member",
+    "⚠️ Image aspect ratios should be consistent across all team members for visual balance",
+    "⚠️ Target '_blank' on social links is best practice but test accessibility (screen readers)",
+    "⚠️ Empty social URL objects still render icon placeholders in some styles - omit entire object if not used"
+  ],
+  "commonMistakes": [
+    "❌ Forgetting _key property in TeamMemberR array items (causes React warnings)",
+    "❌ Using incomplete URL objects (missing target or nofollow properties)",
+    "❌ Not using 'mailto:' prefix for email addresses in MailUrl",
+    "❌ Mixing portrait and landscape photo orientations (looks unbalanced)",
+    "❌ Using carousel layout for 1-2 members (grid is better for small counts)",
+    "❌ Not setting TImage.Id when using WordPress media library (breaks media management)",
+    "❌ Leaving TDesig empty (looks incomplete, provide job title or role)",
+    "❌ Using TCateg inconsistently (some members have it, others don't)",
+    "❌ Not optimizing TImage photos (large uncompressed images slow page load)",
+    "❌ Using different image sizes for team members (creates uneven grid)",
+    "❌ Putting full URLs in MailUrl instead of mailto: format",
+    "❌ Not testing responsive layout - team members may stack awkwardly on mobile",
+    "❌ Adding too many social links (clutters design, stick to 2-3 most relevant)",
+    "❌ Using CusUrl for standard social media (use specific FbUrl, WsUrl instead)",
+    "❌ Not providing alt text context for accessibility (handled via WordPress media library)"
+  ],
+  "bestPractices": [
+    "✅ Use consistent image dimensions for all team members (e.g., 400x400px square headshots)",
+    "✅ Optimize images before upload - compress to < 100KB each for fast loading",
+    "✅ Provide TDesig for every member - helps users understand roles/hierarchy",
+    "✅ Use TCateg consistently for logical grouping (Executive, Design, Sales, etc.)",
+    "✅ Set target:'_blank' for social links (FbUrl, WsUrl) to keep users on your site",
+    "✅ Use grid layout for 1-8 members, carousel for 6+ members or space constraints",
+    "✅ Include at least email (MailUrl) for professional contact - most expected link",
+    "✅ Use CusUrl for bio pages, portfolios, or detailed team member pages",
+    "✅ Align centered (Alignment.md:'center') for formal/executive teams",
+    "✅ Align left (Alignment.md:'left') for large teams/directories for easier scanning",
+    "✅ Use unique _key values - index numbers (\"0\", \"1\", \"2\") are fine",
+    "✅ Test with placeholder images first before adding real photos",
+    "✅ Keep TDesig concise - 2-4 words max (e.g., 'CEO & Founder', not full bio)",
+    "✅ Use professional headshots with consistent background (solid color or blurred)",
+    "✅ Combine with tp-heading-title block for section header above team grid",
+    "✅ For large teams (10+), consider adding search/filter functionality via custom code",
+    "✅ Use responsive alignment: center on mobile, left on desktop for readability",
+    "✅ Limit social links to 2-3 most relevant platforms per person (avoid clutter)",
+    "✅ Use WsUrl for LinkedIn on professional teams (most business-appropriate social)",
+    "✅ Provide fallback placeholder image in theme for members without photos"
+  ],
+  "styleComparisons": [
+    {
+      "name": "Layout Options",
+      "grid": {
+        "layout": "grid",
+        "description": "Static grid display - all members visible simultaneously",
+        "pros": "All members visible at once, better for SEO, no JavaScript required, easier scanning",
+        "cons": "Takes more vertical space, may require scrolling for large teams",
+        "bestFor": "Small-medium teams (1-12 members), executive teams, when all members should be prominently featured"
+      },
+      "carousel": {
+        "layout": "carousel",
+        "description": "Horizontal slider with navigation arrows and dots",
+        "pros": "Space-efficient, modern UI, works well for large teams, auto-rotation option",
+        "cons": "Requires user interaction, some members hidden initially, JavaScript dependency",
+        "bestFor": "Large teams (6+ members), homepage team teasers, space-constrained layouts, visual interest"
+      }
+    },
+    {
+      "name": "Social Link Strategy",
+      "minimal": {
+        "links": ["MailUrl"],
+        "description": "Email only - professional and essential",
+        "bestFor": "Corporate teams, executive showcases, formal contexts"
+      },
+      "professional": {
+        "links": ["MailUrl", "WsUrl (LinkedIn)"],
+        "description": "Email + LinkedIn - business standard",
+        "bestFor": "B2B companies, professional services, corporate environments"
+      },
+      "creative": {
+        "links": ["MailUrl", "WsUrl (portfolio)", "FbUrl", "CusUrl (blog)"],
+        "description": "Email + portfolio/social + blog - full creative presence",
+        "bestFor": "Creative agencies, design studios, marketing teams, startups"
+      },
+      "techTeam": {
+        "links": ["MailUrl", "WsUrl (GitHub)", "CusUrl (blog)"],
+        "description": "Email + GitHub + tech blog - developer focus",
+        "bestFor": "Engineering teams, tech companies, developer showcases"
+      }
+    }
+  ],
+  "responsivePatterns": [
+    {
+      "name": "Desktop Left, Mobile Centered",
+      "description": "Left-align team members on desktop for directory feel, center on mobile for visual balance",
+      "pattern": {
+        "Alignment": {
+          "md": "left",
+          "sm": "center",
+          "xs": "center"
+        }
+      }
+    },
+    {
+      "name": "Always Centered",
+      "description": "Center alignment across all breakpoints for formal, symmetric presentations",
+      "pattern": {
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        }
+      }
+    }
+  ],
+  "accessibilityNotes": [
+    "♿ Provide descriptive alt text for all TImage photos via WordPress media library",
+    "♿ Use descriptive TDesig titles that make sense without visual context",
+    "♿ Email links (MailUrl) should use 'mailto:' for screen reader compatibility",
+    "♿ External links (target:'_blank') should ideally include 'opens in new tab' indication",
+    "♿ Ensure TName uses real names, not decorative text or emojis",
+    "♿ Carousel navigation should be keyboard accessible (arrow keys work)",
+    "♿ Don't rely solely on TImage to convey important information - use text",
+    "♿ Test with screen readers to ensure team member info is announced properly",
+    "♿ Ensure sufficient color contrast for TName and TDesig text against background",
+    "♿ Provide skip navigation for very large team grids (10+ members)"
+  ],
+  "performanceConsiderations": [
+    "⚡ Optimize all TImage photos - use compression tools (aim for < 100KB per photo)",
+    "⚡ Use appropriate image sizes - 400x400px or 600x600px sufficient for team member cards",
+    "⚡ Lazy load images for large team grids (WordPress handles this automatically for img tags)",
+    "⚡ Limit carousel to < 20 members for smooth animation performance",
+    "⚡ Use WebP format with JPEG fallback for best compression and browser support",
+    "⚡ Avoid excessive social links (> 4 per member) which add DOM weight",
+    "⚡ Grid layout performs better than carousel for SEO and initial render",
+    "⚡ Consider pagination or \"Load More\" for very large teams (20+ members)",
+    "⚡ Minimize inline styles - rely on block's CSS for consistent styling",
+    "⚡ Test carousel auto-play settings - can increase CPU usage on lower-end devices"
+  ],
+  "integrationPatterns": [
+    {
+      "name": "About Us Page - Team Section",
+      "description": "Full team showcase with heading and description",
+      "blocks": [
+        "tpgb/tp-container (section container)",
+        "tpgb/tp-heading-title (section heading 'Meet Our Team')",
+        "tpgb/tp-pro-paragraph (team introduction text)",
+        "tpgb/tp-team-listing (grid layout, all team members)"
+      ],
+      "attributes": {
+        "layout": "grid",
+        "Alignment": {
+          "md": "center"
+        }
+      }
+    },
+    {
+      "name": "Homepage Team Teaser",
+      "description": "Carousel showcase of key team members on homepage",
+      "blocks": [
+        "tpgb/tp-container (homepage section)",
+        "tpgb/tp-heading-title (heading 'Our Expert Team')",
+        "tpgb/tp-team-listing (carousel, 6-8 featured members)",
+        "tpgb/tp-button (link to full team page)"
+      ],
+      "attributes": {
+        "layout": "carousel",
+        "Style": "style-3"
+      }
+    },
+    {
+      "name": "Department Pages",
+      "description": "Individual department team grids with category filtering",
+      "blocks": [
+        "tpgb/tp-heading-title (department name)",
+        "tpgb/tp-team-listing (grid, TCateg for department)",
+        "tpgb/tp-pro-paragraph (department description)"
+      ],
+      "attributes": {
+        "layout": "grid",
+        "TeamMemberR": [
+          {
+            "TCateg": "Sales"
+          }
+        ]
+      },
+      "notes": "Use TCateg consistently to group by department. Create separate team-listing blocks per department."
+    },
+    {
+      "name": "Contact Page with Team",
+      "description": "Contact information with team member cards for direct outreach",
+      "blocks": [
+        "tpgb/tp-heading-title (heading 'Contact Our Team')",
+        "tpgb/tp-team-listing (grid, emails prominent)",
+        "tpgb/tp-form-block (general contact form below)"
+      ],
+      "attributes": {
+        "layout": "grid",
+        "Alignment": {
+          "md": "left"
+        }
+      }
+    }
+  ],
+  "commonPatterns": {
+    "executiveTeam": {
+      "description": "Centered executive team with LinkedIn and bio links",
+      "attributes": {
+        "Style": "style-1",
+        "layout": "grid",
+        "Alignment": {
+          "md": "center"
+        },
+        "TeamMemberR": [
+          {
+            "MailUrl": {
+              "url": "mailto:exec@company.com"
+            },
+            "WsUrl": {
+              "url": "https://linkedin.com/in/executive",
+              "target": "_blank"
+            },
+            "CusUrl": {
+              "url": "https://company.com/team/executive-bio",
+              "target": ""
             }
           }
         ]
       }
     },
-    {
-      "description": "Team carousel with style-3",
+    "carouselShowcase": {
+      "description": "Carousel layout for large team displays",
       "attributes": {
-        "block_id": "c3d4",
+        "layout": "carousel",
         "Style": "style-3",
-        "layout": "carousel"
+        "Alignment": {
+          "md": "center"
+        }
+      }
+    },
+    "smallTeamCentered": {
+      "description": "2-3 member team centered for boutique businesses",
+      "attributes": {
+        "layout": "grid",
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        }
+      }
+    },
+    "departmentDirectory": {
+      "description": "Left-aligned team directory with categories",
+      "attributes": {
+        "layout": "grid",
+        "Alignment": {
+          "md": "left"
+        },
+        "TeamMemberR": [
+          {
+            "TCateg": "Department Name"
+          }
+        ]
       }
     }
-  ],
-  "commonPatterns": {}
+  }
 }
