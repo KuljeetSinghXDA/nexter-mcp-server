@@ -2,55 +2,976 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-button",
   "title": "Advanced Button - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for the Advanced Button block",
   "examples": [
     {
-      "description": "Simple primary CTA button",
+      "name": "Primary CTA Button - Gradient Background",
+      "description": "Eye-catching call-to-action button with gradient background, icon, and hover effects",
+      "visualDescription": "Purple-to-blue gradient background (135deg), white text, 16px padding, right arrow icon, smooth color transition on hover to darker gradient, subtle shadow, center aligned",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "btn01",
         "styleType": "style-1",
-        "btnText": "Get Started",
+        "btnText": "Get Started Free",
         "btnLink": {
           "url": "/signup",
           "target": "_self",
           "nofollow": ""
         },
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
         "iconType": "fontAwesome",
         "fontAwesomeIcon": "fas fa-arrow-right",
         "iconPosition": "iconAfter",
+        "iconSpace": {
+          "md": "10",
+          "unit": "px"
+        },
+        "iconSize": {
+          "md": "14",
+          "unit": "px"
+        },
+        "innerPadding": {
+          "md": {
+            "top": "16",
+            "right": "32",
+            "bottom": "16",
+            "left": "32"
+          },
+          "sm": {
+            "top": "14",
+            "right": "24",
+            "bottom": "14",
+            "left": "24"
+          },
+          "unit": "px"
+        },
+        "texTyp": {
+          "openTypography": 1,
+          "size": {
+            "md": "16",
+            "sm": "15",
+            "xs": "14",
+            "unit": "px"
+          },
+          "weight": "600",
+          "transform": "uppercase",
+          "spacing": {
+            "md": "0.5",
+            "unit": "px"
+          }
+        },
+        "btnTextNmlColor": "#ffffff",
+        "iconNmlColor": "#ffffff",
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#667eea",
+            "color2": "#764ba2",
+            "type": "linear",
+            "direction": "135",
+            "start": 0,
+            "stop": 100
+          }
+        },
+        "normalBRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "px"
+        },
+        "nmlboxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.3)"
+        },
+        "btnTextHvrColor": "#ffffff",
+        "iconHvrColor": "#ffffff",
+        "hoverBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#5568d3",
+            "color2": "#6a3f8f",
+            "type": "linear",
+            "direction": "135",
+            "start": 0,
+            "stop": 100
+          }
+        },
+        "hvrboxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 6,
+          "blur": 16,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.5)"
+        }
+      },
+      "useCase": "Hero sections, landing pages, primary conversion actions, signup forms",
+      "responsiveNotes": "Padding and font size reduce on mobile for better tap targets"
+    },
+    {
+      "name": "Outline Button with Border and Hover Fill",
+      "description": "Minimal outline button that fills with color on hover",
+      "visualDescription": "Transparent background, 2px solid purple border, purple text, rounded corners. On hover: fills with purple gradient, text turns white, border remains",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "btn02",
+        "styleType": "style-1",
+        "btnText": "Learn More",
+        "btnLink": {
+          "url": "/about",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "Alignment": {
+          "md": "left"
+        },
+        "innerPadding": {
+          "md": {
+            "top": "12",
+            "right": "28",
+            "bottom": "12",
+            "left": "28"
+          },
+          "unit": "px"
+        },
+        "texTyp": {
+          "openTypography": 1,
+          "size": {
+            "md": "15",
+            "unit": "px"
+          },
+          "weight": "500"
+        },
+        "btnTextNmlColor": "#667eea",
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "transparent"
+        },
+        "bgNormalB": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "normalBRadius": {
+          "md": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        },
+        "btnTextHvrColor": "#ffffff",
+        "hoverBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#667eea",
+            "color2": "#764ba2",
+            "type": "linear",
+            "direction": "135",
+            "start": 0,
+            "stop": 100
+          }
+        },
+        "bgHoverB": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        }
+      },
+      "useCase": "Secondary actions, 'learn more' links, less prominent CTAs, supporting buttons next to primary buttons",
+      "responsiveNotes": "Works well at all screen sizes, no breakpoint adjustments needed"
+    },
+    {
+      "name": "Icon Button - Circular Play Button",
+      "description": "Circular button with large FontAwesome icon, perfect for video/media controls",
+      "visualDescription": "60px × 60px circular button, white background, purple play icon (24px), purple border. On hover: purple background, white icon, shadow appears",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "btn03",
+        "styleType": "style-1",
+        "btnText": "",
+        "btnLink": {
+          "url": "#video-section",
+          "target": "_self",
+          "nofollow": ""
+        },
         "Alignment": {
           "md": "center"
-        }
-      }
-    },
-    {
-      "description": "Button with hover text change",
-      "attributes": {
-        "block_id": "c3d4",
-        "styleType": "style-7",
-        "btnText": "Learn More",
-        "hoverText": "Click Now!",
-        "btnHvrType": "hover-left"
-      }
-    },
-    {
-      "description": "FancyBox popup button",
-      "attributes": {
-        "block_id": "e5f6",
-        "btnText": "Watch Video",
-        "fancyBox": true,
-        "btnLink": {
-          "url": "https://youtube.com/watch?v=...",
-          "target": "_blank"
         },
         "iconType": "fontAwesome",
-        "fontAwesomeIcon": "fas fa-play"
+        "fontAwesomeIcon": "fas fa-play",
+        "iconPosition": "iconAfter",
+        "iconSize": {
+          "md": "24",
+          "sm": "20",
+          "unit": "px"
+        },
+        "innerPadding": {
+          "md": {
+            "top": "18",
+            "right": "20",
+            "bottom": "18",
+            "left": "20"
+          },
+          "sm": {
+            "top": "14",
+            "right": "16",
+            "bottom": "14",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "iconNmlColor": "#667eea",
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "bgNormalB": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "normalBRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "iconHvrColor": "#ffffff",
+        "hoverBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "bgHoverB": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "hvrboxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.4)"
+        },
+        "ariaLabel": "Play video"
+      },
+      "useCase": "Video players, media controls, hero video overlays, icon-only action buttons",
+      "responsiveNotes": "Icon size and padding reduce on mobile for better proportions",
+      "accessibilityNotes": "ariaLabel is critical for icon-only buttons - screen readers need text description"
+    },
+    {
+      "name": "Button with Hover Text Change (style-7)",
+      "description": "Button text changes on hover, revealing alternative message",
+      "visualDescription": "'Download Now' changes to 'Free PDF Guide' on hover. Teal background, white text, arrow icon that slides in from left on hover",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "btn04",
+        "styleType": "style-7",
+        "btnText": "Download Now",
+        "hoverText": "Free PDF Guide",
+        "btnHvrType": "hover-left",
+        "btnLink": {
+          "url": "/download/guide.pdf",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "Alignment": {
+          "md": "center"
+        },
+        "innerPadding": {
+          "md": {
+            "top": "14",
+            "right": "30",
+            "bottom": "14",
+            "left": "30"
+          },
+          "unit": "px"
+        },
+        "texTyp": {
+          "openTypography": 1,
+          "size": {
+            "md": "15",
+            "unit": "px"
+          },
+          "weight": "600",
+          "transform": "uppercase"
+        },
+        "btnTextNmlColor": "#ffffff",
+        "iconNmlColor": "#ffffff",
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#14b8a6"
+        },
+        "normalBRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "btnTextHvrColor": "#ffffff",
+        "iconHvrColor": "#ffffff"
+      },
+      "useCase": "Downloads, revealing additional info on hover, interactive CTAs, teasers",
+      "warnings": [
+        "style-7 is specifically designed for hover text changes - don't use other styleType values if you want this effect",
+        "hoverText is required when using style-7, otherwise hover state will be empty",
+        "On mobile/touch devices, hover text change doesn't work well - consider using standard button instead"
+      ]
+    },
+    {
+      "name": "FancyBox Video Popup Button",
+      "description": "Opens YouTube/Vimeo video in lightbox popup overlay",
+      "visualDescription": "Red 'Watch Video' button with play icon. Clicking opens video in centered modal with dark overlay (80% opacity black)",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "btn05",
+        "styleType": "style-1",
+        "btnText": "Watch Demo Video",
+        "fancyBox": true,
+        "btnLink": {
+          "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "Alignment": {
+          "md": "center"
+        },
+        "iconType": "fontAwesome",
+        "fontAwesomeIcon": "fas fa-play-circle",
+        "iconPosition": "iconBefore",
+        "iconSpace": {
+          "md": "10",
+          "unit": "px"
+        },
+        "iconSize": {
+          "md": "18",
+          "unit": "px"
+        },
+        "innerPadding": {
+          "md": {
+            "top": "14",
+            "right": "28",
+            "bottom": "14",
+            "left": "28"
+          },
+          "unit": "px"
+        },
+        "texTyp": {
+          "openTypography": 1,
+          "size": {
+            "md": "16",
+            "unit": "px"
+          },
+          "weight": "600"
+        },
+        "btnTextNmlColor": "#ffffff",
+        "iconNmlColor": "#ffffff",
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ef4444"
+        },
+        "normalBRadius": {
+          "md": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        },
+        "nmlboxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(239, 68, 68, 0.3)"
+        },
+        "btnTextHvrColor": "#ffffff",
+        "iconHvrColor": "#ffffff",
+        "hoverBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#dc2626"
+        },
+        "fancWidth": {
+          "md": "1200",
+          "sm": "90",
+          "unit": "px"
+        },
+        "fanoverlay": "rgba(0, 0, 0, 0.8)"
+      },
+      "useCase": "Video demonstrations, testimonial videos, tutorial links, product showcases, YouTube/Vimeo embeds",
+      "warnings": [
+        "fancyBox: true is required to enable popup functionality",
+        "btnLink.url must be a valid YouTube, Vimeo, or direct video URL",
+        "fancWidth unit should be 'px' for desktop, '%' for responsive (sm/xs)",
+        "Video popups don't work well on mobile networks - consider direct links instead"
+      ],
+      "validationRules": {
+        "fancyBox": "Must be true to enable popup",
+        "btnLink.url": "Required - must be valid video URL (YouTube/Vimeo) or iframe content",
+        "fancWidth": "Optional - controls popup width, defaults to auto if not set"
       }
+    },
+    {
+      "name": "Full-Width Responsive Button with Shake Animation",
+      "description": "Full-width button on mobile, auto-width on desktop, with shake animation to draw attention",
+      "visualDescription": "Dark blue button, full-width on mobile (xs), auto-width centered on desktop. Shakes gently every 5 seconds to grab attention. White text, right chevron icon",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "btn06",
+        "styleType": "style-1",
+        "btnText": "Claim Your Discount",
+        "btnLink": {
+          "url": "/checkout?discount=SAVE20",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "iconType": "fontAwesome",
+        "fontAwesomeIcon": "fas fa-chevron-right",
+        "iconPosition": "iconAfter",
+        "iconSpace": {
+          "md": "8",
+          "unit": "px"
+        },
+        "iconSize": {
+          "md": "14",
+          "unit": "px"
+        },
+        "btnWidth": {
+          "md": "auto",
+          "sm": "auto",
+          "xs": "100",
+          "unit": "%"
+        },
+        "innerPadding": {
+          "md": {
+            "top": "18",
+            "right": "36",
+            "bottom": "18",
+            "left": "36"
+          },
+          "xs": {
+            "top": "16",
+            "right": "20",
+            "bottom": "16",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "texTyp": {
+          "openTypography": 1,
+          "size": {
+            "md": "17",
+            "xs": "16",
+            "unit": "px"
+          },
+          "weight": "700",
+          "transform": "uppercase"
+        },
+        "btnTextNmlColor": "#ffffff",
+        "iconNmlColor": "#ffffff",
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#1e40af"
+        },
+        "normalBRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "nmlboxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(30, 64, 175, 0.4)"
+        },
+        "btnTextHvrColor": "#ffffff",
+        "iconHvrColor": "#ffffff",
+        "hoverBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#1e3a8a"
+        },
+        "shakeAnimate": true,
+        "shakeDuration": "5"
+      },
+      "useCase": "Urgent CTAs, limited-time offers, checkout buttons, mobile-first designs, attention-grabbing actions",
+      "responsiveNotes": "btnWidth changes from auto (desktop/tablet) to 100% (mobile) for full-width mobile buttons. Padding reduces on mobile for better proportion.",
+      "warnings": [
+        "shakeAnimate should be used sparingly - too many shaking elements create visual chaos",
+        "shakeDuration in seconds - animation repeats every N seconds (5s is recommended)",
+        "Don't use shake animation on critical navigation or accessibility-focused elements"
+      ]
+    },
+    {
+      "name": "Ghost Button - Minimal with Hover Shadow Effect",
+      "description": "Transparent button with text only, shadow grows on hover for subtle depth",
+      "visualDescription": "No background, no border, just purple text. On hover: subtle shadow appears beneath button creating floating effect, text darkens slightly",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "btn07",
+        "styleType": "style-1",
+        "btnText": "Read the Full Story",
+        "btnLink": {
+          "url": "/blog/full-article",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "Alignment": {
+          "md": "left"
+        },
+        "iconType": "fontAwesome",
+        "fontAwesomeIcon": "fas fa-long-arrow-alt-right",
+        "iconPosition": "iconAfter",
+        "iconSpace": {
+          "md": "8",
+          "unit": "px"
+        },
+        "iconSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "innerPadding": {
+          "md": {
+            "top": "10",
+            "right": "16",
+            "bottom": "10",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "texTyp": {
+          "openTypography": 1,
+          "size": {
+            "md": "15",
+            "unit": "px"
+          },
+          "weight": "500"
+        },
+        "btnTextNmlColor": "#667eea",
+        "iconNmlColor": "#667eea",
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "transparent"
+        },
+        "normalBRadius": {
+          "md": {
+            "top": "4",
+            "right": "4",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        },
+        "btnTextHvrColor": "#5568d3",
+        "iconHvrColor": "#5568d3",
+        "hoverBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(102, 126, 234, 0.05)"
+        },
+        "hvrboxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.15)"
+        },
+        "btnHvrCnt": true,
+        "selectHvrCnt": "grow_shadow",
+        "cntHvrcolor": "rgba(102, 126, 234, 0.2)"
+      },
+      "useCase": "Tertiary actions, 'read more' links, minimal designs, text-heavy layouts, blog post links",
+      "responsiveNotes": "Works well at all screen sizes without adjustments",
+      "warnings": [
+        "Ghost buttons have low visibility - don't use for primary CTAs",
+        "Ensure sufficient color contrast for accessibility (WCAG AA: 4.5:1 minimum)",
+        "Test on various backgrounds to ensure button text is readable"
+      ]
+    },
+    {
+      "name": "Advanced: Style-23 with Tag Hint Text",
+      "description": "Button with additional tag/hint text displayed separately (style-23 specific feature)",
+      "visualDescription": "Main button text 'Premium Plan' with smaller '$29/mo' tag text below in lighter color. Green background, white main text, light green tag text",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "btn08",
+        "styleType": "style-23",
+        "btnText": "Premium Plan",
+        "btnTagText": "$29/month",
+        "btnLink": {
+          "url": "/pricing/premium",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "Alignment": {
+          "md": "center"
+        },
+        "innerPadding": {
+          "md": {
+            "top": "18",
+            "right": "32",
+            "bottom": "18",
+            "left": "32"
+          },
+          "unit": "px"
+        },
+        "texTyp": {
+          "openTypography": 1,
+          "size": {
+            "md": "18",
+            "unit": "px"
+          },
+          "weight": "700",
+          "transform": "uppercase"
+        },
+        "tagTyp": {
+          "openTypography": 1,
+          "size": {
+            "md": "13",
+            "unit": "px"
+          },
+          "weight": "500"
+        },
+        "btnTextNmlColor": "#ffffff",
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#10b981",
+            "color2": "#059669",
+            "type": "linear",
+            "direction": "135",
+            "start": 0,
+            "stop": 100
+          }
+        },
+        "normalBRadius": {
+          "md": {
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "nmlboxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 6,
+          "blur": 14,
+          "spread": 0,
+          "color": "rgba(16, 185, 129, 0.3)"
+        },
+        "btnTextHvrColor": "#ffffff",
+        "hoverBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#059669",
+            "color2": "#047857",
+            "type": "linear",
+            "direction": "135",
+            "start": 0,
+            "stop": 100
+          }
+        },
+        "hvrboxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 18,
+          "spread": 0,
+          "color": "rgba(16, 185, 129, 0.5)"
+        }
+      },
+      "useCase": "Pricing tables, plan selection, buttons with additional context (price, date, label), multi-line button content",
+      "warnings": [
+        "btnTagText only appears when styleType is exactly 'style-23' - won't work with other styles",
+        "tagTyp typography is separate from texTyp - must configure both for proper styling",
+        "Tag text appears below main text - ensure button has enough height (increase padding if needed)"
+      ],
+      "validationRules": {
+        "styleType": "Must be 'style-23' for tag text to display",
+        "btnTagText": "Required when using style-23, otherwise tag area will be empty",
+        "tagTyp": "Should be configured separately from texTyp for proper tag styling"
+      },
+      "relatedPatterns": [
+        "Pricing cards with plan selection buttons",
+        "Event registration with date/time tags",
+        "Product buttons with price tags"
+      ]
     }
   ],
   "commonPatterns": {
-    "default": {
-      "block_id": "example"
+    "responsive_full_width_mobile": {
+      "description": "Button auto-width on desktop, full-width on mobile",
+      "attributes": {
+        "btnWidth": {
+          "md": "auto",
+          "xs": "100",
+          "unit": "%"
+        },
+        "Alignment": {
+          "md": "center",
+          "xs": "center"
+        }
+      }
+    },
+    "gradient_hover_transition": {
+      "description": "Smooth gradient transition on hover (lighter to darker)",
+      "attributes": {
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#667eea",
+            "color2": "#764ba2",
+            "type": "linear",
+            "direction": "135"
+          }
+        },
+        "hoverBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#5568d3",
+            "color2": "#6a3f8f",
+            "type": "linear",
+            "direction": "135"
+          }
+        }
+      }
+    },
+    "outline_to_filled_hover": {
+      "description": "Outline button that fills with color on hover",
+      "attributes": {
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "transparent"
+        },
+        "bgNormalB": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {"top": "2", "left": "2", "bottom": "2", "right": "2"},
+            "unit": "px"
+          }
+        },
+        "btnTextNmlColor": "#667eea",
+        "hoverBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "btnTextHvrColor": "#ffffff"
+      }
+    },
+    "circular_icon_button": {
+      "description": "Perfect circle button with icon only",
+      "attributes": {
+        "btnText": "",
+        "iconType": "fontAwesome",
+        "iconPosition": "iconAfter",
+        "normalBRadius": {
+          "md": {"top": "50", "right": "50", "bottom": "50", "left": "50"},
+          "unit": "%"
+        },
+        "innerPadding": {
+          "md": {"top": "18", "right": "20", "bottom": "18", "left": "20"},
+          "unit": "px"
+        },
+        "ariaLabel": "Button description for screen readers"
+      }
     }
+  },
+  "validationRules": {
+    "block_id": "Required - unique identifier for the button block",
+    "styleType": "Required - determines button layout and behavior (style-1 to style-23)",
+    "btnText": "Required for most styles - main button text (can be empty for icon-only buttons)",
+    "btnLink.url": "Required - button destination URL",
+    "hoverText": "Only used with style-7 - text that replaces btnText on hover",
+    "btnTagText": "Only used with style-23 - additional tag/hint text below main text",
+    "fancyBox": "Set to true for video/iframe popup functionality",
+    "iconType": "Required if using icons - 'fontAwesome' or 'image'",
+    "fontAwesomeIcon": "Required when iconType is 'fontAwesome' - icon class name",
+    "ariaLabel": "Recommended for icon-only buttons - accessibility label for screen readers",
+    "btnWidth": "Optional - max width of button (use % for responsive, px for fixed)",
+    "Alignment": "Optional - button alignment (left/center/right per breakpoint)"
+  },
+  "warnings": [
+    "Never modify block_id after button creation - breaks references and functionality",
+    "styleType changes completely alter button structure - don't change styleType on existing buttons without reviewing all attributes",
+    "hoverText only works with style-7 - will be ignored on other styleType values",
+    "btnTagText only works with style-23 - configure tagTyp separately from texTyp",
+    "fancyBox requires valid video URL (YouTube/Vimeo) or iframe content in btnLink.url",
+    "Icon-only buttons (empty btnText) must have ariaLabel for accessibility",
+    "shakeAnimate should be used sparingly - multiple shaking elements create visual chaos",
+    "Some style types have specific attribute requirements - check plugin documentation for advanced styles",
+    "Gradient backgrounds require openBg: 1 and bgType: 'gradient' in normalBG/hoverBG",
+    "Border radius in % creates perfect circles only with equal padding - use px for custom rounded corners",
+    "Box shadows with large blur values can impact performance on low-end devices"
+  ],
+  "commonMistakes": [
+    "Forgetting to set openTypography: 1 in texTyp before customizing font properties",
+    "Using hoverText with styleType other than 'style-7' (won't display)",
+    "Setting btnTagText without changing styleType to 'style-23' (tag won't appear)",
+    "Creating icon-only button without ariaLabel (accessibility issue)",
+    "Setting fancyBox: true without valid video URL (popup fails to open)",
+    "Using px units for btnWidth on mobile (should use % or responsive values)",
+    "Not configuring hover states (normalBG set but hoverBG missing - no hover effect)",
+    "Setting openBg: 0 but defining bgDefaultColor (background won't display)",
+    "Forgetting to enable openBorder: 1 in bgNormalB/bgHoverB before setting border properties",
+    "Using shake animation on critical UI elements (navigation, accessibility controls)",
+    "Setting border radius to 50% without equal padding (creates oval instead of circle)"
+  ],
+  "bestPractices": [
+    "Always configure both normal and hover states for consistent UX",
+    "Use responsive values (md/sm/xs) for padding and font size to optimize for all devices",
+    "Include ariaLabel for all icon-only buttons for screen reader accessibility",
+    "Test buttons on high-contrast modes - ensure sufficient color contrast (WCAG AA: 4.5:1)",
+    "Use style-1 for most use cases - it's the most flexible and widely supported",
+    "Keep btnWidth auto or % for responsive layouts - avoid fixed px widths",
+    "Limit shake animations to 1-2 per page maximum for best UX",
+    "Use outline buttons (transparent bg + border) for secondary actions next to primary CTAs",
+    "Configure hover shadows to be slightly larger than normal shadows for depth effect",
+    "For gradient buttons, use similar hue families for smooth visual transitions",
+    "Always test fancyBox popups on mobile networks - consider direct links as fallback"
+  ],
+  "responsiveStrategy": {
+    "description": "Button adapts to screen sizes using md (desktop), sm (tablet), xs (mobile) breakpoints",
+    "breakpoints": {
+      "md": "Desktop/default - typically 1024px and above",
+      "sm": "Tablet - typically 768px to 1023px",
+      "xs": "Mobile - typically below 768px"
+    },
+    "recommendedApproach": "Configure md first (desktop), then override sm/xs only where needed. If sm/xs are empty, they inherit from md.",
+    "commonResponsivePatterns": [
+      "Reduce padding on mobile for better tap targets: md: 16px → xs: 12px",
+      "Reduce font size on mobile: md: 16px → xs: 14px",
+      "Full-width buttons on mobile: btnWidth md: 'auto' → xs: '100%'",
+      "Smaller icons on mobile: iconSize md: 18px → xs: 14px",
+      "Center alignment on mobile even if left-aligned on desktop"
+    ]
+  },
+  "accessibilityNotes": [
+    "Icon-only buttons require ariaLabel for screen readers to understand button purpose",
+    "Ensure color contrast ratio of at least 4.5:1 between text and background (WCAG AA)",
+    "Hover-only effects (like hoverText in style-7) don't work on touch devices - provide alternative",
+    "Button target size should be at least 44×44px for touch accessibility (adjust padding accordingly)",
+    "Use semantic link vs button: use <a> for navigation (external links), <button> for actions (forms, toggles)",
+    "Test with keyboard navigation: buttons should be focusable and activatable via Enter/Space keys",
+    "Avoid relying solely on color to convey information (e.g., red = error) - use text/icons too"
+  ],
+  "styleTypeReference": {
+    "description": "Quick reference for button styleType variations",
+    "styles": {
+      "style-1": "Standard button - most versatile, supports all features",
+      "style-2": "Icon circle variant",
+      "style-3": "Button with SVG arrow decorations",
+      "style-4": "Slide animation on hover",
+      "style-5": "Border animation effects",
+      "style-6": "Left arrow button",
+      "style-7": "Hover text change (btnText → hoverText)",
+      "style-8": "Fill animation",
+      "style-9": "Arrow button variant",
+      "style-10": "Background slide effect",
+      "style-11": "Text reveal animation",
+      "style-12": "Underline/line button with borderHeight",
+      "style-13": "Corner border animations",
+      "style-14": "Text flip animation",
+      "style-15": "Border grow effect",
+      "style-16": "Slide border animation",
+      "style-17": "Icon separation variant",
+      "style-18": "Underline slide with BNmlColor/BHoverColor",
+      "style-19": "Sweep animation",
+      "style-20": "Diagonal slide",
+      "style-21": "Radial fill",
+      "style-22": "Icon slide variant",
+      "style-23": "Tag/hint text button (requires btnTagText and tagTyp)"
+    },
+    "note": "Most projects use style-1 (90% of use cases). Advanced styles require specific attributes and may not support all features."
   }
 }
