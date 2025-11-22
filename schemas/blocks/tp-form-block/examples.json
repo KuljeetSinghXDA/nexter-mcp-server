@@ -2,13 +2,34 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-form-block",
   "title": "Form - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for form container block",
   "examples": [
     {
-      "description": "Simple contact form styling",
+      "name": "Simple Contact Form - Email Action",
+      "description": "Basic contact form with email notification to admin",
+      "visualDescription": "White input backgrounds, light gray borders, 4px rounded corners, purple submit button, email action configured",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "form001",
+        "formId": "contact-form-1",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"Email\", \"label\": \"Email\"}]",
+        "emailTo1": "admin@example.com",
+        "subject1": "New Contact Form Submission",
+        "frmEmail": "[nxt_email]",
+        "frmNme": "[nxt_name]",
+        "replyTo": "[nxt_email]",
+        "autoRespMsg": "Thank you for contacting us. We'll get back to you soon!",
+        "valErrMsg": "Please fill in all required fields correctly.",
+        "failMsg": "Something went wrong. Please try again.",
+        "reqIcn": true,
         "lblClr": "#2c3e50",
+        "lblTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "lblBtmMrg": {"md": "8", "unit": "px"},
         "inpClr": "#2c3e50",
         "plcClr": "#95a5a6",
         "inpBg": "#ffffff",
@@ -17,102 +38,1291 @@
           "type": "solid",
           "color": "#dcdcdc",
           "width": {
-            "md": {
-              "top": "1",
-              "left": "1",
-              "bottom": "1",
-              "right": "1"
-            },
+            "md": {"top": "1", "left": "1", "bottom": "1", "right": "1"},
             "unit": "px"
           }
         },
         "inpBdrRds": {
-          "md": {
-            "top": "4",
-            "right": "4",
-            "bottom": "4",
-            "left": "4"
-          },
-          "unit": "px"
-        }
-      }
-    },
-    {
-      "description": "Modern form with custom styling",
-      "attributes": {
-        "block_id": "c3d4",
-        "lblTypo": {
-          "openTypography": 1,
-          "size": {
-            "md": "14",
-            "unit": "px"
-          },
-          "weight": "600"
-        },
-        "lblBtmMrg": {
-          "md": "8",
+          "md": {"top": "4", "right": "4", "bottom": "4", "left": "4"},
           "unit": "px"
         },
         "inpPad": {
-          "md": {
-            "top": "12",
-            "bottom": "12",
-            "left": "15",
-            "right": "15"
-          },
+          "md": {"top": "12", "bottom": "12", "left": "15", "right": "15"},
           "unit": "px"
         },
-        "inpBg": "#f7f9fc",
-        "hvrInpBg": "#ffffff",
-        "hvrInpBdrClr": "#667eea"
-      }
+        "hvrInpBdrClr": "#667eea",
+        "actInpBdrClr": "#667eea",
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "btnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "btnPad": {
+          "md": {"top": "14", "right": "30", "bottom": "14", "left": "30"},
+          "unit": "px"
+        },
+        "btnBdrRds": {
+          "md": {"top": "4", "right": "4", "bottom": "4", "left": "4"},
+          "unit": "px"
+        },
+        "hvrBtnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#5568d3"
+        },
+        "rowGap": {"md": "20", "unit": "px"},
+        "columnGap": {"md": "20", "unit": "px"},
+        "formAlign": {"md": "flex-start"}
+      },
+      "useCase": "Contact pages, inquiry forms, general communication forms",
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-form-name-field",
+          "attrs": {
+            "block_id": "name001",
+            "fieldName": "nxt_name",
+            "label": "Full Name",
+            "placeholder": "Enter your full name",
+            "required": true
+          }
+        },
+        {
+          "blockName": "tpgb/tp-form-email-field",
+          "attrs": {
+            "block_id": "email001",
+            "fieldName": "nxt_email",
+            "label": "Email Address",
+            "placeholder": "your.email@example.com",
+            "required": true
+          }
+        },
+        {
+          "blockName": "tpgb/tp-form-message-field",
+          "attrs": {
+            "block_id": "msg001",
+            "fieldName": "nxt_message",
+            "label": "Message",
+            "placeholder": "Type your message here...",
+            "required": true,
+            "rows": 5
+          }
+        },
+        {
+          "blockName": "tpgb/tp-form-submit-button",
+          "attrs": {
+            "block_id": "submit001",
+            "btnText": "Send Message"
+          }
+        }
+      ]
     },
     {
-      "description": "Minimal bordered form",
+      "name": "Newsletter Form - MailChimp Integration",
+      "description": "Minimalist newsletter signup form with MailChimp integration",
+      "visualDescription": "Transparent background, bottom border only (2px), no rounded corners, center-aligned, inline layout",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "form002",
+        "formId": "newsletter-form-1",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"MailChimp\", \"label\": \"MailChimp\"}]",
+        "mailchmpApiki": "your-mailchimp-api-key-here",
+        "mailchmpAud": "your-audience-id-here",
+        "autoRespMsg": "Thanks for subscribing! Check your email to confirm.",
+        "valErrMsg": "Please enter a valid email address.",
+        "failMsg": "Subscription failed. Please try again.",
+        "lblClr": "#333333",
+        "lblTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"},
+          "fontWeight": "500"
+        },
+        "lblBtmMrg": {"md": "10", "unit": "px"},
+        "inpClr": "#333333",
+        "plcClr": "#999999",
         "inpBg": "transparent",
         "inpBdr": {
           "openBorder": 1,
           "type": "solid",
           "color": "#e0e0e0",
           "width": {
-            "md": {
-              "top": "0",
-              "left": "0",
-              "bottom": "2",
-              "right": "0"
-            },
+            "md": {"top": "0", "left": "0", "bottom": "2", "right": "0"},
             "unit": "px"
           }
         },
         "inpBdrRds": {
-          "md": {
-            "top": "0",
-            "right": "0",
-            "bottom": "0",
-            "left": "0"
-          },
+          "md": {"top": "0", "right": "0", "bottom": "0", "left": "0"},
           "unit": "px"
         },
-        "hvrInpBdrClr": "#667eea"
-      }
+        "inpPad": {
+          "md": {"top": "10", "bottom": "10", "left": "5", "right": "5"},
+          "unit": "px"
+        },
+        "hvrInpBdrClr": "#667eea",
+        "actInpBdrClr": "#667eea",
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#000000"
+        },
+        "btnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "btnPad": {
+          "md": {"top": "12", "right": "28", "bottom": "12", "left": "28"},
+          "unit": "px"
+        },
+        "btnBdrRds": {
+          "md": {"top": "0", "right": "0", "bottom": "0", "left": "0"},
+          "unit": "px"
+        },
+        "hvrBtnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#333333"
+        },
+        "rowGap": {"md": "15", "unit": "px"},
+        "columnGap": {"md": "10", "unit": "px"},
+        "formAlign": {"md": "center"}
+      },
+      "useCase": "Newsletter signups, email list building, blog subscriptions",
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-form-email-field",
+          "attrs": {
+            "block_id": "email002",
+            "fieldName": "nxt_email",
+            "label": "Email",
+            "placeholder": "Enter your email",
+            "required": true
+          }
+        },
+        {
+          "blockName": "tpgb/tp-form-submit-button",
+          "attrs": {
+            "block_id": "submit002",
+            "btnText": "Subscribe"
+          }
+        }
+      ]
     },
     {
-      "description": "Custom checkbox/radio styling",
+      "name": "Multi-Action Form - Email + Redirect",
+      "description": "Contact form with both email notification and redirect after submission",
+      "visualDescription": "Modern blue theme with gradient button, rounded inputs, shadow effects, redirects to thank-you page",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "g7h8",
-        "chkRadSz": {
-          "md": "20",
+        "block_id": "form003",
+        "formId": "contact-redirect-form",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"Email\", \"label\": \"Email\"}, {\"value\": \"Redirect\", \"label\": \"Redirect\"}]",
+        "emailTo1": "sales@example.com",
+        "subject1": "New Sales Inquiry",
+        "ccEmail1": "manager@example.com",
+        "frmEmail": "[nxt_email]",
+        "frmNme": "[nxt_name]",
+        "replyTo": "[nxt_email]",
+        "redirect": {
+          "url": "/thank-you",
+          "target": "",
+          "nofollow": ""
+        },
+        "valErrMsg": "Please check your form entries and try again.",
+        "failMsg": "Failed to submit. Please contact us directly.",
+        "lblClr": "#1a1a1a",
+        "lblTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "lblBtmMrg": {"md": "10", "unit": "px"},
+        "inpClr": "#333333",
+        "plcClr": "#aaaaaa",
+        "inpBg": "#f7f9fc",
+        "hvrInpBg": "#ffffff",
+        "actInpBg": "#ffffff",
+        "inpBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e8ecf4",
+          "width": {
+            "md": {"top": "1", "left": "1", "bottom": "1", "right": "1"},
+            "unit": "px"
+          }
+        },
+        "inpBdrRds": {
+          "md": {"top": "8", "right": "8", "bottom": "8", "left": "8"},
           "unit": "px"
         },
+        "inpPad": {
+          "md": {"top": "14", "bottom": "14", "left": "16", "right": "16"},
+          "unit": "px"
+        },
+        "hvrInpBdrClr": "#667eea",
+        "actInpBdrClr": "#667eea",
+        "inpTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"}
+        },
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "btnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "btnPad": {
+          "md": {"top": "16", "right": "40", "bottom": "16", "left": "40"},
+          "unit": "px"
+        },
+        "btnBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "transparent",
+          "width": {
+            "md": {"top": "0", "left": "0", "bottom": "0", "right": "0"},
+            "unit": "px"
+          }
+        },
+        "btnBdrRds": {
+          "md": {"top": "8", "right": "8", "bottom": "8", "left": "8"},
+          "unit": "px"
+        },
+        "hvrBtnBgClr": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#764ba2", "position": 0},
+              {"color": "#667eea", "position": 100}
+            ]
+          }
+        },
+        "rowGap": {"md": "20", "unit": "px"},
+        "columnGap": {"md": "20", "unit": "px"}
+      },
+      "useCase": "Sales forms, quote requests, forms requiring thank-you page redirect"
+    },
+    {
+      "name": "Support Form with Checkboxes - Slack Integration",
+      "description": "Support ticket form with issue category checkboxes, sends to Slack channel",
+      "visualDescription": "Gray theme with custom checkbox styling (20px, purple background when checked), Slack webhook integration",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "form004",
+        "formId": "support-form-slack",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"Slack\", \"label\": \"Slack\"}]",
+        "slackTkn": "xoxb-your-slack-bot-token",
+        "slackChnl": "#support-tickets",
+        "autoRespMsg": "Support ticket created! Our team will respond within 24 hours.",
+        "valErrMsg": "Please fill in all required fields.",
+        "failMsg": "Failed to create ticket. Please email support@example.com directly.",
+        "lblClr": "#2c3e50",
+        "lblTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "lblBtmMrg": {"md": "8", "unit": "px"},
+        "inpClr": "#2c3e50",
+        "plcClr": "#95a5a6",
+        "inpBg": "#ffffff",
+        "inpBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#bdc3c7",
+          "width": {
+            "md": {"top": "1", "left": "1", "bottom": "1", "right": "1"},
+            "unit": "px"
+          }
+        },
+        "inpBdrRds": {
+          "md": {"top": "4", "right": "4", "bottom": "4", "left": "4"},
+          "unit": "px"
+        },
+        "inpPad": {
+          "md": {"top": "12", "bottom": "12", "left": "15", "right": "15"},
+          "unit": "px"
+        },
+        "chkRadSz": {"md": "20", "unit": "px"},
         "chkRadBg": {
           "openBg": 1,
           "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "chkRadBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#bdc3c7",
+          "width": {
+            "md": {"top": "2", "left": "2", "bottom": "2", "right": "2"},
+            "unit": "px"
+          }
+        },
+        "chkdChkRadBg": {
+          "openBg": 1,
+          "bgType": "color",
           "bgDefaultColor": "#667eea"
-        }
-      }
+        },
+        "chkdChkRadBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {"top": "2", "left": "2", "bottom": "2", "right": "2"},
+            "unit": "px"
+          }
+        },
+        "chkdChkRadClr": "#ffffff",
+        "chkRadTxtClr": "#34495e",
+        "chkRadTxtTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"}
+        },
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#e74c3c"
+        },
+        "btnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "btnPad": {
+          "md": {"top": "14", "right": "30", "bottom": "14", "left": "30"},
+          "unit": "px"
+        },
+        "btnBdrRds": {
+          "md": {"top": "4", "right": "4", "bottom": "4", "left": "4"},
+          "unit": "px"
+        },
+        "hvrBtnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#c0392b"
+        },
+        "rowGap": {"md": "20", "unit": "px"}
+      },
+      "useCase": "Support forms, bug reports, help desk integration, Slack notifications"
+    },
+    {
+      "name": "Registration Form with Radio Buttons - ConvertKit",
+      "description": "Event registration form with plan selection (radio buttons), ConvertKit subscriber integration",
+      "visualDescription": "Clean form with radio button styling, custom radio dot color (purple), ConvertKit integration for email marketing",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "form005",
+        "formId": "event-registration-convertkit",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"ConvertKit\", \"label\": \"ConvertKit\"}]",
+        "ktApiKey": "your-convertkit-api-key",
+        "convertkitformoption": "form-id-here",
+        "emailTo1": "events@example.com",
+        "subject1": "New Event Registration",
+        "autoRespMsg": "Registration confirmed! Check your email for event details.",
+        "valErrMsg": "Please complete all required fields.",
+        "failMsg": "Registration failed. Please try again or contact us.",
+        "lblClr": "#1a1a1a",
+        "lblTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "lblBtmMrg": {"md": "10", "unit": "px"},
+        "inpClr": "#333333",
+        "plcClr": "#999999",
+        "inpBg": "#fafafa",
+        "inpBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#dddddd",
+          "width": {
+            "md": {"top": "1", "left": "1", "bottom": "1", "right": "1"},
+            "unit": "px"
+          }
+        },
+        "inpBdrRds": {
+          "md": {"top": "6", "right": "6", "bottom": "6", "left": "6"},
+          "unit": "px"
+        },
+        "inpPad": {
+          "md": {"top": "12", "bottom": "12", "left": "15", "right": "15"},
+          "unit": "px"
+        },
+        "chkRadSz": {"md": "18", "unit": "px"},
+        "chkRadBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "chkRadBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#cccccc",
+          "width": {
+            "md": {"top": "2", "left": "2", "bottom": "2", "right": "2"},
+            "unit": "px"
+          }
+        },
+        "chkdChkRadBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "chkdChkRadBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {"top": "2", "left": "2", "bottom": "2", "right": "2"},
+            "unit": "px"
+          }
+        },
+        "chkdChkRadClr": "#667eea",
+        "chkRadTxtClr": "#333333",
+        "chkRadTxtTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"}
+        },
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "btnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "btnPad": {
+          "md": {"top": "16", "right": "40", "bottom": "16", "left": "40"},
+          "unit": "px"
+        },
+        "btnBdrRds": {
+          "md": {"top": "6", "right": "6", "bottom": "6", "left": "6"},
+          "unit": "px"
+        },
+        "hvrBtnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#5568d3"
+        },
+        "rowGap": {"md": "20", "unit": "px"},
+        "columnGap": {"md": "15", "unit": "px"}
+      },
+      "useCase": "Event registrations, course signups, plan selection forms, email marketing integration"
+    },
+    {
+      "name": "Quote Request Form - Webhook Integration",
+      "description": "Business quote request form with custom webhook for CRM integration",
+      "visualDescription": "Professional form with large padding, blue accent colors, webhook sends to external CRM/API",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "form006",
+        "formId": "quote-webhook-form",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"Webhook\", \"label\": \"Webhook\"}]",
+        "webhookurl": "https://api.yourcrm.com/webhook/form-submissions",
+        "emailTo1": "quotes@example.com",
+        "subject1": "New Quote Request",
+        "autoRespMsg": "Thank you! We'll send you a quote within 1 business day.",
+        "valErrMsg": "Please provide all required information.",
+        "failMsg": "Submission error. Please call us at 1-800-QUOTE.",
+        "lblClr": "#0f4c81",
+        "lblTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"},
+          "fontWeight": "700",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "lblBtmMrg": {"md": "12", "unit": "px"},
+        "lblBg": {
+          "openBg": 0
+        },
+        "inpClr": "#333333",
+        "plcClr": "#999999",
+        "inpBg": "#ffffff",
+        "inpBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#d0d0d0",
+          "width": {
+            "md": {"top": "2", "left": "2", "bottom": "2", "right": "2"},
+            "unit": "px"
+          }
+        },
+        "inpBdrRds": {
+          "md": {"top": "4", "right": "4", "bottom": "4", "left": "4"},
+          "unit": "px"
+        },
+        "inpPad": {
+          "md": {"top": "16", "bottom": "16", "left": "18", "right": "18"},
+          "unit": "px"
+        },
+        "inpTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"}
+        },
+        "hvrInpBdrClr": "#0f4c81",
+        "actInpBdrClr": "#0f4c81",
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#0f4c81"
+        },
+        "btnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "18", "unit": "px"},
+          "fontWeight": "700",
+          "textTransform": "uppercase"
+        },
+        "btnPad": {
+          "md": {"top": "18", "right": "50", "bottom": "18", "left": "50"},
+          "unit": "px"
+        },
+        "btnBdrRds": {
+          "md": {"top": "4", "right": "4", "bottom": "4", "left": "4"},
+          "unit": "px"
+        },
+        "hvrBtnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#0a3659"
+        },
+        "rowGap": {"md": "24", "unit": "px"},
+        "columnGap": {"md": "20", "unit": "px"}
+      },
+      "useCase": "Quote requests, CRM integrations, external API submissions, business lead forms"
+    },
+    {
+      "name": "Auto-Response Form - Dual Email (Admin + User)",
+      "description": "Form with two email actions: one to admin, one auto-response to user",
+      "visualDescription": "Soft blue backgrounds, friendly rounded inputs, sends confirmation email to user and notification to admin",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "form007",
+        "formId": "dual-email-form",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"Email\", \"label\": \"Email\"}]",
+        "emailTo1": "team@example.com",
+        "subject1": "New Form Submission - [nxt_name]",
+        "frmEmail": "[nxt_email]",
+        "frmNme": "[nxt_name]",
+        "ccEmail1": "backup@example.com",
+        "emailTo2": "[nxt_email]",
+        "subject2": "Thanks for reaching out!",
+        "emailHdg2": "We received your message",
+        "frmEmai2": "noreply@example.com",
+        "frmNme2": "Our Team",
+        "autoRespMsg": "Message sent successfully! Check your email for confirmation.",
+        "valErrMsg": "Please check your form and try again.",
+        "failMsg": "Could not send message. Please email us directly.",
+        "lblClr": "#34495e",
+        "lblTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "lblBtmMrg": {"md": "8", "unit": "px"},
+        "inpClr": "#2c3e50",
+        "plcClr": "#7f8c8d",
+        "inpBg": "#ecf6ff",
+        "hvrInpBg": "#e3f2fd",
+        "actInpBg": "#ffffff",
+        "inpBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#b3d9ff",
+          "width": {
+            "md": {"top": "1", "left": "1", "bottom": "1", "right": "1"},
+            "unit": "px"
+          }
+        },
+        "inpBdrRds": {
+          "md": {"top": "8", "right": "8", "bottom": "8", "left": "8"},
+          "unit": "px"
+        },
+        "inpPad": {
+          "md": {"top": "12", "bottom": "12", "left": "16", "right": "16"},
+          "unit": "px"
+        },
+        "hvrInpBdrClr": "#2196f3",
+        "actInpBdrClr": "#2196f3",
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#2196f3"
+        },
+        "btnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "btnPad": {
+          "md": {"top": "14", "right": "32", "bottom": "14", "left": "32"},
+          "unit": "px"
+        },
+        "btnBdrRds": {
+          "md": {"top": "8", "right": "8", "bottom": "8", "left": "8"},
+          "unit": "px"
+        },
+        "hvrBtnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#1976d2"
+        },
+        "sucTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "sucClr": "#27ae60",
+        "rowGap": {"md": "18", "unit": "px"}
+      },
+      "useCase": "Forms requiring both admin notification and user confirmation emails"
+    },
+    {
+      "name": "Minimal Dark Theme Form",
+      "description": "Dark themed form with light inputs on dark background",
+      "visualDescription": "Dark gray labels, white input backgrounds, black submit button with uppercase text, minimalist design",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "form008",
+        "formId": "dark-theme-form",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"Email\", \"label\": \"Email\"}]",
+        "emailTo1": "contact@example.com",
+        "subject1": "New Contact",
+        "autoRespMsg": "Message received. We'll be in touch soon.",
+        "valErrMsg": "Please complete the form.",
+        "failMsg": "Error sending message.",
+        "lblClr": "#cccccc",
+        "lblTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "13", "unit": "px"},
+          "fontWeight": "500",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "1", "unit": "px"}
+        },
+        "lblBtmMrg": {"md": "8", "unit": "px"},
+        "inpClr": "#1a1a1a",
+        "plcClr": "#999999",
+        "inpBg": "#ffffff",
+        "inpBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#444444",
+          "width": {
+            "md": {"top": "1", "left": "1", "bottom": "1", "right": "1"},
+            "unit": "px"
+          }
+        },
+        "inpBdrRds": {
+          "md": {"top": "2", "right": "2", "bottom": "2", "left": "2"},
+          "unit": "px"
+        },
+        "inpPad": {
+          "md": {"top": "12", "bottom": "12", "left": "14", "right": "14"},
+          "unit": "px"
+        },
+        "hvrInpBdrClr": "#ffffff",
+        "actInpBdrClr": "#ffffff",
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#000000"
+        },
+        "btnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "12", "unit": "px"},
+          "fontWeight": "700",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "1.5", "unit": "px"}
+        },
+        "btnPad": {
+          "md": {"top": "14", "right": "30", "bottom": "14", "left": "30"},
+          "unit": "px"
+        },
+        "btnBdrRds": {
+          "md": {"top": "2", "right": "2", "bottom": "2", "left": "2"},
+          "unit": "px"
+        },
+        "hvrBtnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#333333"
+        },
+        "rowGap": {"md": "16", "unit": "px"}
+      },
+      "useCase": "Dark themed websites, modern minimalist designs, photography portfolios"
+    },
+    {
+      "name": "Survey Form with Dropdown - GetResponse",
+      "description": "Survey/feedback form with dropdown select field and GetResponse integration",
+      "visualDescription": "Styled select dropdown with custom colors, GetResponse email marketing integration, clean layout",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "form009",
+        "formId": "survey-getresponse",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"GetResponse\", \"label\": \"GetResponse\"}]",
+        "getResApiKey": "your-getresponse-api-key",
+        "getRetkn": "your-campaign-token",
+        "emailTo1": "feedback@example.com",
+        "subject1": "New Survey Response",
+        "autoRespMsg": "Thanks for your feedback! You've been added to our mailing list.",
+        "valErrMsg": "Please answer all questions.",
+        "failMsg": "Submission failed. Please try again later.",
+        "lblClr": "#2c3e50",
+        "lblTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "lblBtmMrg": {"md": "10", "unit": "px"},
+        "inpClr": "#34495e",
+        "plcClr": "#95a5a6",
+        "inpBg": "#ffffff",
+        "inpBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#bdc3c7",
+          "width": {
+            "md": {"top": "1", "left": "1", "bottom": "1", "right": "1"},
+            "unit": "px"
+          }
+        },
+        "inpBdrRds": {
+          "md": {"top": "4", "right": "4", "bottom": "4", "left": "4"},
+          "unit": "px"
+        },
+        "inpPad": {
+          "md": {"top": "12", "bottom": "12", "left": "15", "right": "15"},
+          "unit": "px"
+        },
+        "selClr": "#34495e",
+        "selBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "selBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#bdc3c7",
+          "width": {
+            "md": {"top": "1", "left": "1", "bottom": "1", "right": "1"},
+            "unit": "px"
+          }
+        },
+        "selBdrRds": {
+          "md": {"top": "4", "right": "4", "bottom": "4", "left": "4"},
+          "unit": "px"
+        },
+        "selPad": {
+          "md": {"top": "12", "bottom": "12", "left": "15", "right": "15"},
+          "unit": "px"
+        },
+        "selTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"}
+        },
+        "hvrSelBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ecf0f1"
+        },
+        "hvrSelBdrClr": "#3498db",
+        "hvrSelClr": "#2c3e50",
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#3498db"
+        },
+        "btnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "btnPad": {
+          "md": {"top": "14", "right": "30", "bottom": "14", "left": "30"},
+          "unit": "px"
+        },
+        "btnBdrRds": {
+          "md": {"top": "4", "right": "4", "bottom": "4", "left": "4"},
+          "unit": "px"
+        },
+        "hvrBtnBgClr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#2980b9"
+        },
+        "rowGap": {"md": "20", "unit": "px"}
+      },
+      "useCase": "Surveys, feedback forms, dropdown selections, GetResponse email marketing"
+    },
+    {
+      "name": "Advanced Styled - All Features Combined",
+      "description": "Showcase of all tp-form-block styling features with purple gradient theme",
+      "visualDescription": "Purple gradient button, custom label backgrounds, styled checkboxes/radios, loading spinner color, success/error message styling, custom spacing",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "form010",
+        "formId": "advanced-styled-form",
+        "layoutType": "nxt-style-1",
+        "actionOption": "[{\"value\": \"Email\", \"label\": \"Email\"}]",
+        "emailTo1": "hello@example.com",
+        "subject1": "New Advanced Form Submission",
+        "frmEmail": "[nxt_email]",
+        "frmNme": "[nxt_name]",
+        "replyTo": "[nxt_email]",
+        "autoRespMsg": "Thank you! Your submission has been received.",
+        "valErrMsg": "Oops! Please check the highlighted fields.",
+        "failMsg": "Something went wrong. Please refresh and try again.",
+        "reqIcn": true,
+        "lblClr": "#4a5568",
+        "lblTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "sm": "13", "unit": "px"},
+          "fontWeight": "700",
+          "letterSpacing": {"md": "0.3", "unit": "px"}
+        },
+        "lblBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f7fafc"
+        },
+        "lblBtmMrg": {"md": "10", "sm": "8", "unit": "px"},
+        "hvrLblClr": "#2d3748",
+        "inpClr": "#2d3748",
+        "plcClr": "#a0aec0",
+        "inpBg": "#ffffff",
+        "hvrInpBg": "#f7fafc",
+        "actInpBg": "#ffffff",
+        "actPlc": "#cbd5e0",
+        "inpBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e2e8f0",
+          "width": {
+            "md": {"top": "2", "left": "2", "bottom": "2", "right": "2"},
+            "unit": "px"
+          }
+        },
+        "inpBdrRds": {
+          "md": {"top": "8", "right": "8", "bottom": "8", "left": "8"},
+          "unit": "px"
+        },
+        "inpPad": {
+          "md": {"top": "14", "bottom": "14", "left": "16", "right": "16"},
+          "sm": {"top": "12", "bottom": "12", "left": "14", "right": "14"},
+          "unit": "px"
+        },
+        "inpTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "15", "unit": "px"},
+          "lineHeight": {"md": "1.5", "unit": "em"}
+        },
+        "hvrInpBdrClr": "#667eea",
+        "actInpBdrClr": "#667eea",
+        "chkRadSz": {"md": "20", "sm": "18", "unit": "px"},
+        "chkRadBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "chkRadBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#cbd5e0",
+          "width": {
+            "md": {"top": "2", "left": "2", "bottom": "2", "right": "2"},
+            "unit": "px"
+          }
+        },
+        "chkdChkRadBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "chkdChkRadBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {"top": "2", "left": "2", "bottom": "2", "right": "2"},
+            "unit": "px"
+          }
+        },
+        "chkdChkRadClr": "#ffffff",
+        "chkRadTxtClr": "#4a5568",
+        "hvrChkRadTxtClr": "#2d3748",
+        "chkRadTxtTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"}
+        },
+        "descColor": "#718096",
+        "hvrdescColor": "#4a5568",
+        "descTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "13", "unit": "px"},
+          "fontStyle": "italic"
+        },
+        "btnClr": "#ffffff",
+        "btnBgClr": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "btnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "17", "sm": "16", "unit": "px"},
+          "fontWeight": "700",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "btnPad": {
+          "md": {"top": "16", "right": "40", "bottom": "16", "left": "40"},
+          "sm": {"top": "14", "right": "30", "bottom": "14", "left": "30"},
+          "unit": "px"
+        },
+        "btnBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "transparent",
+          "width": {
+            "md": {"top": "0", "left": "0", "bottom": "0", "right": "0"},
+            "unit": "px"
+          }
+        },
+        "btnBdrRds": {
+          "md": {"top": "8", "right": "8", "bottom": "8", "left": "8"},
+          "unit": "px"
+        },
+        "hvrBtnClr": "#ffffff",
+        "hvrBtnBgClr": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#764ba2", "position": 0},
+              {"color": "#667eea", "position": 100}
+            ]
+          }
+        },
+        "selClr": "#2d3748",
+        "selBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "selBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e2e8f0",
+          "width": {
+            "md": {"top": "2", "left": "2", "bottom": "2", "right": "2"},
+            "unit": "px"
+          }
+        },
+        "selBdrRds": {
+          "md": {"top": "8", "right": "8", "bottom": "8", "left": "8"},
+          "unit": "px"
+        },
+        "selPad": {
+          "md": {"top": "14", "bottom": "14", "left": "16", "right": "16"},
+          "unit": "px"
+        },
+        "selTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"}
+        },
+        "hvrSelBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f7fafc"
+        },
+        "hvrSelBdrClr": "#667eea",
+        "hvrSelClr": "#2d3748",
+        "ldrClr": "#667eea",
+        "sucClr": "#48bb78",
+        "sucTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "rowGap": {"md": "24", "sm": "20", "xs": "18", "unit": "px"},
+        "columnGap": {"md": "20", "sm": "15", "unit": "px"},
+        "formAlign": {"md": "flex-start", "sm": "flex-start", "xs": "flex-start"}
+      },
+      "useCase": "Premium forms, branded designs, fully customized form experiences"
     }
   ],
-  "commonPatterns": {}
+  "validationRules": {
+    "block_id": "Required, unique identifier for the form block",
+    "formId": "Required, unique form ID used for submission tracking",
+    "layoutType": "Default 'nxt-style-1', defines form layout structure",
+    "actionOption": "Required JSON array, must include at least one action (Email, MailChimp, ConvertKit, GetResponse, Slack, Webhook, Redirect, etc.)",
+    "emailTo1": "Required if action includes 'Email', admin email address",
+    "subject1": "Email subject line, can use shortcodes like [nxt_name], [nxt_email]",
+    "frmEmail": "Sender email for form submission, default '[nxt_email]'",
+    "frmNme": "Sender name for form submission, default '[nxt_name]'",
+    "replyTo": "Reply-to email address, typically '[nxt_email]' for user's email",
+    "emailTo2": "Optional second email action (auto-response to user)",
+    "subject2": "Subject for second email (user auto-response)",
+    "redirect.url": "Required if action includes 'Redirect', thank-you page URL",
+    "mailchmpApiki": "Required if action includes 'MailChimp', MailChimp API key",
+    "mailchmpAud": "Required if action includes 'MailChimp', Audience/List ID",
+    "ktApiKey": "Required if action includes 'ConvertKit', ConvertKit API key",
+    "convertkitformoption": "Required if action includes 'ConvertKit', Form ID",
+    "getResApiKey": "Required if action includes 'GetResponse', API key",
+    "slackTkn": "Required if action includes 'Slack', Bot token (xoxb-...)",
+    "slackChnl": "Required if action includes 'Slack', Channel name (#channel-name)",
+    "webhookurl": "Required if action includes 'Webhook', endpoint URL",
+    "reqIcn": "Boolean, show required asterisk (*) after labels, default true",
+    "showBlockContent": "Boolean, controls visibility in editor, default true"
+  },
+  "warnings": [
+    "NEVER modify block_id - it's the unique form identifier",
+    "actionOption MUST be valid JSON array format: [{\"value\": \"Email\", \"label\": \"Email\"}]",
+    "Email action requires emailTo1 or form won't send",
+    "MailChimp action requires both mailchmpApiki AND mailchmpAud",
+    "ConvertKit action requires both ktApiKey AND convertkitformoption",
+    "Slack action requires both slackTkn AND slackChnl",
+    "Webhook action requires valid webhookurl (must be HTTPS for production)",
+    "Redirect action requires redirect.url or will fail silently",
+    "Using [nxt_email] in frmEmail without email field will break form",
+    "Using [nxt_name] in frmNme without name field will break form",
+    "formId must be unique across entire site to prevent submission conflicts",
+    "Empty valErrMsg or failMsg creates poor UX (no user feedback on errors)",
+    "Setting inpBg='transparent' without proper container background creates invisible inputs",
+    "chkRadSz too small (<14px) creates accessibility issues on mobile",
+    "Missing innerBlocks (no form fields) creates empty non-functional form"
+  ],
+  "commonMistakes": [
+    "Forgetting to set openTypography: 1 before setting lblTypo, inpTypo, btnTypo values",
+    "Using actionOption as string instead of JSON array (must be [{...}] format)",
+    "Setting emailTo1 to [nxt_email] (should be admin's actual email address)",
+    "Not configuring API keys for integrations (MailChimp, ConvertKit, etc.)",
+    "Using invalid Slack token format (must start with 'xoxb-')",
+    "Not including required form fields referenced in shortcodes (e.g., [nxt_email])",
+    "Copying formId from examples without changing it (creates duplicate IDs)",
+    "Not setting reqIcn=true but marking fields as required (confusing for users)",
+    "Using same styling for all states (normal/hover/active should differ for UX)",
+    "Not testing form submissions before going live",
+    "Setting rowGap/columnGap too small on mobile (xs breakpoint needs adequate spacing)",
+    "Using gradient backgrounds for checkboxes without proper contrast",
+    "Not providing user feedback messages (autoRespMsg, valErrMsg, failMsg)"
+  ],
+  "bestPractices": [
+    "Always test form submissions with all configured actions before deploying",
+    "Use dual email action (emailTo1 + emailTo2) for admin notification + user auto-response",
+    "Set different hover states (hvrInpBdrClr, hvrBtnBgClr) for better UX feedback",
+    "Use active/focus states (actInpBdrClr, actInpBg) to show current field",
+    "Keep btnPad between 12-18px vertical for comfortable click targets",
+    "Set chkRadSz minimum 16px for mobile accessibility (20px recommended)",
+    "Use reqIcn=true to visually indicate required fields with asterisk",
+    "Provide helpful validation messages (valErrMsg should guide user to fix errors)",
+    "Use formAlign responsive values (center on mobile, left on desktop)",
+    "Set adequate rowGap (18-24px) and columnGap (15-20px) for breathing room",
+    "Use inpBdrRds and btnBdrRds consistently for cohesive design",
+    "Match button styling to site's primary color scheme",
+    "For integrations: store API keys securely, don't commit to version control",
+    "Use shortcodes [nxt_name], [nxt_email] in email subjects for personalization",
+    "Set replyTo='[nxt_email]' so admin can reply directly to user",
+    "Use redirect action with success pages for better conversion tracking",
+    "Style success/error messages (sucClr, sucTypo) to match site theme",
+    "Test all responsive breakpoints (md/sm/xs) for form layout"
+  ],
+  "layoutContext": {
+    "formContainer": "tp-form-block is parent container, controls global form styling (labels, inputs, buttons, checkboxes, dropdowns)",
+    "childBlocks": "Form fields are child blocks (nxt-name-field, nxt-email-field, nxt-message-field, nxt-phone-field, nxt-number-field, nxt-date-field, nxt-time-field, nxt-url-field, nxt-checkbox-field, nxt-radio-field, nxt-option-field, nxt-submit-button)",
+    "parentInheritedStyling": "All child fields inherit styling from parent: lblClr, lblTypo, inpClr, inpBg, inpBdr, plcClr, etc.",
+    "layoutType": "Controls form layout structure (nxt-style-1 default, other styles may exist for different layouts)",
+    "rowGap": "Vertical spacing between form rows (fields stacked)",
+    "columnGap": "Horizontal spacing when fields are side-by-side",
+    "formAlign": "Flexbox justify-content for form alignment (flex-start=left, center, flex-end=right)",
+    "responsiveBehavior": "All spacing, typography, sizes respect md/sm/xs breakpoints",
+    "stateManagement": "Form handles 3 states: normal (default), hover (hvrInpBg, hvrLblClr), active/focus (actInpBg, actInpBdrClr, actPlc)",
+    "submissionFlow": "1. Validate → 2. Show loader (ldrClr spinner) → 3. Execute actions (Email/MailChimp/etc.) → 4. Show success (sucClr message) or error (failMsg) → 5. Redirect if configured"
+  },
+  "performanceConsiderations": [
+    "Multiple action integrations (Email + MailChimp + Slack) increase submission time",
+    "Webhook actions depend on third-party API response time",
+    "Large email lists in MailChimp may have rate limits",
+    "ConvertKit/GetResponse API calls add 1-3 second delay",
+    "Slack messages are near-instant but token validation adds overhead",
+    "Auto-response emails (emailTo2) double email send time",
+    "Complex gradient backgrounds (chkdChkRadBg) may impact older browsers",
+    "Many form fields increase DOM size, limit to 15-20 fields per form"
+  ],
+  "accessibilityNotes": [
+    "reqIcn=true adds asterisk (*) for required fields - essential for accessibility",
+    "Labels (lblClr, lblTypo) must have sufficient contrast with background (WCAG AA: 4.5:1)",
+    "Input placeholder color (plcClr) should meet 3:1 contrast ratio with background",
+    "Checkbox/radio size (chkRadSz) minimum 16px for touch targets (WCAG 2.5.5)",
+    "Button color (btnClr) vs background (btnBgClr) must meet 4.5:1 contrast",
+    "Error messages (valErrMsg, failMsg) should be descriptive and helpful",
+    "Success messages (sucClr) should be visible to colorblind users (don't rely on color alone)",
+    "All form fields need associated labels (child blocks handle this)",
+    "Focus states (actInpBdrClr) must be clearly visible for keyboard navigation",
+    "Use semantic HTML (handled by child blocks) for screen reader compatibility"
+  ],
+  "relatedBlocks": [
+    "tpgb/tp-form-name-field - Name input field (child)",
+    "tpgb/tp-form-email-field - Email input field (child)",
+    "tpgb/tp-form-phone-field - Phone input with country selector (child)",
+    "tpgb/tp-form-message-field - Textarea for messages (child)",
+    "tpgb/tp-form-number-field - Number input (child)",
+    "tpgb/tp-form-date-field - Date picker (child)",
+    "tpgb/tp-form-time-field - Time picker (child)",
+    "tpgb/tp-form-url-field - URL input (child)",
+    "tpgb/tp-form-checkbox-field - Checkbox options (child)",
+    "tpgb/tp-form-radio-field - Radio button options (child)",
+    "tpgb/tp-form-option-field - Dropdown select (child)",
+    "tpgb/tp-form-submit-button - Submit button (child)"
+  ],
+  "integrationPatterns": {
+    "email": {
+      "description": "Standard email notification to admin",
+      "requiredAttributes": ["emailTo1", "subject1"],
+      "optionalAttributes": ["frmEmail", "frmNme", "replyTo", "ccEmail1", "bccEmail1"],
+      "shortcodes": ["[nxt_name]", "[nxt_email]", "[nxt_phone]", "[nxt_message]", "[nxt_number]", "[nxt_date]", "[nxt_time]", "[nxt_url]"]
+    },
+    "mailchimp": {
+      "description": "Add subscriber to MailChimp audience/list",
+      "requiredAttributes": ["mailchmpApiki", "mailchmpAud"],
+      "setup": "Get API key from MailChimp Account → Extras → API keys. Get Audience ID from Audience → Settings → Audience name and defaults."
+    },
+    "convertkit": {
+      "description": "Add subscriber to ConvertKit form/tag",
+      "requiredAttributes": ["ktApiKey", "convertkitformoption"],
+      "setup": "API key from ConvertKit Settings → Advanced → API Secret. Form ID from Forms → Form → Settings."
+    },
+    "getresponse": {
+      "description": "Add subscriber to GetResponse campaign",
+      "requiredAttributes": ["getResApiKey", "getRetkn"],
+      "setup": "API key from GetResponse Menu → Integrations & API → API."
+    },
+    "slack": {
+      "description": "Send form submission to Slack channel",
+      "requiredAttributes": ["slackTkn", "slackChnl"],
+      "setup": "Create Slack App → OAuth & Permissions → Bot Token (xoxb-...). Channel name format: #channel-name."
+    },
+    "webhook": {
+      "description": "POST form data to custom endpoint",
+      "requiredAttributes": ["webhookurl"],
+      "dataFormat": "JSON payload with all form field values",
+      "security": "Use HTTPS endpoints in production"
+    },
+    "redirect": {
+      "description": "Redirect user to thank-you page after submission",
+      "requiredAttributes": ["redirect.url"],
+      "behavior": "Redirects immediately after successful submission (no success message shown)"
+    }
+  },
+  "shortcodeReference": {
+    "[nxt_name]": "Replaced with name field value",
+    "[nxt_email]": "Replaced with email field value",
+    "[nxt_phone]": "Replaced with phone field value",
+    "[nxt_message]": "Replaced with message field value",
+    "[nxt_number]": "Replaced with number field value",
+    "[nxt_date]": "Replaced with date field value",
+    "[nxt_time]": "Replaced with time field value",
+    "[nxt_url]": "Replaced with URL field value"
+  },
+  "useCasePatterns": [
+    {
+      "pattern": "simpleContact",
+      "description": "Basic contact form with email notification",
+      "attributes": {
+        "actionOption": "[{\"value\": \"Email\", \"label\": \"Email\"}]",
+        "emailTo1": "admin@example.com",
+        "subject1": "New Contact Form",
+        "autoRespMsg": "Thank you for contacting us!"
+      },
+      "fields": ["name", "email", "message", "submit"]
+    },
+    {
+      "pattern": "newsletter",
+      "description": "Newsletter signup with MailChimp",
+      "attributes": {
+        "actionOption": "[{\"value\": \"MailChimp\", \"label\": \"MailChimp\"}]",
+        "mailchmpApiki": "your-api-key",
+        "mailchmpAud": "your-audience-id",
+        "autoRespMsg": "Thanks for subscribing!"
+      },
+      "fields": ["email", "submit"]
+    },
+    {
+      "pattern": "quoteRequest",
+      "description": "Business quote form with webhook + email",
+      "attributes": {
+        "actionOption": "[{\"value\": \"Webhook\", \"label\": \"Webhook\"}, {\"value\": \"Email\", \"label\": \"Email\"}]",
+        "webhookurl": "https://api.crm.com/leads",
+        "emailTo1": "sales@example.com",
+        "subject1": "New Quote Request"
+      },
+      "fields": ["name", "email", "phone", "message", "submit"]
+    },
+    {
+      "pattern": "supportTicket",
+      "description": "Support form with Slack notification",
+      "attributes": {
+        "actionOption": "[{\"value\": \"Slack\", \"label\": \"Slack\"}]",
+        "slackTkn": "xoxb-...",
+        "slackChnl": "#support",
+        "autoRespMsg": "Ticket created! We'll respond within 24h."
+      },
+      "fields": ["name", "email", "message", "checkbox", "submit"]
+    }
+  ]
 }
