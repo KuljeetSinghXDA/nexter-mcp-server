@@ -2,30 +2,849 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-heading-title",
   "title": "Advanced Heading - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Comprehensive examples demonstrating all 9 style variants, separators, gradients, animations, and truncation features",
   "examples": [
     {
-      "description": "Simple centered heading with subtitle",
+      "name": "Hero Section Heading (Style-1 with Gradient & Animation)",
+      "description": "Large H1 hero heading with gradient text, subtitle, fade-in animation, and centered alignment",
+      "visualDescription": "Bold purple-to-blue gradient heading 'Transform Your Business' (64px desktop) with gray subtitle 'Industry-leading solutions for modern companies' below, fades in over 1 second",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "ht001",
         "style": "style-1",
-        "Title": "Welcome to Our Website",
-        "subTitle": "Building amazing experiences",
+        "Title": "Transform Your Business",
+        "subTitle": "Industry-leading solutions for modern companies",
         "titleType": "h1",
+        "subTitleType": "p",
+        "subTitlePosition": "onBottonTitle",
         "Alignment": {
           "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "64",
+            "sm": "48",
+            "xs": "36",
+            "unit": "px"
+          },
+          "fontWeight": "800",
+          "lineHeight": {
+            "md": "1.1",
+            "unit": "em"
+          }
+        },
+        "titleGrad": true,
+        "titleStroke": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "subTitleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "20",
+            "sm": "18",
+            "xs": "16",
+            "unit": "px"
+          },
+          "fontWeight": "400"
+        },
+        "subTitleColor": "#6c757d",
+        "subTitleMargin": {
+          "md": {
+            "top": "16",
+            "right": "0",
+            "bottom": "0",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "aniEffect": "fade",
+        "extrOpt": {
+          "animationSpeed": "1000",
+          "animationDelay": "200",
+          "animationOpacity": "0"
+        }
+      },
+      "useCase": "Homepage hero sections, landing page headers, page banners, above-the-fold content",
+      "proFeatures": []
+    },
+    {
+      "name": "Section Title with Underline Separator (Style-3)",
+      "description": "H2 section heading with centered underline separator bar and custom image icon",
+      "visualDescription": "Dark heading 'Our Services' (36px) with 60% width blue separator line (4px thick) below, optional centered icon image in separator",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ht002",
+        "style": "style-3",
+        "Title": "Our Services",
+        "titleType": "h2",
+        "Alignment": {
+          "md": "center"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "36",
+            "sm": "30",
+            "xs": "24",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "titleColor": "#2c3e50",
+        "sepColor": "#3498db",
+        "sepWidth": {
+          "md": "60",
+          "sm": "80",
+          "xs": "100",
+          "unit": "%"
+        },
+        "sepHeight": {
+          "md": "4",
+          "unit": "px"
+        },
+        "imgName": {
+          "url": "https://example.com/wp-content/uploads/icon-services.png",
+          "Id": "201"
+        },
+        "titleMargin": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "24",
+            "left": "0"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Section headers, service listings, feature showcases, portfolio categories, content dividers",
+      "proFeatures": []
+    },
+    {
+      "name": "Decorated Heading with Dots (Style-6)",
+      "description": "Elegant heading with decorative dots on both sides, perfect for testimonials or quotes",
+      "visualDescription": "Centered heading 'What Our Clients Say' with small circular dots (color-matched) on left and right sides, sophisticated typography",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ht003",
+        "style": "style-6",
+        "Title": "What Our Clients Say",
+        "titleType": "h2",
+        "Alignment": {
+          "md": "center"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "32",
+            "sm": "28",
+            "xs": "22",
+            "unit": "px"
+          },
+          "fontWeight": "600",
+          "fontStyle": "italic",
+          "fontFamily": "Georgia"
+        },
+        "titleColor": "#34495e",
+        "sepDotColor": "#e74c3c",
+        "septopspa": "20",
+        "titleMargin": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "32",
+            "left": "0"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Testimonial sections, quote blocks, elegant dividers, author attribution, feature highlights",
+      "proFeatures": []
+    },
+    {
+      "name": "Double Border Heading (Style-4)",
+      "description": "Heading with top and bottom border separators for emphasis",
+      "visualDescription": "Heading 'Featured Products' sandwiched between two horizontal green lines (top 2px, bottom 3px), bold uppercase typography",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ht004",
+        "style": "style-4",
+        "Title": "Featured Products",
+        "titleType": "h2",
+        "Alignment": {
+          "md": "left"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "28",
+            "sm": "24",
+            "xs": "20",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "1.5",
+            "unit": "px"
+          }
+        },
+        "titleColor": "#27ae60",
+        "sepColor": "#27ae60",
+        "topSepHeight": {
+          "md": "2",
+          "unit": "px"
+        },
+        "bottomSepHeight": {
+          "md": "3",
+          "unit": "px"
+        },
+        "titlePadd": {
+          "md": {
+            "top": "8",
+            "right": "0",
+            "bottom": "8",
+            "left": "0"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Product sections, featured content, special announcements, promotional headers, category titles",
+      "proFeatures": []
+    },
+    {
+      "name": "Extra Title Before Main (Style-1 with Badge Effect)",
+      "description": "Extra title 'NEW' displayed before main heading with badge-like background styling",
+      "visualDescription": "Orange badge-style 'NEW' label (small caps, white on orange background, rounded) followed by 'Product Launch 2025' main heading",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ht005",
+        "style": "style-1",
+        "extraTitle": "NEW",
+        "Title": "Product Launch 2025",
+        "subTitle": "Innovative features you've been waiting for",
+        "ETPosition": "beforeTitle",
+        "subTitlePosition": "onBottonTitle",
+        "titleType": "h2",
+        "subTitleType": "p",
+        "Alignment": {
+          "md": "left"
+        },
+        "extraTitleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "1",
+            "unit": "px"
+          }
+        },
+        "extraTitleColor": "#ffffff",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "42",
+            "sm": "34",
+            "xs": "28",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "titleColor": "#2c3e50",
+        "titleBg": {
+          "openBg": 0
+        },
+        "subTitleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "unit": "px"
+          },
+          "fontWeight": "400"
+        },
+        "subTitleColor": "#7f8c8d"
+      },
+      "useCase": "Product launches, new feature announcements, special offers, blog post titles with categories, event headings",
+      "proFeatures": [],
+      "notes": "For badge effect on extraTitle, you would typically add background via custom CSS. The extraTitle appears inline before the main title."
+    },
+    {
+      "name": "Truncated Dynamic Heading (Character Limit)",
+      "description": "Heading with text truncation at 50 characters with ellipsis, useful for dynamic content",
+      "visualDescription": "Heading that displays first 50 characters of title followed by '...' if longer, prevents layout breaking with long dynamic titles",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ht006",
+        "style": "style-1",
+        "Title": "This is a very long heading that demonstrates the text truncation feature when you have dynamic content",
+        "titleType": "h3",
+        "Alignment": {
+          "md": "left"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "24",
+            "sm": "20",
+            "xs": "18",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "titleColor": "#34495e",
+        "limitTgl": true,
+        "titleLimit": true,
+        "titleLimitOn": "char",
+        "titleCount": "50",
+        "titleDots": true
+      },
+      "useCase": "Dynamic post titles, ACF repeater content, user-generated headings, blog listings, search results, card titles",
+      "proFeatures": [],
+      "notes": "Title will be truncated to 'This is a very long heading that demonstrates the ...' (50 chars + ellipsis)"
+    },
+    {
+      "name": "Background Badge Heading (Style-2)",
+      "description": "Heading with solid background, padding, rounded corners, and box shadow - badge/label effect",
+      "visualDescription": "White text 'Limited Time Offer' on purple gradient background, rounded corners (8px), subtle shadow, inline-block badge appearance",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ht007",
+        "style": "style-2",
+        "Title": "Limited Time Offer",
+        "titleType": "h3",
+        "Alignment": {
+          "md": "center"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "28",
+            "sm": "24",
+            "xs": "20",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "letterSpacing": {
+            "md": "0.5",
+            "unit": "px"
+          }
+        },
+        "titleColor": "#ffffff",
+        "titleBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#8e2de2",
+                "position": 0
+              },
+              {
+                "color": "#4a00e0",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "titlePadd": {
+          "md": {
+            "top": "16",
+            "right": "32",
+            "bottom": "16",
+            "left": "32"
+          },
+          "sm": {
+            "top": "12",
+            "right": "24",
+            "bottom": "12",
+            "left": "24"
+          },
+          "unit": "px"
+        },
+        "titleBRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "titleShadow": {
+          "openShadow": 1,
+          "horizontal": "0",
+          "vertical": "4",
+          "blur": "12",
+          "spread": "0",
+          "color": "rgba(142, 45, 226, 0.3)"
+        }
+      },
+      "useCase": "Call-to-action headings, promotional banners, sale announcements, special offers, alert messages, featured badges",
+      "proFeatures": []
+    },
+    {
+      "name": "Split-Character Animation Heading (Style-8 with Separator)",
+      "description": "Heading with per-character animation split, separator dots, and staggered entrance effect",
+      "visualDescription": "Heading 'Our Team' where each character animates in separately with slight delay, purple dots on sides, scale-up animation",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "ht008",
+        "style": "style-8",
+        "Title": "Our Team",
+        "subTitle": "Meet the people behind the magic",
+        "titleType": "h2",
+        "subTitleType": "p",
+        "subTitlePosition": "onBottonTitle",
+        "Alignment": {
+          "md": "center"
+        },
+        "splitType": "chars",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "48",
+            "sm": "38",
+            "xs": "30",
+            "unit": "px"
+          },
+          "fontWeight": "800",
+          "letterSpacing": {
+            "md": "2",
+            "unit": "px"
+          }
+        },
+        "titleColor": "#2c3e50",
+        "sepColor": "#9b59b6",
+        "sepWidth": {
+          "md": "80",
+          "unit": "%"
+        },
+        "sepDotColor": "#9b59b6",
+        "subTitleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "unit": "px"
+          },
+          "fontWeight": "400"
+        },
+        "subTitleColor": "#7f8c8d",
+        "aniEffect": "scale",
+        "animationScale": {
+          "animationScaleX": "0.5",
+          "animationScaleY": "0.5",
+          "animationScaleZ": "1"
+        },
+        "extrOpt": {
+          "animationSpeed": "800",
+          "animationDelay": "100",
+          "animationOpacity": "0"
+        },
+        "titleMargin": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "16",
+            "left": "0"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Team pages, about us sections, creative portfolios, interactive hero sections, emphasis headings",
+      "proFeatures": [],
+      "notes": "splitType:'chars' splits heading into individual characters for staggered animation. Each character scales from 0.5 to 1 with 100ms delay between them."
+    }
+  ],
+  "validationRules": {
+    "style": "Required - Must be one of 9 styles: 'style-1' through 'style-9'. Each style has unique separator/layout behavior",
+    "Title": "Required - Main heading text (string). Can be dynamic via WordPress context",
+    "titleType": "Must be valid HTML tag: 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span', 'p'. Affects SEO and semantic structure",
+    "subTitleType": "Same HTML tag options as titleType for subtitle",
+    "Alignment": "Responsive object with md/sm/xs. Values: 'left', 'center', 'right'. NOT applicable to style-5",
+    "titleTypo.openTypography": "Must be 1 to enable typography controls (fontSize, fontWeight, etc.)",
+    "titleGrad": "Boolean - Set to true to enable gradient text (titleStroke must be set)",
+    "titleStroke": "CSS gradient string (e.g., 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'). Only when titleGrad:true",
+    "subTitlePosition": "Must be 'onTopTitle' or 'onBottonTitle' to position subtitle above or below main title",
+    "ETPosition": "Must be 'beforeTitle' or 'afterTitle' to position extra title before or after main title",
+    "limitTgl": "Must be true to enable truncation controls (titleLimit, subTitleLimit)",
+    "titleLimit": "Boolean - Enable truncation for main title. Requires limitTgl:true",
+    "titleLimitOn": "Must be 'char' or 'word' for character-based or word-based truncation",
+    "titleCount": "String number (e.g., '50') - how many characters/words to show before truncation",
+    "titleDots": "Boolean - Show ellipsis (...) after truncated text",
+    "sepColor": "Hex color for separator line (applies to style-3, style-4, style-5, style-8)",
+    "sepWidth": "Responsive object (md/sm/xs) with unit (% or px). For separator width in style-3, style-8",
+    "sepHeight": "Responsive object for separator line thickness (style-3)",
+    "topSepHeight": "Responsive object for top separator height (style-4 only)",
+    "bottomSepHeight": "Responsive object for bottom separator height (style-4 only)",
+    "sepDotColor": "Hex color for decorative dots (style-6, style-8)",
+    "splitType": "Must be 'words', 'chars', or 'lines' for animation split behavior",
+    "aniEffect": "Animation type: 'default', 'fade', 'slide', 'scale', 'rotate', etc.",
+    "anchor": "HTML ID string (no spaces, alphanumeric + hyphens/underscores) for anchor links"
+  },
+  "warnings": [
+    "⚠️ titleGrad:true requires titleStroke gradient CSS. Title won't show gradient without valid gradient string",
+    "⚠️ Alignment does NOT work with style-5 (specific layout restriction)",
+    "⚠️ Separator attributes (sepColor, sepWidth, etc.) only apply to specific styles - check style documentation",
+    "⚠️ Text truncation (titleLimit) permanently shortens visible text - only use for dynamic/unknown content lengths",
+    "⚠️ titleType affects SEO - use only ONE h1 per page, use h2-h6 hierarchically",
+    "⚠️ splitType 'chars' can cause rendering issues with special characters or emojis",
+    "⚠️ Animation effects require JavaScript - may not work if JS disabled or in AMP contexts",
+    "⚠️ Gradient text (titleGrad) requires modern browsers - fallback to titleColor in older browsers",
+    "⚠️ extraTitle appears inline with main title - test responsive wrapping on small screens",
+    "⚠️ Very long titleCount values defeat truncation purpose - keep reasonable (< 100 chars)",
+    "⚠️ imgName separator image (style-3) should be transparent PNG/SVG, sized 40-80px width",
+    "⚠️ titleBg background with titleGrad gradient text may clash - use one or the other",
+    "⚠️ Box shadow (titleShadow) only visible when title has background or border",
+    "⚠️ Dynamic content via WordPress context requires proper ACF/post setup - won't work outside post context",
+    "⚠️ Anchor IDs must be unique per page - duplicate anchors break navigation"
+  ],
+  "commonMistakes": [
+    "❌ Setting titleGrad:true but forgetting titleStroke gradient (text becomes invisible)",
+    "❌ Forgetting openTypography:1 before setting fontSize/fontWeight (styles don't apply)",
+    "❌ Using multiple h1 tags per page (bad for SEO - use h2-h6 for subsections)",
+    "❌ Setting Alignment on style-5 (alignment is ignored for this style)",
+    "❌ Using titleColor when titleGrad:true (gradient overrides solid color)",
+    "❌ Setting limitTgl:false but titleLimit:true (truncation won't work without master toggle)",
+    "❌ Using 'char' limit with small titleCount (e.g., '10') making heading unreadable",
+    "❌ Not testing extraTitle responsive wrapping (can break layout on mobile)",
+    "❌ Setting sepColor for style-1 or style-2 (these styles don't have separators)",
+    "❌ Using very complex animations (aniEffect + scale + rotate) causing performance issues",
+    "❌ Forgetting to set titleType (defaults to h3, may not match semantic structure)",
+    "❌ Using same anchor ID twice on page (breaks anchor link navigation)",
+    "❌ Setting titleBRadius without titleBg or titleB (border radius has no visual effect)",
+    "❌ Using splitType 'chars' with long headings (creates hundreds of DOM elements, slow rendering)",
+    "❌ Not accounting for titleMargin/titlePadd responsive values on small screens"
+  ],
+  "bestPractices": [
+    "✅ Use h1 for page title ONLY, h2 for major sections, h3-h6 for subsections (proper heading hierarchy)",
+    "✅ Set Alignment responsively: center on desktop, left on mobile for better readability",
+    "✅ Use gradient headings (titleGrad) sparingly for emphasis - too many gradients look cluttered",
+    "✅ Keep titleCount truncation between 40-80 characters for optimal readability",
+    "✅ Use subTitle for context, not as a second main heading (keep it descriptive)",
+    "✅ Choose style variant based on section purpose: style-3 for formal, style-6 for elegant, style-1 for flexible",
+    "✅ Use extraTitle for badges/labels (NEW, FEATURED, etc.) rather than hacking with pseudo-elements",
+    "✅ Set responsive typography: scale down 30-40% on mobile (xs) from desktop (md)",
+    "✅ Use animations sparingly - fade/slide are safest, complex animations distract",
+    "✅ Provide anchor IDs for important section headings to enable table-of-contents navigation",
+    "✅ Use titleDots:true when truncating to clearly indicate hidden text",
+    "✅ Match sepColor to brand colors or create visual rhythm across page sections",
+    "✅ For long pages, use consistent heading styles (same style variant per section type)",
+    "✅ Test gradient text on light AND dark backgrounds - ensure readability",
+    "✅ Use titleBg backgrounds for CTA headings to create visual emphasis/separation",
+    "✅ Combine heading with tp-pro-paragraph in tp-container for complete section headers",
+    "✅ Use style-3 separator width 60-80% on desktop for visual balance",
+    "✅ Set subTitleMargin top:16-24px to create breathing room between title and subtitle",
+    "✅ Use uppercase text-transform with increased letter-spacing (1-2px) for modern look",
+    "✅ For hero headings, use fontSize 48-72px desktop, scale to 28-40px mobile"
+  ],
+  "styleComparisons": [
+    {
+      "name": "Style Variant Overview",
+      "style-1": {
+        "description": "Default/flexible style - no built-in separator",
+        "bestFor": "General headings, hero sections, flexible layouts",
+        "separators": "None (add your own via background/border)",
+        "alignment": "Fully responsive (md/sm/xs)"
+      },
+      "style-2": {
+        "description": "Similar to style-1 with layout variations",
+        "bestFor": "Alternative general headings, secondary sections",
+        "separators": "None",
+        "alignment": "Fully responsive"
+      },
+      "style-3": {
+        "description": "Underline separator bar below heading",
+        "bestFor": "Section titles, service headings, content dividers",
+        "separators": "Horizontal line (sepColor, sepWidth, sepHeight), optional centered image (imgName)",
+        "alignment": "Fully responsive"
+      },
+      "style-4": {
+        "description": "Double border (top and bottom)",
+        "bestFor": "Emphasized sections, featured content, sandwiched headings",
+        "separators": "Top and bottom borders (topSepHeight, bottomSepHeight, sepColor)",
+        "alignment": "Fully responsive"
+      },
+      "style-5": {
+        "description": "Special layout - alignment not supported",
+        "bestFor": "Unique layouts with specific design requirements",
+        "separators": "Custom separator (sepColor)",
+        "alignment": "NOT supported (Alignment attribute ignored)"
+      },
+      "style-6": {
+        "description": "Decorative dots on both sides of heading",
+        "bestFor": "Elegant sections, testimonials, quotes, sophisticated designs",
+        "separators": "Left and right dots (sepDotColor, septopspa for spacing)",
+        "alignment": "Fully responsive"
+      },
+      "style-7": {
+        "description": "Alternative layout variant",
+        "bestFor": "Specific design patterns, unique presentations",
+        "separators": "Varies based on implementation",
+        "alignment": "Fully responsive"
+      },
+      "style-8": {
+        "description": "Separator line with dots",
+        "bestFor": "Team sections, feature headings, decorative titles",
+        "separators": "Horizontal line (sepColor, sepWidth) + dots (sepDotColor)",
+        "alignment": "Fully responsive"
+      },
+      "style-9": {
+        "description": "Advanced layout variant",
+        "bestFor": "Complex designs, specific use cases",
+        "separators": "Varies based on implementation",
+        "alignment": "Fully responsive"
+      }
+    },
+    {
+      "name": "Truncation Methods",
+      "byCharacter": {
+        "titleLimitOn": "char",
+        "description": "Truncates at exact character count regardless of word breaks",
+        "pros": "Predictable length, prevents extremely long words",
+        "cons": "Can cut words mid-character (e.g., 'Busine...' instead of 'Business...')",
+        "bestFor": "Fixed-width layouts, card grids, strict space constraints"
+      },
+      "byWord": {
+        "titleLimitOn": "word",
+        "description": "Truncates at word boundaries (shows complete words only)",
+        "pros": "More readable, respects natural word breaks",
+        "cons": "Final length varies (depends on word lengths), may exceed character target",
+        "bestFor": "Content listings, blog titles, general readability"
+      }
+    },
+    {
+      "name": "Animation Split Types",
+      "words": {
+        "splitType": "words",
+        "description": "Splits heading by words - each word animates separately",
+        "performance": "Good (fewer elements than chars)",
+        "bestFor": "Short headings (3-8 words), word-by-word reveals"
+      },
+      "chars": {
+        "splitType": "chars",
+        "description": "Splits heading by characters - each letter animates separately",
+        "performance": "Poor for long headings (many DOM elements)",
+        "bestFor": "Short headings (< 20 chars), dramatic character reveals, logo text"
+      },
+      "lines": {
+        "splitType": "lines",
+        "description": "Splits heading by lines - each line animates separately",
+        "performance": "Best (fewest elements)",
+        "bestFor": "Multi-line headings, paragraph-style titles, responsive text"
+      }
+    }
+  ],
+  "responsivePatterns": [
+    {
+      "name": "Mobile-First Typography Scaling",
+      "description": "Scale heading size down 40-50% on mobile for readability",
+      "pattern": {
+        "titleTypo": {
+          "fontSize": {
+            "md": "48",
+            "sm": "36",
+            "xs": "28",
+            "unit": "px"
+          }
+        }
+      }
+    },
+    {
+      "name": "Centered Mobile, Left Desktop",
+      "description": "Center headings on small screens for impact, left-align on desktop for content flow",
+      "pattern": {
+        "Alignment": {
+          "md": "left",
           "sm": "center",
           "xs": "center"
         }
       }
     },
     {
-      "description": "Heading with separator line (style-3)",
+      "name": "Wider Separator on Mobile",
+      "description": "Increase separator width percentage on smaller screens for visual presence",
+      "pattern": {
+        "sepWidth": {
+          "md": "60",
+          "sm": "80",
+          "xs": "100",
+          "unit": "%"
+        }
+      }
+    },
+    {
+      "name": "Reduced Padding on Mobile",
+      "description": "Decrease padding/margin on mobile to conserve space",
+      "pattern": {
+        "titlePadd": {
+          "md": {
+            "top": "16",
+            "right": "32",
+            "bottom": "16",
+            "left": "32"
+          },
+          "xs": {
+            "top": "10",
+            "right": "16",
+            "bottom": "10",
+            "left": "16"
+          },
+          "unit": "px"
+        }
+      }
+    }
+  ],
+  "accessibilityNotes": [
+    "♿ Use proper heading hierarchy (h1 → h2 → h3) - never skip levels (h1 → h3 is bad)",
+    "♿ Ensure heading text is descriptive and meaningful without surrounding context",
+    "♿ Provide sufficient color contrast - WCAG AA requires 4.5:1 for small text, 3:1 for large (18px+ or 14px+ bold)",
+    "♿ Don't rely solely on color to convey meaning - use text/icons as well",
+    "♿ Gradient text may fail contrast checks - verify with color contrast analyzer tools",
+    "♿ Anchor IDs enable skip-to-content navigation - provide anchors for major sections",
+    "♿ Screen readers announce heading level - use titleType semantically, not for visual size",
+    "♿ Avoid very long headings (> 100 chars) - hard for screen readers and cognitive processing",
+    "♿ Animations should respect prefers-reduced-motion CSS media query (automatic in modern implementations)",
+    "♿ Ensure headings are keyboard focusable when used as anchor links"
+  ],
+  "performanceConsiderations": [
+    "⚡ Avoid splitType 'chars' on long headings (creates many DOM elements, increases paint time)",
+    "⚡ Use CSS gradients (titleStroke) rather than background images for gradient text (faster rendering)",
+    "⚡ Limit complex animations (combined scale + rotate + position) to avoid jank on low-end devices",
+    "⚡ Avoid excessive titleShadow blur values (> 20px) which increase paint cost",
+    "⚡ Use transform animations (aniEffect) rather than position/margin changes (GPU accelerated)",
+    "⚡ Keep imgName separator images under 50KB and sized appropriately (40-80px width)",
+    "⚡ Minimize responsive breakpoint values - 2-3 breakpoints (md, xs) usually sufficient",
+    "⚡ Avoid very frequent animation delays (< 50ms) which can cause stuttering on slower devices",
+    "⚡ Use system fonts or preloaded web fonts - avoid @import in titleTypo.fontFamily",
+    "⚡ Truncated headings (titleLimit) reduce DOM text size - good for long dynamic content"
+  ],
+  "integrationPatterns": [
+    {
+      "name": "Hero Section with Heading + Button",
+      "description": "Full-width hero with large gradient heading, subtitle, and CTA button",
+      "blocks": [
+        "tpgb/tp-container (hero container, full-width, gradient background)",
+        "tpgb/tp-heading-title (style-1, h1, gradient, subtitle, animation)",
+        "tpgb/tp-button (gradient button, centered)"
+      ],
       "attributes": {
-        "block_id": "c3d4",
+        "style": "style-1",
+        "titleType": "h1",
+        "titleGrad": true,
+        "Alignment": {
+          "md": "center"
+        }
+      }
+    },
+    {
+      "name": "Section Header with Separator",
+      "description": "Clean section introduction with underline separator and description paragraph",
+      "blocks": [
+        "tpgb/tp-heading-title (style-3, h2, separator)",
+        "tpgb/tp-pro-paragraph (description text, centered)"
+      ],
+      "attributes": {
         "style": "style-3",
-        "Title": "Our Services",
         "titleType": "h2",
+        "Alignment": {
+          "md": "center"
+        }
+      }
+    },
+    {
+      "name": "Testimonial Section Header",
+      "description": "Elegant testimonial header with decorative dots",
+      "blocks": [
+        "tpgb/tp-heading-title (style-6, h2, dots)",
+        "tpgb/tp-testimonials (testimonial carousel)"
+      ],
+      "attributes": {
+        "style": "style-6",
+        "titleType": "h2"
+      }
+    },
+    {
+      "name": "Blog Post Listing Card",
+      "description": "Truncated post titles in grid cards",
+      "blocks": [
+        "tpgb/tp-container (card container)",
+        "tpgb/tp-heading-title (h3, truncated, dynamic post title)",
+        "tpgb/tp-pro-paragraph (excerpt)"
+      ],
+      "attributes": {
+        "titleType": "h3",
+        "limitTgl": true,
+        "titleLimit": true,
+        "titleLimitOn": "char",
+        "titleCount": "60"
+      }
+    },
+    {
+      "name": "Product Launch Announcement",
+      "description": "Eye-catching heading with 'NEW' badge and promotional styling",
+      "blocks": [
+        "tpgb/tp-heading-title (style-1, extraTitle 'NEW', background badge)",
+        "tpgb/tp-image (product image)",
+        "tpgb/tp-button (pre-order CTA)"
+      ],
+      "attributes": {
+        "style": "style-1",
+        "extraTitle": "NEW",
+        "ETPosition": "beforeTitle",
+        "titleBg": {
+          "openBg": 1
+        }
+      }
+    },
+    {
+      "name": "ACF Repeater Dynamic Headings",
+      "description": "Headings populated from ACF repeater fields",
+      "blocks": [
+        "tpgb/tp-repeater-block (ACF repeater container)",
+        "tpgb/tp-heading-title (dynamic title from ACF field, truncated for safety)"
+      ],
+      "attributes": {
+        "isRptBlock": true,
+        "limitTgl": true,
+        "titleLimit": true,
+        "titleLimitOn": "word",
+        "titleCount": "10"
+      },
+      "notes": "Title populated via WordPress context (tpgb/dynamicRepField). Truncation prevents layout breaking with long ACF values."
+    }
+  ],
+  "commonPatterns": {
+    "simpleH2Centered": {
+      "description": "Standard centered H2 section heading",
+      "attributes": {
+        "style": "style-1",
+        "titleType": "h2",
+        "Alignment": {
+          "md": "center"
+        }
+      }
+    },
+    "heroGradient": {
+      "description": "Large gradient heading for hero sections",
+      "attributes": {
+        "titleType": "h1",
+        "titleGrad": true,
+        "titleStroke": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "Alignment": {
+          "md": "center"
+        }
+      }
+    },
+    "separatorUnderline": {
+      "description": "Heading with centered underline separator",
+      "attributes": {
+        "style": "style-3",
         "sepColor": "#3498db",
         "sepWidth": {
           "md": "60",
@@ -36,22 +855,55 @@
         }
       }
     },
-    {
-      "description": "Gradient heading with animation",
+    "truncatedDynamic": {
+      "description": "Heading with 60-character truncation for dynamic content",
       "attributes": {
-        "block_id": "e5f6",
-        "style": "style-1",
-        "Title": "Innovative Solutions",
-        "titleType": "h2",
-        "titleGrad": true,
-        "titleStroke": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "limitTgl": true,
+        "titleLimit": true,
+        "titleLimitOn": "char",
+        "titleCount": "60",
+        "titleDots": true
+      }
+    },
+    "badgeHeading": {
+      "description": "Background badge with padding and shadow",
+      "attributes": {
+        "titleBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "titleColor": "#ffffff",
+        "titlePadd": {
+          "md": {
+            "top": "12",
+            "right": "24",
+            "bottom": "12",
+            "left": "24"
+          },
+          "unit": "px"
+        },
+        "titleBRadius": {
+          "md": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        }
+      }
+    },
+    "fadeInAnimation": {
+      "description": "Smooth fade-in animation on load",
+      "attributes": {
         "aniEffect": "fade",
         "extrOpt": {
           "animationSpeed": "1000",
-          "animationDelay": "200"
+          "animationDelay": "200",
+          "animationOpacity": "0"
         }
       }
     }
-  ],
-  "commonPatterns": {}
+  }
 }
