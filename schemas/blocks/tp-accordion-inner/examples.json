@@ -2,34 +2,428 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-accordion-inner",
   "title": "Accordion Inner - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Child block for tp-accordion. Represents individual accordion panels with title and content. MUST be used inside tp-accordion parent block. Cannot be inserted standalone.",
+
   "examples": [
     {
-      "description": "Simple accordion item with title and content",
+      "name": "Simple Accordion Item - Text Content",
+      "description": "Basic accordion item with title and paragraph content",
+      "visualDescription": "Single accordion panel with question title 'What is WordPress?'. Content is simple paragraph with answer. No icons. Inherits all styling from parent tp-accordion block.",
+      "complexity": "simple",
+      "useCase": "FAQ answers, basic expandable content, simple Q&A panels",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "aci001",
         "title": "What is WordPress?",
-        "innerIcon": false
+        "innerIcon": false,
+        "index": 0
       },
       "innerBlocks": [
         {
           "blockName": "tpgb/tp-pro-paragraph",
           "attrs": {
-            "block_id": "c3d4",
-            "content": "WordPress is a free and open-source content management system."
+            "block_id": "p001",
+            "content": "WordPress is a free and open-source content management system written in PHP. It powers over 40% of all websites on the internet and is known for its flexibility, ease of use, and extensive plugin ecosystem."
           }
         }
       ]
     },
+
     {
-      "description": "Accordion item with custom icon",
+      "name": "Accordion Item with Inner Icon",
+      "description": "Accordion item with custom icon before title text",
+      "visualDescription": "Panel with dollar sign icon before 'Pricing Information' title. Icon positioned at start (left), purple color, 20px size. Content explains pricing tiers. Icon helps categorize content visually.",
+      "complexity": "simple",
+      "useCase": "Feature lists with icons, categorized content, visually organized panels",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "aci002",
         "title": "Pricing Information",
         "innerIcon": true,
-        "innericonName": "fas fa-dollar-sign"
-      }
+        "iniconFonts": "font_awesome",
+        "innericonName": "fas fa-dollar-sign",
+        "index": 1
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "p002",
+            "content": "<p><strong>Starter Plan:</strong> $9/month - Perfect for beginners</p><p><strong>Pro Plan:</strong> $29/month - For growing businesses</p><p><strong>Enterprise:</strong> Custom pricing - For large organizations</p>"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Accordion Item with Rich Content",
+      "description": "Accordion item containing multiple inner blocks (heading, paragraph, list, button)",
+      "visualDescription": "Panel titled 'Getting Started Guide'. Contains structured content: h4 subheading, intro paragraph, bulleted list of steps, and CTA button at bottom. Shows accordion can hold complex nested content.",
+      "complexity": "medium",
+      "useCase": "Tutorials, guides, feature descriptions, multi-section content",
+      "attributes": {
+        "block_id": "aci003",
+        "title": "Getting Started Guide",
+        "innerIcon": true,
+        "innericonName": "fas fa-book",
+        "index": 0
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-heading",
+          "attrs": {
+            "block_id": "h003",
+            "title": "Quick Setup in 3 Steps",
+            "titleTag": "h4"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "p003",
+            "content": "<p>Follow these simple steps to get your site up and running in minutes:</p><ul><li>Download and install the plugin</li><li>Configure your basic settings</li><li>Add your first content</li></ul>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-button",
+          "attrs": {
+            "block_id": "btn003",
+            "btnText": "Start Setup",
+            "btnLink": {
+              "url": "/setup",
+              "target": "_self"
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Accordion Item with Clickable Title Link",
+      "description": "Accordion item title that links to external resource",
+      "visualDescription": "Panel titled 'Read Full Documentation'. Title is clickable link to external docs. Content provides summary. Users can expand for quick info or click title to visit full docs. Useful for hybrid navigation.",
+      "complexity": "medium",
+      "useCase": "Documentation links, external resources, hybrid expandable/clickable navigation",
+      "attributes": {
+        "block_id": "aci004",
+        "title": "Read Full Documentation",
+        "hrefLink": "https://docs.example.com",
+        "innerIcon": true,
+        "innericonName": "fas fa-external-link",
+        "index": 2
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "p004",
+            "content": "<p>Quick summary: Our documentation covers installation, configuration, customization, and troubleshooting. Click the title above to visit the full documentation site, or expand this panel for a quick overview.</p>"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Accordion Item with Image Content",
+      "description": "Accordion item containing image block with caption",
+      "visualDescription": "Panel titled 'Product Screenshots'. Expands to show large product screenshot with caption below. Image uses large WordPress size (1024px). Good for visual content in accordions.",
+      "complexity": "medium",
+      "useCase": "Image galleries, product screenshots, visual documentation, portfolio items",
+      "attributes": {
+        "block_id": "aci005",
+        "title": "Product Screenshots",
+        "innerIcon": true,
+        "innericonName": "fas fa-images",
+        "index": 1
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-image",
+          "attrs": {
+            "block_id": "img005",
+            "tImg": {
+              "url": "/wp-content/uploads/dashboard-screenshot.jpg",
+              "Id": "456"
+            },
+            "iSize": "large",
+            "titleShow": true,
+            "titleText": "Dashboard Overview - Shows all key metrics at a glance"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Default Active Accordion Item",
+      "description": "Accordion item that opens by default on page load (parent must set defaultAct index)",
+      "visualDescription": "Panel with index 2 (third item) that opens automatically when page loads. Other panels closed. Title 'NEW: Latest Features' to draw attention to new content. Parent's defaultAct='2' makes this panel active.",
+      "complexity": "simple",
+      "useCase": "Highlighting new content, featured panels, directing user attention on page load",
+      "attributes": {
+        "block_id": "aci006",
+        "title": "NEW: Latest Features",
+        "innerIcon": true,
+        "innericonName": "fas fa-star",
+        "index": 2,
+        "defaultAct": 2
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "p006",
+            "content": "<p>⭐ <strong>Just Released:</strong> Advanced analytics dashboard, team collaboration tools, and API integrations. Try these new features today!</p>"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "How-To Schema Step Item",
+      "description": "Accordion item representing one step in How-To schema (parent has markupSch: true)",
+      "visualDescription": "Panel titled 'Step 1: Install WordPress'. Part of How-To tutorial. Contains step image and detailed instructions. Google can display this as structured data rich result. Parent tp-accordion has markupSch enabled.",
+      "complexity": "medium",
+      "useCase": "Tutorial steps, recipe steps, DIY instructions, SEO-optimized guides",
+      "attributes": {
+        "block_id": "aci007",
+        "title": "Step 1: Install WordPress",
+        "innerIcon": false,
+        "index": 0,
+        "markupSch": true
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-image",
+          "attrs": {
+            "block_id": "img007",
+            "tImg": {
+              "url": "/wp-content/uploads/install-step1.jpg",
+              "Id": "789"
+            },
+            "iSize": "medium"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "p007",
+            "content": "<p>Download the WordPress installer from wordpress.org. Upload the files to your web server using FTP. Navigate to your domain in a browser to start the 5-minute installation process.</p>"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Accordion Item with Video Content",
+      "description": "Accordion item containing embedded video",
+      "visualDescription": "Panel titled 'Watch Video Tutorial'. Expands to show embedded YouTube video. Video plays inline in accordion panel. Good for video FAQs, tutorials, or product demos without leaving the page.",
+      "complexity": "medium",
+      "useCase": "Video tutorials, product demos, video FAQs, embedded media",
+      "attributes": {
+        "block_id": "aci008",
+        "title": "Watch Video Tutorial",
+        "innerIcon": true,
+        "innericonName": "fas fa-play-circle",
+        "index": 3
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-video",
+          "attrs": {
+            "block_id": "vid008",
+            "videoType": "youtube",
+            "videoId": "dQw4w9WgXcQ",
+            "iSize": "16:9"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "p008",
+            "content": "<p>This 5-minute video covers everything you need to know to get started. Watch at your own pace and pause anytime.</p>"
+          }
+        }
+      ]
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "block_id": "Required. Unique identifier for this accordion item.",
+    "title": "Required. Accordion panel title text. Displayed in header. Supports plain text (HTML stripped).",
+    "index": "Number. Position of this item in accordion (0-based). Used for defaultAct matching. Auto-set by editor.",
+    "innerIcon": "Boolean. When true, shows icon before title. Requires iniconFonts and innericonName.",
+    "iniconFonts": "Icon library. Values: 'font_awesome'. Default: 'font_awesome'. Only when innerIcon: true.",
+    "innericonName": "FontAwesome class for item icon (e.g., 'fas fa-home'). Required when innerIcon: true.",
+    "iconAlign": "Inherited from parent. Values: 'start', 'end'. Position of toggle icons (not inner icon).",
+    "titleAlign": "Text alignment. Values: 'text-left', 'text-center', 'text-right'. Default: 'text-left'. Inherited from parent.",
+    "titleTag": "Inherited from parent. HTML heading level (h1-h6). Applied to all items in accordion.",
+    "toggleIcon": "Inherited from parent. Boolean for +/- toggle indicators. Cannot override per item.",
+    "iconName": "Inherited from parent. Toggle icon for closed state. Cannot override per item.",
+    "ActiconName": "Inherited from parent. Toggle icon for open state. Cannot override per item.",
+    "defaultAct": "Inherited from parent. Number matching this item's index to open by default.",
+    "markupSch": "Inherited from parent. Boolean for How-To schema. When true, this item becomes a schema step.",
+    "hrefLink": "Optional URL string. Makes title clickable link. Opens in same/new tab based on implementation.",
+    "innerBlocks": "Array of child blocks for content. Can contain any blocks (paragraph, heading, image, button, etc.).",
+    "uniqueKey": "Auto-generated unique identifier. Do not modify manually.",
+    "className": "Optional CSS class string for custom styling."
+  },
+
+  "warnings": [
+    "CRITICAL: tp-accordion-inner MUST have parent: ['tpgb/tp-accordion']. Cannot be used standalone.",
+    "CRITICAL: inserter: false means this block cannot be added directly - only created inside tp-accordion.",
+    "CRITICAL: Never modify block_id or uniqueKey - causes accordion to break.",
+    "index value must match actual position in accordion. Mismatches cause defaultAct to open wrong item.",
+    "innerIcon: true requires innericonName to be set, otherwise leaves blank space.",
+    "hrefLink makes entire title clickable. Test UX - users may expect title to toggle accordion, not navigate away.",
+    "Most styling (colors, typography, borders, backgrounds) inherited from parent tp-accordion block.",
+    "Cannot override parent's toggleIcon, iconName, ActiconName, atOneOpen, onHvrtab per item.",
+    "titleTag inherited from parent - all items in accordion use same heading level.",
+    "Empty innerBlocks array creates accordion with title only (no content when expanded)."
+  ],
+
+  "commonMistakes": [
+    "Trying to use tp-accordion-inner without tp-accordion parent (block won't appear in inserter)",
+    "Setting innerIcon: true without innericonName (icon doesn't appear)",
+    "Confusing innerIcon (per-item icon before title) with toggleIcon (parent's +/- icons)",
+    "Setting index manually instead of letting editor auto-assign (causes defaultAct issues)",
+    "Forgetting that most styling comes from parent (trying to style individual items)",
+    "Using hrefLink without considering UX (title navigates away instead of toggling)",
+    "Setting defaultAct on child (it's a parent setting, not per-item)",
+    "Not providing innerBlocks content (creates empty accordion panel)",
+    "Mixing up innericonName (child) with iconName (parent toggle icons)"
+  ],
+
+  "bestPractices": [
+    "Title length: 3-10 words for comfortable reading and mobile display",
+    "Use innerIcon to categorize accordion items visually (e.g., all pricing items use $ icon)",
+    "Keep innerBlocks content concise - very long content inside accordion hurts UX",
+    "Use hrefLink sparingly - most users expect titles to toggle, not navigate",
+    "For How-To schema: each item represents one step, title is step name",
+    "Index starts at 0 - let editor auto-assign, don't set manually unless necessary",
+    "Content structure: Start with paragraph or heading, end with CTA button if applicable",
+    "Avoid nesting accordions inside accordion items (creates confusing UX)",
+    "For video content: add descriptive paragraph before/after video for context",
+    "For image content: use medium/large WordPress sizes (full size too big for accordion)",
+    "Test with empty innerBlocks - some designs look better with title-only items",
+    "Use consistent innerIcon style across all items in same accordion"
+  ],
+
+  "layoutContext": {
+    "parentBlocks": "MUST be child of tpgb/tp-accordion. Cannot exist outside accordion parent.",
+    "childBlocks": "Can contain any blocks via innerBlocks: tp-pro-paragraph, tp-heading, tp-image, tp-video, tp-button, etc.",
+    "siblingBlocks": "Other tp-accordion-inner blocks within same tp-accordion parent",
+    "htmlStructure": "Renders as: <div class='tpgb-accor-item'><div class='tpgb-accordion-header'>{innerIcon}{title}{toggleIcon}</div><div class='tpgb-accordion-content'>{innerBlocks}</div></div>",
+    "parentChildRelationship": "Parent tp-accordion controls: toggleIcon, iconName, ActiconName, titleTag, iconAlign, atOneOpen, onHvrtab, defaultAct, markupSch. Child inherits these and adds: title, innerIcon, hrefLink, innerBlocks.",
+    "indexBehavior": "index property auto-assigned by editor based on position. Used by parent's defaultAct to determine which item opens by default.",
+    "innerIconVsToggleIcon": "innerIcon appears BEFORE title text (per-item, optional). toggleIcon appears AFTER title (parent setting, all items). Both can exist simultaneously.",
+    "hrefLinkBehavior": "When set, entire title becomes clickable <a> tag. Clicking navigates instead of toggling accordion. Use carefully.",
+    "contentInheritance": "Typography, colors, backgrounds, borders, shadows all inherited from parent's descTypo, descColor, descPadding, descBorder, descbgType, etc."
+  },
+
+  "performanceConsiderations": [
+    "Large innerBlocks arrays (10+ blocks per item) can slow accordion rendering",
+    "Video blocks (tp-video) in accordion items load immediately even when collapsed - use sparingly",
+    "Images should use medium/large sizes, not full (accordion doesn't need huge images)",
+    "Very long text content (1000+ words) in single item hurts mobile performance",
+    "FontAwesome icons (innerIcon) load from font - ensure font loaded before accordion renders",
+    "Multiple accordions on same page with many items each can cause layout thrashing on scroll"
+  ],
+
+  "accessibilityNotes": [
+    "Title must be descriptive and clear for screen readers",
+    "innerIcon is decorative - ensure ARIA labels are present (plugin handles this)",
+    "Heading level (titleTag) inherited from parent - maintain proper heading hierarchy",
+    "Keyboard navigation: Title should be focusable with Tab, toggle with Enter/Space",
+    "When hrefLink is used, announce to screen readers that title is a link, not toggle",
+    "innerBlocks content should maintain semantic HTML (proper headings, lists, etc.)",
+    "Avoid using title text like 'Click here' - be specific about content (e.g., 'Pricing Information')",
+    "Long content inside accordion should still be scannable (use subheadings, lists, bold)"
+  ],
+
+  "relatedBlocks": {
+    "tp-accordion": "Parent block (required) that wraps tp-accordion-inner items",
+    "tp-pro-paragraph": "Most common content block for accordion item text",
+    "tp-heading": "For subheadings within accordion content",
+    "tp-image": "For images/screenshots in accordion panels",
+    "tp-video": "For video tutorials/demos in accordion panels",
+    "tp-button": "For CTAs at end of accordion content"
+  },
+
+  "parentInheritedSettings": {
+    "fromParent": "These settings CANNOT be overridden per item - set on tp-accordion parent:",
+    "toggleIcon": "Boolean - show/hide +/- toggle icons on all items",
+    "iconFont": "String - icon library for toggle icons (font_awesome)",
+    "iconName": "String - FontAwesome class for closed state toggle icon",
+    "ActiconName": "String - FontAwesome class for open state toggle icon",
+    "titleTag": "String - HTML heading level (h1-h6) for all titles",
+    "iconAlign": "String - toggle icon position (start/end) for all items",
+    "titleAlign": "String - text alignment (left/center/right) for all titles",
+    "atOneOpen": "Boolean - only one panel open at time (affects all items)",
+    "onHvrtab": "String - activation method (click/hover) for all items",
+    "defaultAct": "String - which item index opens by default (matches index)",
+    "markupSch": "Boolean - enable How-To schema for all items",
+    "allStyling": "Typography, colors, backgrounds, borders, shadows, spacing - all from parent",
+    "perItemSettings": "These CAN be set per accordion-inner item:",
+    "title": "String - unique title for this panel",
+    "innerIcon": "Boolean - show icon before this item's title",
+    "innericonName": "String - FontAwesome class for this item's icon",
+    "hrefLink": "String - make this item's title clickable link",
+    "innerBlocks": "Array - unique content for this panel"
+  },
+
+  "usagePatterns": {
+    "faqPattern": {
+      "description": "Each item is a question/answer pair",
+      "itemExample": {
+        "title": "What is your return policy?",
+        "innerIcon": false,
+        "innerBlocks": [
+          {
+            "blockName": "tpgb/tp-pro-paragraph",
+            "attrs": {
+              "content": "<p>We offer 30-day returns...</p>"
+            }
+          }
+        ]
+      }
+    },
+    "featureListPattern": {
+      "description": "Each item represents a feature with icon",
+      "itemExample": {
+        "title": "Advanced Analytics",
+        "innerIcon": true,
+        "innericonName": "fas fa-chart-line",
+        "innerBlocks": [
+          {
+            "blockName": "tpgb/tp-pro-paragraph",
+            "attrs": {
+              "content": "<p>Track performance with real-time dashboards...</p>"
+            }
+          }
+        ]
+      }
+    },
+    "tutorialStepPattern": {
+      "description": "Each item is a step in tutorial/guide",
+      "itemExample": {
+        "title": "Step 1: Install",
+        "innerIcon": false,
+        "markupSch": true,
+        "innerBlocks": [
+          {
+            "blockName": "tpgb/tp-image",
+            "attrs": {
+              "tImg": {
+                "url": "/step1.jpg"
+              }
+            }
+          },
+          {
+            "blockName": "tpgb/tp-pro-paragraph",
+            "attrs": {
+              "content": "<p>Download and install...</p>"
+            }
+          }
+        ]
+      }
+    }
+  }
 }
