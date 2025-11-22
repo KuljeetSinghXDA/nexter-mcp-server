@@ -2,51 +2,1019 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-before-after",
   "title": "Before After - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Comprehensive examples demonstrating all before/after image comparison slider features",
   "examples": [
     {
-      "description": "Simple horizontal comparison",
+      "name": "Home Renovation Before/After (Horizontal Slider)",
+      "description": "Classic horizontal before/after slider for home renovation showcase with styled labels",
+      "visualDescription": "Horizontal slider with 'BEFORE' and 'AFTER' labels in white text on semi-transparent black backgrounds, rounded corners, middle separator handle with visible line",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "ba001",
         "style": "horizontal",
         "beforeImg": {
-          "url": "/before.jpg"
+          "url": "https://example.com/wp-content/uploads/kitchen-before.jpg",
+          "id": "123"
         },
+        "beforeLabel": "BEFORE",
         "afterImg": {
-          "url": "/after.jpg"
+          "url": "https://example.com/wp-content/uploads/kitchen-after.jpg",
+          "id": "124"
         },
-        "beforeLabel": "Before",
-        "afterLabel": "After"
-      }
-    },
-    {
-      "description": "Vertical slider with custom separator",
-      "attributes": {
-        "block_id": "c3d4",
-        "style": "vertical",
-        "beforeImg": {
-          "url": "/old-design.jpg"
+        "afterLabel": "AFTER",
+        "imageSize": "full",
+        "alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
         },
-        "afterImg": {
-          "url": "/new-design.jpg"
-        },
+        "fullWidth": false,
+        "onmouseHvr": true,
+        "sepStyle": "middle",
         "sepLine": true,
-        "sepWidth": "8",
-        "sepColor": "#667eea",
-        "sepStyle": "middle"
-      }
-    },
-    {
-      "description": "Styled labels with backgrounds",
-      "attributes": {
-        "block_id": "e5f6",
-        "beforeLabel": "Original",
-        "afterLabel": "Enhanced",
+        "sepWidth": "4",
+        "sepPosi": "50",
+        "sepColor": "#ffffff",
+        "labelTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "letterSpacing": {
+            "md": "2",
+            "unit": "px"
+          }
+        },
         "labelColor": "#ffffff",
         "labelBgtype": {
           "openBg": 1,
           "bgType": "color",
-          "bgDefaultColor": "rgba(0,0,0,0.7)"
+          "bgDefaultColor": "rgba(0, 0, 0, 0.7)"
+        },
+        "labelBradius": {
+          "md": {
+            "top": "4",
+            "right": "4",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        },
+        "padding": {
+          "md": {
+            "top": "8",
+            "right": "16",
+            "bottom": "8",
+            "left": "16"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Home renovation portfolios, interior design showcases, construction progress, property listings, remodeling projects",
+      "proFeatures": []
+    },
+    {
+      "name": "Photo Editing Showcase (Vertical with Two-Tone Separator)",
+      "description": "Vertical slider for photography editing demonstration with gradient separator and custom positioning",
+      "visualDescription": "Vertical top-to-bottom slider with two-tone purple gradient separator line, labels with gradient backgrounds, starting at 60% position to highlight 'after' image",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ba002",
+        "style": "vertical",
+        "beforeImg": {
+          "url": "https://example.com/wp-content/uploads/photo-raw.jpg",
+          "id": "125"
+        },
+        "beforeLabel": "RAW",
+        "afterImg": {
+          "url": "https://example.com/wp-content/uploads/photo-edited.jpg",
+          "id": "126"
+        },
+        "afterLabel": "EDITED",
+        "imageSize": "large",
+        "fullWidth": true,
+        "onmouseHvr": true,
+        "sepStyle": "middle",
+        "sepLine": true,
+        "sepWidth": "6",
+        "sepPosi": "60",
+        "sepColor": "#667eea",
+        "sepbotColor": "#764ba2",
+        "labelTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "sm": "14",
+            "xs": "12",
+            "unit": "px"
+          },
+          "fontWeight": "600",
+          "textTransform": "uppercase"
+        },
+        "labelColor": "#ffffff",
+        "labelBgtype": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "rgba(102, 126, 234, 0.9)",
+                "position": 0
+              },
+              {
+                "color": "rgba(118, 75, 162, 0.9)",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "labelBradius": {
+          "md": {
+            "top": "20",
+            "right": "20",
+            "bottom": "20",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "labelBshadow": {
+          "openShadow": 1,
+          "horizontal": "0",
+          "vertical": "4",
+          "blur": "8",
+          "spread": "0",
+          "color": "rgba(0, 0, 0, 0.3)"
+        },
+        "padding": {
+          "md": {
+            "top": "10",
+            "right": "20",
+            "bottom": "10",
+            "left": "20"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Photography portfolios, photo editing tutorials, Lightroom/Photoshop showcases, image enhancement demonstrations, color grading examples",
+      "proFeatures": []
+    },
+    {
+      "name": "Product Improvement Comparison (Drag-Only, Custom Position)",
+      "description": "Horizontal drag-only slider for product redesign with separator starting at 30% to show more of the improved version",
+      "visualDescription": "Horizontal slider requiring manual drag (no hover), white separator line, starting at 30% to emphasize the improved product design, minimal labels",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ba003",
+        "style": "horizontal",
+        "beforeImg": {
+          "url": "https://example.com/wp-content/uploads/product-v1.jpg",
+          "id": "127"
+        },
+        "beforeLabel": "Version 1.0",
+        "afterImg": {
+          "url": "https://example.com/wp-content/uploads/product-v2.jpg",
+          "id": "128"
+        },
+        "afterLabel": "Version 2.0",
+        "imageSize": "medium_large",
+        "alignment": {
+          "md": "center"
+        },
+        "fullWidth": false,
+        "onmouseHvr": false,
+        "sepStyle": "middle",
+        "sepLine": true,
+        "sepWidth": "3",
+        "sepPosi": "30",
+        "sepColor": "#ffffff",
+        "labelTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "12",
+            "unit": "px"
+          },
+          "fontWeight": "500"
+        },
+        "labelColor": "#333333",
+        "labelBgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(255, 255, 255, 0.9)"
+        },
+        "labelBorder": {
+          "openBorder": 1,
+          "borderTopWidth": "1",
+          "borderRightWidth": "1",
+          "borderBottomWidth": "1",
+          "borderLeftWidth": "1",
+          "borderStyle": "solid",
+          "borderTopColor": "#e0e0e0",
+          "borderRightColor": "#e0e0e0",
+          "borderBottomColor": "#e0e0e0",
+          "borderLeftColor": "#e0e0e0"
+        },
+        "labelBradius": {
+          "md": {
+            "top": "2",
+            "right": "2",
+            "bottom": "2",
+            "left": "2"
+          },
+          "unit": "px"
+        },
+        "padding": {
+          "md": {
+            "top": "6",
+            "right": "12",
+            "bottom": "6",
+            "left": "12"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Product redesign showcases, UI/UX improvements, branding evolution, packaging updates, software interface comparisons",
+      "proFeatures": []
+    },
+    {
+      "name": "Website Design Refresh (Vertical, Full-Width, Custom Icon)",
+      "description": "Full-width vertical slider for website redesign comparison with custom separator handle icon",
+      "visualDescription": "Vertical full-width slider with custom drag icon, thick orange separator line, bold labels with solid backgrounds positioned at top and bottom corners",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ba004",
+        "style": "vertical",
+        "beforeImg": {
+          "url": "https://example.com/wp-content/uploads/website-old.jpg",
+          "id": "129"
+        },
+        "beforeLabel": "2019 Design",
+        "afterImg": {
+          "url": "https://example.com/wp-content/uploads/website-new.jpg",
+          "id": "130"
+        },
+        "afterLabel": "2025 Refresh",
+        "imageSize": "full",
+        "alignment": {
+          "md": "center"
+        },
+        "fullWidth": true,
+        "onmouseHvr": true,
+        "sepStyle": "middle",
+        "sepLine": true,
+        "sepWidth": "5",
+        "sepPosi": "50",
+        "sepColor": "#f39c12",
+        "sepIcon": {
+          "url": "https://example.com/wp-content/uploads/custom-drag-icon.png",
+          "id": "131"
+        },
+        "labelTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "sm": "16",
+            "xs": "14",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "labelColor": "#ffffff",
+        "labelBgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f39c12"
+        },
+        "labelBradius": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "8",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "padding": {
+          "md": {
+            "top": "12",
+            "right": "24",
+            "bottom": "12",
+            "left": "24"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Web design portfolios, agency case studies, site redesign announcements, landing page comparisons, responsive design showcases",
+      "proFeatures": []
+    },
+    {
+      "name": "Weight Loss Transformation (Horizontal, Minimal Styling)",
+      "description": "Clean horizontal slider for fitness transformation with minimal labels and subtle separator",
+      "visualDescription": "Simple horizontal slider with small text labels, thin gray separator line, clean aesthetic focusing on the transformation images themselves",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ba005",
+        "style": "horizontal",
+        "beforeImg": {
+          "url": "https://example.com/wp-content/uploads/fitness-before.jpg",
+          "id": "132"
+        },
+        "beforeLabel": "Before",
+        "afterImg": {
+          "url": "https://example.com/wp-content/uploads/fitness-after.jpg",
+          "id": "133"
+        },
+        "afterLabel": "After 6 Months",
+        "imageSize": "large",
+        "alignment": {
+          "md": "center"
+        },
+        "fullWidth": false,
+        "onmouseHvr": true,
+        "sepStyle": "middle",
+        "sepLine": true,
+        "sepWidth": "2",
+        "sepPosi": "50",
+        "sepColor": "#cccccc",
+        "labelTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontWeight": "400"
+        },
+        "labelColor": "#666666",
+        "labelBgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(255, 255, 255, 0.95)"
+        },
+        "labelBradius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "padding": {
+          "md": {
+            "top": "6",
+            "right": "12",
+            "bottom": "6",
+            "left": "12"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Fitness transformations, weight loss programs, personal training results, gym testimonials, health coaching portfolios",
+      "proFeatures": []
+    },
+    {
+      "name": "Landscape Change Over Time (Vertical, Top Separator)",
+      "description": "Vertical slider with top-positioned separator handle for environmental/landscape comparisons",
+      "visualDescription": "Vertical slider with separator handle at top, green separator line, year-based labels with nature-themed styling, full-width layout",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ba006",
+        "style": "vertical",
+        "beforeImg": {
+          "url": "https://example.com/wp-content/uploads/landscape-2010.jpg",
+          "id": "134"
+        },
+        "beforeLabel": "2010",
+        "afterImg": {
+          "url": "https://example.com/wp-content/uploads/landscape-2025.jpg",
+          "id": "135"
+        },
+        "afterLabel": "2025",
+        "imageSize": "full",
+        "alignment": {
+          "md": "center"
+        },
+        "fullWidth": true,
+        "onmouseHvr": true,
+        "sepStyle": "top",
+        "sepLine": true,
+        "sepWidth": "4",
+        "sepPosi": "50",
+        "sepColor": "#27ae60",
+        "labelTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "24",
+            "sm": "20",
+            "xs": "16",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "labelColor": "#ffffff",
+        "labelBgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#27ae60"
+        },
+        "labelBshadow": {
+          "openShadow": 1,
+          "horizontal": "0",
+          "vertical": "2",
+          "blur": "8",
+          "spread": "0",
+          "color": "rgba(0, 0, 0, 0.2)"
+        },
+        "padding": {
+          "md": {
+            "top": "10",
+            "right": "20",
+            "bottom": "10",
+            "left": "20"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Environmental changes, urban development, reforestation projects, climate impact visualization, historical landscape comparisons, construction progress",
+      "proFeatures": []
+    },
+    {
+      "name": "Image Restoration Work (Horizontal, Bottom Separator, Styled)",
+      "description": "Horizontal slider with bottom separator position for photo restoration showcase with elegant styling",
+      "visualDescription": "Horizontal slider with separator handle at bottom, gold separator line, elegant serif labels with dark backgrounds and gold accents, sophisticated aesthetic",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ba007",
+        "style": "horizontal",
+        "beforeImg": {
+          "url": "https://example.com/wp-content/uploads/photo-damaged.jpg",
+          "id": "136"
+        },
+        "beforeLabel": "Damaged Original",
+        "afterImg": {
+          "url": "https://example.com/wp-content/uploads/photo-restored.jpg",
+          "id": "137"
+        },
+        "afterLabel": "Professionally Restored",
+        "imageSize": "full",
+        "alignment": {
+          "md": "center"
+        },
+        "fullWidth": false,
+        "onmouseHvr": true,
+        "sepStyle": "bottom",
+        "sepLine": true,
+        "sepWidth": "3",
+        "sepPosi": "50",
+        "sepColor": "#d4af37",
+        "labelTypo": {
+          "openTypography": 1,
+          "fontFamily": "Georgia",
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontWeight": "400",
+          "fontStyle": "italic"
+        },
+        "labelColor": "#d4af37",
+        "labelBgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(20, 20, 20, 0.9)"
+        },
+        "labelBorder": {
+          "openBorder": 1,
+          "borderTopWidth": "1",
+          "borderRightWidth": "1",
+          "borderBottomWidth": "1",
+          "borderLeftWidth": "1",
+          "borderStyle": "solid",
+          "borderTopColor": "#d4af37",
+          "borderRightColor": "#d4af37",
+          "borderBottomColor": "#d4af37",
+          "borderLeftColor": "#d4af37"
+        },
+        "labelBradius": {
+          "md": {
+            "top": "2",
+            "right": "2",
+            "bottom": "2",
+            "left": "2"
+          },
+          "unit": "px"
+        },
+        "labelBshadow": {
+          "openShadow": 1,
+          "horizontal": "0",
+          "vertical": "4",
+          "blur": "12",
+          "spread": "0",
+          "color": "rgba(0, 0, 0, 0.5)"
+        },
+        "padding": {
+          "md": {
+            "top": "8",
+            "right": "16",
+            "bottom": "8",
+            "left": "16"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Photo restoration services, historical photo preservation, vintage photo repair, family heirloom restoration, archival work showcases",
+      "proFeatures": []
+    },
+    {
+      "name": "Historical Comparison (Vertical, Full Styling Showcase)",
+      "description": "Full-featured vertical slider demonstrating all styling options for historical site comparisons",
+      "visualDescription": "Vertical slider with gradient labels, custom icon, two-tone separator, box shadows, borders, and complete responsive styling for maximum visual impact",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "ba008",
+        "style": "vertical",
+        "beforeImg": {
+          "url": "https://example.com/wp-content/uploads/building-1920.jpg",
+          "id": "138"
+        },
+        "beforeLabel": "1920",
+        "afterImg": {
+          "url": "https://example.com/wp-content/uploads/building-2025.jpg",
+          "id": "139"
+        },
+        "afterLabel": "2025",
+        "imageSize": "full",
+        "alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "fullWidth": true,
+        "onmouseHvr": true,
+        "sepStyle": "middle",
+        "sepLine": true,
+        "sepWidth": "6",
+        "sepPosi": "50",
+        "sepColor": "#3498db",
+        "sepbotColor": "#2c3e50",
+        "sepIcon": {
+          "url": "https://example.com/wp-content/uploads/time-icon.png",
+          "id": "140"
+        },
+        "labelTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "32",
+            "sm": "24",
+            "xs": "18",
+            "unit": "px"
+          },
+          "fontWeight": "800",
+          "letterSpacing": {
+            "md": "1",
+            "unit": "px"
+          }
+        },
+        "labelColor": "#ffffff",
+        "labelBgtype": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 45,
+            "gradientColor": [
+              {
+                "color": "rgba(52, 152, 219, 0.95)",
+                "position": 0
+              },
+              {
+                "color": "rgba(44, 62, 80, 0.95)",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "labelBorder": {
+          "openBorder": 1,
+          "borderTopWidth": "2",
+          "borderRightWidth": "2",
+          "borderBottomWidth": "2",
+          "borderLeftWidth": "2",
+          "borderStyle": "solid",
+          "borderTopColor": "#ffffff",
+          "borderRightColor": "#ffffff",
+          "borderBottomColor": "#ffffff",
+          "borderLeftColor": "#ffffff"
+        },
+        "labelBradius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "sm": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "xs": {
+            "top": "4",
+            "right": "4",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        },
+        "labelBshadow": {
+          "openShadow": 1,
+          "horizontal": "0",
+          "vertical": "6",
+          "blur": "16",
+          "spread": "0",
+          "color": "rgba(0, 0, 0, 0.4)"
+        },
+        "padding": {
+          "md": {
+            "top": "16",
+            "right": "32",
+            "bottom": "16",
+            "left": "32"
+          },
+          "sm": {
+            "top": "12",
+            "right": "24",
+            "bottom": "12",
+            "left": "24"
+          },
+          "xs": {
+            "top": "8",
+            "right": "16",
+            "bottom": "8",
+            "left": "16"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Historical documentation, architecture evolution, city development, heritage sites, museum exhibits, time-lapse comparisons, archaeological discoveries",
+      "proFeatures": []
+    }
+  ],
+  "validationRules": {
+    "beforeImg": "Required - Must have valid url property for before image",
+    "afterImg": "Required - Must have valid url property for after image",
+    "style": "Required - Must be 'horizontal' or 'vertical'",
+    "sepStyle": "Must be 'middle', 'top', or 'bottom'",
+    "sepWidth": "Must be numeric string (e.g., '3', '5', '8') for separator line width in pixels",
+    "sepPosi": "Optional - String '0' to '100' for default separator position percentage",
+    "onmouseHvr": "Boolean - true for hover activation, false for drag-only",
+    "sepLine": "Boolean - true to show full-height separator line",
+    "fullWidth": "Boolean - true to expand to full container width",
+    "imageSize": "WordPress image size name (e.g., 'thumbnail', 'medium', 'large', 'full')",
+    "labelTypo.openTypography": "Must be 1 to enable typography controls",
+    "labelBgtype.openBg": "Must be 1 to enable background styling",
+    "labelBorder.openBorder": "Must be 1 to enable border styling",
+    "labelBshadow.openShadow": "Must be 1 to enable box shadow",
+    "sepColor": "Hex color code for separator line (e.g., '#ffffff', '#667eea')",
+    "sepbotColor": "Optional - Hex color for bottom segment of separator (creates two-tone effect)",
+    "sepIcon": "Optional - Custom separator handle image object with url property",
+    "alignment": "Responsive object with md/sm/xs breakpoints for left/center/right alignment"
+  },
+  "warnings": [
+    "⚠️ Both beforeImg and afterImg must have the same aspect ratio for smooth comparison",
+    "⚠️ Images should be optimized for web (compressed) to ensure fast loading",
+    "⚠️ Use same imageSize for both before/after to maintain consistent dimensions",
+    "⚠️ sepPosi value (0-100) determines default slider position: 0=all before, 50=middle, 100=all after",
+    "⚠️ sepbotColor creates two-tone separator only when sepLine is true",
+    "⚠️ Custom sepIcon should be transparent PNG, sized around 40-60px for best results",
+    "⚠️ onmouseHvr:false creates drag-only interaction (better for mobile, more intentional on desktop)",
+    "⚠️ Labels may overlap images on small screens - test responsive breakpoints",
+    "⚠️ sepStyle 'top' or 'bottom' positions may be less intuitive for users than 'middle'",
+    "⚠️ Vertical sliders work best with portrait-oriented images",
+    "⚠️ Horizontal sliders work best with landscape-oriented images",
+    "⚠️ fullWidth:true may cause layout issues if parent container has constraints",
+    "⚠️ Very thin separator lines (sepWidth < 2) may be hard to see on some displays",
+    "⚠️ Gradient backgrounds (labelBgtype with bgGradient) require openBg:1 and bgType:'gradient'",
+    "⚠️ Label styling (typography, background, border, shadow) requires respective 'open' flags set to 1",
+    "⚠️ Mobile users may find drag interaction challenging - consider onmouseHvr:true for better UX"
+  ],
+  "commonMistakes": [
+    "❌ Using different aspect ratios for before/after images (causes distortion)",
+    "❌ Forgetting to set openTypography:1 before applying labelTypo settings",
+    "❌ Setting sepbotColor without enabling sepLine:true (no visible effect)",
+    "❌ Using very large uncompressed images (causes slow loading and poor UX)",
+    "❌ Placing labels without padding (text touches edges, looks cramped)",
+    "❌ Using low-contrast label colors that blend with image content",
+    "❌ Setting sepPosi too extreme (0 or 100) hiding one side completely on load",
+    "❌ Not testing on mobile devices where drag interactions may be difficult",
+    "❌ Using custom sepIcon without transparent background (looks clunky)",
+    "❌ Forgetting to set imageSize consistently (one image loads full, other loads thumbnail)",
+    "❌ Applying labelBorder without setting openBorder:1 (no border appears)",
+    "❌ Using vertical slider with very wide landscape images (poor visual balance)",
+    "❌ Not providing beforeLabel/afterLabel (users don't know which side is which)",
+    "❌ Setting fullWidth:true inside narrow containers (stretches images awkwardly)",
+    "❌ Using serif fonts for labels in modern/tech contexts (style mismatch)"
+  ],
+  "bestPractices": [
+    "✅ Use images with identical dimensions and aspect ratios for seamless comparison",
+    "✅ Compress and optimize images before upload (use WebP format for best performance)",
+    "✅ Set sepPosi to strategic value: 50 for neutral, 30-40 to show more 'after', 60-70 to show more 'before'",
+    "✅ Use onmouseHvr:true for easier mobile interaction and better discoverability",
+    "✅ Add clear, concise labels ('Before/After', 'Old/New', dates, version numbers)",
+    "✅ Choose sepStyle:'middle' for most intuitive user interaction",
+    "✅ Use sufficient label padding (8-16px) for comfortable reading",
+    "✅ Ensure label colors have high contrast against background (WCAG AA minimum)",
+    "✅ Test on multiple devices and screen sizes, especially mobile",
+    "✅ Use semi-transparent label backgrounds (rgba with 0.7-0.9 alpha) to avoid hiding image content",
+    "✅ Match separator color to site branding or image color palette",
+    "✅ Use sepWidth 3-6px for good visibility without being intrusive",
+    "✅ For professional/corporate sites, use subtle styling; for creative portfolios, use bold colors/gradients",
+    "✅ Add box shadows to labels for better separation from images",
+    "✅ Use responsive typography (different fontSize for md/sm/xs) for label readability",
+    "✅ Consider accessibility - provide alt text on images, ensure keyboard navigation works",
+    "✅ Use horizontal sliders for landscape images, vertical for portraits",
+    "✅ Start with sepPosi:50 unless you have strategic reason to bias one side",
+    "✅ Use fullWidth:true for hero sections, false for content-width sections",
+    "✅ Test with realistic content images (not just placeholders) before publishing"
+  ],
+  "styleComparisons": [
+    {
+      "name": "Horizontal vs Vertical Comparison",
+      "horizontal": {
+        "description": "Left-right slider (default)",
+        "bestFor": "Landscape images, wide-format photos, website screenshots, architectural exteriors, panoramas",
+        "userExpectation": "Most common pattern, users instinctively understand left=before, right=after",
+        "mobileConsideration": "Works well on all orientations, natural swipe gesture"
+      },
+      "vertical": {
+        "description": "Top-bottom slider",
+        "bestFor": "Portrait images, full-body photos, tall buildings, infographics, mobile screenshots",
+        "userExpectation": "Less common, may need clearer labels to indicate top=before, bottom=after",
+        "mobileConsideration": "Better for portrait-oriented mobile screens, natural scroll gesture"
+      }
+    },
+    {
+      "name": "Separator Handle Positions",
+      "middle": {
+        "description": "Handle centered on separator line (default)",
+        "bestFor": "Most use cases, balanced design, easy to grab",
+        "interaction": "Intuitive, users naturally grab center handle"
+      },
+      "top": {
+        "description": "Handle at top of separator line",
+        "bestFor": "When bottom area has important content, minimalist designs",
+        "interaction": "Less common, may be less discoverable"
+      },
+      "bottom": {
+        "description": "Handle at bottom of separator line",
+        "bestFor": "When top area has important content, footer-aligned designs",
+        "interaction": "Uncommon, may confuse users initially"
+      }
+    },
+    {
+      "name": "Interaction Modes",
+      "hover": {
+        "attribute": "onmouseHvr: true",
+        "description": "Slider follows mouse position on hover",
+        "pros": "More discoverable, easier on mobile (tap to activate), immediate visual feedback",
+        "cons": "Can be distracting if user hovers unintentionally",
+        "bestFor": "General audience, mobile-friendly sites, quick comparisons"
+      },
+      "dragOnly": {
+        "attribute": "onmouseHvr: false",
+        "description": "User must click/tap and drag separator",
+        "pros": "More intentional interaction, less accidental activation, precise control",
+        "cons": "Less discoverable, may be harder on mobile, requires instruction",
+        "bestFor": "Professional portfolios, detailed comparisons requiring precision, desktop-focused audiences"
+      }
+    }
+  ],
+  "responsivePatterns": [
+    {
+      "name": "Mobile-First Label Sizing",
+      "description": "Scale down label typography and padding for smaller screens",
+      "pattern": {
+        "labelTypo": {
+          "fontSize": {
+            "md": "16",
+            "sm": "14",
+            "xs": "12",
+            "unit": "px"
+          }
+        },
+        "padding": {
+          "md": {
+            "top": "12",
+            "right": "20",
+            "bottom": "12",
+            "left": "20"
+          },
+          "sm": {
+            "top": "8",
+            "right": "16",
+            "bottom": "8",
+            "left": "16"
+          },
+          "xs": {
+            "top": "6",
+            "right": "12",
+            "bottom": "6",
+            "left": "12"
+          },
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "name": "Adaptive Label Positioning",
+      "description": "Adjust label border radius and shadows for different breakpoints",
+      "pattern": {
+        "labelBradius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "sm": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "xs": {
+            "top": "4",
+            "right": "4",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "name": "Responsive Alignment",
+      "description": "Center on mobile, allow left/right alignment on desktop",
+      "pattern": {
+        "alignment": {
+          "md": "left",
+          "sm": "center",
+          "xs": "center"
+        }
+      }
+    },
+    {
+      "name": "Conditional Full-Width",
+      "description": "Use fullWidth on desktop hero sections, constrain on mobile for better control",
+      "approach": "Set fullWidth:true, but ensure parent container has max-width constraints on mobile breakpoints via CSS"
+    }
+  ],
+  "accessibilityNotes": [
+    "♿ Provide descriptive alt text on both beforeImg and afterImg (handled by WordPress media library)",
+    "♿ Ensure label text has sufficient contrast against background (WCAG AA: 4.5:1 minimum)",
+    "♿ Use semantic label text ('Before/After', dates, version numbers) for screen readers",
+    "♿ Enable keyboard navigation - users should be able to drag separator with keyboard (depends on block implementation)",
+    "♿ Avoid relying solely on color to differentiate before/after - use labels",
+    "♿ Consider users with motion sensitivity - static comparisons may be preferable to auto-animations (this block has no auto-animation, good)",
+    "♿ Test with screen readers to ensure image descriptions are announced correctly",
+    "♿ Provide visual affordance (separator handle) that's large enough to click/tap (minimum 44x44px touch target)",
+    "♿ Use aria-label attributes on interactive elements (if implementing custom controls)",
+    "♿ Ensure focus states are visible when navigating with keyboard"
+  ],
+  "performanceConsiderations": [
+    "⚡ Optimize images before upload - use compression tools (TinyPNG, ImageOptim, Squoosh)",
+    "⚡ Use appropriate imageSize - don't load 'full' resolution if displaying small (use 'large' or 'medium_large')",
+    "⚡ Consider lazy loading for below-fold before/after blocks (WordPress lazy-loading handles this automatically for img tags)",
+    "⚡ Use WebP format with JPEG fallback for best compression and browser support",
+    "⚡ Ensure both images are similar file size - large disparity can cause layout shift",
+    "⚡ Avoid very large separator line widths (sepWidth > 10) which may cause rendering overhead",
+    "⚡ Minimize use of complex gradients with many color stops in labelBgtype",
+    "⚡ Use CSS transforms for separator animation (hardware-accelerated) rather than position changes",
+    "⚡ Test on slow 3G networks to ensure images load reasonably fast",
+    "⚡ Consider using srcset/responsive images for different screen sizes (WordPress handles this automatically)"
+  ],
+  "integrationPatterns": [
+    {
+      "name": "Before/After in Hero Section",
+      "description": "Full-width before/after slider as page hero with headline overlay",
+      "blocks": [
+        "tpgb/tp-container (full-width hero)",
+        "tpgb/tp-before-after (fullWidth:true, style:horizontal)",
+        "tpgb/tp-heading (overlaid headline with absolute positioning)"
+      ],
+      "attributes": {
+        "fullWidth": true,
+        "style": "horizontal",
+        "sepPosi": "50"
+      }
+    },
+    {
+      "name": "Portfolio Grid with Multiple Comparisons",
+      "description": "Grid layout with multiple before/after sliders for portfolio showcases",
+      "blocks": [
+        "tpgb/tp-container (grid container)",
+        "tpgb/tp-row (3-column grid)",
+        "tpgb/tp-column (repeat 3 times)",
+        "tpgb/tp-before-after (in each column)",
+        "tpgb/tp-heading (project title below each)",
+        "tpgb/tp-pro-paragraph (project description)"
+      ],
+      "notes": "Keep fullWidth:false, use consistent sepPosi across all sliders for visual rhythm"
+    },
+    {
+      "name": "Case Study Section",
+      "description": "Before/after slider with detailed text explanation",
+      "blocks": [
+        "tpgb/tp-container (section container)",
+        "tpgb/tp-heading (case study title)",
+        "tpgb/tp-pro-paragraph (problem statement)",
+        "tpgb/tp-before-after (visual comparison)",
+        "tpgb/tp-pro-paragraph (solution explanation)",
+        "tpgb/tp-button (CTA to full case study)"
+      ]
+    },
+    {
+      "name": "Testimonial with Visual Proof",
+      "description": "Client testimonial paired with before/after results",
+      "blocks": [
+        "tpgb/tp-container (testimonial section)",
+        "tpgb/tp-row (2-column layout)",
+        "tpgb/tp-column (left: testimonial)",
+        "tpgb/tp-testimonials (client quote)",
+        "tpgb/tp-column (right: visual proof)",
+        "tpgb/tp-before-after (results)"
+      ]
+    },
+    {
+      "name": "Accordion FAQ with Visual Examples",
+      "description": "FAQ accordion where some answers include before/after visuals",
+      "blocks": [
+        "tpgb/tp-accordion (FAQ container)",
+        "tpgb/tp-accordion-inner (FAQ item)",
+        "tpgb/tp-pro-paragraph (answer text)",
+        "tpgb/tp-before-after (visual example)"
+      ]
+    },
+    {
+      "name": "Tabs with Different Comparisons",
+      "description": "Tab interface showing different before/after comparisons per tab",
+      "blocks": [
+        "tpgb/tp-tabs-tours (tab container)",
+        "tpgb/tp-tab-item (tab 1: Kitchen Remodel)",
+        "tpgb/tp-before-after (kitchen comparison)",
+        "tpgb/tp-tab-item (tab 2: Bathroom Remodel)",
+        "tpgb/tp-before-after (bathroom comparison)",
+        "tpgb/tp-tab-item (tab 3: Living Room)",
+        "tpgb/tp-before-after (living room comparison)"
+      ]
+    },
+    {
+      "name": "Pricing Table with Product Comparison",
+      "description": "Pricing tiers with before/after visuals showing upgrade benefits",
+      "blocks": [
+        "tpgb/tp-pricing-table (pricing grid)",
+        "tpgb/tp-before-after (below pricing, showing basic vs premium result)"
+      ]
+    },
+    {
+      "name": "Timeline with Historical Comparisons",
+      "description": "Timeline showing evolution over time with visual comparisons at each milestone",
+      "blocks": [
+        "tpgb/tp-timeline (vertical timeline)",
+        "tpgb/tp-timeline-inner (milestone 1: 2015)",
+        "tpgb/tp-before-after (2010 vs 2015 comparison)",
+        "tpgb/tp-timeline-inner (milestone 2: 2020)",
+        "tpgb/tp-before-after (2015 vs 2020 comparison)",
+        "tpgb/tp-timeline-inner (milestone 3: 2025)",
+        "tpgb/tp-before-after (2020 vs 2025 comparison)"
+      ]
+    }
+  ],
+  "commonPatterns": {
+    "simpleHorizontal": {
+      "description": "Basic horizontal slider with minimal styling",
+      "attributes": {
+        "style": "horizontal",
+        "onmouseHvr": true,
+        "sepStyle": "middle",
+        "sepPosi": "50"
+      }
+    },
+    "styledLabels": {
+      "description": "Labels with background, padding, and rounded corners",
+      "attributes": {
+        "labelTypo": {
+          "openTypography": 1
+        },
+        "labelColor": "#ffffff",
+        "labelBgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(0, 0, 0, 0.7)"
         },
         "labelBradius": {
           "md": {
@@ -68,15 +1036,47 @@
         }
       }
     },
-    {
-      "description": "Drag-only comparison (no hover)",
+    "gradientSeparator": {
+      "description": "Two-tone gradient separator line",
       "attributes": {
-        "block_id": "g7h8",
+        "sepLine": true,
+        "sepWidth": "6",
+        "sepColor": "#667eea",
+        "sepbotColor": "#764ba2"
+      }
+    },
+    "dragOnlyPrecision": {
+      "description": "Drag-only interaction for precise control",
+      "attributes": {
         "onmouseHvr": false,
-        "sepPosi": "50",
-        "fullWidth": true
+        "sepPosi": "50"
+      }
+    },
+    "fullWidthHero": {
+      "description": "Full-width hero section comparison",
+      "attributes": {
+        "fullWidth": true,
+        "alignment": {
+          "md": "center"
+        },
+        "imageSize": "full"
+      }
+    },
+    "minimalClean": {
+      "description": "Minimal styling focusing on images",
+      "attributes": {
+        "sepLine": true,
+        "sepWidth": "2",
+        "sepColor": "#cccccc",
+        "labelTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "12",
+            "unit": "px"
+          },
+          "fontWeight": "400"
+        }
       }
     }
-  ],
-  "commonPatterns": {}
+  }
 }

@@ -2,55 +2,766 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-countdown",
   "title": "Countdown - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Display countdown timers to specific dates, scarcity counters, or dynamic fake counters with 3 visual styles and expiry actions",
+
   "examples": [
     {
-      "description": "Simple countdown to New Year",
+      "name": "Product Launch Countdown (Style 1 - Default Boxes)",
+      "description": "Simple boxed countdown to specific product launch date",
+      "visualDescription": "Four boxes displaying days, hours, minutes, seconds with labels below each, clean default styling, centered alignment",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
-        "style": "style-1",
+        "block_id": "cd001",
         "countdownSelection": "normal",
-        "datetime": "2025-01-01T00:00:00",
+        "style": "style-1",
+        "datetime": "2025-06-15T12:00:00",
         "showLabels": true,
+        "daysText": "Days",
+        "hoursText": "Hours",
+        "minutesText": "Minutes",
+        "secondsText": "Seconds",
+        "inlineStyle": false,
         "countdownExpiry": "showmsg",
-        "expiryMsg": "Happy New Year!"
-      }
+        "expiryMsg": "Product Launched! 🎉 Check it out now!",
+        "counterTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "48",
+            "sm": "36",
+            "xs": "28",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "counterFontColor": "#2c3e50",
+        "labelTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "sm": "12",
+            "xs": "11",
+            "unit": "px"
+          },
+          "fontWeight": "500",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "1",
+            "unit": "px"
+          }
+        },
+        "expiryMsgTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "24",
+            "sm": "20",
+            "xs": "18",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "backendVisi": true
+      },
+      "useCase": "Product launches, feature releases, app launches, new service announcements",
+      "relatedBlocks": ["tp-heading", "tp-button", "tp-image"]
     },
+
     {
-      "description": "Flip countdown for product launch",
+      "name": "Flip Countdown for Event (Style 2 - Animated Flip)",
+      "description": "Stylish flip animation countdown for webinar or event",
+      "visualDescription": "Dark theme flip cards that animate when numbers change, smooth flip transitions, modern minimal design, perfect for premium events",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "cd002",
+        "countdownSelection": "normal",
         "style": "style-2",
         "flipTheme": "dark",
-        "datetime": "2025-02-14T12:00:00",
+        "datetime": "2025-07-20T14:00:00",
+        "showLabels": true,
+        "daysText": "Days",
+        "hoursText": "Hours",
+        "minutesText": "Min",
+        "secondsText": "Sec",
+        "counterMaxWidth": {
+          "md": "600",
+          "sm": "500",
+          "xs": "100%",
+          "unit": "px"
+        },
+        "inlineStyle": false,
         "countdownExpiry": "redirect",
         "expiryRedirect": {
-          "url": "/product-launched",
-          "target": "_self"
+          "url": "/webinar-live",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "counterTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "40",
+            "sm": "32",
+            "xs": "24",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "labelTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "12",
+            "sm": "11",
+            "xs": "10",
+            "unit": "px"
+          },
+          "fontWeight": "400",
+          "letterSpacing": {
+            "md": "0.5",
+            "unit": "px"
+          }
+        },
+        "backendVisi": true
+      },
+      "useCase": "Webinars, live events, conference registration deadlines, virtual summits",
+      "relatedBlocks": ["tp-heading", "tp-button", "tp-pricing-table"]
+    },
+
+    {
+      "name": "Circular Progress Countdown (Style 3 - SVG Progress)",
+      "description": "Modern circular progress ring countdown with percentage fill",
+      "visualDescription": "Circular SVG progress rings for each time unit (days, hours, minutes, seconds), rings fill clockwise as time progresses, clean minimalist design",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "cd003",
+        "countdownSelection": "normal",
+        "style": "style-3",
+        "datetime": "2025-12-31T23:59:59",
+        "showLabels": true,
+        "daysText": "D",
+        "hoursText": "H",
+        "minutesText": "M",
+        "secondsText": "S",
+        "inlineStyle": true,
+        "countdownExpiry": "showmsg",
+        "expiryMsg": "Happy New Year! 🎆",
+        "counterTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "32",
+            "sm": "28",
+            "xs": "24",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "counterFontColor": "#667eea",
+        "labelTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "10",
+            "sm": "9",
+            "xs": "8",
+            "unit": "px"
+          },
+          "fontWeight": "600",
+          "textTransform": "uppercase"
+        },
+        "expiryMsgTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "36",
+            "sm": "28",
+            "xs": "22",
+            "unit": "px"
+          },
+          "fontWeight": "800",
+          "textTransform": "uppercase"
+        },
+        "backendVisi": true
+      },
+      "useCase": "New Year countdowns, milestone celebrations, goal deadlines, progress tracking",
+      "relatedBlocks": ["tp-progress-bar", "tp-heading", "tp-number-counter"]
+    },
+
+    {
+      "name": "Flash Sale Scarcity Counter (90 seconds)",
+      "description": "Urgent scarcity timer counting down from 90 seconds to create FOMO",
+      "visualDescription": "Red/orange themed countdown (style-1) with urgent colors, large numbers, no day/hour units (only minutes/seconds), creates urgency for limited-time offers",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "cd004",
+        "countdownSelection": "scarcity",
+        "style": "style-1",
+        "scarSec": "90",
+        "showLabels": true,
+        "daysText": "",
+        "hoursText": "",
+        "minutesText": "Minutes",
+        "secondsText": "Seconds",
+        "inlineStyle": false,
+        "countdownExpiry": "showmsg",
+        "expiryMsg": "⚠️ Time's Up! This exclusive offer has expired.",
+        "counterTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "56",
+            "sm": "44",
+            "xs": "32",
+            "unit": "px"
+          },
+          "fontWeight": "800"
+        },
+        "counterFontColor": "#e74c3c",
+        "labelTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "13",
+            "sm": "12",
+            "xs": "11",
+            "unit": "px"
+          },
+          "fontWeight": "600",
+          "textTransform": "uppercase"
+        },
+        "expiryMsgTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "20",
+            "sm": "18",
+            "xs": "16",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "textTransform": "uppercase"
+        },
+        "backendVisi": true
+      },
+      "urgencyNote": "Scarcity mode counts down from scarSec (90 seconds) and restarts when page reloads - perfect for creating urgency",
+      "useCase": "Flash sales, limited-time offers, cart abandonment, exclusive deals, Black Friday sales",
+      "relatedBlocks": ["tp-button", "tp-pricing-table", "tp-testimonials"]
+    },
+
+    {
+      "name": "Black Friday Countdown with Redirect",
+      "description": "Holiday sale countdown that redirects to sale page on expiry",
+      "visualDescription": "Flip countdown (style-2) with light theme, countdown to Black Friday midnight, automatic redirect when sale starts",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "cd005",
+        "countdownSelection": "normal",
+        "style": "style-2",
+        "flipTheme": "light",
+        "datetime": "2025-11-28T00:00:00",
+        "showLabels": true,
+        "daysText": "Days",
+        "hoursText": "Hours",
+        "minutesText": "Minutes",
+        "secondsText": "Seconds",
+        "counterMaxWidth": {
+          "md": "700",
+          "sm": "100%",
+          "unit": "px"
+        },
+        "inlineStyle": false,
+        "countdownExpiry": "redirect",
+        "expiryRedirect": {
+          "url": "/black-friday-sale",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "counterTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "44",
+            "sm": "36",
+            "xs": "28",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "labelTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "13",
+            "sm": "12",
+            "xs": "11",
+            "unit": "px"
+          },
+          "fontWeight": "500",
+          "textTransform": "capitalize"
+        },
+        "backendVisi": true
+      },
+      "useCase": "Holiday sales (Black Friday, Cyber Monday, Christmas), seasonal promotions, annual events",
+      "relatedBlocks": ["tp-heading", "tp-button", "tp-pricing-table"]
+    },
+
+    {
+      "name": "Fake Dynamic Counter (Increasing)",
+      "description": "Dynamic fake counter that increases from 1 to 100 viewers, creating social proof",
+      "visualDescription": "Simple counter showing 'Currently 47 people viewing this page' with number increasing randomly every 5 seconds, creates engagement and FOMO",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "cd006",
+        "countdownSelection": "fake",
+        "style": "style-1",
+        "changeType": "increasing",
+        "initNum": "1",
+        "endNum": "100",
+        "numRange": "10",
+        "changeInterval": "5",
+        "fenaLoop": true,
+        "fMsg": "🔴 Currently {visible_counter} people viewing this page",
+        "inlineStyle": true,
+        "showLabels": false,
+        "counterTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "sm": "15",
+            "xs": "14",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "counterFontColor": "#e74c3c",
+        "backendVisi": true
+      },
+      "fakeCounterBehavior": "Starts at 1, increases by random amount (within numRange) every 5 seconds until reaching 100, then loops if fenaLoop is true",
+      "useCase": "Social proof counters, live viewer counts, cart item scarcity ('Only X items left'), product popularity",
+      "relatedBlocks": ["tp-number-counter", "tp-testimonials", "tp-pricing-table"]
+    },
+
+    {
+      "name": "Pro: Looping Weekly Sale Countdown",
+      "description": "Weekly flash sale that loops every 7 days with cookie-based user tracking",
+      "visualDescription": "Circular progress countdown (style-3) counting to next Friday midnight, automatically restarts every week, tracks users via cookie to prevent reset on refresh",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "cd007",
+        "countdownSelection": "normal",
+        "style": "style-3",
+        "datetime": "2025-06-06T23:59:59",
+        "enaLoop": true,
+        "delayTime": "604800",
+        "trackUdata": "cookie",
+        "showLabels": true,
+        "daysText": "Days",
+        "hoursText": "Hrs",
+        "minutesText": "Min",
+        "secondsText": "Sec",
+        "inlineStyle": true,
+        "countdownExpiry": "showmsg",
+        "expiryMsg": "Flash Sale Started! 🎉",
+        "counterTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "28",
+            "sm": "24",
+            "xs": "20",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "counterFontColor": "#27ae60",
+        "labelTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "11",
+            "sm": "10",
+            "xs": "9",
+            "unit": "px"
+          },
+          "fontWeight": "500",
+          "textTransform": "uppercase"
+        },
+        "expiryMsgTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "22",
+            "sm": "20",
+            "xs": "18",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "backendVisi": true
+      },
+      "proFeatures": "enaLoop (restart after delayTime), trackUdata (cookie/IP tracking to persist countdown across sessions)",
+      "useCase": "Recurring weekly sales, monthly promotions, subscription renewals, membership deadlines",
+      "relatedBlocks": ["tp-pricing-table", "tp-button", "tp-testimonials"]
+    },
+
+    {
+      "name": "Inline Countdown with Custom Labels",
+      "description": "Compact inline countdown with custom Spanish labels for international audience",
+      "visualDescription": "Horizontal inline layout (not stacked), custom labels in Spanish, compact spacing, perfect for embedding in paragraphs or headers",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "cd008",
+        "countdownSelection": "normal",
+        "style": "style-1",
+        "datetime": "2025-08-15T18:00:00",
+        "showLabels": true,
+        "daysText": "Días",
+        "hoursText": "Horas",
+        "minutesText": "Minutos",
+        "secondsText": "Segundos",
+        "inlineStyle": true,
+        "countdownExpiry": "showmsg",
+        "expiryMsg": "¡El evento ha comenzado!",
+        "counterTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "24",
+            "sm": "20",
+            "xs": "18",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "counterFontColor": "#3498db",
+        "labelTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "12",
+            "sm": "11",
+            "xs": "10",
+            "unit": "px"
+          },
+          "fontWeight": "400",
+          "textTransform": "lowercase"
+        },
+        "expiryMsgTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "20",
+            "sm": "18",
+            "xs": "16",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "backendVisi": true
+      },
+      "useCase": "Multilingual sites, embedded countdowns in headers/paragraphs, compact mobile layouts",
+      "relatedBlocks": ["tp-heading", "tp-pro-paragraph", "tp-container"]
+    }
+  ],
+
+  "validationRules": {
+    "countdownSelection": "Required - 'normal' (to datetime), 'scarcity' (from scarSec), or 'fake' (dynamic counter)",
+    "style": "Required - 'style-1' (default boxes), 'style-2' (flip animation), 'style-3' (circular progress)",
+    "datetime": "Required when countdownSelection='normal' - ISO 8601 format (YYYY-MM-DDTHH:MM:SS)",
+    "scarSec": "Required when countdownSelection='scarcity' - seconds remaining as string (e.g., '90')",
+    "flipTheme": "For style-2 only - 'dark' or 'light' theme",
+    "counterMaxWidth": "For style-2 only - responsive max width for flip countdown",
+    "changeType": "For fake counter - 'decreasing' or 'increasing'",
+    "initNum": "For fake counter - starting number as string",
+    "endNum": "For fake counter - ending number as string",
+    "numRange": "For fake counter - max random change amount per interval",
+    "changeInterval": "For fake counter - seconds between changes",
+    "fenaLoop": "For fake counter - boolean, restart when reaching endNum",
+    "fMsg": "For fake counter - message template with {visible_counter} placeholder",
+    "countdownExpiry": "'none', 'showmsg', 'redirect', or 'showtemp' (Pro)",
+    "expiryMsg": "Message to show when countdownExpiry='showmsg'",
+    "expiryRedirect.url": "Required when countdownExpiry='redirect'",
+    "templates": "Pro: Template ID to show when countdownExpiry='showtemp'",
+    "enaLoop": "Pro: Boolean, restart countdown after delayTime seconds",
+    "delayTime": "Pro: Delay in seconds before loop restart (e.g., '604800' for 7 days)",
+    "trackUdata": "Pro: 'normal' (no tracking), 'cookie', or 'ip' - prevents reset on page refresh",
+    "showLabels": "Boolean - true shows time unit labels (Days, Hours, etc.)",
+    "daysText/hoursText/minutesText/secondsText": "Custom labels for time units - can translate or abbreviate",
+    "inlineStyle": "Boolean - true displays countdown horizontally inline, false stacks vertically",
+    "counterTypo.openTypography": "Must be 1 to enable number typography",
+    "labelTypo.openTypography": "Must be 1 to enable label typography",
+    "expiryMsgTypo.openTypography": "Must be 1 to enable expiry message typography",
+    "backendVisi": "Boolean - true shows countdown in editor, false shows placeholder"
+  },
+
+  "warnings": [
+    "datetime format MUST be ISO 8601 (YYYY-MM-DDTHH:MM:SS) - wrong format breaks countdown",
+    "countdownSelection determines which attributes work: 'normal' uses datetime, 'scarcity' uses scarSec, 'fake' uses initNum/endNum/changeType",
+    "style-2 (flip) requires flipTheme ('dark' or 'light') to display correctly",
+    "counterMaxWidth only works with style-2 (flip countdown) - ignored by style-1 and style-3",
+    "Scarcity mode (scarSec) counts down from specified seconds and RESTARTS on page reload by default unless trackUdata is set (Pro)",
+    "Fake counter with fenaLoop:true loops forever - set to false for one-time countdown",
+    "expiryRedirect requires FULL URL (https://example.com/page) not relative (/page) for external redirects",
+    "countdownExpiry='showtemp' requires Pro version and valid template ID - free version use 'showmsg' or 'redirect'",
+    "enaLoop and trackUdata are PRO features - will be ignored in free version",
+    "delayTime is in SECONDS (604800 = 7 days, 86400 = 1 day, 3600 = 1 hour)",
+    "For fake counter, endNum must be > initNum for 'increasing' or < initNum for 'decreasing'",
+    "fMsg placeholder {visible_counter} MUST be included to show the dynamic number",
+    "openTypography:1 required before setting counterTypo/labelTypo/expiryMsgTypo - otherwise typography ignored",
+    "inlineStyle:true good for embedding in text, false (stacked) better for hero sections",
+    "backendVisi:true shows live countdown in editor, false shows static placeholder - use true for previewing",
+    "Circular progress (style-3) works best with inlineStyle:true - takes up more horizontal space"
+  ],
+
+  "commonMistakes": [
+    "Using relative date format ('2025-12-31') without time - MUST include time (YYYY-MM-DDTHH:MM:SS)",
+    "Forgetting to set countdownExpiry - countdown reaches zero but nothing happens",
+    "Setting enaLoop without delayTime - countdown restarts immediately with no delay",
+    "Using trackUdata without understanding it's Pro - free users see default behavior",
+    "Not setting flipTheme on style-2 - flip countdown may not display correctly",
+    "Using counterMaxWidth on style-1 or style-3 - attribute only works for style-2",
+    "Setting both datetime and scarSec - only one is used based on countdownSelection",
+    "Forgetting {visible_counter} in fMsg - fake counter number won't display",
+    "Using string 'true' instead of boolean true for booleans - breaks conditionals",
+    "Not enabling openTypography:1 before setting fontSize/fontWeight - typography won't apply",
+    "Setting numRange too high for fake counter - numbers jump unrealistically",
+    "Using scarSec without scarcity mode - attribute ignored unless countdownSelection='scarcity'",
+    "Expecting scarcity to persist across sessions without trackUdata (Pro feature)",
+    "Setting expiryRedirect without setting countdownExpiry='redirect' - redirect won't trigger",
+    "Using templates (showtemp) in free version - requires Pro"
+  ],
+
+  "bestPractices": [
+    "**Datetime Format:** Always use full ISO 8601 with timezone offset (e.g., '2025-12-31T23:59:59+00:00') for UTC or local time",
+    "**Style Selection:** Use style-1 for versatile general purpose, style-2 for premium events, style-3 for modern minimalist designs",
+    "**Expiry Actions:** Always set countdownExpiry - use 'showmsg' for announcements, 'redirect' for automatic navigation, 'showtemp' (Pro) for custom content",
+    "**Scarcity Timing:** 60-120 seconds works best for urgency - too long reduces FOMO, too short causes frustration",
+    "**Fake Counter Range:** Keep numRange under 5-10 for realistic increments - large jumps look suspicious",
+    "**Custom Labels:** Abbreviate for mobile (D/H/M/S instead of Days/Hours/Minutes/Seconds) to save space",
+    "**Typography Scale:** Counter 36-56px, labels 10-14px for balanced hierarchy",
+    "**Color Psychology:** Red/orange for urgency (flash sales), blue/green for events, purple for premium launches",
+    "**Inline vs Stacked:** Use inlineStyle:true for headers/paragraphs, false for hero sections and featured countdowns",
+    "**Loop Delay:** For weekly sales, use delayTime:604800 (7 days), monthly use 2592000 (30 days)",
+    "**User Tracking:** Use trackUdata:'cookie' for better UX (persists across sessions), 'ip' for stricter control (Pro)",
+    "**Accessibility:** Ensure counterFontColor contrasts with background (4.5:1 ratio WCAG AA)",
+    "**Mobile Optimization:** Test responsive fontSize values - countdown should be readable but not overwhelming on small screens",
+    "**Backend Preview:** Set backendVisi:true when building to see live countdown in editor, false for static placeholder",
+    "**Redirect URLs:** Test expiryRedirect.url before launch - broken redirects hurt conversion",
+    "**Fake Counter Messages:** Use {visible_counter} creatively: '🔥 {visible_counter} watching now', 'Only {visible_counter} left', '{visible_counter} people joined today'",
+    "**Event Timing:** Set datetime 5-10 minutes before actual event start for buffer time",
+    "**Sales Deadlines:** Place countdown above fold near CTA button for maximum urgency",
+    "**A/B Testing:** Test different scarSec values (60s vs 120s) to find optimal urgency without frustration"
+  ],
+
+  "styleComparison": {
+    "style-1": {
+      "description": "Default boxed layout with numbers in boxes and labels below",
+      "bestFor": "General purpose, clean professional designs, most versatile",
+      "visualCharacteristics": "Rectangular boxes, clear separation, easy to read, works with any theme",
+      "complexity": "simple"
+    },
+    "style-2": {
+      "description": "Animated flip cards that flip when numbers change (like departure boards)",
+      "bestFor": "Premium events, product launches, modern designs, attention-grabbing",
+      "visualCharacteristics": "Smooth flip animation, dark/light themes, modern aesthetic, requires more space",
+      "complexity": "medium",
+      "requires": "flipTheme ('dark' or 'light'), counterMaxWidth for responsive sizing"
+    },
+    "style-3": {
+      "description": "Circular progress rings (SVG) that fill as time decreases",
+      "bestFor": "Modern minimalist designs, goal tracking, visual progress indication",
+      "visualCharacteristics": "Circular SVG rings, progressive fill, clean minimal, works best inline",
+      "complexity": "medium",
+      "note": "Best with inlineStyle:true for horizontal layout"
+    }
+  },
+
+  "countdownModeComparison": {
+    "normal": {
+      "description": "Countdown to specific date and time",
+      "attributes": "datetime (ISO 8601 format)",
+      "bestFor": "Product launches, events, deadlines, holiday sales",
+      "behavior": "Counts down to datetime, then triggers expiryAction"
+    },
+    "scarcity": {
+      "description": "Limited-time counter starting from specified seconds",
+      "attributes": "scarSec (seconds remaining)",
+      "bestFor": "Flash sales, limited offers, urgency creation, FOMO",
+      "behavior": "Counts down from scarSec, restarts on page reload (unless trackUdata set in Pro)"
+    },
+    "fake": {
+      "description": "Dynamic counter that increases/decreases randomly",
+      "attributes": "initNum, endNum, changeType, numRange, changeInterval, fMsg",
+      "bestFor": "Social proof (viewers count), stock scarcity ('X items left'), engagement metrics",
+      "behavior": "Changes by random amount (within numRange) every changeInterval seconds until reaching endNum"
+    }
+  },
+
+  "expiryActionComparison": {
+    "none": {
+      "description": "Countdown reaches zero and stops, no action taken",
+      "bestFor": "Informational countdowns where action isn't required"
+    },
+    "showmsg": {
+      "description": "Display expiryMsg when countdown expires",
+      "bestFor": "Announcements, congratulations, status updates",
+      "attributes": "expiryMsg, expiryMsgTypo"
+    },
+    "redirect": {
+      "description": "Automatically redirect to URL when countdown expires",
+      "bestFor": "Sale pages, event registrations, automatic navigation",
+      "attributes": "expiryRedirect (url, target, nofollow)"
+    },
+    "showtemp": {
+      "description": "Pro: Display custom WordPress template on expiry",
+      "bestFor": "Complex post-expiry content, custom layouts, rich media",
+      "attributes": "templates (template ID)",
+      "proFeature": true
+    }
+  },
+
+  "responsivePatterns": [
+    {
+      "pattern": "Adaptive Font Sizing",
+      "description": "Larger countdown numbers on desktop, smaller on mobile",
+      "attributes": {
+        "counterTypo": {
+          "fontSize": {
+            "md": "48",
+            "sm": "36",
+            "xs": "28",
+            "unit": "px"
+          }
         }
       }
     },
     {
-      "description": "Scarcity counter (90 seconds)",
+      "pattern": "Mobile Inline Layout",
+      "description": "Stacked on desktop for prominence, inline on mobile to save vertical space",
+      "implementation": "Set inlineStyle:false for desktop hero sections, consider inline for mobile"
+    },
+    {
+      "pattern": "Flip Countdown Width",
+      "description": "Full width on mobile, constrained on desktop for style-2",
       "attributes": {
-        "block_id": "e5f6",
-        "countdownSelection": "scarcity",
-        "scarSec": "90",
-        "showLabels": false,
-        "expiryMsg": "Time's up! Deal expired."
+        "counterMaxWidth": {
+          "md": "600",
+          "sm": "500",
+          "xs": "100%",
+          "unit": "px"
+        }
       }
     },
     {
-      "description": "Pro: Looping countdown",
-      "attributes": {
-        "block_id": "g7h8",
-        "style": "style-3",
-        "datetime": "2025-12-31T23:59:59",
-        "enaLoop": true,
-        "delayTime": "3600",
-        "trackUdata": "cookie"
-      }
+      "pattern": "Abbreviated Labels on Mobile",
+      "description": "Short labels on small screens for compact display",
+      "setup": "Use 'D', 'H', 'M', 'S' instead of full words on xs breakpoint"
     }
   ],
-  "commonPatterns": {}
+
+  "accessibilityNotes": [
+    "**Color Contrast:** Ensure counterFontColor has 4.5:1 contrast ratio with background for WCAG AA",
+    "**Dynamic Content:** Countdown updates every second - ensure screen readers can announce changes",
+    "**Expiry Message:** expiryMsg is announced by screen readers - make it descriptive ('Sale Started!' not just '!')",
+    "**Label Clarity:** Use full words for labels (Days not D) unless space is very limited - helps screen readers",
+    "**Keyboard Navigation:** Countdown is not interactive, no keyboard focus needed",
+    "**Motion Sensitivity:** Flip animation (style-2) may trigger vestibular disorders - provide option to disable animations",
+    "**ARIA Labels:** Plugin should add aria-live regions for countdown updates",
+    "**Time Format:** Consider adding 'remaining' to context ('5 Days Remaining' vs just '5 Days')",
+    "**Multiple Countdowns:** If using multiple on one page, ensure each has unique context/purpose",
+    "**Auto-redirect Warning:** If using countdownExpiry='redirect', provide warning text so users aren't surprised by redirect"
+  ],
+
+  "performanceConsiderations": [
+    "**JavaScript Intervals:** Countdown runs on setInterval (1000ms) - minimal performance impact",
+    "**Style-2 Performance:** Flip animation uses CSS3 transforms - hardware accelerated, performant",
+    "**Style-3 SVG:** Circular progress renders as lightweight SVG - scales perfectly, small file size",
+    "**Cookie Storage:** trackUdata='cookie' stores small timestamp in browser - negligible storage",
+    "**Lazy Loading:** Place countdowns above fold for immediate visibility, below fold for less critical timers",
+    "**Multiple Countdowns:** Limit to 2-3 per page to avoid excessive JavaScript intervals",
+    "**Backend Preview:** backendVisi:true loads full countdown in editor - may slow editor slightly",
+    "**Fake Counter Interval:** Use changeInterval:5+ seconds for fake counters - faster intervals increase CPU usage",
+    "**Expiry Actions:** redirect triggers immediate navigation (no delay), showtemp loads template (may have slight delay)",
+    "**Responsive Images:** If using images near countdown, lazy load below fold for faster above-fold render"
+  ],
+
+  "integrationPatterns": [
+    "**Product Launch Hero:** Place style-2 flip countdown in tp-container hero section with tp-heading and tp-button CTA",
+    "**Flash Sale Banner:** Use scarcity countdown in sticky header tp-row with urgent messaging and shop button",
+    "**Event Registration:** Combine style-1 countdown with tp-form-block for deadline-driven signups",
+    "**Pricing Tables:** Add small countdown above tp-pricing-table to show offer expiration",
+    "**Sidebar Widgets:** Use compact style-3 circular countdown in sidebar with abbreviated labels",
+    "**Email Campaigns:** Set datetime to email send time + 48 hours for limited-time email offers",
+    "**Cart Abandonment:** Use scarcity countdown (scarSec:600 for 10 minutes) to encourage checkout completion",
+    "**Course Enrollment:** Place countdown above enrollment button with redirect to sold-out page on expiry",
+    "**Webinar Registration:** Use flip countdown with expiryRedirect to webinar room URL at start time",
+    "**Social Proof:** Integrate fake counter near tp-testimonials ('🔥 {visible_counter} joined this week')"
+  ],
+
+  "commonPatterns": [
+    {
+      "pattern": "Product Launch Hero Countdown",
+      "description": "Large flip countdown in hero section with CTA button",
+      "attributes": {
+        "style": "style-2",
+        "flipTheme": "dark",
+        "countdownExpiry": "showmsg"
+      },
+      "setup": "Place in tp-container with tp-heading above, tp-button below, center alignment"
+    },
+    {
+      "pattern": "Flash Sale Scarcity Timer",
+      "description": "Urgent 90-second countdown with red styling",
+      "attributes": {
+        "countdownSelection": "scarcity",
+        "scarSec": "90",
+        "style": "style-1",
+        "counterFontColor": "#e74c3c"
+      },
+      "setup": "Place above fold near CTA, use urgent messaging, test with trackUdata (Pro)"
+    },
+    {
+      "pattern": "Event Countdown with Redirect",
+      "description": "Countdown to event start time with auto-redirect to live page",
+      "attributes": {
+        "countdownExpiry": "redirect",
+        "expiryRedirect": {
+          "url": "/event-live",
+          "target": "_blank"
+        }
+      },
+      "setup": "Test redirect URL before launch, add 'Event starts in' heading above"
+    },
+    {
+      "pattern": "Social Proof Fake Counter",
+      "description": "Dynamic viewer count increasing randomly",
+      "attributes": {
+        "countdownSelection": "fake",
+        "changeType": "increasing",
+        "fMsg": "🔴 {visible_counter} watching now"
+      },
+      "setup": "Place near testimonials or pricing, use realistic numRange (3-7)"
+    },
+    {
+      "pattern": "Weekly Recurring Sale (Pro)",
+      "description": "Countdown that loops every Friday at midnight",
+      "attributes": {
+        "enaLoop": true,
+        "delayTime": "604800",
+        "trackUdata": "cookie"
+      },
+      "setup": "Set datetime to next Friday 23:59:59, enable Pro features, test cookie persistence"
+    },
+    {
+      "pattern": "Minimalist Inline Countdown",
+      "description": "Compact horizontal countdown for headers",
+      "attributes": {
+        "style": "style-3",
+        "inlineStyle": true,
+        "daysText": "D",
+        "hoursText": "H",
+        "minutesText": "M",
+        "secondsText": "S"
+      },
+      "setup": "Use abbreviated labels, smaller fontSize (24-28px), place in tp-row header"
+    },
+    {
+      "pattern": "Multilingual Countdown",
+      "description": "Custom labels for international audience",
+      "setup": "Translate daysText/hoursText/minutesText/secondsText, adjust expiryMsg language"
+    },
+    {
+      "pattern": "Black Friday / Cyber Monday",
+      "description": "Holiday sale countdown with prominent styling",
+      "attributes": {
+        "style": "style-2",
+        "flipTheme": "dark",
+        "datetime": "2025-11-28T00:00:00"
+      },
+      "setup": "Large hero countdown, urgent colors, clear CTA, test across timezones"
+    }
+  ]
 }

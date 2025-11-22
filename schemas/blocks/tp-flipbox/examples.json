@@ -2,48 +2,719 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-flipbox",
   "title": "Flip Box - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Interactive flip boxes with front and back sides that flip on hover, perfect for revealing content, team bios, product features, and engaging interactions",
+
   "examples": [
     {
-      "description": "Simple horizontal flip box",
+      "name": "Team Member Bio (Horizontal Flip)",
+      "description": "Team member photo on front, bio details on back with CTA button",
+      "visualDescription": "Front: centered photo with name overlay. Back: bio paragraph with purple gradient background and 'View Profile' button. Flips horizontally left-to-right on hover.",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "fb001",
+        "layoutType": "listing",
         "flipType": "horizontal",
         "boxHeight": {
-          "md": "300",
+          "md": "400",
+          "sm": "350",
+          "xs": "320",
           "unit": "px"
         },
         "backAlign": "center",
         "backCarouselBtn": true,
-        "btnCarouselStyle": "style-1"
+        "btnCarouselStyle": "style-7",
+        "btnCarouselIconType": "icon",
+        "btnCarouselIconName": "fas fa-user",
+        "btnCarouselIconPosition": "before"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-image",
+          "attrs": {
+            "block_id": "fb001f1",
+            "imageName": {
+              "url": "https://example.com/wp-content/uploads/team-member.jpg"
+            }
+          },
+          "side": "front",
+          "note": "Team member photo for front side"
+        },
+        {
+          "blockName": "tpgb/tp-heading-title",
+          "attrs": {
+            "block_id": "fb001f2",
+            "Title": "Jane Smith",
+            "titleTag": "h3"
+          },
+          "side": "front"
+        },
+        {
+          "blockName": "tpgb/tp-heading-title",
+          "attrs": {
+            "block_id": "fb001b1",
+            "Title": "About Jane",
+            "titleTag": "h4"
+          },
+          "side": "back"
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "fb001b2",
+            "content": "Jane is our lead designer with 10 years of experience in UX/UI. She specializes in creating beautiful, user-centered designs."
+          },
+          "side": "back"
+        }
+      ],
+      "useCase": "Team pages, about sections, staff directories, agency websites",
+      "relatedBlocks": ["tp-team-member-list", "tp-image", "tp-button"]
+    },
+
+    {
+      "name": "Product Feature Reveal (Vertical Flip)",
+      "description": "Product icon and title on front, detailed features on back",
+      "visualDescription": "Front: large icon with 'Premium Features' title. Back: bullet list of features with 'Learn More' button. Flips vertically top-to-bottom on hover.",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "fb002",
+        "layoutType": "listing",
+        "flipType": "vertical",
+        "boxHeight": {
+          "md": "350",
+          "sm": "300",
+          "xs": "280",
+          "unit": "px"
+        },
+        "backAlign": "left",
+        "backCarouselBtn": true,
+        "btnCarouselStyle": "style-8",
+        "btnCarouselIconType": "icon",
+        "btnCarouselIconName": "fas fa-arrow-right",
+        "btnCarouselIconPosition": "after"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-icon-box",
+          "attrs": {
+            "block_id": "fb002f1",
+            "IconName": "fas fa-star",
+            "Title": "Premium Features"
+          },
+          "side": "front"
+        },
+        {
+          "blockName": "tpgb/tp-heading-title",
+          "attrs": {
+            "block_id": "fb002b1",
+            "Title": "What's Included:",
+            "titleTag": "h4"
+          },
+          "side": "back"
+        },
+        {
+          "blockName": "tpgb/tp-stylist-list",
+          "attrs": {
+            "block_id": "fb002b2",
+            "listItems": [
+              "Advanced Analytics Dashboard",
+              "Priority Support 24/7",
+              "Custom Integrations",
+              "Unlimited Users"
+            ]
+          },
+          "side": "back"
+        }
+      ],
+      "useCase": "Product showcases, feature comparisons, pricing tiers, service offerings",
+      "relatedBlocks": ["tp-icon-box", "tp-stylist-list", "tp-pricing-table"]
+    },
+
+    {
+      "name": "Service Card (Horizontal Flip with Icon)",
+      "description": "Service icon and tagline on front, description and pricing on back",
+      "visualDescription": "Front: centered design icon with 'Web Design' title and tagline. Back: service description with 'Starting at $2,500' and contact button.",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "fb003",
+        "layoutType": "listing",
+        "flipType": "horizontal",
+        "boxHeight": {
+          "md": "380",
+          "sm": "340",
+          "xs": "300",
+          "unit": "px"
+        },
+        "backAlign": "center",
+        "backCarouselBtn": true,
+        "btnCarouselStyle": "style-11",
+        "btnCarouselIconType": "icon",
+        "btnCarouselIconName": "fas fa-envelope",
+        "btnCarouselIconPosition": "before"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-icon-box",
+          "attrs": {
+            "block_id": "fb003f1",
+            "iconType": "icon",
+            "IconName": "fas fa-palette",
+            "Title": "Web Design",
+            "Description": "Beautiful, modern websites"
+          },
+          "side": "front"
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "fb003b1",
+            "content": "Our web design service includes custom layouts, responsive design, brand integration, and ongoing support."
+          },
+          "side": "back"
+        },
+        {
+          "blockName": "tpgb/tp-heading-title",
+          "attrs": {
+            "block_id": "fb003b2",
+            "Title": "Starting at $2,500",
+            "titleTag": "h5"
+          },
+          "side": "back"
+        }
+      ],
+      "useCase": "Service pages, agency portfolios, pricing showcases, consulting offers",
+      "relatedBlocks": ["tp-icon-box", "tp-heading", "tp-button"]
+    },
+
+    {
+      "name": "Stats Reveal (Vertical Flip)",
+      "description": "Company stat on front, context explanation on back",
+      "visualDescription": "Front: large '500+' number with 'Projects Completed' label. Back: timeline description of projects with button to portfolio.",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "fb004",
+        "layoutType": "listing",
+        "flipType": "vertical",
+        "boxHeight": {
+          "md": "300",
+          "sm": "280",
+          "xs": "260",
+          "unit": "px"
+        },
+        "backAlign": "center",
+        "backCarouselBtn": true,
+        "btnCarouselStyle": "style-1",
+        "btnCarouselIconType": "icon",
+        "btnCarouselIconName": "fas fa-th",
+        "btnCarouselIconPosition": "after"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-number-counter",
+          "attrs": {
+            "block_id": "fb004f1",
+            "numValue": "500",
+            "symbol": "+",
+            "title": "Projects Completed"
+          },
+          "side": "front"
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "fb004b1",
+            "content": "Over 500 successful projects delivered since 2015, ranging from startups to enterprise clients across 20+ industries."
+          },
+          "side": "back"
+        }
+      ],
+      "useCase": "About pages, stats showcases, achievement displays, homepage metrics",
+      "relatedBlocks": ["tp-number-counter", "tp-heading", "tp-progress-bar"]
+    },
+
+    {
+      "name": "Before/After Showcase (Horizontal Flip with Images)",
+      "description": "Before image on front, after image on back for transformation showcase",
+      "visualDescription": "Front: 'Before' labeled image with subtle 'Hover to see after' prompt. Back: 'After' labeled image showing transformation with 'See More' button.",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "fb005",
+        "layoutType": "listing",
+        "flipType": "horizontal",
+        "boxHeight": {
+          "md": "400",
+          "sm": "350",
+          "xs": "300",
+          "unit": "px"
+        },
+        "backAlign": "center",
+        "backCarouselBtn": true,
+        "btnCarouselStyle": "style-7",
+        "btnCarouselIconType": "icon",
+        "btnCarouselIconName": "fas fa-images",
+        "btnCarouselIconPosition": "after"
       },
       "innerBlocks": [
         {
           "blockName": "tpgb/tp-heading-title",
           "attrs": {
-            "block_id": "c3d4",
-            "Title": "Front Side"
-          }
+            "block_id": "fb005f1",
+            "Title": "Before",
+            "titleTag": "h4"
+          },
+          "side": "front"
+        },
+        {
+          "blockName": "tpgb/tp-image",
+          "attrs": {
+            "block_id": "fb005f2",
+            "imageName": {
+              "url": "https://example.com/wp-content/uploads/before.jpg"
+            }
+          },
+          "side": "front"
+        },
+        {
+          "blockName": "tpgb/tp-heading-title",
+          "attrs": {
+            "block_id": "fb005b1",
+            "Title": "After",
+            "titleTag": "h4"
+          },
+          "side": "back"
+        },
+        {
+          "blockName": "tpgb/tp-image",
+          "attrs": {
+            "block_id": "fb005b2",
+            "imageName": {
+              "url": "https://example.com/wp-content/uploads/after.jpg"
+            }
+          },
+          "side": "back"
+        }
+      ],
+      "useCase": "Portfolio transformations, design showcases, renovation projects, fitness transformations",
+      "relatedBlocks": ["tp-image", "tp-before-after", "tp-heading"]
+    },
+
+    {
+      "name": "Pricing Tier Card (Vertical Flip)",
+      "description": "Plan name and price on front, features list on back",
+      "visualDescription": "Front: 'Pro Plan' title with '$49/mo' large price display. Back: feature checklist with 'Get Started' button and blue gradient.",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "fb006",
+        "layoutType": "listing",
+        "flipType": "vertical",
+        "boxHeight": {
+          "md": "420",
+          "sm": "380",
+          "xs": "340",
+          "unit": "px"
+        },
+        "backAlign": "left",
+        "backCarouselBtn": true,
+        "btnCarouselStyle": "style-8",
+        "btnCarouselIconType": "icon",
+        "btnCarouselIconName": "fas fa-check-circle",
+        "btnCarouselIconPosition": "before"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-heading-title",
+          "attrs": {
+            "block_id": "fb006f1",
+            "Title": "Pro Plan",
+            "titleTag": "h3"
+          },
+          "side": "front"
+        },
+        {
+          "blockName": "tpgb/tp-heading-title",
+          "attrs": {
+            "block_id": "fb006f2",
+            "Title": "$49/mo",
+            "titleTag": "h2"
+          },
+          "side": "front"
         },
         {
           "blockName": "tpgb/tp-pro-paragraph",
           "attrs": {
-            "block_id": "e5f6",
-            "content": "Back side content here"
-          }
+            "block_id": "fb006f3",
+            "content": "Perfect for growing teams"
+          },
+          "side": "front"
+        },
+        {
+          "blockName": "tpgb/tp-heading-title",
+          "attrs": {
+            "block_id": "fb006b1",
+            "Title": "Includes:",
+            "titleTag": "h4"
+          },
+          "side": "back"
+        },
+        {
+          "blockName": "tpgb/tp-stylist-list",
+          "attrs": {
+            "block_id": "fb006b2",
+            "listItems": [
+              "Up to 25 team members",
+              "100GB storage",
+              "Advanced analytics",
+              "Priority support",
+              "Custom integrations"
+            ]
+          },
+          "side": "back"
         }
-      ]
+      ],
+      "useCase": "Pricing pages, plan comparisons, subscription tiers, membership levels",
+      "relatedBlocks": ["tp-pricing-table", "tp-stylist-list", "tp-button"]
     },
+
     {
-      "description": "Vertical flip with button",
+      "name": "Interactive FAQ Card (Horizontal Flip)",
+      "description": "Question on front, detailed answer on back",
+      "visualDescription": "Front: question mark icon with FAQ question text. Back: answer paragraph with 'Read More FAQs' button.",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "g7h8",
-        "flipType": "vertical",
+        "block_id": "fb007",
+        "layoutType": "listing",
+        "flipType": "horizontal",
+        "boxHeight": {
+          "md": "280",
+          "sm": "260",
+          "xs": "240",
+          "unit": "px"
+        },
+        "backAlign": "left",
         "backCarouselBtn": true,
+        "btnCarouselStyle": "style-7",
         "btnCarouselIconType": "icon",
-        "btnCarouselIconName": "fas fa-arrow-right"
-      }
+        "btnCarouselIconName": "fas fa-question-circle",
+        "btnCarouselIconPosition": "before"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-icon-box",
+          "attrs": {
+            "block_id": "fb007f1",
+            "IconName": "fas fa-question-circle",
+            "Title": "What is your refund policy?"
+          },
+          "side": "front"
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "fb007b1",
+            "content": "We offer a 30-day money-back guarantee. If you're not completely satisfied, contact us within 30 days for a full refund, no questions asked."
+          },
+          "side": "back"
+        }
+      ],
+      "useCase": "FAQ sections, help centers, support pages, knowledge bases",
+      "relatedBlocks": ["tp-accordion", "tp-icon-box", "tp-heading"]
+    },
+
+    {
+      "name": "Portfolio Piece (Vertical Flip with Multiple Blocks)",
+      "description": "Project thumbnail on front, project details on back",
+      "visualDescription": "Front: project screenshot with overlay title. Back: project description, technologies used, and 'View Case Study' button with orange gradient.",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "fb008",
+        "layoutType": "listing",
+        "flipType": "vertical",
+        "boxHeight": {
+          "md": "450",
+          "sm": "400",
+          "xs": "350",
+          "unit": "px"
+        },
+        "backAlign": "center",
+        "backCarouselBtn": true,
+        "btnCarouselStyle": "style-11",
+        "btnCarouselIconType": "icon",
+        "btnCarouselIconName": "fas fa-external-link-alt",
+        "btnCarouselIconPosition": "after"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-image",
+          "attrs": {
+            "block_id": "fb008f1",
+            "imageName": {
+              "url": "https://example.com/wp-content/uploads/project-screenshot.jpg"
+            }
+          },
+          "side": "front"
+        },
+        {
+          "blockName": "tpgb/tp-heading-title",
+          "attrs": {
+            "block_id": "fb008f2",
+            "Title": "E-Commerce Platform",
+            "titleTag": "h3"
+          },
+          "side": "front"
+        },
+        {
+          "blockName": "tpgb/tp-heading-title",
+          "attrs": {
+            "block_id": "fb008b1",
+            "Title": "Project Details",
+            "titleTag": "h4"
+          },
+          "side": "back"
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "fb008b2",
+            "content": "Built a full-featured e-commerce platform with custom checkout, inventory management, and analytics dashboard."
+          },
+          "side": "back"
+        },
+        {
+          "blockName": "tpgb/tp-heading-title",
+          "attrs": {
+            "block_id": "fb008b3",
+            "Title": "Tech Stack:",
+            "titleTag": "h5"
+          },
+          "side": "back"
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "fb008b4",
+            "content": "React, Node.js, PostgreSQL, Stripe"
+          },
+          "side": "back"
+        }
+      ],
+      "useCase": "Portfolio pages, case studies, project showcases, design galleries",
+      "relatedBlocks": ["tp-image", "tp-heading", "tp-button"]
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "flipType": "Required - 'horizontal' (left-right flip) or 'vertical' (top-bottom flip)",
+    "boxHeight": "Recommended - minimum height for flip box (responsive: md, sm, xs)",
+    "backAlign": "'left', 'center', or 'right' - content alignment on back side",
+    "backCarouselBtn": "Boolean - true enables CTA button on back side",
+    "btnCarouselStyle": "Button style when backCarouselBtn is true (e.g., 'style-7', 'style-8', 'style-11')",
+    "btnCarouselIconType": "'none' or 'icon' - determines if button has icon",
+    "btnCarouselIconName": "FontAwesome class when btnCarouselIconType='icon' (e.g., 'fas fa-arrow-right')",
+    "btnCarouselIconPosition": "'before' or 'after' - icon position relative to button text",
+    "innerBlocks": "Front and back content must be specified via innerBlocks - accepts any Gutenberg block",
+    "layoutType": "Default 'listing' - determines container behavior"
+  },
+
+  "warnings": [
+    "flipType determines animation direction - 'horizontal' flips left-right, 'vertical' flips top-bottom",
+    "boxHeight should be set to ensure consistent flip box size - without it, height varies based on content",
+    "backAlign only affects back side content - front side alignment controlled by inner blocks",
+    "backCarouselBtn must be true to show button on back - button styling attributes ignored if false",
+    "btnCarouselStyle requires backCarouselBtn:true to take effect",
+    "btnCarouselIconName requires btnCarouselIconType:'icon' - ignored if iconType is 'none'",
+    "innerBlocks organization: Front side content should be added first, back side content second",
+    "Flip animation triggers on hover - ensure users know flip boxes are interactive (visual cues helpful)",
+    "boxHeight should accommodate both front AND back content - taller content will overflow if height too small",
+    "Mobile considerations: Flip on hover doesn't work on mobile - consider tap/touch alternative",
+    "Multiple flip boxes in row should have consistent boxHeight for visual alignment",
+    "Button URL configuration happens in WordPress admin - not exposed in block attributes here",
+    "Front and back sides rendered as separate divs - styling applied via global styles or block styling settings"
+  ],
+
+  "commonMistakes": [
+    "Not setting boxHeight - causes inconsistent flip box sizes in grid layouts",
+    "Using backCarouselBtn:false but setting button styling - button won't appear without backCarouselBtn:true",
+    "Setting btnCarouselIconName without btnCarouselIconType:'icon' - icon won't display",
+    "Forgetting to organize innerBlocks by front/back sides - front content should precede back content",
+    "Using too much content on back side without sufficient boxHeight - content gets cut off",
+    "Not testing on mobile - flip animation doesn't trigger on touch devices (needs tap handling)",
+    "Inconsistent boxHeight across flip boxes in same row - creates misaligned grid",
+    "Using complex nested blocks on back side causing performance issues - keep back content simple",
+    "Expecting button click to work - button requires URL configuration in admin, not just attributes",
+    "Not providing visual cue that flip box is interactive - users may not know to hover"
+  ],
+
+  "bestPractices": [
+    "**Box Height:** Set consistent boxHeight across all flip boxes in same grid (e.g., all 400px)",
+    "**Flip Direction:** Use horizontal flip for left-right reveals, vertical for top-bottom reveals",
+    "**Content Balance:** Keep front side simple (image + title), back side detailed (description + button)",
+    "**Mobile Experience:** Consider adding subtle 'Tap to flip' hint for mobile users",
+    "**Button Usage:** Always enable backCarouselBtn on back side for clear CTA",
+    "**Icon Selection:** Choose icons that hint at flip action (arrows, question marks) or relate to content",
+    "**Alignment:** Center-align back content for visual balance, left-align for text-heavy content",
+    "**Grid Layouts:** Place 2-4 flip boxes in tp-row + tp-column for comparison showcases",
+    "**Responsive Heights:** Adjust boxHeight for mobile (md:400px → xs:300px) to save vertical space",
+    "**Visual Cues:** Add subtle border or shadow to indicate flip boxes are interactive",
+    "**Animation Speed:** Default flip animation is smooth - don't override without testing",
+    "**Content Length:** Limit back side to 2-3 paragraphs max - too much text overwhelms",
+    "**Color Contrast:** Ensure text on back side contrasts with background for readability",
+    "**Button Text:** Use action-oriented button text ('Learn More', 'Get Started', 'View Details')",
+    "**Image Optimization:** Optimize front side images for faster flip reveal",
+    "**Accessibility:** Add aria-labels to flip boxes describing front/back content",
+    "**Performance:** Limit to 6-8 flip boxes per page to avoid CSS transform overload",
+    "**Testing:** Test hover behavior across browsers - 3D transforms may vary"
+  ],
+
+  "flipTypeComparison": {
+    "horizontal": {
+      "description": "Flips left-to-right (or right-to-left depending on implementation)",
+      "bestFor": "Natural reading flow, before/after reveals, side-by-side comparisons",
+      "visualCharacteristics": "Card rotates on Y-axis, revealing back side from left or right",
+      "userExperience": "Intuitive flip motion, widely familiar interaction pattern"
+    },
+    "vertical": {
+      "description": "Flips top-to-bottom (or bottom-to-top)",
+      "bestFor": "Stacked content reveals, pricing cards, feature disclosures",
+      "visualCharacteristics": "Card rotates on X-axis, revealing back side from top or bottom",
+      "userExperience": "Less common but engaging, works well for hierarchical reveals"
+    }
+  },
+
+  "responsivePatterns": [
+    {
+      "pattern": "Adaptive Box Height",
+      "description": "Larger height on desktop, smaller on mobile",
+      "attributes": {
+        "boxHeight": {
+          "md": "400",
+          "sm": "350",
+          "xs": "300",
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "pattern": "Grid to Stack",
+      "description": "3 flip boxes in row on desktop, stack vertically on mobile",
+      "setup": "Use tp-row + tp-column with responsive widths (4-4-4 desktop → 12-12-12 mobile)"
+    },
+    {
+      "pattern": "Mobile Tap Trigger",
+      "description": "Add CSS to trigger flip on tap for mobile devices (not hover)",
+      "implementation": "Use click event listener for touch devices"
+    }
+  ],
+
+  "accessibilityNotes": [
+    "**Keyboard Navigation:** Flip boxes should be keyboard accessible - pressing Enter/Space should trigger flip",
+    "**ARIA Labels:** Add aria-label describing flip box purpose ('Team member bio flip card')",
+    "**Screen Readers:** Screen readers should access both front and back content without flipping",
+    "**Focus States:** Ensure visible focus indicator when flip box is focused via keyboard",
+    "**Motion Sensitivity:** 3D flip animation may trigger vestibular disorders - provide reduced-motion alternative",
+    "**Button Accessibility:** Back side button must be keyboard accessible and have descriptive text",
+    "**Color Contrast:** Ensure text on both front and back sides meets WCAG AA (4.5:1 ratio)",
+    "**Interactive Cues:** Provide non-color cues that flip box is interactive (icon, border, etc.)",
+    "**Mobile Touch:** Touch users need tap to flip - ensure flip boxes respond to touch events",
+    "**Alt Text:** Images on front/back sides need descriptive alt attributes"
+  ],
+
+  "performanceConsiderations": [
+    "**3D Transforms:** CSS 3D transforms are hardware accelerated - performant but test on low-end devices",
+    "**Image Optimization:** Optimize images on both front and back sides to reduce load time",
+    "**Limit Count:** Maximum 6-8 flip boxes per page to avoid CSS transform overhead",
+    "**Lazy Loading:** Consider lazy loading back side content until flip is triggered",
+    "**Animation Performance:** Default flip animation uses CSS transitions - avoid adding JavaScript animations",
+    "**Mobile Considerations:** 3D transforms on mobile can be slower - test on actual devices",
+    "**Content Complexity:** Simple back side content (text + button) performs better than complex nested blocks",
+    "**Font Loading:** Ensure fonts load before flip boxes render to avoid FOUT during flip",
+    "**Z-Index Stacking:** Multiple flip boxes in grid may have z-index conflicts during flip - test overlaps",
+    "**Browser Compatibility:** Test 3D transforms across browsers (works in all modern browsers)"
+  ],
+
+  "integrationPatterns": [
+    "**Team Page Grid:** Place 3-4 flip boxes in tp-row for team member bios (photo front, bio back)",
+    "**Service Showcase:** Use flip boxes in 3-column grid for service offerings (icon front, details back)",
+    "**Pricing Comparison:** Flip boxes for pricing tiers (price front, features list back)",
+    "**Portfolio Gallery:** Flip boxes in masonry grid for project showcases (screenshot front, details back)",
+    "**FAQ Section:** Flip boxes for common questions (question front, answer back) as alternative to accordion",
+    "**Product Features:** Grid of flip boxes highlighting product features (feature name front, description back)",
+    "**Before/After:** Use for transformation showcases (before photo front, after photo back)",
+    "**Stats Showcase:** Flip boxes with number counters on front, context on back"
+  ],
+
+  "commonPatterns": [
+    {
+      "pattern": "Team Member Bio Card",
+      "description": "Photo + name on front, bio + social links on back",
+      "attributes": {
+        "flipType": "horizontal",
+        "boxHeight": {
+          "md": "400",
+          "unit": "px"
+        },
+        "backCarouselBtn": true,
+        "btnCarouselIconName": "fas fa-user"
+      },
+      "setup": "Front: tp-image + tp-heading. Back: tp-pro-paragraph + tp-social-icons + button"
+    },
+    {
+      "pattern": "Pricing Tier Card",
+      "description": "Plan name + price on front, features list on back",
+      "attributes": {
+        "flipType": "vertical",
+        "backAlign": "left",
+        "backCarouselBtn": true,
+        "btnCarouselIconName": "fas fa-check-circle"
+      },
+      "setup": "Front: tp-heading (plan) + tp-heading (price). Back: tp-stylist-list + button"
+    },
+    {
+      "pattern": "Service Feature Card",
+      "description": "Icon + title on front, description + link on back",
+      "attributes": {
+        "flipType": "horizontal",
+        "backAlign": "center",
+        "backCarouselBtn": true,
+        "btnCarouselIconName": "fas fa-arrow-right"
+      },
+      "setup": "Front: tp-icon-box. Back: tp-pro-paragraph + button"
+    },
+    {
+      "pattern": "Portfolio Project Card",
+      "description": "Project screenshot on front, details on back",
+      "attributes": {
+        "flipType": "vertical",
+        "boxHeight": {
+          "md": "450",
+          "unit": "px"
+        },
+        "backCarouselBtn": true,
+        "btnCarouselIconName": "fas fa-external-link-alt"
+      },
+      "setup": "Front: tp-image + tp-heading. Back: tp-heading + tp-pro-paragraph + button"
+    },
+    {
+      "pattern": "Interactive FAQ",
+      "description": "Question on front, answer on back",
+      "attributes": {
+        "flipType": "horizontal",
+        "boxHeight": {
+          "md": "280",
+          "unit": "px"
+        },
+        "backAlign": "left",
+        "backCarouselBtn": false
+      },
+      "setup": "Front: tp-icon-box (question mark + question). Back: tp-pro-paragraph (answer)"
+    },
+    {
+      "pattern": "Before/After Showcase",
+      "description": "Before image on front, after image on back",
+      "attributes": {
+        "flipType": "horizontal",
+        "backCarouselBtn": true,
+        "btnCarouselIconName": "fas fa-images"
+      },
+      "setup": "Front: tp-heading ('Before') + tp-image. Back: tp-heading ('After') + tp-image + button"
+    }
+  ]
 }

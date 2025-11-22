@@ -2,67 +2,779 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-messagebox",
   "title": "Message Box - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for notification boxes, alerts, and callouts",
   "examples": [
     {
-      "description": "Success message",
+      "name": "Success Notification (Standard Green)",
+      "description": "Standard success message with check icon, green color scheme, dismissible",
+      "visualDescription": "Light green background (#d4edda), dark green text and icon (#27ae60), check-circle icon, close button top-right",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "mb001",
         "Title": "Success! Your changes have been saved.",
         "Description": false,
         "icon": true,
+        "icnPosition": "prefix",
         "IconName": "fas fa-check-circle",
+        "dismiss": true,
+        "dismsIcon": "far fa-times-circle",
         "titleNmlColor": "#27ae60",
         "iconNormalColor": "#27ae60",
-        "bgNormalColor": "#d4edda"
-      }
+        "bgNormalColor": "#d4edda",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "iconSize": {
+          "md": "20"
+        },
+        "msgArrow": false
+      },
+      "useCase": "Form submissions, settings saved, actions completed successfully"
     },
     {
-      "description": "Warning message with description",
+      "name": "Warning with Description (Orange Alert)",
+      "description": "Warning message with full description text, exclamation triangle icon, orange color scheme",
+      "visualDescription": "Light yellow background (#fff3cd), orange text (#f39c12), exclamation-triangle icon, multi-line description",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "mb002",
         "Title": "Warning: Action Required",
         "Description": true,
-        "descText": "Please review your account settings before continuing. Some information may be outdated.",
+        "descText": "Please review your account settings before continuing. Some information may be outdated and needs verification.",
         "icon": true,
+        "icnPosition": "prefix",
         "IconName": "fas fa-exclamation-triangle",
+        "dismiss": true,
+        "dismsIcon": "fas fa-times",
         "titleNmlColor": "#f39c12",
+        "descNmlColor": "#856404",
         "iconNormalColor": "#f39c12",
-        "bgNormalColor": "#fff3cd"
-      }
+        "bgNormalColor": "#fff3cd",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "sm": "16",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "descTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          }
+        },
+        "titleAdjust": {
+          "md": {
+            "top": "12",
+            "right": "16",
+            "bottom": "8",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "descAdjust": {
+          "md": {
+            "top": "8",
+            "right": "16",
+            "bottom": "12",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "iconSize": {
+          "md": "24"
+        },
+        "msgArrow": false
+      },
+      "useCase": "Account warnings, pending actions, validation warnings, outdated information notices"
     },
     {
-      "description": "Error alert",
+      "name": "Error Alert Dismissible (Red Alert)",
+      "description": "Error message with times-circle icon, red color scheme, prominent dismiss button",
+      "visualDescription": "Light red background (#f8d7da), dark red text (#e74c3c), times-circle icon, bold title, dismissible",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "e5f6",
-        "Title": "Error: Unable to process request",
+        "block_id": "mb003",
+        "Title": "Error: Unable to process your request",
         "Description": false,
         "icon": true,
+        "icnPosition": "prefix",
         "IconName": "fas fa-times-circle",
         "dismiss": true,
+        "dismsIcon": "fas fa-times",
         "titleNmlColor": "#e74c3c",
         "iconNormalColor": "#e74c3c",
-        "bgNormalColor": "#f8d7da"
-      }
+        "bgNormalColor": "#f8d7da",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "titleAdjust": {
+          "md": {
+            "top": "14",
+            "right": "16",
+            "bottom": "14",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "iconSize": {
+          "md": "22"
+        },
+        "msgArrow": false
+      },
+      "useCase": "Form validation errors, failed actions, server errors, transaction failures"
     },
     {
-      "description": "Info callout",
+      "name": "Info Callout with Arrow Pointer (Blue)",
+      "description": "Info message with description, info-circle icon, blue color scheme, arrow pointer enabled",
+      "visualDescription": "Light blue background (#d1ecf1), blue text (#3498db), info-circle icon, arrow pointer on left, soft styling",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "g7h8",
+        "block_id": "mb004",
         "Title": "Did you know?",
         "Description": true,
-        "descText": "You can customize every aspect of your message boxes with our advanced styling options.",
+        "descText": "You can customize every aspect of your message boxes with advanced styling options including typography, backgrounds, and hover effects.",
         "icon": true,
+        "icnPosition": "prefix",
         "IconName": "fas fa-info-circle",
+        "dismiss": false,
         "titleNmlColor": "#3498db",
+        "descNmlColor": "#0c5460",
         "iconNormalColor": "#3498db",
-        "bgNormalColor": "#d1ecf1"
-      }
+        "bgNormalColor": "#d1ecf1",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "descTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.7",
+            "unit": "em"
+          }
+        },
+        "iconSize": {
+          "md": "28"
+        },
+        "msgArrow": true
+      },
+      "useCase": "Tips and hints, feature highlights, helpful information, tooltips, educational callouts"
+    },
+    {
+      "name": "Custom Styled Alert (Gradient Background with Shadows)",
+      "description": "Premium styled message with gradient background, custom typography, box shadows, hover effects",
+      "visualDescription": "Purple gradient background (667eea to 764ba2), white text, lightbulb icon, rounded corners, shadow depth",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "mb005",
+        "Title": "Premium Feature Available",
+        "Description": true,
+        "descText": "Unlock advanced customization options and take your website to the next level with our Pro features.",
+        "icon": true,
+        "icnPosition": "prefix",
+        "IconName": "fas fa-lightbulb",
+        "dismiss": true,
+        "dismsIcon": "fas fa-times",
+        "titleNmlColor": "#ffffff",
+        "titleHvrColor": "#ffe500",
+        "descNmlColor": "#f0f0f0",
+        "descHvrColor": "#ffffff",
+        "iconNormalColor": "#ffe500",
+        "iconHoverColor": "#ffffff",
+        "titleNmlBG": {
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#667eea",
+                "position": 0
+              },
+              {
+                "color": "#764ba2",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "titleHvrBG": {
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#764ba2",
+                "position": 0
+              },
+              {
+                "color": "#667eea",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "22",
+            "sm": "18",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "letterSpacing": {
+            "md": "0.5",
+            "unit": "px"
+          }
+        },
+        "descTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "15",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.8",
+            "unit": "em"
+          }
+        },
+        "titleAdjust": {
+          "md": {
+            "top": "16",
+            "right": "20",
+            "bottom": "12",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "descAdjust": {
+          "md": {
+            "top": "12",
+            "right": "20",
+            "bottom": "16",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "titleNmlShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.4)"
+        },
+        "titleHvrShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 6,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.6)"
+        },
+        "descNmlBRadius": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "iconSize": {
+          "md": "32"
+        },
+        "iconWidth": {
+          "md": "50"
+        },
+        "msgArrow": false
+      },
+      "useCase": "Premium features, upgrade prompts, special offers, promotional messages, upsells"
+    },
+    {
+      "name": "Icon Suffix Position (Announcement)",
+      "description": "Message with icon positioned after title (suffix), megaphone icon, promotional styling",
+      "visualDescription": "Light purple background, dark purple text, megaphone icon on right side of title, clean layout",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "mb006",
+        "Title": "New Feature Released",
+        "Description": true,
+        "descText": "We've just launched our new drag-and-drop page builder. Try it now!",
+        "icon": true,
+        "icnPosition": "suffix",
+        "IconName": "fas fa-bullhorn",
+        "dismiss": true,
+        "dismsIcon": "fas fa-times",
+        "titleNmlColor": "#6c3fb5",
+        "descNmlColor": "#4a2c7d",
+        "iconNormalColor": "#6c3fb5",
+        "bgNormalColor": "#e8daff",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "20",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "descTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          }
+        },
+        "iconSize": {
+          "md": "24"
+        },
+        "msgArrow": false
+      },
+      "useCase": "Announcements, new features, product launches, updates, promotional messages"
+    },
+    {
+      "name": "No Icon Message (Clean Text-Only)",
+      "description": "Simple text-only message without icon, clean typography, dismissible, minimal design",
+      "visualDescription": "White background with light gray border, dark gray text, no icon, clean minimal design, dismissible",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "mb007",
+        "Title": "Important Update",
+        "Description": true,
+        "descText": "Our terms of service have been updated. Please review the changes at your earliest convenience.",
+        "icon": false,
+        "dismiss": true,
+        "dismsIcon": "fas fa-times",
+        "titleNmlColor": "#2c3e50",
+        "descNmlColor": "#7f8c8d",
+        "bgNormalColor": "#ffffff",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "descTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          }
+        },
+        "titleAdjust": {
+          "md": {
+            "top": "16",
+            "right": "16",
+            "bottom": "8",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "descAdjust": {
+          "md": {
+            "top": "8",
+            "right": "16",
+            "bottom": "16",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "msgArrow": false
+      },
+      "useCase": "Terms updates, policy changes, system announcements, simple notifications"
+    },
+    {
+      "name": "Advanced Hover States (Interactive Alert)",
+      "description": "Message with comprehensive hover effects on title, description, and icon, background transitions",
+      "visualDescription": "Teal background with hover transitions, white text turning yellow on hover, icon color change, shadow effects",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "mb008",
+        "Title": "Limited Time Offer",
+        "Description": true,
+        "descText": "Get 50% off on all premium features. Offer ends in 24 hours!",
+        "icon": true,
+        "icnPosition": "prefix",
+        "IconName": "fas fa-tag",
+        "dismiss": true,
+        "dismsIcon": "fas fa-times",
+        "titleNmlColor": "#ffffff",
+        "titleHvrColor": "#ffe500",
+        "descNmlColor": "#e0f7fa",
+        "descHvrColor": "#ffffff",
+        "iconNormalColor": "#ffffff",
+        "iconHoverColor": "#ffe500",
+        "titleNmlBG": {
+          "bgType": "color",
+          "bgDefaultColor": "#00897b"
+        },
+        "titleHvrBG": {
+          "bgType": "color",
+          "bgDefaultColor": "#00695c"
+        },
+        "descNmlBG": {
+          "bgType": "color",
+          "bgDefaultColor": "#26a69a"
+        },
+        "descHvrBG": {
+          "bgType": "color",
+          "bgDefaultColor": "#00897b"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "24",
+            "sm": "20",
+            "xs": "18",
+            "unit": "px"
+          },
+          "fontWeight": "800",
+          "textTransform": "uppercase"
+        },
+        "descTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "sm": "14",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "titleAdjust": {
+          "md": {
+            "top": "18",
+            "right": "24",
+            "bottom": "14",
+            "left": "24"
+          },
+          "sm": {
+            "top": "14",
+            "right": "16",
+            "bottom": "10",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "descAdjust": {
+          "md": {
+            "top": "14",
+            "right": "24",
+            "bottom": "18",
+            "left": "24"
+          },
+          "sm": {
+            "top": "10",
+            "right": "16",
+            "bottom": "14",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "titleNmlShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.2)"
+        },
+        "titleHvrShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 16,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.3)"
+        },
+        "descNmlBRadius": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        },
+        "descHvrBRadius": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "iconSize": {
+          "md": "28",
+          "sm": "24"
+        },
+        "iconWidth": {
+          "md": "48",
+          "sm": "40"
+        },
+        "msgArrow": false
+      },
+      "useCase": "Sales promotions, limited offers, urgency messages, flash sales, interactive CTAs"
     }
   ],
+  "validationRules": {
+    "block_id": "Required, must be unique 4-character hex identifier",
+    "Title": "Required, main message text",
+    "Description": "Boolean toggle, must be true to show descText",
+    "descText": "Only visible if Description is true",
+    "icon": "Boolean toggle for icon visibility",
+    "icnPosition": "Must be 'prefix' (before title) or 'suffix' (after title)",
+    "IconName": "Requires icon: true, use Font Awesome class names (e.g., 'fas fa-check-circle')",
+    "dismiss": "Boolean toggle for dismiss button",
+    "dismsIcon": "Requires dismiss: true, Font Awesome class for close button",
+    "msgArrow": "Boolean toggle for arrow pointer, typically false for standard alerts",
+    "titleTypo.openTypography": "Must be 1 to enable typography controls",
+    "descTypo.openTypography": "Must be 1 to enable description typography controls",
+    "titleNmlBG.bgType": "Must be 'color' or 'gradient'",
+    "titleNmlBG.bgGradient": "Required if bgType is 'gradient', must include gradientType, gradientAngle, gradientColor array",
+    "titleNmlShadow.openShadow": "Must be 1 to enable shadow effects",
+    "iconSize/iconWidth": "Use responsive objects with md/sm/xs breakpoints"
+  },
+  "warnings": [
+    "Description toggle must be true to show descText content",
+    "icon toggle must be true to show IconName",
+    "dismiss toggle must be true to show dismsIcon close button",
+    "icnPosition 'suffix' places icon after title (uncommon for alerts)",
+    "msgArrow is typically false for standard message boxes (used for tooltip-style callouts)",
+    "titleNmlColor and titleHvrColor require separate values for hover effect",
+    "titleNmlBG and titleHvrBG support both solid colors and gradients",
+    "openTypography must be 1 before setting fontSize, fontWeight, etc.",
+    "openShadow must be 1 before setting shadow values",
+    "bgNormalColor sets overall message box background (title/desc have separate backgrounds)",
+    "titleAdjust/descAdjust control padding (spacing inside), titleMargin/descMargin control margin (spacing outside)",
+    "iconWidth sets both width AND height (creates square container)",
+    "Hover states (titleHvrColor, descHvrColor, etc.) require interaction - ensure they're visually distinct",
+    "descNmlBRadius and descHvrBRadius typically set bottom corners only (top corners handled by title)",
+    "Font Awesome icons require Font Awesome to be loaded on the site"
+  ],
+  "commonMistakes": [
+    "Setting descText without enabling Description: true (text won't display)",
+    "Setting IconName without enabling icon: true (icon won't display)",
+    "Setting dismsIcon without enabling dismiss: true (close button won't display)",
+    "Using icnPosition: 'suffix' when expecting icon before title (use 'prefix')",
+    "Enabling msgArrow for standard alerts (creates visual clutter)",
+    "Not setting titleNmlColor/descNmlColor (text may not be readable against background)",
+    "Setting hover colors identical to normal colors (no visible hover effect)",
+    "Forgetting openTypography: 1 when setting typography (settings ignored)",
+    "Using px units for icon sizes on responsive sites (consider rem/em)",
+    "Setting titleAdjust when you meant titleMargin (affects spacing differently)",
+    "Setting iconSize without iconWidth (icon may appear distorted)",
+    "Using gradient backgrounds without setting bgType: 'gradient'",
+    "Setting shadow values without openShadow: 1 (shadow won't appear)",
+    "Not testing hover states (they require user interaction to see)",
+    "Overusing dismiss: false on important messages (users can't close them)"
+  ],
+  "bestPractices": [
+    "Use semantic color schemes: green for success, yellow for warnings, red for errors, blue for info",
+    "Always pair titleNmlColor with bgNormalColor for sufficient contrast (WCAG 4.5:1 ratio)",
+    "Keep Title text concise (1-2 sentences max) - use Description for longer content",
+    "Use icon: true with appropriate icons to reinforce message type (check for success, warning triangle for warnings, etc.)",
+    "Enable dismiss: true for non-critical messages, disable for critical alerts that require action",
+    "Set titleTypo.fontWeight to 600-700 for emphasis on important messages",
+    "Use descTypo.lineHeight between 1.5-1.8 for readability",
+    "Set responsive typography (md/sm/xs) for titles on mobile devices",
+    "Use msgArrow: true only for tooltip-style callouts, false for standard alert boxes",
+    "Provide hover effects (titleHvrColor, titleHvrBG) for interactive messages",
+    "Use titleAdjust/descAdjust to control internal spacing, ensuring text doesn't touch edges (12-20px recommended)",
+    "Set iconSize proportional to titleTypo.fontSize (icon ~1.5x title font size works well)",
+    "Use iconWidth for circular icon containers (e.g., iconWidth: 40, iconSize: 20 creates 40px circle with 20px icon)",
+    "Test dismissible functionality - ensure dismsIcon is visible and clickable",
+    "Keep gradient angles consistent across normal/hover states (typically 135deg or 180deg)",
+    "Use box shadows (titleNmlShadow) sparingly - subtle shadows (blur 8-12, vertical 2-4) look professional",
+    "Increase shadow on hover (titleHvrShadow) for depth effect (vertical 4-6, blur 16-20)",
+    "Set descNmlBRadius bottom corners only to create unified message box appearance",
+    "Use text-only messages (icon: false) for formal announcements and policy updates",
+    "Avoid excessive uppercase text (titleTypo.textTransform) - reduces readability"
+  ],
+  "styleComparisons": {
+    "iconPositions": {
+      "prefix": "Icon appears before title (standard for most alerts - check icons, warning triangles, info circles)",
+      "suffix": "Icon appears after title (uncommon, used for announcements with megaphones, special callouts)"
+    },
+    "messageTypes": {
+      "withIcon": "icon: true - Standard for alerts that need visual reinforcement (success, warning, error, info)",
+      "textOnly": "icon: false - Used for formal announcements, policy updates, simple notifications where icon is unnecessary"
+    },
+    "dismissibility": {
+      "dismissible": "dismiss: true - User can close the message (non-critical alerts, tips, promotional messages)",
+      "persistent": "dismiss: false - Message cannot be closed (critical alerts, required actions, important announcements)"
+    },
+    "contentLayout": {
+      "titleOnly": "Description: false - Single-line message, quick alerts, status updates",
+      "titleWithDescription": "Description: true - Multi-line content, detailed explanations, instructions, long-form notifications"
+    }
+  },
+  "responsivePatterns": {
+    "mobileFriendlyAlert": {
+      "description": "Reduce padding and font sizes on mobile devices",
+      "titleTypo": {
+        "fontSize": {
+          "md": "18",
+          "sm": "16",
+          "xs": "14",
+          "unit": "px"
+        }
+      },
+      "titleAdjust": {
+        "md": {
+          "top": "16",
+          "right": "20",
+          "bottom": "12",
+          "left": "20"
+        },
+        "sm": {
+          "top": "12",
+          "right": "16",
+          "bottom": "10",
+          "left": "16"
+        },
+        "xs": {
+          "top": "10",
+          "right": "12",
+          "bottom": "8",
+          "left": "12"
+        },
+        "unit": "px"
+      }
+    },
+    "largeScreenCallout": {
+      "description": "Increase visual prominence on desktop with larger typography and spacing",
+      "titleTypo": {
+        "fontSize": {
+          "md": "24",
+          "sm": "18",
+          "unit": "px"
+        }
+      },
+      "iconSize": {
+        "md": "32",
+        "sm": "24"
+      }
+    }
+  },
+  "accessibilityNotes": [
+    "Ensure titleNmlColor has sufficient contrast against bgNormalColor (WCAG 4.5:1 for normal text, 3:1 for large text)",
+    "Use semantic icon choices (check for success, triangle for warning, X for error, i for info) to reinforce message meaning",
+    "Provide text alternatives - don't rely solely on color to convey meaning (use icons and clear titles)",
+    "Make dismiss buttons large enough to tap on mobile (minimum 44x44px touch target)",
+    "Use titleTypo.fontSize minimum 14px for readability (16px recommended for body text)",
+    "Set descTypo.lineHeight 1.5-1.8 for comfortable reading",
+    "Avoid red/green color combinations only (color blind users) - use icons to differentiate",
+    "Test hover states with keyboard navigation, not just mouse",
+    "Ensure dismsIcon is keyboard accessible (can be closed with Enter/Space)",
+    "Use clear, action-oriented Title text (e.g., 'Error: Form submission failed' not just 'Error')",
+    "Set appropriate ARIA roles via WordPress (message boxes typically use role='alert' or role='status')",
+    "Avoid auto-dismissing critical messages - let users control when to close",
+    "Test with screen readers - icon-only messages should have aria-label",
+    "Ensure sufficient spacing (titleAdjust) so text doesn't feel cramped"
+  ],
+  "performanceConsiderations": [
+    "Use dismiss: true for one-time messages to prevent repeated displays (store dismissal in localStorage)",
+    "Avoid overly complex gradients (titleNmlBG/titleHvrBG) on pages with many message boxes",
+    "Limit box shadow blur values (8-20px) to prevent rendering performance issues",
+    "Use CSS transitions for hover effects instead of animations (better performance)",
+    "Minimize DOM reflows by setting fixed iconWidth/iconSize instead of auto",
+    "Use Font Awesome strategically - loading entire library for a few icons impacts performance (consider SVG icons)",
+    "Cache message box HTML if content is static (don't regenerate on every page load)",
+    "Use msgArrow: false when possible (arrow rendering adds slight overhead)",
+    "Limit the number of visible message boxes per page (1-3 recommended, stack if more needed)",
+    "Test hover state transitions on mobile (some devices struggle with complex :hover CSS)",
+    "Optimize gradient color stops - 2-3 colors maximum for smooth rendering",
+    "Use descNmlBRadius sparingly on complex messages (border-radius can impact paint performance)",
+    "Avoid excessive padding (titleAdjust/descAdjust) on mobile - increases scroll height",
+    "Lazy load message boxes below the fold to improve initial page load"
+  ],
+  "integrationPatterns": {
+    "formValidationAlerts": "Use tp-messagebox for inline form validation - red error for invalid fields, green success for valid submissions. Place immediately above or below form blocks.",
+    "cookieConsentNotices": "Use dismissible message box (dismiss: true) at page top/bottom with description for cookie policy text. Set icon: false for cleaner appearance.",
+    "accountDashboards": "Display system status messages (server updates, billing alerts, feature announcements) at dashboard top. Use appropriate color schemes and icons.",
+    "ecommerceCheckout": "Show order confirmation (success), payment errors (red), shipping delays (warning) during checkout flow. Make critical messages persistent (dismiss: false).",
+    "membershipSites": "Welcome new members with blue info box, warn expiring subscriptions with yellow warning, celebrate upgrades with green success.",
+    "blogPosts": "Use as editorial callouts within content - highlight important notes, warn about outdated information, provide tips and recommendations.",
+    "landingPages": "Feature limited-time offers with advanced hover states, gradient backgrounds, and urgency messaging (countdown integration).",
+    "documentationSites": "Show version update notices, deprecation warnings, breaking change alerts with clear titles and detailed descriptions."
+  },
   "commonPatterns": {
-    "default": {
-      "block_id": "example"
+    "standardSuccess": {
+      "block_id": "success",
+      "Title": "Success!",
+      "icon": true,
+      "IconName": "fas fa-check-circle",
+      "dismiss": true,
+      "titleNmlColor": "#27ae60",
+      "iconNormalColor": "#27ae60",
+      "bgNormalColor": "#d4edda"
+    },
+    "standardWarning": {
+      "block_id": "warning",
+      "Title": "Warning",
+      "icon": true,
+      "IconName": "fas fa-exclamation-triangle",
+      "dismiss": true,
+      "titleNmlColor": "#f39c12",
+      "iconNormalColor": "#f39c12",
+      "bgNormalColor": "#fff3cd"
+    },
+    "standardError": {
+      "block_id": "error",
+      "Title": "Error",
+      "icon": true,
+      "IconName": "fas fa-times-circle",
+      "dismiss": true,
+      "titleNmlColor": "#e74c3c",
+      "iconNormalColor": "#e74c3c",
+      "bgNormalColor": "#f8d7da"
+    },
+    "standardInfo": {
+      "block_id": "info",
+      "Title": "Information",
+      "icon": true,
+      "IconName": "fas fa-info-circle",
+      "dismiss": false,
+      "titleNmlColor": "#3498db",
+      "iconNormalColor": "#3498db",
+      "bgNormalColor": "#d1ecf1"
     }
   }
 }

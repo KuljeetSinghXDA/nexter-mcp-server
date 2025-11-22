@@ -2,68 +2,1460 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-social-icons",
   "title": "Social Icon - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Social media icons block for sharing and following links with 16 style variations, tooltips, and full customization",
+
   "examples": [
     {
-      "description": "Simple social icons with 3 networks",
+      "name": "Complete Social Suite (6 Networks)",
+      "description": "Popular social media icons with brand colors and hover effects",
+      "visualDescription": "Horizontal row of 6 social icons (Facebook, Twitter, Instagram, LinkedIn, YouTube, Pinterest) with brand-specific backgrounds, centered alignment, subtle hover darkening",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "si001",
         "style": "style-1",
         "hoverStyle": "faded",
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "iconSize": {
+          "md": "20",
+          "sm": "18",
+          "xs": "16",
+          "unit": "px"
+        },
+        "iconPadd": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "iconGap": {
+          "md": {
+            "top": "0",
+            "right": "8",
+            "bottom": "0",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "iconBRadius": {
+          "md": {
+            "top": "4",
+            "right": "4",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        },
         "socialIcon": [
           {
-            "socialNtwk": "fab fa-facebook",
+            "_key": "0",
+            "socialNtwk": "fab fa-facebook-f",
+            "customType": "icon",
+            "title": "Facebook",
             "linkUrl": {
               "url": "https://facebook.com/yourpage",
-              "target": "_blank"
+              "target": "_blank",
+              "nofollow": ""
             },
+            "iconNmlColor": "#ffffff",
+            "iconHvrColor": "#ffffff",
+            "nmlBG": "#3b5998",
+            "hvrBG": "#2d4373",
+            "nmlBColor": "#3b5998",
+            "hvrBColor": "#2d4373"
+          },
+          {
+            "_key": "1",
+            "socialNtwk": "fab fa-twitter",
+            "customType": "icon",
+            "title": "Twitter",
+            "linkUrl": {
+              "url": "https://twitter.com/yourhandle",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#ffffff",
+            "iconHvrColor": "#ffffff",
+            "nmlBG": "#1da1f2",
+            "hvrBG": "#0c85d0",
+            "nmlBColor": "#1da1f2",
+            "hvrBColor": "#0c85d0"
+          },
+          {
+            "_key": "2",
+            "socialNtwk": "fab fa-instagram",
+            "customType": "icon",
+            "title": "Instagram",
+            "linkUrl": {
+              "url": "https://instagram.com/yourhandle",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#ffffff",
+            "iconHvrColor": "#ffffff",
+            "nmlBG": "#e4405f",
+            "hvrBG": "#d31e40",
+            "nmlBColor": "#e4405f",
+            "hvrBColor": "#d31e40"
+          },
+          {
+            "_key": "3",
+            "socialNtwk": "fab fa-linkedin-in",
+            "customType": "icon",
+            "title": "LinkedIn",
+            "linkUrl": {
+              "url": "https://linkedin.com/company/yourcompany",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#ffffff",
+            "iconHvrColor": "#ffffff",
+            "nmlBG": "#0077b5",
+            "hvrBG": "#005582",
+            "nmlBColor": "#0077b5",
+            "hvrBColor": "#005582"
+          },
+          {
+            "_key": "4",
+            "socialNtwk": "fab fa-youtube",
+            "customType": "icon",
+            "title": "YouTube",
+            "linkUrl": {
+              "url": "https://youtube.com/c/yourchannel",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#ffffff",
+            "iconHvrColor": "#ffffff",
+            "nmlBG": "#FF0000",
+            "hvrBG": "#cc0000",
+            "nmlBColor": "#FF0000",
+            "hvrBColor": "#cc0000"
+          },
+          {
+            "_key": "5",
+            "socialNtwk": "fab fa-pinterest-p",
+            "customType": "icon",
+            "title": "Pinterest",
+            "linkUrl": {
+              "url": "https://pinterest.com/yourprofile",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#ffffff",
+            "iconHvrColor": "#ffffff",
+            "nmlBG": "#bd081c",
+            "hvrBG": "#8c0615",
+            "nmlBColor": "#bd081c",
+            "hvrBColor": "#8c0615"
+          }
+        ]
+      },
+      "useCase": "Website footer, author bio, contact pages, blog post sharing",
+      "relatedBlocks": ["tp-heading", "tp-pro-paragraph", "tp-button"]
+    },
+
+    {
+      "name": "Circular Social Icons (Style 3)",
+      "description": "Circular badges with border accent for modern look",
+      "visualDescription": "Perfect circles with colored borders and transparent centers, icons float inside, subtle scale-up on hover",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "si002",
+        "style": "style-3",
+        "hoverStyle": "faded",
+        "Alignment": {
+          "md": "left"
+        },
+        "iconSize": {
+          "md": "18",
+          "unit": "px"
+        },
+        "s3CircleWidth": {
+          "md": "50",
+          "sm": "45",
+          "xs": "40",
+          "unit": "px"
+        },
+        "iconGap": {
+          "md": {
+            "top": "0",
+            "right": "10",
+            "bottom": "0",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "socialIcon": [
+          {
+            "_key": "0",
+            "socialNtwk": "fab fa-github",
+            "customType": "icon",
+            "title": "GitHub",
+            "linkUrl": {
+              "url": "https://github.com/yourusername",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#333333",
+            "iconHvrColor": "#000000",
+            "nmlBG": "#333333",
+            "hvrBG": "#000000",
+            "nmlBColor": "#333333",
+            "hvrBColor": "#000000"
+          },
+          {
+            "_key": "1",
+            "socialNtwk": "fab fa-codepen",
+            "customType": "icon",
+            "title": "CodePen",
+            "linkUrl": {
+              "url": "https://codepen.io/yourusername",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#000000",
+            "iconHvrColor": "#47cf73",
+            "nmlBG": "#000000",
+            "hvrBG": "#47cf73",
+            "nmlBColor": "#000000",
+            "hvrBColor": "#47cf73"
+          },
+          {
+            "_key": "2",
+            "socialNtwk": "fab fa-dribbble",
+            "customType": "icon",
+            "title": "Dribbble",
+            "linkUrl": {
+              "url": "https://dribbble.com/yourusername",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#ea4c89",
+            "iconHvrColor": "#c32361",
+            "nmlBG": "#ea4c89",
+            "hvrBG": "#c32361",
+            "nmlBColor": "#ea4c89",
+            "hvrBColor": "#c32361"
+          },
+          {
+            "_key": "3",
+            "socialNtwk": "fab fa-behance",
+            "customType": "icon",
+            "title": "Behance",
+            "linkUrl": {
+              "url": "https://behance.net/yourusername",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#1769ff",
+            "iconHvrColor": "#0057ff",
+            "nmlBG": "#1769ff",
+            "hvrBG": "#0057ff",
+            "nmlBColor": "#1769ff",
+            "hvrBColor": "#0057ff"
+          }
+        ]
+      },
+      "useCase": "Designer/developer portfolios, creative agency sites, personal branding",
+      "relatedBlocks": ["tp-heading", "tp-team-member-list"]
+    },
+
+    {
+      "name": "Social Icons with Advanced Tooltips (Style 7)",
+      "description": "Raised icons with shadows and custom tooltip styling",
+      "visualDescription": "Icons with depth via box-shadow, tooltips appear above with custom background and arrow, smooth fade-in animation",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "si003",
+        "style": "style-7",
+        "hoverStyle": "faded",
+        "Alignment": {
+          "md": "center"
+        },
+        "iconSize": {
+          "md": "22",
+          "unit": "px"
+        },
+        "iconPadd": {
+          "md": {
+            "top": "15",
+            "right": "15",
+            "bottom": "15",
+            "left": "15"
+          },
+          "unit": "px"
+        },
+        "iconGap": {
+          "md": {
+            "top": "0",
+            "right": "12",
+            "bottom": "0",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "iconBRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "nmlIcnShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.15)"
+        },
+        "hvrIcnShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.25)"
+        },
+        "tipInteractive": true,
+        "tipPlacement": "top",
+        "tipTheme": "",
+        "tipMaxWidth": "150",
+        "tipArrow": true,
+        "tipArrowColor": "#333333",
+        "tipTriggers": "mouseenter",
+        "tipAnimation": "fade",
+        "tipDurationIn": "300",
+        "tipDurationOut": "200",
+        "tipPadding": {
+          "md": {
+            "top": "8",
+            "right": "12",
+            "bottom": "8",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "tipBg": {
+          "bgType": "color",
+          "bgDefaultColor": "#333333"
+        },
+        "tipBorderRadius": {
+          "md": {
+            "top": "4",
+            "right": "4",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        },
+        "tipBoxShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.2)"
+        },
+        "socialIcon": [
+          {
+            "_key": "0",
+            "socialNtwk": "fab fa-facebook-f",
+            "customType": "icon",
             "title": "Facebook",
+            "linkUrl": {
+              "url": "https://facebook.com/yourpage",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#ffffff",
+            "iconHvrColor": "#ffffff",
+            "nmlBG": "#3b5998",
+            "hvrBG": "#2d4373",
+            "itemTooltip": true,
+            "tooltipText": "Follow us on Facebook",
+            "tooltipTypo": {
+              "openTypography": 1,
+              "fontSize": {
+                "md": "13",
+                "unit": "px"
+              },
+              "fontWeight": "500"
+            },
+            "tooltipColor": "#ffffff"
+          },
+          {
+            "_key": "1",
+            "socialNtwk": "fab fa-whatsapp",
+            "customType": "icon",
+            "title": "WhatsApp",
+            "linkUrl": {
+              "url": "https://wa.me/1234567890",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#ffffff",
+            "iconHvrColor": "#ffffff",
+            "nmlBG": "#25d366",
+            "hvrBG": "#1da851",
+            "itemTooltip": true,
+            "tooltipText": "Chat with us on WhatsApp",
+            "tooltipTypo": {
+              "openTypography": 1,
+              "fontSize": {
+                "md": "13",
+                "unit": "px"
+              },
+              "fontWeight": "500"
+            },
+            "tooltipColor": "#ffffff"
+          },
+          {
+            "_key": "2",
+            "socialNtwk": "fab fa-telegram-plane",
+            "customType": "icon",
+            "title": "Telegram",
+            "linkUrl": {
+              "url": "https://t.me/yourchannel",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#ffffff",
+            "iconHvrColor": "#ffffff",
+            "nmlBG": "#0088cc",
+            "hvrBG": "#006699",
+            "itemTooltip": true,
+            "tooltipText": "Join our Telegram channel",
+            "tooltipTypo": {
+              "openTypography": 1,
+              "fontSize": {
+                "md": "13",
+                "unit": "px"
+              },
+              "fontWeight": "500"
+            },
+            "tooltipColor": "#ffffff"
+          }
+        ]
+      },
+      "useCase": "Sticky contact buttons, chat support links, messenger integration",
+      "relatedBlocks": ["tp-button", "tp-infobox"]
+    },
+
+    {
+      "name": "Minimalist Icons with Labels (Style 12)",
+      "description": "Icon and title displayed side-by-side horizontally",
+      "visualDescription": "Small icon followed by network name, all in one line, clean and readable for professional sites",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "si004",
+        "style": "style-12",
+        "hoverStyle": "faded",
+        "Alignment": {
+          "md": "left"
+        },
+        "iconSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "iconGap": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "12",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontWeight": "500",
+          "letterSpacing": {
+            "md": "0.5",
+            "unit": "px"
+          }
+        },
+        "socialIcon": [
+          {
+            "_key": "0",
+            "socialNtwk": "fab fa-twitter",
+            "customType": "icon",
+            "title": "Follow on Twitter",
+            "linkUrl": {
+              "url": "https://twitter.com/yourhandle",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#1da1f2",
+            "iconHvrColor": "#0c85d0",
+            "nmlBG": "#e8f5fd",
+            "hvrBG": "#d4ebfa"
+          },
+          {
+            "_key": "1",
+            "socialNtwk": "fab fa-linkedin-in",
+            "customType": "icon",
+            "title": "Connect on LinkedIn",
+            "linkUrl": {
+              "url": "https://linkedin.com/in/yourprofile",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#0077b5",
+            "iconHvrColor": "#005582",
+            "nmlBG": "#e7f4f9",
+            "hvrBG": "#d0e9f3"
+          },
+          {
+            "_key": "2",
+            "socialNtwk": "fas fa-envelope",
+            "customType": "icon",
+            "title": "Send Email",
+            "linkUrl": {
+              "url": "mailto:contact@example.com",
+              "target": "",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#667eea",
+            "iconHvrColor": "#5568d3",
+            "nmlBG": "#eef2ff",
+            "hvrBG": "#e0e7ff"
+          }
+        ]
+      },
+      "useCase": "Sidebar contact info, author bio boxes, professional profiles",
+      "relatedBlocks": ["tp-team-member-list", "tp-pro-paragraph"]
+    },
+
+    {
+      "name": "Custom Image Icons",
+      "description": "Use custom uploaded images instead of FontAwesome icons",
+      "visualDescription": "Brand logos or custom SVG icons as images, uniform sizing, hover state changes",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "si005",
+        "style": "style-1",
+        "hoverStyle": "faded",
+        "Alignment": {
+          "md": "center"
+        },
+        "imgWidth": {
+          "md": "32",
+          "sm": "28",
+          "xs": "24",
+          "unit": "px"
+        },
+        "iconPadd": {
+          "md": {
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "iconGap": {
+          "md": {
+            "top": "0",
+            "right": "10",
+            "bottom": "0",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "iconBRadius": {
+          "md": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        },
+        "socialIcon": [
+          {
+            "_key": "0",
+            "customType": "image",
+            "title": "Discord",
+            "imgField": {
+              "url": "https://example.com/wp-content/uploads/discord-logo.png"
+            },
+            "linkUrl": {
+              "url": "https://discord.gg/yourcommunity",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "nmlBG": "#5865f2",
+            "hvrBG": "#4752c4"
+          },
+          {
+            "_key": "1",
+            "customType": "image",
+            "title": "Slack",
+            "imgField": {
+              "url": "https://example.com/wp-content/uploads/slack-logo.png"
+            },
+            "linkUrl": {
+              "url": "https://yourworkspace.slack.com",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "nmlBG": "#4a154b",
+            "hvrBG": "#350d36"
+          },
+          {
+            "_key": "2",
+            "customType": "image",
+            "title": "Medium",
+            "imgField": {
+              "url": "https://example.com/wp-content/uploads/medium-logo.png"
+            },
+            "linkUrl": {
+              "url": "https://medium.com/@yourusername",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "nmlBG": "#000000",
+            "hvrBG": "#1a1a1a"
+          }
+        ]
+      },
+      "useCase": "Custom branded social networks, platform-specific communities, messaging app links",
+      "relatedBlocks": ["tp-image", "tp-button"]
+    },
+
+    {
+      "name": "Animated Hover Effects (Style 10)",
+      "description": "Icons with smooth scale and color transition on hover",
+      "visualDescription": "Icons slightly enlarge on hover with smooth color shift, creating engaging interaction",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "si006",
+        "style": "style-10",
+        "hoverStyle": "faded",
+        "Alignment": {
+          "md": "center"
+        },
+        "iconSize": {
+          "md": "24",
+          "sm": "20",
+          "xs": "18",
+          "unit": "px"
+        },
+        "iconPadd": {
+          "md": {
+            "top": "14",
+            "right": "14",
+            "bottom": "14",
+            "left": "14"
+          },
+          "unit": "px"
+        },
+        "iconGap": {
+          "md": {
+            "top": "0",
+            "right": "15",
+            "bottom": "0",
+            "left": "15"
+          },
+          "unit": "px"
+        },
+        "iconBRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "socialIcon": [
+          {
+            "_key": "0",
+            "socialNtwk": "fab fa-tiktok",
+            "customType": "icon",
+            "title": "TikTok",
+            "linkUrl": {
+              "url": "https://tiktok.com/@yourusername",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#ffffff",
+            "iconHvrColor": "#000000",
+            "nmlBG": "#000000",
+            "hvrBG": "#ff0050",
+            "nmlBColor": "#000000",
+            "hvrBColor": "#ff0050"
+          },
+          {
+            "_key": "1",
+            "socialNtwk": "fab fa-snapchat-ghost",
+            "customType": "icon",
+            "title": "Snapchat",
+            "linkUrl": {
+              "url": "https://snapchat.com/add/yourusername",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#000000",
+            "iconHvrColor": "#ffffff",
+            "nmlBG": "#fffc00",
+            "hvrBG": "#000000",
+            "nmlBColor": "#fffc00",
+            "hvrBColor": "#000000"
+          },
+          {
+            "_key": "2",
+            "socialNtwk": "fab fa-twitch",
+            "customType": "icon",
+            "title": "Twitch",
+            "linkUrl": {
+              "url": "https://twitch.tv/yourchannel",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#ffffff",
+            "iconHvrColor": "#ffffff",
+            "nmlBG": "#9146ff",
+            "hvrBG": "#772ce8",
+            "nmlBColor": "#9146ff",
+            "hvrBColor": "#772ce8"
+          },
+          {
+            "_key": "3",
+            "socialNtwk": "fab fa-spotify",
+            "customType": "icon",
+            "title": "Spotify",
+            "linkUrl": {
+              "url": "https://open.spotify.com/user/yourusername",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#000000",
+            "iconHvrColor": "#ffffff",
+            "nmlBG": "#1db954",
+            "hvrBG": "#1aa34a",
+            "nmlBColor": "#1db954",
+            "hvrBColor": "#1aa34a"
+          }
+        ]
+      },
+      "useCase": "Gen-Z focused sites, influencer pages, entertainment/streaming content",
+      "relatedBlocks": ["tp-video", "tp-carousel"]
+    },
+
+    {
+      "name": "Responsive Social Bar (Alignment Changes)",
+      "description": "Center-aligned on desktop, left-aligned on mobile for better UX",
+      "visualDescription": "Icons adapt position based on screen size: centered on large screens, left-aligned on small screens for thumb-friendly mobile browsing",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "si007",
+        "style": "style-1",
+        "hoverStyle": "faded",
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "left"
+        },
+        "iconSize": {
+          "md": "20",
+          "sm": "18",
+          "xs": "16",
+          "unit": "px"
+        },
+        "iconPadd": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "sm": {
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10"
+          },
+          "xs": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "iconGap": {
+          "md": {
+            "top": "0",
+            "right": "10",
+            "bottom": "0",
+            "left": "10"
+          },
+          "xs": {
+            "top": "0",
+            "right": "6",
+            "bottom": "0",
+            "left": "6"
+          },
+          "unit": "px"
+        },
+        "iconBRadius": {
+          "md": {
+            "top": "5",
+            "right": "5",
+            "bottom": "5",
+            "left": "5"
+          },
+          "unit": "px"
+        },
+        "socialIcon": [
+          {
+            "_key": "0",
+            "socialNtwk": "fab fa-facebook-f",
+            "customType": "icon",
+            "title": "Facebook",
+            "linkUrl": {
+              "url": "https://facebook.com/yourpage",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#ffffff",
+            "iconHvrColor": "#ffffff",
             "nmlBG": "#3b5998",
             "hvrBG": "#2d4373"
           },
           {
-            "socialNtwk": "fab fa-twitter",
-            "linkUrl": {
-              "url": "https://twitter.com/yourhandle",
-              "target": "_blank"
-            },
-            "title": "Twitter",
-            "nmlBG": "#1da1f2",
-            "hvrBG": "#0c85d0"
-          },
-          {
+            "_key": "1",
             "socialNtwk": "fab fa-instagram",
+            "customType": "icon",
+            "title": "Instagram",
             "linkUrl": {
               "url": "https://instagram.com/yourhandle",
-              "target": "_blank"
+              "target": "_blank",
+              "nofollow": ""
             },
-            "title": "Instagram",
+            "iconNmlColor": "#ffffff",
+            "iconHvrColor": "#ffffff",
             "nmlBG": "#e4405f",
             "hvrBG": "#d31e40"
+          },
+          {
+            "_key": "2",
+            "socialNtwk": "fab fa-youtube",
+            "customType": "icon",
+            "title": "YouTube",
+            "linkUrl": {
+              "url": "https://youtube.com/c/yourchannel",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#ffffff",
+            "iconHvrColor": "#ffffff",
+            "nmlBG": "#FF0000",
+            "hvrBG": "#cc0000"
           }
         ]
+      },
+      "useCase": "Mobile-first designs, responsive headers/footers, blog post share buttons",
+      "relatedBlocks": ["tp-container", "tp-row", "tp-column"]
+    },
+
+    {
+      "name": "Advanced Tooltip Configuration (Bottom Placement with Gradient)",
+      "description": "Tooltips below icons with custom gradient background and styling",
+      "visualDescription": "Icons trigger tooltips below (not above), tooltips have purple-to-pink gradient background with rounded corners and smooth scale animation",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "si008",
+        "style": "style-16",
+        "hoverStyle": "faded",
+        "Alignment": {
+          "md": "center"
+        },
+        "iconSize": {
+          "md": "20",
+          "unit": "px"
+        },
+        "iconWidth": {
+          "md": "50",
+          "unit": "px"
+        },
+        "iconHeight": {
+          "md": "50",
+          "unit": "px"
+        },
+        "iconGap": {
+          "md": {
+            "top": "0",
+            "right": "12",
+            "bottom": "0",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "iconBRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "borderStyle": "solid",
+        "borderWidth": {
+          "md": {
+            "top": "2",
+            "right": "2",
+            "bottom": "2",
+            "left": "2"
+          },
+          "unit": "px"
+        },
+        "nmlIcnShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.1)"
+        },
+        "hvrIcnShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 6,
+          "blur": 16,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.2)"
+        },
+        "tipInteractive": true,
+        "tipPlacement": "bottom",
+        "tipTheme": "",
+        "tipMaxWidth": "180",
+        "tipArrow": true,
+        "tipArrowColor": "#667eea",
+        "tipTriggers": "mouseenter",
+        "tipAnimation": "scale",
+        "tipDurationIn": "250",
+        "tipDurationOut": "200",
+        "tipPadding": {
+          "md": {
+            "top": "10",
+            "right": "14",
+            "bottom": "10",
+            "left": "14"
+          },
+          "unit": "px"
+        },
+        "tipBg": {
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#667eea",
+            "color2": "#764ba2",
+            "type": "linear",
+            "direction": "135",
+            "start": 0,
+            "stop": 100,
+            "radial": "center",
+            "clip": false
+          }
+        },
+        "tipBorder": {
+          "openBorder": 0
+        },
+        "tipBorderRadius": {
+          "md": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        },
+        "tipBoxShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(102,126,234,0.3)"
+        },
+        "socialIcon": [
+          {
+            "_key": "0",
+            "socialNtwk": "fab fa-facebook-f",
+            "customType": "icon",
+            "title": "Facebook",
+            "linkUrl": {
+              "url": "https://facebook.com/yourpage",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#3b5998",
+            "iconHvrColor": "#667eea",
+            "nmlBColor": "#3b5998",
+            "hvrBColor": "#667eea",
+            "itemTooltip": true,
+            "tooltipText": "Like our Facebook page for updates",
+            "tooltipTypo": {
+              "openTypography": 1,
+              "fontSize": {
+                "md": "13",
+                "unit": "px"
+              },
+              "fontWeight": "500",
+              "letterSpacing": {
+                "md": "0.3",
+                "unit": "px"
+              }
+            },
+            "tooltipColor": "#ffffff"
+          },
+          {
+            "_key": "1",
+            "socialNtwk": "fab fa-twitter",
+            "customType": "icon",
+            "title": "Twitter",
+            "linkUrl": {
+              "url": "https://twitter.com/yourhandle",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#1da1f2",
+            "iconHvrColor": "#764ba2",
+            "nmlBColor": "#1da1f2",
+            "hvrBColor": "#764ba2",
+            "itemTooltip": true,
+            "tooltipText": "Follow us on Twitter for news",
+            "tooltipTypo": {
+              "openTypography": 1,
+              "fontSize": {
+                "md": "13",
+                "unit": "px"
+              },
+              "fontWeight": "500",
+              "letterSpacing": {
+                "md": "0.3",
+                "unit": "px"
+              }
+            },
+            "tooltipColor": "#ffffff"
+          },
+          {
+            "_key": "2",
+            "socialNtwk": "fab fa-instagram",
+            "customType": "icon",
+            "title": "Instagram",
+            "linkUrl": {
+              "url": "https://instagram.com/yourhandle",
+              "target": "_blank",
+              "nofollow": ""
+            },
+            "iconNmlColor": "#e4405f",
+            "iconHvrColor": "#667eea",
+            "nmlBColor": "#e4405f",
+            "hvrBColor": "#667eea",
+            "itemTooltip": true,
+            "tooltipText": "See our photos on Instagram",
+            "tooltipTypo": {
+              "openTypography": 1,
+              "fontSize": {
+                "md": "13",
+                "unit": "px"
+              },
+              "fontWeight": "500",
+              "letterSpacing": {
+                "md": "0.3",
+                "unit": "px"
+              }
+            },
+            "tooltipColor": "#ffffff"
+          }
+        ]
+      },
+      "useCase": "Premium branding, high-end product pages, luxury service sites",
+      "relatedBlocks": ["tp-button", "tp-pricing-table", "tp-testimonials"]
+    }
+  ],
+
+  "validationRules": {
+    "socialIcon": "Required - minimum 1 icon in array, each item needs _key",
+    "socialIcon[].socialNtwk": "Required when customType='icon' - must be valid FontAwesome class (e.g., 'fab fa-facebook-f')",
+    "socialIcon[].customIcons": "Used when customType='icon' for custom FontAwesome icons",
+    "socialIcon[].imgField.url": "Required when customType='image' - must be valid image URL",
+    "socialIcon[].linkUrl.url": "Required - destination URL for each icon",
+    "socialIcon[].linkUrl.target": "Recommended: '_blank' for external social media links",
+    "socialIcon[]._key": "Required - unique identifier for each icon in array (0, 1, 2, ...)",
+    "style": "16 style variants available (style-1 to style-16) - each has unique hover effects",
+    "hoverStyle": "Common value: 'faded' - controls hover transition behavior",
+    "Alignment": "Responsive alignment - md (desktop), sm (tablet), xs (mobile)",
+    "iconSize": "Recommended: 16-24px for readability, responsive breakpoints supported",
+    "iconPadd": "Padding around icon, affects clickable area - recommended 10-15px",
+    "iconGap": "Space between icons - recommended 8-15px for balanced spacing",
+    "s3CircleWidth": "Only for style-3 - defines circle diameter (40-60px typical)",
+    "iconBRadius": "Border radius - 4-8px for rounded, 50% for perfect circle",
+    "titleTypo.openTypography": "Must be 1 to enable typography settings (style-1, style-2, style-4, style-10, style-12, style-14, style-15)",
+    "itemTooltip": "Set to true to enable tooltip for individual icon",
+    "tooltipText": "Tooltip content - keep under 50 characters for readability",
+    "tooltipTypo.openTypography": "Must be 1 to enable tooltip typography",
+    "tipPlacement": "Values: 'top', 'bottom', 'left', 'right' - controls tooltip position",
+    "tipMaxWidth": "Pixel value as string (e.g., '150') - recommended 100-200px",
+    "tipAnimation": "Values: 'fade', 'scale', 'shift-away', 'shift-toward', 'perspective'",
+    "tipDurationIn": "Milliseconds as string (e.g., '300') - recommended 200-400ms",
+    "tipBg.bgType": "Values: 'color' (solid) or 'gradient'",
+    "tipArrow": "Boolean - true shows tooltip arrow, false hides it",
+    "nmlIcnShadow.openShadow": "Must be 1 to enable box shadow (style-7, style-16)",
+    "borderStyle": "Only for style-16 - values: 'solid', 'dashed', 'dotted', 'none'",
+    "borderWidth": "Only for style-16 when borderStyle != 'none' - 1-3px recommended"
+  },
+
+  "warnings": [
+    "Each icon in socialIcon array MUST have unique _key (0, 1, 2, ...) - duplicate keys break rendering",
+    "customType determines which icon source is used: 'icon' uses socialNtwk/customIcons, 'image' uses imgField.url",
+    "titleTypo only works with specific styles: style-1, style-2, style-4, style-10, style-12, style-14, style-15",
+    "s3CircleWidth only applies to style-3 (circular icons) - ignored by other styles",
+    "iconWidth/iconHeight only apply to style-16 - ignored by other styles",
+    "Tooltips require itemTooltip:true AND tooltipText to display - both must be set",
+    "tipMaxWidth is a STRING number in pixels (e.g., '150' not 150) - wrong type breaks tooltips",
+    "tipDurationIn/tipDurationOut are STRING numbers in milliseconds (e.g., '300' not 300)",
+    "tipBg.bgType='gradient' requires full bgGradient object with color1, color2, type, direction",
+    "External links (social media) should use target:'_blank' for better UX",
+    "nofollow attribute: set to 'nofollow' for paid/untrusted links, empty '' for your own profiles",
+    "FontAwesome icons require correct class prefix: 'fab' (brands), 'fas' (solid), 'far' (regular)",
+    "nmlIcnShadow/hvrIcnShadow only work with style-7 and style-16 - ignored by other styles",
+    "borderStyle/borderWidth only work with style-16 - ignored by other styles",
+    "Max 20 social icons recommended for performance - more may slow page load",
+    "Always test responsive breakpoints (md/sm/xs) - alignment and sizing should adapt gracefully"
+  ],
+
+  "commonMistakes": [
+    "Forgetting _key in socialIcon array items - causes React rendering errors",
+    "Using number instead of string for tipMaxWidth/tipDurationIn/tipDurationOut",
+    "Setting customType='image' but forgetting imgField.url - icon won't display",
+    "Enabling titleTypo on incompatible style variants - typography won't apply",
+    "Setting itemTooltip:true without tooltipText - empty tooltip shows",
+    "Not setting openTypography:1 before configuring titleTypo or tooltipTypo",
+    "Using px units for icon sizes on mobile - rem/em scale better",
+    "Forgetting target:'_blank' for external social links - poor UX",
+    "Inconsistent _key numbering (e.g., 0, 2, 5 instead of 0, 1, 2) - not technically wrong but confusing",
+    "Copying socialNtwk FontAwesome classes incorrectly - must include prefix (fab/fas/far)",
+    "Setting openShadow:1 for nmlIcnShadow on non-style-7/16 blocks - shadow won't render",
+    "Using borderStyle without borderWidth on style-16 - border invisible",
+    "Not testing tooltip placement on mobile - 'top' might go offscreen",
+    "Over-styling tooltips with too much shadow/padding - looks heavy",
+    "Using too many icons (20+) without lazy loading - page performance degrades"
+  ],
+
+  "bestPractices": [
+    "**Brand Colors:** Use official brand colors for each network (Facebook: #3b5998, Twitter: #1da1f2, Instagram: #e4405f, LinkedIn: #0077b5, YouTube: #FF0000, Pinterest: #bd081c)",
+    "**Consistent Sizing:** Keep iconSize consistent across all icons in the same block for visual harmony",
+    "**Hover Feedback:** Always provide hover state changes (hvrBG different from nmlBG) for better UX",
+    "**External Links:** Use target:'_blank' for all social media links to open in new tab",
+    "**Accessibility:** Provide meaningful title attributes for screen readers ('Facebook', 'Twitter', not 'Social')",
+    "**Responsive Design:** Test alignment on all breakpoints (md/sm/xs) - center on desktop, left on mobile is common pattern",
+    "**Icon Limits:** Limit to 5-7 icons for clean design - more icons = visual clutter",
+    "**Tooltip Brevity:** Keep tooltipText under 50 characters for quick readability",
+    "**Spacing:** Use iconGap for visual breathing room - 8-12px is optimal",
+    "**Border Radius:** Consistent iconBRadius across all icons creates cohesive look",
+    "**Performance:** Load FontAwesome library once globally - don't load per-block",
+    "**SEO:** Add nofollow:'' (empty) for your own profiles, nofollow:'nofollow' for paid/sponsored links",
+    "**Mobile Touch:** Ensure iconPadd provides sufficient touch target (minimum 44x44px total) for mobile",
+    "**Tooltip Placement:** Use 'top' for footer icons, 'bottom' for header icons to avoid viewport overflow",
+    "**Style Consistency:** Stick to one style variant per site for brand consistency",
+    "**Color Contrast:** Ensure iconNmlColor contrasts with nmlBG for WCAG AA compliance (4.5:1 ratio minimum)",
+    "**Link Testing:** Test all linkUrl values before publishing - broken social links hurt credibility",
+    "**Image Icons:** For customType='image', use SVG format for crisp rendering at any size",
+    "**Animation Balance:** Use subtle tipAnimation ('fade' or 'scale') - avoid distracting effects"
+  ],
+
+  "styleComparison": {
+    "style-1": {
+      "description": "Basic icon with optional title below, background color fills area",
+      "bestFor": "General purpose social sharing, footer social links",
+      "complexity": "simple"
+    },
+    "style-2": {
+      "description": "Icon with separate circular background for icon, title below",
+      "bestFor": "Modern designs with layered look",
+      "complexity": "simple"
+    },
+    "style-3": {
+      "description": "Circular badges with colored border and transparent center",
+      "bestFor": "Minimalist designs, portfolio sites",
+      "complexity": "simple",
+      "requires": "s3CircleWidth attribute"
+    },
+    "style-4": {
+      "description": "Icon with title side-by-side, hover changes icon color",
+      "bestFor": "Sidebar widgets, author boxes",
+      "complexity": "simple"
+    },
+    "style-5": {
+      "description": "Icon with hover color transition effect",
+      "bestFor": "Clean professional sites",
+      "complexity": "simple"
+    },
+    "style-6": {
+      "description": "Icon with slide-in background hover effect",
+      "bestFor": "Interactive designs with movement",
+      "complexity": "medium"
+    },
+    "style-7": {
+      "description": "Raised icons with box shadow and depth",
+      "bestFor": "Material design, cards with elevation",
+      "complexity": "medium",
+      "requires": "nmlIcnShadow, hvrIcnShadow attributes"
+    },
+    "style-8": {
+      "description": "Icon with bounce animation on hover",
+      "bestFor": "Playful, engaging designs",
+      "complexity": "medium"
+    },
+    "style-9": {
+      "description": "Icon with title that slides in on hover",
+      "bestFor": "Space-saving designs with hidden labels",
+      "complexity": "medium"
+    },
+    "style-10": {
+      "description": "Icon with scale-up animation and smooth color transition",
+      "bestFor": "Modern interactive sites, Gen-Z audiences",
+      "complexity": "simple"
+    },
+    "style-11": {
+      "description": "Icon with inset shadow transition (hollow to filled)",
+      "bestFor": "Unique visual effects, premium sites",
+      "complexity": "advanced"
+    },
+    "style-12": {
+      "description": "Icon and title displayed horizontally side-by-side inline",
+      "bestFor": "Sidebar contact info, compact layouts",
+      "complexity": "simple",
+      "requires": "titleTypo attribute"
+    },
+    "style-13": {
+      "description": "Icon with animated border rotation on hover",
+      "bestFor": "Attention-grabbing CTAs, creative sites",
+      "complexity": "advanced"
+    },
+    "style-14": {
+      "description": "Icon with title that fades in on hover with color change",
+      "bestFor": "Elegant professional designs",
+      "complexity": "medium",
+      "requires": "titleTypo attribute"
+    },
+    "style-15": {
+      "description": "Icon with vertical title that slides up on hover",
+      "bestFor": "Tall narrow layouts, vertical sidebars",
+      "complexity": "medium",
+      "requires": "iconHgt, titleTypo attributes"
+    },
+    "style-16": {
+      "description": "Fully customizable icon with border, shadow, and size control",
+      "bestFor": "Custom branding, precise design requirements",
+      "complexity": "advanced",
+      "requires": "iconWidth, iconHeight, borderStyle, borderWidth, nmlIcnShadow attributes"
+    }
+  },
+
+  "responsivePatterns": [
+    {
+      "pattern": "Center Desktop, Left Mobile",
+      "description": "Icons centered on large screens, left-aligned on mobile for thumb-friendly access",
+      "attributes": {
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "left"
+        }
       }
     },
     {
-      "description": "Social icons with tooltips",
+      "pattern": "Adaptive Icon Sizing",
+      "description": "Larger icons on desktop, smaller on mobile to preserve space",
       "attributes": {
-        "block_id": "c3d4",
-        "style": "style-3",
-        "socialIcon": [
-          {
-            "socialNtwk": "fab fa-linkedin",
-            "linkUrl": {
-              "url": "https://linkedin.com/company/yourcompany"
-            },
-            "tooltipText": "Follow us on LinkedIn"
-          }
-        ]
+        "iconSize": {
+          "md": "24",
+          "sm": "20",
+          "xs": "16",
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "pattern": "Responsive Padding",
+      "description": "More padding on desktop, less on mobile for compact mobile layouts",
+      "attributes": {
+        "iconPadd": {
+          "md": {
+            "top": "14",
+            "right": "14",
+            "bottom": "14",
+            "left": "14"
+          },
+          "xs": {
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10"
+          },
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "pattern": "Adaptive Gap",
+      "description": "Wider spacing on desktop, tighter on mobile for fitting more icons",
+      "attributes": {
+        "iconGap": {
+          "md": {
+            "right": "12",
+            "left": "12"
+          },
+          "xs": {
+            "right": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        }
       }
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
+
+  "accessibilityNotes": [
+    "**Meaningful Titles:** Each icon's 'title' attribute is read by screen readers - use network names like 'Facebook', 'Twitter', not generic 'Social'",
+    "**Link Targets:** External social links should open in new tabs (target:'_blank') for better navigation experience",
+    "**Color Contrast:** Ensure iconNmlColor has sufficient contrast with nmlBG (4.5:1 ratio for WCAG AA) for visibility",
+    "**Touch Targets:** Minimum 44x44px total size (iconSize + iconPadd) for mobile touch accessibility",
+    "**Keyboard Navigation:** Icons are focusable via Tab key by default - test keyboard navigation flow",
+    "**Tooltip Accessibility:** Tooltips appear on focus (not just hover) for keyboard users when tipTriggers includes 'focus'",
+    "**aria-label:** Consider adding aria-label via custom CSS/JS if title alone doesn't provide enough context",
+    "**Focus Indicators:** Ensure visible focus state for keyboard users - consider adding custom focus styles",
+    "**Icon-Only vs Icon+Title:** Styles with visible titles (style-1, style-12, style-14, style-15) are more accessible than icon-only",
+    "**Screen Reader Testing:** Test with screen readers (NVDA, JAWS, VoiceOver) to verify icon titles are announced correctly"
+  ],
+
+  "performanceConsiderations": [
+    "**FontAwesome Loading:** Load FontAwesome library once globally (header/footer) rather than per-block for faster page load",
+    "**Icon Limit:** Limit to 5-7 icons per block - more icons increase DOM size and CSS specificity",
+    "**Image Icons:** If using customType='image', optimize images (compress, use SVG) before uploading to reduce file size",
+    "**SVG vs PNG:** Prefer SVG for imgField images - scales perfectly at any size and smaller file size than PNG",
+    "**Lazy Loading:** For image icons below the fold, consider lazy loading with WordPress native loading='lazy' attribute",
+    "**Tooltip Library:** Tippy.js (tooltip library) adds ~20KB - only enable tooltips if truly needed",
+    "**CSS Animations:** Hover animations (style-6, style-8, style-9, style-11, style-13) use CSS transforms - hardware accelerated, performant",
+    "**Shadow Performance:** Box shadows (style-7, style-16) can impact paint performance on low-end devices - use sparingly",
+    "**Responsive Images:** If using custom images, provide multiple sizes (@1x, @2x) for retina displays to avoid oversized downloads",
+    "**CDN Usage:** Load social network logos from CDN if using custom images for faster global delivery"
+  ],
+
+  "integrationPatterns": [
+    "**Footer Integration:** Place in tp-container > tp-row > tp-column for responsive footer social bar",
+    "**Author Bio:** Combine with tp-team-member-list or custom author box for social profile links",
+    "**Sidebar Widget:** Use style-12 (horizontal icon+title) in narrow sidebars for compact display",
+    "**Header Integration:** Align right in header tp-row with small iconSize (14-16px) for subtle presence",
+    "**Popup/Modal:** Include in tp-fancybox popup for social share prompt after content consumption",
+    "**Sticky Sidebar:** Place in fixed-position sidebar for always-accessible social following",
+    "**Below Content:** Add after blog posts/articles with 'Share this:' heading for social sharing",
+    "**Team Member Cards:** Integrate individual team member social links with tp-team-member-list blocks",
+    "**Contact Page:** Combine with contact form (tp-form-block) for multiple communication channels",
+    "**Newsletter Popup:** Include in newsletter signup popup to offer alternative connection methods (email OR social)"
+  ],
+
+  "commonPatterns": [
+    {
+      "pattern": "Footer Social Bar",
+      "description": "Centered row of 5-6 major social networks with brand colors",
+      "attributes": {
+        "style": "style-1",
+        "Alignment": {"md": "center"},
+        "iconSize": {"md": "18", "unit": "px"},
+        "iconBRadius": {"md": {"top": "4", "right": "4", "bottom": "4", "left": "4"}, "unit": "px"}
+      }
+    },
+    {
+      "pattern": "Minimal Sidebar Icons",
+      "description": "Left-aligned circular icons without background for clean sidebar",
+      "attributes": {
+        "style": "style-3",
+        "Alignment": {"md": "left"},
+        "s3CircleWidth": {"md": "40", "unit": "px"}
+      }
+    },
+    {
+      "pattern": "Sharing Buttons with Tooltips",
+      "description": "Small icons with helpful tooltips for post sharing",
+      "attributes": {
+        "style": "style-7",
+        "Alignment": {"md": "left"},
+        "iconSize": {"md": "16", "unit": "px"},
+        "tipPlacement": "top",
+        "tipAnimation": "fade"
+      }
+    },
+    {
+      "pattern": "Author Bio Social Links",
+      "description": "Horizontal list of icon+title for author contact info",
+      "attributes": {
+        "style": "style-12",
+        "Alignment": {"md": "left"},
+        "titleTypo": {"openTypography": 1, "fontSize": {"md": "14", "unit": "px"}}
+      }
+    },
+    {
+      "pattern": "Header Top Bar Icons",
+      "description": "Small right-aligned icons in header top bar",
+      "attributes": {
+        "style": "style-1",
+        "Alignment": {"md": "right"},
+        "iconSize": {"md": "14", "unit": "px"},
+        "iconPadd": {"md": {"top": "6", "right": "6", "bottom": "6", "left": "6"}, "unit": "px"}
+      }
+    },
+    {
+      "pattern": "Messaging App Icons (WhatsApp, Telegram, Messenger)",
+      "description": "Large friendly icons for direct messaging with tooltips",
+      "attributes": {
+        "style": "style-10",
+        "iconSize": {"md": "24", "unit": "px"},
+        "iconBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "%"},
+        "tipPlacement": "left"
+      }
+    },
+    {
+      "pattern": "Custom Brand Image Icons",
+      "description": "Upload custom platform logos (Discord, Slack, Medium, etc.)",
+      "attributes": {
+        "style": "style-1",
+        "socialIcon[0].customType": "image",
+        "imgWidth": {"md": "32", "unit": "px"}
+      }
+    },
+    {
+      "pattern": "Responsive Social Bar (Desktop Center, Mobile Left)",
+      "description": "Alignment adapts for optimal UX on each screen size",
+      "attributes": {
+        "Alignment": {"md": "center", "xs": "left"},
+        "iconSize": {"md": "20", "sm": "18", "xs": "16", "unit": "px"}
+      }
     }
-  }
+  ]
 }

@@ -2,54 +2,215 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-number-counter",
   "title": "Number Counter - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Animated number counters for highlighting important stats, achievements, metrics, and figures with smooth count-up animations",
+
   "examples": [
     {
-      "description": "Simple counter with icon",
+      "name": "Projects Completed (Basic Counter with Icon)",
+      "description": "Simple centered counter with FontAwesome icon and plus symbol",
+      "visualDescription": "Centered layout with check-circle icon above, number counts from 0 to 500 smoothly, '+' symbol after number, 'Projects Completed' title below",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "nc001",
         "style": "style-1",
+        "style1Align": "text-center",
         "title": "Projects Completed",
         "numValue": "500",
         "startValue": "0",
+        "numGap": "5",
+        "timeDelay": "10",
+        "numeration": "default",
         "symbol": "+",
+        "symbolPos": "after",
         "iconType": "icon",
-        "iconStore": "fas fa-check-circle"
-      }
+        "iconStore": "fas fa-check-circle",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "sm": "16",
+            "xs": "15",
+            "unit": "px"
+          },
+          "fontWeight": "600",
+          "textTransform": "uppercase"
+        },
+        "titleNmlColor": "#2c3e50",
+        "titleTopSpace": {
+          "md": "10",
+          "unit": "px"
+        },
+        "digitTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "56",
+            "sm": "48",
+            "xs": "36",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "digitNmlColor": "#667eea"
+      },
+      "useCase": "Portfolio statistics, company achievements, project showcases, about pages",
+      "relatedBlocks": ["tp-heading", "tp-icon-box", "tp-container"]
     },
+
     {
-      "description": "Revenue counter with prefix",
+      "name": "Annual Revenue (Large Number with Commas)",
+      "description": "Revenue counter with dollar prefix and comma separation",
+      "visualDescription": "Counts up to $2,500,000 with comma thousands separators, dollar sign icon, professional green color scheme",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "nc002",
+        "style": "style-1",
+        "style1Align": "text-center",
         "title": "Annual Revenue",
         "numValue": "2500000",
-        "preSymbol": "$",
+        "startValue": "0",
+        "numGap": "10000",
+        "timeDelay": "5",
         "numeration": "commas",
+        "preSymbol": "$",
         "iconType": "icon",
-        "iconStore": "fas fa-dollar-sign"
-      }
+        "iconStore": "fas fa-dollar-sign",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "sm": "15",
+            "xs": "14",
+            "unit": "px"
+          },
+          "fontWeight": "500",
+          "letterSpacing": {
+            "md": "1",
+            "unit": "px"
+          },
+          "textTransform": "uppercase"
+        },
+        "titleNmlColor": "#7f8c8d",
+        "titleTopSpace": {
+          "md": "12",
+          "unit": "px"
+        },
+        "digitTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "48",
+            "sm": "40",
+            "xs": "32",
+            "unit": "px"
+          },
+          "fontWeight": "800"
+        },
+        "digitNmlColor": "#27ae60"
+      },
+      "formattingNote": "numeration:'commas' automatically adds thousands separators (2,500,000)",
+      "useCase": "Financial dashboards, revenue displays, business metrics, sales statistics",
+      "relatedBlocks": ["tp-pricing-table", "tp-heading", "tp-progress-bar"]
     },
+
     {
-      "description": "Percentage counter",
+      "name": "Client Satisfaction Rate (Percentage)",
+      "description": "Percentage counter with happy face icon and custom colors",
+      "visualDescription": "Counts to 98%, green color for positive metric, smile icon, centered alignment",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "nc003",
+        "style": "style-1",
+        "style1Align": "text-center",
         "title": "Client Satisfaction",
         "numValue": "98",
+        "startValue": "0",
+        "numGap": "1",
+        "timeDelay": "20",
+        "numeration": "default",
         "symbol": "%",
+        "symbolPos": "after",
         "iconType": "icon",
         "iconStore": "fas fa-smile",
-        "digitNmlColor": "#27ae60"
-      }
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "20",
+            "sm": "18",
+            "xs": "16",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "titleNmlColor": "#2c3e50",
+        "titleTopSpace": {
+          "md": "15",
+          "unit": "px"
+        },
+        "digitTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "64",
+            "sm": "52",
+            "xs": "40",
+            "unit": "px"
+          },
+          "fontWeight": "900"
+        },
+        "digitNmlColor": "#27ae60",
+        "digitHvrColor": "#2ecc71"
+      },
+      "useCase": "Testimonial statistics, satisfaction scores, review ratings, quality metrics",
+      "relatedBlocks": ["tp-testimonials", "tp-progress-bar", "tp-icon-box"]
     },
+
     {
-      "description": "Years of experience with custom styling",
+      "name": "Years of Experience (Style 2 - Left Aligned with Background)",
+      "description": "Horizontal layout with icon on left, number and title on right, background color",
+      "visualDescription": "Left-aligned style-2 layout, trophy icon on left, '25+' number and title on right, light gray background with padding",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "g7h8",
+        "block_id": "nc004",
         "style": "style-2",
         "style2Align": "text-left",
         "title": "Years of Experience",
         "numValue": "25",
+        "startValue": "0",
+        "numGap": "1",
+        "timeDelay": "50",
+        "numeration": "default",
         "symbol": "+",
+        "symbolPos": "after",
+        "iconType": "icon",
+        "iconStore": "fas fa-trophy",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "sm": "15",
+            "xs": "14",
+            "unit": "px"
+          },
+          "fontWeight": "500"
+        },
+        "titleNmlColor": "#7f8c8d",
+        "titleBottomSpace": {
+          "md": "0",
+          "unit": "px"
+        },
+        "digitTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "36",
+            "sm": "32",
+            "xs": "28",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "digitNmlColor": "#2c3e50",
+        "digitBottomSpace": {
+          "md": "5",
+          "unit": "px"
+        },
         "normalBG": {
           "openBg": 1,
           "bgType": "color",
@@ -63,9 +224,612 @@
             "left": "30"
           },
           "unit": "px"
+        },
+        "bgBorderRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
         }
-      }
+      },
+      "useCase": "Team member cards, company milestones, about sections, service pages",
+      "relatedBlocks": ["tp-team-member-list", "tp-icon-box", "tp-container"]
+    },
+
+    {
+      "name": "Happy Customers (Slow Animation with K Notation)",
+      "description": "Large number with K suffix, slow smooth animation for visual impact",
+      "visualDescription": "Counts from 0 to 15K slowly (timeDelay:100), users icon, purple accent color, centered layout",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "nc005",
+        "style": "style-1",
+        "style1Align": "text-center",
+        "title": "Happy Customers",
+        "numValue": "15",
+        "startValue": "0",
+        "numGap": "1",
+        "timeDelay": "100",
+        "numeration": "default",
+        "symbol": "K",
+        "symbolPos": "after",
+        "iconType": "icon",
+        "iconStore": "fas fa-users",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "sm": "16",
+            "xs": "15",
+            "unit": "px"
+          },
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "1.5",
+            "unit": "px"
+          }
+        },
+        "titleNmlColor": "#2c3e50",
+        "titleTopSpace": {
+          "md": "12",
+          "unit": "px"
+        },
+        "digitTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "72",
+            "sm": "60",
+            "xs": "48",
+            "unit": "px"
+          },
+          "fontWeight": "900"
+        },
+        "digitNmlColor": "#8e44ad"
+      },
+      "animationNote": "timeDelay:100 creates slow, smooth count-up for dramatic effect (vs default timeDelay:5)",
+      "useCase": "Homepage hero stats, customer testimonial sections, social proof metrics",
+      "relatedBlocks": ["tp-testimonials", "tp-heading", "tp-container"]
+    },
+
+    {
+      "name": "Coffee Cups Consumed (Custom Image Icon)",
+      "description": "Fun counter with custom uploaded coffee cup image icon",
+      "visualDescription": "Custom coffee cup image icon (50px), counts to 1,247 with comma separator, playful brown color scheme",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "nc006",
+        "style": "style-1",
+        "style1Align": "text-center",
+        "title": "Coffee Cups Consumed",
+        "numValue": "1247",
+        "startValue": "0",
+        "numGap": "7",
+        "timeDelay": "10",
+        "numeration": "commas",
+        "iconType": "img",
+        "imagestore": {
+          "url": "https://example.com/wp-content/uploads/coffee-cup-icon.png",
+          "Id": "456"
+        },
+        "imageSize": "thumbnail",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "sm": "15",
+            "xs": "14",
+            "unit": "px"
+          },
+          "fontWeight": "500"
+        },
+        "titleNmlColor": "#7f8c8d",
+        "titleTopSpace": {
+          "md": "10",
+          "unit": "px"
+        },
+        "digitTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "52",
+            "sm": "44",
+            "xs": "36",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "digitNmlColor": "#795548"
+      },
+      "useCase": "Fun office statistics, team culture pages, quirky about sections, developer portfolios",
+      "relatedBlocks": ["tp-image", "tp-icon-box", "tp-team-member-list"]
+    },
+
+    {
+      "name": "Download Count (Fast Animation with M Notation)",
+      "description": "Fast counting animation for large numbers with M (million) suffix",
+      "visualDescription": "Rapid count from 0 to 5M (numGap:500, timeDelay:1), download cloud icon, blue theme",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "nc007",
+        "style": "style-1",
+        "style1Align": "text-center",
+        "title": "Total Downloads",
+        "numValue": "5000",
+        "startValue": "0",
+        "numGap": "500",
+        "timeDelay": "1",
+        "numeration": "default",
+        "symbol": "M+",
+        "symbolPos": "after",
+        "preSymbol": "",
+        "iconType": "icon",
+        "iconStore": "fas fa-cloud-download-alt",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "17",
+            "sm": "16",
+            "xs": "15",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "titleNmlColor": "#34495e",
+        "titleTopSpace": {
+          "md": "12",
+          "unit": "px"
+        },
+        "digitTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "60",
+            "sm": "50",
+            "xs": "40",
+            "unit": "px"
+          },
+          "fontWeight": "800"
+        },
+        "digitNmlColor": "#3498db"
+      },
+      "animationNote": "Fast animation (numGap:500, timeDelay:1) completes quickly - use for large numbers where exact count isn't critical",
+      "useCase": "App download counters, software metrics, plugin statistics, GitHub stars",
+      "relatedBlocks": ["tp-button", "tp-heading", "tp-social-icons"]
+    },
+
+    {
+      "name": "Award Winning Stats (Linked Counter with Gradient)",
+      "description": "Clickable counter card with gradient background and hover effects",
+      "visualDescription": "Purple-to-pink gradient background, white text, award star icon, clickable (links to awards page), hover color change",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "nc008",
+        "style": "style-1",
+        "style1Align": "text-center",
+        "title": "Awards Won",
+        "linkURL": {
+          "url": "/awards",
+          "target": "_self",
+          "nofollow": ""
+        },
+        "ariaLabel": "View our 47 awards won",
+        "numValue": "47",
+        "startValue": "0",
+        "numGap": "1",
+        "timeDelay": "30",
+        "numeration": "default",
+        "symbol": "+",
+        "symbolPos": "after",
+        "iconType": "icon",
+        "iconStore": "fas fa-award",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "sm": "17",
+            "xs": "16",
+            "unit": "px"
+          },
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "1",
+            "unit": "px"
+          }
+        },
+        "titleNmlColor": "#ffffff",
+        "titleHvrColor": "#f0f0f0",
+        "titleTopSpace": {
+          "md": "15",
+          "unit": "px"
+        },
+        "digitTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "56",
+            "sm": "48",
+            "xs": "40",
+            "unit": "px"
+          },
+          "fontWeight": "900"
+        },
+        "digitNmlColor": "#ffffff",
+        "digitHvrColor": "#ffd700",
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#667eea",
+                "position": 0
+              },
+              {
+                "color": "#764ba2",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "bgPadding": {
+          "md": {
+            "top": "40",
+            "right": "30",
+            "bottom": "40",
+            "left": "30"
+          },
+          "sm": {
+            "top": "35",
+            "right": "25",
+            "bottom": "35",
+            "left": "25"
+          },
+          "unit": "px"
+        },
+        "bgBorderRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "normalShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 10,
+          "blur": 30,
+          "spread": 0,
+          "color": "rgba(102,126,234,0.3)"
+        },
+        "hoverShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 15,
+          "blur": 40,
+          "spread": 0,
+          "color": "rgba(102,126,234,0.4)"
+        }
+      },
+      "useCase": "Interactive stat cards, linked achievement displays, awards pages, company highlights",
+      "relatedBlocks": ["tp-container", "tp-button", "tp-icon-box"]
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "style": "Required - 'style-1' (centered icon/number/title) or 'style-2' (left-aligned horizontal layout)",
+    "style1Align": "For style-1 only - 'text-left', 'text-center', 'text-right'",
+    "style2Align": "For style-2 only - 'text-left', 'text-center', 'text-right'",
+    "numValue": "Required - final number to count up to (as string)",
+    "startValue": "Required - starting number for animation (default '0')",
+    "numGap": "Required - increment step for each count (smaller = smoother, larger = faster)",
+    "timeDelay": "Required - milliseconds between each increment (smaller = faster animation)",
+    "numeration": "'default' (no separators), 'commas' (1,000 format), or 'custom' (custom separator)",
+    "symbol": "Optional suffix after number (%, +, K, M, B, etc.)",
+    "symbolPos": "'before' or 'after' - position of symbol relative to number",
+    "preSymbol": "Optional prefix before number ($, €, £, etc.)",
+    "iconType": "'icon' (FontAwesome), 'img' (uploaded image), or 'svg' (uploaded SVG)",
+    "iconStore": "Required when iconType='icon' - FontAwesome class (e.g., 'fas fa-check-circle')",
+    "imagestore.url": "Required when iconType='img' - image URL",
+    "svgIcon.url": "Required when iconType='svg' - SVG file URL",
+    "linkURL.url": "Optional - wraps counter in link tag for clickable stats",
+    "ariaLabel": "Recommended when using linkURL - accessible description for link",
+    "titleTypo.openTypography": "Must be 1 to enable title typography",
+    "digitTypo.openTypography": "Must be 1 to enable digit typography",
+    "normalBG.openBg": "Must be 1 to enable background",
+    "normalBG.bgType": "'color' (solid) or 'gradient' for background"
+  },
+
+  "warnings": [
+    "numValue, startValue, numGap, timeDelay must all be STRING numbers (e.g., '100' not 100)",
+    "Animation speed = (numValue - startValue) / numGap * timeDelay milliseconds - adjust numGap and timeDelay for desired speed",
+    "Large numGap values (500+) create jumpy animations - use smaller values (1-10) for smooth counting",
+    "Small timeDelay values (1-5ms) create very fast animations - use 10-50ms for noticeable count-up effect",
+    "numeration:'commas' automatically adds thousands separators - don't manually add commas to numValue",
+    "symbol appears AFTER number by default (symbolPos:'after') - use 'before' for prefix-style symbols",
+    "preSymbol is separate from symbol - can use both (e.g., preSymbol:'$' and symbol:'+' for '$100+')",
+    "iconType determines which icon attribute is used: 'icon' uses iconStore, 'img' uses imagestore, 'svg' uses svgIcon",
+    "style-2 layout displays icon on LEFT, number/title on RIGHT - different from style-1 vertical stack",
+    "linkURL makes entire counter clickable - ensure ariaLabel is set for accessibility",
+    "normalBG.bgType='gradient' requires full bgGradient object - use 'color' for simple backgrounds",
+    "openTypography:1 required before setting titleTypo/digitTypo - otherwise typography won't apply",
+    "digitHvrColor and titleHvrColor only work when linkURL is set (hover state on clickable counters)",
+    "Animation triggers on scroll when counter enters viewport - place strategically for best impact",
+    "Multiple counters on same page all animate simultaneously when visible - consider staggered placement",
+    "Very large numbers (1,000,000+) should use K/M/B notation with smaller numValue for faster animation"
+  ],
+
+  "commonMistakes": [
+    "Using number instead of string for numValue/startValue/numGap/timeDelay - breaks animation",
+    "Setting numGap too high relative to numValue - animation completes in one jump",
+    "Setting timeDelay too low (0 or 1) - animation too fast to see or causes performance issues",
+    "Not enabling openTypography:1 before customizing fonts - typography settings ignored",
+    "Using both symbol and preSymbol without understanding the difference - symbol is suffix, preSymbol is prefix",
+    "Forgetting to set iconStore when iconType='icon' - icon won't display",
+    "Using imagestore.url when iconType='icon' - attribute ignored unless iconType='img'",
+    "Not setting normalBG.openBg:1 when trying to add background - background won't show",
+    "Expecting hover colors without linkURL - hover states only work on clickable counters",
+    "Using commas in numValue when numeration='commas' - commas added automatically, manual commas break parsing",
+    "Setting both style1Align and style2Align - only one applies based on style",
+    "Not testing animation speed - too fast/slow ruins user experience",
+    "Using K/M notation with actual value (e.g., numValue:'15000' with symbol:'K') - displays '15000K' instead of '15K'",
+    "Forgetting ariaLabel on linked counters - accessibility issue",
+    "Setting startValue higher than numValue - animation counts backwards unexpectedly"
+  ],
+
+  "bestPractices": [
+    "**Animation Speed:** Use numGap:1-10 with timeDelay:10-50ms for smooth, noticeable counting",
+    "**Large Numbers:** For 1M+, use K/M notation with smaller numValue (e.g., numValue:'15' symbol:'K' instead of numValue:'15000')",
+    "**Number Format:** Use numeration:'commas' for readability on numbers > 1,000",
+    "**Symbol Choice:** % for percentages, + for 'more than', K/M/B for large numbers, $ for currency",
+    "**Typography Scale:** Digits 48-72px, title 14-20px for balanced hierarchy",
+    "**Color Contrast:** Ensure digitNmlColor contrasts with background (4.5:1 ratio WCAG AA)",
+    "**Icon Selection:** Choose icons that represent the metric (users for customers, trophy for awards, dollar for revenue)",
+    "**Animation Timing:** Aim for 2-4 second total animation - fast enough to engage, slow enough to be noticeable",
+    "**Responsive Sizing:** Scale down fontSize on mobile (md:56px → xs:36px) for better fit",
+    "**Link Usage:** Only use linkURL when counter leads to relevant detail page - don't link just for interactivity",
+    "**Accessibility:** Set descriptive ariaLabel on linked counters ('View our 500 completed projects' not just 'Projects')",
+    "**Background Colors:** Use subtle backgrounds (#f5f5f5) for separation, bold gradients for emphasis",
+    "**Hover Effects:** If using linkURL, add hover colors to indicate clickability",
+    "**Placement:** Place counters above the fold for immediate animation on page load",
+    "**Multiple Counters:** Use consistent styling across counter grid (same fontSize, iconType, colors)",
+    "**Symbol Positioning:** Use symbolPos:'before' for currency symbols ($100), 'after' for units (100%)",
+    "**Start Value:** Use startValue:'0' for impact, non-zero values for partial progress indicators",
+    "**Icon Type Consistency:** Use 'icon' (FontAwesome) for consistency, 'img' for custom branding",
+    "**Grid Layouts:** Place 3-4 counters in tp-row + tp-column for stat showcase sections"
+  ],
+
+  "styleComparison": {
+    "style-1": {
+      "description": "Vertical centered layout - icon above, number below, title at bottom",
+      "bestFor": "Traditional stat cards, centered displays, grid layouts",
+      "visualCharacteristics": "Stacked vertical alignment, icon at top, number prominent center, title below",
+      "complexity": "simple",
+      "alignment": "Controlled by style1Align (text-left, text-center, text-right)"
+    },
+    "style-2": {
+      "description": "Horizontal layout - icon on left, number and title stacked on right",
+      "bestFor": "Compact displays, sidebar widgets, list-style stats",
+      "visualCharacteristics": "Icon left side, number/title right side, efficient use of horizontal space",
+      "complexity": "simple",
+      "alignment": "Controlled by style2Align (text-left, text-center, text-right)"
+    }
+  },
+
+  "numerationComparison": {
+    "default": {
+      "description": "No number formatting - displays raw number",
+      "example": "15000 (no separators)",
+      "bestFor": "Small numbers (< 1,000), numbers with K/M notation"
+    },
+    "commas": {
+      "description": "Adds comma thousands separators",
+      "example": "15,000",
+      "bestFor": "Large numbers > 1,000, financial figures, professional displays"
+    },
+    "custom": {
+      "description": "Custom separator (advanced, requires additional config)",
+      "example": "15.000 (period separator for European format)",
+      "bestFor": "International number formats, custom separators"
+    }
+  },
+
+  "animationSpeedGuide": {
+    "slow": {
+      "numGap": "1",
+      "timeDelay": "50-100",
+      "duration": "Long (5-10 seconds)",
+      "bestFor": "Hero sections, dramatic reveals, low numbers (< 100)"
+    },
+    "medium": {
+      "numGap": "5-10",
+      "timeDelay": "10-20",
+      "duration": "Medium (2-4 seconds)",
+      "bestFor": "Most use cases, balanced speed and smoothness"
+    },
+    "fast": {
+      "numGap": "100-500",
+      "timeDelay": "1-5",
+      "duration": "Quick (< 1 second)",
+      "bestFor": "Very large numbers (millions), quick visual impact"
+    }
+  },
+
+  "responsivePatterns": [
+    {
+      "pattern": "Adaptive Font Sizing",
+      "description": "Larger digits on desktop, smaller on mobile",
+      "attributes": {
+        "digitTypo": {
+          "fontSize": {
+            "md": "60",
+            "sm": "48",
+            "xs": "36",
+            "unit": "px"
+          }
+        }
+      }
+    },
+    {
+      "pattern": "Responsive Padding",
+      "description": "More padding on desktop, compact on mobile for background cards",
+      "attributes": {
+        "bgPadding": {
+          "md": {
+            "top": "40",
+            "right": "30",
+            "bottom": "40",
+            "left": "30"
+          },
+          "xs": {
+            "top": "25",
+            "right": "20",
+            "bottom": "25",
+            "left": "20"
+          },
+          "unit": "px"
+        }
+      }
+    },
+    {
+      "pattern": "Grid Layout Counters",
+      "description": "3-column grid on desktop, 1-column stack on mobile",
+      "setup": "Place counters in tp-row with tp-column (4-4-4 on desktop, 12 on mobile)"
+    },
+    {
+      "pattern": "Mobile Alignment Shift",
+      "description": "Center-aligned on desktop, left-aligned on mobile",
+      "setup": "Use responsive style1Align/style2Align with media queries if needed"
+    }
+  ],
+
+  "accessibilityNotes": [
+    "**Color Contrast:** Ensure digitNmlColor and titleNmlColor have 4.5:1 contrast ratio with background for WCAG AA",
+    "**Aria Labels:** When using linkURL, set descriptive ariaLabel ('View our 500 completed projects' not just 'Projects')",
+    "**Semantic Meaning:** Counter provides visual animation but screen readers see static final value",
+    "**Link Context:** If counter is clickable (linkURL), ensure link purpose is clear from title/ariaLabel alone",
+    "**Keyboard Navigation:** Linked counters must be keyboard focusable with visible focus state",
+    "**Motion Sensitivity:** Counter animation may trigger vestibular disorders - consider prefers-reduced-motion media query",
+    "**Number Readability:** Use numeration:'commas' for large numbers to aid comprehension",
+    "**Icon Alt Text:** Font Awesome icons are decorative - ensure title provides context, not just icon",
+    "**Multiple Counters:** Each counter should have unique title/ariaLabel - avoid generic labels",
+    "**Animation Duration:** Keep animations under 5 seconds to avoid frustrating users waiting for final value"
+  ],
+
+  "performanceConsiderations": [
+    "**JavaScript Intervals:** Counter uses setInterval during animation - minimal performance impact for 2-4 second duration",
+    "**Multiple Counters:** Limit to 4-6 counters per page section to avoid excessive simultaneous animations",
+    "**Animation Trigger:** Counters animate on scroll when entering viewport - reduces initial page load impact",
+    "**Large numGap:** Using larger numGap (100+) reduces total iterations, improving performance for large numbers",
+    "**Image Icons:** If using iconType:'img', optimize images (compress, use WebP) for faster load",
+    "**SVG Icons:** iconType:'svg' provides scalable icons with minimal file size",
+    "**Background Gradients:** CSS gradients are performant - no image assets needed",
+    "**Responsive Breakpoints:** Test counter animation on mobile - slower devices may lag with very fast animations (timeDelay < 5)",
+    "**Lazy Loading:** Place counters below fold strategically - animation triggers on scroll for better initial page performance",
+    "**Font Loading:** Ensure custom fonts load before counter appears to avoid FOUT (Flash of Unstyled Text)"
+  ],
+
+  "integrationPatterns": [
+    "**About Page Stats Grid:** Place 4 counters in tp-row with tp-column (3-3-3-3 or 4-4-4 layout) for company metrics",
+    "**Hero Section Stats:** Use 2-3 counters below hero tp-heading for key business metrics",
+    "**Testimonial Section:** Combine counter (client satisfaction %) with tp-testimonials for credibility",
+    "**Service Pages:** Add counter above tp-pricing-table ('15K+ satisfied customers') for social proof",
+    "**Team Section:** Place counter (years experience) in tp-team-member-list cards",
+    "**Sidebar Widgets:** Use style-2 compact counters in sidebar with icon on left",
+    "**Footer Statistics:** Add counter row above footer content for achievement showcase",
+    "**Portfolio Pages:** Counter for projects completed near tp-image gallery",
+    "**Product Pages:** Download/user counters near tp-button CTA for social proof",
+    "**Dashboard Pages:** Multiple counters for KPI overview with tp-container layout"
+  ],
+
+  "commonPatterns": [
+    {
+      "pattern": "Company Stats Grid (4 Metrics)",
+      "description": "Four stat counters in row for about/homepage",
+      "attributes": {
+        "style": "style-1",
+        "style1Align": "text-center"
+      },
+      "setup": "tp-row with 4 tp-columns (3-3-3-3), one counter per column, consistent styling across all four"
+    },
+    {
+      "pattern": "Revenue Display (Dollar Prefix + Commas)",
+      "description": "Financial metric with proper formatting",
+      "attributes": {
+        "preSymbol": "$",
+        "numeration": "commas",
+        "numValue": "2500000"
+      },
+      "setup": "Use green color (#27ae60), dollar icon, professional font"
+    },
+    {
+      "pattern": "Percentage Satisfaction Score",
+      "description": "Client/user satisfaction percentage",
+      "attributes": {
+        "symbol": "%",
+        "numValue": "95-99",
+        "iconStore": "fas fa-smile"
+      },
+      "setup": "Use smile/star icon, green positive color, slow smooth animation"
+    },
+    {
+      "pattern": "Years of Experience Badge",
+      "description": "Company/personal experience metric",
+      "attributes": {
+        "symbol": "+",
+        "numValue": "15-50",
+        "iconStore": "fas fa-trophy"
+      },
+      "setup": "Use trophy/award icon, gold/purple accent, background card with padding"
+    },
+    {
+      "pattern": "Social Proof Counter (K Notation)",
+      "description": "Large numbers with abbreviated notation",
+      "attributes": {
+        "numValue": "15",
+        "symbol": "K+",
+        "iconStore": "fas fa-users"
+      },
+      "setup": "Actual value 15,000+ displayed as '15K+' for readability"
+    },
+    {
+      "pattern": "Download/Install Counter (M Notation)",
+      "description": "App/software download metrics",
+      "attributes": {
+        "numValue": "5000",
+        "symbol": "M+",
+        "numGap": "500",
+        "timeDelay": "1"
+      },
+      "setup": "Fast animation for large numbers, download cloud icon, blue theme"
+    },
+    {
+      "pattern": "Linked Stat Card (Clickable)",
+      "description": "Counter that links to detail page",
+      "attributes": {
+        "linkURL": {
+          "url": "/awards"
+        },
+        "ariaLabel": "View our awards",
+        "digitHvrColor": "#ffd700"
+      },
+      "setup": "Add gradient background, hover effects, shadow for card appearance"
+    },
+    {
+      "pattern": "Compact Sidebar Counter (Style 2)",
+      "description": "Space-efficient horizontal layout for sidebars",
+      "attributes": {
+        "style": "style-2",
+        "style2Align": "text-left"
+      },
+      "setup": "Icon left, number/title right, minimal padding, no background"
+    }
+  ]
 }
