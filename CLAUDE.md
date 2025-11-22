@@ -979,6 +979,49 @@ For power users:
 
 ### Phase 3: Per-Block Enhancement Checklist
 
+**CRITICAL: Always Reference Plugin Source Files**
+
+Before enhancing any block schema, you MUST:
+
+1. **Locate the plugin source file:**
+   - Blocks with `block.json`: `./the-plus-addons-for-block-editor-pro/classes/blocks/{block-name}/block.json`
+   - PHP-only blocks (tp-container, tp-row, tp-column, tp-container-inner, tp-countdown): `./the-plus-addons-for-block-editor-pro/classes/blocks/{block-name}/index.php`
+
+2. **Read the source file completely:**
+   - For `block.json`: All attributes with types, defaults, enums
+   - For PHP blocks: All `$attributes` variable extractions (lines like `$height = (!empty($attributes['height'])) ? $attributes['height'] : '';`)
+   - Understand conditional logic, dependencies, default values
+
+3. **Cross-reference with generated schema:**
+   - Verify auto-generated `full.json` didn't miss attributes
+   - Check for typos or incorrect defaults
+   - Identify Pro-only attributes
+
+4. **Use plugin source as ground truth:**
+   - Plugin source = 100% accurate
+   - Generated schemas = good structure, may have gaps
+   - Your enhanced examples must match plugin behavior exactly
+
+**Why This Is Critical:**
+- Auto-generated schemas might miss attributes or have incorrect defaults
+- Plugin source shows actual implementation behavior
+- Conditional logic reveals dependencies (e.g., "if X then Y required")
+- PHP code shows responsive cascade behavior (md → sm → xs fallback)
+
+**Plugin File Locations:**
+```
+./the-plus-addons-for-block-editor-pro/classes/blocks/
+├── tp-container/index.php (PHP-only, no block.json)
+├── tp-row/index.php (PHP-only, no block.json)
+├── tp-column/index.php (PHP-only, no block.json)
+├── tp-container-inner/index.php (PHP-only, no block.json)
+├── tp-heading-animation/block.json (Has block.json)
+├── tp-accordion/block.json (Has block.json)
+└── ... (79 more blocks with block.json)
+```
+
+---
+
 For each block, enhance `examples.json` with:
 
 **1. Examples Section (5-10 examples per block):**
