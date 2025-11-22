@@ -2,69 +2,138 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-heading",
   "title": "Heading - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for semantic headings",
   "examples": [
     {
-      "name": "Simple page title",
-      "description": "Basic centered H1 title for page header",
+      "name": "Simple Page Title (H1)",
+      "description": "Basic centered H1 title for page header with responsive sizing",
+      "visualDescription": "Large dark heading, centered alignment, mobile-responsive font sizes, clean typography",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "h001",
         "title": "Welcome to Our Website",
         "tTag": "h1",
-        "tAlign": {"md": "center"},
-        "tColor": "#2c3e50"
+        "tAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "tColor": "#2c3e50",
+        "tTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "48",
+            "sm": "36",
+            "xs": "28",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "lineHeight": {
+            "md": "1.2",
+            "unit": ""
+          }
+        },
+        "tLink": {
+          "url": "",
+          "target": "",
+          "nofollow": ""
+        }
       },
-      "useCase": "Page titles, hero headlines"
+      "useCase": "Page titles, hero headlines, primary headers, landing page titles"
     },
     {
-      "name": "Section heading with custom typography",
-      "description": "H2 section header with custom font and responsive sizing",
+      "name": "Section Heading (H2) with Custom Font",
+      "description": "H2 section header with custom font family and responsive sizing",
+      "visualDescription": "Medium-sized heading, left-aligned, Poppins font, semi-bold weight, responsive across breakpoints",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "b2c3",
+        "block_id": "h002",
         "title": "Our Services",
         "tTag": "h2",
+        "tAlign": {
+          "md": "left"
+        },
         "tTypo": {
           "openTypography": 1,
           "fontFamily": "Poppins",
           "fontWeight": "600",
-          "fontSize": {"md": "36", "sm": "28", "xs": "24", "unit": "px"},
-          "lineHeight": {"md": "1.3", "unit": ""}
+          "fontSize": {
+            "md": "36",
+            "sm": "28",
+            "xs": "24",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.3",
+            "unit": ""
+          }
         },
-        "tColor": "#1a202c"
+        "tColor": "#1a202c",
+        "tLink": {
+          "url": "",
+          "target": "",
+          "nofollow": ""
+        }
       },
-      "useCase": "Section headers, feature block titles"
+      "useCase": "Section headers, feature block titles, content separators, category headers"
     },
     {
-      "name": "Heading with text stroke effect",
-      "description": "Creative hollow/outlined text effect",
+      "name": "Hollow Stroke Heading (Outline Effect)",
+      "description": "Creative hollow/outlined text effect with transparent fill and colored stroke",
+      "visualDescription": "Large outline-only text, purple stroke (2px), transparent interior, bold font, modern design",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "c3d4",
-        "title": "Creative Typography",
+        "block_id": "h003",
+        "title": "CREATIVE TYPOGRAPHY",
         "tTag": "h2",
+        "tAlign": {
+          "md": "center"
+        },
         "tStroke": {
           "tpgbReset": 1,
-          "tstWidth": {"md": "2", "unit": "px"},
+          "tstWidth": {
+            "md": "2",
+            "sm": "1.5",
+            "xs": "1",
+            "unit": "px"
+          },
           "tstColor": "#667eea"
         },
         "tColor": "transparent",
         "tTypo": {
           "openTypography": 1,
-          "fontSize": {"md": "48", "unit": "px"},
-          "fontWeight": "700"
+          "fontSize": {
+            "md": "60",
+            "sm": "48",
+            "xs": "36",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "textTransform": "uppercase"
+        },
+        "tLink": {
+          "url": "",
+          "target": "",
+          "nofollow": ""
         }
       },
-      "useCase": "Creative headlines, modern design, brand headers"
+      "useCase": "Creative headlines, modern design, brand headers, hero section accents, artistic layouts"
     },
     {
-      "name": "Linked heading with shadow",
-      "description": "Clickable heading with subtle text shadow",
+      "name": "Linked Heading with Text Shadow",
+      "description": "Clickable heading with subtle text shadow for depth and hover indication",
+      "visualDescription": "Purple clickable text, soft shadow beneath (2px blur), H3 size, left-aligned, interactive link",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
-        "title": "Learn More",
+        "block_id": "h004",
+        "title": "Learn More About Our Platform",
         "tTag": "h3",
+        "tAlign": {
+          "md": "left"
+        },
         "tLink": {
           "url": "/about",
-          "target": "",
+          "target": "_self",
           "nofollow": ""
         },
         "tShadow": {
@@ -75,74 +144,457 @@
           "blur": 4,
           "color": "rgba(0,0,0,0.3)"
         },
-        "tColor": "#667eea"
+        "tColor": "#667eea",
+        "tTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "28",
+            "sm": "24",
+            "xs": "20",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        }
       },
-      "useCase": "Linked section headers, clickable CTAs, navigation headings"
+      "useCase": "Linked section headers, clickable CTAs, navigation headings, article section links"
     },
     {
-      "name": "Hero heading with blend mode",
-      "description": "Large hero title with mix-blend-mode overlay effect",
+      "name": "Hero Heading with Blend Mode Overlay",
+      "description": "Large hero title with mix-blend-mode overlay effect for background images",
+      "visualDescription": "Extra-large uppercase text, white color, overlay blend mode, Montserrat font, wide letter spacing, dramatic impact",
+      "complexity": "advanced",
       "attributes": {
-        "block_id": "f7g8",
+        "block_id": "h005",
         "title": "UNLEASH YOUR POTENTIAL",
         "tTag": "h1",
+        "tAlign": {
+          "md": "center"
+        },
         "tTypo": {
           "openTypography": 1,
           "fontFamily": "Montserrat",
           "fontWeight": "900",
-          "fontSize": {"md": "72", "sm": "48", "xs": "32", "unit": "px"},
+          "fontSize": {
+            "md": "72",
+            "sm": "48",
+            "xs": "32",
+            "unit": "px"
+          },
           "textTransform": "uppercase",
-          "letterSpacing": {"md": "2", "unit": "px"}
+          "letterSpacing": {
+            "md": "2",
+            "sm": "1",
+            "xs": "0.5",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.1",
+            "unit": ""
+          }
         },
-        "tAlign": {"md": "center"},
         "tColor": "#ffffff",
-        "tblendm": "overlay"
-      },
-      "useCase": "Hero sections over background images, dramatic headings"
-    },
-    {
-      "name": "SEO-optimized H1 with anchor",
-      "description": "Primary H1 heading with anchor ID for navigation",
-      "attributes": {
-        "block_id": "g9h0",
-        "title": "Complete Guide to Digital Marketing",
-        "tTag": "h1",
-        "anchor": "main-heading",
-        "tTypo": {
-          "openTypography": 1,
-          "fontSize": {"md": "42", "sm": "32", "xs": "26", "unit": "px"},
-          "fontWeight": "700",
-          "lineHeight": {"md": "1.2", "unit": ""}
+        "tblendm": "overlay",
+        "tLink": {
+          "url": "",
+          "target": "",
+          "nofollow": ""
         }
       },
-      "useCase": "Article titles, blog post headings, SEO pages"
+      "useCase": "Hero sections over background images, dramatic headings, full-width headers, landing page heroes"
+    },
+    {
+      "name": "SEO-Optimized H1 with Anchor ID",
+      "description": "Primary H1 heading with anchor ID for table of contents and SEO navigation",
+      "visualDescription": "Large professional heading, left-aligned, proper H1 sizing, anchor link enabled for TOC",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "h006",
+        "title": "Complete Guide to Digital Marketing in 2025",
+        "tTag": "h1",
+        "anchor": "main-heading",
+        "tAlign": {
+          "md": "left"
+        },
+        "tTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "42",
+            "sm": "32",
+            "xs": "26",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "lineHeight": {
+            "md": "1.2",
+            "unit": ""
+          }
+        },
+        "tColor": "#1a1a1a",
+        "tLink": {
+          "url": "",
+          "target": "",
+          "nofollow": ""
+        }
+      },
+      "useCase": "Article titles, blog post headings, SEO pages, content with table of contents, long-form articles"
+    },
+    {
+      "name": "Absolutely Positioned Floating Heading",
+      "description": "Heading with absolute positioning for overlay effects on images or containers",
+      "visualDescription": "White text positioned in top-left corner, overlay effect, semi-transparent shadow, floating above content",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "h007",
+        "title": "Featured",
+        "tTag": "h4",
+        "tAlign": {
+          "md": "left"
+        },
+        "tTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "20",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "1",
+            "unit": "px"
+          }
+        },
+        "tColor": "#ffffff",
+        "tShadow": {
+          "openShadow": 1,
+          "typeShadow": "text-shadow",
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "color": "rgba(0,0,0,0.6)"
+        },
+        "globalPosition": {
+          "md": "absolute",
+          "sm": "absolute",
+          "xs": "absolute"
+        },
+        "glohoriOffset": {
+          "md": "20",
+          "unit": "px"
+        },
+        "gloverticalOffset": {
+          "md": "20",
+          "unit": "px"
+        },
+        "gloabhorizoOri": "left",
+        "gloabverticalOri": "top",
+        "tLink": {
+          "url": "",
+          "target": "",
+          "nofollow": ""
+        }
+      },
+      "useCase": "Overlay labels on images, corner badges, floating section markers, card headers"
+    },
+    {
+      "name": "Combined Stroke + Fill + Shadow (Premium Effect)",
+      "description": "Complex heading with colored fill, contrasting stroke, and shadow for maximum impact",
+      "visualDescription": "Purple filled text with white stroke outline and deep shadow, 3D-like appearance, bold typography",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "h008",
+        "title": "PREMIUM DESIGN",
+        "tTag": "h2",
+        "tAlign": {
+          "md": "center"
+        },
+        "tTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "56",
+            "sm": "42",
+            "xs": "32",
+            "unit": "px"
+          },
+          "fontWeight": "900",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "3",
+            "sm": "2",
+            "xs": "1",
+            "unit": "px"
+          }
+        },
+        "tColor": "#667eea",
+        "tStroke": {
+          "tpgbReset": 1,
+          "tstWidth": {
+            "md": "3",
+            "sm": "2",
+            "xs": "1.5",
+            "unit": "px"
+          },
+          "tstColor": "#ffffff"
+        },
+        "tShadow": {
+          "openShadow": 1,
+          "typeShadow": "text-shadow",
+          "horizontal": 4,
+          "vertical": 4,
+          "blur": 8,
+          "color": "rgba(0,0,0,0.4)"
+        },
+        "tLink": {
+          "url": "",
+          "target": "",
+          "nofollow": ""
+        }
+      },
+      "useCase": "Premium sections, special announcements, hero statements, high-impact headers, promotional banners"
     }
   ],
+
+  "validationRules": {
+    "block_id": "Required - Unique identifier for the block",
+    "title": "Required - The heading text content (HTML allowed)",
+    "tTag": "Required - Semantic heading tag: h1, h2, h3, h4, h5, h6",
+    "tAlign.md": "left, center, or right - Controls text alignment",
+    "tColor": "Text color - hex, rgb, rgba, or CSS color names",
+    "tTypo.openTypography": "Must be 1 to enable typography settings",
+    "tTypo.fontSize": "Font size with responsive breakpoints (md/sm/xs) and unit",
+    "tStroke.tpgbReset": "Must be 1 to enable stroke effect",
+    "tStroke.tstWidth": "Stroke width - responsive with unit (px recommended)",
+    "tStroke.tstColor": "Stroke color - works independently of tColor",
+    "tShadow.openShadow": "Must be 1 to enable text shadow",
+    "tShadow.typeShadow": "Should be 'text-shadow' (not box-shadow)",
+    "tblendm": "CSS mix-blend-mode - overlay, multiply, screen, etc.",
+    "anchor": "Optional - HTML ID for linking (no # symbol, alphanumeric + hyphens)",
+    "tLink.url": "Optional - Makes heading clickable",
+    "tLink.target": "_self (same tab) or _blank (new tab)",
+    "globalPosition": "relative (default), absolute, or fixed",
+    "glohoriOffset": "Horizontal offset when position is absolute/fixed",
+    "gloverticalOffset": "Vertical offset when position is absolute/fixed",
+    "gloabhorizoOri": "'left' or 'right' - horizontal origin for positioning (undefined = needs manual setting)",
+    "gloabverticalOri": "'top' or 'bottom' - vertical origin for positioning (undefined = needs manual setting)"
+  },
+
+  "warnings": [
+    "⚠️ Only use one H1 per page for SEO best practices (primary page title)",
+    "⚠️ Maintain proper heading hierarchy (H1 → H2 → H3, don't skip levels)",
+    "⚠️ tStroke requires tpgbReset=1 to activate (otherwise stroke settings ignored)",
+    "⚠️ tShadow requires openShadow=1 to activate (otherwise shadow ignored)",
+    "⚠️ tTypo requires openTypography=1 to activate (otherwise typography settings ignored)",
+    "⚠️ Transparent tColor with stroke creates hollow outline effect (ensure stroke is visible)",
+    "⚠️ tblendm (blend mode) requires background behind heading to see effect",
+    "⚠️ Blend modes may not work on all browsers (mainly modern browsers)",
+    "⚠️ globalPosition=absolute requires parent with position:relative",
+    "⚠️ gloabhorizoOri and gloabverticalOri required when using absolute/fixed positioning",
+    "⚠️ Very large fontSize values (>80px) may cause layout issues on mobile",
+    "⚠️ Linked headings (tLink) should be used sparingly for accessibility (not standard pattern)",
+    "⚠️ anchor IDs must be unique on the page (no duplicates)",
+    "⚠️ Wide letterSpacing on long titles can cause horizontal scroll on mobile"
+  ],
+
+  "commonMistakes": [
+    "❌ Using multiple H1 tags on same page (SEO penalty, confuses screen readers)",
+    "❌ Skipping heading levels (H1 → H3 without H2 - breaks document structure)",
+    "❌ Setting tStroke without tpgbReset=1 (stroke won't appear)",
+    "❌ Setting tShadow without openShadow=1 (shadow won't appear)",
+    "❌ Setting typography without openTypography=1 (settings ignored)",
+    "❌ Using tColor='transparent' without stroke (invisible heading)",
+    "❌ Setting blend mode on headings without backgrounds (no visible effect)",
+    "❌ Using absolute positioning without defining gloabhorizoOri/gloabverticalOri",
+    "❌ Forgetting responsive fontSize values (md/sm/xs) - poor mobile experience",
+    "❌ Using very thin stroke (0.5px) that's barely visible on screens",
+    "❌ Setting anchor ID with # symbol (should be 'main-heading' not '#main-heading')",
+    "❌ Using target='_blank' for internal links (creates bad UX)",
+    "❌ Not testing long titles on mobile (text may overflow or wrap awkwardly)"
+  ],
+
+  "bestPractices": [
+    "✅ Use H1 only once per page for main title (SEO best practice)",
+    "✅ Follow semantic hierarchy: H1 (page) → H2 (sections) → H3 (subsections) → H4-H6 (details)",
+    "✅ Set responsive fontSize for all breakpoints (md/sm/xs) to ensure mobile readability",
+    "✅ Use fontWeight 700-900 for H1-H2, 600 for H3-H4, 500 for H5-H6",
+    "✅ Keep lineHeight tight (1.1-1.3) for large headings, looser (1.4-1.6) for smaller ones",
+    "✅ Use center alignment for hero H1 titles, left alignment for content headings",
+    "✅ Apply letterSpacing (1-3px) on uppercase headings for better readability",
+    "✅ Use stroke effects sparingly - best for hero sections and brand headers",
+    "✅ Keep text shadows subtle (blur: 2-8px, low opacity 0.2-0.4) for readability",
+    "✅ Use anchor IDs on major headings for table of contents and deep linking",
+    "✅ Test color contrast - minimum 4.5:1 ratio for accessibility (WCAG AA)",
+    "✅ Use semantic tTag values that match visual importance (don't use H6 for large text)",
+    "✅ Combine stroke + transparent fill for modern outline effect on hero headings",
+    "✅ Use blend modes (overlay, multiply) on headings over background images for better integration",
+    "✅ Keep heading length reasonable (<10 words for H1, <15 words for H2-H6)",
+    "✅ Use textTransform: 'uppercase' for short impactful titles, normal case for long titles",
+    "✅ Apply tLink only when heading truly functions as navigation (rare use case)",
+    "✅ Use globalPosition=absolute for overlay labels on images/cards",
+    "✅ Test absolute positioning on all breakpoints - may need different offsets"
+  ],
+
+  "semanticHierarchy": {
+    "h1": {
+      "purpose": "Main page title - use once per page",
+      "fontSize": "42-72px desktop, 26-48px mobile",
+      "fontWeight": "700-900 (bold to black)",
+      "useCase": "Page titles, hero headlines, article titles",
+      "seoImportance": "Critical - defines page topic for search engines"
+    },
+    "h2": {
+      "purpose": "Major section headers",
+      "fontSize": "32-48px desktop, 22-36px mobile",
+      "fontWeight": "600-700 (semi-bold to bold)",
+      "useCase": "Section headers, content separators, feature blocks",
+      "seoImportance": "High - indicates main content sections"
+    },
+    "h3": {
+      "purpose": "Subsection headers under H2",
+      "fontSize": "24-32px desktop, 18-26px mobile",
+      "fontWeight": "500-600 (medium to semi-bold)",
+      "useCase": "Subsection titles, card headers, minor feature headings",
+      "seoImportance": "Medium - supports H2 section structure"
+    },
+    "h4": {
+      "purpose": "Minor subsections under H3",
+      "fontSize": "20-24px desktop, 16-20px mobile",
+      "fontWeight": "500-600",
+      "useCase": "Detail headings, list section titles, small cards",
+      "seoImportance": "Low-Medium - detailed content structure"
+    },
+    "h5": {
+      "purpose": "Detailed subsections under H4",
+      "fontSize": "18-20px desktop, 16-18px mobile",
+      "fontWeight": "500",
+      "useCase": "Fine-grained divisions, list items, small labels",
+      "seoImportance": "Low - detailed hierarchy"
+    },
+    "h6": {
+      "purpose": "Lowest-level headings",
+      "fontSize": "16-18px desktop, 14-16px mobile",
+      "fontWeight": "500",
+      "useCase": "Minor labels, barely-above-body-text emphasis",
+      "seoImportance": "Very Low - rare use case"
+    }
+  },
+
+  "effectCombinations": {
+    "hollowStroke": {
+      "description": "Transparent fill with colored stroke (outline effect)",
+      "settings": "tColor='transparent', tStroke.tpgbReset=1, tstWidth=2-3px, tstColor='#color'",
+      "bestFor": "Modern hero headers, brand statements, creative designs",
+      "note": "Works best on solid backgrounds or over images"
+    },
+    "filledStroke": {
+      "description": "Colored fill with contrasting stroke (double outline)",
+      "settings": "tColor='#color1', tStroke.tpgbReset=1, tstWidth=2-4px, tstColor='#color2'",
+      "bestFor": "Premium designs, high-impact headers, 3D-like effect",
+      "note": "Use contrasting colors (e.g., purple fill + white stroke)"
+    },
+    "shadowDepth": {
+      "description": "Text shadow for depth and readability over images",
+      "settings": "tShadow.openShadow=1, horizontal=2-4, vertical=2-4, blur=4-8, color='rgba(0,0,0,0.3-0.6)'",
+      "bestFor": "Text over images, subtle depth on white backgrounds",
+      "note": "Keep blur and opacity subtle for readability"
+    },
+    "blendOverlay": {
+      "description": "Mix-blend-mode for integration with background images",
+      "settings": "tblendm='overlay' or 'multiply', tColor (usually white/black)",
+      "bestFor": "Hero sections, full-width headers over images",
+      "note": "Requires background image/color behind heading to see effect"
+    },
+    "strokeShadow": {
+      "description": "Combine stroke and shadow for maximum impact",
+      "settings": "Both tStroke and tShadow enabled with proper colors",
+      "bestFor": "Premium sections, special announcements, hero statements",
+      "note": "Can be overwhelming - use sparingly for key headings"
+    }
+  },
+
+  "responsivePatterns": [
+    "📱 Reduce fontSize on mobile: H1 (72px → 32px), H2 (48px → 24px), H3 (32px → 18px)",
+    "📱 Adjust lineHeight for mobile: Slightly looser (1.2 → 1.3) for better readability",
+    "📱 Reduce letterSpacing on mobile: Wide spacing causes horizontal scroll (3px → 1px)",
+    "📱 Thin stroke on mobile: Reduce tstWidth (3px → 1.5px) for better rendering",
+    "📱 Adjust alignment on mobile: Centered headings may look better left-aligned on small screens",
+    "📱 Test absolute positioning offsets on mobile: May need smaller values (20px → 10px)",
+    "📱 Reduce text shadow on mobile: Heavy shadows harder to read on small screens",
+    "📱 Use textTransform carefully on mobile: Uppercase takes more horizontal space",
+    "📱 Consider shorter title variants for mobile to prevent awkward wrapping",
+    "📱 Test blend modes on mobile: May appear different on various mobile browsers"
+  ],
+
+  "accessibilityNotes": [
+    "♿ Use semantic tTag values (H1-H6) in proper hierarchy - critical for screen readers",
+    "♿ Don't skip heading levels (H1 → H2 → H3, never H1 → H3)",
+    "♿ Ensure color contrast of 4.5:1 minimum between text and background (WCAG AA)",
+    "♿ Test stroke + fill combinations for sufficient contrast",
+    "♿ Don't rely on color alone to convey meaning (add text/icons)",
+    "♿ Anchor IDs enable keyboard navigation and screen reader jumping",
+    "♿ Linked headings (tLink) should have clear purpose - not standard pattern",
+    "♿ Test with screen readers to verify heading structure announcement",
+    "♿ Very large font sizes can cause zoom issues - test with 200% zoom",
+    "♿ Ensure blend modes don't reduce readability for low-vision users",
+    "♿ Text shadows should enhance, not reduce readability (avoid too dark/heavy)"
+  ],
+
+  "performanceConsiderations": [
+    "⚡ Text stroke (-webkit-text-stroke) is well-supported but can impact rendering",
+    "⚡ Text shadows are GPU-accelerated but multiple shadows increase cost",
+    "⚡ Mix-blend-mode can cause repaints - use sparingly on animated sections",
+    "⚡ Custom web fonts add load time - ensure font-display: swap in CSS",
+    "⚡ Very large fontSize values (>100px) increase paint time",
+    "⚡ Absolute positioning creates new stacking context - test z-index",
+    "⚡ Linked headings (tLink.url) add extra DOM nodes for <a> wrapping",
+    "⚡ Responsive typography (md/sm/xs) adds media queries - minimal impact",
+    "⚡ Multiple text effects (stroke + shadow + blend) stack rendering cost",
+    "⚡ Test scroll performance with absolutely positioned headings (layout reflow)"
+  ],
+
+  "integrationPatterns": [
+    "🔗 Place in tp-container for full-width header sections",
+    "🔗 Combine with tp-pro-paragraph below for intro text",
+    "🔗 Use above tp-stylist-list for 'Features:' headers",
+    "🔗 Pair with tp-button below for heading + CTA combinations",
+    "🔗 Place absolutely inside tp-container for image overlay titles",
+    "🔗 Use in tp-accordion-inner as section titles",
+    "🔗 Combine with tp-image above for image + caption layouts",
+    "🔗 Use in tp-column for multi-column heading layouts",
+    "🔗 Place in tp-tabs-tours for tab content headers",
+    "🔗 Use with tp-icon-box above for icon + heading combinations"
+  ],
+
   "commonPatterns": {
     "pageTitle": {
-      "tTag": "h1",
-      "tAlign": {"md": "center"},
-      "tTypo": {
-        "openTypography": 1,
-        "fontSize": {"md": "48", "sm": "36", "xs": "28", "unit": "px"},
-        "fontWeight": "700"
-      }
+      "description": "Primary H1 page title",
+      "attributes": ["tTag=h1", "fontSize.md=48px", "fontWeight=700", "center aligned", "responsive sizing"]
     },
     "sectionHeader": {
-      "tTag": "h2",
-      "tTypo": {
-        "openTypography": 1,
-        "fontSize": {"md": "32", "sm": "26", "xs": "22", "unit": "px"},
-        "fontWeight": "600"
-      }
+      "description": "H2 section divider",
+      "attributes": ["tTag=h2", "fontSize.md=32-36px", "fontWeight=600", "left aligned", "moderate size"]
     },
     "subheading": {
-      "tTag": "h3",
-      "tTypo": {
-        "openTypography": 1,
-        "fontSize": {"md": "24", "sm": "20", "xs": "18", "unit": "px"},
-        "fontWeight": "500"
-      }
+      "description": "H3 subsection title",
+      "attributes": ["tTag=h3", "fontSize.md=24-28px", "fontWeight=500-600", "left aligned"]
+    },
+    "hollowHero": {
+      "description": "Outline-only hero heading",
+      "attributes": ["tColor=transparent", "tStroke enabled", "large fontSize", "center aligned", "uppercase"]
+    },
+    "shadowOverImage": {
+      "description": "Text with shadow over background image",
+      "attributes": ["tColor=white", "tShadow enabled", "blur=6-8px", "dark shadow color"]
+    },
+    "linkedHeader": {
+      "description": "Clickable section header",
+      "attributes": ["tLink.url set", "hover color", "target=_self usually", "H2-H3 size"]
+    },
+    "anchoredSEO": {
+      "description": "SEO-optimized heading with anchor",
+      "attributes": ["anchor ID set", "proper tTag (H1-H3)", "descriptive title", "standard styling"]
+    },
+    "absoluteOverlay": {
+      "description": "Floating heading over content",
+      "attributes": ["globalPosition=absolute", "white tColor", "tShadow for readability", "corner offsets"]
     }
   }
 }
