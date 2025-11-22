@@ -2,75 +2,225 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-expand",
   "title": "Expand - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for collapsible content (read more/less functionality)",
   "examples": [
     {
-      "description": "Simple 'Read More' for blog excerpt",
+      "name": "Simple Blog Excerpt 'Read More'",
+      "description": "Basic collapsed blog excerpt with read more/less toggle",
+      "visualDescription": "150px tall collapsed content, subtle gradient fade, left-aligned 'Read More' link with down-arrow icon",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "exp001",
         "title": "",
+        "titleTag": "div",
+        "contentSource": "customContent",
+        "content": "Earth is the third planet from the Sun and the only astronomical object known to harbour life. According to radiometric dating estimation and other evidence, Earth formed over 4.5 billion years ago. Earth's gravity interacts with other objects in space, especially the Sun and the Moon, which is Earth's only natural satellite.",
         "expandText": "Read More",
         "collapseText": "Read Less",
+        "readMoreIcon": "fas fa-angle-down",
+        "collapseIcon": "fas fa-angle-up",
+        "iconPosition": "after",
         "contentMaxHeight": {
           "md": "150",
           "unit": "px"
         },
+        "customOpacity": true,
+        "opacityHeight": {
+          "md": "60",
+          "unit": "px"
+        },
+        "opacityColor": "#ffffff",
         "toggleAlignment": "left",
-        "transDuration": "300"
-      }
+        "transDuration": "300",
+        "toggleBtnColor": "#667eea",
+        "toggleIconColor": "#667eea"
+      },
+      "useCase": "Blog posts, articles, news excerpts, content previews"
     },
     {
-      "description": "Product description with custom icon",
+      "name": "Product Description with Title",
+      "description": "Product details with heading, custom height, and styled toggle button",
+      "visualDescription": "100px collapsed content, 'Product Details' h3 heading, centered purple toggle button with border",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "exp002",
         "title": "Product Details",
         "titleTag": "h3",
+        "contentSource": "customContent",
+        "content": "This premium product features advanced technology and superior craftsmanship. Made with eco-friendly materials and designed for durability. Includes a 2-year warranty and free shipping on all orders over $50. Perfect for everyday use or special occasions.",
         "expandText": "View Full Details",
+        "collapseText": "Hide Details",
         "readMoreIcon": "fas fa-chevron-down",
         "collapseIcon": "fas fa-chevron-up",
+        "iconPosition": "after",
         "contentMaxHeight": {
           "md": "100",
           "unit": "px"
         },
         "customOpacity": true,
-        "opacityColor": "#ffffff"
-      }
+        "opacityColor": "#f9f9f9",
+        "toggleAlignment": "center",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "20", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "titleColor": "#333333",
+        "toggleBtnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"},
+          "fontWeight": "500"
+        },
+        "toggleBtnColor": "#667eea",
+        "toggleBtnColorH": "#764ba2",
+        "toggleBtnBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "toggleBtnPadding": {
+          "md": {
+            "top": "8",
+            "right": "20",
+            "bottom": "8",
+            "left": "20"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "E-commerce product pages, feature lists, specifications"
     },
     {
-      "description": "FAQ answer with extra 'Contact Us' button",
+      "name": "FAQ Answer with Extra 'Contact Us' Button",
+      "description": "Collapsible FAQ answer with secondary action button",
+      "visualDescription": "Two buttons: 'Show Answer' (main toggle) and 'Contact Support' (extra link), center-aligned",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "exp003",
+        "title": "",
+        "contentSource": "customContent",
+        "content": "Our support team is available 24/7 to assist you. You can reach us via email at support@example.com or call our toll-free number 1-800-SUPPORT. For technical issues, please submit a ticket through our help desk portal.",
         "expandText": "Show Answer",
         "collapseText": "Hide Answer",
+        "readMoreIcon": "fas fa-plus",
+        "collapseIcon": "fas fa-minus",
+        "iconPosition": "before",
+        "contentMaxHeight": {
+          "md": "0",
+          "unit": "px"
+        },
+        "toggleAlignment": "center",
         "extraButton": true,
         "extraButtonText": "Contact Support",
         "extraButtonLink": {
           "url": "/contact",
-          "target": ""
+          "target": "",
+          "nofollow": ""
         },
-        "toggleAlignment": "center"
-      }
+        "extraButtonIcon": "fas fa-envelope",
+        "toggleBtnColor": "#ffffff",
+        "toggleBtnBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "toggleBtnPadding": {
+          "md": {
+            "top": "10",
+            "right": "20",
+            "bottom": "10",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "extraBtnColor": "#667eea",
+        "extraBtnBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "extraBtnBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        }
+      },
+      "useCase": "FAQ pages, help documentation, support sections"
     },
     {
-      "description": "Team bio with template content",
+      "name": "Team Bio with Template Content (Pro Feature)",
+      "description": "Team member biography loaded from WordPress template",
+      "visualDescription": "Collapsed bio with 'Read Full Bio' button, content loaded from saved template",
+      "complexity": "advanced",
       "attributes": {
-        "block_id": "g7h8",
-        "contentSource": "template",
-        "templates": "team-bio-template",
+        "block_id": "exp004",
         "title": "About John Doe",
         "titleTag": "h4",
+        "contentSource": "template",
+        "templates": "team-bio-template",
         "expandText": "Read Full Bio",
         "collapseText": "Show Less",
-        "iconPosition": "after"
-      }
+        "readMoreIcon": "fas fa-user",
+        "collapseIcon": "fas fa-user-minus",
+        "iconPosition": "before",
+        "contentMaxHeight": {
+          "md": "120",
+          "unit": "px"
+        },
+        "toggleAlignment": "left",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "18", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "titleColor": "#333333",
+        "descTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "lineHeight": {"md": "1.7", "unit": "em"}
+        },
+        "descColor": "#666666"
+      },
+      "useCase": "Team pages, author bios, staff profiles, speaker introductions",
+      "warnings": [
+        "templates must be a valid WordPress template slug from Saved Templates",
+        "contentSource must be set to 'template' for template mode to work",
+        "Template must exist before using"
+      ]
     },
     {
-      "description": "Recipe with gradient overlay",
+      "name": "Recipe with Gradient Overlay",
+      "description": "Full recipe with custom gradient fade and slow animation",
+      "visualDescription": "200px tall collapsed recipe, 80px tall gradient fade from transparent to light gray, centered toggle",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "i9j0",
+        "block_id": "exp005",
         "title": "Full Recipe",
+        "titleTag": "h3",
+        "contentSource": "customContent",
+        "content": "<h4>Ingredients:</h4><ul><li>2 cups flour</li><li>1 cup sugar</li><li>3 eggs</li><li>1/2 cup butter</li><li>1 tsp vanilla extract</li></ul><h4>Instructions:</h4><ol><li>Preheat oven to 350°F</li><li>Mix dry ingredients in a bowl</li><li>Add wet ingredients and stir until combined</li><li>Pour into greased pan</li><li>Bake for 25-30 minutes</li></ol>",
         "contentMaxHeight": {
           "md": "200",
+          "sm": "180",
+          "xs": "150",
           "unit": "px"
         },
         "customOpacity": true,
@@ -80,14 +230,443 @@
         },
         "opacityColor": "#f9f9f9",
         "expandText": "Show Full Recipe",
+        "collapseText": "Hide Recipe",
+        "readMoreIcon": "fas fa-utensils",
+        "collapseIcon": "fas fa-times",
+        "iconPosition": "before",
         "toggleAlignment": "center",
-        "transDuration": "400"
-      }
+        "transDuration": "400",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "22", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "toggleBtnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "toggleBtnColor": "#ffffff",
+        "toggleBtnBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ff6b6b"
+        },
+        "toggleBtnBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(255,107,107,0.3)"
+        }
+      },
+      "useCase": "Food blogs, recipe websites, cooking tutorials"
+    },
+    {
+      "name": "Privacy Policy with Accessibility",
+      "description": "Legal content with ARIA labels and minimal styling",
+      "visualDescription": "Simple black text on white, left-aligned, accessible for screen readers",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "exp006",
+        "title": "Privacy Policy",
+        "titleTag": "h2",
+        "contentSource": "customContent",
+        "content": "This Privacy Policy describes how we collect, use, and protect your personal information. We are committed to ensuring that your privacy is protected. When using our services, you may be asked to provide certain information by which you can be identified. We collect information in several ways...",
+        "expandText": "Read Full Privacy Policy",
+        "collapseText": "Collapse Privacy Policy",
+        "readMoreIcon": "fas fa-lock",
+        "collapseIcon": "fas fa-lock-open",
+        "iconPosition": "after",
+        "ariaLabel": "Expand to read full privacy policy",
+        "contentMaxHeight": {
+          "md": "100",
+          "unit": "px"
+        },
+        "toggleAlignment": "left",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "24", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "titleColor": "#000000",
+        "descTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"},
+          "lineHeight": {"md": "1.8", "unit": "em"}
+        },
+        "descColor": "#333333",
+        "toggleBtnColor": "#0066cc",
+        "toggleBtnColorH": "#004499"
+      },
+      "useCase": "Legal pages, terms of service, privacy policies, disclaimers"
+    },
+    {
+      "name": "Testimonial with Icon Before Text",
+      "description": "Customer testimonial with icon positioned before text",
+      "visualDescription": "Quote icon before 'Read More', gradient background on toggle button, right-aligned",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "exp007",
+        "title": "Customer Review",
+        "titleTag": "h4",
+        "contentSource": "customContent",
+        "content": "\"This product exceeded all my expectations! The quality is outstanding and the customer service was exceptional. I've been using it for 3 months now and couldn't be happier. Highly recommend to anyone looking for a reliable solution. The team went above and beyond to ensure I was satisfied with my purchase.\"",
+        "expandText": "Read Full Review",
+        "collapseText": "Show Less",
+        "readMoreIcon": "fas fa-quote-right",
+        "collapseIcon": "fas fa-quote-left",
+        "iconPosition": "before",
+        "contentMaxHeight": {
+          "md": "80",
+          "unit": "px"
+        },
+        "customOpacity": true,
+        "opacityColor": "#ffffff",
+        "toggleAlignment": "right",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase"
+        },
+        "titleColor": "#667eea",
+        "descTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "fontStyle": "italic",
+          "lineHeight": {"md": "1.6", "unit": "em"}
+        },
+        "toggleBtnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"}
+        },
+        "toggleBtnColor": "#ffffff",
+        "toggleBtnBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "toggleBtnPadding": {
+          "md": {
+            "top": "10",
+            "right": "18",
+            "bottom": "10",
+            "left": "18"
+          },
+          "unit": "px"
+        },
+        "toggleIconOffsetBefore": {
+          "md": "8",
+          "unit": "px"
+        }
+      },
+      "useCase": "Testimonials, reviews, customer feedback, case studies"
+    },
+    {
+      "name": "Advanced Styled (All Features)",
+      "description": "Fully customized expand block with all styling options",
+      "visualDescription": "Custom typography, gradient button, box shadow, icons, extra button, responsive sizing",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "exp008",
+        "title": "Premium Content",
+        "titleTag": "h3",
+        "contentSource": "customContent",
+        "content": "Unlock exclusive premium content with advanced features and detailed insights. This comprehensive guide covers everything you need to know about our premium offerings, including step-by-step tutorials, expert tips, and insider knowledge that will transform your experience.",
+        "expandText": "Unlock Premium Content",
+        "collapseText": "Hide Premium Content",
+        "readMoreIcon": "fas fa-unlock-alt",
+        "collapseIcon": "fas fa-lock",
+        "iconPosition": "after",
+        "contentMaxHeight": {
+          "md": "120",
+          "sm": "100",
+          "xs": "80",
+          "unit": "px"
+        },
+        "customOpacity": true,
+        "opacityHeight": {
+          "md": "70",
+          "sm": "60",
+          "xs": "50",
+          "unit": "px"
+        },
+        "opacityColor": "#ffffff",
+        "toggleAlignment": "center",
+        "transDuration": "500",
+        "extraButton": true,
+        "extraButtonText": "Learn More",
+        "extraButtonLink": {
+          "url": "/premium",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "extraButtonIcon": "fas fa-arrow-right",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "24", "sm": "20", "xs": "18", "unit": "px"},
+          "fontWeight": "700",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "1", "unit": "px"}
+        },
+        "titleColor": "#667eea",
+        "titleAlign": "center",
+        "titleMargin": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "20",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "descTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "lineHeight": {"md": "1.7", "unit": "em"}
+        },
+        "descColor": "#333333",
+        "descAlign": "center",
+        "toggleBtnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "toggleBtnColor": "#ffffff",
+        "toggleBtnColorH": "#ffffff",
+        "toggleBtnBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "toggleBtnBgH": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#764ba2", "position": 0},
+              {"color": "#667eea", "position": 100}
+            ]
+          }
+        },
+        "toggleBtnPadding": {
+          "md": {
+            "top": "12",
+            "right": "30",
+            "bottom": "12",
+            "left": "30"
+          },
+          "unit": "px"
+        },
+        "toggleBtnBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 15,
+          "spread": 0,
+          "color": "rgba(102,126,234,0.4)"
+        },
+        "toggleIconSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "toggleIconOffsetAfter": {
+          "md": "10",
+          "unit": "px"
+        },
+        "extraBtnColor": "#667eea",
+        "extraBtnColorH": "#764ba2",
+        "extraBtnBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "transparent"
+        },
+        "extraBtnBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "extraButtonMargin": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "15"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Premium content, membership areas, gated content, conversion-focused layouts"
     }
   ],
   "commonPatterns": {
-    "default": {
-      "block_id": "example"
+    "blogExcerpt": {
+      "description": "Simple read more for blog posts",
+      "requiredAttributes": ["expandText", "collapseText", "contentMaxHeight"],
+      "recommendedSettings": {
+        "contentMaxHeight": "150px",
+        "customOpacity": true,
+        "toggleAlignment": "left"
+      }
+    },
+    "productDetails": {
+      "description": "E-commerce product description toggle",
+      "requiredAttributes": ["title", "expandText", "contentMaxHeight"],
+      "recommendedSettings": {
+        "titleTag": "h3",
+        "contentMaxHeight": "100px",
+        "toggleAlignment": "center"
+      }
+    },
+    "faqAnswer": {
+      "description": "FAQ answer with optional contact button",
+      "requiredAttributes": ["expandText", "collapseText"],
+      "optionalAttributes": ["extraButton", "extraButtonText", "extraButtonLink"],
+      "recommendedSettings": {
+        "contentMaxHeight": "0px",
+        "iconPosition": "before",
+        "readMoreIcon": "fas fa-plus",
+        "collapseIcon": "fas fa-minus"
+      }
+    },
+    "testimonial": {
+      "description": "Customer review or testimonial",
+      "requiredAttributes": ["title", "expandText", "contentMaxHeight"],
+      "recommendedSettings": {
+        "contentMaxHeight": "80px",
+        "customOpacity": true,
+        "iconPosition": "before",
+        "readMoreIcon": "fas fa-quote-right"
+      }
     }
-  }
+  },
+  "validationRules": {
+    "block_id": "Required, unique identifier",
+    "contentSource": "Required, must be 'customContent' or 'template'",
+    "content": "Required when contentSource='customContent'",
+    "templates": "Required when contentSource='template', must be valid template slug",
+    "expandText": "Required, text for expand button",
+    "collapseText": "Required, text for collapse button",
+    "contentMaxHeight": "Required, initial collapsed height (0 = fully collapsed)",
+    "iconPosition": "Optional, must be 'before' or 'after'",
+    "toggleAlignment": "Optional, must be 'left', 'center', or 'right'",
+    "extraButtonLink.url": "Required when extraButton=true"
+  },
+  "warnings": [
+    "contentMaxHeight of 0 will fully collapse content (useful for FAQs)",
+    "customOpacity requires opacityColor to be set for gradient fade effect",
+    "opacityHeight controls the height of the gradient fade (default 60-80px recommended)",
+    "Template mode requires valid template slug from Saved Templates",
+    "extraButton requires extraButtonText and extraButtonLink.url to be set",
+    "iconPosition affects icon offset attributes (before vs after)",
+    "transDuration is in milliseconds (200-500ms recommended for smooth transitions)",
+    "toggleAlignment affects button positioning (left/center/right)",
+    "ariaLabel improves accessibility for screen readers (highly recommended)",
+    "Always set openTypography: 1 before setting typography values",
+    "Don't set contentMaxHeight too small on mobile (xs breakpoint)"
+  ],
+  "commonMistakes": [
+    "Forgetting to set customOpacity: true when using opacityColor",
+    "Setting templates but leaving contentSource as 'customContent'",
+    "Using template slugs that don't exist in WordPress",
+    "Not setting contentMaxHeight (defaults to 100px, may not match content)",
+    "Setting extraButton: true but forgetting extraButtonLink.url",
+    "Not testing collapsed height on different breakpoints (md/sm/xs)",
+    "Using very large transDuration (makes UX feel sluggish)",
+    "Forgetting readMoreIcon and collapseIcon (defaults to angle icons)",
+    "Not setting ariaLabel for accessibility",
+    "Setting typography attributes without openTypography: 1 first",
+    "Using iconPosition='after' but styling toggleIconOffsetBefore",
+    "Not accounting for gradient overlay height in contentMaxHeight"
+  ],
+  "bestPractices": [
+    "Set contentMaxHeight to show 2-3 lines of content initially",
+    "Use customOpacity: true with gradient fade for better visual UX",
+    "Set opacityHeight to 60-80px for smooth gradient transition",
+    "Use meaningful toggle text ('Read Full Article' vs 'Read More')",
+    "Add icons to toggle buttons for visual clarity",
+    "Use iconPosition='after' for Western languages (LTR)",
+    "Set transDuration to 300-400ms for smooth but fast transitions",
+    "Center-align toggle buttons for symmetric layouts",
+    "Left-align toggle for blog/article content",
+    "Right-align toggle for testimonials/quotes",
+    "Use extraButton for secondary CTAs (Contact, Learn More, etc.)",
+    "Add ariaLabel for screen reader accessibility",
+    "Set responsive contentMaxHeight (smaller on mobile)",
+    "Use titleTag semantically (h2 for main headings, h3 for subheadings)",
+    "Apply box shadows to toggle buttons for depth",
+    "Use gradient backgrounds for modern, premium look",
+    "Test with long and short content to ensure proper behavior",
+    "Keep toggle button text concise (2-4 words max)"
+  ],
+  "contentSourceGuidance": {
+    "customContent": {
+      "description": "Direct HTML content in 'content' attribute",
+      "whenToUse": "Simple content, unique one-time content, inline text",
+      "attributes": ["content"],
+      "example": "content: '<p>Your HTML content here</p>'"
+    },
+    "template": {
+      "description": "Load content from WordPress Saved Template",
+      "whenToUse": "Complex layouts, reusable content, Pro feature requirement",
+      "attributes": ["templates"],
+      "example": "templates: 'my-template-slug', contentSource: 'template'",
+      "warnings": [
+        "Template must exist in Nexter > Saved Templates",
+        "Template slug must be exact match",
+        "Pro feature only"
+      ]
+    }
+  },
+  "iconPositionGuide": {
+    "before": {
+      "description": "Icon appears before text",
+      "visualAppearance": "[icon] Read More",
+      "applicableAttributes": ["toggleIconOffsetBefore", "extraTIconOffsetBefore"],
+      "useCase": "Plus/minus icons, quote icons, directional icons pointing right"
+    },
+    "after": {
+      "description": "Icon appears after text",
+      "visualAppearance": "Read More [icon]",
+      "applicableAttributes": ["toggleIconOffsetAfter", "extraTIconOffsetAfter"],
+      "useCase": "Down/up arrows, chevrons, default Western (LTR) reading order"
+    }
+  },
+  "accessibilityNotes": [
+    "Always set ariaLabel for main toggle button (describes what will happen)",
+    "Set ariaLabelEb for extra button if using extraButton: true",
+    "Ensure color contrast meets WCAG AA standards (4.5:1 minimum)",
+    "Toggle button should be keyboard accessible (Tab to focus, Enter/Space to toggle)",
+    "Use semantic HTML in title (h2, h3, etc. not div when possible)",
+    "Icons should supplement text, not replace it",
+    "Collapsed content should still be accessible to screen readers",
+    "Use meaningful toggle text that describes the action"
+  ]
 }
