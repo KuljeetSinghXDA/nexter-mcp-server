@@ -1,47 +1,487 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-pro-paragraph",
-  "title": "Paragraph - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Pro Paragraph - Focused Production Examples",
+  "description": "Key usage patterns for enhanced paragraph block with title, columns, drop caps, and advanced typography",
+
   "examples": [
     {
-      "description": "Simple paragraph with heading",
+      "name": "Standard Content Block with Title",
+      "description": "Classic paragraph with H3 title, centered alignment, custom typography",
+      "visualDescription": "Section with 'About Us' title (H3, 24px, bold) above paragraph text. Both centered, generous spacing. Dark gray text on white background.",
+      "complexity": "simple",
+      "useCase": "About sections, feature descriptions, content blocks, service descriptions",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "pp01",
         "Showtitle": true,
-        "title": "Our Mission",
-        "titleTag": "h2",
-        "content": "We are committed to providing the best service to our customers.",
+        "title": "About Our Company",
+        "titleTag": "h3",
+        "descTag": "p",
+        "content": "We are a passionate team dedicated to creating innovative solutions that make a difference. With over 10 years of experience in the industry, we pride ourselves on delivering exceptional quality and outstanding customer service.",
         "alignment": {
-          "md": "left"
-        }
-      }
+          "md": "center",
+          "sm": "center",
+          "xs": "left"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "24", "sm": "20", "xs": "18", "unit": "px"},
+          "fontWeight": "700",
+          "lineHeight": {"md": "1.3", "unit": "em"}
+        },
+        "titleColor": "#2c3e50",
+        "titleBtmSpace": {
+          "md": "20",
+          "sm": "15",
+          "unit": "px"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "lineHeight": {"md": "1.7", "unit": "em"}
+        },
+        "textColor": "#555555"
+      },
+      "responsiveNotes": "Title font scales down on mobile. Alignment shifts from center to left on small screens for better readability.",
+      "relatedBlocks": ["tp-heading", "tp-container"]
     },
+
     {
-      "description": "Centered paragraph without heading",
+      "name": "Two-Column Text Layout",
+      "description": "Paragraph text split into 2 columns with gap, perfect for long-form content",
+      "visualDescription": "Text flows in 2 columns (magazine style) with 30px gap between columns. Columns stack to single column on mobile. Justified alignment creates clean edges.",
+      "complexity": "medium",
+      "useCase": "Long-form articles, magazine layouts, multi-column content, blog posts",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "pp02",
         "Showtitle": false,
-        "content": "This is a centered paragraph of text.",
+        "descTag": "p",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "pCol": {
+          "md": "2",
+          "sm": "1",
+          "xs": "1"
+        },
+        "pcolspac": {
+          "md": "30",
+          "sm": "0",
+          "unit": "px"
+        },
         "alignment": {
-          "md": "center"
+          "md": "justify"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "lineHeight": {"md": "1.8", "unit": "em"}
         },
         "textColor": "#333333"
-      }
+      },
+      "responsiveNotes": "2 columns on desktop (pCol: '2'), single column on tablet/mobile. Column gap removed on mobile.",
+      "warnings": [
+        "pCol uses CSS columns - may not work in older browsers (IE11)",
+        "Test column breaks with actual content - orphaned lines can occur",
+        "Avoid columns with very short content (less than 3-4 paragraphs)"
+      ],
+      "relatedBlocks": ["tp-container", "tp-row"]
     },
+
     {
-      "description": "Paragraph with custom link colors",
+      "name": "Drop Cap Feature Article",
+      "description": "Article-style paragraph with large drop cap first letter (stacked style)",
+      "visualDescription": "First letter is 3x larger, white text on purple background, rounded square. Creates elegant magazine-style opening. Rest of text flows around drop cap.",
+      "complexity": "medium",
+      "useCase": "Feature articles, blog post intros, magazine layouts, editorial content",
       "attributes": {
-        "block_id": "e5f6",
-        "content": "Visit our <a href='/contact'>contact page</a> for more information.",
-        "linkColor": "#0066cc",
-        "linkHoverColor": "#003d7a"
-      }
+        "block_id": "pp03",
+        "Showtitle": true,
+        "title": "The Future of Technology",
+        "titleTag": "h2",
+        "descTag": "p",
+        "content": "Artificial intelligence is transforming every aspect of our lives. From healthcare to transportation, education to entertainment, AI-powered solutions are creating unprecedented opportunities and challenges. As we stand at this technological crossroads, understanding the implications of AI becomes crucial for everyone, not just technologists.",
+        "dropCap": true,
+        "dcapView": "stacked",
+        "dcapCol": "#667eea",
+        "dcapseCol": "#ffffff",
+        "dcapTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "60", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "tcapSize": "15",
+        "tcapspac": "10",
+        "tcapbrad": "8",
+        "captShadow": {
+          "openShadow": 1,
+          "typeShadow": "text-shadow",
+          "horizontal": 2,
+          "vertical": 2,
+          "blur": 4,
+          "color": "rgba(0,0,0,0.2)"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "32", "sm": "26", "xs": "22", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "titleColor": "#2c3e50",
+        "titleBtmSpace": {"md": "25", "unit": "px"},
+        "textTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "lineHeight": {"md": "1.8", "unit": "em"}
+        },
+        "textColor": "#444444"
+      },
+      "dropCapOptions": {
+        "default": "Simple enlarged letter",
+        "stacked": "Letter on colored background (dcapCol = bg, dcapseCol = text)",
+        "framed": "Letter with colored border (dcapCol = text & border, dcapseCol = bg)"
+      },
+      "warnings": [
+        "dropCap: true required to enable drop cap",
+        "dcapView determines style: default, stacked, or framed",
+        "For stacked: dcapCol = background, dcapseCol = text color",
+        "For framed: dcapCol = text & border color, dcapseCol = background",
+        "tcapSize adds padding around letter",
+        "tcapspac sets right margin (space before text)",
+        "Drop caps work best with paragraph text, not single lines"
+      ],
+      "relatedBlocks": ["tp-heading"]
+    },
+
+    {
+      "name": "Text with Custom Link Styling",
+      "description": "Paragraph with branded link colors and hover effects",
+      "visualDescription": "Body text in dark gray. Links appear in purple (#667eea), change to darker purple (#764ba2) on hover. Smooth color transition creates polished feel.",
+      "complexity": "simple",
+      "useCase": "Content with links, call-to-action text, navigation descriptions, rich text content",
+      "attributes": {
+        "block_id": "pp04",
+        "Showtitle": false,
+        "descTag": "p",
+        "content": "Explore our <a href='/services'>services</a> to learn how we can help your business grow. Visit our <a href='/portfolio'>portfolio</a> to see examples of our work, or <a href='/contact'>contact us</a> today for a free consultation.",
+        "alignment": {"md": "left"},
+        "textTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "lineHeight": {"md": "1.7", "unit": "em"}
+        },
+        "textColor": "#333333",
+        "linkColor": "#667eea",
+        "linkHoverColor": "#764ba2"
+      },
+      "visualTips": "Link color transitions smoothly on hover. Use brand colors for consistent visual identity.",
+      "relatedBlocks": ["tp-button"]
+    },
+
+    {
+      "name": "Quote or Callout with Text Shadow",
+      "description": "Centered text with subtle text shadow for emphasis, perfect for quotes or callouts",
+      "visualDescription": "Large centered text (20px) with subtle shadow creates depth. Italic style adds elegance. Light gray background (#f8f9fa) sets it apart from surrounding content.",
+      "complexity": "simple",
+      "useCase": "Pullquotes, callouts, featured text, testimonial quotes, emphasis sections",
+      "attributes": {
+        "block_id": "pp05",
+        "Showtitle": false,
+        "descTag": "p",
+        "content": "\"Innovation distinguishes between a leader and a follower.\"",
+        "alignment": {"md": "center"},
+        "textTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "20", "sm": "18", "xs": "16", "unit": "px"},
+          "fontWeight": "500",
+          "fontStyle": "italic",
+          "lineHeight": {"md": "1.6", "unit": "em"}
+        },
+        "textColor": "#2c3e50",
+        "textShadow": {
+          "openShadow": 1,
+          "typeShadow": "text-shadow",
+          "horizontal": 1,
+          "vertical": 1,
+          "blur": 2,
+          "color": "rgba(0,0,0,0.1)"
+        }
+      },
+      "visualTips": "Subtle shadow (low opacity, small offset) adds depth without overwhelming. Perfect for quotes or highlighted text.",
+      "relatedBlocks": ["tp-blockquote", "tp-container"]
+    },
+
+    {
+      "name": "Styled List Content",
+      "description": "Paragraph containing bulleted list with custom list spacing and padding",
+      "visualDescription": "Unordered list with controlled margins and padding. Custom list spacing creates breathing room. Left-aligned for readability.",
+      "complexity": "simple",
+      "useCase": "Feature lists, benefit points, service listings, structured content",
+      "attributes": {
+        "block_id": "pp06",
+        "Showtitle": true,
+        "title": "Key Features",
+        "titleTag": "h3",
+        "descTag": "div",
+        "content": "<ul><li>Responsive design that works on all devices</li><li>Lightning-fast performance and page load times</li><li>SEO-optimized for better search rankings</li><li>24/7 customer support with live chat</li><li>Regular updates and security patches</li></ul>",
+        "alignment": {"md": "left"},
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "22", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "titleColor": "#2c3e50",
+        "titleBtmSpace": {"md": "15", "unit": "px"},
+        "textTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "lineHeight": {"md": "1.8", "unit": "em"}
+        },
+        "textColor": "#555555",
+        "ulMargin": {
+          "md": {"top": "0", "bottom": "0", "left": "20", "right": "0"},
+          "unit": "px"
+        },
+        "ulPadding": {
+          "md": {"top": "10", "bottom": "10", "left": "25", "right": "0"},
+          "unit": "px"
+        }
+      },
+      "warnings": [
+        "descTag should be 'div' when content contains HTML lists",
+        "ulMargin controls margin around <ul>/<ol> elements",
+        "ulPadding controls padding inside lists",
+        "Left margin/padding creates indentation for list items"
+      ],
+      "relatedBlocks": ["tp-stylist-list", "tp-icon-box"]
+    },
+
+    {
+      "name": "Drop Cap Framed Style",
+      "description": "Drop cap with colored border frame instead of background",
+      "visualDescription": "First letter enlarged with purple border (3px), transparent background. Modern, minimalist drop cap style. Letter and border both in brand purple.",
+      "complexity": "medium",
+      "useCase": "Modern editorial content, minimalist designs, blog intros, feature articles",
+      "attributes": {
+        "block_id": "pp07",
+        "Showtitle": false,
+        "descTag": "p",
+        "content": "Minimalism in design is about stripping away the unnecessary to reveal the essential. It's not about having less for the sake of less, but about making room for more of what matters. In web design, this philosophy creates spaces that breathe, content that shines, and experiences that resonate.",
+        "dropCap": true,
+        "dcapView": "framed",
+        "dcapCol": "#667eea",
+        "dcapseCol": "transparent",
+        "dcapTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "54", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "tcapSize": "12",
+        "tcapspac": "10",
+        "tcapbrad": "8",
+        "boWidth": {
+          "md": {"top": "3", "right": "3", "bottom": "3", "left": "3"},
+          "unit": "px"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"},
+          "lineHeight": {"md": "1.8", "unit": "em"}
+        },
+        "textColor": "#444444",
+        "alignment": {"md": "justify"}
+      },
+      "warnings": [
+        "dcapView: 'framed' creates bordered drop cap",
+        "dcapCol sets both text color and border color for framed",
+        "dcapseCol sets background (use 'transparent' for no background)",
+        "boWidth controls border thickness on all sides",
+        "tcapbrad rounds the border corners"
+      ],
+      "relatedBlocks": ["tp-pro-paragraph"]
+    },
+
+    {
+      "name": "Multi-Column with Title (Desktop Magazine Style)",
+      "description": "Title above 3-column text layout for desktop magazine/newspaper effect",
+      "visualDescription": "H2 title centered above 3-column text (desktop only). Columns stack to single column on tablet/mobile. 40px column gap creates clear separation. Justified text for clean column edges.",
+      "complexity": "medium",
+      "useCase": "Long-form articles, magazine layouts, editorial content, newsletter content",
+      "attributes": {
+        "block_id": "pp08",
+        "Showtitle": true,
+        "title": "The State of Modern Web Development",
+        "titleTag": "h2",
+        "descTag": "p",
+        "content": "The landscape of web development has evolved dramatically over the past decade. What once required extensive coding knowledge and manual optimization can now be accomplished with intuitive tools and frameworks. Modern developers have access to powerful libraries, cloud infrastructure, and collaborative platforms that streamline the entire development process. Yet with these advances come new challenges: keeping up with rapidly changing technologies, managing increasing complexity, and ensuring accessibility and performance across diverse devices and browsers. The successful developer of today must balance technical expertise with user experience design, security awareness, and business acumen.",
+        "pCol": {
+          "md": "3",
+          "sm": "2",
+          "xs": "1"
+        },
+        "pcolspac": {
+          "md": "40",
+          "sm": "30",
+          "xs": "0",
+          "unit": "px"
+        },
+        "alignment": {"md": "justify"},
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "28", "sm": "24", "xs": "20", "unit": "px"},
+          "fontWeight": "700",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "1", "unit": "px"}
+        },
+        "titleColor": "#2c3e50",
+        "titleBtmSpace": {"md": "30", "sm": "20", "unit": "px"},
+        "textTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "unit": "px"},
+          "lineHeight": {"md": "1.8", "unit": "em"}
+        },
+        "textColor": "#333333"
+      },
+      "responsiveNotes": "3 columns desktop → 2 columns tablet → 1 column mobile. Column gaps scale down responsively.",
+      "warnings": [
+        "Requires sufficient content length for multi-column to look good",
+        "Test column breaks - orphaned words/lines can occur",
+        "Justified alignment works best with multi-column layouts",
+        "Very short content looks awkward in multiple columns"
+      ],
+      "relatedBlocks": ["tp-heading", "tp-container"]
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
+
+  "validationRules": {
+    "block_id": {
+      "required": true,
+      "pattern": "^[a-z0-9]{4}$",
+      "description": "4-character lowercase alphanumeric ID"
+    },
+    "Showtitle": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show/hide optional title above paragraph"
+    },
+    "titleTag": {
+      "enum": ["h1", "h2", "h3", "h4", "h5", "h6"],
+      "condition": "Only applies when Showtitle: true",
+      "description": "HTML heading tag for title"
+    },
+    "descTag": {
+      "enum": ["p", "div", "span"],
+      "default": "p",
+      "description": "HTML tag for content. Use 'div' when content contains lists or complex HTML"
+    },
+    "pCol": {
+      "responsive": true,
+      "type": "string (number)",
+      "description": "Number of columns for CSS multi-column layout. '1' = single column, '2' = 2 columns, etc."
+    },
+    "dropCap": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable drop cap (enlarged first letter)"
+    },
+    "dcapView": {
+      "enum": ["", "stacked", "framed"],
+      "condition": "Only applies when dropCap: true",
+      "description": "Drop cap style: default (plain), stacked (background), framed (border)"
     }
+  },
+
+  "warnings": [
+    "**CRITICAL**: Never modify block_id after creation",
+    "Showtitle: true required to display title and use titleTypo, titleColor, titleBtmSpace",
+    "descTag: 'p' works for plain text, use 'div' for HTML lists or complex content",
+    "pCol uses CSS columns - may not work in IE11 and older browsers",
+    "dropCap only affects first letter of first paragraph in content",
+    "For stacked drop caps: dcapCol = background color, dcapseCol = text color",
+    "For framed drop caps: dcapCol = text & border color, dcapseCol = background color",
+    "textTypo requires openTypography: 1 to apply font settings",
+    "ulMargin/ulPadding only affect <ul> and <ol> elements in content",
+    "Multi-column layouts work best with longer content (3+ paragraphs)",
+    "Test multi-column column breaks with actual content to avoid orphans/widows"
+  ],
+
+  "commonMistakes": [
+    {
+      "mistake": "Setting title colors/typography without Showtitle: true",
+      "fix": "Set Showtitle: true to enable title display",
+      "impact": "Title styling has no effect"
+    },
+    {
+      "mistake": "Using descTag: 'p' with HTML lists in content",
+      "fix": "Change descTag to 'div' when content contains <ul>/<ol> or complex HTML",
+      "impact": "Invalid HTML nesting, potential rendering issues"
+    },
+    {
+      "mistake": "Setting openTypography: 0 then expecting typography to apply",
+      "fix": "Set openTypography: 1 in textTypo or titleTypo objects",
+      "impact": "Typography settings ignored"
+    },
+    {
+      "mistake": "Using too many columns with short content",
+      "fix": "Use 2-3 columns max, and ensure sufficient content length",
+      "impact": "Awkward column breaks, poor readability"
+    },
+    {
+      "mistake": "Swapping dcapCol and dcapseCol for stacked drop caps",
+      "fix": "Remember: stacked uses dcapCol for background, dcapseCol for text",
+      "impact": "Wrong colors applied"
+    },
+    {
+      "mistake": "Not testing responsive column stacking",
+      "fix": "Always set pCol for md, sm, xs breakpoints",
+      "impact": "Too many columns on mobile, poor readability"
+    }
+  ],
+
+  "bestPractices": [
+    "Use titleBtmSpace to create breathing room between title and content (15-25px)",
+    "Set responsive pCol values: desktop (2-3 columns) → tablet (1-2) → mobile (1)",
+    "Use pcolspac between 30-50px for clear column separation",
+    "Drop caps work best with at least 2-3 paragraphs of content",
+    "Use justified alignment (alignment: 'justify') for multi-column layouts",
+    "Keep link colors consistent with brand (linkColor, linkHoverColor)",
+    "Use text shadows sparingly - subtle is better (blur: 2-4, low opacity)",
+    "For lists, use ulMargin/ulPadding to control spacing instead of inline styles",
+    "Test drop cap sizing - 50-70px fontSize typically works well",
+    "Use descTag: 'div' for complex HTML content, 'p' for plain text"
+  ],
+
+  "responsiveStrategy": {
+    "breakpoints": {
+      "md": "Desktop (≥1024px)",
+      "sm": "Tablet (768px-1023px)",
+      "xs": "Mobile (<768px)"
+    },
+    "columnStrategy": {
+      "desktop": "2-3 columns for long content",
+      "tablet": "1-2 columns (often 1 is better)",
+      "mobile": "Always 1 column for readability"
+    },
+    "typographyScaling": {
+      "title": "Reduce by 15-25% on mobile (md: 24px → xs: 18px)",
+      "text": "Reduce by 10-15% on mobile (md: 16px → xs: 14px)",
+      "dropCap": "Reduce by 10-20% on mobile"
+    }
+  },
+
+  "performanceNotes": [
+    "Multi-column CSS is performant - minimal impact",
+    "Text shadows can impact text rendering performance - use sparingly",
+    "Long content with many columns may cause layout recalculation on resize"
+  ],
+
+  "accessibilityNotes": {
+    "semanticHTML": [
+      "Use appropriate titleTag (h1-h6) for document outline",
+      "Use descTag: 'p' for paragraphs, 'div' for complex content",
+      "Ensure logical heading hierarchy (don't skip levels)"
+    ],
+    "colorContrast": [
+      "Ensure textColor meets WCAG AA (4.5:1 for normal text)",
+      "Test linkColor contrast against background",
+      "Drop cap colors must also meet contrast requirements"
+    ]
   }
 }
