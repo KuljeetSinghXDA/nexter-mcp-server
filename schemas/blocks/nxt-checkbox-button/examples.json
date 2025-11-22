@@ -2,76 +2,679 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-form-checkbox-button",
   "title": "Checkbox - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for checkbox groups with multiple selection, vertical/horizontal layouts, and custom styling",
   "examples": [
     {
-      "description": "Simple interests selection",
+      "name": "Skills/Interests Selection (6 Options, Vertical)",
+      "description": "Multi-select checkbox group for user skills or interests with vertical stacking layout",
+      "visualDescription": "Six square checkboxes stacked vertically, each with descriptive label, purple theme, allows multiple selections",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
-        "labelss": "Select Your Interests",
+        "block_id": "cb001",
+        "labelss": "Select Your Skills",
         "fldOptions": [
           {
             "fldLabel": "Web Design",
-            "fldValue": "design"
+            "fldValue": "web_design"
           },
           {
-            "fldLabel": "Development",
-            "fldValue": "dev"
+            "fldLabel": "Frontend Development",
+            "fldValue": "frontend_dev"
           },
           {
-            "fldLabel": "Marketing",
+            "fldLabel": "Backend Development",
+            "fldValue": "backend_dev"
+          },
+          {
+            "fldLabel": "Mobile Development",
+            "fldValue": "mobile_dev"
+          },
+          {
+            "fldLabel": "UI/UX Design",
+            "fldValue": "ui_ux"
+          },
+          {
+            "fldLabel": "Digital Marketing",
             "fldValue": "marketing"
           }
         ],
         "optPos": "vertical",
-        "reqTgl": true
-      }
+        "bRadius": "square",
+        "reqTgl": true,
+        "error": "Please select at least one skill.",
+        "uniqueid": "user_skills",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Job applications, freelancer profiles, skill assessments, user onboarding, portfolio setup",
+      "checkboxGroupDetails": {
+        "fldOptions": "Array of checkbox options - each has fldLabel (display text) and fldValue (submitted value)",
+        "optPos": "vertical - Checkboxes stack vertically (one per line)",
+        "bRadius": "square - Square corners for checkboxes",
+        "reqTgl": "true - User must select at least one option (prevents empty submission)"
+      },
+      "bestPractices": [
+        "Use underscore_case for fldValue (web_design) for backend processing",
+        "Keep fldLabel descriptive and user-friendly (Frontend Development)",
+        "Set reqTgl: true if at least one selection is mandatory",
+        "Use vertical layout (optPos: vertical) for better readability with 4+ options"
+      ]
     },
     {
-      "description": "Horizontal preferences with help text",
+      "name": "Newsletter Topics (Horizontal, Rounded Checkboxes)",
+      "description": "Newsletter subscription topics in horizontal layout with rounded checkbox styling",
+      "visualDescription": "Four rounded checkboxes in horizontal row, blue theme, help text explains what each topic includes",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
-        "labelss": "Newsletter Topics",
+        "block_id": "cb002",
+        "labelss": "Newsletter Preferences",
         "fldOptions": [
           {
             "fldLabel": "News",
             "fldValue": "news"
           },
           {
-            "fldLabel": "Updates",
+            "fldLabel": "Product Updates",
             "fldValue": "updates"
           },
           {
-            "fldLabel": "Offers",
+            "fldLabel": "Special Offers",
             "fldValue": "offers"
+          },
+          {
+            "fldLabel": "Events",
+            "fldValue": "events"
           }
         ],
         "optPos": "horizontal",
         "bRadius": "rounded",
         "hlpTxt": true,
-        "desctxt": "Select all topics you'd like to receive",
-        "descPoss": "top"
+        "desctxt": "Select all topics you'd like to receive via email. You can unsubscribe anytime.",
+        "descPoss": "top",
+        "reqTgl": false,
+        "uniqueid": "newsletter_topics",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Newsletter signups, email preferences, notification settings, subscription management",
+      "layoutDetails": {
+        "optPos": "horizontal - Checkboxes display in a row (side by side)",
+        "bRadius": "rounded - Rounded corners for softer appearance",
+        "hlpTxt": "true - Show help text to explain options",
+        "descPoss": "top - Help text appears above checkboxes"
+      },
+      "warnings": [
+        "Horizontal layout works best with 2-5 options (too many wraps awkwardly on mobile)",
+        "On mobile, horizontal checkboxes may stack vertically automatically (depends on label length)",
+        "Ensure adequate spacing between checkboxes in horizontal layout for touch targets"
+      ]
+    },
+    {
+      "name": "Terms & Conditions Agreement (Single Checkbox, Required)",
+      "description": "Single required checkbox for legal agreement acceptance",
+      "visualDescription": "Single square checkbox with 'I agree to Terms and Conditions' label, required field with custom error message",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "cb003",
+        "labelss": "Legal Agreement",
+        "fldOptions": [
+          {
+            "fldLabel": "I agree to the Terms and Conditions and Privacy Policy",
+            "fldValue": "terms_accepted"
+          }
+        ],
+        "optPos": "vertical",
+        "bRadius": "square",
+        "reqTgl": true,
+        "error": "You must agree to the Terms and Conditions to proceed.",
+        "hlpTxt": true,
+        "desctxt": "By checking this box, you confirm that you have read and accept our Terms and Conditions.",
+        "descPoss": "bottom",
+        "uniqueid": "terms_agreement",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Registration forms, checkout pages, legal agreements, GDPR consent, account creation",
+      "singleCheckboxPattern": {
+        "fldOptions": "Array with ONE item for single checkbox",
+        "reqTgl": "true - Must be checked to submit form",
+        "error": "Descriptive error mentioning what user must agree to",
+        "legalCompliance": "Store timestamp and IP with acceptance for audit trail"
+      },
+      "bestPractices": [
+        "Include link to actual Terms & Conditions in fldLabel (e.g., <a href='/terms'>Terms and Conditions</a>)",
+        "Use descriptive error message explaining requirement",
+        "Consider adding help text with summary of key terms",
+        "For GDPR compliance, log acceptance timestamp and IP address in backend"
+      ]
+    },
+    {
+      "name": "Services Selection (E-Commerce, 50% Width)",
+      "description": "Product add-on services in half-width layout for multi-column forms",
+      "visualDescription": "Five service checkboxes in vertical layout, takes 50% width on desktop, stacks to full width on mobile",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "cb004",
+        "labelss": "Additional Services",
+        "fldOptions": [
+          {
+            "fldLabel": "Gift Wrapping (+$5)",
+            "fldValue": "gift_wrap_5"
+          },
+          {
+            "fldLabel": "Express Shipping (+$15)",
+            "fldValue": "express_ship_15"
+          },
+          {
+            "fldLabel": "Extended Warranty (+$25)",
+            "fldValue": "warranty_25"
+          },
+          {
+            "fldLabel": "Installation Service (+$50)",
+            "fldValue": "install_50"
+          },
+          {
+            "fldLabel": "Priority Support (+$10/month)",
+            "fldValue": "support_10"
+          }
+        ],
+        "optPos": "vertical",
+        "bRadius": "rounded",
+        "reqTgl": false,
+        "hlpTxt": true,
+        "desctxt": "Select any additional services you'd like to add to your order.",
+        "descPoss": "top",
+        "uniqueid": "product_services",
+        "inpSz": {
+          "md": "50",
+          "sm": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "E-commerce checkout, product customization, add-on services, subscription upgrades",
+      "pricingPattern": {
+        "fldLabel": "Include price in label for transparency (Gift Wrapping +$5)",
+        "fldValue": "Encode price in value (gift_wrap_5) for backend calculation",
+        "calculation": "Backend extracts price from fldValue to calculate total",
+        "example": "fldValue 'express_ship_15' → extract '15' → add $15 to order total"
+      },
+      "responsiveLayout": {
+        "md": "50% - Half width on desktop (pair with product summary or delivery options)",
+        "sm": "100% - Full width on tablet and mobile (stacks vertically)",
+        "unit": "% - Percentage-based for fluid responsive layouts"
+      },
+      "relatedBlocks": [
+        "Pair with nxt-number-field (Quantity 50% + Services 50%)",
+        "Pair with another checkbox group (Services 50% + Delivery Options 50%)"
+      ]
+    },
+    {
+      "name": "Privacy & Marketing Consent (GDPR Compliant)",
+      "description": "Multi-checkbox consent form with granular privacy options for GDPR compliance",
+      "visualDescription": "Four separate consent checkboxes, first is required (Terms), others optional (Marketing, Analytics, Third-party), help text explains each",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "cb005",
+        "labelss": "Privacy Preferences",
+        "fldOptions": [
+          {
+            "fldLabel": "I accept the Terms & Conditions (Required)",
+            "fldValue": "terms_required"
+          },
+          {
+            "fldLabel": "I consent to receive marketing emails (Optional)",
+            "fldValue": "marketing_opt_in"
+          },
+          {
+            "fldLabel": "I consent to analytics cookies (Optional)",
+            "fldValue": "analytics_cookies"
+          },
+          {
+            "fldLabel": "I consent to sharing data with trusted partners (Optional)",
+            "fldValue": "third_party_sharing"
+          }
+        ],
+        "optPos": "vertical",
+        "bRadius": "square",
+        "reqTgl": true,
+        "error": "You must accept the Terms & Conditions to proceed.",
+        "hlpTxt": true,
+        "desctxt": "We respect your privacy. You can change these preferences anytime in your account settings.",
+        "descPoss": "top",
+        "uniqueid": "gdpr_consent",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "GDPR-compliant registrations, cookie consent, privacy settings, marketing opt-ins",
+      "gdprCompliance": {
+        "required": "Terms & Conditions acceptance (first checkbox with reqTgl: true)",
+        "optional": "Marketing, analytics, third-party sharing (clearly labeled as Optional)",
+        "granular": "Separate checkbox for each consent type (not bundled)",
+        "audit": "Backend must log each consent with timestamp, IP, and user agent",
+        "withdrawal": "Provide easy opt-out mechanism in account settings"
+      },
+      "warnings": [
+        "GDPR requires granular consent - don't bundle marketing with terms acceptance",
+        "Only the first checkbox (Terms) should be required (reqTgl validates at least one checked)",
+        "Label optional consents clearly as '(Optional)' to avoid confusion",
+        "Backend must store separate consent records for each checkbox with timestamp",
+        "Pre-checked marketing consents violate GDPR - all must default to unchecked"
+      ],
+      "legalNotes": [
+        "Terms & Conditions checkbox is typically required for contract formation",
+        "Marketing consent must be optional and clearly separate from Terms",
+        "Analytics/cookies consent often required under GDPR/ePrivacy directive",
+        "Third-party data sharing requires explicit informed consent",
+        "Consent must be freely given, specific, informed, and unambiguous"
+      ]
+    },
+    {
+      "name": "Days of the Week (Availability Schedule, Horizontal)",
+      "description": "Seven checkboxes for day-of-week selection in horizontal row layout",
+      "visualDescription": "Seven rounded checkboxes in a row (Mon-Sun), compact design for availability scheduling",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "cb006",
+        "labelss": "Available Days",
+        "fldOptions": [
+          {
+            "fldLabel": "Mon",
+            "fldValue": "monday"
+          },
+          {
+            "fldLabel": "Tue",
+            "fldValue": "tuesday"
+          },
+          {
+            "fldLabel": "Wed",
+            "fldValue": "wednesday"
+          },
+          {
+            "fldLabel": "Thu",
+            "fldValue": "thursday"
+          },
+          {
+            "fldLabel": "Fri",
+            "fldValue": "friday"
+          },
+          {
+            "fldLabel": "Sat",
+            "fldValue": "saturday"
+          },
+          {
+            "fldLabel": "Sun",
+            "fldValue": "sunday"
+          }
+        ],
+        "optPos": "horizontal",
+        "bRadius": "rounded",
+        "reqTgl": true,
+        "error": "Please select at least one day of availability.",
+        "hlpTxt": true,
+        "desctxt": "Select all days you are available for appointments.",
+        "descPoss": "top",
+        "uniqueid": "available_days",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Appointment scheduling, availability calendars, shift selection, booking systems, recurring events",
+      "weekdayPattern": {
+        "abbreviations": "Use short labels (Mon, Tue, Wed) for compact horizontal layout",
+        "full_values": "Use full day names in fldValue (monday, tuesday) for clarity in backend",
+        "order": "Start with Monday (ISO 8601 standard) or Sunday (US convention)",
+        "all_seven": "Include all 7 days for complete week coverage"
+      },
+      "bestPractices": [
+        "Use abbreviated labels (Mon-Sun) for horizontal layout to fit in one row",
+        "Consider using full names (Monday-Sunday) if layout is vertical",
+        "Use lowercase full names in fldValue (monday) for consistent backend processing",
+        "For business hours, pair with time fields (nxt-time-field) for each selected day"
+      ]
+    },
+    {
+      "name": "Dietary Restrictions (Food Allergies, Medical Context)",
+      "description": "Common dietary restrictions and food allergies for catering, events, or health forms",
+      "visualDescription": "Eight vertical checkboxes for allergies and dietary preferences, medical/health context with serious tone",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "cb007",
+        "labelss": "Dietary Restrictions & Allergies",
+        "fldOptions": [
+          {
+            "fldLabel": "Vegetarian",
+            "fldValue": "vegetarian"
+          },
+          {
+            "fldLabel": "Vegan",
+            "fldValue": "vegan"
+          },
+          {
+            "fldLabel": "Gluten-Free (Celiac)",
+            "fldValue": "gluten_free"
+          },
+          {
+            "fldLabel": "Lactose Intolerant / Dairy-Free",
+            "fldValue": "dairy_free"
+          },
+          {
+            "fldLabel": "Nut Allergy (Severe)",
+            "fldValue": "nut_allergy"
+          },
+          {
+            "fldLabel": "Shellfish Allergy",
+            "fldValue": "shellfish_allergy"
+          },
+          {
+            "fldLabel": "Kosher",
+            "fldValue": "kosher"
+          },
+          {
+            "fldLabel": "Halal",
+            "fldValue": "halal"
+          }
+        ],
+        "optPos": "vertical",
+        "bRadius": "square",
+        "reqTgl": false,
+        "hlpTxt": true,
+        "desctxt": "Please select all dietary restrictions or allergies that apply. This information is critical for meal planning.",
+        "descPoss": "top",
+        "uniqueid": "dietary_restrictions",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Event registration, catering orders, restaurant reservations, health forms, school cafeteria",
+      "medicalContext": {
+        "severity": "Indicate severity in label (Nut Allergy - Severe) for critical allergies",
+        "clarity": "Use medical terms when appropriate (Celiac, Lactose Intolerant)",
+        "religious": "Include religious dietary laws (Kosher, Halal) separate from allergies",
+        "liability": "Help text should emphasize importance for safety/health reasons"
+      },
+      "warnings": [
+        "Food allergies can be life-threatening - treat this data with utmost care",
+        "Backend must flag severe allergies (nut, shellfish) for special attention",
+        "Don't make this field required (not everyone has dietary restrictions)",
+        "Consider adding free-text field for unlisted allergies or additional details"
+      ],
+      "bestPractices": [
+        "Use clear, specific labels (Lactose Intolerant / Dairy-Free vs just Dairy)",
+        "Separate preferences (vegetarian) from medical allergies (nut allergy) visually if possible",
+        "Include severity indicators for life-threatening allergies (Severe)",
+        "Provide additional notes field for specific details (e.g., nxt-message-field below)"
+      ]
+    },
+    {
+      "name": "Product Features Filter (E-Commerce Search, 40% Width)",
+      "description": "Product feature checkboxes for filtering search results in compact inline layout",
+      "visualDescription": "Five feature checkboxes in vertical layout, 40% width on desktop for sidebar placement, stacks on mobile",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "cb008",
+        "labelss": "Product Features",
+        "fldOptions": [
+          {
+            "fldLabel": "Bluetooth",
+            "fldValue": "bluetooth"
+          },
+          {
+            "fldLabel": "Waterproof",
+            "fldValue": "waterproof"
+          },
+          {
+            "fldLabel": "Wireless Charging",
+            "fldValue": "wireless_charging"
+          },
+          {
+            "fldLabel": "Fast Charging",
+            "fldValue": "fast_charging"
+          },
+          {
+            "fldLabel": "Noise Cancelling",
+            "fldValue": "noise_cancelling"
+          }
+        ],
+        "optPos": "vertical",
+        "bRadius": "rounded",
+        "reqTgl": false,
+        "uniqueid": "product_features",
+        "inpSz": {
+          "md": "40",
+          "sm": "70",
+          "xs": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "E-commerce filters, product search, faceted navigation, specification matching, comparison tools",
+      "filterPattern": {
+        "optional": "Filters are always optional (reqTgl: false)",
+        "values": "Use technical lowercase values (wireless_charging) for URL parameters",
+        "display": "Use friendly display names (Wireless Charging) in fldLabel",
+        "multiple": "Allow multiple selections for AND/OR filtering logic"
+      },
+      "responsiveInlineLayout": {
+        "md": "40% - Compact sidebar width on desktop (60% for product results)",
+        "sm": "70% - Larger on tablet (30% for actions/filters)",
+        "xs": "100% - Full width on mobile (filter drawer/modal)",
+        "pattern": "Filters sidebar (40%) + Product grid (60%)"
+      },
+      "implementationNotes": [
+        "On submit, convert selected checkboxes to URL parameters: ?bluetooth=1&waterproof=1",
+        "Use AJAX to update product results without page reload for better UX",
+        "Display selected filter count badge (e.g., 'Filters (3 active)')",
+        "Provide 'Clear All' button to reset all checkbox selections"
+      ]
+    }
+  ],
+
+  "commonPatterns": [
+    {
+      "name": "Simple Multi-Select",
+      "description": "Basic vertical checkbox group with 3-6 options",
+      "attributes": {
+        "optPos": "vertical",
+        "bRadius": "square",
+        "reqTgl": true,
+        "fldOptions": [
+          {"fldLabel": "Option 1", "fldValue": "option1"},
+          {"fldLabel": "Option 2", "fldValue": "option2"},
+          {"fldLabel": "Option 3", "fldValue": "option3"}
+        ]
       }
     },
     {
-      "description": "Terms agreement checkbox",
+      "name": "Horizontal Compact (2-5 options)",
+      "description": "Horizontal layout for short option lists",
       "attributes": {
-        "block_id": "e5f6",
-        "labelss": "Agreement",
+        "optPos": "horizontal",
+        "bRadius": "rounded",
         "fldOptions": [
-          {
-            "fldLabel": "I agree to the Terms and Conditions",
-            "fldValue": "agree"
-          }
-        ],
+          {"fldLabel": "Yes", "fldValue": "yes"},
+          {"fldLabel": "No", "fldValue": "no"},
+          {"fldLabel": "Maybe", "fldValue": "maybe"}
+        ]
+      }
+    },
+    {
+      "name": "Single Required Checkbox (Terms)",
+      "description": "Single checkbox for legal agreement acceptance",
+      "attributes": {
         "reqTgl": true,
-        "error": "You must agree to continue"
+        "error": "You must agree to the Terms and Conditions to proceed.",
+        "fldOptions": [
+          {"fldLabel": "I agree to the Terms and Conditions", "fldValue": "terms_accepted"}
+        ]
+      }
+    },
+    {
+      "name": "Multi-Column Layout (50/50)",
+      "description": "Two checkbox groups side by side on desktop",
+      "attributes": {
+        "inpSz": {
+          "md": "50",
+          "sm": "100",
+          "unit": "%"
+        }
       }
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
+
+  "validationRules": {
+    "labelss": "Required string - Field label/heading for checkbox group",
+    "fldOptions": "Required array - List of checkbox options (minimum 1)",
+    "fldOptions[].fldLabel": "Required string - Display text shown to user",
+    "fldOptions[].fldValue": "Required string - Value submitted to backend (use lowercase, underscores)",
+    "optPos": "String - 'vertical' (stacked) or 'horizontal' (row). Default: 'vertical'",
+    "bRadius": "String - 'square' (90° corners) or 'rounded' (soft corners). Default: 'square'",
+    "reqTgl": "Boolean - true requires at least one checkbox checked, false makes all optional",
+    "chkPosition": "String - Checkbox alignment: 'left', 'center', 'right' (with CSS styling)",
+    "inpSz.md": "String - Desktop width (recommended: 100, 50, 40, 33 for columns)",
+    "uniqueid": "String - Unique form field identifier for submission data"
+  },
+
+  "warnings": [
+    "reqTgl: true only validates that AT LEAST ONE checkbox is checked (not all, not specific ones)",
+    "There's no built-in way to require specific checkboxes - use custom JavaScript or backend validation",
+    "Horizontal layout (optPos: horizontal) can wrap awkwardly with 6+ options on mobile",
+    "bRadius only affects checkbox styling, not layout or functionality",
+    "Checkbox values are submitted as array if multiple selected (backend must handle arrays)",
+    "No way to set default checked state in block.json - requires JavaScript or backend pre-population",
+    "chkPosition styling may not work consistently across all themes",
+    "Long fldLabel text in horizontal layout causes wrapping - keep labels concise (1-3 words)",
+    "GDPR requires granular consent - don't bundle required terms with optional marketing in same checkbox",
+    "Pre-checked checkboxes for marketing violate GDPR - all must default unchecked"
+  ],
+
+  "commonMistakes": [
+    "Using reqTgl: true to require ALL checkboxes (it only requires at least one)",
+    "Bundling Terms acceptance with marketing opt-in in same checkbox (GDPR violation)",
+    "Using horizontal layout with 10+ checkboxes (wraps poorly on mobile)",
+    "Using spaces or special characters in fldValue (use underscores: 'gift_wrap' not 'Gift Wrap')",
+    "Not providing descriptive error messages (use 'Select at least one skill' not 'Required field')",
+    "Making dietary restrictions required (not everyone has restrictions)",
+    "Using generic fldValue like 'option1' instead of descriptive 'web_design'",
+    "Forgetting to handle checkbox array data in backend (multiple selections = array)",
+    "Not testing mobile layout for horizontal checkboxes (may need vertical on small screens)",
+    "Including prices in fldValue instead of fldLabel (put '$5' in label, 'gift_wrap_5' in value)"
+  ],
+
+  "bestPractices": [
+    "Use descriptive fldValue names (web_design, marketing_opt_in) not generic (option1, option2)",
+    "Keep fldValue lowercase with underscores for consistent backend processing",
+    "Use vertical layout (optPos: vertical) for 4+ options for better readability",
+    "Use horizontal layout (optPos: horizontal) only for 2-5 short options (Yes/No, Mon-Fri)",
+    "Set reqTgl: true for skill selections, interests, required choices",
+    "Set reqTgl: false for optional preferences, dietary restrictions, add-on services",
+    "Provide specific error messages: 'Select at least one day of availability' not 'This field is required'",
+    "Use help text (hlpTxt + desctxt) to explain what happens with selected options",
+    "For GDPR consent, separate required terms from optional marketing (different checkbox groups)",
+    "Include prices in fldLabel for transparency (Gift Wrapping +$5) and encode in fldValue (gift_wrap_5)",
+    "Use abbreviations in horizontal layouts (Mon, Tue, Wed) to prevent wrapping",
+    "For single checkbox (Terms), always set reqTgl: true to enforce acceptance",
+    "Test checkbox touch targets on mobile (minimum 44x44px) for accessibility",
+    "Use uniqueid that describes the field purpose ('user_skills', 'newsletter_topics')"
+  ],
+
+  "accessibilityNotes": [
+    "Label (labelss) is required for screen readers to identify checkbox group purpose",
+    "Each fldLabel is announced individually by screen readers as checkbox label",
+    "Use descriptive fldLabel text: 'I agree to Terms and Conditions' not just 'Agree'",
+    "Help text (desctxt) provides additional context for assistive technology",
+    "Error messages (error attribute) are announced by screen readers when validation fails",
+    "Checkboxes are keyboard accessible (Tab to navigate, Space to toggle)",
+    "Ensure sufficient color contrast for checkbox borders (minimum 3:1 ratio)",
+    "Don't rely on color alone to indicate checked state (use checkmark icon)",
+    "Group related checkboxes under clear heading (labelss) for screen reader navigation",
+    "Large touch targets on mobile (minimum 44x44px) - TPGB default styling handles this"
+  ],
+
+  "performanceConsiderations": [
+    "Browser native checkbox rendering is instant (no custom JavaScript needed)",
+    "Large number of checkboxes (50+) may slow down form rendering",
+    "Checkbox validation happens on submit, not on every click",
+    "Vertical layout performs better on mobile than horizontal (no wrapping calculations)",
+    "If using dynamic checkboxes, debounce filtering logic to avoid excessive re-renders"
+  ],
+
+  "layoutGuide": {
+    "vertical": {
+      "bestFor": "4+ options, long labels, default choice for most forms",
+      "spacing": "Each checkbox on separate line for easy scanning",
+      "mobile": "Works perfectly on mobile (no wrapping issues)"
+    },
+    "horizontal": {
+      "bestFor": "2-5 options, short labels (1-3 words), compact UI",
+      "spacing": "Checkboxes in a row, may wrap on mobile if too many",
+      "mobile": "Test carefully - long labels cause wrapping, consider vertical for mobile"
     }
-  }
+  },
+
+  "useCaseSpecificTips": {
+    "JobApplications": {
+      "tip": "Use vertical layout for skills (6-10 options), allow multiple selections",
+      "validation": "Set reqTgl: true for required skill categories",
+      "example": "Skills (web_design, frontend_dev, backend_dev, mobile_dev, ui_ux, marketing)"
+    },
+    "NewsletterSignups": {
+      "tip": "Use horizontal layout for topic selection (3-5 topics), make optional",
+      "validation": "Set reqTgl: false (forcing newsletter signup violates GDPR)",
+      "example": "Topics (News, Updates, Offers, Events) - all optional"
+    },
+    "ECommerceCheckout": {
+      "tip": "Use checkboxes for add-on services, include prices in labels",
+      "validation": "Set reqTgl: false (add-ons are optional)",
+      "example": "Services (Gift Wrapping +$5, Express Shipping +$15, Extended Warranty +$25)"
+    },
+    "GDPRConsent": {
+      "tip": "Separate required Terms checkbox from optional marketing consent",
+      "validation": "Only Terms checkbox should be required (reqTgl: true on first group)",
+      "example": "Group 1: Terms (required), Group 2: Marketing, Analytics, Third-party (all optional)"
+    },
+    "AppointmentBooking": {
+      "tip": "Use horizontal layout for day-of-week selection (Mon-Sun), abbreviated labels",
+      "validation": "Set reqTgl: true (user must select at least one day)",
+      "example": "Available Days (Mon, Tue, Wed, Thu, Fri, Sat, Sun)"
+    }
+  },
+
+  "integrationExamples": [
+    {
+      "name": "Handle Multiple Checkbox Values (Backend PHP)",
+      "description": "Process submitted checkbox array in WordPress form handler",
+      "code": "// Checkbox field submits as array of selected values\n$user_skills = isset($_POST['user_skills']) ? $_POST['user_skills'] : [];\n\n// $user_skills = ['web_design', 'frontend_dev', 'marketing']\n\n// Validate at least one selected\nif (empty($user_skills)) {\n  return new WP_Error('no_skills', 'Please select at least one skill.');\n}\n\n// Sanitize and store\n$sanitized_skills = array_map('sanitize_text_field', $user_skills);\nupdate_user_meta($user_id, 'skills', $sanitized_skills);\n\n// Or store as comma-separated string\n$skills_string = implode(', ', $sanitized_skills);\nupdate_user_meta($user_id, 'skills', $skills_string);"
+    },
+    {
+      "name": "Calculate Total Price from Service Checkboxes",
+      "description": "Extract prices from checkbox values and calculate order total",
+      "code": "// Services with prices encoded in fldValue: gift_wrap_5, express_ship_15, warranty_25\n$selected_services = isset($_POST['product_services']) ? $_POST['product_services'] : [];\n\n// Calculate total add-on cost\n$total_addon_cost = 0;\n$service_names = [];\n\nforeach ($selected_services as $service) {\n  // Extract price from value (e.g., 'gift_wrap_5' → 5)\n  preg_match('/_([0-9]+)$/', $service, $matches);\n  if (!empty($matches[1])) {\n    $total_addon_cost += (int)$matches[1];\n  }\n  \n  // Convert to readable name (gift_wrap_5 → Gift Wrapping)\n  $service_name = str_replace('_', ' ', preg_replace('/_[0-9]+$/', '', $service));\n  $service_names[] = ucwords($service_name);\n}\n\n// Total order = base price + add-ons\n$order_total = $base_price + $total_addon_cost;\n\necho \"Selected Services: \" . implode(', ', $service_names);\necho \"Add-on Cost: $\" . $total_addon_cost;\necho \"Order Total: $\" . $order_total;"
+    },
+    {
+      "name": "GDPR Consent Logging (Audit Trail)",
+      "description": "Log each checkbox consent with timestamp and metadata for GDPR compliance",
+      "code": "// Log GDPR consent for audit trail\n$consents = isset($_POST['gdpr_consent']) ? $_POST['gdpr_consent'] : [];\n\n$consent_data = [\n  'user_id' => get_current_user_id(),\n  'timestamp' => current_time('mysql'),\n  'ip_address' => $_SERVER['REMOTE_ADDR'],\n  'user_agent' => $_SERVER['HTTP_USER_AGENT'],\n  'consents' => [\n    'terms_accepted' => in_array('terms_required', $consents),\n    'marketing_opt_in' => in_array('marketing_opt_in', $consents),\n    'analytics_cookies' => in_array('analytics_cookies', $consents),\n    'third_party_sharing' => in_array('third_party_sharing', $consents),\n  ]\n];\n\n// Store in custom table for audit\nglobal $wpdb;\n$wpdb->insert(\n  $wpdb->prefix . 'gdpr_consent_log',\n  $consent_data,\n  ['%d', '%s', '%s', '%s', '%s']\n);\n\n// Also update user meta for quick access\nupdate_user_meta($user_id, 'gdpr_consents', $consent_data['consents']);"
+    },
+    {
+      "name": "Dynamic Checkbox Population from Taxonomy",
+      "description": "Populate checkbox options from WordPress taxonomy (categories, tags, custom taxonomies)",
+      "code": "// Dynamically generate checkbox options from WordPress categories\n$categories = get_categories(['hide_empty' => false]);\n\n$checkbox_options = [];\nforeach ($categories as $category) {\n  $checkbox_options[] = [\n    'fldLabel' => $category->name,\n    'fldValue' => $category->slug\n  ];\n}\n\n// Use in block attributes\n$attributes = [\n  'labelss' => 'Select Categories',\n  'fldOptions' => $checkbox_options,\n  'optPos' => 'vertical',\n  'reqTgl' => true\n];\n\n// Renders checkboxes for all categories: Design, Development, Marketing, etc."
+    }
+  ],
+
+  "relatedBlocks": [
+    "tp-form-block - Parent form container with form actions",
+    "nxt-message-field - For 'Other' option free-text input (pair with checkboxes)",
+    "nxt-submit-button - Pair with inline submit for compact forms",
+    "nxt-hidden-field - Store calculated totals from checkbox selections"
+  ]
 }
