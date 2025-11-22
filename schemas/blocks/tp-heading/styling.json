@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-heading",
+  "title": "Heading - Styling Attributes",
+  "description": "Visual styling, typography, effects, and positioning",
+  "attributes": {
+    "tColor": {
+      "type": "string",
+      "default": "",
+      "format": "color",
+      "description": "Heading text color (hex, rgba, or CSS color name)"
+    },
+    "tTypo": {
+      "$ref": "definitions://typography",
+      "description": "Heading typography settings (font, size, weight, etc.)"
+    },
+    "tAlign": {
+      "$ref": "definitions://responsive-alignment",
+      "default": {"md": "left", "sm": "", "xs": ""},
+      "description": "Text alignment with responsive breakpoints"
+    },
+    "tStroke": {
+      "$ref": "definitions://text-stroke",
+      "description": "Text stroke effect for outlined text (webkit-text-stroke)"
+    },
+    "tShadow": {
+      "$ref": "definitions://shadow",
+      "default": {
+        "openShadow": 0,
+        "typeShadow": "text-shadow",
+        "horizontal": 2,
+        "vertical": 3,
+        "blur": 2,
+        "color": "rgba(0,0,0,0.5)"
+      },
+      "description": "Text shadow effect for depth and readability"
+    },
+    "tblendm": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "normal",
+        "multiply",
+        "screen",
+        "overlay",
+        "darken",
+        "lighten",
+        "color-dodge",
+        "color-burn",
+        "difference",
+        "exclusion",
+        "hue",
+        "saturation",
+        "color",
+        "luminosity"
+      ],
+      "description": "CSS mix-blend-mode for creative color blending effects"
+    },
+    "globalPosition": {
+      "$ref": "definitions://responsive-position",
+      "description": "Global positioning mode (static, relative, absolute, fixed)"
+    },
+    "glohoriOffset": {
+      "$ref": "definitions://responsive-unit",
+      "default": {"md": "0", "unit": "px"},
+      "description": "Horizontal offset for absolute/fixed positioning"
+    },
+    "gloverticalOffset": {
+      "$ref": "definitions://responsive-unit",
+      "default": {"md": "0", "unit": "px"},
+      "description": "Vertical offset for absolute/fixed positioning"
+    }
+  },
+  "editingGuidelines": {
+    "safeToModify": [
+      "tColor",
+      "tTypo",
+      "tAlign",
+      "tStroke",
+      "tShadow"
+    ],
+    "requiresValidation": [
+      "tblendm",
+      "globalPosition"
+    ]
+  },
+  "styleDependencies": [
+    "CSS text-stroke properties (-webkit-text-stroke)",
+    "CSS text-shadow",
+    "CSS mix-blend-mode"
+  ]
+}

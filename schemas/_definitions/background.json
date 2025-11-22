@@ -1,0 +1,284 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "definitions://background",
+  "title": "Background Definition",
+  "description": "Complete background object structure supporting color, gradient, image, and video backgrounds",
+  "type": "object",
+  "structure": {
+    "openBg": {
+      "type": "number",
+      "enum": [0, 1],
+      "default": 0,
+      "description": "Toggle to enable custom background (0 = disabled/transparent, 1 = enabled)"
+    },
+    "bgType": {
+      "type": "string",
+      "enum": ["color", "gradient", "image", "video"],
+      "default": "color",
+      "description": "Type of background to use"
+    },
+    "bgDefaultColor": {
+      "type": "string",
+      "default": "",
+      "description": "Solid background color (hex, rgba, or CSS color name)",
+      "condition": "bgType === 'color'"
+    },
+    "bgHoverColor": {
+      "type": "string",
+      "default": "",
+      "description": "Background color on hover state",
+      "condition": "bgType === 'color'"
+    },
+    "bgGradient": {
+      "type": "object",
+      "description": "Gradient background configuration",
+      "condition": "bgType === 'gradient'",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["linear", "radial"],
+          "default": "linear"
+        },
+        "angle": {
+          "type": ["string", "number"],
+          "default": "180",
+          "description": "Gradient angle in degrees (linear only)"
+        },
+        "position": {
+          "type": "string",
+          "default": "center center",
+          "description": "Gradient position (radial only)"
+        },
+        "colors": {
+          "type": "array",
+          "description": "Array of color stops",
+          "items": {
+            "type": "object",
+            "properties": {
+              "color": {"type": "string"},
+              "position": {"type": "number", "description": "0-100 percentage"}
+            }
+          }
+        }
+      }
+    },
+    "bgImage": {
+      "type": "object",
+      "description": "Background image configuration",
+      "condition": "bgType === 'image'",
+      "properties": {
+        "url": {
+          "type": "string",
+          "default": "",
+          "description": "Image URL or media library ID"
+        },
+        "id": {
+          "type": ["string", "number"],
+          "description": "WordPress media library attachment ID"
+        },
+        "size": {
+          "type": "string",
+          "enum": ["auto", "cover", "contain", "custom"],
+          "default": "cover",
+          "description": "Background-size property"
+        },
+        "position": {
+          "type": "string",
+          "default": "center center",
+          "description": "Background-position property"
+        },
+        "repeat": {
+          "type": "string",
+          "enum": ["no-repeat", "repeat", "repeat-x", "repeat-y"],
+          "default": "no-repeat"
+        },
+        "attachment": {
+          "type": "string",
+          "enum": ["scroll", "fixed", "local"],
+          "default": "scroll",
+          "description": "Background-attachment property (parallax uses 'fixed')"
+        }
+      }
+    },
+    "bgVideo": {
+      "type": "object",
+      "description": "Background video configuration",
+      "condition": "bgType === 'video'",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "Video file URL or YouTube/Vimeo URL"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["self-hosted", "youtube", "vimeo"],
+          "default": "self-hosted"
+        },
+        "fallbackImage": {
+          "type": "string",
+          "description": "Fallback image URL for mobile devices"
+        },
+        "loop": {
+          "type": "boolean",
+          "default": true
+        },
+        "muted": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "overlayColor": {
+      "type": "string",
+      "default": "",
+      "description": "Optional overlay color on top of image/video backgrounds"
+    },
+    "overlayOpacity": {
+      "type": ["string", "number"],
+      "default": "0.5",
+      "description": "Overlay opacity (0-1)"
+    }
+  },
+  "commonPatterns": {
+    "transparent": {
+      "description": "No background (transparent)",
+      "value": {
+        "openBg": 0
+      }
+    },
+    "solidColor": {
+      "description": "Simple solid color background",
+      "value": {
+        "openBg": 1,
+        "bgType": "color",
+        "bgDefaultColor": "#ffffff"
+      }
+    },
+    "colorWithHover": {
+      "description": "Solid color with hover state",
+      "value": {
+        "openBg": 1,
+        "bgType": "color",
+        "bgDefaultColor": "#6f14f1",
+        "bgHoverColor": "#5910c4"
+      }
+    },
+    "linearGradient": {
+      "description": "Linear gradient background",
+      "value": {
+        "openBg": 1,
+        "bgType": "gradient",
+        "bgGradient": {
+          "type": "linear",
+          "angle": "135",
+          "colors": [
+            {"color": "#667eea", "position": 0},
+            {"color": "#764ba2", "position": 100}
+          ]
+        }
+      }
+    },
+    "coverImage": {
+      "description": "Full cover background image",
+      "value": {
+        "openBg": 1,
+        "bgType": "image",
+        "bgImage": {
+          "url": "https://example.com/image.jpg",
+          "size": "cover",
+          "position": "center center",
+          "repeat": "no-repeat"
+        }
+      }
+    },
+    "parallaxImage": {
+      "description": "Fixed parallax background image",
+      "value": {
+        "openBg": 1,
+        "bgType": "image",
+        "bgImage": {
+          "url": "https://example.com/image.jpg",
+          "size": "cover",
+          "position": "center center",
+          "repeat": "no-repeat",
+          "attachment": "fixed"
+        }
+      }
+    },
+    "imageWithOverlay": {
+      "description": "Background image with dark overlay",
+      "value": {
+        "openBg": 1,
+        "bgType": "image",
+        "bgImage": {
+          "url": "https://example.com/image.jpg",
+          "size": "cover",
+          "position": "center center"
+        },
+        "overlayColor": "rgba(0,0,0,0.5)",
+        "overlayOpacity": "0.5"
+      }
+    },
+    "videoBackground": {
+      "description": "Self-hosted video background",
+      "value": {
+        "openBg": 1,
+        "bgType": "video",
+        "bgVideo": {
+          "url": "https://example.com/video.mp4",
+          "type": "self-hosted",
+          "fallbackImage": "https://example.com/fallback.jpg",
+          "loop": true,
+          "muted": true
+        }
+      }
+    }
+  },
+  "usageGuidelines": {
+    "whenToUse": [
+      "Containers, rows, sections, cards, buttons - any block with visible background",
+      "Hero sections with image or video backgrounds",
+      "Call-to-action sections with gradient backgrounds",
+      "Content blocks with solid color backgrounds"
+    ],
+    "aiTriggerKeywords": [
+      "background",
+      "bg color",
+      "gradient",
+      "background image",
+      "background video",
+      "parallax",
+      "overlay",
+      "backdrop",
+      "fill color"
+    ],
+    "bestPractices": [
+      "Always set openBg to 1 when customizing background",
+      "Use cover size for hero images to prevent distortion",
+      "Add overlays to improve text readability on image backgrounds",
+      "Provide fallback images for video backgrounds on mobile",
+      "Use muted autoplay for video backgrounds to respect user preferences",
+      "Test gradient combinations for accessibility and readability"
+    ],
+    "performance": [
+      "Optimize background images (use WebP, compress appropriately)",
+      "Use CSS gradients instead of gradient images when possible",
+      "Lazy-load background images when appropriate",
+      "Avoid auto-playing unmuted videos"
+    ]
+  },
+  "attributeNamingPatterns": [
+    "*bgType",
+    "*BgType",
+    "*Background",
+    "*Bg",
+    "bgType",
+    "Bgcolor",
+    "containerBg",
+    "sectionBg",
+    "cardBg",
+    "btnBg"
+  ],
+  "occurrences": "~200 (estimated across all blocks with backgrounds)",
+  "affectedBlocks": "Containers, rows, columns, buttons, cards, accordions, tabs, hero sections, etc."
+}

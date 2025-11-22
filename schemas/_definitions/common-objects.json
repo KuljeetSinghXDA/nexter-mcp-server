@@ -1,0 +1,334 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "definitions://common-objects",
+  "title": "Common Object Patterns",
+  "description": "Small, frequently reused object structures across Nexter blocks",
+  "definitions": {
+    "link": {
+      "$id": "definitions://link",
+      "title": "Link Object",
+      "description": "Standard link/URL object with target and rel attributes",
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "default": "",
+          "description": "URL or anchor (#section-id)"
+        },
+        "target": {
+          "type": "string",
+          "enum": ["", "_blank", "_self", "_parent", "_top"],
+          "default": "",
+          "description": "Link target (empty or _self = same tab, _blank = new tab)"
+        },
+        "nofollow": {
+          "type": ["string", "boolean"],
+          "default": "",
+          "description": "Add rel='nofollow' attribute (SEO)"
+        },
+        "rel": {
+          "type": "string",
+          "default": "",
+          "description": "Full rel attribute (nofollow, noopener, noreferrer, etc.)"
+        }
+      },
+      "default": {
+        "url": "",
+        "target": "",
+        "nofollow": ""
+      },
+      "examples": [
+        {
+          "description": "External link opening in new tab",
+          "value": {
+            "url": "https://example.com",
+            "target": "_blank",
+            "rel": "noopener noreferrer"
+          }
+        },
+        {
+          "description": "Internal anchor link",
+          "value": {
+            "url": "#contact-section",
+            "target": "_self"
+          }
+        }
+      ]
+    },
+    "image": {
+      "$id": "definitions://image",
+      "title": "Image Object",
+      "description": "Image object with URL and WordPress media library integration",
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "default": "",
+          "description": "Image URL"
+        },
+        "id": {
+          "type": ["string", "number"],
+          "default": "",
+          "description": "WordPress media attachment ID"
+        },
+        "alt": {
+          "type": "string",
+          "default": "",
+          "description": "Alt text for accessibility"
+        },
+        "title": {
+          "type": "string",
+          "default": "",
+          "description": "Image title attribute"
+        }
+      },
+      "default": {
+        "url": ""
+      }
+    },
+    "icon": {
+      "$id": "definitions://icon",
+      "title": "Icon Configuration",
+      "description": "Icon selection and styling (Font Awesome, custom image, SVG)",
+      "type": "object",
+      "properties": {
+        "iconType": {
+          "type": "string",
+          "enum": ["font", "image", "svg"],
+          "default": "font",
+          "description": "Type of icon"
+        },
+        "iconFont": {
+          "type": "string",
+          "enum": ["font_awesome", "font_awesome_5", "feather"],
+          "default": "font_awesome",
+          "description": "Icon library (when iconType = font)",
+          "condition": "iconType === 'font'"
+        },
+        "iconName": {
+          "type": "string",
+          "default": "fas fa-star",
+          "description": "Icon class name (e.g., 'fas fa-star')",
+          "condition": "iconType === 'font'"
+        },
+        "iconImage": {
+          "$ref": "definitions://image",
+          "description": "Custom icon image",
+          "condition": "iconType === 'image'"
+        },
+        "iconSvg": {
+          "type": "string",
+          "description": "SVG code",
+          "condition": "iconType === 'svg'"
+        }
+      }
+    },
+    "repeater-field": {
+      "$id": "definitions://repeater-field",
+      "title": "Repeater Field Marker",
+      "description": "Marker indicating an array attribute contains repeating field definitions",
+      "note": "Not an actual object structure, but a flag: 'repeaterField': true",
+      "examples": [
+        {
+          "description": "Accordion items repeater",
+          "value": {
+            "accordianList": {
+              "type": "array",
+              "repeaterField": true,
+              "items": {
+                "title": {"type": "string"},
+                "desc": {"type": "string"}
+              }
+            }
+          }
+        }
+      ]
+    },
+    "carousel-options": {
+      "$id": "definitions://carousel-options",
+      "title": "Carousel/Slider Options",
+      "description": "Configuration for carousel/slider functionality (uses Splide.js)",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["slide", "loop", "fade"],
+          "default": "slide"
+        },
+        "autoplay": {
+          "type": "boolean",
+          "default": false
+        },
+        "interval": {
+          "type": ["string", "number"],
+          "default": "3000",
+          "description": "Autoplay interval in milliseconds"
+        },
+        "speed": {
+          "type": ["string", "number"],
+          "default": "600",
+          "description": "Transition speed in milliseconds"
+        },
+        "arrows": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show prev/next arrows"
+        },
+        "dots": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show pagination dots"
+        },
+        "perPage": {
+          "type": ["string", "number"],
+          "default": "3",
+          "description": "Items visible per page"
+        },
+        "gap": {
+          "type": ["string", "number"],
+          "default": "20",
+          "description": "Gap between items in pixels"
+        },
+        "pauseOnHover": {
+          "type": "boolean",
+          "default": true
+        },
+        "breakpoints": {
+          "type": "object",
+          "description": "Responsive breakpoint overrides"
+        }
+      }
+    },
+    "text-stroke": {
+      "$id": "definitions://text-stroke",
+      "title": "Text Stroke Effect",
+      "description": "WebKit text stroke for outline text effects",
+      "type": "object",
+      "properties": {
+        "tpgbReset": {
+          "type": "number",
+          "enum": [0, 1],
+          "default": 0,
+          "description": "Enable text stroke (1 = enabled)"
+        },
+        "tstWidth": {
+          "$ref": "definitions://responsive-unit",
+          "description": "Stroke width"
+        },
+        "tstColor": {
+          "type": "string",
+          "default": "",
+          "description": "Stroke color"
+        }
+      },
+      "default": {
+        "tpgbReset": 0,
+        "tstWidth": {"md": ""},
+        "tstColor": ""
+      }
+    },
+    "visibility": {
+      "$id": "definitions://visibility",
+      "title": "Visibility Control",
+      "description": "Show/hide element based on conditions",
+      "type": "object",
+      "properties": {
+        "hideDesktop": {
+          "type": "boolean",
+          "default": false,
+          "description": "Hide on desktop (≥1024px)"
+        },
+        "hideTablet": {
+          "type": "boolean",
+          "default": false,
+          "description": "Hide on tablet (768-1023px)"
+        },
+        "hideMobile": {
+          "type": "boolean",
+          "default": false,
+          "description": "Hide on mobile (<768px)"
+        }
+      }
+    },
+    "acf-field": {
+      "$id": "definitions://acf-field",
+      "title": "ACF Field Reference",
+      "description": "Advanced Custom Fields integration for dynamic content",
+      "type": "object",
+      "properties": {
+        "fieldType": {
+          "type": "string",
+          "enum": ["text", "textarea", "number", "email", "url", "image", "file", "wysiwyg", "select", "checkbox", "radio", "date", "repeater", "group"],
+          "description": "ACF field type"
+        },
+        "fieldName": {
+          "type": "string",
+          "description": "ACF field name/key"
+        },
+        "fallback": {
+          "type": "string",
+          "description": "Fallback value if field is empty"
+        }
+      }
+    },
+    "dynamic-content": {
+      "$id": "definitions://dynamic-content",
+      "title": "Dynamic Content Options",
+      "description": "WordPress dynamic content insertion (post meta, custom fields, etc.)",
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": ["post_title", "post_content", "post_excerpt", "post_date", "post_author", "custom_field", "acf_field", "taxonomy"],
+          "description": "Content source"
+        },
+        "key": {
+          "type": "string",
+          "description": "Meta key or field name"
+        },
+        "before": {
+          "type": "string",
+          "description": "Text to prepend"
+        },
+        "after": {
+          "type": "string",
+          "description": "Text to append"
+        }
+      }
+    }
+  },
+  "usageGuidelines": {
+    "link": {
+      "keywords": ["link", "url", "button link", "click", "href", "anchor"],
+      "blocks": "Buttons, headings, images, cards - anything clickable"
+    },
+    "image": {
+      "keywords": ["image", "picture", "photo", "media", "thumbnail"],
+      "blocks": "Image blocks, backgrounds, icons, avatars"
+    },
+    "icon": {
+      "keywords": ["icon", "font awesome", "symbol", "glyph"],
+      "blocks": "Buttons, info boxes, features, lists, accordions"
+    },
+    "carousel": {
+      "keywords": ["carousel", "slider", "slideshow", "gallery"],
+      "blocks": "Carousels, image galleries, testimonial sliders"
+    },
+    "visibility": {
+      "keywords": ["hide on mobile", "show on desktop", "responsive visibility"],
+      "blocks": "Any block with responsive visibility options"
+    },
+    "dynamicContent": {
+      "keywords": ["dynamic", "ACF", "custom field", "post meta"],
+      "blocks": "Dynamic content blocks, repeaters, query-based blocks"
+    }
+  },
+  "attributeNamingPatterns": {
+    "link": ["*Link", "btnLink", "titleLink", "imageLink"],
+    "image": ["*Image", "*Img", "bgImage", "iconImage"],
+    "icon": ["*Icon", "iconName", "iconFont", "iconType"],
+    "textStroke": ["*Stroke", "tStroke"],
+    "visibility": ["hide*", "show*", "visible*"],
+    "dynamic": ["dynamic*", "acf*", "*Field"]
+  }
+}

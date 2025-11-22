@@ -1,0 +1,228 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "definitions://animation",
+  "title": "Animation Definition",
+  "description": "Animation and transition effects used across Nexter blocks",
+  "definitions": {
+    "scroll-animation": {
+      "$id": "definitions://scroll-animation",
+      "title": "Scroll Animation (CSS/JavaScript)",
+      "description": "Animations triggered when element enters viewport",
+      "type": "object",
+      "structure": {
+        "animation": {
+          "type": "string",
+          "enum": [
+            "none",
+            "fadeIn",
+            "fadeInUp",
+            "fadeInDown",
+            "fadeInLeft",
+            "fadeInRight",
+            "slideInUp",
+            "slideInDown",
+            "slideInLeft",
+            "slideInRight",
+            "zoomIn",
+            "zoomInUp",
+            "zoomInDown",
+            "bounceIn",
+            "bounceInUp",
+            "flipInX",
+            "flipInY",
+            "rotateIn"
+          ],
+          "default": "none",
+          "description": "Animation type (based on Animate.css library)"
+        },
+        "duration": {
+          "type": ["string", "number"],
+          "default": "1000",
+          "description": "Animation duration in milliseconds"
+        },
+        "delay": {
+          "type": ["string", "number"],
+          "default": "0",
+          "description": "Animation delay in milliseconds"
+        },
+        "easing": {
+          "type": "string",
+          "enum": ["linear", "ease", "ease-in", "ease-out", "ease-in-out", "cubic-bezier"],
+          "default": "ease",
+          "description": "Animation easing function"
+        },
+        "repeat": {
+          "type": ["string", "number", "boolean"],
+          "default": false,
+          "description": "Repeat animation (false, true/infinite, or number of times)"
+        }
+      }
+    },
+    "hover-animation": {
+      "$id": "definitions://hover-animation",
+      "title": "Hover Animation",
+      "description": "Animations triggered on element hover",
+      "type": "object",
+      "structure": {
+        "hoverEffect": {
+          "type": "string",
+          "enum": [
+            "none",
+            "float",
+            "sink",
+            "grow",
+            "shrink",
+            "pulse",
+            "rotate",
+            "wobble",
+            "buzz",
+            "forward",
+            "backward"
+          ],
+          "default": "none"
+        },
+        "duration": {
+          "type": ["string", "number"],
+          "default": "300",
+          "description": "Transition duration in milliseconds"
+        }
+      }
+    },
+    "transition": {
+      "$id": "definitions://transition",
+      "title": "CSS Transition",
+      "description": "Generic CSS transition for property changes",
+      "type": "object",
+      "structure": {
+        "property": {
+          "type": "string",
+          "default": "all",
+          "description": "CSS property to transition (all, opacity, transform, etc.)"
+        },
+        "duration": {
+          "type": ["string", "number"],
+          "default": "300",
+          "description": "Transition duration in milliseconds"
+        },
+        "timing": {
+          "type": "string",
+          "enum": ["linear", "ease", "ease-in", "ease-out", "ease-in-out"],
+          "default": "ease"
+        },
+        "delay": {
+          "type": ["string", "number"],
+          "default": "0",
+          "description": "Transition delay in milliseconds"
+        }
+      }
+    }
+  },
+  "commonPatterns": {
+    "fadeInOnScroll": {
+      "description": "Fade in when scrolling into view",
+      "value": {
+        "animation": "fadeIn",
+        "duration": "1000",
+        "delay": "0",
+        "easing": "ease-out"
+      }
+    },
+    "slideUpOnScroll": {
+      "description": "Slide up from bottom on scroll",
+      "value": {
+        "animation": "fadeInUp",
+        "duration": "800",
+        "delay": "0",
+        "easing": "ease-out"
+      }
+    },
+    "staggeredAnimation": {
+      "description": "Delayed animation for list items",
+      "value": {
+        "animation": "fadeInUp",
+        "duration": "600",
+        "delay": "100",
+        "easing": "ease-out"
+      },
+      "note": "Delay multiplied by item index for stagger effect"
+    },
+    "growOnHover": {
+      "description": "Slightly enlarge on hover",
+      "value": {
+        "hoverEffect": "grow",
+        "duration": "300"
+      }
+    },
+    "floatOnHover": {
+      "description": "Float up on hover",
+      "value": {
+        "hoverEffect": "float",
+        "duration": "300"
+      }
+    },
+    "smoothTransition": {
+      "description": "Smooth transition for all properties",
+      "value": {
+        "property": "all",
+        "duration": "300",
+        "timing": "ease-in-out",
+        "delay": "0"
+      }
+    }
+  },
+  "usageGuidelines": {
+    "whenToUse": [
+      "Scroll animations: Hero sections, feature blocks, testimonials",
+      "Hover animations: Buttons, cards, images, interactive elements",
+      "Transitions: Color changes, size changes, visibility toggles",
+      "Staggered animations: Lists, galleries, repeated elements"
+    ],
+    "aiTriggerKeywords": [
+      "animation",
+      "animate",
+      "fade in",
+      "slide in",
+      "scroll animation",
+      "hover effect",
+      "transition",
+      "entrance animation",
+      "appear on scroll"
+    ],
+    "bestPractices": [
+      "Keep animations subtle (800-1200ms duration typical)",
+      "Use ease-out for entrance animations (feels more natural)",
+      "Avoid auto-playing animations on every visit (respect prefers-reduced-motion)",
+      "Don't animate too many elements simultaneously",
+      "Test on slower devices to ensure smooth performance",
+      "Provide fallbacks for older browsers"
+    ],
+    "performance": [
+      "Prefer CSS transitions over JavaScript animations",
+      "Animate transform and opacity (GPU-accelerated)",
+      "Avoid animating layout properties (width, height, top, left)",
+      "Use will-change sparingly for complex animations",
+      "Limit concurrent animations (3-5 max on screen)"
+    ],
+    "accessibility": [
+      "Respect prefers-reduced-motion media query",
+      "Don't rely on animation for critical information",
+      "Avoid flashing/strobing effects (seizure risk)",
+      "Keep animations optional or toggle-able"
+    ]
+  },
+  "attributeNamingPatterns": [
+    "*Animation",
+    "*animation",
+    "scrollAnimation",
+    "hoverAnimation",
+    "entranceAnimation",
+    "transitionEffect"
+  ],
+  "occurrences": "~60 (estimated for blocks with animation support)",
+  "affectedBlocks": "Interactive blocks, containers, cards, images, buttons, galleries, etc.",
+  "libraries": {
+    "animateCSS": "https://animate.style/ - Used for scroll animations",
+    "hoverCSS": "https://ianlunn.github.io/Hover/ - Used for hover effects",
+    "custom": "Nexter includes custom animation implementations"
+  }
+}

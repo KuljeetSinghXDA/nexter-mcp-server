@@ -1,0 +1,853 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "lastUpdated": "2025-11-22",
+  "description": "Master catalog of all 84 Nexter block schemas with categories, complexity, and relationships",
+  "totalBlocks": 84,
+  "categories": {
+    "content": {
+      "description": "Text, headings, paragraphs, typography, and content display blocks",
+      "count": 7,
+      "blocks": [
+        {
+          "name": "tpgb/tp-heading",
+          "title": "Heading",
+          "complexity": "simple",
+          "keywords": ["heading", "title", "h1", "h2", "h3", "text", "typography"],
+          "useCases": ["Hero titles", "Section headings", "Page titles"],
+          "relatedBlocks": ["tpgb/tp-heading-animation", "tpgb/tp-heading-title", "tpgb/tp-adv-typo"]
+        },
+        {
+          "name": "tpgb/tp-heading-animation",
+          "title": "Heading Animation",
+          "complexity": "medium",
+          "keywords": ["animated heading", "typewriter", "rotating text", "dynamic heading"],
+          "useCases": ["Hero sections with animated text", "Attention-grabbing headlines"],
+          "relatedBlocks": ["tpgb/tp-heading", "tpgb/tp-heading-title"]
+        },
+        {
+          "name": "tpgb/tp-heading-title",
+          "title": "Heading Title",
+          "complexity": "medium",
+          "keywords": ["heading with subtitle", "title description", "heading group"],
+          "useCases": ["Section headers with descriptions", "Feature block titles"],
+          "relatedBlocks": ["tpgb/tp-heading", "tpgb/tp-adv-typo"]
+        },
+        {
+          "name": "tpgb/tp-pro-paragraph",
+          "title": "Pro Paragraph",
+          "complexity": "simple",
+          "keywords": ["paragraph", "text", "content", "body text", "description"],
+          "useCases": ["Body content", "Descriptions", "Text sections"],
+          "relatedBlocks": ["tpgb/tp-adv-typo", "tpgb/tp-blockquote"]
+        },
+        {
+          "name": "tpgb/tp-adv-typo",
+          "title": "Advanced Typography",
+          "complexity": "medium",
+          "keywords": ["typography", "text styling", "font control", "advanced text"],
+          "useCases": ["Custom text styling", "Brand typography", "Styled content blocks"],
+          "relatedBlocks": ["tpgb/tp-heading", "tpgb/tp-pro-paragraph"]
+        },
+        {
+          "name": "tpgb/tp-blockquote",
+          "title": "Blockquote",
+          "complexity": "simple",
+          "keywords": ["quote", "blockquote", "testimonial text", "citation"],
+          "useCases": ["Customer quotes", "Testimonial text", "Pull quotes", "Citations"],
+          "relatedBlocks": ["tpgb/tp-testimonials", "tpgb/tp-infobox"]
+        },
+        {
+          "name": "tpgb/tp-stylist-list",
+          "title": "Stylish List",
+          "complexity": "medium",
+          "keywords": ["list", "bullet list", "icon list", "feature list", "checklist"],
+          "useCases": ["Feature lists", "Benefits lists", "Checklists", "Icon lists"],
+          "relatedBlocks": ["tpgb/tp-icon-box", "tpgb/tp-process-steps"]
+        }
+      ]
+    },
+    "layout": {
+      "description": "Containers, rows, columns, and structural blocks",
+      "count": 4,
+      "blocks": [
+        {
+          "name": "tpgb/tp-container",
+          "title": "Container",
+          "complexity": "medium",
+          "keywords": ["container", "section", "wrapper", "flexbox", "grid"],
+          "useCases": ["Page sections", "Content wrappers", "Flexbox/grid layouts"],
+          "relatedBlocks": ["tpgb/tp-row", "tpgb/tp-column", "tpgb/tp-container-inner"],
+          "isParent": true
+        },
+        {
+          "name": "tpgb/tp-container-inner",
+          "title": "Container Inner",
+          "complexity": "advanced",
+          "keywords": ["inner container", "nested container", "child container"],
+          "useCases": ["Nested layouts", "Complex grid structures"],
+          "relatedBlocks": ["tpgb/tp-container", "tpgb/tp-row"],
+          "isChild": true,
+          "parent": "tpgb/tp-container"
+        },
+        {
+          "name": "tpgb/tp-row",
+          "title": "Row",
+          "complexity": "medium",
+          "keywords": ["row", "columns", "grid row", "layout row"],
+          "useCases": ["Multi-column layouts", "Grid rows", "Responsive columns"],
+          "relatedBlocks": ["tpgb/tp-container", "tpgb/tp-column"],
+          "isParent": true
+        },
+        {
+          "name": "tpgb/tp-column",
+          "title": "Column",
+          "complexity": "medium",
+          "keywords": ["column", "grid column", "layout column"],
+          "useCases": ["Individual columns in row", "Grid cells"],
+          "relatedBlocks": ["tpgb/tp-row", "tpgb/tp-container"],
+          "isChild": true,
+          "parent": "tpgb/tp-row"
+        },
+        {
+          "name": "tpgb/tp-empty-space",
+          "title": "Empty Space",
+          "complexity": "simple",
+          "keywords": ["spacer", "gap", "margin", "spacing", "divider"],
+          "useCases": ["Add vertical spacing", "Create visual breaks", "Section separators"],
+          "relatedBlocks": []
+        },
+        {
+          "name": "tpgb/tp-dynamic-heading",
+          "title": "Dynamic Heading",
+          "complexity": "expert",
+          "keywords": ["dynamic content", "ACF heading", "repeater heading", "template heading"],
+          "useCases": ["Repeater template headings", "Dynamic content display"],
+          "relatedBlocks": ["tpgb/tp-repeater-block", "tpgb/tp-heading"],
+          "isChild": true,
+          "parent": "tpgb/tp-repeater-template"
+        }
+      ]
+    },
+    "interactive": {
+      "description": "Tabs, accordions, toggles, and interactive UI elements",
+      "count": 9,
+      "blocks": [
+        {
+          "name": "tpgb/tp-accordion",
+          "title": "Accordion",
+          "complexity": "medium",
+          "keywords": ["accordion", "collapse", "expandable", "FAQ"],
+          "useCases": ["FAQ sections", "Content organization", "Expandable content"],
+          "relatedBlocks": ["tpgb/tp-accordion-inner", "tpgb/tp-tabs-tours", "tpgb/tp-expand"],
+          "isParent": true
+        },
+        {
+          "name": "tpgb/tp-accordion-inner",
+          "title": "Accordion Inner",
+          "complexity": "medium",
+          "keywords": ["accordion item", "accordion panel"],
+          "useCases": ["Individual accordion panels", "FAQ items"],
+          "relatedBlocks": ["tpgb/tp-accordion"],
+          "isChild": true,
+          "parent": "tpgb/tp-accordion"
+        },
+        {
+          "name": "tpgb/tp-tabs-tours",
+          "title": "Tabs & Tours",
+          "complexity": "medium",
+          "keywords": ["tabs", "tabbed content", "tours", "content tabs"],
+          "useCases": ["Tabbed content areas", "Product specifications", "Multi-section content"],
+          "relatedBlocks": ["tpgb/tp-tab-item", "tpgb/tp-accordion", "tpgb/tp-switcher"],
+          "isParent": true
+        },
+        {
+          "name": "tpgb/tp-tab-item",
+          "title": "Tab Item",
+          "complexity": "medium",
+          "keywords": ["tab panel", "tab content"],
+          "useCases": ["Individual tab panels"],
+          "relatedBlocks": ["tpgb/tp-tabs-tours"],
+          "isChild": true,
+          "parent": "tpgb/tp-tabs-tours"
+        },
+        {
+          "name": "tpgb/tp-switcher",
+          "title": "Content Switcher",
+          "complexity": "medium",
+          "keywords": ["switcher", "toggle content", "pricing toggle", "monthly yearly"],
+          "useCases": ["Pricing toggles (monthly/yearly)", "Before/after comparisons", "Content switches"],
+          "relatedBlocks": ["tpgb/tp-switch-inner", "tpgb/tp-tabs-tours"],
+          "isParent": true
+        },
+        {
+          "name": "tpgb/tp-switch-inner",
+          "title": "Switch Inner Content",
+          "complexity": "medium",
+          "keywords": ["switch panel", "toggle panel"],
+          "useCases": ["Individual switch panels"],
+          "relatedBlocks": ["tpgb/tp-switcher"],
+          "isChild": true,
+          "parent": "tpgb/tp-switcher"
+        },
+        {
+          "name": "tpgb/tp-expand",
+          "title": "Read More / Expand",
+          "complexity": "simple",
+          "keywords": ["read more", "expand", "show more", "content expander"],
+          "useCases": ["Truncate long content", "Read more buttons", "Expandable text"],
+          "relatedBlocks": ["tpgb/tp-accordion"]
+        },
+        {
+          "name": "tpgb/tp-scroll-navigation",
+          "title": "Scroll Navigation",
+          "complexity": "medium",
+          "keywords": ["scroll nav", "anchor navigation", "one page nav", "scroll to section"],
+          "useCases": ["One-page navigation", "Anchor links", "Scroll-to sections"],
+          "relatedBlocks": ["tpgb/tp-table-content", "tpgb/tp-smooth-scroll"]
+        },
+        {
+          "name": "tpgb/tp-smooth-scroll",
+          "title": "Smooth Scroll",
+          "complexity": "simple",
+          "keywords": ["smooth scroll", "scroll animation", "easing"],
+          "useCases": ["Page-wide smooth scrolling", "Improved scroll UX"],
+          "relatedBlocks": ["tpgb/tp-scroll-navigation"]
+        }
+      ]
+    },
+    "media": {
+      "description": "Images, videos, galleries, and media display blocks",
+      "count": 11,
+      "blocks": [
+        {
+          "name": "tpgb/tp-image",
+          "title": "Image",
+          "complexity": "simple",
+          "keywords": ["image", "picture", "photo", "img"],
+          "useCases": ["Display images", "Photo galleries", "Product images"],
+          "relatedBlocks": ["tpgb/tp-creative-image", "tpgb/tp-before-after", "tpgb/tp-hotspot"]
+        },
+        {
+          "name": "tpgb/tp-creative-image",
+          "title": "Creative Image",
+          "complexity": "medium",
+          "keywords": ["creative image", "image effects", "hover image", "animated image"],
+          "useCases": ["Images with hover effects", "Creative galleries", "Portfolio images"],
+          "relatedBlocks": ["tpgb/tp-image", "tpgb/tp-flipbox"]
+        },
+        {
+          "name": "tpgb/tp-video",
+          "title": "Video Player",
+          "complexity": "medium",
+          "keywords": ["video", "youtube", "vimeo", "video player", "embed"],
+          "useCases": ["Embed videos", "Video backgrounds", "YouTube/Vimeo players"],
+          "relatedBlocks": ["tpgb/tp-audio-player", "tpgb/tp-media-listing"]
+        },
+        {
+          "name": "tpgb/tp-audio-player",
+          "title": "Audio Player",
+          "complexity": "medium",
+          "keywords": ["audio", "music", "podcast", "audio player", "sound"],
+          "useCases": ["Music players", "Podcasts", "Audio files"],
+          "relatedBlocks": ["tpgb/tp-video", "tpgb/tp-media-listing"]
+        },
+        {
+          "name": "tpgb/tp-media-listing",
+          "title": "Media Listing",
+          "complexity": "advanced",
+          "keywords": ["gallery", "media grid", "post grid", "portfolio"],
+          "useCases": ["Post grids", "Portfolio galleries", "Media archives"],
+          "relatedBlocks": ["tpgb/tp-anything-carousel", "tpgb/tp-team-listing"]
+        },
+        {
+          "name": "tpgb/tp-before-after",
+          "title": "Before/After Image",
+          "complexity": "medium",
+          "keywords": ["before after", "comparison slider", "image comparison"],
+          "useCases": ["Before/after comparisons", "Product transformations", "Image comparisons"],
+          "relatedBlocks": ["tpgb/tp-image", "tpgb/tp-creative-image"]
+        },
+        {
+          "name": "tpgb/tp-flipbox",
+          "title": "Flip Box",
+          "complexity": "medium",
+          "keywords": ["flipbox", "flip card", "hover flip", "3d flip"],
+          "useCases": ["Hover reveal content", "Interactive cards", "Service boxes"],
+          "relatedBlocks": ["tpgb/tp-icon-box", "tpgb/tp-infobox", "tpgb/tp-creative-image"]
+        },
+        {
+          "name": "tpgb/tp-hotspot",
+          "title": "Image Hotspot",
+          "complexity": "advanced",
+          "keywords": ["hotspot", "image markers", "interactive image", "image points"],
+          "useCases": ["Interactive product images", "Annotated images", "Location markers"],
+          "relatedBlocks": ["tpgb/tp-image", "tpgb/tp-popup-builder"]
+        },
+        {
+          "name": "tpgb/tp-draw-svg",
+          "title": "Draw SVG",
+          "complexity": "advanced",
+          "keywords": ["svg", "animated svg", "draw animation", "svg path"],
+          "useCases": ["Animated SVG drawings", "Line animations", "Signature effects"],
+          "relatedBlocks": ["tpgb/tp-creative-image"]
+        },
+        {
+          "name": "tpgb/tp-anything-carousel",
+          "title": "Anything Carousel",
+          "complexity": "advanced",
+          "keywords": ["carousel", "slider", "slideshow", "anything slider"],
+          "useCases": ["Image carousels", "Content sliders", "Product showcases"],
+          "relatedBlocks": ["tpgb/tp-anything-slide", "tpgb/tp-carousel-remote", "tpgb/tp-media-listing"],
+          "isParent": true
+        },
+        {
+          "name": "tpgb/tp-anything-slide",
+          "title": "Carousel Slide",
+          "complexity": "medium",
+          "keywords": ["slide", "carousel item", "slider item"],
+          "useCases": ["Individual carousel slides"],
+          "relatedBlocks": ["tpgb/tp-anything-carousel"],
+          "isChild": true,
+          "parent": "tpgb/tp-anything-carousel"
+        },
+        {
+          "name": "tpgb/tp-carousel-remote",
+          "title": "Carousel Remote Control",
+          "complexity": "expert",
+          "keywords": ["carousel control", "remote slider", "slider navigation"],
+          "useCases": ["Custom carousel controls", "Remote navigation"],
+          "relatedBlocks": ["tpgb/tp-anything-carousel"]
+        },
+        {
+          "name": "tpgb/tp-dynamic-device",
+          "title": "Dynamic Device Mockup",
+          "complexity": "expert",
+          "keywords": ["device mockup", "mobile mockup", "laptop mockup", "phone frame"],
+          "useCases": ["App screenshots", "Device mockups", "Mobile previews"],
+          "relatedBlocks": ["tpgb/tp-image", "tpgb/tp-anything-carousel"]
+        }
+      ]
+    },
+    "marketing": {
+      "description": "Call-to-action, testimonials, pricing, conversion blocks",
+      "count": 17,
+      "blocks": [
+        {
+          "name": "tpgb/tp-button",
+          "title": "Button (Pro)",
+          "complexity": "simple",
+          "keywords": ["button", "cta", "call to action", "link button"],
+          "useCases": ["CTA buttons", "Links", "Action buttons"],
+          "relatedBlocks": ["tpgb/tp-button-core", "tpgb/tp-advanced-buttons", "tpgb/tp-cta-banner"]
+        },
+        {
+          "name": "tpgb/tp-button-core",
+          "title": "Button (Free)",
+          "complexity": "simple",
+          "keywords": ["button", "cta", "simple button", "basic button"],
+          "useCases": ["Basic CTA buttons", "Simple links"],
+          "relatedBlocks": ["tpgb/tp-button", "tpgb/tp-advanced-buttons"]
+        },
+        {
+          "name": "tpgb/tp-advanced-buttons",
+          "title": "Advanced Buttons",
+          "complexity": "medium",
+          "keywords": ["button group", "multiple buttons", "dual buttons"],
+          "useCases": ["Button groups", "Primary + secondary CTAs", "Multi-action buttons"],
+          "relatedBlocks": ["tpgb/tp-button", "tpgb/tp-button-core"]
+        },
+        {
+          "name": "tpgb/tp-cta-banner",
+          "title": "Call-to-Action Banner",
+          "complexity": "medium",
+          "keywords": ["cta banner", "call to action", "banner", "promo banner"],
+          "useCases": ["CTA sections", "Promotional banners", "Newsletter signups"],
+          "relatedBlocks": ["tpgb/tp-button", "tpgb/tp-infobox"]
+        },
+        {
+          "name": "tpgb/tp-pricing-table",
+          "title": "Pricing Table",
+          "complexity": "advanced",
+          "keywords": ["pricing", "price table", "plans", "subscription"],
+          "useCases": ["Pricing pages", "Subscription plans", "Product tiers"],
+          "relatedBlocks": ["tpgb/tp-pricing-list", "tpgb/tp-button", "tpgb/tp-switcher"]
+        },
+        {
+          "name": "tpgb/tp-pricing-list",
+          "title": "Pricing List",
+          "complexity": "medium",
+          "keywords": ["price list", "services list", "menu pricing"],
+          "useCases": ["Service pricing", "Restaurant menus", "Product lists"],
+          "relatedBlocks": ["tpgb/tp-pricing-table", "tpgb/tp-stylist-list"]
+        },
+        {
+          "name": "tpgb/tp-testimonials",
+          "title": "Testimonials",
+          "complexity": "medium",
+          "keywords": ["testimonial", "review", "customer quote", "social proof"],
+          "useCases": ["Customer testimonials", "Reviews", "Social proof"],
+          "relatedBlocks": ["tpgb/tp-blockquote", "tpgb/tp-anything-carousel"]
+        },
+        {
+          "name": "tpgb/tp-countdown",
+          "title": "Countdown Timer",
+          "complexity": "medium",
+          "keywords": ["countdown", "timer", "launch countdown", "event timer"],
+          "useCases": ["Product launches", "Event countdowns", "Sale timers"],
+          "relatedBlocks": ["tpgb/tp-cta-banner", "tpgb/tp-button"]
+        },
+        {
+          "name": "tpgb/tp-coupon-code",
+          "title": "Coupon Code",
+          "complexity": "medium",
+          "keywords": ["coupon", "promo code", "discount code", "voucher"],
+          "useCases": ["Discount coupons", "Promo codes", "Referral codes"],
+          "relatedBlocks": ["tpgb/tp-countdown", "tpgb/tp-cta-banner"]
+        },
+        {
+          "name": "tpgb/tp-popup-builder",
+          "title": "Popup Builder",
+          "complexity": "expert",
+          "keywords": ["popup", "modal", "lightbox", "overlay"],
+          "useCases": ["Email signup popups", "Promotional modals", "Content overlays"],
+          "relatedBlocks": ["tpgb/tp-cta-banner", "tpgb/tp-button"]
+        },
+        {
+          "name": "tpgb/tp-infobox",
+          "title": "Info Box",
+          "complexity": "medium",
+          "keywords": ["info box", "feature box", "icon box", "content card"],
+          "useCases": ["Feature highlights", "Service boxes", "Info cards"],
+          "relatedBlocks": ["tpgb/tp-icon-box", "tpgb/tp-flipbox", "tpgb/tp-messagebox"]
+        },
+        {
+          "name": "tpgb/tp-icon-box",
+          "title": "Icon Box",
+          "complexity": "medium",
+          "keywords": ["icon box", "icon feature", "service box", "feature card"],
+          "useCases": ["Services", "Features", "Benefits", "Icon-based content"],
+          "relatedBlocks": ["tpgb/tp-infobox", "tpgb/tp-flipbox", "tpgb/tp-animated-service-boxes"]
+        },
+        {
+          "name": "tpgb/tp-messagebox",
+          "title": "Message Box",
+          "complexity": "simple",
+          "keywords": ["alert", "message", "notification", "info box", "warning"],
+          "useCases": ["Alerts", "Notices", "Important messages", "Warnings"],
+          "relatedBlocks": ["tpgb/tp-infobox"]
+        },
+        {
+          "name": "tpgb/tp-number-counter",
+          "title": "Number Counter",
+          "complexity": "medium",
+          "keywords": ["counter", "statistics", "number", "count up", "stats"],
+          "useCases": ["Statistics", "Achievements", "Counters", "Fun facts"],
+          "relatedBlocks": ["tpgb/tp-progress-bar", "tpgb/tp-icon-box"]
+        },
+        {
+          "name": "tpgb/tp-progress-bar",
+          "title": "Progress Bar",
+          "complexity": "simple",
+          "keywords": ["progress bar", "skill bar", "percentage", "progress indicator"],
+          "useCases": ["Skills display", "Progress indicators", "Percentage bars"],
+          "relatedBlocks": ["tpgb/tp-number-counter", "tpgb/tp-progress-tracker"]
+        },
+        {
+          "name": "tpgb/tp-process-steps",
+          "title": "Process/Steps",
+          "complexity": "medium",
+          "keywords": ["process", "steps", "workflow", "how it works"],
+          "useCases": ["Process flows", "Step-by-step guides", "Workflows"],
+          "relatedBlocks": ["tpgb/tp-timeline", "tpgb/tp-stylist-list"]
+        },
+        {
+          "name": "tpgb/tp-animated-service-boxes",
+          "title": "Animated Service Boxes",
+          "complexity": "advanced",
+          "keywords": ["service box", "animated box", "hover effect box"],
+          "useCases": ["Animated service displays", "Interactive features"],
+          "relatedBlocks": ["tpgb/tp-icon-box", "tpgb/tp-flipbox"]
+        }
+      ]
+    },
+    "social": {
+      "description": "Social media, sharing, and social proof blocks",
+      "count": 1,
+      "blocks": [
+        {
+          "name": "tpgb/tp-social-icons",
+          "title": "Social Icons",
+          "complexity": "simple",
+          "keywords": ["social", "social media", "social icons", "share buttons"],
+          "useCases": ["Social media links", "Share buttons", "Social profiles"],
+          "relatedBlocks": []
+        }
+      ]
+    },
+    "forms": {
+      "description": "Form elements, inputs, and form-related blocks",
+      "count": 16,
+      "blocks": [
+        {
+          "name": "tpgb/tp-form-block",
+          "title": "Form Builder",
+          "complexity": "advanced",
+          "keywords": ["form", "contact form", "form builder", "input"],
+          "useCases": ["Contact forms", "Signup forms", "Survey forms"],
+          "relatedBlocks": ["All nxt-* field blocks"],
+          "isParent": true
+        },
+        {
+          "name": "tpgb/nxt-name-field",
+          "title": "Name Field",
+          "complexity": "simple",
+          "keywords": ["name input", "text field", "name"],
+          "useCases": ["Name inputs in forms"],
+          "relatedBlocks": ["tpgb/tp-form-block"],
+          "isChild": true,
+          "parent": "tpgb/tp-form-block"
+        },
+        {
+          "name": "tpgb/nxt-email-field",
+          "title": "Email Field",
+          "complexity": "simple",
+          "keywords": ["email input", "email field", "contact email"],
+          "useCases": ["Email inputs in forms"],
+          "relatedBlocks": ["tpgb/tp-form-block"],
+          "isChild": true,
+          "parent": "tpgb/tp-form-block"
+        },
+        {
+          "name": "tpgb/nxt-phone-field",
+          "title": "Phone Field",
+          "complexity": "medium",
+          "keywords": ["phone input", "telephone", "phone number"],
+          "useCases": ["Phone number inputs"],
+          "relatedBlocks": ["tpgb/tp-form-block"],
+          "isChild": true,
+          "parent": "tpgb/tp-form-block"
+        },
+        {
+          "name": "tpgb/nxt-message-field",
+          "title": "Message Field",
+          "complexity": "simple",
+          "keywords": ["textarea", "message", "comment", "multi-line"],
+          "useCases": ["Message/comment fields in forms"],
+          "relatedBlocks": ["tpgb/tp-form-block"],
+          "isChild": true,
+          "parent": "tpgb/tp-form-block"
+        },
+        {
+          "name": "tpgb/nxt-url-field",
+          "title": "URL Field",
+          "complexity": "simple",
+          "keywords": ["url input", "website field", "link input"],
+          "useCases": ["Website URL inputs"],
+          "relatedBlocks": ["tpgb/tp-form-block"],
+          "isChild": true,
+          "parent": "tpgb/tp-form-block"
+        },
+        {
+          "name": "tpgb/nxt-number-field",
+          "title": "Number Field",
+          "complexity": "simple",
+          "keywords": ["number input", "numeric field", "quantity"],
+          "useCases": ["Number/quantity inputs"],
+          "relatedBlocks": ["tpgb/tp-form-block"],
+          "isChild": true,
+          "parent": "tpgb/tp-form-block"
+        },
+        {
+          "name": "tpgb/nxt-date-field",
+          "title": "Date Field",
+          "complexity": "medium",
+          "keywords": ["date picker", "calendar", "date input"],
+          "useCases": ["Date selection in forms"],
+          "relatedBlocks": ["tpgb/tp-form-block", "tpgb/nxt-time-field"],
+          "isChild": true,
+          "parent": "tpgb/tp-form-block"
+        },
+        {
+          "name": "tpgb/nxt-time-field",
+          "title": "Time Field",
+          "complexity": "medium",
+          "keywords": ["time picker", "time input", "clock"],
+          "useCases": ["Time selection in forms"],
+          "relatedBlocks": ["tpgb/tp-form-block", "tpgb/nxt-date-field"],
+          "isChild": true,
+          "parent": "tpgb/tp-form-block"
+        },
+        {
+          "name": "tpgb/nxt-checkbox-button",
+          "title": "Checkbox Field",
+          "complexity": "simple",
+          "keywords": ["checkbox", "multi-select", "options"],
+          "useCases": ["Multiple choice inputs"],
+          "relatedBlocks": ["tpgb/tp-form-block", "tpgb/nxt-radio-button"],
+          "isChild": true,
+          "parent": "tpgb/tp-form-block"
+        },
+        {
+          "name": "tpgb/nxt-radio-button",
+          "title": "Radio Button Field",
+          "complexity": "simple",
+          "keywords": ["radio button", "single select", "options"],
+          "useCases": ["Single choice inputs"],
+          "relatedBlocks": ["tpgb/tp-form-block", "tpgb/nxt-checkbox-button"],
+          "isChild": true,
+          "parent": "tpgb/tp-form-block"
+        },
+        {
+          "name": "tpgb/nxt-option-field",
+          "title": "Dropdown/Select Field",
+          "complexity": "simple",
+          "keywords": ["dropdown", "select", "options", "select menu"],
+          "useCases": ["Dropdown selections"],
+          "relatedBlocks": ["tpgb/tp-form-block"],
+          "isChild": true,
+          "parent": "tpgb/tp-form-block"
+        },
+        {
+          "name": "tpgb/nxt-acceptance-button",
+          "title": "Acceptance Checkbox",
+          "complexity": "simple",
+          "keywords": ["terms", "privacy", "acceptance", "consent", "gdpr"],
+          "useCases": ["Terms acceptance", "Privacy consent", "GDPR compliance"],
+          "relatedBlocks": ["tpgb/tp-form-block"],
+          "isChild": true,
+          "parent": "tpgb/tp-form-block"
+        },
+        {
+          "name": "tpgb/nxt-hidden-field",
+          "title": "Hidden Field",
+          "complexity": "medium",
+          "keywords": ["hidden input", "metadata", "tracking"],
+          "useCases": ["Hidden form data", "Tracking fields", "UTM parameters"],
+          "relatedBlocks": ["tpgb/tp-form-block"],
+          "isChild": true,
+          "parent": "tpgb/tp-form-block"
+        },
+        {
+          "name": "tpgb/nxt-security-field",
+          "title": "Security/CAPTCHA Field",
+          "complexity": "advanced",
+          "keywords": ["captcha", "recaptcha", "security", "spam protection"],
+          "useCases": ["Spam prevention", "Bot protection", "Form security"],
+          "relatedBlocks": ["tpgb/tp-form-block"],
+          "isChild": true,
+          "parent": "tpgb/tp-form-block"
+        },
+        {
+          "name": "tpgb/nxt-submit-button",
+          "title": "Submit Button",
+          "complexity": "simple",
+          "keywords": ["submit", "send", "form submit", "submit button"],
+          "useCases": ["Form submission buttons"],
+          "relatedBlocks": ["tpgb/tp-form-block"],
+          "isChild": true,
+          "parent": "tpgb/tp-form-block"
+        }
+      ]
+    },
+    "navigation": {
+      "description": "Menus, breadcrumbs, table of contents, and navigation blocks",
+      "count": 2,
+      "blocks": [
+        {
+          "name": "tpgb/tp-mobile-menu",
+          "title": "Mobile Menu",
+          "complexity": "advanced",
+          "keywords": ["mobile menu", "hamburger menu", "navigation", "responsive menu"],
+          "useCases": ["Mobile navigation", "Responsive menus", "Hamburger menus"],
+          "relatedBlocks": ["tpgb/tp-scroll-navigation"]
+        },
+        {
+          "name": "tpgb/tp-table-content",
+          "title": "Table of Contents",
+          "complexity": "medium",
+          "keywords": ["table of contents", "toc", "page index", "navigation"],
+          "useCases": ["Blog post TOC", "Documentation navigation", "Long-form content"],
+          "relatedBlocks": ["tpgb/tp-scroll-navigation"]
+        }
+      ]
+    },
+    "advanced": {
+      "description": "Advanced features, utilities, and special-purpose blocks",
+      "count": 17,
+      "blocks": [
+        {
+          "name": "tpgb/tp-repeater-block",
+          "title": "ACF Repeater Block",
+          "complexity": "expert",
+          "keywords": ["repeater", "ACF", "dynamic", "custom fields", "loop"],
+          "useCases": ["Dynamic content grids", "ACF repeater display", "Custom field loops"],
+          "relatedBlocks": ["tpgb/tp-repeater-layout", "tpgb/tp-dynamic-heading"],
+          "isParent": true,
+          "requiresACF": true
+        },
+        {
+          "name": "tpgb/tp-repeater-template",
+          "title": "Repeater Layout Template",
+          "complexity": "expert",
+          "keywords": ["repeater template", "ACF template", "repeater layout"],
+          "useCases": ["Repeater item templates"],
+          "relatedBlocks": ["tpgb/tp-repeater-block"],
+          "isChild": true,
+          "parent": "tpgb/tp-repeater-block"
+        },
+        {
+          "name": "tpgb/tp-google-map",
+          "title": "Google Map",
+          "complexity": "medium",
+          "keywords": ["map", "google maps", "location", "embed map"],
+          "useCases": ["Location maps", "Store locators", "Contact page maps"],
+          "relatedBlocks": []
+        },
+        {
+          "name": "tpgb/tp-advanced-chart",
+          "title": "Advanced Charts",
+          "complexity": "advanced",
+          "keywords": ["chart", "graph", "data visualization", "statistics"],
+          "useCases": ["Data charts", "Statistics display", "Analytics graphs"],
+          "relatedBlocks": ["tpgb/tp-progress-bar", "tpgb/tp-number-counter"]
+        },
+        {
+          "name": "tpgb/tp-progress-tracker",
+          "title": "Progress Tracker",
+          "complexity": "medium",
+          "keywords": ["scroll progress", "reading progress", "progress indicator"],
+          "useCases": ["Reading progress bars", "Scroll indicators", "Page progress"],
+          "relatedBlocks": ["tpgb/tp-progress-bar", "tpgb/tp-smooth-scroll"]
+        },
+        {
+          "name": "tpgb/tp-timeline",
+          "title": "Timeline",
+          "complexity": "medium",
+          "keywords": ["timeline", "history", "chronology", "events"],
+          "useCases": ["Company history", "Event timelines", "Chronological displays"],
+          "relatedBlocks": ["tpgb/tp-timeline-inner", "tpgb/tp-process-steps"],
+          "isParent": true
+        },
+        {
+          "name": "tpgb/tp-timeline-inner",
+          "title": "Timeline Item",
+          "complexity": "medium",
+          "keywords": ["timeline item", "timeline entry"],
+          "useCases": ["Individual timeline entries"],
+          "relatedBlocks": ["tpgb/tp-timeline"],
+          "isChild": true,
+          "parent": "tpgb/tp-timeline"
+        },
+        {
+          "name": "tpgb/tp-team-listing",
+          "title": "Team Member Listing",
+          "complexity": "medium",
+          "keywords": ["team", "staff", "about us", "team members"],
+          "useCases": ["Team pages", "Staff listings", "About us sections"],
+          "relatedBlocks": ["tpgb/tp-media-listing", "tpgb/tp-testimonials"]
+        },
+        {
+          "name": "tpgb/tp-circle-menu",
+          "title": "Circle Menu",
+          "complexity": "advanced",
+          "keywords": ["circular menu", "radial menu", "circle navigation"],
+          "useCases": ["Creative navigation", "Circular menus", "Radial interfaces"],
+          "relatedBlocks": ["tpgb/tp-mobile-menu"]
+        },
+        {
+          "name": "tpgb/tp-dark-mode",
+          "title": "Dark Mode Toggle",
+          "complexity": "advanced",
+          "keywords": ["dark mode", "theme toggle", "light dark", "color scheme"],
+          "useCases": ["Dark/light mode switchers", "Theme toggles"],
+          "relatedBlocks": []
+        },
+        {
+          "name": "tpgb/tp-design-tool",
+          "title": "Design Tool (Grid Overlay)",
+          "complexity": "expert",
+          "keywords": ["grid", "design tool", "alignment", "grid overlay"],
+          "useCases": ["Design alignment", "Grid overlays", "Development tool"],
+          "relatedBlocks": []
+        },
+        {
+          "name": "tpgb/tp-mouse-cursor",
+          "title": "Custom Mouse Cursor",
+          "complexity": "advanced",
+          "keywords": ["cursor", "mouse cursor", "custom cursor", "pointer"],
+          "useCases": ["Custom cursor effects", "Creative interactions"],
+          "relatedBlocks": []
+        },
+        {
+          "name": "tpgb/tp-preloader",
+          "title": "Page Preloader",
+          "complexity": "medium",
+          "keywords": ["preloader", "loading", "loader", "page load"],
+          "useCases": ["Page loading screens", "Site preloaders"],
+          "relatedBlocks": []
+        }
+      ]
+    }
+  },
+  "complexityLevels": {
+    "simple": {
+      "description": "Easy to use, minimal configuration, beginner-friendly",
+      "count": 16
+    },
+    "medium": {
+      "description": "Moderate options, some styling knowledge helpful",
+      "count": 40
+    },
+    "advanced": {
+      "description": "Many options, requires design/layout understanding",
+      "count": 17
+    },
+    "expert": {
+      "description": "Complex configuration, ACF/dynamic content, developer-oriented",
+      "count": 11
+    }
+  },
+  "specialTags": {
+    "parentBlocks": [
+      "tpgb/tp-container",
+      "tpgb/tp-row",
+      "tpgb/tp-accordion",
+      "tpgb/tp-tabs-tours",
+      "tpgb/tp-switcher",
+      "tpgb/tp-anything-carousel",
+      "tpgb/tp-timeline",
+      "tpgb/tp-form-block",
+      "tpgb/tp-repeater-block"
+    ],
+    "childBlocks": [
+      "tpgb/tp-container-inner",
+      "tpgb/tp-column",
+      "tpgb/tp-accordion-inner",
+      "tpgb/tp-tab-item",
+      "tpgb/tp-switch-inner",
+      "tpgb/tp-anything-slide",
+      "tpgb/tp-timeline-inner",
+      "tpgb/tp-repeater-template",
+      "tpgb/tp-dynamic-heading",
+      "tpgb/nxt-*"
+    ],
+    "requiresACF": [
+      "tpgb/tp-repeater-block",
+      "tpgb/tp-repeater-template",
+      "tpgb/tp-dynamic-heading"
+    ],
+    "coreWPBlocks": []
+  },
+  "commonUseCases": {
+    "heroSection": ["tpgb/tp-container", "tpgb/tp-heading-animation", "tpgb/tp-button", "tpgb/tp-image"],
+    "testimonialSection": ["tpgb/tp-testimonials", "tpgb/tp-anything-carousel", "tpgb/tp-blockquote"],
+    "faqSection": ["tpgb/tp-accordion", "tpgb/tp-accordion-inner"],
+    "pricingSection": ["tpgb/tp-pricing-table", "tpgb/tp-button", "tpgb/tp-switcher"],
+    "ctaSection": ["tpgb/tp-cta-banner", "tpgb/tp-button", "tpgb/tp-countdown"],
+    "teamSection": ["tpgb/tp-team-listing", "tpgb/tp-social-icons"],
+    "blogPost": ["tpgb/tp-heading", "tpgb/tp-pro-paragraph", "tpgb/tp-image", "tpgb/tp-table-content"],
+    "contactPage": ["tpgb/tp-form-block", "tpgb/tp-google-map", "tpgb/tp-social-icons"],
+    "landingPage": ["tpgb/tp-container", "tpgb/tp-heading-animation", "tpgb/tp-icon-box", "tpgb/tp-testimonials", "tpgb/tp-pricing-table", "tpgb/tp-cta-banner"]
+  }
+}

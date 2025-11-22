@@ -1,0 +1,298 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "definitions://responsive",
+  "title": "Responsive Value Definitions",
+  "description": "Responsive breakpoint patterns used across Nexter blocks for mobile-first design",
+  "definitions": {
+    "responsive-unit": {
+      "$id": "definitions://responsive-unit",
+      "title": "Responsive Value with Unit",
+      "description": "Value that changes across breakpoints with a unit (px, em, rem, %, vw, vh, etc.)",
+      "type": "object",
+      "properties": {
+        "md": {
+          "type": ["string", "number"],
+          "description": "Desktop value (≥1024px)"
+        },
+        "sm": {
+          "type": ["string", "number"],
+          "description": "Tablet value (768px-1023px)"
+        },
+        "xs": {
+          "type": ["string", "number"],
+          "description": "Mobile value (<768px)"
+        },
+        "unit": {
+          "type": "string",
+          "enum": ["px", "em", "rem", "%", "vw", "vh", "pt", ""],
+          "default": "px",
+          "description": "CSS unit for the values"
+        }
+      },
+      "default": {
+        "md": "",
+        "sm": "",
+        "xs": "",
+        "unit": "px"
+      }
+    },
+    "responsive-spacing": {
+      "$id": "definitions://responsive-spacing",
+      "title": "Responsive Spacing (Padding/Margin)",
+      "description": "Box model spacing values for all sides with responsive breakpoints",
+      "type": "object",
+      "properties": {
+        "md": {
+          "type": "object",
+          "properties": {
+            "top": {
+              "type": ["string", "number"],
+              "default": ""
+            },
+            "right": {
+              "type": ["string", "number"],
+              "default": ""
+            },
+            "bottom": {
+              "type": ["string", "number"],
+              "default": ""
+            },
+            "left": {
+              "type": ["string", "number"],
+              "default": ""
+            }
+          }
+        },
+        "sm": {
+          "type": "object",
+          "properties": {
+            "top": {
+              "type": ["string", "number"],
+              "default": ""
+            },
+            "right": {
+              "type": ["string", "number"],
+              "default": ""
+            },
+            "bottom": {
+              "type": ["string", "number"],
+              "default": ""
+            },
+            "left": {
+              "type": ["string", "number"],
+              "default": ""
+            }
+          }
+        },
+        "xs": {
+          "type": "object",
+          "properties": {
+            "top": {
+              "type": ["string", "number"],
+              "default": ""
+            },
+            "right": {
+              "type": ["string", "number"],
+              "default": ""
+            },
+            "bottom": {
+              "type": ["string", "number"],
+              "default": ""
+            },
+            "left": {
+              "type": ["string", "number"],
+              "default": ""
+            }
+          }
+        },
+        "unit": {
+          "type": "string",
+          "enum": ["px", "em", "rem", "%"],
+          "default": "px"
+        }
+      },
+      "default": {
+        "md": {
+          "top": "",
+          "right": "",
+          "bottom": "",
+          "left": ""
+        },
+        "unit": "px"
+      }
+    },
+    "responsive-border-radius": {
+      "$id": "definitions://responsive-border-radius",
+      "title": "Responsive Border Radius",
+      "description": "Border radius values for all corners with responsive breakpoints",
+      "type": "object",
+      "properties": {
+        "md": {
+          "type": "object",
+          "properties": {
+            "top": {
+              "type": ["string", "number"],
+              "description": "Top-left radius",
+              "default": ""
+            },
+            "right": {
+              "type": ["string", "number"],
+              "description": "Top-right radius",
+              "default": ""
+            },
+            "bottom": {
+              "type": ["string", "number"],
+              "description": "Bottom-right radius",
+              "default": ""
+            },
+            "left": {
+              "type": ["string", "number"],
+              "description": "Bottom-left radius",
+              "default": ""
+            }
+          }
+        },
+        "sm": {
+          "type": "object",
+          "properties": {
+            "top": {"type": ["string", "number"], "default": ""},
+            "right": {"type": ["string", "number"], "default": ""},
+            "bottom": {"type": ["string", "number"], "default": ""},
+            "left": {"type": ["string", "number"], "default": ""}
+          }
+        },
+        "xs": {
+          "type": "object",
+          "properties": {
+            "top": {"type": ["string", "number"], "default": ""},
+            "right": {"type": ["string", "number"], "default": ""},
+            "bottom": {"type": ["string", "number"], "default": ""},
+            "left": {"type": ["string", "number"], "default": ""}
+          }
+        },
+        "unit": {
+          "type": "string",
+          "enum": ["px", "em", "rem", "%"],
+          "default": "px"
+        }
+      },
+      "default": {
+        "md": {
+          "top": "",
+          "right": "",
+          "bottom": "",
+          "left": ""
+        },
+        "unit": "px"
+      }
+    },
+    "responsive-alignment": {
+      "$id": "definitions://responsive-alignment",
+      "title": "Responsive Alignment",
+      "description": "Text or element alignment that changes across breakpoints",
+      "type": "object",
+      "properties": {
+        "md": {
+          "type": "string",
+          "enum": ["left", "center", "right", "justify", ""],
+          "default": "left"
+        },
+        "sm": {
+          "type": "string",
+          "enum": ["left", "center", "right", "justify", ""],
+          "default": ""
+        },
+        "xs": {
+          "type": "string",
+          "enum": ["left", "center", "right", "justify", ""],
+          "default": ""
+        }
+      },
+      "default": {
+        "md": "left",
+        "sm": "",
+        "xs": ""
+      }
+    },
+    "responsive-position": {
+      "$id": "definitions://responsive-position",
+      "title": "Responsive Position",
+      "description": "CSS position property with responsive breakpoints",
+      "type": "object",
+      "properties": {
+        "md": {
+          "type": "string",
+          "enum": ["", "static", "relative", "absolute", "fixed", "sticky"],
+          "default": ""
+        },
+        "sm": {
+          "type": "string",
+          "enum": ["", "static", "relative", "absolute", "fixed", "sticky"],
+          "default": ""
+        },
+        "xs": {
+          "type": "string",
+          "enum": ["", "static", "relative", "absolute", "fixed", "sticky"],
+          "default": ""
+        }
+      },
+      "default": {
+        "md": "",
+        "sm": "",
+        "xs": ""
+      }
+    }
+  },
+  "usageGuidelines": {
+    "mobileFirstApproach": "Nexter uses desktop-first (md is primary, sm/xs are overrides)",
+    "emptyValues": "Empty string ('') means inherit from larger breakpoint",
+    "whenToUse": [
+      "Font sizes, spacing, dimensions that need to be different on mobile",
+      "Layout adjustments for different screen sizes",
+      "Hiding/showing elements per breakpoint"
+    ],
+    "aiTriggerKeywords": [
+      "responsive",
+      "mobile",
+      "tablet",
+      "desktop",
+      "breakpoint",
+      "different screen sizes",
+      "mobile-friendly",
+      "adapt to screen"
+    ]
+  },
+  "commonPatterns": {
+    "desktopOnly": {
+      "description": "Value only set for desktop, mobile inherits",
+      "value": {
+        "md": "24",
+        "sm": "",
+        "xs": "",
+        "unit": "px"
+      }
+    },
+    "scalingDown": {
+      "description": "Progressively smaller values for smaller screens",
+      "value": {
+        "md": "48",
+        "sm": "36",
+        "xs": "28",
+        "unit": "px"
+      }
+    },
+    "mobileHidden": {
+      "description": "Different alignment per device",
+      "value": {
+        "md": "left",
+        "sm": "center",
+        "xs": "center"
+      }
+    }
+  },
+  "breakpoints": {
+    "md": "Desktop (≥1024px)",
+    "sm": "Tablet (768px - 1023px)",
+    "xs": "Mobile (<768px)"
+  }
+}

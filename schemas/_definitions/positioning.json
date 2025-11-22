@@ -1,0 +1,297 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "definitions://positioning",
+  "title": "Positioning Definition",
+  "description": "Global positioning and transform options for absolute/fixed/relative positioning",
+  "definitions": {
+    "global-position": {
+      "$id": "definitions://global-position",
+      "title": "Global Position",
+      "description": "Complete positioning system for absolute, fixed, sticky, and relative positioning",
+      "type": "object",
+      "structure": {
+        "globalPosition": {
+          "$ref": "definitions://responsive-position",
+          "description": "CSS position property with responsive breakpoints"
+        },
+        "gloabhorizoOri": {
+          "type": "string",
+          "enum": ["left", "right"],
+          "default": "left",
+          "description": "Horizontal origin (which side to anchor to)"
+        },
+        "glohoriOffset": {
+          "$ref": "definitions://responsive-unit",
+          "description": "Horizontal offset from origin side"
+        },
+        "gloabverticalOri": {
+          "type": "string",
+          "enum": ["top", "bottom"],
+          "default": "top",
+          "description": "Vertical origin (which side to anchor to)"
+        },
+        "gloverticalOffset": {
+          "$ref": "definitions://responsive-unit",
+          "description": "Vertical offset from origin side"
+        },
+        "zIndex": {
+          "type": ["string", "number"],
+          "default": "",
+          "description": "Z-index stacking order"
+        }
+      }
+    },
+    "transform": {
+      "$id": "definitions://transform",
+      "title": "CSS Transform",
+      "description": "CSS transform properties (rotate, scale, translate, skew)",
+      "type": "object",
+      "structure": {
+        "rotate": {
+          "type": ["string", "number"],
+          "default": "0",
+          "description": "Rotation angle in degrees"
+        },
+        "rotateX": {
+          "type": ["string", "number"],
+          "default": "0",
+          "description": "3D rotation around X axis"
+        },
+        "rotateY": {
+          "type": ["string", "number"],
+          "default": "0",
+          "description": "3D rotation around Y axis"
+        },
+        "scaleX": {
+          "type": ["string", "number"],
+          "default": "1",
+          "description": "Horizontal scale (1 = 100%)"
+        },
+        "scaleY": {
+          "type": ["string", "number"],
+          "default": "1",
+          "description": "Vertical scale (1 = 100%)"
+        },
+        "translateX": {
+          "$ref": "definitions://responsive-unit",
+          "description": "Horizontal translation"
+        },
+        "translateY": {
+          "$ref": "definitions://responsive-unit",
+          "description": "Vertical translation"
+        },
+        "skewX": {
+          "type": ["string", "number"],
+          "default": "0",
+          "description": "Horizontal skew in degrees"
+        },
+        "skewY": {
+          "type": ["string", "number"],
+          "default": "0",
+          "description": "Vertical skew in degrees"
+        }
+      }
+    },
+    "overflow": {
+      "$id": "definitions://overflow",
+      "title": "Overflow Control",
+      "description": "Control how content overflow is handled",
+      "type": "object",
+      "structure": {
+        "overflow": {
+          "type": "string",
+          "enum": ["visible", "hidden", "scroll", "auto"],
+          "default": "visible"
+        },
+        "overflowX": {
+          "type": "string",
+          "enum": ["visible", "hidden", "scroll", "auto"],
+          "default": "visible"
+        },
+        "overflowY": {
+          "type": "string",
+          "enum": ["visible", "hidden", "scroll", "auto"],
+          "default": "visible"
+        }
+      }
+    }
+  },
+  "commonPatterns": {
+    "staticPosition": {
+      "description": "Default static positioning (no positioning)",
+      "value": {
+        "globalPosition": {
+          "md": ""
+        }
+      }
+    },
+    "fixedTopRight": {
+      "description": "Fixed to top-right corner",
+      "value": {
+        "globalPosition": {
+          "md": "fixed"
+        },
+        "gloabhorizoOri": "right",
+        "glohoriOffset": {
+          "md": "20",
+          "unit": "px"
+        },
+        "gloabverticalOri": "top",
+        "gloverticalOffset": {
+          "md": "20",
+          "unit": "px"
+        },
+        "zIndex": "999"
+      }
+    },
+    "absoluteCentered": {
+      "description": "Absolutely positioned and centered",
+      "value": {
+        "globalPosition": {
+          "md": "absolute"
+        },
+        "gloabhorizoOri": "left",
+        "glohoriOffset": {
+          "md": "50",
+          "unit": "%"
+        },
+        "gloabverticalOri": "top",
+        "gloverticalOffset": {
+          "md": "50",
+          "unit": "%"
+        }
+      },
+      "note": "Combine with transform: translate(-50%, -50%) for true centering"
+    },
+    "stickyHeader": {
+      "description": "Sticky header that stays at top when scrolling",
+      "value": {
+        "globalPosition": {
+          "md": "sticky"
+        },
+        "gloabverticalOri": "top",
+        "gloverticalOffset": {
+          "md": "0",
+          "unit": "px"
+        },
+        "zIndex": "100"
+      }
+    },
+    "rotated45": {
+      "description": "Rotated 45 degrees",
+      "value": {
+        "rotate": "45"
+      }
+    },
+    "scaledUp": {
+      "description": "Scaled to 120% (hover effect)",
+      "value": {
+        "scaleX": "1.2",
+        "scaleY": "1.2"
+      }
+    },
+    "translated": {
+      "description": "Moved 20px down",
+      "value": {
+        "translateY": {
+          "md": "20",
+          "unit": "px"
+        }
+      }
+    },
+    "hiddenOverflow": {
+      "description": "Hide overflowing content",
+      "value": {
+        "overflow": "hidden"
+      }
+    }
+  },
+  "usageGuidelines": {
+    "whenToUse": {
+      "globalPosition": [
+        "Fixed navigation menus, scroll-to-top buttons",
+        "Sticky headers, sidebars",
+        "Absolutely positioned overlays, badges, notifications",
+        "Elements that need to break out of normal flow"
+      ],
+      "transform": [
+        "Rotation effects for decorative elements",
+        "Scaling for hover effects",
+        "Translation for smooth movement animations",
+        "Skew for creative design effects"
+      ],
+      "overflow": [
+        "Containers with images (hide overflow for clean edges)",
+        "Scrollable content areas",
+        "Preventing layout shifts from long content"
+      ]
+    },
+    "aiTriggerKeywords": [
+      "position",
+      "fixed",
+      "absolute",
+      "sticky",
+      "float",
+      "overlay",
+      "top right",
+      "bottom left",
+      "centered",
+      "rotate",
+      "transform",
+      "scale",
+      "skew",
+      "overflow hidden"
+    ],
+    "bestPractices": {
+      "positioning": [
+        "Use sticky for headers that should stick on scroll",
+        "Use fixed sparingly (can block content on mobile)",
+        "Always set z-index for overlapping positioned elements",
+        "Test positioned elements on all screen sizes",
+        "Use percentage offsets for responsive positioning"
+      ],
+      "transform": [
+        "Combine transformations in single property for performance",
+        "Use transform instead of top/left for animations (GPU-accelerated)",
+        "Center absolutely positioned elements with translate(-50%, -50%)",
+        "Avoid extreme rotations/skews that distort content"
+      ],
+      "overflow": [
+        "Use overflow: hidden to create clean containers",
+        "Use overflow: auto for scrollable regions",
+        "Avoid overflow: scroll (shows scrollbars even when not needed)",
+        "Test overflow behavior with varying content lengths"
+      ]
+    },
+    "commonCombinations": [
+      "Absolute + Transform: Centered overlays",
+      "Fixed + High z-index: Modal overlays, notifications",
+      "Sticky + Top offset: Sticky headers with spacing",
+      "Transform scale + Transition: Hover zoom effects"
+    ]
+  },
+  "attributeNamingPatterns": [
+    "globalPosition",
+    "glohoriOffset",
+    "gloverticalOffset",
+    "gloabhorizoOri",
+    "gloabverticalOri",
+    "zIndex",
+    "*Transform",
+    "*Rotate",
+    "*Scale",
+    "overflow*"
+  ],
+  "occurrences": "~40 for positioning, ~30 for transforms",
+  "affectedBlocks": "Advanced blocks with positioning options (containers, images, buttons, overlays)",
+  "notes": {
+    "globalPositioning": "Used in blocks like heading, button-core, and other elements that can be positioned globally",
+    "transforms": "More common in image blocks, decorative elements, and hover effects",
+    "zIndexLayers": {
+      "1-10": "Base content",
+      "100-500": "Sticky/fixed navigation",
+      "900-999": "Modals and overlays",
+      "9999": "Critical UI (tooltips, notifications)"
+    }
+  }
+}

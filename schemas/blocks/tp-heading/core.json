@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "blockName": "tpgb/tp-heading",
+  "title": "Heading - Core Attributes",
+  "description": "Core content and structure attributes",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "required": true,
+      "pattern": "^[a-f0-9]{4}(_\\d+)?$",
+      "description": "Unique 4-character hex identifier for the block"
+    },
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": ".tp-core-heading",
+      "default": "Add Your Heading Text Here",
+      "description": "Heading text content (the actual heading text displayed)"
+    },
+    "tLink": {
+      "$ref": "definitions://link",
+      "description": "Optional link URL (makes entire heading clickable)"
+    },
+    "tTag": {
+      "type": "string",
+      "default": "h3",
+      "enum": ["h1", "h2", "h3", "h4", "h5", "h6", "p", "div", "span"],
+      "description": "HTML tag for semantic structure and SEO"
+    },
+    "anchor": {
+      "type": "string",
+      "default": "",
+      "description": "HTML anchor ID for scroll-to links (e.g., #contact-section)"
+    },
+    "isRptBlock": {
+      "type": "boolean",
+      "default": false,
+      "description": "Internal flag: true when block is inside a repeater template"
+    }
+  },
+  "required": ["block_id", "title"],
+  "editingGuidelines": {
+    "safeToModify": ["title", "tLink", "anchor"],
+    "requiresValidation": ["tTag"],
+    "dangerous": ["block_id"]
+  },
+  "usesContext": [
+    "postId",
+    "postType",
+    "queryId",
+    "tpgb/dynamicSubFieldData",
+    "tpgb/dynamicRowIndex",
+    "tpgb/dynamicPost",
+    "tpgb/dynamicRepField"
+  ],
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "innerBlocksAllowed": false,
+  "parentBlockRequired": false
+}
