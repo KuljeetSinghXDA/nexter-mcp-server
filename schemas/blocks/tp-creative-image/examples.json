@@ -2,77 +2,373 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-creative-image",
   "title": "Advanced Image - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Advanced image block with parallax scroll, reveal animations, SVG masks, filters, and FancyBox lightbox",
   "examples": [
     {
-      "description": "Simple image with parallax effect",
+      "name": "Basic Responsive Image with Caption",
+      "description": "Simple responsive image with text caption and link",
+      "visualDescription": "800px wide centered image with 'Photo credit: John Doe' caption below, clickable link to full size",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "ci001",
         "SelectImg": {
-          "url": "/hero-image.jpg"
+          "url": "/images/landscape-photo.jpg"
         },
-        "ScrollParallax": true,
-        "ScrollMoveY": "100",
+        "ImgSize": "large",
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "link": {
+          "url": "/images/landscape-photo-full.jpg",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "ariaLabel": "Beautiful landscape photo of mountains at sunset",
         "ImgWidth": {
-          "md": "1200",
+          "md": "800",
+          "sm": "600",
+          "xs": "100",
           "unit": "px"
-        }
-      }
-    },
-    {
-      "description": "Scroll reveal animation from left",
-      "attributes": {
-        "block_id": "c3d4",
-        "SelectImg": {
-          "url": "/feature.jpg"
         },
-        "ScrollRevelImg": true,
-        "AnimDirection": "left",
-        "AnimBgColor": "#667eea"
-      }
-    },
-    {
-      "description": "Masked circular image with shadow",
-      "attributes": {
-        "block_id": "e5f6",
-        "SelectImg": {
-          "url": "/portrait.jpg"
+        "showCaption": true,
+        "ImgCaption": "Photo credit: John Doe Photography",
+        "floatAlign": "none",
+        "captionTypo": {
+          "openTypography": 1,
+          "size": {"md": "14", "sm": "13", "xs": "12", "unit": "px"},
+          "fontStyle": "italic"
         },
-        "showMaskImg": true,
-        "MaskImg": {
-          "url": "/circle-mask.svg"
+        "captionNormalColor": "#6b7280",
+        "captionHoverColor": "#374151",
+        "borderRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
         },
-        "MaskShadow": {
+        "shadow": {
           "openShadow": 1,
           "horizontal": 0,
           "vertical": 4,
           "blur": 12,
-          "color": "rgba(0,0,0,0.3)"
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.1)"
         }
+      },
+      "useCase": "Blog post images, portfolio galleries, article illustrations, basic image with attribution",
+      "responsiveNotes": {
+        "ImgWidth": "Responsive max width (800px desktop, 600px tablet, 100% mobile)",
+        "Alignment": "center aligns image horizontally within container",
+        "ImgSize": "WordPress image size (thumbnail, medium, large, full) - large = 1024px default",
+        "calculation": "ImgWidth sets max-width, image scales down to fit container"
+      },
+      "captionNotes": {
+        "showCaption": "Enables <figcaption> element below image",
+        "ImgCaption": "Text string (supports HTML tags for links: <a href='...'>...author...</a>)",
+        "floatAlign": "none (caption below), left/right (float image with text wrap)",
+        "accessibility": "Caption provides context for screen readers, use descriptive text"
       }
     },
     {
-      "description": "Image with continuous scroll effect",
+      "name": "Scroll Reveal Animation (Purple Wipe from Left)",
+      "description": "Image reveals with purple color overlay animating from left to right on scroll into viewport",
+      "visualDescription": "Purple overlay slides from left revealing image beneath, dramatic entrance animation triggered by scroll",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "g7h8",
+        "block_id": "ci002",
         "SelectImg": {
-          "url": "/tall-image.jpg"
+          "url": "/images/hero-feature.jpg"
         },
+        "ImgSize": "full",
+        "ScrollRevelImg": true,
+        "AnimBgColor": "#667eea",
+        "AnimDirection": "left",
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "ImgWidth": {
+          "md": "1000",
+          "sm": "700",
+          "xs": "100",
+          "unit": "px"
+        },
+        "borderRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "border": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e7eb",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        }
+      },
+      "useCase": "Feature sections, hero images, product showcases, dramatic page entrances, landing pages",
+      "scrollRevealNotes": {
+        "ScrollRevelImg": "Triggers color overlay wipe animation on scroll into viewport (Intersection Observer)",
+        "AnimBgColor": "Overlay color that animates across image (brand color recommended, #667eea purple)",
+        "AnimDirection": "Direction of wipe animation: 'left', 'right', 'top', 'bottom'",
+        "timing": "Animation triggers when element enters viewport (50% visible threshold)",
+        "duration": "Fixed 1.5s animation duration (not configurable, smooth reveal)",
+        "playOnce": "Animation plays once per page load (doesn't repeat on scroll up/down)"
+      },
+      "animDirectionGuide": {
+        "left": "Overlay slides from left edge to right (reveals image left to right)",
+        "right": "Overlay slides from right edge to left (reveals image right to left)",
+        "top": "Overlay slides from top edge to bottom (reveals image top to bottom)",
+        "bottom": "Overlay slides from bottom edge to top (reveals image bottom to top)",
+        "bestPractice": "Use 'left' for LTR languages, 'right' for RTL, 'top' for vertical reveals"
+      }
+    },
+    {
+      "name": "Parallax Scroll Effect (Vertical Movement)",
+      "description": "Image moves vertically at different speed than page scroll creating depth illusion",
+      "visualDescription": "Image scrolls slower than page creating parallax depth effect, 120px vertical travel distance",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ci003",
+        "SelectImg": {
+          "url": "/images/parallax-background.jpg"
+        },
+        "ImgSize": "full",
+        "ScrollParallax": true,
+        "ScrollMoveX": "0",
+        "ScrollMoveY": "120",
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "ImgWidth": {
+          "md": "1200",
+          "sm": "900",
+          "xs": "100",
+          "unit": "px"
+        },
+        "borderRadius": {
+          "md": {
+            "top": "16",
+            "right": "16",
+            "bottom": "16",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "shadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 24,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.15)"
+        }
+      },
+      "useCase": "Hero sections, full-width backgrounds, feature images, depth effects, modern designs",
+      "parallaxNotes": {
+        "ScrollParallax": "Enables parallax scroll effect (image moves at different rate than page)",
+        "ScrollMoveX": "Horizontal movement in px (positive = moves right on scroll down, negative = left)",
+        "ScrollMoveY": "Vertical movement in px (positive = moves down on scroll down, recommended 80-200px)",
+        "calculation": "ScrollMoveY: 120px means image travels 120px vertically as you scroll past it",
+        "speed": "Larger values = more dramatic parallax (50px subtle, 200px dramatic)",
+        "imageSize": "Use tall images (1.5x container height) for smooth parallax without empty space"
+      },
+      "parallaxBestPractices": {
+        "verticalOnly": "Set ScrollMoveX: '0' for pure vertical parallax (most common, feels natural)",
+        "diagonalEffect": "ScrollMoveX: '50', ScrollMoveY: '100' creates diagonal movement",
+        "imageHeight": "Image should be taller than container by ScrollMoveY amount (container 600px + 120px move = 720px image minimum)",
+        "performance": "Uses CSS transform (GPU accelerated, smooth 60fps on modern devices)",
+        "mobile": "Disable on mobile (ScrollParallax: false via responsive settings) to improve performance"
+      }
+    },
+    {
+      "name": "Hover Scroll Effect (Tall Image in Fixed Height Container)",
+      "description": "Tall image scrolls inside fixed-height container on hover, revealing full content",
+      "visualDescription": "500px tall container with 1500px tall image inside, hover to smoothly scroll from top to bottom in 3 seconds",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ci004",
+        "SelectImg": {
+          "url": "/images/tall-screenshot-1500px.jpg"
+        },
+        "ImgSize": "full",
         "ScrollImgEffect": true,
         "ScrollImgHeight": {
-          "md": 500
+          "md": "500",
+          "sm": "400",
+          "xs": "300"
         },
         "ScrollTransDur": {
-          "md": 3
-        }
+          "md": "3",
+          "sm": "2.5",
+          "xs": "2"
+        },
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "ImgWidth": {
+          "md": "600",
+          "sm": "500",
+          "xs": "100",
+          "unit": "px"
+        },
+        "borderRadius": {
+          "md": {
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "border": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#d1d5db",
+          "width": {
+            "md": {
+              "top": "3",
+              "left": "3",
+              "bottom": "3",
+              "right": "3"
+            },
+            "unit": "px"
+          }
+        },
+        "shadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 6,
+          "blur": 16,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.12)"
+        },
+        "showCaption": true,
+        "ImgCaption": "Hover to scroll and see full content"
+      },
+      "useCase": "Website screenshots, mobile app mockups, long infographics, vertical content previews",
+      "hoverScrollNotes": {
+        "ScrollImgEffect": "Enables hover-triggered scroll animation for tall images",
+        "ScrollImgHeight": "Container min-height in px (400-600px typical, fixed viewport)",
+        "ScrollTransDur": "Scroll animation duration in seconds (2-5s recommended, longer for taller images)",
+        "calculation": "Image 1500px tall in 500px container with 3s duration = smooth 1000px scroll over 3 seconds",
+        "trigger": "Hover on desktop scrolls from top to bottom, hover off returns to top",
+        "mobile": "Touch devices: Use shorter duration (2s) since touch doesn't trigger hover reliably"
+      },
+      "imageSizeGuide": {
+        "ratio": "Image should be 2-4x taller than container (500px container → 1000-2000px image)",
+        "tooTall": ">4x ratio makes scroll too fast even with max duration (5s limit)",
+        "tooShort": "<2x ratio doesn't provide enough scrollable content (use regular image instead)",
+        "recommended": "3x ratio with 3s duration = comfortable scroll speed (500px container → 1500px image)"
       }
     },
     {
-      "description": "Filtered image with hover effect",
+      "name": "SVG Mask Shape (Hexagon with Drop Shadow)",
+      "description": "Image clipped to hexagon shape with custom SVG mask and drop shadow filter",
+      "visualDescription": "Hexagonal cropped image with subtle drop shadow, modern geometric presentation",
+      "complexity": "advanced",
       "attributes": {
-        "block_id": "i9j0",
+        "block_id": "ci005",
         "SelectImg": {
-          "url": "/photo.jpg"
+          "url": "/images/team-member-photo.jpg"
+        },
+        "ImgSize": "large",
+        "showMaskImg": true,
+        "MaskImg": {
+          "url": "/masks/hexagon-mask.svg"
+        },
+        "MaskShadow": {
+          "openShadow": 1,
+          "typeShadow": "drop-shadow",
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "color": "rgba(102, 126, 234, 0.3)"
+        },
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "ImgWidth": {
+          "md": "400",
+          "sm": "350",
+          "xs": "280",
+          "unit": "px"
+        },
+        "link": {
+          "url": "/team/john-doe",
+          "target": "",
+          "nofollow": ""
+        },
+        "ariaLabel": "Team member John Doe profile photo"
+      },
+      "useCase": "Team member photos, profile images, geometric designs, modern portfolios, creative layouts",
+      "maskImageNotes": {
+        "showMaskImg": "Enables SVG mask clipping (CSS mask-image property)",
+        "MaskImg.url": "SVG mask file path (must be valid SVG with <mask> element)",
+        "commonShapes": "Circle, hexagon, star, blob, wave, custom logo shapes",
+        "imageRequirements": "Use square images (1:1 aspect ratio) for symmetric shapes to avoid distortion",
+        "browserSupport": "Modern browsers (Chrome, Firefox, Safari, Edge). IE11 shows rectangular fallback."
+      },
+      "maskShadowNotes": {
+        "typeShadow": "drop-shadow (filter effect, follows mask shape) vs box-shadow (rectangular)",
+        "advantage": "drop-shadow respects mask shape (hexagon shadow vs square shadow)",
+        "MaskShadow": "Applies drop-shadow filter to masked image (shadow follows hexagon/circle/custom shape)",
+        "horizontal": "X offset in px (0 = centered, positive = right, negative = left)",
+        "vertical": "Y offset in px (0 = centered, positive = down, negative = up)",
+        "blur": "Blur radius in px (8-16px typical for soft shadow, 2-4px for sharp)",
+        "color": "RGBA color with transparency (0.2-0.4 alpha for subtle, 0.5-0.8 for strong)"
+      },
+      "svgMaskCreation": {
+        "designTool": "Create in Illustrator/Figma, export as SVG",
+        "svgStructure": "<svg><mask id='hex'><path fill='white' d='...'/></mask></svg>",
+        "whiteFill": "White areas = visible image, black areas = transparent (mask convention)",
+        "optimization": "Use SVGO to optimize SVG (<5KB ideal), remove unnecessary attributes"
+      }
+    },
+    {
+      "name": "CSS Filters (Grayscale to Color on Hover)",
+      "description": "Image starts grayscale, transitions to full color on hover with smooth animation",
+      "visualDescription": "100% grayscale image, hover reveals full color with smooth 0.4s transition, modern portfolio effect",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ci006",
+        "SelectImg": {
+          "url": "/images/portfolio-project.jpg"
+        },
+        "ImgSize": "large",
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "ImgWidth": {
+          "md": "700",
+          "sm": "550",
+          "xs": "100",
+          "unit": "px"
         },
         "imgNFilter": {
           "openFilter": true,
@@ -81,9 +377,447 @@
         "imgHFilter": {
           "openFilter": true,
           "grayscale": 0
+        },
+        "borderRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "shadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.1)"
+        },
+        "shadowHover": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.15)"
+        },
+        "link": {
+          "url": "/portfolio/project-name",
+          "target": "",
+          "nofollow": ""
         }
+      },
+      "useCase": "Portfolio grids, image galleries, hover effects, modern interactive designs, project showcases",
+      "cssFiltersNotes": {
+        "imgNFilter": "Normal state filters (applied by default)",
+        "imgHFilter": "Hover state filters (applied on :hover)",
+        "transition": "Smooth 0.4s transition between filter states (automatic)",
+        "grayscale": "0-100 (0 = full color, 100 = completely grayscale)",
+        "otherFilters": "blur (0-20px), brightness (0-200%), contrast (0-200%), saturate (0-200%), sepia (0-100%), hue-rotate (0-360deg)"
+      },
+      "filterCombinations": {
+        "grayscaleToColor": "Normal: grayscale 100, Hover: grayscale 0 (classic portfolio effect)",
+        "blurToSharp": "Normal: blur 5, Hover: blur 0 (focus effect)",
+        "fadedToVibrant": "Normal: brightness 70 + saturate 50, Hover: brightness 100 + saturate 150 (dramatic color pop)",
+        "vintageEffect": "Normal: sepia 60 + contrast 120, Hover: sepia 0 + contrast 100 (retro to modern)",
+        "subtleGlow": "Normal: brightness 100, Hover: brightness 110 + contrast 105 (slight enhancement)"
+      }
+    },
+    {
+      "name": "FancyBox Lightbox Gallery",
+      "description": "Clickable image opens in full-screen FancyBox lightbox with navigation arrows and captions",
+      "visualDescription": "Click image to open full-screen lightbox overlay, dark background, close button, arrow navigation for galleries",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ci007",
+        "SelectImg": {
+          "url": "/images/gallery-photo-1.jpg"
+        },
+        "ImgSize": "large",
+        "fancyBox": true,
+        "FancyOption": "[{\"loop\":true,\"arrows\":true,\"infobar\":true,\"thumbs\":true,\"animationEffect\":\"zoom\",\"transitionEffect\":\"slide\"}]",
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "ImgWidth": {
+          "md": "600",
+          "sm": "500",
+          "xs": "100",
+          "unit": "px"
+        },
+        "ariaLabel": "Gallery photo 1 - Click to view full size",
+        "borderRadius": {
+          "md": {
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "border": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e7eb",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "shadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.08)"
+        },
+        "shadowHover": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.12)"
+        },
+        "imgHFilter": {
+          "openFilter": true,
+          "brightness": 110
+        }
+      },
+      "useCase": "Photo galleries, portfolio projects, product images, detailed views, image collections",
+      "fancyBoxNotes": {
+        "fancyBox": "Enables FancyBox lightbox popup on click (overrides link.url if set)",
+        "FancyOption": "JSON string with FancyBox configuration options",
+        "loop": "true = navigate from last to first image in gallery",
+        "arrows": "true = show left/right arrow navigation (for multiple images)",
+        "infobar": "true = show image counter at top (1/5, 2/5, etc.)",
+        "thumbs": "true = show thumbnail strip at bottom for quick navigation",
+        "animationEffect": "zoom (default), fade, none (how image appears)",
+        "transitionEffect": "slide (default), fade, circular, tube, zoom-in-out, rotate (how images transition)"
+      },
+      "fancyOptionJSON": {
+        "format": "Must be valid JSON array with single object: [{...options...}]",
+        "example": "[{\"loop\":true,\"arrows\":true,\"infobar\":false}]",
+        "escaping": "Double quotes must be escaped in JSON string",
+        "validation": "Invalid JSON breaks FancyBox, test in browser console: JSON.parse(string)"
+      },
+      "gallerySetup": {
+        "multipleImages": "Place multiple tp-creative-image blocks with fancyBox: true adjacent to each other",
+        "autoGrouping": "FancyBox auto-detects and groups adjacent lightbox images into gallery",
+        "navigation": "arrows + thumbs provide two navigation methods (arrows = sequential, thumbs = jump)",
+        "captions": "Image alt text becomes FancyBox caption (set in WordPress media library)"
+      }
+    },
+    {
+      "name": "Combined Effects (Parallax + Filter + Border Hover)",
+      "description": "Image with parallax scroll, color filter, and animated border/shadow on hover - multiple effects combined",
+      "visualDescription": "Parallax scrolling image with slight sepia tone, border thickens and shadow intensifies on hover, gradient border effect",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ci008",
+        "SelectImg": {
+          "url": "/images/hero-background-large.jpg"
+        },
+        "ImgSize": "full",
+        "ScrollParallax": true,
+        "ScrollMoveX": "0",
+        "ScrollMoveY": "80",
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "ImgWidth": {
+          "md": "1000",
+          "sm": "800",
+          "xs": "100",
+          "unit": "px"
+        },
+        "imgNFilter": {
+          "openFilter": true,
+          "sepia": 20,
+          "contrast": 110
+        },
+        "imgHFilter": {
+          "openFilter": true,
+          "sepia": 0,
+          "contrast": 100,
+          "brightness": 105
+        },
+        "border": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#d1d5db",
+          "width": {
+            "md": {
+              "top": "3",
+              "left": "3",
+              "bottom": "3",
+              "right": "3"
+            },
+            "unit": "px"
+          }
+        },
+        "borderHover": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {
+              "top": "5",
+              "left": "5",
+              "bottom": "5",
+              "right": "5"
+            },
+            "unit": "px"
+          }
+        },
+        "borderRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "borderRadiusHover": {
+          "md": {
+            "top": "16",
+            "right": "16",
+            "bottom": "16",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "shadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 6,
+          "blur": 18,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.1)"
+        },
+        "shadowHover": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 12,
+          "blur": 30,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.25)"
+        }
+      },
+      "useCase": "Premium feature sections, hero images, high-impact visuals, branded content, interactive landing pages",
+      "combinedEffectsNotes": {
+        "parallax": "Subtle 80px vertical movement (not too dramatic, works with other effects)",
+        "filters": "Slight sepia 20 + contrast 110 creates warm vintage look, hover removes for modern reveal",
+        "border": "Normal gray 3px → Hover purple 5px (thicker border draws attention)",
+        "borderRadius": "12px → 16px on hover (subtle shape morphing)",
+        "shadow": "Normal subtle → Hover colored brand shadow (purple glow effect)",
+        "transition": "All effects transition smoothly (0.3-0.4s default)"
+      },
+      "performanceNotes": {
+        "paralax": "Uses CSS transform (GPU accelerated, smooth)",
+        "filters": "CSS filters are GPU accelerated on modern browsers",
+        "shadows": "box-shadow can be expensive, limit to <10 images with hover shadows per page",
+        "borderRadius": "Animating border-radius triggers layout recalculation (minor performance impact)",
+        "mobile": "Consider disabling parallax on mobile (ScrollParallax: false) for better performance"
       }
     }
   ],
-  "commonPatterns": {}
+  "commonPatterns": {
+    "effects": {
+      "ScrollRevelImg": "Color overlay wipe animation on scroll into viewport (left/right/top/bottom)",
+      "ScrollParallax": "Image moves at different speed than page scroll (depth illusion)",
+      "ScrollImgEffect": "Tall image scrolls inside fixed container on hover (screenshot preview)",
+      "showMaskImg": "SVG mask clipping to custom shapes (circle, hexagon, blob)",
+      "CSS filters": "Grayscale, blur, brightness, contrast, sepia, saturation effects"
+    },
+    "interactivity": {
+      "fancyBox": "Full-screen lightbox popup with gallery navigation",
+      "link": "Clickable image linking to URL (overridden by fancyBox if enabled)",
+      "hoverStates": "Border, shadow, filter, and border-radius transitions on hover"
+    },
+    "responsiveStrategy": {
+      "ImgWidth": "Set max-width per breakpoint (md/sm/xs) in px or % units",
+      "Alignment": "center/left/right per breakpoint",
+      "disableEffects": "Disable parallax/hover scroll on mobile for performance"
+    }
+  },
+  "validationRules": {
+    "block_id": "Required, unique identifier",
+    "SelectImg.url": "Required, image file path or URL",
+    "ImgSize": "WordPress image size: 'thumbnail', 'medium', 'large', 'full'",
+    "ScrollRevelImg": "Requires AnimBgColor and AnimDirection when true",
+    "ScrollParallax": "Requires ScrollMoveX and ScrollMoveY values (numbers as strings)",
+    "ScrollImgEffect": "Requires ScrollImgHeight (responsive object) and ScrollTransDur when true",
+    "showMaskImg": "Requires MaskImg.url (SVG file path) when true",
+    "fancyBox": "Requires FancyOption (JSON string) when true, overrides link.url",
+    "imgNFilter/imgHFilter": "Requires openFilter: true to enable filter object",
+    "ariaLabel": "Recommended for accessibility when image is clickable or conveys important info"
+  },
+  "warnings": [
+    "fancyBox: true overrides link.url - image opens in lightbox instead of navigating to link",
+    "ScrollParallax requires tall image (container height + ScrollMoveY) to avoid white space at bottom",
+    "ScrollImgEffect requires image 2-4x taller than ScrollImgHeight for smooth scroll effect",
+    "SVG masks (showMaskImg) only work in modern browsers - IE11 shows rectangular fallback",
+    "CSS filter transitions can be GPU intensive on mobile - test performance on target devices",
+    "FancyOption must be valid JSON string - invalid JSON breaks lightbox functionality",
+    "ScrollRevelImg animation plays once per page load - doesn't repeat on scroll up",
+    "Combining multiple effects (parallax + filters + masks) can impact performance on low-end devices",
+    "MaskShadow drop-shadow filter is more expensive than box-shadow - use sparingly on pages with many images",
+    "AnimDirection must be 'left', 'right', 'top', or 'bottom' - other values break animation",
+    "ScrollMoveY value should be proportional to container height (100-200px for 600px container)",
+    "floatAlign 'left'/'right' with showCaption creates text wrap - test layout doesn't break on mobile"
+  ],
+  "commonMistakes": [
+    "Using ScrollParallax with image same height as container (no vertical movement visible)",
+    "Setting ScrollImgHeight larger than image height (no scrollable content, defeats purpose)",
+    "Forgetting to set AnimBgColor when enabling ScrollRevelImg (overlay is transparent/invisible)",
+    "Using non-square images with circular SVG masks (image appears distorted/cropped awkwardly)",
+    "Setting FancyOption to malformed JSON (missing quotes, brackets) breaking lightbox",
+    "Using very high filter values (blur: 50, saturate: 300) creating unnatural effects",
+    "Enabling fancyBox without setting ariaLabel for accessibility (screen readers can't describe action)",
+    "Not testing hover effects on touch devices (hover doesn't work reliably on mobile)",
+    "Setting ScrollTransDur too short (<1s) for tall images (scroll feels too fast)",
+    "Using parallax on background images without overflow: hidden on container (image scrolls out of bounds)"
+  ],
+  "bestPractices": [
+    "Always set ariaLabel for images that are clickable or convey important information (WCAG 2.4.4)",
+    "Use ImgSize 'large' or 'medium' instead of 'full' for web performance (<500KB images)",
+    "Set responsive ImgWidth (px on md/sm, % on xs) for mobile optimization",
+    "For parallax: Use ScrollMoveY 80-150px for subtle effect, 200-300px for dramatic",
+    "For hover scroll: Use ScrollTransDur 2-4s (2s for short images, 4s for very tall)",
+    "Use grayscale filter for portfolio grids (100 → 0 on hover) for modern interactive feel",
+    "Combine subtle filters (sepia 20 + contrast 110) instead of extreme values for refined look",
+    "Use drop-shadow with masks instead of box-shadow (shadow follows shape, not rectangle)",
+    "Group FancyBox images by placing blocks adjacent - auto-creates gallery with navigation",
+    "Set loop: true in FancyOption for galleries with 3+ images (seamless navigation)",
+    "Use showCaption for attribution, credits, or context (important for stock photos, client work)",
+    "Disable parallax on mobile (ScrollParallax: false) to improve performance and prevent jank",
+    "Test combined effects on mid-range devices - smooth on desktop doesn't guarantee smooth on mobile"
+  ],
+  "accessibilityNotes": [
+    "ariaLabel is REQUIRED for clickable images to describe action ('View project', 'Open gallery', etc.)",
+    "Image alt text should be set in WordPress media library (describes image content for screen readers)",
+    "showCaption provides visible attribution/context that benefits all users, not just screen readers",
+    "fancyBox lightbox must be keyboard navigable (arrows, Esc to close) - built-in by default",
+    "link.target '_blank' should include visual indicator (icon) for external links (WCAG 3.2.5)",
+    "CSS filters shouldn't remove essential content - ensure text overlays maintain WCAG contrast ratios",
+    "Parallax effects should respect prefers-reduced-motion CSS media query (disable for vestibular disorders)",
+    "Hover effects should have touch equivalents on mobile (tap to activate, not hover-only content)",
+    "FancyBox caption should include image description from alt text (auto-included by block)"
+  ],
+  "performanceConsiderations": [
+    "Optimize images: JPG at 80% quality, <500KB per image for web (use ImageOptim, TinyPNG)",
+    "Parallax: Uses CSS transform (GPU accelerated, minimal performance impact on modern devices)",
+    "Scroll reveal: Intersection Observer API (efficient, no scroll event listeners needed)",
+    "Hover scroll: CSS background-position transition (smooth, no JavaScript animation loop)",
+    "CSS filters: GPU accelerated on modern browsers, slight impact on mobile (test on target devices)",
+    "SVG masks: CSS mask-image is performant, no impact on rendering speed",
+    "FancyBox: Lazy loads on first click (lightbox library not loaded until needed)",
+    "Drop-shadow filter: More expensive than box-shadow (use on <10 images per page)",
+    "Border-radius animation: Triggers layout recalculation (minor impact, avoid on 50+ images)",
+    "Multiple effects: Parallax + filters + hover = 3-5% CPU on scroll (acceptable, but monitor mobile)",
+    "Lazy loading: Enable native lazy loading on images below fold (loading='lazy' attribute)",
+    "Responsive images: Use srcset for different screen sizes (WordPress handles automatically with ImgSize)"
+  ],
+  "troubleshooting": [
+    {
+      "problem": "Parallax effect not visible",
+      "cause": "Image height same as container height, or ScrollMoveY too small",
+      "solution": "Use image 1.5x taller than container, increase ScrollMoveY to 100-200px, check container has overflow: hidden"
+    },
+    {
+      "problem": "Hover scroll doesn't work",
+      "cause": "Image not tall enough, or ScrollImgHeight larger than image",
+      "solution": "Use image 2-4x taller than ScrollImgHeight (500px height → 1500px image minimum)"
+    },
+    {
+      "problem": "FancyBox doesn't open",
+      "cause": "FancyOption is invalid JSON, or fancyBox: false",
+      "solution": "Validate JSON: [{\"loop\":true}], ensure fancyBox: true, check browser console for errors"
+    },
+    {
+      "problem": "SVG mask not showing (rectangular image instead)",
+      "cause": "Browser doesn't support CSS mask-image (IE11), or invalid SVG",
+      "solution": "Test in modern browser (Chrome/Firefox/Safari), validate SVG has <mask> element with white fill"
+    },
+    {
+      "problem": "Scroll reveal animation doesn't trigger",
+      "cause": "Element not entering viewport, or ScrollRevelImg: false",
+      "solution": "Ensure ScrollRevelImg: true, AnimBgColor set, scroll element into view (50% threshold)"
+    },
+    {
+      "problem": "CSS filters not applying",
+      "cause": "openFilter: false, or filter values as strings instead of numbers",
+      "solution": "Set openFilter: true, use numbers for filter values (grayscale: 100, not '100')"
+    },
+    {
+      "problem": "Border hover transition jumps",
+      "cause": "Different border widths without border-box sizing, or missing normal border",
+      "solution": "Set both border and borderHover with same structure, use box-sizing: border-box (automatic)"
+    },
+    {
+      "problem": "Caption not showing",
+      "cause": "showCaption: false, or ImgCaption empty",
+      "solution": "Set showCaption: true and provide ImgCaption text string"
+    }
+  ],
+  "integrationExamples": [
+    {
+      "name": "Portfolio Grid with Hover Effects",
+      "description": "3-column responsive grid of project images with grayscale-to-color and FancyBox",
+      "blocks": [
+        "tp-container (portfolio section)",
+        "tp-row (3 columns, gap: 30px)",
+        "tp-column (33.33%, 3x tp-creative-image blocks)",
+        "Each image: imgNFilter grayscale 100, imgHFilter grayscale 0, fancyBox: true",
+        "Hover reveals color, click opens full-screen gallery with all 3 images"
+      ]
+    },
+    {
+      "name": "Hero Section with Parallax Background",
+      "description": "Full-width hero with parallax image background and overlay content",
+      "blocks": [
+        "tp-container (hero section, position: relative, min-height: 600px)",
+        "tp-creative-image (ScrollParallax: true, ScrollMoveY: 150, full width)",
+        "tp-heading (overlay on top with z-index, white text, centered)",
+        "tp-button-core (CTA button below heading)",
+        "Parallax creates depth as user scrolls down page"
+      ]
+    },
+    {
+      "name": "Feature Section with Scroll Reveal",
+      "description": "Two-column layout with image reveal animation and text content",
+      "blocks": [
+        "tp-container (feature section)",
+        "tp-row (2 columns: 50% image + 50% text)",
+        "tp-column (50%, tp-creative-image with ScrollRevelImg from left, purple overlay)",
+        "tp-column (50%, tp-heading + tp-pro-paragraph describing feature)",
+        "Image reveals as user scrolls section into view"
+      ]
+    },
+    {
+      "name": "Team Member Grid with Masked Photos",
+      "description": "4-column grid of hexagonal team photos with hover effects",
+      "blocks": [
+        "tp-container (team section)",
+        "tp-row (4 columns, responsive: 4 → 2 → 1)",
+        "Each column: tp-creative-image (showMaskImg hexagon) + tp-heading (name) + tp-pro-paragraph (title)",
+        "Hover: brightness 110 filter, shadow intensifies",
+        "Clean geometric presentation for modern team page"
+      ]
+    }
+  ]
 }
