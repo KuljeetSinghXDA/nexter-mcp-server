@@ -1,94 +1,969 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-form-option-field",
-  "title": "Dropdown - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Dropdown - Comprehensive Usage Examples",
+  "description": "Complete example configurations for dropdown select fields with real-world use cases, validation patterns, and best practices",
+
   "examples": [
     {
-      "description": "Simple country selector",
+      "name": "Country Selector (Comprehensive, Placeholder)",
+      "description": "International country dropdown with placeholder option",
+      "visualDescription": "Dropdown with '-- Select Your Country --' placeholder, 15 common countries, alphabetical order",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
-        "labelss": "Select Country",
+        "block_id": "of001",
+        "labelss": "Country",
         "fldOptions": [
           {
-            "fldLabel": "United States",
-            "fldValue": "us"
-          },
-          {
-            "fldLabel": "United Kingdom",
-            "fldValue": "uk"
-          },
-          {
-            "fldLabel": "Canada",
-            "fldValue": "ca"
+            "fldLabel": "-- Select Your Country --",
+            "fldValue": ""
           },
           {
             "fldLabel": "Australia",
-            "fldValue": "au"
+            "fldValue": "AU"
+          },
+          {
+            "fldLabel": "Canada",
+            "fldValue": "CA"
+          },
+          {
+            "fldLabel": "France",
+            "fldValue": "FR"
+          },
+          {
+            "fldLabel": "Germany",
+            "fldValue": "DE"
+          },
+          {
+            "fldLabel": "India",
+            "fldValue": "IN"
+          },
+          {
+            "fldLabel": "Ireland",
+            "fldValue": "IE"
+          },
+          {
+            "fldLabel": "Italy",
+            "fldValue": "IT"
+          },
+          {
+            "fldLabel": "Japan",
+            "fldValue": "JP"
+          },
+          {
+            "fldLabel": "Mexico",
+            "fldValue": "MX"
+          },
+          {
+            "fldLabel": "Netherlands",
+            "fldValue": "NL"
+          },
+          {
+            "fldLabel": "New Zealand",
+            "fldValue": "NZ"
+          },
+          {
+            "fldLabel": "Spain",
+            "fldValue": "ES"
+          },
+          {
+            "fldLabel": "United Kingdom",
+            "fldValue": "GB"
+          },
+          {
+            "fldLabel": "United States",
+            "fldValue": "US"
           }
         ],
-        "reqTgl": true
-      }
+        "reqTgl": true,
+        "error": "Please select your country.",
+        "uniqueid": "country"
+      },
+      "useCase": "International shipping forms, registration, demographic data, multi-country websites",
+      "notes": [
+        "Empty value placeholder ('') allows validation to work correctly with reqTgl: true",
+        "ISO 3166-1 alpha-2 country codes for standardized values",
+        "Alphabetical order improves user experience for long lists",
+        "For complete country list (195 countries), use external library or API"
+      ]
     },
+
     {
-      "description": "Category selection with help text",
+      "name": "US State Selection (50 States, Optional)",
+      "description": "Complete US state dropdown with placeholder, optional field",
+      "visualDescription": "Dropdown with 50 US states + DC, alphabetical, placeholder '-- Select State --', optional (no red asterisk)",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
-        "labelss": "Inquiry Type",
+        "block_id": "of002",
+        "labelss": "State",
         "fldOptions": [
           {
-            "fldLabel": "General Question",
-            "fldValue": "general"
+            "fldLabel": "-- Select State --",
+            "fldValue": ""
           },
           {
-            "fldLabel": "Technical Support",
-            "fldValue": "support"
+            "fldLabel": "Alabama",
+            "fldValue": "AL"
           },
           {
-            "fldLabel": "Sales Inquiry",
-            "fldValue": "sales"
+            "fldLabel": "Alaska",
+            "fldValue": "AK"
           },
           {
-            "fldLabel": "Feedback",
-            "fldValue": "feedback"
+            "fldLabel": "Arizona",
+            "fldValue": "AZ"
+          },
+          {
+            "fldLabel": "Arkansas",
+            "fldValue": "AR"
+          },
+          {
+            "fldLabel": "California",
+            "fldValue": "CA"
+          },
+          {
+            "fldLabel": "Colorado",
+            "fldValue": "CO"
+          },
+          {
+            "fldLabel": "Connecticut",
+            "fldValue": "CT"
+          },
+          {
+            "fldLabel": "Delaware",
+            "fldValue": "DE"
+          },
+          {
+            "fldLabel": "District of Columbia",
+            "fldValue": "DC"
+          },
+          {
+            "fldLabel": "Florida",
+            "fldValue": "FL"
+          },
+          {
+            "fldLabel": "Georgia",
+            "fldValue": "GA"
+          },
+          {
+            "fldLabel": "Hawaii",
+            "fldValue": "HI"
+          },
+          {
+            "fldLabel": "Idaho",
+            "fldValue": "ID"
+          },
+          {
+            "fldLabel": "Illinois",
+            "fldValue": "IL"
+          },
+          {
+            "fldLabel": "Indiana",
+            "fldValue": "IN"
+          },
+          {
+            "fldLabel": "Iowa",
+            "fldValue": "IA"
+          },
+          {
+            "fldLabel": "Kansas",
+            "fldValue": "KS"
+          },
+          {
+            "fldLabel": "Kentucky",
+            "fldValue": "KY"
+          },
+          {
+            "fldLabel": "Louisiana",
+            "fldValue": "LA"
+          },
+          {
+            "fldLabel": "Maine",
+            "fldValue": "ME"
+          },
+          {
+            "fldLabel": "Maryland",
+            "fldValue": "MD"
+          },
+          {
+            "fldLabel": "Massachusetts",
+            "fldValue": "MA"
+          },
+          {
+            "fldLabel": "Michigan",
+            "fldValue": "MI"
+          },
+          {
+            "fldLabel": "Minnesota",
+            "fldValue": "MN"
+          },
+          {
+            "fldLabel": "Mississippi",
+            "fldValue": "MS"
+          },
+          {
+            "fldLabel": "Missouri",
+            "fldValue": "MO"
+          },
+          {
+            "fldLabel": "Montana",
+            "fldValue": "MT"
+          },
+          {
+            "fldLabel": "Nebraska",
+            "fldValue": "NE"
+          },
+          {
+            "fldLabel": "Nevada",
+            "fldValue": "NV"
+          },
+          {
+            "fldLabel": "New Hampshire",
+            "fldValue": "NH"
+          },
+          {
+            "fldLabel": "New Jersey",
+            "fldValue": "NJ"
+          },
+          {
+            "fldLabel": "New Mexico",
+            "fldValue": "NM"
+          },
+          {
+            "fldLabel": "New York",
+            "fldValue": "NY"
+          },
+          {
+            "fldLabel": "North Carolina",
+            "fldValue": "NC"
+          },
+          {
+            "fldLabel": "North Dakota",
+            "fldValue": "ND"
+          },
+          {
+            "fldLabel": "Ohio",
+            "fldValue": "OH"
+          },
+          {
+            "fldLabel": "Oklahoma",
+            "fldValue": "OK"
+          },
+          {
+            "fldLabel": "Oregon",
+            "fldValue": "OR"
+          },
+          {
+            "fldLabel": "Pennsylvania",
+            "fldValue": "PA"
+          },
+          {
+            "fldLabel": "Rhode Island",
+            "fldValue": "RI"
+          },
+          {
+            "fldLabel": "South Carolina",
+            "fldValue": "SC"
+          },
+          {
+            "fldLabel": "South Dakota",
+            "fldValue": "SD"
+          },
+          {
+            "fldLabel": "Tennessee",
+            "fldValue": "TN"
+          },
+          {
+            "fldLabel": "Texas",
+            "fldValue": "TX"
+          },
+          {
+            "fldLabel": "Utah",
+            "fldValue": "UT"
+          },
+          {
+            "fldLabel": "Vermont",
+            "fldValue": "VT"
+          },
+          {
+            "fldLabel": "Virginia",
+            "fldValue": "VA"
+          },
+          {
+            "fldLabel": "Washington",
+            "fldValue": "WA"
+          },
+          {
+            "fldLabel": "West Virginia",
+            "fldValue": "WV"
+          },
+          {
+            "fldLabel": "Wisconsin",
+            "fldValue": "WI"
+          },
+          {
+            "fldLabel": "Wyoming",
+            "fldValue": "WY"
+          }
+        ],
+        "reqTgl": false,
+        "hlpTxt": true,
+        "desctxt": "Only required for US-based orders",
+        "descPoss": "bottom",
+        "uniqueid": "state"
+      },
+      "useCase": "US address forms, shipping, tax calculation, demographic data, store locators",
+      "notes": [
+        "Optional field (reqTgl: false) for international forms where state may not apply",
+        "USPS standard 2-letter state abbreviations",
+        "District of Columbia (DC) included for completeness",
+        "For Canadian provinces: AB, BC, MB, NB, NL, NS, NT, NU, ON, PE, QC, SK, YT"
+      ]
+    },
+
+    {
+      "name": "Product Category (E-Commerce, 8 Categories)",
+      "description": "Product category dropdown for inquiry or filtering",
+      "visualDescription": "Dropdown with 8 e-commerce categories, help text explaining selection purpose",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "of003",
+        "labelss": "Product Category",
+        "fldOptions": [
+          {
+            "fldLabel": "-- Select Category --",
+            "fldValue": ""
+          },
+          {
+            "fldLabel": "Electronics & Computers",
+            "fldValue": "electronics"
+          },
+          {
+            "fldLabel": "Clothing & Apparel",
+            "fldValue": "clothing"
+          },
+          {
+            "fldLabel": "Home & Garden",
+            "fldValue": "home_garden"
+          },
+          {
+            "fldLabel": "Sports & Outdoors",
+            "fldValue": "sports"
+          },
+          {
+            "fldLabel": "Books & Media",
+            "fldValue": "books"
+          },
+          {
+            "fldLabel": "Health & Beauty",
+            "fldValue": "health_beauty"
+          },
+          {
+            "fldLabel": "Toys & Games",
+            "fldValue": "toys"
+          },
+          {
+            "fldLabel": "Other",
+            "fldValue": "other"
           }
         ],
         "reqTgl": true,
         "hlpTxt": true,
-        "desctxt": "Please select the category that best describes your inquiry",
-        "descPoss": "top"
-      }
+        "desctxt": "Select the category that best matches your inquiry or product interest",
+        "descPoss": "top",
+        "error": "Please select a product category.",
+        "uniqueid": "category"
+      },
+      "useCase": "Product inquiry forms, support tickets, category filtering, routing to departments",
+      "notes": [
+        "Broad categories work better than deep nesting in dropdown (limit to 8-12 options)",
+        "For hierarchical categories (parent > child > grandchild), consider dependent dropdowns with JavaScript",
+        "Include 'Other' option as catch-all for edge cases",
+        "Values use underscore convention (home_garden) for backend processing"
+      ]
     },
+
     {
-      "description": "Priority selection",
+      "name": "Time Zone Selection (International, GMT Offsets)",
+      "description": "Time zone dropdown for scheduling, event registration",
+      "visualDescription": "Dropdown with 12 major time zones showing GMT offset, city examples in labels",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
-        "labelss": "Priority Level",
+        "block_id": "of004",
+        "labelss": "Your Time Zone",
         "fldOptions": [
           {
-            "fldLabel": "Low",
-            "fldValue": "low"
+            "fldLabel": "-- Select Time Zone --",
+            "fldValue": ""
           },
           {
-            "fldLabel": "Medium",
-            "fldValue": "medium"
+            "fldLabel": "(GMT-8:00) Pacific Time (US & Canada)",
+            "fldValue": "America/Los_Angeles"
           },
           {
-            "fldLabel": "High",
-            "fldValue": "high"
+            "fldLabel": "(GMT-7:00) Mountain Time (US & Canada)",
+            "fldValue": "America/Denver"
           },
           {
-            "fldLabel": "Critical",
-            "fldValue": "critical"
+            "fldLabel": "(GMT-6:00) Central Time (US & Canada)",
+            "fldValue": "America/Chicago"
+          },
+          {
+            "fldLabel": "(GMT-5:00) Eastern Time (US & Canada)",
+            "fldValue": "America/New_York"
+          },
+          {
+            "fldLabel": "(GMT+0:00) London, Dublin, Lisbon",
+            "fldValue": "Europe/London"
+          },
+          {
+            "fldLabel": "(GMT+1:00) Paris, Berlin, Rome",
+            "fldValue": "Europe/Paris"
+          },
+          {
+            "fldLabel": "(GMT+2:00) Athens, Cairo, Jerusalem",
+            "fldValue": "Europe/Athens"
+          },
+          {
+            "fldLabel": "(GMT+5:30) Mumbai, Kolkata, New Delhi",
+            "fldValue": "Asia/Kolkata"
+          },
+          {
+            "fldLabel": "(GMT+8:00) Singapore, Hong Kong, Beijing",
+            "fldValue": "Asia/Singapore"
+          },
+          {
+            "fldLabel": "(GMT+9:00) Tokyo, Seoul, Osaka",
+            "fldValue": "Asia/Tokyo"
+          },
+          {
+            "fldLabel": "(GMT+10:00) Sydney, Melbourne, Brisbane",
+            "fldValue": "Australia/Sydney"
+          },
+          {
+            "fldLabel": "(GMT+12:00) Auckland, Wellington, Fiji",
+            "fldValue": "Pacific/Auckland"
           }
         ],
-        "reqTgl": true
-      }
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "We'll use this to schedule your appointment in your local time",
+        "descPoss": "bottom",
+        "error": "Please select your time zone.",
+        "uniqueid": "timezone"
+      },
+      "useCase": "Event registration, webinar sign-up, appointment scheduling, international meetings, conference calls",
+      "notes": [
+        "IANA time zone identifiers (e.g., 'America/Los_Angeles') for accurate DST handling",
+        "GMT offset in label helps users quickly identify their zone",
+        "City examples provide geographic context for non-technical users",
+        "For complete list: 400+ time zones available in IANA database",
+        "Use PHP DateTime or JavaScript Intl.DateTimeFormat for time conversions"
+      ]
+    },
+
+    {
+      "name": "Subscription Plan (Pricing Tiers, Monthly/Annual)",
+      "description": "Subscription plan selector with pricing in labels",
+      "visualDescription": "Dropdown with 4 pricing tiers, monthly and annual pricing shown, most popular highlighted in label",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "of005",
+        "labelss": "Select Your Plan",
+        "fldOptions": [
+          {
+            "fldLabel": "-- Choose a Plan --",
+            "fldValue": ""
+          },
+          {
+            "fldLabel": "Free - $0/month (Basic features, 1 user)",
+            "fldValue": "free"
+          },
+          {
+            "fldLabel": "Starter - $29/month or $290/year (Save 17%) - Up to 5 users",
+            "fldValue": "starter_monthly"
+          },
+          {
+            "fldLabel": "Professional - $79/month or $790/year (Save 17%) - Most Popular!",
+            "fldValue": "professional_monthly"
+          },
+          {
+            "fldLabel": "Enterprise - $199/month or $1990/year (Save 17%) - Unlimited users",
+            "fldValue": "enterprise_monthly"
+          }
+        ],
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "All paid plans include 14-day free trial. Cancel anytime.",
+        "descPoss": "bottom",
+        "error": "Please select a subscription plan.",
+        "uniqueid": "plan"
+      },
+      "useCase": "SaaS pricing pages, subscription sign-up, upgrade/downgrade forms, trial conversions",
+      "notes": [
+        "Include pricing in labels for transparency and informed decision-making",
+        "Show annual savings percentage to encourage annual subscriptions",
+        "Highlight most popular plan in label text ('Most Popular!')",
+        "Value encodes billing period (starter_monthly vs starter_annual) for backend processing",
+        "Consider separate dropdowns for plan tier and billing period for better UX with many options",
+        "Add trust signals in help text (free trial, cancel anytime)"
+      ]
+    },
+
+    {
+      "name": "Age Range (Demographics, 50% Width)",
+      "description": "Demographic age range selector, half-width for multi-column layout",
+      "visualDescription": "Dropdown with 6 age ranges, 50% width for side-by-side with gender field",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "of006",
+        "labelss": "Age Range",
+        "fldOptions": [
+          {
+            "fldLabel": "-- Select Age Range --",
+            "fldValue": ""
+          },
+          {
+            "fldLabel": "Under 18",
+            "fldValue": "under_18"
+          },
+          {
+            "fldLabel": "18-24",
+            "fldValue": "18_24"
+          },
+          {
+            "fldLabel": "25-34",
+            "fldValue": "25_34"
+          },
+          {
+            "fldLabel": "35-44",
+            "fldValue": "35_44"
+          },
+          {
+            "fldLabel": "45-54",
+            "fldValue": "45_54"
+          },
+          {
+            "fldLabel": "55-64",
+            "fldValue": "55_64"
+          },
+          {
+            "fldLabel": "65+",
+            "fldValue": "65_plus"
+          },
+          {
+            "fldLabel": "Prefer not to say",
+            "fldValue": "no_answer"
+          }
+        ],
+        "reqTgl": false,
+        "inpSz": {
+          "md": "50",
+          "unit": "%"
+        },
+        "uniqueid": "age_range"
+      },
+      "useCase": "Demographic surveys, user registration, market research, age-gated content, targeted marketing",
+      "notes": [
+        "Age ranges instead of exact age for privacy and lower barrier to completion",
+        "Optional field (reqTgl: false) for demographic data - some users prefer not to share",
+        "Include 'Prefer not to say' option for GDPR/privacy compliance",
+        "50% width allows side-by-side layout with other demographic fields (gender, location)",
+        "For age verification (18+), use nxt-number-field or nxt-date-field instead",
+        "Standard marketing age brackets (18-24, 25-34, etc.) align with analytics tools"
+      ]
+    },
+
+    {
+      "name": "Payment Terms (B2B, Net 30/60/90, 40% Width)",
+      "description": "Business payment terms selector, 40% width for inline layout",
+      "visualDescription": "Dropdown with 5 payment terms (immediate, Net 15/30/60/90), 40% width for compact inline forms",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "of007",
+        "labelss": "Payment Terms",
+        "fldOptions": [
+          {
+            "fldLabel": "-- Select Payment Terms --",
+            "fldValue": ""
+          },
+          {
+            "fldLabel": "Payment on Delivery (POD)",
+            "fldValue": "pod"
+          },
+          {
+            "fldLabel": "Net 15 Days",
+            "fldValue": "net_15"
+          },
+          {
+            "fldLabel": "Net 30 Days",
+            "fldValue": "net_30"
+          },
+          {
+            "fldLabel": "Net 60 Days",
+            "fldValue": "net_60"
+          },
+          {
+            "fldLabel": "Net 90 Days",
+            "fldValue": "net_90"
+          }
+        ],
+        "reqTgl": true,
+        "inpSz": {
+          "md": "40",
+          "unit": "%"
+        },
+        "error": "Please select payment terms.",
+        "uniqueid": "payment_terms"
+      },
+      "useCase": "B2B order forms, wholesale inquiries, vendor applications, purchase orders, invoice requests",
+      "notes": [
+        "B2B payment terms (Net 30/60/90) represent days until invoice due",
+        "40% width allows inline layout with submit button (40% dropdown + 10% gap + 50% other fields)",
+        "POD (Payment on Delivery) for immediate payment, common in small transactions",
+        "For B2C, use payment method dropdown instead (Credit Card, PayPal, etc.)",
+        "Values (net_30) can trigger automated invoice due date calculations in backend"
+      ]
+    },
+
+    {
+      "name": "Size Selection (Apparel, XS-XXL + Numeric, 40% Width)",
+      "description": "Clothing size dropdown with letter and numeric sizing",
+      "visualDescription": "Dropdown with 9 apparel sizes (XS-XXL + numeric equivalents), 40% width for product forms",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "of008",
+        "labelss": "T-Shirt Size",
+        "fldOptions": [
+          {
+            "fldLabel": "-- Select Size --",
+            "fldValue": ""
+          },
+          {
+            "fldLabel": "XS (Extra Small)",
+            "fldValue": "xs"
+          },
+          {
+            "fldLabel": "S (Small)",
+            "fldValue": "s"
+          },
+          {
+            "fldLabel": "M (Medium)",
+            "fldValue": "m"
+          },
+          {
+            "fldLabel": "L (Large)",
+            "fldValue": "l"
+          },
+          {
+            "fldLabel": "XL (Extra Large)",
+            "fldValue": "xl"
+          },
+          {
+            "fldLabel": "XXL (2X Large)",
+            "fldValue": "xxl"
+          },
+          {
+            "fldLabel": "XXXL (3X Large)",
+            "fldValue": "xxxl"
+          }
+        ],
+        "reqTgl": true,
+        "inpSz": {
+          "md": "40",
+          "sm": "50",
+          "xs": "100",
+          "unit": "%"
+        },
+        "hlpTxt": true,
+        "desctxt": "See size chart for measurements",
+        "descPoss": "bottom",
+        "error": "Please select a size.",
+        "uniqueid": "size"
+      },
+      "useCase": "E-commerce product forms, event t-shirt registration, promotional giveaways, apparel orders, swag requests",
+      "notes": [
+        "Responsive width: 40% desktop, 50% tablet, 100% mobile for optimal layout",
+        "Full text in labels (Extra Small) helps international users unfamiliar with XS/S/M/L",
+        "For numeric sizing (EU: 38, 40, 42 or US: 6, 8, 10), use separate regional dropdowns",
+        "Link to size chart in help text for accurate selections and fewer returns",
+        "For shoes, use numeric sizing with region: 'US Men's 10', 'EU Women's 38'",
+        "Consider WooCommerce or product variant system for complex sizing (color + size)"
+      ]
     }
   ],
+
   "commonPatterns": {
-    "default": {
-      "block_id": "example"
+    "placeholder_option": {
+      "description": "First option with empty value for validation",
+      "example": {
+        "fldLabel": "-- Please Select --",
+        "fldValue": ""
+      },
+      "notes": "Required with reqTgl: true to prevent accidental submissions with default selection"
+    },
+    "required_dropdown": {
+      "description": "Standard required dropdown with validation",
+      "attributes": {
+        "reqTgl": true,
+        "error": "This field is required."
+      }
+    },
+    "optional_dropdown": {
+      "description": "Optional dropdown for demographic or supplementary data",
+      "attributes": {
+        "reqTgl": false
+      },
+      "notes": "Include 'Prefer not to say' or 'N/A' option for better UX"
+    },
+    "half_width_layout": {
+      "description": "50% width for side-by-side two-column layout",
+      "attributes": {
+        "inpSz": {
+          "md": "50",
+          "unit": "%"
+        }
+      },
+      "notes": "Use for pairs: First/Last Name, City/State, Age/Gender"
+    },
+    "inline_compact": {
+      "description": "40% width for compact inline forms with submit button",
+      "attributes": {
+        "inpSz": {
+          "md": "40",
+          "unit": "%"
+        }
+      },
+      "notes": "Leaves ~50-60% for submit button or other fields"
+    }
+  },
+
+  "validationRules": {
+    "block_id": {
+      "required": true,
+      "type": "string",
+      "description": "Unique block identifier, auto-generated"
+    },
+    "labelss": {
+      "required": true,
+      "type": "string",
+      "description": "Dropdown label text"
+    },
+    "fldOptions": {
+      "required": true,
+      "type": "array",
+      "minItems": 1,
+      "description": "Array of option objects with fldLabel and fldValue",
+      "itemSchema": {
+        "fldLabel": "Display text shown to user",
+        "fldValue": "Value submitted with form (can be empty string for placeholder)"
+      }
+    },
+    "reqTgl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Makes dropdown required (must select non-empty value)"
+    },
+    "inpSz": {
+      "type": "object",
+      "description": "Responsive width control (md/sm/xs breakpoints)",
+      "properties": {
+        "md": "Desktop width (100, 50, 40 for percentage)",
+        "sm": "Tablet width (optional, falls back to md)",
+        "xs": "Mobile width (optional, often 100 for full-width)",
+        "unit": "Unit type (% for percentage, px for pixels)"
+      }
+    },
+    "hlpTxt": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable help text below/above dropdown"
+    },
+    "desctxt": {
+      "type": "string",
+      "condition": "Only shown if hlpTxt: true",
+      "description": "Help text content (HTML supported)"
+    },
+    "descPoss": {
+      "type": "string",
+      "enum": ["top", "bottom"],
+      "default": "top",
+      "description": "Help text position relative to dropdown"
+    },
+    "error": {
+      "type": "string",
+      "default": "This field is required.",
+      "description": "Validation error message shown when required field is empty"
+    },
+    "uniqueid": {
+      "type": "string",
+      "description": "Form field name/ID for backend processing (e.g., 'country', 'state')"
+    }
+  },
+
+  "warnings": [
+    "ALWAYS include placeholder option with empty fldValue ('') when using reqTgl: true, otherwise first option is pre-selected and validation may not trigger",
+    "Dropdown value is submitted as STRING, not array (unlike nxt-checkbox-button which submits array)",
+    "Long option lists (50+ items) can be difficult to navigate on mobile - consider search/autocomplete for countries, states, or use dependent dropdowns",
+    "fldLabel can include HTML entities (&amp;, &lt;, &gt;) but avoid complex HTML - keep labels as plain text",
+    "uniqueid should be URL-safe (lowercase, underscores, no spaces) - used as form field name in $_POST['uniqueid']",
+    "Dropdown width affects mobile usability - use inpSz.xs: 100% for full-width on small screens",
+    "Don't nest dropdowns in labels - for hierarchical data (Country > State > City), use separate dependent dropdowns with JavaScript",
+    "Placeholder option must be FIRST in fldOptions array to appear as default selection",
+    "For very long dropdowns (100+ items), consider accessibility - group with <optgroup> using custom JavaScript or use autocomplete field instead",
+    "Value extraction: Use $_POST[$uniqueid] in PHP backend - sanitize and validate server-side even with client validation"
+  ],
+
+  "commonMistakes": [
+    "Forgetting placeholder option - causes first real option to be pre-selected, breaking required validation UX",
+    "Using complex values in fldValue (spaces, special characters) - use simple identifiers (underscores, lowercase)",
+    "Not providing 'Prefer not to say' or 'Other' options for demographic/category fields - forces users to select inaccurate options",
+    "Overly long dropdown lists without search - use autocomplete or dependent dropdowns for 20+ items",
+    "Inconsistent value format (mixing 'us', 'US', 'united_states', 'United States') - standardize backend values",
+    "Missing help text for complex dropdowns (time zones, technical terms) - add desctxt to guide users",
+    "Not testing responsive width on mobile - 40% desktop width may be unusable on 320px screens",
+    "Using dropdown for binary choice (Yes/No) - use nxt-radio-button instead for better UX",
+    "Hardcoding all 195 countries - use external library or API for complete lists to avoid maintenance",
+    "Not accounting for timezone DST - use IANA identifiers (America/New_York) not GMT offsets for accurate time conversion"
+  ],
+
+  "bestPractices": [
+    "Limit dropdown to 15-20 options maximum for optimal UX - longer lists reduce usability",
+    "Alphabetize options (countries, states, names) unless logical order exists (sizes: XS-XXL, priority: Low-Critical)",
+    "Use standardized values (ISO country codes, state abbreviations) for consistency and backend integration",
+    "Include placeholder option with instructional text ('-- Select Your Country --') for clarity",
+    "Use help text (hlpTxt + desctxt) to explain purpose, requirements, or provide examples",
+    "For pricing/plans, include key details in label (price, features, savings) for informed decisions",
+    "Provide 'Other', 'N/A', or 'Prefer not to say' options for inclusivity and edge cases",
+    "Use responsive width (inpSz.md/sm/xs) to optimize layout across devices",
+    "Keep labels concise but descriptive - balance brevity with clarity",
+    "For dependent dropdowns (Country → State → City), use JavaScript to populate child dropdowns dynamically",
+    "Use reqTgl: false for optional demographic data to reduce form friction",
+    "Test keyboard navigation (Tab, Arrow keys, Enter) for accessibility compliance",
+    "Validate server-side even with required client validation - never trust client-side only",
+    "Use semantic uniqueid values that describe the field ('country', 'timezone') not generic ('field_1')",
+    "For international forms, consider localization (translate option labels, regional defaults)"
+  ],
+
+  "accessibilityNotes": [
+    "Dropdown native <select> element provides built-in keyboard navigation (Tab, Arrow Up/Down, Enter, Escape)",
+    "Screen readers announce label, selected option, and number of options available",
+    "reqTgl: true adds aria-required=\"true\" and visual asterisk (*) for required fields",
+    "Error messages should be associated with field via aria-describedby for screen reader announcement",
+    "Long dropdowns (50+ items): Screen reader users may struggle - provide search/filter or group with <optgroup>",
+    "Placeholder option with instructional text helps all users understand field purpose",
+    "Ensure sufficient color contrast between option text and background (WCAG AA: 4.5:1)",
+    "Avoid relying solely on color to convey meaning (e.g., don't use red text for 'Urgent' option without icon/text)",
+    "Test with keyboard only (no mouse): Tab to field, Arrow keys to navigate, Enter to select",
+    "Mobile: Native dropdown triggers OS-specific picker (iOS wheel, Android list) for optimal touch experience",
+    "Help text (desctxt) should be concise and clear - screen readers read entire text when field receives focus",
+    "For complex selections (time zones with GMT offset), include context in label for non-visual users"
+  ],
+
+  "performanceConsiderations": [
+    "Dropdowns with 50+ options render quickly but may impact mobile scroll performance in long forms",
+    "For dynamic option loading (AJAX), show loading state in placeholder: '-- Loading... --'",
+    "Dependent dropdowns (Country → State) require JavaScript - ensure graceful degradation if JS disabled",
+    "Very long dropdowns (195 countries) increase HTML size - consider lazy loading or autocomplete field",
+    "Option rendering is native browser behavior - no performance concerns under 200 options"
+  ],
+
+  "layoutGuide": {
+    "full_width": {
+      "width": "100%",
+      "inpSz": {"md": "100", "unit": "%"},
+      "useCase": "Single-column forms, primary fields, mobile-first layouts"
+    },
+    "half_width": {
+      "width": "50%",
+      "inpSz": {"md": "50", "unit": "%"},
+      "useCase": "Two-column layouts (First Name + Last Name, City + State)"
+    },
+    "compact": {
+      "width": "40%",
+      "inpSz": {"md": "40", "unit": "%"},
+      "useCase": "Inline forms with submit button, compact layouts, sidebar filters"
+    },
+    "responsive": {
+      "width": "Responsive",
+      "inpSz": {"md": "40", "sm": "50", "xs": "100", "unit": "%"},
+      "useCase": "Optimal UX across devices: 40% desktop, 50% tablet, 100% mobile"
+    }
+  },
+
+  "dropdownVsRadio": {
+    "description": "When to use dropdown (nxt-option-field) vs radio buttons (nxt-radio-button)",
+    "useDropdown": [
+      "5+ options (dropdowns save vertical space)",
+      "Familiar choices that don't need constant visibility (Country, State)",
+      "Long lists (50 US states, 195 countries) where radio buttons would overwhelm page",
+      "Secondary/supplemental fields where user doesn't need to see all options at once"
+    ],
+    "useRadioButtons": [
+      "2-4 options (radio buttons show all choices immediately)",
+      "Critical decisions where user should see all options (Shipping method with pricing)",
+      "Unfamiliar choices that benefit from comparison (Subscription plans with features)",
+      "When you want to encourage consideration of all options before selection",
+      "Binary choices (Yes/No) - radio is clearer than dropdown with 2 options"
+    ],
+    "comparison": {
+      "nxt-option-field": {
+        "selection": "SINGLE-select (one option at a time)",
+        "visibility": "Options hidden until dropdown opened",
+        "verticalSpace": "Compact (1 line height regardless of option count)",
+        "bestFor": "5+ options, familiar choices, long lists, secondary fields",
+        "submissionData": "Submitted as STRING value (e.g., 'CA')"
+      },
+      "nxt-radio-button": {
+        "selection": "SINGLE-select (one option at a time)",
+        "visibility": "All options visible simultaneously",
+        "verticalSpace": "Expands with option count (4 options = 4 lines vertical)",
+        "bestFor": "2-4 options, critical decisions, unfamiliar choices, comparison needed",
+        "submissionData": "Submitted as STRING value (e.g., 'express_15')"
+      }
+    }
+  },
+
+  "useCaseSpecificTips": {
+    "e-commerce": {
+      "tip": "Include pricing in labels for transparency",
+      "examples": ["Subscription plans with monthly/annual pricing", "Shipping methods with costs", "Product variants with price differences"]
+    },
+    "international_forms": {
+      "tip": "Use ISO codes for values, full names for labels, alphabetize",
+      "examples": ["Country: 'United States' (label) → 'US' (value)", "Time zones with GMT offset and city examples"]
+    },
+    "demographics": {
+      "tip": "Always provide 'Prefer not to say' option, make fields optional (reqTgl: false)",
+      "examples": ["Age range, gender, income bracket, education level"]
+    },
+    "b2b_forms": {
+      "tip": "Use industry-standard terminology and values",
+      "examples": ["Payment terms (Net 30/60/90)", "Company size (1-10, 11-50, 51-200 employees)", "Industry categories"]
+    },
+    "dependent_dropdowns": {
+      "tip": "Use JavaScript to populate child dropdown based on parent selection",
+      "examples": ["Country → State → City", "Product Category → Subcategory → Item", "Make → Model → Year"],
+      "implementation": "JavaScript onChange event on parent dropdown to fetch/filter child options"
+    }
+  },
+
+  "integrationExamples": {
+    "backend_processing": {
+      "description": "PHP form handling for dropdown submission",
+      "code": "<?php\n// Retrieve dropdown value from POST\n$country = isset($_POST['country']) ? sanitize_text_field($_POST['country']) : '';\n\n// Validation\nif (empty($country)) {\n    $errors[] = 'Please select your country.';\n}\n\n// Allowed values validation\n$allowed_countries = ['US', 'CA', 'GB', 'AU', 'DE', 'FR', 'IN', 'JP'];\nif (!in_array($country, $allowed_countries, true)) {\n    $errors[] = 'Invalid country selection.';\n}\n\n// Process if valid\nif (empty($errors)) {\n    // Store in database, send email, etc.\n    $wpdb->insert('table', ['country' => $country]);\n}\n?>"
+    },
+    "dependent_dropdown_javascript": {
+      "description": "JavaScript for Country → State dependent dropdowns",
+      "code": "// Country dropdown onChange event\ndocument.getElementById('country').addEventListener('change', function() {\n    const country = this.value;\n    const stateDropdown = document.getElementById('state');\n    \n    // Clear existing options\n    stateDropdown.innerHTML = '<option value=\"\">-- Select State --</option>';\n    \n    // Fetch states for selected country (AJAX)\n    if (country === 'US') {\n        const usStates = ['AL', 'AK', 'AZ', /* ... all 50 states ... */];\n        usStates.forEach(state => {\n            const option = document.createElement('option');\n            option.value = state;\n            option.textContent = state;\n            stateDropdown.appendChild(option);\n        });\n    } else if (country === 'CA') {\n        const canadaProvinces = ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'ON', 'PE', 'QC', 'SK'];\n        // ... populate Canada provinces\n    }\n});"
+    },
+    "dynamic_pricing": {
+      "description": "Calculate total based on subscription plan selection",
+      "code": "// Extract pricing from plan value\nconst plan = document.getElementById('plan').value; // e.g., 'professional_monthly'\n\nconst pricing = {\n    'starter_monthly': 29,\n    'starter_annual': 290,\n    'professional_monthly': 79,\n    'professional_annual': 790,\n    'enterprise_monthly': 199,\n    'enterprise_annual': 1990\n};\n\nconst price = pricing[plan] || 0;\nconst billingPeriod = plan.includes('annual') ? 'year' : 'month';\n\ndocument.getElementById('total').textContent = `$${price}/${billingPeriod}`;"
+    },
+    "timezone_conversion": {
+      "description": "PHP DateTime conversion using IANA timezone from dropdown",
+      "code": "<?php\n// User selected timezone from dropdown\n$user_timezone = $_POST['timezone']; // e.g., 'America/Los_Angeles'\n\n// Event time in UTC\n$event_time_utc = new DateTime('2025-12-01 14:00:00', new DateTimeZone('UTC'));\n\n// Convert to user's timezone\n$event_time_utc->setTimezone(new DateTimeZone($user_timezone));\n\necho 'Event starts at: ' . $event_time_utc->format('Y-m-d H:i:s T');\n// Output: Event starts at: 2025-12-01 06:00:00 PST\n?>"
     }
   }
 }
