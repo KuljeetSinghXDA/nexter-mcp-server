@@ -1,88 +1,338 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-mobile-menu",
-  "title": "Mobile Menu - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Mobile Menu - Comprehensive Usage Examples",
+  "description": "Complete example configurations for responsive mobile navigation with styles, positioning, badges, indicators, and advanced features",
+
   "examples": [
     {
-      "description": "Simple bottom navigation bar (style-1)",
+      "name": "Bottom Navigation Bar (Classic 5 Icons)",
+      "description": "Traditional bottom fixed navigation with 5 menu items",
+      "visualDescription": "Fixed bottom bar, 5 evenly-spaced icons with labels, style-1 single row layout",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "mm001",
         "mmStyle": "style-1",
         "posType": "fixed",
         "fixPosType": "bottom",
         "menu1Item": [
           {
+            "_key": "0",
             "textVal": "Home",
+            "iconType": "icon",
             "iconStore": "fas fa-home",
             "linkUrl": {
-              "url": "/"
+              "url": "/",
+              "target": "",
+              "nofollow": ""
             }
           },
           {
-            "textVal": "Search",
-            "iconStore": "fas fa-search",
+            "_key": "1",
+            "textVal": "Explore",
+            "iconType": "icon",
+            "iconStore": "fas fa-compass",
             "linkUrl": {
-              "url": "/search"
+              "url": "/explore",
+              "target": "",
+              "nofollow": ""
             }
           },
           {
-            "textVal": "Cart",
-            "iconStore": "fas fa-shopping-cart",
+            "_key": "2",
+            "textVal": "Favorites",
+            "iconType": "icon",
+            "iconStore": "fas fa-heart",
             "linkUrl": {
-              "url": "/cart"
+              "url": "/favorites",
+              "target": "",
+              "nofollow": ""
+            }
+          },
+          {
+            "_key": "3",
+            "textVal": "Messages",
+            "iconType": "icon",
+            "iconStore": "fas fa-comment",
+            "linkUrl": {
+              "url": "/messages",
+              "target": "",
+              "nofollow": ""
             },
-            "pinText": "3"
+            "pinText": "5"
           },
           {
-            "textVal": "Account",
-            "iconStore": "fas fa-user",
+            "_key": "4",
+            "textVal": "Profile",
+            "iconType": "icon",
+            "iconStore": "fas fa-user-circle",
             "linkUrl": {
-              "url": "/account"
+              "url": "/profile",
+              "target": "",
+              "nofollow": ""
             }
           }
         ]
-      }
+      },
+      "useCase": "Social media apps, content platforms, mobile-first websites, PWA apps"
     },
+
     {
-      "description": "Split menu with center action button (style-2)",
+      "name": "Split Menu with Center Action (Style-2)",
+      "description": "Left/right split menu with prominent center CTA button",
+      "visualDescription": "Bottom fixed, 2 left + 2 right icons, large center '+' action button, style-2 split layout",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "mm002",
         "mmStyle": "style-2",
         "posType": "fixed",
         "fixPosType": "bottom",
         "extraToggle": true,
         "tglText": "Create",
         "tglIconType": "icon",
-        "iconStore": "fas fa-plus-circle",
+        "tglIconStore": "fas fa-plus-circle",
         "contentType": "link",
         "contentLink": {
-          "url": "/create"
-        }
-      }
+          "url": "/create-post",
+          "target": "",
+          "nofollow": ""
+        },
+        "menu1Item": [
+          {
+            "_key": "0",
+            "textVal": "Home",
+            "iconType": "icon",
+            "iconStore": "fas fa-home",
+            "linkUrl": {"url": "/"}
+          },
+          {
+            "_key": "1",
+            "textVal": "Search",
+            "iconType": "icon",
+            "iconStore": "fas fa-search",
+            "linkUrl": {"url": "/search"}
+          }
+        ],
+        "menu2Item": [
+          {
+            "_key": "0",
+            "textVal": "Notifications",
+            "iconType": "icon",
+            "iconStore": "fas fa-bell",
+            "linkUrl": {"url": "/notifications"},
+            "pinText": "12"
+          },
+          {
+            "_key": "1",
+            "textVal": "Account",
+            "iconType": "icon",
+            "iconStore": "fas fa-user",
+            "linkUrl": {"url": "/account"}
+          }
+        ]
+      },
+      "useCase": "Social platforms, creator apps, publishing tools, photo sharing apps"
     },
+
     {
-      "description": "Menu with page indicator and swiper",
+      "name": "E-Commerce Bottom Bar (Cart Badge)",
+      "description": "Shopping app navigation with cart item count badge",
+      "visualDescription": "Fixed bottom, 4 icons, cart shows '3' badge, wishlist, account sections",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "mm003",
+        "mmStyle": "style-1",
+        "posType": "fixed",
+        "fixPosType": "bottom",
+        "menu1Item": [
+          {
+            "_key": "0",
+            "textVal": "Shop",
+            "iconType": "icon",
+            "iconStore": "fas fa-store",
+            "linkUrl": {"url": "/shop"}
+          },
+          {
+            "_key": "1",
+            "textVal": "Cart",
+            "iconType": "icon",
+            "iconStore": "fas fa-shopping-cart",
+            "linkUrl": {"url": "/cart"},
+            "pinText": "3"
+          },
+          {
+            "_key": "2",
+            "textVal": "Wishlist",
+            "iconType": "icon",
+            "iconStore": "fas fa-heart",
+            "linkUrl": {"url": "/wishlist"}
+          },
+          {
+            "_key": "3",
+            "textVal": "Account",
+            "iconType": "icon",
+            "iconStore": "fas fa-user",
+            "linkUrl": {"url": "/my-account"}
+          }
+        ]
+      },
+      "useCase": "E-commerce stores, WooCommerce sites, shopping apps, retail mobile sites"
+    },
+
+    {
+      "name": "Floating Action Menu (Slide-Out Template)",
+      "description": "Center floating button that opens slide-out menu template",
+      "visualDescription": "Bottom fixed style-2, center FAB button triggers right slide-out panel with template content",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "mm004",
+        "mmStyle": "style-2",
+        "posType": "fixed",
+        "fixPosType": "bottom",
+        "extraToggle": true,
+        "tglText": "Menu",
+        "tglIconType": "icon",
+        "tglIconStore": "fas fa-bars",
+        "contentType": "template",
+        "tempList": "mobile-nav-template",
+        "toggleDirection": "right",
+        "menu1Item": [
+          {
+            "_key": "0",
+            "textVal": "Home",
+            "iconType": "icon",
+            "iconStore": "fas fa-home",
+            "linkUrl": {"url": "/"}
+          }
+        ],
+        "menu2Item": [
+          {
+            "_key": "0",
+            "textVal": "Search",
+            "iconType": "icon",
+            "iconStore": "fas fa-search",
+            "linkUrl": {"url": "/search"}
+          }
+        ]
+      },
+      "useCase": "Complex navigation needs, multi-level menus, app-style interfaces, template-based content"
+    },
+
+    {
+      "name": "Page Indicator Navigation (Swiper Mode)",
+      "description": "Swiper-based menu with page indicators for multi-page content",
+      "visualDescription": "Bottom fixed, swiper display mode, line indicators at top, slide between menu pages",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "mm005",
+        "mmStyle": "style-1",
+        "posType": "fixed",
+        "fixPosType": "bottom",
         "displayMode": "swiper",
         "pageIndicator": true,
         "indiStyle": "line",
-        "indiPos": "indi-top"
-      }
+        "indiPos": "indi-top",
+        "menu1Item": [
+          {"_key": "0", "textVal": "Home", "iconStore": "fas fa-home", "linkUrl": {"url": "/"}},
+          {"_key": "1", "textVal": "About", "iconStore": "fas fa-info", "linkUrl": {"url": "/about"}},
+          {"_key": "2", "textVal": "Services", "iconStore": "fas fa-cog", "linkUrl": {"url": "/services"}},
+          {"_key": "3", "textVal": "Portfolio", "iconStore": "fas fa-folder", "linkUrl": {"url": "/portfolio"}},
+          {"_key": "4", "textVal": "Blog", "iconStore": "fas fa-newspaper", "linkUrl": {"url": "/blog"}},
+          {"_key": "5", "textVal": "Contact", "iconStore": "fas fa-envelope", "linkUrl": {"url": "/contact"}}
+        ]
+      },
+      "useCase": "Sites with 5+ menu items, swipeable navigation, indicator-guided browsing"
     },
+
     {
-      "description": "Scroll-hiding menu with slide-out",
+      "name": "Scroll-Hiding Menu (Auto Hide/Show)",
+      "description": "Menu hides when scrolling down, shows when scrolling up",
+      "visualDescription": "Fixed bottom, auto-hides 100px down scroll, reappears on up scroll, smooth transition",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "g7h8",
+        "block_id": "mm006",
+        "mmStyle": "style-1",
+        "posType": "fixed",
+        "fixPosType": "bottom",
         "scrollOffsetTgl": true,
         "scrollTopValue": "100",
-        "extraToggle": true,
-        "contentType": "template",
-        "tempList": "mobile-menu-template",
-        "toggleDirection": "right"
-      }
+        "menu1Item": [
+          {"_key": "0", "textVal": "Home", "iconStore": "fas fa-home", "linkUrl": {"url": "/"}},
+          {"_key": "1", "textVal": "Products", "iconStore": "fas fa-shopping-bag", "linkUrl": {"url": "/products"}},
+          {"_key": "2", "textVal": "Cart", "iconStore": "fas fa-cart-plus", "linkUrl": {"url": "/cart"}, "pinText": "2"},
+          {"_key": "3", "textVal": "Account", "iconStore": "fas fa-user", "linkUrl": {"url": "/account"}}
+        ]
+      },
+      "useCase": "Content-heavy pages, long-scroll sites, maximizing screen space while maintaining access"
+    },
+
+    {
+      "name": "Image Icon Menu (Custom Icons)",
+      "description": "Menu using custom image icons instead of FontAwesome",
+      "visualDescription": "Bottom fixed, 4 custom image icons, thumbnail size, brand-specific visuals",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "mm007",
+        "mmStyle": "style-1",
+        "posType": "fixed",
+        "fixPosType": "bottom",
+        "menu1Item": [
+          {
+            "_key": "0",
+            "textVal": "Home",
+            "iconType": "image",
+            "imgStore": {"url": "/wp-content/uploads/home-icon.png"},
+            "imageSize": "thumbnail",
+            "linkUrl": {"url": "/"}
+          },
+          {
+            "_key": "1",
+            "textVal": "Products",
+            "iconType": "image",
+            "imgStore": {"url": "/wp-content/uploads/products-icon.png"},
+            "imageSize": "thumbnail",
+            "linkUrl": {"url": "/products"}
+          },
+          {
+            "_key": "2",
+            "textVal": "Services",
+            "iconType": "image",
+            "imgStore": {"url": "/wp-content/uploads/services-icon.png"},
+            "imageSize": "thumbnail",
+            "linkUrl": {"url": "/services"}
+          },
+          {
+            "_key": "3",
+            "textVal": "Contact",
+            "iconType": "image",
+            "imgStore": {"url": "/wp-content/uploads/contact-icon.png"},
+            "imageSize": "thumbnail",
+            "linkUrl": {"url": "/contact"}
+          }
+        ]
+      },
+      "useCase": "Branded apps, custom icon needs, illustration-based designs, unique visual identities"
+    },
+
+    {
+      "name": "Top Fixed Menu (Alternative Positioning)",
+      "description": "Fixed top navigation instead of typical bottom placement",
+      "visualDescription": "Fixed top bar, 5 icons horizontal, alternative to header navigation",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "mm008",
+        "mmStyle": "style-1",
+        "posType": "fixed",
+        "fixPosType": "top",
+        "menu1Item": [
+          {"_key": "0", "textVal": "Dashboard", "iconStore": "fas fa-tachometer-alt", "linkUrl": {"url": "/dashboard"}},
+          {"_key": "1", "textVal": "Projects", "iconStore": "fas fa-project-diagram", "linkUrl": {"url": "/projects"}},
+          {"_key": "2", "textVal": "Tasks", "iconStore": "fas fa-tasks", "linkUrl": {"url": "/tasks"}, "pinText": "8"},
+          {"_key": "3", "textVal": "Reports", "iconStore": "fas fa-chart-bar", "linkUrl": {"url": "/reports"}},
+          {"_key": "4", "textVal": "Settings", "iconStore": "fas fa-cog", "linkUrl": {"url": "/settings"}}
+        ]
+      },
+      "useCase": "Dashboard interfaces, admin panels, alternative header navigation, app-style top bars"
     }
-  ],
-  "commonPatterns": {}
+  ]
 }
