@@ -1,47 +1,695 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-dark-mode",
-  "title": "Dark Mode - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Dark Mode - Comprehensive Usage Examples",
+  "description": "Complete example configurations for theme switching toggles with styles, positioning, cookies, OS matching, and custom styling",
+
   "examples": [
     {
-      "description": "Simple toggle with default style",
+      "name": "Classic Toggle Switch (Header)",
+      "description": "Standard toggle switch for site header with before/after labels",
+      "visualDescription": "Style-1 toggle with 'Light' and 'Dark' labels, center-aligned, 50px size, rounded switch",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "dm001",
         "dmStyle": "style-1",
-        "matchOsTheme": true,
+        "dmPosition": "relative",
+        "Alignment": {"md": "center", "sm": "center", "xs": "center"},
+        "switchSize": {"md": "50", "sm": "45", "xs": "40", "unit": "px"},
+        "beforeText": "Light",
+        "afterText": "Dark",
+        "beforeTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "sm": "13", "xs": "12", "unit": "px"},
+          "fontWeight": "500"
+        },
+        "afterTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "sm": "13", "xs": "12", "unit": "px"},
+          "fontWeight": "500"
+        },
+        "beforeColor": "#333333",
+        "afterColor": "#333333",
+        "switchLgtBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#e0e0e0"
+        },
+        "switchDarkBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#4a5568"
+        },
+        "dotLgtBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "dotDarkBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#1a202c"
+        },
+        "switchLgtBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "px"},
+        "switchDarkBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "px"},
+        "dotLgtBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "%"},
+        "dotDarkBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "%"},
+        "saveCookies": true,
+        "matchOsTheme": false
+      },
+      "useCase": "Site headers, navigation bars, settings panels, user preference controls"
+    },
+
+    {
+      "name": "Fixed Bottom-Right FAB (Icon Only)",
+      "description": "Floating action button with sun/moon icons in bottom-right corner",
+      "visualDescription": "Style-3 icon toggle, fixed position, orange sun (light) and blue moon (dark), 60px icons, subtle shadow",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "dm002",
+        "dmStyle": "style-3",
+        "dmPosition": "fixed",
+        "fixedPos": "right-bottom",
+        "dmRightOf": {"md": "30", "sm": "20", "xs": "15", "unit": "px"},
+        "dmBottomOf": {"md": "30", "sm": "20", "xs": "15", "unit": "px"},
+        "IconName": "fas fa-sun",
+        "darkIconEn": true,
+        "darkIcon": "fas fa-moon",
+        "icons2Size": {"md": "60", "sm": "50", "xs": "45", "unit": "px"},
+        "bgs3Size": {"md": "80", "sm": "70", "xs": "65", "unit": "px"},
+        "iconLgtColor": "#ffa500",
+        "iconDarkColor": "#4169e1",
+        "switchLgtBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "switchDarkBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#2d3748"
+        },
+        "switchLgtBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "%"},
+        "switchDarkBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "%"},
+        "switchLgtShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.15)"
+        },
+        "switchDarkShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.4)"
+        },
+        "saveCookies": true,
+        "matchOsTheme": true
+      },
+      "useCase": "Blogs, documentation sites, reading platforms, accessibility-focused sites"
+    },
+
+    {
+      "name": "Labeled Toggle With Text (Style-2)",
+      "description": "Toggle switch with visible 'Normal' and 'Dark' text labels",
+      "visualDescription": "Style-2 toggle, custom icons (sun/moon inside toggle), text labels on both sides, purple theme",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "dm003",
+        "dmStyle": "style-2",
+        "dmPosition": "relative",
+        "Alignment": {"md": "right", "sm": "center", "xs": "center"},
+        "S2IconType": "icon",
+        "IconName": "fas fa-sun",
+        "darkIconEn": true,
+        "darkIcon": "fas fa-moon",
+        "switchSize": {"md": "55", "sm": "50", "xs": "45", "unit": "px"},
+        "beforeText": "Normal",
+        "afterText": "Dark",
+        "beforeTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "sm": "14", "xs": "13", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "afterTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "sm": "14", "xs": "13", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "beforeColor": "#667eea",
+        "afterColor": "#764ba2",
+        "beforeOffset": {"md": "-70", "sm": "-65", "xs": "-60", "unit": "px"},
+        "afterOffset": {"md": "-50", "sm": "-45", "xs": "-40", "unit": "px"},
+        "switchLgtBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "switchDarkBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#434343", "position": 0},
+              {"color": "#000000", "position": 100}
+            ]
+          }
+        },
+        "dotLgtBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "dotDarkBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f0f0f0"
+        },
+        "switchLgtBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "px"},
+        "switchDarkBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "px"},
+        "saveCookies": true,
+        "matchOsTheme": false
+      },
+      "useCase": "Modern web apps, SaaS platforms, creative portfolios, premium sites"
+    },
+
+    {
+      "name": "Icon-Based Toggle (OS Match)",
+      "description": "Icon-only toggle that automatically matches operating system theme preference",
+      "visualDescription": "Style-3 icons (sun/moon), no background, auto-matches macOS/Windows dark mode, minimal design",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "dm004",
+        "dmStyle": "style-3",
+        "dmPosition": "relative",
+        "Alignment": {"md": "center"},
+        "IconName": "fas fa-sun",
+        "darkIconEn": true,
+        "darkIcon": "fas fa-moon",
+        "icons2Size": {"md": "40", "sm": "36", "xs": "32", "unit": "px"},
+        "bgs3Size": {"md": "0", "unit": "px"},
+        "iconLgtColor": "#ffd700",
+        "iconDarkColor": "#c0c0c0",
+        "saveCookies": false,
+        "matchOsTheme": true
+      },
+      "useCase": "Accessibility-first sites, minimal designs, OS-aware applications, modern web apps"
+    },
+
+    {
+      "name": "Absolute Positioned Toggle (Sidebar)",
+      "description": "Toggle positioned absolutely in sidebar or custom location",
+      "visualDescription": "Style-1 toggle, absolute positioning with 20% left offset, small 35px size for compact spaces",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "dm005",
+        "dmStyle": "style-1",
+        "dmPosition": "absolute",
+        "absoluteOff": {"md": "20", "unit": "%"},
+        "switchSize": {"md": "35", "sm": "32", "xs": "30", "unit": "px"},
+        "beforeText": "",
+        "afterText": "",
+        "switchLgtBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#cbd5e0"
+        },
+        "switchDarkBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#2d3748"
+        },
+        "dotLgtBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#4a5568"
+        },
+        "dotDarkBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#edf2f7"
+        },
+        "switchLgtBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#a0aec0",
+          "width": {"md": {"top": "2", "left": "2", "bottom": "2", "right": "2"}, "unit": "px"}
+        },
+        "switchDarkBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#718096",
+          "width": {"md": {"top": "2", "left": "2", "bottom": "2", "right": "2"}, "unit": "px"}
+        },
+        "switchLgtBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "px"},
+        "switchDarkBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "px"},
+        "saveCookies": true,
+        "matchOsTheme": false
+      },
+      "useCase": "Sidebars, custom positioned widgets, dashboard panels, specific layout contexts"
+    },
+
+    {
+      "name": "Fixed Top-Right (Cookie Persistence)",
+      "description": "Sticky top-right toggle that remembers user preference across sessions",
+      "visualDescription": "Fixed top-right corner, style-2 with icons, 25px offset from edges, cookie-based persistence",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "dm006",
+        "dmStyle": "style-2",
+        "dmPosition": "fixed",
+        "fixedPos": "right-top",
+        "dmRightOf": {"md": "25", "sm": "20", "xs": "15", "unit": "px"},
+        "dmBottomOf": {"md": "25", "sm": "20", "xs": "15", "unit": "px"},
+        "S2IconType": "icon",
+        "IconName": "fas fa-sun",
+        "darkIconEn": true,
+        "darkIcon": "fas fa-moon",
+        "switchSize": {"md": "48", "sm": "42", "xs": "38", "unit": "px"},
+        "beforeText": "",
+        "afterText": "",
+        "switchLgtBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f7fafc"
+        },
+        "switchDarkBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#1a202c"
+        },
+        "dotLgtBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#2d3748"
+        },
+        "dotDarkBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#cbd5e0"
+        },
+        "switchLgtShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.1)"
+        },
+        "switchDarkShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.3)"
+        },
+        "saveCookies": true,
+        "matchOsTheme": false
+      },
+      "useCase": "Long-form content, blogs, documentation, e-commerce sites with return visitors"
+    },
+
+    {
+      "name": "Gradient Styled Toggle (Premium Look)",
+      "description": "Style-1 toggle with gradient backgrounds for both light and dark modes",
+      "visualDescription": "Blue-purple gradient (light mode), dark gray-black gradient (dark mode), white/gold dot colors, 'Day' and 'Night' labels",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "dm007",
+        "dmStyle": "style-1",
+        "dmPosition": "relative",
+        "Alignment": {"md": "center"},
+        "switchSize": {"md": "60", "sm": "55", "xs": "50", "unit": "px"},
+        "beforeText": "Day",
+        "afterText": "Night",
+        "beforeTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "fontWeight": "700",
+          "fontFamily": "Poppins"
+        },
+        "afterTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "fontWeight": "700",
+          "fontFamily": "Poppins"
+        },
+        "beforeColor": "#667eea",
+        "afterColor": "#764ba2",
+        "beforeOffset": {"md": "-60", "sm": "-55", "xs": "-50", "unit": "px"},
+        "afterOffset": {"md": "-55", "sm": "-50", "xs": "-45", "unit": "px"},
+        "switchLgtBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 90,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "switchDarkBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 90,
+            "gradientColor": [
+              {"color": "#232526", "position": 0},
+              {"color": "#414345", "position": 100}
+            ]
+          }
+        },
+        "dotLgtBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "radial",
+            "gradientPosition": "center center",
+            "gradientColor": [
+              {"color": "#ffffff", "position": 0},
+              {"color": "#f0f0f0", "position": 100}
+            ]
+          }
+        },
+        "dotDarkBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "radial",
+            "gradientPosition": "center center",
+            "gradientColor": [
+              {"color": "#ffd700", "position": 0},
+              {"color": "#ffed4e", "position": 100}
+            ]
+          }
+        },
+        "switchLgtBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "px"},
+        "switchDarkBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "px"},
+        "dotLgtBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "%"},
+        "dotDarkBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "%"},
+        "dotLgtShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 6,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.2)"
+        },
+        "dotDarkShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(255, 215, 0, 0.4)"
+        },
+        "saveCookies": true,
+        "matchOsTheme": false
+      },
+      "useCase": "Premium sites, creative agencies, portfolios, modern web apps, brand showcases"
+    },
+
+    {
+      "name": "Mobile-Responsive Toggle (Adaptive)",
+      "description": "Fully responsive toggle that adapts size and positioning across breakpoints",
+      "visualDescription": "Desktop: 55px fixed top-right, Tablet: 48px top-right, Mobile: 40px centered relative, responsive offsets",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "dm008",
+        "dmStyle": "style-3",
+        "dmPosition": "fixed",
+        "fixedPos": "right-top",
+        "dmRightOf": {"md": "30", "sm": "20", "xs": "15", "unit": "px"},
+        "dmBottomOf": {"md": "30", "sm": "20", "xs": "15", "unit": "px"},
+        "IconName": "fas fa-sun",
+        "darkIconEn": true,
+        "darkIcon": "fas fa-moon",
+        "icons2Size": {"md": "55", "sm": "48", "xs": "40", "unit": "px"},
+        "bgs3Size": {"md": "75", "sm": "68", "xs": "60", "unit": "px"},
+        "iconLgtColor": "#ff6b6b",
+        "iconDarkColor": "#4ecdc4",
+        "switchLgtBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "switchDarkBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#1a1a2e"
+        },
+        "switchLgtBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e0e0e0",
+          "width": {"md": {"top": "2", "left": "2", "bottom": "2", "right": "2"}, "sm": {"top": "1.5", "left": "1.5", "bottom": "1.5", "right": "1.5"}, "xs": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "unit": "px"}
+        },
+        "switchDarkBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#2d2d44",
+          "width": {"md": {"top": "2", "left": "2", "bottom": "2", "right": "2"}, "sm": {"top": "1.5", "left": "1.5", "bottom": "1.5", "right": "1.5"}, "xs": {"top": "1", "left": "1", "bottom": "1", "right": "1"}, "unit": "px"}
+        },
+        "switchLgtBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "%"},
+        "switchDarkBRadius": {"md": {"top": "50", "right": "50", "bottom": "50", "left": "50"}, "unit": "%"},
+        "switchLgtShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(255, 107, 107, 0.2)"
+        },
+        "switchDarkShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(78, 205, 196, 0.3)"
+        },
+        "saveCookies": true,
+        "matchOsTheme": true
+      },
+      "useCase": "Responsive sites, mobile-first designs, progressive web apps, cross-device experiences"
+    }
+  ],
+
+  "commonPatterns": [
+    {
+      "name": "Fixed Corner FAB",
+      "description": "Floating action button in corner for easy access",
+      "attributes": {
+        "dmPosition": "fixed",
+        "fixedPos": "right-bottom",
+        "dmRightOf": {"md": "30", "unit": "px"},
+        "dmBottomOf": {"md": "30", "unit": "px"},
         "saveCookies": true
       }
     },
     {
-      "description": "Icon-based toggle with custom colors",
+      "name": "Header Toggle",
+      "description": "Relative positioned toggle for site header",
       "attributes": {
-        "block_id": "c3d4",
-        "dmStyle": "style-3",
-        "IconName": "fas fa-sun",
-        "darkIconEn": true,
-        "darkIcon": "fas fa-moon",
-        "iconLgtColor": "#ffa500",
-        "iconDarkColor": "#4169e1"
+        "dmPosition": "relative",
+        "Alignment": {"md": "center"},
+        "saveCookies": true,
+        "matchOsTheme": false
       }
     },
     {
-      "description": "Fixed position toggle in corner",
+      "name": "OS-Aware Toggle",
+      "description": "Auto-match OS theme preference",
       "attributes": {
-        "block_id": "e5f6",
-        "dmStyle": "style-2",
-        "dmPosition": "fixed",
-        "fixedPos": "right-bottom",
-        "dmRightOf": {
-          "md": "20",
-          "unit": "px"
-        },
-        "dmBottomOf": {
-          "md": "20",
-          "unit": "px"
-        }
+        "matchOsTheme": true,
+        "saveCookies": false
+      }
+    },
+    {
+      "name": "Cookie Persistence",
+      "description": "Remember user preference across sessions",
+      "attributes": {
+        "saveCookies": true,
+        "matchOsTheme": false
       }
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "block_id": "Required, unique 4-character hex identifier",
+    "dmStyle": "Must be 'style-1', 'style-2', or 'style-3'",
+    "dmPosition": "Must be 'relative', 'absolute', or 'fixed'",
+    "fixedPos": "Required when dmPosition is 'fixed', must be 'left-top', 'left-bottom', 'right-top', or 'right-bottom'",
+    "IconName": "FontAwesome class (e.g., 'fas fa-sun')",
+    "darkIcon": "FontAwesome class for dark mode, requires darkIconEn: true",
+    "switchSize": "Recommended 30-70px for usability",
+    "icons2Size": "Icon size for style-3, recommended 30-80px",
+    "bgs3Size": "Background container size for style-3",
+    "beforeText": "Optional label before toggle (style-1, style-2)",
+    "afterText": "Optional label after toggle (style-1, style-2)",
+    "saveCookies": "Boolean, enables cookie-based preference storage",
+    "matchOsTheme": "Boolean, auto-match OS dark mode setting"
+  },
+
+  "warnings": [
+    "Don't use both matchOsTheme:true and saveCookies:true (creates conflicting behavior - choose one)",
+    "Fixed positioning (dmPosition: 'fixed') requires dmRightOf and dmBottomOf offsets",
+    "Absolute positioning requires parent container with position: relative",
+    "beforeText and afterText not visible in style-3 (icon-only mode)",
+    "darkIconEn must be true to use darkIcon attribute",
+    "switchLgtBG and switchDarkBG should have different colors for clear visual feedback",
+    "Cookie persistence requires user consent in GDPR regions",
+    "matchOsTheme works via CSS @media (prefers-color-scheme) - ensure CSS variables are set up",
+    "Don't forget to set up global color palette CSS variables for theme switching to work",
+    "Border radius 50% creates circular toggle, 0-20px creates rounded rectangle"
+  ],
+
+  "commonMistakes": [
+    "Forgetting to set openBg: 1 before defining background colors/gradients",
+    "Not providing sufficient color contrast between light and dark modes",
+    "Using fixed positioning without offset values (toggle appears at 0,0)",
+    "Setting both saveCookies and matchOsTheme (conflicts - OS theme overrides cookie)",
+    "Not testing toggle visibility on both light and dark backgrounds",
+    "Using px units for responsive sizing instead of responsive values (md/sm/xs)",
+    "Forgetting to set darkIconEn: true when using darkIcon attribute",
+    "Not setting switchSize for style-3 (results in tiny or huge icons)",
+    "Using beforeText/afterText with style-3 (text not displayed)",
+    "Not configuring CSS custom properties for theme colors (toggle works but theme doesn't change)"
+  ],
+
+  "bestPractices": [
+    "Use saveCookies: true for persistent preference across sessions",
+    "Use matchOsTheme: true for accessibility-first, OS-aware behavior",
+    "Provide clear visual distinction between light and dark states (different colors)",
+    "Use fixed positioning (right-bottom/right-top) for easy access on all pages",
+    "Set responsive sizing (md/sm/xs) for optimal mobile experience",
+    "Use sun (fas fa-sun) and moon (fas fa-moon) icons for universal recognition",
+    "Add box shadows for depth and better visibility",
+    "Use border radius 50% for classic toggle switch look",
+    "Set beforeText/afterText labels for clarity (e.g., 'Light'/'Dark', 'Day'/'Night')",
+    "Test toggle on both light and dark page backgrounds",
+    "Consider using gradient backgrounds for premium aesthetic",
+    "Use contrasting colors: light backgrounds with dark dots (and vice versa)",
+    "Set appropriate offsets (20-40px) from edges for fixed positioning",
+    "Use typography controls for label styling consistency with site design",
+    "Always set openTypography: 1 before defining typography attributes"
+  ],
+
+  "accessibilityNotes": [
+    "matchOsTheme: true respects user's OS-level accessibility preference",
+    "Dark mode reduces eye strain in low-light environments",
+    "Ensure toggle is keyboard accessible (native HTML button behavior)",
+    "Provide sufficient color contrast in both light and dark modes (WCAG AA minimum 4.5:1)",
+    "Use aria-label for screen readers: 'Toggle dark mode' or 'Switch theme'",
+    "Avoid relying solely on color - use icons (sun/moon) for visual distinction",
+    "Test with screen readers to ensure toggle state is announced",
+    "Consider prefers-reduced-motion for toggle animations",
+    "Ensure toggle is visible and usable at 200% zoom (WCAG 1.4.4)",
+    "Use sufficient touch target size (minimum 44x44px for mobile)",
+    "Provide visual focus indicator for keyboard navigation",
+    "Consider providing text labels (beforeText/afterText) for clarity"
+  ],
+
+  "performanceConsiderations": [
+    "Cookie persistence adds minimal overhead (~100 bytes)",
+    "matchOsTheme uses CSS @media query (no JavaScript overhead)",
+    "Fixed positioning uses CSS position: fixed (GPU-accelerated)",
+    "Avoid complex gradient animations on toggle (use simple color transitions)",
+    "Use CSS transitions for smooth toggle animation (duration: 300-500ms)",
+    "Cache user preference in localStorage for instant theme application on page load",
+    "Load theme preference before page render to prevent flash of unstyled content (FOUC)",
+    "Use CSS custom properties for theme colors (efficient runtime updates)"
+  ],
+
+  "styleGuide": {
+    "style-1": {
+      "description": "Classic toggle switch with sliding dot",
+      "visualAppearance": "Horizontal pill shape with circular dot that slides left/right",
+      "bestFor": "Traditional UIs, settings panels, familiar toggle pattern",
+      "supports": ["beforeText", "afterText", "switchSize", "dot backgrounds", "switch backgrounds", "borders", "shadows"]
+    },
+    "style-2": {
+      "description": "Toggle switch with icon inside dot",
+      "visualAppearance": "Similar to style-1 but with icon (sun/moon) inside the sliding dot",
+      "bestFor": "Visual clarity, icon-based UI, modern designs",
+      "supports": ["beforeText", "afterText", "switchSize", "IconName", "darkIcon", "dot backgrounds", "switch backgrounds"]
+    },
+    "style-3": {
+      "description": "Icon-only toggle (no switch track)",
+      "visualAppearance": "Circular button with icon only, no visible switch track, icon changes on click",
+      "bestFor": "Minimal designs, compact spaces, icon-centric UIs, floating action buttons",
+      "supports": ["icons2Size", "bgs3Size", "iconLgtColor", "iconDarkColor", "IconName", "darkIcon"],
+      "notes": "beforeText and afterText not displayed in this style"
+    }
+  },
+
+  "cookieManagement": {
+    "cookieName": "tpgb-dark-mode-preference",
+    "cookieValue": "'light' or 'dark'",
+    "cookieExpiry": "365 days (1 year)",
+    "cookiePath": "/",
+    "cookieDomain": "Current domain",
+    "gdprCompliance": "Functional cookie - may require consent banner in EU regions",
+    "example": "document.cookie = 'tpgb-dark-mode-preference=dark; max-age=31536000; path=/'"
+  },
+
+  "osThemeDetection": {
+    "cssMediaQuery": "@media (prefers-color-scheme: dark)",
+    "javascriptDetection": "window.matchMedia('(prefers-color-scheme: dark)').matches",
+    "supportedOS": ["macOS 10.14+", "Windows 10+", "iOS 13+", "Android 10+", "Modern Linux desktops"],
+    "fallbackBehavior": "Defaults to light mode if OS preference not available",
+    "example": "if (window.matchMedia('(prefers-color-scheme: dark)').matches) { /* Apply dark theme */ }"
+  },
+
+  "useCaseTips": [
+    "Blogs/Documentation: Use fixed bottom-right FAB with saveCookies for reader comfort",
+    "E-commerce: Use header toggle with cookie persistence for consistent shopping experience",
+    "Portfolios: Use style-3 icon toggle with gradient backgrounds for creative aesthetic",
+    "Dashboards: Use top-right fixed toggle with OS matching for professional apps",
+    "Mobile Apps: Use responsive sizing with fixed positioning for thumb-friendly access"
+  ],
+
+  "integrationExamples": [
+    {
+      "name": "JavaScript Theme Application",
+      "description": "Apply theme on page load from cookie",
+      "code": "// On page load\nconst theme = getCookie('tpgb-dark-mode-preference') || 'light';\ndocument.documentElement.setAttribute('data-theme', theme);\ndocument.body.classList.toggle('dark-mode', theme === 'dark');"
+    },
+    {
+      "name": "CSS Custom Properties Setup",
+      "description": "Define theme color variables",
+      "code": ":root {\n  --bg-color: #ffffff;\n  --text-color: #000000;\n}\n\n[data-theme='dark'] {\n  --bg-color: #1a1a1a;\n  --text-color: #ffffff;\n}\n\nbody {\n  background-color: var(--bg-color);\n  color: var(--text-color);\n}"
+    },
+    {
+      "name": "OS Theme Listener",
+      "description": "Detect OS theme changes in real-time",
+      "code": "window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {\n  const newTheme = e.matches ? 'dark' : 'light';\n  document.documentElement.setAttribute('data-theme', newTheme);\n});"
+    },
+    {
+      "name": "GDPR Cookie Consent Integration",
+      "description": "Only save cookie if user consents",
+      "code": "// Only enable saveCookies after consent\nif (userHasConsentedToCookies()) {\n  // Enable cookie persistence\n  saveDarkModePreference(theme);\n} else {\n  // Use sessionStorage instead\n  sessionStorage.setItem('theme', theme);\n}"
+    }
+  ]
 }
