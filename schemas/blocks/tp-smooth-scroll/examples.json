@@ -1,42 +1,489 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-smooth-scroll",
-  "title": "Smooth Scroll - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Smooth Scroll - Comprehensive Usage Examples",
+  "description": "Complete example configurations for page-level smooth scrolling with customizable easing, speed, and behavior patterns",
+
   "examples": [
     {
-      "description": "Basic smooth scroll with default settings",
+      "name": "Default Smooth Scroll (Balanced Experience)",
+      "description": "Standard smooth scroll settings for general websites",
+      "visualDescription": "Medium-paced smooth scrolling with cubic easing, 2.5s animation, normalized wheel events for consistent cross-browser experience",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
-        "easing": "ease-out-cubic",
+        "block_id": "ss001",
         "aniTime": "2500",
+        "stepSize": "500",
+        "tMult": "2",
+        "normalizeWheel": true,
+        "easing": "ease-out-cubic",
+        "infinite": false,
+        "smNav": false
+      },
+      "useCase": "Corporate websites, blogs, general business sites, content-heavy pages, standard landing pages",
+      "notes": [
+        "aniTime: 2500ms = 2.5 seconds for smooth, balanced animation",
+        "stepSize: 500px = moderate scroll distance per wheel event",
+        "ease-out-cubic = starts fast, slows down at end (natural feel)",
+        "normalizeWheel: true = consistent behavior across Chrome, Firefox, Safari, Edge",
+        "Works well for 90% of websites without customization"
+      ]
+    },
+
+    {
+      "name": "Fast Responsive Scroll (Quick Navigation)",
+      "description": "Faster smooth scroll for responsive, snappy user experience",
+      "visualDescription": "Quick 1-second scrolling with quadratic easing, larger 800px steps, navigation link smoothing enabled",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ss002",
+        "aniTime": "1000",
+        "stepSize": "800",
+        "tMult": "2.5",
+        "normalizeWheel": true,
+        "easing": "ease-out-quad",
+        "infinite": false,
+        "smNav": true
+      },
+      "useCase": "E-commerce sites, dashboards, web apps, sites with impatient users, mobile-first designs, one-page navigation",
+      "notes": [
+        "aniTime: 1000ms = 1 second for quick, responsive feel",
+        "stepSize: 800px = larger jumps reduce scroll fatigue",
+        "ease-out-quad = lighter easing, faster completion",
+        "smNav: true = enables smooth scrolling for anchor links (#section)",
+        "tMult: 2.5 = higher touchpad sensitivity for laptop users",
+        "Recommended for sites where users need to find information quickly"
+      ]
+    },
+
+    {
+      "name": "Cinematic Slow Scroll (Premium Portfolio)",
+      "description": "Dramatic slow scrolling for immersive, storytelling experiences",
+      "visualDescription": "Luxurious 4-second scrolling with quintic easing, small 300px steps, premium smooth feel",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ss003",
+        "aniTime": "4000",
+        "stepSize": "300",
+        "tMult": "1.2",
+        "normalizeWheel": true,
+        "easing": "ease-in-out-quint",
+        "infinite": false,
+        "smNav": false
+      },
+      "useCase": "Creative portfolios, luxury brands, photography showcases, storytelling sites, product launches, immersive experiences",
+      "notes": [
+        "aniTime: 4000ms = 4 seconds for cinematic, deliberate pacing",
+        "stepSize: 300px = small increments create floating sensation",
+        "ease-in-out-quint = strongest easing (slow start, slow end, smooth middle)",
+        "tMult: 1.2 = reduced touchpad sensitivity prevents jumpy feel",
+        "Creates 'floating' effect popular in high-end design",
+        "May frustrate users seeking quick information - use sparingly"
+      ]
+    },
+
+    {
+      "name": "Navigation Link Smoothing (Anchor Scroll)",
+      "description": "Smooth scroll specifically for anchor link navigation",
+      "visualDescription": "Medium-speed 2s scrolling with navigation smoothing, perfect for one-page websites with section jumps",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ss004",
+        "aniTime": "2000",
+        "stepSize": "600",
+        "tMult": "2",
+        "normalizeWheel": true,
+        "easing": "ease-in-out-cubic",
+        "infinite": false,
+        "smNav": true
+      },
+      "useCase": "One-page websites, landing pages with sections (#about, #services, #contact), table of contents navigation, marketing pages",
+      "notes": [
+        "smNav: true = critical for anchor link smoothing (e.g., <a href='#services'>)",
+        "aniTime: 2000ms = 2 seconds appropriate for section jumps",
+        "ease-in-out-cubic = smooth start and end for section transitions",
+        "Works with tp-scroll-navigation and tp-table-content blocks",
+        "Prevents jarring instant jumps when clicking anchor links",
+        "Browser back button still works normally"
+      ]
+    },
+
+    {
+      "name": "Touchpad Optimized (Laptop Users)",
+      "description": "High touchpad sensitivity for laptop/trackpad users",
+      "visualDescription": "Moderate 1.8s scrolling with 3.5x touchpad multiplier, optimized for MacBook/laptop trackpads",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ss005",
+        "aniTime": "1800",
+        "stepSize": "550",
+        "tMult": "3.5",
+        "normalizeWheel": true,
+        "easing": "ease-out-cubic",
+        "infinite": false,
+        "smNav": false
+      },
+      "useCase": "Sites with primarily laptop users, SaaS apps, developer tools, educational platforms, business software",
+      "notes": [
+        "tMult: 3.5 = touchpad movements feel more responsive",
+        "Touchpads typically have finer granularity than mouse wheels",
+        "normalizeWheel: true = essential for cross-device consistency",
+        "Default tMult: 2 often feels sluggish on MacBook trackpads",
+        "Test on actual laptops - touchpad behavior varies by OS/hardware",
+        "Higher tMult values (4-5) risk feeling too sensitive"
+      ]
+    },
+
+    {
+      "name": "Infinite Scroll Loop (Experimental)",
+      "description": "Infinite looping scroll for experimental single-page designs",
+      "visualDescription": "Continuous looping scroll with 3s animation, quartic easing, wraps from bottom to top seamlessly",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ss006",
+        "aniTime": "3000",
+        "stepSize": "450",
+        "tMult": "2",
+        "normalizeWheel": true,
+        "easing": "ease-in-out-quart",
+        "infinite": true,
+        "smNav": false
+      },
+      "useCase": "Experimental portfolios, circular narratives, infinite galleries, artistic installations, unconventional designs",
+      "notes": [
+        "infinite: true = when reaching bottom, loops back to top (and vice versa)",
+        "Creates continuous scroll illusion for single-page sites",
+        "Content must be designed to flow seamlessly top-to-bottom",
+        "Can disorient users - provide visual cues (progress indicators)",
+        "Not recommended for e-commerce or informational sites",
+        "Works best with vertically symmetrical layouts",
+        "May conflict with sticky headers/footers - test thoroughly"
+      ]
+    },
+
+    {
+      "name": "Custom Viewport Scroll (Container Scroll)",
+      "description": "Smooth scroll within specific viewport/container instead of full page",
+      "visualDescription": "Smooth scrolling limited to .content-area container, 2.2s animation, useful for complex layouts",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ss007",
+        "aniTime": "2200",
+        "stepSize": "500",
+        "tMult": "2",
+        "normalizeWheel": true,
+        "easing": "ease-out-cubic",
+        "infinite": false,
+        "smNav": false,
+        "viewport": ".content-area"
+      },
+      "useCase": "Split-screen layouts, sidebar navigation sites, dashboard apps, sites with fixed headers/sidebars, scrollable content areas",
+      "notes": [
+        "viewport: '.content-area' = CSS selector for scroll container",
+        "Allows smooth scroll in specific div instead of whole page",
+        "Container must have CSS: overflow-y: auto or scroll",
+        "Requires height constraint on viewport element",
+        "Useful when header/sidebar should remain fixed while content scrolls",
+        "Example CSS: .content-area { height: 100vh; overflow-y: auto; }",
+        "Test with multiple viewports - only first match is used"
+      ]
+    },
+
+    {
+      "name": "Linear Precision Scroll (No Easing)",
+      "description": "Constant-speed scrolling without easing for precise control",
+      "visualDescription": "Linear scrolling at constant 1.5s speed, no acceleration/deceleration, perfect for data-heavy interfaces",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ss008",
+        "aniTime": "1500",
+        "stepSize": "700",
+        "tMult": "2",
+        "normalizeWheel": true,
+        "easing": "linear",
+        "infinite": false,
+        "smNav": true
+      },
+      "useCase": "Data tables, spreadsheets, code editors, technical documentation, scientific visualizations, precision-required interfaces",
+      "notes": [
+        "easing: 'linear' = constant speed from start to finish, no acceleration",
+        "Predictable scrolling for users who need precise positioning",
+        "Less 'smooth' feeling but more controllable",
+        "Preferred by power users and technical audiences",
+        "Good for content where users need to scan methodically (tables, code)",
+        "Reduces motion sickness in some users sensitive to easing",
+        "Faster aniTime (1500ms) compensates for lack of natural feel"
+      ]
+    }
+  ],
+
+  "commonPatterns": {
+    "default_smooth": {
+      "description": "Standard smooth scroll for most websites",
+      "attributes": {
+        "aniTime": "2500",
+        "stepSize": "500",
+        "easing": "ease-out-cubic",
         "normalizeWheel": true
       }
     },
-    {
-      "description": "Fast smooth scroll for quick navigation",
+    "fast_navigation": {
+      "description": "Quick scrolling with navigation link support",
       "attributes": {
-        "block_id": "c3d4",
-        "easing": "ease-out-quad",
         "aniTime": "1000",
         "stepSize": "800",
+        "easing": "ease-out-quad",
         "smNav": true
       }
     },
-    {
-      "description": "Cinematic smooth scroll with slow easing",
+    "cinematic_slow": {
+      "description": "Dramatic slow scrolling for portfolios",
       "attributes": {
-        "block_id": "e5f6",
+        "aniTime": "4000",
+        "stepSize": "300",
         "easing": "ease-in-out-quint",
-        "aniTime": "3500",
-        "stepSize": "400",
-        "tMult": "1.5"
+        "tMult": "1.2"
+      }
+    },
+    "touchpad_optimized": {
+      "description": "High sensitivity for laptop users",
+      "attributes": {
+        "tMult": "3.5",
+        "aniTime": "1800"
       }
     }
+  },
+
+  "validationRules": {
+    "block_id": {
+      "required": true,
+      "type": "string",
+      "description": "Unique block identifier"
+    },
+    "aniTime": {
+      "type": "string",
+      "default": "2500",
+      "range": "500-6000 recommended (milliseconds)",
+      "description": "Animation duration - too short (<500ms) feels jarring, too long (>6000ms) frustrates users"
+    },
+    "stepSize": {
+      "type": "string",
+      "default": "500",
+      "range": "200-1000 recommended (pixels)",
+      "description": "Scroll step size per wheel event - larger values = faster scrolling"
+    },
+    "tMult": {
+      "type": "string",
+      "default": "2",
+      "range": "0.5-5 recommended",
+      "description": "Touchpad scroll multiplier - higher values increase touchpad sensitivity"
+    },
+    "normalizeWheel": {
+      "type": "boolean",
+      "default": true,
+      "description": "Normalize wheel events across browsers - always recommended"
+    },
+    "easing": {
+      "type": "string",
+      "enum": ["linear", "ease-in-quad", "ease-out-quad", "ease-in-out-quad", "ease-in-cubic", "ease-out-cubic", "ease-in-out-cubic", "ease-in-quart", "ease-out-quart", "ease-in-out-quart", "ease-in-quint", "ease-out-quint", "ease-in-out-quint"],
+      "default": "ease-out-cubic",
+      "description": "Easing function - ease-out feels most natural, ease-in-out for cinematic, linear for precision"
+    },
+    "infinite": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable infinite scroll loop - experimental, use with caution"
+    },
+    "smNav": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable smooth scroll for navigation anchor links - essential for one-page sites"
+    },
+    "custEase": {
+      "type": "string",
+      "optional": true,
+      "description": "Custom cubic-bezier easing function CSS (e.g., 'cubic-bezier(0.25, 0.1, 0.25, 1)')"
+    },
+    "viewport": {
+      "type": "string",
+      "optional": true,
+      "description": "CSS selector for custom scroll viewport (e.g., '.content-area') - limits smooth scroll to specific container"
+    }
+  },
+
+  "warnings": [
+    "ONLY ONE tp-smooth-scroll block per page - multiple instances will conflict",
+    "Applies to ENTIRE PAGE by default - cannot selectively disable for sections (unless using custom viewport)",
+    "May conflict with other scroll-based animations (parallax, scroll-triggered animations) - test thoroughly",
+    "infinite: true is experimental and can disorient users - use sparingly",
+    "Very slow aniTime (>4000ms) frustrates users trying to scroll quickly - provide disable option",
+    "normalizeWheel: false can cause inconsistent behavior across browsers - keep true unless specific reason",
+    "Custom viewport requires container with overflow-y: auto/scroll and height constraint",
+    "Touchpad behavior varies greatly across OS (macOS, Windows, Linux) - test on actual devices",
+    "Some users prefer standard browser scrolling - consider providing disable option in footer",
+    "Mobile devices ignore smooth scroll settings (native momentum scrolling) - this is page-level only"
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
+
+  "commonMistakes": [
+    "Adding multiple tp-smooth-scroll blocks - only use once per page",
+    "Setting aniTime too high (>5000ms) - users will feel trapped in slow scrolling",
+    "Using infinite: true without content designed for looping - creates jarring transitions",
+    "Forgetting smNav: true on one-page sites - anchor links will jump instantly",
+    "Setting tMult too high (>5) - touchpad becomes hypersensitive and uncontrollable",
+    "Not testing on different browsers/devices - wheel event behavior varies",
+    "Using custom viewport without proper CSS setup (overflow, height)",
+    "Combining with parallax effects without testing - can create motion sickness",
+    "Not providing accessibility option to disable - some users get motion sick",
+    "Using ease-in easing (slow start, fast end) - feels unnatural for scrolling"
+  ],
+
+  "bestPractices": [
+    "Start with default settings (aniTime: 2500, ease-out-cubic) and adjust only if needed",
+    "Enable smNav: true for all one-page websites with anchor navigation",
+    "Test on real laptops with trackpads - adjust tMult based on user feedback",
+    "Provide visual feedback during scroll (progress bar, section indicators)",
+    "Add accessibility option to disable smooth scroll (motion sickness consideration)",
+    "Use faster settings (aniTime: 1000-1500) for e-commerce and information-heavy sites",
+    "Use slower settings (aniTime: 3000-4000) only for portfolios and storytelling sites",
+    "Keep normalizeWheel: true for cross-browser consistency",
+    "Test with keyboard navigation (Page Up/Down, Space, Arrow keys) - should still work",
+    "Avoid infinite: true unless content is specifically designed for looping",
+    "For custom viewport, ensure container has fixed height and visible overflow",
+    "Use ease-out-* easing for most natural feel (fast start, slow end)",
+    "Document smooth scroll settings for client - they may want to adjust over time",
+    "Consider user preferences: prefers-reduced-motion media query to disable",
+    "Test with mouse wheel, trackpad, and keyboard - all should feel smooth"
+  ],
+
+  "accessibilityNotes": [
+    "Respect prefers-reduced-motion CSS media query - disable smooth scroll for users who request reduced motion",
+    "Keyboard navigation (Page Up/Down, Space, Home/End) should still work with smooth scroll",
+    "Screen reader users typically use keyboard, not mouse - ensure keyboard scrolling feels natural",
+    "Smooth scroll can cause motion sickness in some users - provide disable toggle in footer",
+    "Very slow scrolling (>3500ms) can disorient users with vestibular disorders",
+    "Ensure focus indicators remain visible during smooth scroll animations",
+    "Skip-to-content links should bypass smooth scroll for immediate jump (or use short aniTime)",
+    "Infinite scroll loops can confuse screen reader users - provide clear navigation landmarks",
+    "Test with screen magnification tools - smooth scroll may need faster speeds for zoomed users",
+    "Document smooth scroll feature in accessibility statement",
+    "Provide keyboard shortcut to toggle smooth scroll on/off (e.g., Ctrl+Shift+S)",
+    "Ensure smooth scroll doesn't interfere with browser's native find-on-page (Ctrl+F) scrolling"
+  ],
+
+  "performanceConsiderations": [
+    "Smooth scroll uses requestAnimationFrame - minimal CPU impact on modern browsers",
+    "Long aniTime (>3000ms) means more animation frames - slight performance cost on low-end devices",
+    "normalizeWheel adds event listener overhead - negligible on modern browsers",
+    "Infinite scroll requires content height calculation - may slow down on very long pages (10,000+ pixels)",
+    "Custom viewport with multiple containers not supported - uses first matched element only",
+    "Smooth scroll JavaScript ~5KB minified - loaded only when block is active",
+    "Works smoothly up to 20,000px page height without performance issues",
+    "Mobile devices ignore smooth scroll (native momentum) - no mobile performance impact"
+  ],
+
+  "easingGuide": {
+    "linear": {
+      "description": "Constant speed, no acceleration",
+      "feel": "Mechanical, precise, predictable",
+      "useCase": "Data tables, code editors, technical interfaces"
+    },
+    "ease-out-quad": {
+      "description": "Fast start, gentle slow down (light easing)",
+      "feel": "Responsive, quick, modern",
+      "useCase": "E-commerce, dashboards, quick navigation"
+    },
+    "ease-out-cubic": {
+      "description": "Fast start, moderate slow down (DEFAULT)",
+      "feel": "Natural, balanced, pleasant",
+      "useCase": "General websites, blogs, business sites (MOST COMMON)"
+    },
+    "ease-out-quart": {
+      "description": "Fast start, strong slow down",
+      "feel": "Smooth, luxurious, deliberate",
+      "useCase": "Creative portfolios, premium brands"
+    },
+    "ease-out-quint": {
+      "description": "Fast start, very strong slow down",
+      "feel": "Cinematic, dramatic, floating",
+      "useCase": "Storytelling sites, luxury showcases"
+    },
+    "ease-in-out-cubic": {
+      "description": "Slow start, fast middle, slow end",
+      "feel": "Symmetrical, elegant, controlled",
+      "useCase": "Section jumps, anchor navigation, one-page sites"
+    },
+    "ease-in-out-quint": {
+      "description": "Very slow start/end, fast middle (strongest easing)",
+      "feel": "Ultra-smooth, premium, immersive",
+      "useCase": "High-end portfolios, cinematic experiences"
+    },
+    "ease-in-*": {
+      "description": "Slow start, fast end (NOT RECOMMENDED)",
+      "feel": "Unnatural, backwards, jarring",
+      "useCase": "Rarely used - feels wrong for scrolling"
+    }
+  },
+
+  "useCaseSpecificTips": {
+    "one_page_sites": {
+      "tip": "Enable smNav: true and use ease-in-out-cubic for section jumps",
+      "recommended": {
+        "aniTime": "2000",
+        "easing": "ease-in-out-cubic",
+        "smNav": true
+      }
+    },
+    "portfolios": {
+      "tip": "Use slow cinematic scrolling with quintic easing",
+      "recommended": {
+        "aniTime": "3500",
+        "stepSize": "350",
+        "easing": "ease-in-out-quint",
+        "tMult": "1.2"
+      }
+    },
+    "e_commerce": {
+      "tip": "Fast responsive scrolling for quick product browsing",
+      "recommended": {
+        "aniTime": "1200",
+        "stepSize": "800",
+        "easing": "ease-out-quad"
+      }
+    },
+    "blogs": {
+      "tip": "Standard balanced scrolling for comfortable reading",
+      "recommended": {
+        "aniTime": "2500",
+        "stepSize": "500",
+        "easing": "ease-out-cubic"
+      }
+    },
+    "dashboards": {
+      "tip": "Linear precision scrolling for data-heavy interfaces",
+      "recommended": {
+        "aniTime": "1500",
+        "easing": "linear",
+        "stepSize": "700"
+      }
+    }
+  },
+
+  "integrationExamples": {
+    "accessibility_toggle": {
+      "description": "JavaScript to toggle smooth scroll based on user preference",
+      "code": "// Respect prefers-reduced-motion\nconst reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');\nif (reducedMotion.matches) {\n    document.body.classList.add('disable-smooth-scroll');\n}\n\n// Toggle button\ndocument.getElementById('toggle-smooth-scroll').addEventListener('click', function() {\n    document.body.classList.toggle('disable-smooth-scroll');\n    const disabled = document.body.classList.contains('disable-smooth-scroll');\n    localStorage.setItem('smoothScrollDisabled', disabled);\n});\n\n// Restore preference on page load\nif (localStorage.getItem('smoothScrollDisabled') === 'true') {\n    document.body.classList.add('disable-smooth-scroll');\n}"
+    },
+    "section_jump_optimization": {
+      "description": "Optimize smooth scroll for anchor link section jumps",
+      "code": "// Add smooth scroll class to all anchor links\ndocument.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {\n    anchor.addEventListener('click', function(e) {\n        const targetId = this.getAttribute('href').substring(1);\n        const targetElement = document.getElementById(targetId);\n        \n        if (targetElement) {\n            e.preventDefault();\n            // Smooth scroll handled by tp-smooth-scroll block with smNav: true\n            window.location.hash = targetId;\n            \n            // Add visual feedback\n            targetElement.classList.add('section-highlight');\n            setTimeout(() => targetElement.classList.remove('section-highlight'), 2000);\n        }\n    });\n});"
+    },
+    "custom_viewport_css": {
+      "description": "CSS setup for custom viewport smooth scrolling",
+      "code": "/* Container for smooth scroll */\n.content-area {\n    height: 100vh; /* Full viewport height */\n    overflow-y: auto; /* Enable scrolling */\n    overflow-x: hidden;\n}\n\n/* Optional: Hide scrollbar but keep functionality (webkit browsers) */\n.content-area::-webkit-scrollbar {\n    width: 0;\n    display: none;\n}\n\n/* Optional: Custom scrollbar styling */\n.content-area::-webkit-scrollbar {\n    width: 8px;\n}\n.content-area::-webkit-scrollbar-track {\n    background: #f1f1f1;\n}\n.content-area::-webkit-scrollbar-thumb {\n    background: #888;\n    border-radius: 4px;\n}\n.content-area::-webkit-scrollbar-thumb:hover {\n    background: #555;\n}"
+    },
+    "performance_monitoring": {
+      "description": "Monitor smooth scroll performance with FPS tracking",
+      "code": "// Track FPS during smooth scroll\nlet lastTime = performance.now();\nlet frames = 0;\n\nfunction trackFPS() {\n    frames++;\n    const currentTime = performance.now();\n    if (currentTime >= lastTime + 1000) {\n        const fps = Math.round(frames * 1000 / (currentTime - lastTime));\n        console.log(`Smooth scroll FPS: ${fps}`);\n        if (fps < 30) {\n            console.warn('Smooth scroll performance degraded - consider reducing aniTime');\n        }\n        frames = 0;\n        lastTime = currentTime;\n    }\n    requestAnimationFrame(trackFPS);\n}\n\n// Start monitoring during scroll\nlet scrollTimeout;\nwindow.addEventListener('wheel', function() {\n    clearTimeout(scrollTimeout);\n    requestAnimationFrame(trackFPS);\n    scrollTimeout = setTimeout(() => {\n        frames = 0; // Stop counting when scroll ends\n    }, 300);\n});"
     }
   }
 }
