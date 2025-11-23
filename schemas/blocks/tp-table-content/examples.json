@@ -2,12 +2,395 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-table-content",
   "title": "Table of Contents - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Auto-generated navigation from page headings with smooth scrolling, sticky positioning, and active state tracking",
   "examples": [
     {
-      "description": "Simple table of contents (H2-H3 only)",
+      "name": "Basic Blog TOC (H2-H3 Only)",
+      "description": "Simple table of contents for blog posts showing only H2 and H3 headings with smooth scroll",
+      "visualDescription": "Unordered list with 'Table of Contents' heading, links to H2 main sections and nested H3 subsections, smooth 420ms scroll",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "toc001",
+        "typeList": "UL",
+        "Style": "none",
+        "selectorH1": false,
+        "selectorH2": true,
+        "selectorH3": true,
+        "selectorH4": false,
+        "selectorH5": false,
+        "selectorH6": false,
+        "contentSelector": "#content",
+        "ChildToggle": false,
+        "headingsOffset": "1",
+        "smoothScroll": true,
+        "smoothDuration": "420",
+        "scrollOffset": "0",
+        "fixedPosition": false,
+        "showText": true,
+        "contentText": "Table of Contents",
+        "TableDescText": "",
+        "showIcon": false,
+        "ToggleIcon": false,
+        "DefaultToggle": {
+          "md": true,
+          "sm": true,
+          "xs": true
+        },
+        "Level1Typo": {
+          "openTypography": 1,
+          "size": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "fontWeight": "600",
+          "lineHeight": {"md": "1.6", "unit": "em"}
+        },
+        "Level1NormalColor": "#2c3e50",
+        "Level1ActiveColor": "#667eea",
+        "LevelSubTypo": {
+          "openTypography": 1,
+          "size": {"md": "14", "sm": "13", "xs": "12", "unit": "px"},
+          "lineHeight": {"md": "1.6", "unit": "em"}
+        },
+        "LevelSubNormalColor": "#6b7280",
+        "LevelSubActiveColor": "#667eea",
+        "leftOffset": "20",
+        "contentPadding": {
+          "md": {
+            "top": "20",
+            "right": "20",
+            "bottom": "20",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "boxBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f9fafb"
+        },
+        "boxBorderRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "boxBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.05)"
+        }
+      },
+      "useCase": "Blog posts, articles, tutorials, long-form content with 2-level hierarchy",
+      "headingSelectorNotes": {
+        "selectorH1": "Usually false (page title, only one H1 per page for SEO)",
+        "selectorH2": "true for main sections",
+        "selectorH3": "true for subsections under H2",
+        "selectorH4-H6": "false for simple blog posts (too much nesting)",
+        "recommendation": "H2-H3 provides clean 2-level navigation for most blog posts"
+      },
+      "smoothScrollNotes": {
+        "smoothScroll": "Enable smooth animated scroll instead of instant jump",
+        "smoothDuration": "420ms default (300-600ms recommended, 420ms feels natural)",
+        "scrollOffset": "0px (increase to 60-100px if you have fixed header)",
+        "calculation": "scrollOffset should match header height to prevent content hiding behind fixed header"
+      }
+    },
+    {
+      "name": "Documentation TOC (All Headings, Style-1 Line Indicators)",
+      "description": "Comprehensive TOC for documentation showing all 6 heading levels with left line indicators and ordered list",
+      "visualDescription": "Ordered list with FontAwesome list icon, vertical line indicators on left, purple active state, numbers 1. 2. 3.",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "toc002",
+        "typeList": "OL",
+        "Style": "style-1",
+        "selectorH1": true,
+        "selectorH2": true,
+        "selectorH3": true,
+        "selectorH4": true,
+        "selectorH5": true,
+        "selectorH6": true,
+        "contentSelector": ".documentation-content",
+        "ChildToggle": true,
+        "smoothScroll": true,
+        "smoothDuration": "500",
+        "scrollOffset": "100",
+        "showText": true,
+        "contentText": "Documentation",
+        "TableDescText": "Navigate through all sections",
+        "showIcon": true,
+        "PrefixIcon": "fas fa-list-ul",
+        "ToggleIcon": false,
+        "DefaultToggle": {
+          "md": true,
+          "sm": true,
+          "xs": true
+        },
+        "Level1Typo": {
+          "openTypography": 1,
+          "size": {"md": "18", "sm": "16", "xs": "15", "unit": "px"},
+          "fontWeight": "700",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "Level1NormalColor": "#1f2937",
+        "Level1ActiveColor": "#667eea",
+        "LevelSubTypo": {
+          "openTypography": 1,
+          "size": {"md": "15", "sm": "14", "xs": "13", "unit": "px"},
+          "fontWeight": "400"
+        },
+        "LevelSubNormalColor": "#4b5563",
+        "LevelSubActiveColor": "#667eea",
+        "leftOffset": "25",
+        "LineWidth": "3",
+        "LineColor": "#e5e7eb",
+        "LineActiveColor": "#667eea",
+        "TextTypo": {
+          "openTypography": 1,
+          "size": {"md": "20", "sm": "18", "xs": "16", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "TextNormalColor": "#111827",
+        "DescTextTypo": {
+          "openTypography": 1,
+          "size": {"md": "13", "sm": "12", "xs": "11", "unit": "px"},
+          "fontStyle": "italic"
+        },
+        "DescTextNormalColor": "#9ca3af",
+        "IconSize": "18",
+        "IconNormalColor": "#667eea",
+        "TextMargin": {
+          "md": {
+            "bottom": "16"
+          },
+          "unit": "px"
+        },
+        "contentPadding": {
+          "md": {
+            "top": "24",
+            "right": "24",
+            "bottom": "24",
+            "left": "24"
+          },
+          "unit": "px"
+        },
+        "boxBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e7eb",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "boxBorderRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "boxBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        }
+      },
+      "useCase": "Technical documentation, API docs, knowledge bases, developer guides, comprehensive content with deep nesting",
+      "style1Notes": {
+        "visualStyle": "Vertical line to left of each link (::before pseudo-element)",
+        "LineWidth": "1-4px (3px recommended for visibility without overwhelming)",
+        "LineColor": "Light gray (#e5e7eb) for inactive links",
+        "LineActiveColor": "Brand color (#667eea) highlights current section",
+        "activeStateTracking": "Uses Intersection Observer to detect which heading is in viewport",
+        "linePlacement": "::before pseudo-element positioned absolutely to left of link"
+      },
+      "childToggleNotes": {
+        "ChildToggle": "true enables clickable nested heading collapse/expand (like accordion)",
+        "behavior": "Click H2 to show/hide nested H3-H6 items",
+        "icon": "Uses FontAwesome chevron icons for expand/collapse indicators",
+        "defaultState": "All expanded by default (controlled by DefaultToggle responsive object)"
+      }
+    },
+    {
+      "name": "Sticky Sidebar TOC with Scrollable Max Height",
+      "description": "Fixed position TOC that stays visible on scroll with custom scrollbar for long content",
+      "visualDescription": "Fixed sidebar widget with max height 600px, custom purple scrollbar, style-2 bordered list, sticky to viewport",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "toc003",
+        "typeList": "UL",
+        "Style": "style-2",
+        "selectorH1": false,
+        "selectorH2": true,
+        "selectorH3": true,
+        "selectorH4": true,
+        "selectorH5": false,
+        "selectorH6": false,
+        "contentSelector": ".post-content",
+        "smoothScroll": true,
+        "smoothDuration": "600",
+        "scrollOffset": "80",
+        "fixedPosition": true,
+        "fixedOffset": "120",
+        "showText": true,
+        "contentText": "Quick Navigation",
+        "TableDescText": "",
+        "ToggleIcon": false,
+        "DefaultToggle": {
+          "md": true,
+          "sm": true,
+          "xs": false
+        },
+        "TableSetMinHeight": true,
+        "TableMinHeight": {
+          "md": "600",
+          "sm": "500",
+          "xs": "400",
+          "unit": "px"
+        },
+        "ScrollBarWidth": "8",
+        "ScrollBarThumb": "#667eea",
+        "ScrollBarTrack": "#f3f4f6",
+        "Level1Typo": {
+          "openTypography": 1,
+          "size": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "Level1NormalColor": "#374151",
+        "Level1ActiveColor": "#667eea",
+        "LevelSubTypo": {
+          "openTypography": 1,
+          "size": {"md": "14", "sm": "13", "xs": "12", "unit": "px"}
+        },
+        "LevelSubNormalColor": "#6b7280",
+        "LevelSubActiveColor": "#667eea",
+        "leftOffset": "20",
+        "bottomOffset": "10",
+        "LineWidth": "4",
+        "Line2Width": "6",
+        "LineColor": "#e5e7eb",
+        "LineActiveColor": "#667eea",
+        "TextTypo": {
+          "openTypography": 1,
+          "size": {"md": "18", "sm": "16", "xs": "15", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "TextNormalColor": "#111827",
+        "TextPadding": {
+          "md": {
+            "top": "12",
+            "right": "16",
+            "bottom": "12",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "TextBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f9fafb"
+        },
+        "TextBorderRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "0",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "contentPadding": {
+          "md": {
+            "top": "20",
+            "right": "20",
+            "bottom": "20",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "boxBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "boxBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e7eb",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "boxBorderRadius": {
+          "md": {
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "boxBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.1)"
+        }
+      },
+      "useCase": "Long articles, documentation, sidebar widgets, sticky navigation for desktop readers",
+      "fixedPositionNotes": {
+        "fixedPosition": "true makes TOC sticky/fixed (position: fixed CSS)",
+        "fixedOffset": "120px = distance from top of viewport (header height + padding)",
+        "calculation": "If header is 80px tall, fixedOffset = 80px header + 40px padding = 120px",
+        "placement": "Typically in sidebar column (25-30% width) with main content (70-75% width)",
+        "responsive": "Set DefaultToggle.xs: false to hide on mobile (not enough screen width)"
+      },
+      "maxHeightScrollbar": {
+        "TableSetMinHeight": "Enable max height constraint + scrollbar",
+        "TableMinHeight": "600px max height (adjust based on viewport height, 400-800px typical)",
+        "ScrollBarWidth": "6-12px (8px default, modern macOS-style scrollbars)",
+        "ScrollBarThumb": "Draggable thumb color (brand color recommended)",
+        "ScrollBarTrack": "Background track color (light gray #f3f4f6)",
+        "webkitOnly": "Custom scrollbar works in Chrome/Safari/Edge, Firefox uses default",
+        "overflow": "Automatically becomes overflow-y: auto when content exceeds TableMinHeight"
+      },
+      "style2Notes": {
+        "visualStyle": "Left border on each list item (border-left)",
+        "LineWidth": "Normal border width (2-4px for inactive items)",
+        "Line2Width": "Active border width (4-8px for current section, thicker = more emphasis)",
+        "bottomOffset": "Spacing between items (8-15px for breathing room)"
+      }
+    },
+    {
+      "name": "Collapsible Mobile-Friendly TOC",
+      "description": "Responsive TOC collapsed on mobile, expanded on desktop with toggle icons",
+      "visualDescription": "Heading with toggle icon (minus/plus), click to expand/collapse content list, auto-collapsed on phones",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "toc004",
+        "typeList": "UL",
+        "Style": "none",
         "selectorH1": false,
         "selectorH2": true,
         "selectorH3": true,
@@ -15,66 +398,904 @@
         "selectorH5": false,
         "selectorH6": false,
         "smoothScroll": true,
-        "contentText": "On This Page"
-      }
-    },
-    {
-      "description": "Documentation TOC with style-1",
-      "attributes": {
-        "block_id": "c3d4",
-        "Style": "style-1",
-        "typeList": "OL",
-        "showIcon": true,
-        "PrefixIcon": "fas fa-list",
-        "smoothDuration": "500",
-        "scrollOffset": "80"
-      }
-    },
-    {
-      "description": "Sticky sidebar TOC with max height",
-      "attributes": {
-        "block_id": "e5f6",
-        "fixedPosition": true,
-        "fixedOffset": "100",
-        "TableSetMinHeight": true,
-        "TableMinHeight": {
-          "md": "600",
-          "unit": "px"
-        },
-        "ScrollBarWidth": "8",
-        "ScrollBarThumb": "#667eea",
-        "Style": "style-2"
-      }
-    },
-    {
-      "description": "Collapsible TOC (mobile-collapsed, desktop-expanded)",
-      "attributes": {
-        "block_id": "g7h8",
+        "smoothDuration": "420",
+        "scrollOffset": "60",
+        "showText": true,
+        "contentText": "Contents",
+        "TableDescText": "Jump to section",
+        "showIcon": false,
         "ToggleIcon": true,
-        "openIcon": "fas fa-minus",
-        "closeIcon": "fas fa-plus",
+        "openIcon": "fas fa-chevron-up",
+        "closeIcon": "fas fa-chevron-down",
         "DefaultToggle": {
           "md": true,
           "sm": true,
           "xs": false
         },
-        "contentText": "Contents",
-        "TableDescText": "Jump to section"
+        "Level1Typo": {
+          "openTypography": 1,
+          "size": {"md": "15", "sm": "14", "xs": "13", "unit": "px"},
+          "fontWeight": "500"
+        },
+        "Level1NormalColor": "#374151",
+        "Level1ActiveColor": "#667eea",
+        "LevelSubTypo": {
+          "openTypography": 1,
+          "size": {"md": "14", "sm": "13", "xs": "12", "unit": "px"}
+        },
+        "LevelSubNormalColor": "#6b7280",
+        "LevelSubActiveColor": "#667eea",
+        "leftOffset": "18",
+        "TextTypo": {
+          "openTypography": 1,
+          "size": {"md": "17", "sm": "16", "xs": "15", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "TextNormalColor": "#111827",
+        "TextHoverColor": "#667eea",
+        "DescTextTypo": {
+          "openTypography": 1,
+          "size": {"md": "12", "sm": "11", "xs": "10", "unit": "px"},
+          "fontStyle": "italic"
+        },
+        "DescTextNormalColor": "#9ca3af",
+        "ToggleIconSize": "16",
+        "ToggleIconNormalColor": "#6b7280",
+        "ToggleIconHoverColor": "#667eea",
+        "TextPadding": {
+          "md": {
+            "top": "12",
+            "right": "16",
+            "bottom": "12",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "TextBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f3f4f6"
+        },
+        "TextBgHover": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#e5e7eb"
+        },
+        "TextBorderRadius": {
+          "md": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        },
+        "contentPadding": {
+          "md": {
+            "top": "16",
+            "right": "16",
+            "bottom": "16",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "boxBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "boxBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#d1d5db",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "boxBorderRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Mobile-first content, responsive designs, space-saving layouts, blogs read on phones",
+      "toggleIconNotes": {
+        "ToggleIcon": "true enables clickable heading to expand/collapse entire TOC list",
+        "openIcon": "FontAwesome icon shown when list is expanded (chevron-up, minus, angle-up)",
+        "closeIcon": "FontAwesome icon shown when list is collapsed (chevron-down, plus, angle-down)",
+        "clickTarget": "Entire tpgb-toc-heading div is clickable, icon rotates on toggle",
+        "animation": "Smooth expand/collapse with CSS transition (0.3s default)"
+      },
+      "defaultToggleResponsive": {
+        "md": "true = expanded on desktop (>1024px)",
+        "sm": "true = expanded on tablet (768-1023px)",
+        "xs": "false = collapsed on mobile (<768px) - saves vertical space",
+        "mobileBehavior": "On phones, TOC starts collapsed, user taps to expand",
+        "desktopBehavior": "On desktop, TOC visible by default for quick navigation"
       }
     },
     {
-      "description": "Styled TOC with active indicators (style-4)",
+      "name": "Style-3 Dotted Line Indicators TOC",
+      "description": "Table of contents with horizontal dotted line connecting items to numbers (classic book style)",
+      "visualDescription": "List with horizontal dotted lines from heading text to section numbers on right, style-3 classic layout",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "i9j0",
-        "Style": "style-4",
-        "LineWidth": "2",
-        "Line2Width": "4",
-        "LineColor": "#e0e0e0",
-        "LineActiveColor": "#667eea",
+        "block_id": "toc005",
+        "typeList": "UL",
+        "Style": "style-3",
+        "selectorH1": false,
+        "selectorH2": true,
+        "selectorH3": true,
+        "selectorH4": false,
+        "selectorH5": false,
+        "selectorH6": false,
+        "smoothScroll": true,
+        "smoothDuration": "500",
+        "scrollOffset": "0",
+        "showText": true,
+        "contentText": "Chapter Index",
+        "TableDescText": "",
+        "Level1Typo": {
+          "openTypography": 1,
+          "size": {"md": "17", "sm": "16", "xs": "15", "unit": "px"},
+          "fontWeight": "500",
+          "fontFamily": "Georgia"
+        },
+        "Level1NormalColor": "#2c3e50",
+        "Level1ActiveColor": "#c0392b",
+        "LevelSubTypo": {
+          "openTypography": 1,
+          "size": {"md": "15", "sm": "14", "xs": "13", "unit": "px"},
+          "fontFamily": "Georgia"
+        },
+        "LevelSubNormalColor": "#7f8c8d",
+        "LevelSubActiveColor": "#c0392b",
         "leftOffset": "30",
-        "bottomOffset": "15"
+        "bottomOffset": "12",
+        "LineWidth": "1",
+        "Line2Width": "2",
+        "LineColor": "#d1d5db",
+        "LineActiveColor": "#c0392b",
+        "TextTypo": {
+          "openTypography": 1,
+          "size": {"md": "22", "sm": "20", "xs": "18", "unit": "px"},
+          "fontWeight": "700",
+          "fontFamily": "Georgia",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "1", "unit": "px"}
+        },
+        "TextNormalColor": "#34495e",
+        "TextMargin": {
+          "md": {
+            "bottom": "20"
+          },
+          "unit": "px"
+        },
+        "TextPadding": {
+          "md": {
+            "bottom": "16"
+          },
+          "unit": "px"
+        },
+        "TextBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#bdc3c7",
+          "width": {
+            "md": {
+              "bottom": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "contentPadding": {
+          "md": {
+            "top": "24",
+            "right": "24",
+            "bottom": "24",
+            "left": "24"
+          },
+          "unit": "px"
+        },
+        "boxBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#fdfdf8"
+        },
+        "boxBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#bdc3c7",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "boxBorderRadius": {
+          "md": {
+            "top": "4",
+            "right": "4",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        },
+        "boxBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 2,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.08)"
+        }
+      },
+      "useCase": "Books, e-books, academic papers, classic/traditional content presentation",
+      "style3Notes": {
+        "visualStyle": "Horizontal dotted/dashed line before nested items (classic book TOC style)",
+        "LineWidth": "1-2px thin line for subtle decoration",
+        "Line2Width": "2-4px thicker line for active/current section",
+        "linePlacement": "::before pseudo-element on nested .toc-list li items",
+        "classicLook": "Pair with serif fonts (Georgia, Times New Roman) for book-like appearance",
+        "leftOffset": "Controls horizontal line length (20-40px typical)"
+      },
+      "bookStyleTips": {
+        "fontFamily": "Georgia serif font for traditional book aesthetic",
+        "textTransform": "uppercase for 'CHAPTER INDEX' heading",
+        "letterSpacing": "1px for spaced uppercase letters",
+        "bottomBorder": "2px solid border under heading mimics chapter title underline",
+        "bgColor": "#fdfdf8 cream/off-white background like aged paper",
+        "activeColor": "#c0392b classic red for active chapter"
+      }
+    },
+    {
+      "name": "Style-4 Active State Tracking with Thick Progress Line",
+      "description": "Modern TOC with vertical progress line that thickens and changes color for active section",
+      "visualDescription": "Vertical line on left, thin gray for inactive, thick purple for active section being read, smooth transitions",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "toc006",
+        "typeList": "UL",
+        "Style": "style-4",
+        "selectorH1": false,
+        "selectorH2": true,
+        "selectorH3": true,
+        "selectorH4": true,
+        "selectorH5": false,
+        "selectorH6": false,
+        "contentSelector": ".article-content",
+        "smoothScroll": true,
+        "smoothDuration": "800",
+        "scrollOffset": "100",
+        "showText": true,
+        "contentText": "In This Article",
+        "TableDescText": "Auto-scrolls to current section",
+        "showIcon": true,
+        "PrefixIcon": "fas fa-bookmark",
+        "Level1Typo": {
+          "openTypography": 1,
+          "size": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "fontWeight": "600",
+          "lineHeight": {"md": "1.8", "unit": "em"}
+        },
+        "Level1NormalColor": "#4b5563",
+        "Level1ActiveColor": "#667eea",
+        "LevelSubTypo": {
+          "openTypography": 1,
+          "size": {"md": "15", "sm": "14", "xs": "13", "unit": "px"},
+          "fontWeight": "400",
+          "lineHeight": {"md": "1.8", "unit": "em"}
+        },
+        "LevelSubNormalColor": "#6b7280",
+        "LevelSubActiveColor": "#667eea",
+        "leftOffset": "30",
+        "bottomOffset": "15",
+        "Style4Padding": {
+          "md": "8",
+          "unit": "px"
+        },
+        "LineWidth": "2",
+        "Line2Width": "6",
+        "LineColor": "#e5e7eb",
+        "LineActiveColor": "#667eea",
+        "TextTypo": {
+          "openTypography": 1,
+          "size": {"md": "19", "sm": "17", "xs": "16", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "TextNormalColor": "#111827",
+        "IconSize": "20",
+        "IconNormalColor": "#667eea",
+        "TextMargin": {
+          "md": {
+            "bottom": "18"
+          },
+          "unit": "px"
+        },
+        "TextPadding": {
+          "md": {
+            "top": "14",
+            "right": "18",
+            "bottom": "14",
+            "left": "18"
+          },
+          "unit": "px"
+        },
+        "TextBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#667eea",
+            "color2": "#764ba2",
+            "type": "linear",
+            "direction": "135",
+            "start": 0,
+            "stop": 100
+          }
+        },
+        "TextNormalColor": "#ffffff",
+        "TextBorderRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "0",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "contentPadding": {
+          "md": {
+            "top": "22",
+            "right": "22",
+            "bottom": "22",
+            "left": "22"
+          },
+          "unit": "px"
+        },
+        "boxBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "boxBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e7eb",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "boxBorderRadius": {
+          "md": {
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "boxBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 6,
+          "blur": 16,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.15)"
+        }
+      },
+      "useCase": "Modern websites, SaaS documentation, tech blogs, interactive reading experiences",
+      "style4Notes": {
+        "visualStyle": "Vertical line on left of nested items, animated width change on active state",
+        "LineWidth": "Normal line width (1-3px for inactive sections)",
+        "Line2Width": "Active line width (4-8px, 3x LineWidth recommended for dramatic effect)",
+        "transition": "Smooth CSS transition on width change (0.3s default)",
+        "positioning": "::before pseudo-element uses left: calc() to center thick line over thin line",
+        "Style4Padding": "Left padding for nested .toc-list (5-15px typical, controls indentation)"
+      },
+      "activeStateTracking": {
+        "mechanism": "Intersection Observer API monitors heading visibility in viewport",
+        "threshold": "Adds .is-active-li class when heading enters viewport top 20%",
+        "scrollSync": "TOC updates as you scroll, highlights current section automatically",
+        "multipleActive": "If multiple headings visible, highlights topmost heading",
+        "performance": "Intersection Observer is efficient, no scroll event listeners needed"
+      },
+      "gradientHeadingNotes": {
+        "TextBg": "Gradient background for modern branded look",
+        "TextNormalColor": "White text on gradient (ensure WCAG contrast 4.5:1 minimum)",
+        "borderRadiusTopOnly": "Rounded top corners, square bottom blends into content list"
+      }
+    },
+    {
+      "name": "Custom Selector with Nested Child Headings and Gradient",
+      "description": "TOC targeting specific content area with nested child heading collapse and modern gradient styling",
+      "visualDescription": "Purple gradient heading with 'Article Outline', nested H2-H4 with collapsible children, custom .main-article selector",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "toc007",
+        "typeList": "OL",
+        "Style": "style-2",
+        "selectorH1": false,
+        "selectorH2": true,
+        "selectorH3": true,
+        "selectorH4": true,
+        "selectorH5": false,
+        "selectorH6": false,
+        "contentSelector": ".main-article",
+        "ChildToggle": true,
+        "headingsOffset": "1",
+        "smoothScroll": true,
+        "smoothDuration": "600",
+        "scrollOffset": "80",
+        "fixedPosition": false,
+        "showText": true,
+        "contentText": "Article Outline",
+        "TableDescText": "Click to expand sections",
+        "showIcon": true,
+        "PrefixIcon": "fas fa-bars",
+        "ToggleIcon": false,
+        "DefaultToggle": {
+          "md": true,
+          "sm": true,
+          "xs": true
+        },
+        "Level1Typo": {
+          "openTypography": 1,
+          "size": {"md": "17", "sm": "16", "xs": "15", "unit": "px"},
+          "fontWeight": "700",
+          "lineHeight": {"md": "1.6", "unit": "em"}
+        },
+        "Level1NormalColor": "#1f2937",
+        "Level1ActiveColor": "#8b5cf6",
+        "LevelSubTypo": {
+          "openTypography": 1,
+          "size": {"md": "15", "sm": "14", "xs": "13", "unit": "px"},
+          "fontWeight": "500",
+          "lineHeight": {"md": "1.6", "unit": "em"}
+        },
+        "LevelSubNormalColor": "#6b7280",
+        "LevelSubActiveColor": "#8b5cf6",
+        "leftOffset": "24",
+        "bottomOffset": "12",
+        "LineWidth": "4",
+        "Line2Width": "6",
+        "LineColor": "#e5e7eb",
+        "LineActiveColor": "#8b5cf6",
+        "TextTypo": {
+          "openTypography": 1,
+          "size": {"md": "20", "sm": "18", "xs": "17", "unit": "px"},
+          "fontWeight": "800",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "TextNormalColor": "#ffffff",
+        "DescTextTypo": {
+          "openTypography": 1,
+          "size": {"md": "13", "sm": "12", "xs": "11", "unit": "px"}
+        },
+        "DescTextNormalColor": "#e9d5ff",
+        "IconSize": "20",
+        "IconNormalColor": "#ffffff",
+        "TextMargin": {
+          "md": {
+            "bottom": "20"
+          },
+          "unit": "px"
+        },
+        "TextPadding": {
+          "md": {
+            "top": "16",
+            "right": "20",
+            "bottom": "16",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "TextBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#8b5cf6",
+            "color2": "#6366f1",
+            "type": "linear",
+            "direction": "135",
+            "start": 0,
+            "stop": 100
+          }
+        },
+        "TextBorderRadius": {
+          "md": {
+            "top": "10",
+            "right": "10",
+            "bottom": "0",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "TextBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(139, 92, 246, 0.3)"
+        },
+        "contentPadding": {
+          "md": {
+            "top": "24",
+            "right": "24",
+            "bottom": "24",
+            "left": "24"
+          },
+          "unit": "px"
+        },
+        "boxBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "boxBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#d1d5db",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "boxBorderRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "boxBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.08)"
+        },
+        "boxBoxShadowHover": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 12,
+          "blur": 28,
+          "spread": 0,
+          "color": "rgba(139, 92, 246, 0.15)"
+        }
+      },
+      "useCase": "Multi-section pages, custom post types, specific content areas, branded navigation widgets",
+      "customSelectorNotes": {
+        "contentSelector": "CSS selector for content area to scan for headings",
+        "default": "#content (scans element with id='content')",
+        "classSelector": ".main-article (scans element with class='main-article')",
+        "complexSelectors": "article.post-content, .entry-content, #primary .content",
+        "multipleSections": "Use comma-separated: '.content, .sidebar' to scan multiple areas",
+        "specificity": "More specific selectors avoid scanning unwanted headings (header, footer, etc.)"
+      },
+      "nestedChildToggleNotes": {
+        "ChildToggle": "true enables nested heading collapse (H3 under H2, H4 under H3)",
+        "behavior": "Click H2 number to toggle visibility of child H3-H4 headings",
+        "icon": "Uses chevron-right/down icons next to numbers for expand/collapse",
+        "defaultExpanded": "All children visible by default (DefaultToggle controls initial state)",
+        "accordion": "Acts like accordion - clicking parent heading expands/collapses children",
+        "multiLevel": "Works with deep nesting (H2 → H3 → H4 → H5 → H6)"
+      },
+      "orderedListNotes": {
+        "typeList": "OL creates numbered list (1. 2. 3. vs bullets)",
+        "nestedNumbering": "1. 1.1. 1.2. 2. 2.1. hierarchical numbering",
+        "semantics": "Ordered list appropriate for sequential content (chapters, steps, sections)"
+      }
+    },
+    {
+      "name": "Minimalist Inline TOC (No Container Box)",
+      "description": "Clean inline TOC without box styling, blends seamlessly into page content",
+      "visualDescription": "Plain list with no background, border, or box, purple active links, minimal padding, embedded in content flow",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "toc008",
+        "typeList": "UL",
+        "Style": "none",
+        "selectorH1": false,
+        "selectorH2": true,
+        "selectorH3": false,
+        "selectorH4": false,
+        "selectorH5": false,
+        "selectorH6": false,
+        "smoothScroll": true,
+        "smoothDuration": "350",
+        "scrollOffset": "40",
+        "showText": true,
+        "contentText": "Jump to:",
+        "TableDescText": "",
+        "showIcon": false,
+        "ToggleIcon": false,
+        "DefaultToggle": {
+          "md": true,
+          "sm": true,
+          "xs": true
+        },
+        "Level1Typo": {
+          "openTypography": 1,
+          "size": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "fontWeight": "500",
+          "lineHeight": {"md": "1.8", "unit": "em"}
+        },
+        "Level1NormalColor": "#667eea",
+        "Level1ActiveColor": "#4338ca",
+        "leftOffset": "20",
+        "TextTypo": {
+          "openTypography": 1,
+          "size": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "fontWeight": "600",
+          "fontStyle": "italic"
+        },
+        "TextNormalColor": "#6b7280",
+        "totitleAlign": {
+          "md": "left",
+          "sm": "left",
+          "xs": "left"
+        },
+        "TextMargin": {
+          "md": {
+            "bottom": "10",
+            "right": "10"
+          },
+          "unit": "px"
+        },
+        "contentPadding": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "boxPadding": {
+          "md": {
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "boxBg": {
+          "openBg": 0
+        },
+        "boxBorder": {
+          "openBorder": 0
+        },
+        "boxBoxShadow": {
+          "openShadow": 0
+        }
+      },
+      "useCase": "Inline content navigation, minimalist designs, embedded TOC within articles, lightweight navigation",
+      "minimalistNotes": {
+        "noBoxStyling": "boxBg, boxBorder, boxBoxShadow all disabled (openBg: 0, openBorder: 0, openShadow: 0)",
+        "noPadding": "contentPadding and boxPadding all 0 (tight inline layout)",
+        "blendIn": "No visual container, links appear as inline bulleted list in content flow",
+        "textAlignment": "totitleAlign controls 'Jump to:' heading alignment (left/center/right)"
+      },
+      "inlineUsage": {
+        "placement": "Place at top of blog post or within content between paragraphs",
+        "styling": "Relies on link colors for visual distinction (purple links stand out)",
+        "compactLinks": "Only H2 headings selected (selectorH3-H6 false) for clean short list",
+        "responsivePadding": "All padding 0 means no wasted space on mobile"
       }
     }
   ],
-  "commonPatterns": {}
+  "commonPatterns": {
+    "styles": {
+      "none": "Plain list with no decorative lines or borders",
+      "style-1": "Vertical line to left of each link (::before), highlights active with color/width change",
+      "style-2": "Border-left on each list item, thicker border for active section",
+      "style-3": "Horizontal dotted line before nested items (classic book TOC style)",
+      "style-4": "Vertical line on left of nested items, animated width change on active state"
+    },
+    "listTypes": {
+      "UL": "Unordered list with bullets (default, most common for TOC)",
+      "OL": "Ordered list with numbers (1. 2. 3., good for chapters/sequential content)"
+    },
+    "headingSelectors": "Enable specific H1-H6 levels (H2-H3 most common for blogs, all enabled for comprehensive docs)",
+    "smoothScrollTiming": "350-600ms recommended (420ms default feels natural), longer for dramatic scroll effect",
+    "scrollOffsetCalculation": "Match fixed header height (80px header = 80px offset to prevent content hiding)",
+    "responsiveCollapse": "Set DefaultToggle.xs: false to auto-collapse on mobile, save vertical space"
+  },
+  "validationRules": {
+    "block_id": "Required, unique identifier",
+    "typeList": "Required: 'UL' (bullets) or 'OL' (numbers)",
+    "Style": "Options: 'none', 'style-1', 'style-2', 'style-3', 'style-4'",
+    "selectorH1-H6": "At least one must be true (typically H2-H3 for blogs, all for docs)",
+    "contentSelector": "Valid CSS selector (default '#content', can be class .main-article or complex selector)",
+    "smoothDuration": "Number in ms (300-1000ms recommended, 420ms default)",
+    "scrollOffset": "Number in px (0-150px typical, match header height)",
+    "fixedOffset": "Required when fixedPosition: true (distance from viewport top in px)",
+    "TableMinHeight": "Required when TableSetMinHeight: true (max height before scrollbar appears)",
+    "ScrollBarWidth": "Number in px (6-12px typical, 8px default)",
+    "LineWidth": "Number in px (1-4px for style-1/2/3/4)",
+    "Line2Width": "Number in px (2-8px for active state, should be > LineWidth)",
+    "DefaultToggle": "Responsive object {md: boolean, sm: boolean, xs: boolean}"
+  },
+  "warnings": [
+    "CRITICAL: contentSelector must match actual content container ID/class on page (wrong selector = no headings found)",
+    "scrollOffset must account for fixed headers - if header is 80px tall, set scrollOffset: '80' or headings hide behind header",
+    "fixedPosition requires container with fixed width (sidebar column), don't use full-width or it breaks layout",
+    "TableSetMinHeight only works when content is taller than TableMinHeight (400px content needs 300px max height to show scrollbar)",
+    "Custom scrollbar (ScrollBarWidth/Thumb/Track) only works in Webkit browsers (Chrome, Safari, Edge), Firefox shows default",
+    "At least one selectorH1-H6 must be true - all false = empty TOC (no headings selected)",
+    "ChildToggle only works when multiple heading levels selected (H2+H3 minimum for nesting)",
+    "ToggleIcon makes heading clickable to expand/collapse entire TOC - test on mobile where space is limited",
+    "Line2Width should be significantly larger than LineWidth (2-3x) for visible active state emphasis",
+    "smoothDuration too long (>1000ms) feels sluggish, too short (<300ms) feels jarring, 400-600ms is sweet spot",
+    "DefaultToggle.xs: false hides TOC on mobile - ensure it's accessible via another navigation method",
+    "fixedOffset calculation: header height + desired padding from top (80px header + 40px padding = 120px offset)"
+  ],
+  "commonMistakes": [
+    "Using contentSelector: '#content' when actual page uses '.main-content' class (no headings found, empty TOC)",
+    "Forgetting scrollOffset with fixed header - headings scroll behind header and are hidden",
+    "Setting fixedPosition: true without sidebar container (TOC covers main content, breaks responsive layout)",
+    "Using TableSetMinHeight without enough content - if only 3 headings exist, max height doesn't trigger scrollbar",
+    "Setting all selectorH1-H6 to false (empty TOC, no headings selected)",
+    "Using ChildToggle with only one heading level (e.g., only H2 selected, no children to toggle)",
+    "Setting Line2Width smaller than LineWidth (active state looks smaller instead of emphasized)",
+    "Not testing mobile DefaultToggle - expanded TOC on mobile can take up entire screen",
+    "Using very long smoothDuration (>1500ms) making scroll feel unresponsive",
+    "Forgetting to set openTypography: 1 before customizing typography (typography changes don't apply)"
+  ],
+  "bestPractices": [
+    "For blogs: Select H2-H3 only (clean 2-level hierarchy, not overwhelming)",
+    "For documentation: Select all H1-H6 with ChildToggle for comprehensive navigation",
+    "Set scrollOffset to match fixed header height + 20px padding (prevents content hiding)",
+    "Use fixedPosition with TableSetMinHeight for long articles (sidebar TOC stays visible, scrolls independently)",
+    "Set DefaultToggle.xs: false on mobile to save vertical space (collapsed by default, user expands if needed)",
+    "Use style-1 or style-2 for modern designs (vertical line indicators, clean active state)",
+    "Use style-3 for classic/traditional content (book-style dotted lines, serif fonts)",
+    "Set smoothDuration to 420-600ms for comfortable reading experience (not too fast, not too slow)",
+    "Use ordered list (OL) for sequential content (chapters, steps), unordered (UL) for general navigation",
+    "Add TableDescText for clarity ('Jump to section', 'Navigate chapters') especially when using ToggleIcon",
+    "Set Line2Width to 2-3x LineWidth for obvious active state (2px inactive → 6px active = clear emphasis)",
+    "Use contentSelector to target specific areas ('.post-content', '#main-article') avoid scanning header/footer headings",
+    "Test on mobile - long TOC lists can be overwhelming on small screens, use ToggleIcon or DefaultToggle.xs: false"
+  ],
+  "accessibilityNotes": [
+    "TOC links must have valid href anchors matching heading IDs (auto-generated by block)",
+    "Keyboard navigation: Tab through links, Enter to activate smooth scroll",
+    "Screen readers announce 'Table of Contents' heading and list structure (UL/OL semantics)",
+    "smoothScroll with reduce-motion: Block respects prefers-reduced-motion CSS media query (instant scroll for users who disable animations)",
+    "Focus indicators: Links should have visible :focus styles (browser default or custom)",
+    "Color contrast: Link colors must meet WCAG AA (4.5:1 for normal text, 3:1 for active state)",
+    "Active state: .is-active-li class provides visual indicator for screen reader users ('Current section')",
+    "ToggleIcon: Clickable heading should have aria-expanded attribute for screen readers",
+    "Skip link: Consider adding 'Skip to content' link before TOC for keyboard users"
+  ],
+  "performanceConsiderations": [
+    "Intersection Observer for active state tracking: Efficient, no scroll event listeners needed",
+    "Heading ID generation: Happens once on page load, cached for smooth scroll",
+    "Smooth scroll: Uses native CSS scroll-behavior: smooth (GPU accelerated, no JS animation loop)",
+    "Fixed position: position: fixed is performant (browser compositor layer, no repaints on scroll)",
+    "Custom scrollbar: CSS-only (ScrollBarWidth/Thumb/Track), no performance impact",
+    "ChildToggle: Uses CSS display toggle, no layout recalculation needed",
+    "Large TOC (>50 headings): Consider TableSetMinHeight to limit visible items (reduces initial DOM complexity)",
+    "Multiple TOCs: Only one TOC per page recommended (multiple TOCs track active state independently, can confuse users)",
+    "Re-scanning: TOC rescans headings on window resize (debounced to 300ms, minimal performance impact)",
+    "Anchor ID generation: Uses slugified heading text, cached in data attribute"
+  ],
+  "troubleshooting": [
+    {
+      "problem": "TOC is empty, no headings show",
+      "cause": "contentSelector doesn't match actual page container, or no headings in selected area",
+      "solution": "Inspect page HTML, find actual content container ID/class (#primary, .post-content, etc.), update contentSelector"
+    },
+    {
+      "problem": "Headings scroll behind fixed header",
+      "cause": "scrollOffset is 0 or too small, doesn't account for header height",
+      "solution": "Measure header height (e.g., 80px), set scrollOffset: '80' or add 20px padding: scrollOffset: '100'"
+    },
+    {
+      "problem": "Active state doesn't update while scrolling",
+      "cause": "Headings don't have IDs, or Intersection Observer not initialized",
+      "solution": "Ensure block generates IDs for all headings (check HTML for id='heading-text' attributes), refresh page"
+    },
+    {
+      "problem": "TOC overlaps content on mobile",
+      "cause": "fixedPosition: true without responsive container, or DefaultToggle.xs: true with long list",
+      "solution": "Set fixedPosition: false on mobile, or use DefaultToggle.xs: false to auto-collapse"
+    },
+    {
+      "problem": "Scrollbar doesn't appear despite TableSetMinHeight: true",
+      "cause": "Content is shorter than TableMinHeight (e.g., 3 headings with 300px height, max height 600px)",
+      "solution": "Reduce TableMinHeight to force scrollbar, or only use max height for very long TOCs (>15 headings)"
+    },
+    {
+      "problem": "Child headings don't collapse with ChildToggle",
+      "cause": "Only one heading level selected (e.g., only H2, no H3-H6 children to toggle)",
+      "solution": "Select at least 2 heading levels (H2 + H3 minimum) for nesting and collapse functionality"
+    },
+    {
+      "problem": "Custom scrollbar not visible",
+      "cause": "Using Firefox (Webkit scrollbar CSS doesn't work), or ScrollBarWidth: '' empty",
+      "solution": "Test in Chrome/Safari/Edge, set ScrollBarWidth: '8' and colors (ScrollBarThumb/Track)"
+    },
+    {
+      "problem": "Smooth scroll not working",
+      "cause": "smoothScroll: false, or conflicting CSS scroll-behavior, or prefers-reduced-motion enabled",
+      "solution": "Set smoothScroll: true, check CSS for scroll-behavior overrides, test with animations enabled"
+    }
+  ],
+  "integrationExamples": [
+    {
+      "name": "Blog Post with Sticky Sidebar TOC",
+      "description": "Two-column layout with main content and sticky TOC sidebar",
+      "blocks": [
+        "tp-container (blog post section)",
+        "tp-row (2 columns: 70% content + 30% sidebar)",
+        "tp-column (70%, main blog content with H2-H3 headings)",
+        "tp-column (30%, tp-table-content with fixedPosition: true, TableSetMinHeight)",
+        "TOC scrolls independently when content exceeds max height, stays visible on scroll"
+      ]
+    },
+    {
+      "name": "Documentation with Collapsible Nested TOC",
+      "description": "Comprehensive docs navigation with expandable heading tree",
+      "blocks": [
+        "tp-container (documentation section)",
+        "tp-table-content (all H1-H6 selected, ChildToggle: true, style-1 line indicators)",
+        "Content area with deeply nested headings (H1 chapters → H2 sections → H3 subsections → H4 details)",
+        "Click H2 to expand/collapse all child H3-H4-H5-H6 headings",
+        "Active state tracking highlights current section being read"
+      ]
+    },
+    {
+      "name": "Mobile-Optimized Collapsible TOC",
+      "description": "Responsive TOC collapsed on mobile, expanded on desktop",
+      "blocks": [
+        "tp-table-content (ToggleIcon: true, DefaultToggle.xs: false)",
+        "Desktop: TOC visible by default for quick navigation",
+        "Mobile: TOC collapsed, user taps 'Contents' heading to expand",
+        "Saves vertical space on small screens, still accessible when needed"
+      ]
+    },
+    {
+      "name": "Classic Book-Style Chapter Index",
+      "description": "Traditional TOC with serif fonts and horizontal dotted lines",
+      "blocks": [
+        "tp-table-content (style-3, Georgia font, uppercase heading)",
+        "OL ordered list with numbered chapters",
+        "Horizontal dotted lines before nested subsections",
+        "Cream background (#fdfdf8), classic red active state (#c0392b)",
+        "Border under 'CHAPTER INDEX' heading mimics book design"
+      ]
+    }
+  ]
 }

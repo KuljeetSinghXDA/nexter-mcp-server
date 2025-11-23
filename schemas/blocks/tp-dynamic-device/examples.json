@@ -2,75 +2,914 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-dynamic-device",
   "title": "Dynamic Device - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Device mockups for showcasing apps, websites, and designs with scrolling animations and interactive features",
   "examples": [
     {
-      "description": "iPhone mockup with scrolling screenshot",
+      "name": "iPhone Mockup with Hover Scroll Screenshot",
+      "description": "Mobile app screenshot showcase with smooth hover scroll animation",
+      "visualDescription": "White iPhone frame with app screenshot that scrolls on hover, 3-second smooth transition from top to bottom",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "dd001",
         "layoutType": "normal",
         "deviceType": "mobile",
         "mobileDevice": "iphone-white-flat",
         "contentType": "image",
         "conImage": {
-          "url": "/mockup-screen.jpg"
+          "url": "/mockups/mobile-app-screenshot-long.jpg"
         },
         "rebHoverScroll": true,
-        "rebTranDur": "3"
+        "rebTranDur": "3",
+        "deviceWidth": {
+          "md": "40",
+          "sm": "50",
+          "xs": "80",
+          "unit": "%"
+        },
+        "ddAlignment": {
+          "md": "center"
+        },
+        "imgBdrRadius": {
+          "md": {
+            "top": "30",
+            "right": "30",
+            "bottom": "30",
+            "left": "30"
+          },
+          "unit": "px"
+        },
+        "shapeNshadow": {
+          "openShadow": 1,
+          "typeShadow": "drop-shadow",
+          "horizontal": 0,
+          "vertical": 10,
+          "blur": 30,
+          "color": "rgba(0, 0, 0, 0.15)"
+        }
+      },
+      "useCase": "Mobile app landing pages, portfolio showcases, product demos",
+      "contentRequirements": {
+        "imageType": "Full-length screenshot",
+        "recommendedHeight": "1200-2400px (tall image for scrolling effect)",
+        "recommendedWidth": "750px (mobile width)",
+        "format": "JPG or PNG"
+      },
+      "hoverScrollNotes": {
+        "rebHoverScroll": "Enables automatic scroll on hover",
+        "rebTranDur": "Transition duration in seconds (2-5s recommended, 3s default)",
+        "calculation": "Longer images need longer duration (3s for 2000px, 5s for 4000px)",
+        "browserSupport": "Works on desktop only, mobile devices see static image"
       }
     },
     {
-      "description": "MacBook mockup with iframe website preview",
+      "name": "MacBook with Live Website iframe",
+      "description": "Laptop mockup displaying live website via iframe for web design portfolios",
+      "visualDescription": "Black MacBook Pro with live website preview, clickable iframe, 80% width on desktop",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "dd002",
         "layoutType": "normal",
         "deviceType": "laptop",
         "laptopDevice": "laptop-macbook-black",
         "contentType": "iframe",
         "conIframe": {
           "url": "https://example.com",
-          "target": "_blank"
+          "target": "_blank",
+          "nofollow": ""
         },
-        "iframeTitle": "Website Preview"
+        "iframeTitle": "Website Preview - Example.com",
+        "deviceWidth": {
+          "md": "80",
+          "sm": "90",
+          "xs": "100",
+          "unit": "%"
+        },
+        "ddAlignment": {
+          "md": "center"
+        },
+        "rebTopOffset": {
+          "md": "3",
+          "unit": "%"
+        },
+        "rebLeftOffset": {
+          "md": "12",
+          "unit": "%"
+        },
+        "shapeNshadow": {
+          "openShadow": 1,
+          "typeShadow": "drop-shadow",
+          "horizontal": 0,
+          "vertical": 20,
+          "blur": 40,
+          "color": "rgba(0, 0, 0, 0.2)"
+        },
+        "shapeHshadow": {
+          "openShadow": 1,
+          "typeShadow": "drop-shadow",
+          "horizontal": 0,
+          "vertical": 25,
+          "blur": 50,
+          "color": "rgba(0, 0, 0, 0.25)"
+        }
+      },
+      "useCase": "Web design portfolios, agency showcases, client testimonials",
+      "iframeNotes": {
+        "url": "Must be full URL with https://",
+        "target": "_blank opens in new tab (recommended for external sites)",
+        "iframeTitle": "REQUIRED for accessibility (WCAG 2.4.2)",
+        "crossOrigin": "Some sites block iframe embedding (X-Frame-Options header)",
+        "offset": "rebTopOffset and rebLeftOffset position iframe within laptop screen (adjust per device)"
+      },
+      "offsetGuide": {
+        "laptopMacbookBlack": "rebTopOffset: 3%, rebLeftOffset: 12%",
+        "laptopDellSilver": "rebTopOffset: 5%, rebLeftOffset: 10%",
+        "adjustment": "Use browser DevTools to fine-tune positioning for pixel-perfect alignment"
       }
     },
     {
-      "description": "Device carousel with popup gallery",
+      "name": "iMac Desktop with FancyBox Popup Gallery",
+      "description": "Desktop mockup with clickable popup gallery for showcasing multiple screens",
+      "visualDescription": "iMac minimal white frame, click to open full-screen popup gallery with arrows and thumbnails",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
-        "layoutType": "carousel",
-        "cDeviceType": "mobile",
-        "cMobileDevice": "iphone-white-flat",
+        "block_id": "dd003",
+        "layoutType": "normal",
+        "deviceType": "desktop",
+        "desktopDevice": "desktop-imac-minimal",
+        "contentType": "image",
+        "conImage": {
+          "url": "/mockups/desktop-dashboard.jpg"
+        },
         "onClickEfct": "popup",
-        "slideAutoplay": true,
-        "slideAutoplaySpeed": "3000",
-        "showDots": {
-          "md": true
+        "deviceWidth": {
+          "md": "70",
+          "sm": "85",
+          "xs": "100",
+          "unit": "%"
         },
-        "dotsStyle": "style-2"
+        "ddAlignment": {
+          "md": "center"
+        },
+        "LoopFancy": true,
+        "infobar": true,
+        "ArrowsFancy": true,
+        "TitleFancy": false,
+        "AnimationFancy": "zoom",
+        "DurationFancy": "366",
+        "TransitionFancy": "slide",
+        "TranDuration": "366",
+        "ThumbsOption": true,
+        "ThumbsBrCr": {
+          "openBorder": 1,
+          "borderType": "solid",
+          "borderWidth": {
+            "md": {
+              "top": "2",
+              "right": "2",
+              "bottom": "2",
+              "left": "2"
+            },
+            "unit": "px"
+          },
+          "borderColor": "#667eea"
+        },
+        "ThumbsBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#1a202c"
+        },
+        "shapeNshadow": {
+          "openShadow": 1,
+          "typeShadow": "drop-shadow",
+          "horizontal": 0,
+          "vertical": 15,
+          "blur": 35,
+          "color": "rgba(0, 0, 0, 0.18)"
+        }
+      },
+      "useCase": "Design portfolios, UI/UX showcases, product galleries with multiple screens",
+      "fancyBoxNotes": {
+        "onClickEfct": "popup triggers FancyBox lightbox on click",
+        "LoopFancy": "Enable loop to navigate from last to first image",
+        "infobar": "Shows current image number (1/5) at top",
+        "ArrowsFancy": "Left/right arrows for navigation",
+        "TitleFancy": "Shows image title from alt text (set false for cleaner look)",
+        "AnimationFancy": "zoom (recommended), fade, or none",
+        "TransitionFancy": "slide (default), fade, circular, tube, zoom-in-out, rotate",
+        "DurationFancy": "366ms default (300-500ms optimal)",
+        "ThumbsOption": "Enable thumbnail strip at bottom"
+      },
+      "multipleImagesSetup": {
+        "note": "FancyBox groups all images in gallery automatically",
+        "addMoreImages": "Place multiple tp-dynamic-device blocks with same onClickEfct: 'popup'",
+        "grouping": "FancyBox auto-detects and creates gallery from adjacent blocks",
+        "manualGrouping": "Use FancyOption JSON to set data-fancybox attribute for custom grouping"
       }
     },
     {
-      "description": "Custom device frame with template content",
+      "name": "Custom Device Frame with WP Template Content",
+      "description": "Custom branded device mockup with WordPress template content for unique presentations",
+      "visualDescription": "Custom device frame PNG with WordPress template content positioned inside, offset for perfect alignment",
+      "complexity": "advanced",
       "attributes": {
-        "block_id": "g7h8",
+        "block_id": "dd004",
         "layoutType": "normal",
         "deviceType": "custom",
         "customMedia": {
-          "url": "/custom-device-frame.png"
+          "url": "/mockups/custom-branded-device-frame.png"
         },
         "contentType": "template",
         "blockTemp": "device-content-template",
+        "backendVisi": true,
+        "deviceWidth": {
+          "md": "60",
+          "sm": "75",
+          "xs": "95",
+          "unit": "%"
+        },
+        "ddAlignment": {
+          "md": "center"
+        },
+        "imgWidth": {
+          "md": "650",
+          "sm": "500",
+          "xs": "350",
+          "unit": "px"
+        },
+        "imgHeight": {
+          "md": "450",
+          "sm": "350",
+          "xs": "250",
+          "unit": "px"
+        },
         "imgTopOff": {
-          "md": "50",
+          "md": "85",
+          "sm": "65",
+          "xs": "45",
           "unit": "px"
         },
         "imgLeftOff": {
-          "md": "30",
+          "md": "72",
+          "sm": "55",
+          "xs": "38",
           "unit": "px"
+        },
+        "imgZindex": "1",
+        "imgBdrRadius": {
+          "md": {
+            "top": "15",
+            "right": "15",
+            "bottom": "15",
+            "left": "15"
+          },
+          "unit": "px"
+        },
+        "shapeNshadow": {
+          "openShadow": 1,
+          "typeShadow": "drop-shadow",
+          "horizontal": 0,
+          "vertical": 12,
+          "blur": 28,
+          "color": "rgba(0, 0, 0, 0.16)"
         }
+      },
+      "useCase": "Branded device mockups, unique product presentations, custom frame designs",
+      "customDeviceSetup": {
+        "customMedia": "Upload custom device frame as PNG with transparent background",
+        "frameRequirements": "Frame should have empty screen area (transparent or white)",
+        "imgWidth_imgHeight": "Size of content area within device frame",
+        "imgTopOff_imgLeftOff": "Offset to position content within frame (measure in Photoshop/Figma)",
+        "imgZindex": "1 places content behind frame, -1 places content in front (if frame has overlay)",
+        "backendVisi": "Show template content in editor (false hides, improves performance)"
+      },
+      "templateContentNotes": {
+        "blockTemp": "Template slug (create via Nexter > Block Templates)",
+        "contentType": "Must be 'template' to use blockTemp",
+        "templateSize": "Keep templates lightweight (<50KB) for performance",
+        "responsiveOffset": "Adjust imgTopOff/imgLeftOff for each breakpoint (md/sm/xs)"
+      },
+      "measurementTips": {
+        "step1": "Open device frame PNG in Photoshop/Figma",
+        "step2": "Measure screen area top-left corner from frame top-left (imgTopOff, imgLeftOff)",
+        "step3": "Measure screen area width and height (imgWidth, imgHeight)",
+        "step4": "Export measurements to attributes, test and fine-tune in editor"
+      }
+    },
+    {
+      "name": "iPad Tablet with Manual Scrollbar Styling",
+      "description": "Tablet mockup with long scrollable content and custom-styled scrollbar",
+      "visualDescription": "White iPad vertical with long article content, custom purple scrollbar with rounded thumb, manual scroll enabled",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "dd005",
+        "layoutType": "normal",
+        "deviceType": "tablet",
+        "tabletDevice": "ipad-vertical-white",
+        "contentType": "image",
+        "conImage": {
+          "url": "/mockups/tablet-long-article.jpg"
+        },
+        "scrollDimage": true,
+        "scrollManual": true,
+        "scrollTranDur": "0.3",
+        "deviceWidth": {
+          "md": "45",
+          "sm": "60",
+          "xs": "85",
+          "unit": "%"
+        },
+        "ddAlignment": {
+          "md": "center"
+        },
+        "scrollBarWidth": {
+          "md": "8",
+          "unit": "px"
+        },
+        "thumbBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "thumbRadius": {
+          "md": {
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "thumbShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 4,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.3)"
+        },
+        "trackBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f7fafc"
+        },
+        "trackRadius": {
+          "md": {
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "outerBdrRadius": {
+          "md": {
+            "top": "20",
+            "right": "20",
+            "bottom": "20",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "shapeNshadow": {
+          "openShadow": 1,
+          "typeShadow": "drop-shadow",
+          "horizontal": 0,
+          "vertical": 18,
+          "blur": 38,
+          "color": "rgba(0, 0, 0, 0.14)"
+        }
+      },
+      "useCase": "Long-form content showcases, article previews, documentation demos",
+      "scrollableImageNotes": {
+        "scrollDimage": "Enables scrollable container for tall images",
+        "scrollManual": "true = user scrolls manually, false = auto-scroll on hover",
+        "scrollTranDur": "Smooth scroll transition (0.2-0.5s recommended)",
+        "contentHeight": "Image should be 2-3x taller than device screen for effective scrolling"
+      },
+      "scrollbarStyling": {
+        "scrollBarWidth": "Scrollbar width (6-12px optimal, 8px default)",
+        "thumbBG": "Draggable thumb background (brand color recommended)",
+        "thumbRadius": "Rounded corners for modern look (10px = fully rounded with 8px width)",
+        "thumbShadow": "Subtle shadow for depth (optional)",
+        "trackBG": "Background track color (light gray recommended)",
+        "trackRadius": "Track rounded corners (match thumb for consistency)",
+        "browserSupport": "Webkit only (Chrome, Safari, Edge). Firefox uses default scrollbar."
+      },
+      "accessibilityNotes": {
+        "contrast": "Ensure thumb color contrasts with track (WCAG AA: 3:1 minimum)",
+        "size": "8px minimum width for comfortable dragging on touch devices",
+        "fallback": "Firefox and older browsers use default scrollbar styling"
+      }
+    },
+    {
+      "name": "Device Carousel - Portfolio Showcase",
+      "description": "Multi-slide carousel with center mode, scale effect, and pagination for showcasing app screens",
+      "visualDescription": "5-slide iPhone carousel, center slide scaled 1.15x, side slides at 0.7 opacity, purple pagination dots",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "dd006",
+        "layoutType": "carousel",
+        "cDeviceType": "mobile",
+        "cMobileDevice": "iphone-white-flat",
+        "cConImg": [
+          {"url": "/mockups/app-screen-1.jpg", "_key": "slide1"},
+          {"url": "/mockups/app-screen-2.jpg", "_key": "slide2"},
+          {"url": "/mockups/app-screen-3.jpg", "_key": "slide3"},
+          {"url": "/mockups/app-screen-4.jpg", "_key": "slide4"},
+          {"url": "/mockups/app-screen-5.jpg", "_key": "slide5"}
+        ],
+        "deviceWidth": {
+          "md": "90",
+          "sm": "95",
+          "xs": "100",
+          "unit": "%"
+        },
+        "ddAlignment": {
+          "md": "center"
+        },
+        "columnSlide": "single",
+        "slideSpeed": "1500",
+        "slideInfinite": true,
+        "slideAutoplay": true,
+        "slideAutoplaySpeed": "3000",
+        "centerPadding": {
+          "md": 150,
+          "sm": 80,
+          "xs": 40
+        },
+        "centerSlideEffect": "scale",
+        "centerslideScale": "1.15",
+        "normalslideScale": "0.85",
+        "slideOpacity": {
+          "md": 0.7,
+          "sm": 0.7,
+          "xs": 0.5
+        },
+        "cImgBdrRadius": {
+          "md": {
+            "top": "30",
+            "right": "30",
+            "bottom": "30",
+            "left": "30"
+          },
+          "unit": "px"
+        },
+        "cSlideSpace": {
+          "md": "20",
+          "sm": "15",
+          "xs": "10",
+          "unit": "px"
+        },
+        "showDots": {
+          "md": true,
+          "sm": true,
+          "xs": true
+        },
+        "dotsStyle": "style-2",
+        "dotSize": {
+          "md": 12,
+          "sm": 10,
+          "xs": 8,
+          "unit": "px"
+        },
+        "dotASize": {
+          "md": 16,
+          "sm": 14,
+          "xs": 12,
+          "unit": "px"
+        },
+        "dotSpace": {
+          "md": 8,
+          "sm": 6,
+          "xs": 5,
+          "unit": "px"
+        },
+        "dotsTopSpace": {
+          "md": -50,
+          "sm": -40,
+          "xs": -30,
+          "unit": "px"
+        },
+        "dotsBorderColor": "#cbd5e0",
+        "dotsBgColor": "#e2e8f0",
+        "dotsActiveBorderColor": "#667eea",
+        "dotsActiveBgColor": "#667eea",
+        "shapeNshadow": {
+          "openShadow": 1,
+          "typeShadow": "drop-shadow",
+          "horizontal": 0,
+          "vertical": 10,
+          "blur": 25,
+          "color": "rgba(0, 0, 0, 0.12)"
+        }
+      },
+      "useCase": "App portfolios, multi-screen showcases, feature tours, product galleries",
+      "carouselSetup": {
+        "cConImg": "Array of image objects with _key (unique identifier for each slide)",
+        "columnSlide": "single (1 device per slide) or multi (2-4 devices, set in UI)",
+        "slideSpeed": "Transition speed in ms (1000-2000ms recommended, 1500ms default)",
+        "slideInfinite": "Loop from last to first slide seamlessly",
+        "slideAutoplay": "Auto-advance slides",
+        "slideAutoplaySpeed": "Time per slide in ms (3000-5000ms recommended)"
+      },
+      "centerModeNotes": {
+        "centerPadding": "Space around center slide to show side slides (px value)",
+        "calculation": "150px shows ~25% of side slides, 80px shows ~15%, 0px shows center only",
+        "centerSlideEffect": "scale (zoom center), shadow (add shadow to center), none",
+        "centerslideScale": "1.15 = 15% larger (1.0-1.3 recommended, subtle scaling)",
+        "normalslideScale": "0.85 = 15% smaller for side slides (0.7-0.95 recommended)",
+        "slideOpacity": "0.7 = 30% faded side slides (0.5-0.9 recommended, 1.0 = no fade)",
+        "visualBalance": "centerslideScale 1.15 + normalslideScale 0.85 + opacity 0.7 = strong focus"
+      },
+      "paginationNotes": {
+        "dotsStyle": "style-1 to style-7 (style-2 = bordered circles is most popular)",
+        "dotSize": "Normal dot size (8-14px recommended)",
+        "dotASize": "Active dot size (12-18px, should be 1.3-1.5x dotSize)",
+        "dotSpace": "Space between dots (6-10px recommended)",
+        "dotsTopSpace": "Offset from bottom (negative value pushes down, -50px = 50px below carousel)",
+        "colors": "dotsBgColor (normal), dotsActiveBgColor (active), border variants for style-2/3/4"
+      },
+      "performanceConsiderations": {
+        "imageOptimization": "Use optimized JPGs (<200KB per image) for smooth transitions",
+        "maxSlides": "20 slides maximum recommended (more impacts performance)",
+        "lazyLoading": "Carousel lazy-loads off-screen slides automatically",
+        "autoplaySpeed": "3000ms minimum to allow users to view each slide"
+      }
+    },
+    {
+      "name": "Mobile Device with Animated Icon Badge",
+      "description": "iPhone mockup with floating animated icon for highlighting features or new releases",
+      "visualDescription": "Black iPhone with app screenshot, purple circular icon badge (top-right corner) with pulse animation",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "dd007",
+        "layoutType": "normal",
+        "deviceType": "mobile",
+        "mobileDevice": "iphone-black-flat",
+        "contentType": "image",
+        "conImage": {
+          "url": "/mockups/mobile-app-new-feature.jpg"
+        },
+        "deviceWidth": {
+          "md": "35",
+          "sm": "45",
+          "xs": "75",
+          "unit": "%"
+        },
+        "ddAlignment": {
+          "md": "center"
+        },
+        "showIcon": true,
+        "iconSrc": {
+          "url": "/icons/new-badge.png"
+        },
+        "iconConAni": true,
+        "iconConAniStyle": "pulse",
+        "iconConHoverAnimation": false,
+        "iconConAniDuration": "2.5",
+        "iconWidth": {
+          "md": "80",
+          "sm": "70",
+          "xs": "60",
+          "unit": "px"
+        },
+        "iconBdrRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "px"
+        },
+        "imgBdrRadius": {
+          "md": {
+            "top": "30",
+            "right": "30",
+            "bottom": "30",
+            "left": "30"
+          },
+          "unit": "px"
+        },
+        "shapeNshadow": {
+          "openShadow": 1,
+          "typeShadow": "drop-shadow",
+          "horizontal": 0,
+          "vertical": 12,
+          "blur": 30,
+          "color": "rgba(0, 0, 0, 0.18)"
+        }
+      },
+      "useCase": "New feature announcements, app updates, promotional badges, limited-time offers",
+      "iconBadgeNotes": {
+        "showIcon": "Enable icon overlay on device",
+        "iconSrc": "Icon/badge image (PNG with transparency recommended)",
+        "positioning": "Icon positioned top-right by default (adjust with CSS if needed)",
+        "iconWidth": "60-100px recommended (80px default)",
+        "iconBdrRadius": "50% = perfect circle for badges, 0 = square, 10-20px = rounded"
+      },
+      "animationOptions": {
+        "iconConAni": "Enable continuous animation (always animating)",
+        "iconConHoverAnimation": "Enable hover-only animation (animates only on device hover)",
+        "iconConAniStyle": "pulse (scale up/down), floating (up/down movement), tossing (diagonal movement), rotating (360° spin)",
+        "iconConAniDuration": "Animation cycle duration in seconds (2-4s recommended, 2.5s default)",
+        "performance": "Continuous animations use CSS animations (60fps, GPU accelerated)"
+      },
+      "animationGuide": {
+        "pulse": "Best for 'NEW' badges, notifications, attention-grabbing (subtle scale 1.0-1.1)",
+        "floating": "Best for playful designs, app icons, friendly feel (10-20px vertical movement)",
+        "tossing": "Best for dynamic effects, excitement, energy (15-25px diagonal movement)",
+        "rotating": "Best for loading indicators, processing, continuous action (360° rotation)"
+      },
+      "designTips": {
+        "iconSize": "Keep icon <20% of device width (too large overwhelms mockup)",
+        "transparency": "Use PNG with transparent background for clean overlay",
+        "contrast": "Ensure icon contrasts with device background (add shadow if needed)",
+        "animation": "Use pulse for static badges, floating for playful, hover-only for subtle"
+      }
+    },
+    {
+      "name": "Mobile Device with Click-to-Link (App Download)",
+      "description": "Clickable iPhone mockup linking to app store for direct downloads",
+      "visualDescription": "White iPhone with app screenshot, entire device clickable linking to App Store in new tab",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "dd008",
+        "layoutType": "normal",
+        "deviceType": "mobile",
+        "mobileDevice": "iphone-white-flat",
+        "contentType": "image",
+        "conImage": {
+          "url": "/mockups/mobile-app-download.jpg"
+        },
+        "onClickEfct": "link",
+        "onClickLink": {
+          "url": "https://apps.apple.com/app/your-app-id",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "deviceWidth": {
+          "md": "40",
+          "sm": "50",
+          "xs": "80",
+          "unit": "%"
+        },
+        "ddAlignment": {
+          "md": "center"
+        },
+        "deviceMargin": {
+          "md": {
+            "top": "30",
+            "bottom": "30",
+            "left": "0",
+            "right": "0"
+          },
+          "unit": "px"
+        },
+        "imgBdrRadius": {
+          "md": {
+            "top": "30",
+            "right": "30",
+            "bottom": "30",
+            "left": "30"
+          },
+          "unit": "px"
+        },
+        "shapeNshadow": {
+          "openShadow": 1,
+          "typeShadow": "drop-shadow",
+          "horizontal": 0,
+          "vertical": 10,
+          "blur": 28,
+          "color": "rgba(0, 0, 0, 0.15)"
+        },
+        "shapeHshadow": {
+          "openShadow": 1,
+          "typeShadow": "drop-shadow",
+          "horizontal": 0,
+          "vertical": 15,
+          "blur": 35,
+          "color": "rgba(102, 126, 234, 0.25)"
+        }
+      },
+      "useCase": "App landing pages, download CTAs, app store links, mobile product showcases",
+      "clickLinkNotes": {
+        "onClickEfct": "link makes entire device clickable",
+        "onClickLink.url": "Destination URL (App Store, Google Play, landing page)",
+        "onClickLink.target": "_blank opens in new tab (recommended for external links), _self same tab",
+        "onClickLink.nofollow": "SEO attribute (leave empty unless affiliate/untrusted link)",
+        "clickableArea": "Entire device mockup is clickable (screenshot + frame)",
+        "cursor": "Device shows pointer cursor on hover (indicates clickability)"
+      },
+      "appStoreLinks": {
+        "appleAppStore": "https://apps.apple.com/app/your-app-id (get from App Store Connect)",
+        "googlePlayStore": "https://play.google.com/store/apps/details?id=com.yourapp",
+        "smartBanner": "Detects user device and redirects to correct store (iOS → App Store, Android → Play Store)",
+        "tracking": "Add UTM parameters for analytics: ?utm_source=website&utm_medium=device_mockup"
+      },
+      "hoverEffects": {
+        "shapeHshadow": "Hover shadow (larger/colored) indicates interactivity",
+        "visualFeedback": "Hover shadow transition provides clear call-to-action",
+        "transition": "Smooth shadow transition (automatic, ~300ms default)"
+      },
+      "conversionOptimization": {
+        "placement": "Place above fold on landing pages for maximum visibility",
+        "context": "Add text CTA below device ('Download now' button for clarity)",
+        "testing": "A/B test with/without click link vs standalone download buttons",
+        "analytics": "Track clicks via Google Analytics events or UTM parameters"
       }
     }
   ],
-  "commonPatterns": {}
+  "commonPatterns": {
+    "deviceTypes": {
+      "mobile": "iphone-white-flat, iphone-black-flat, iphone-x-white, iphone-x-black, android-white, android-black",
+      "tablet": "ipad-vertical-white, ipad-vertical-black, ipad-horizontal-white, ipad-horizontal-black",
+      "laptop": "laptop-macbook-black, laptop-macbook-silver, laptop-dell-silver, laptop-hp-black",
+      "desktop": "desktop-imac-minimal, desktop-imac-white, desktop-dell-black, desktop-generic",
+      "custom": "Upload custom device PNG with transparent screen area"
+    },
+    "contentTypes": {
+      "image": "Static screenshot (JPG/PNG)",
+      "iframe": "Live website embed (requires HTTPS, some sites block iframes)",
+      "template": "WordPress template content (Nexter Block Template slug)"
+    },
+    "clickEffects": {
+      "nothing": "No click interaction (default)",
+      "link": "Entire device clickable, opens URL",
+      "popup": "Opens FancyBox lightbox gallery (groups adjacent devices automatically)"
+    },
+    "layoutTypes": {
+      "normal": "Single device mockup with optional hover scroll, click effects, icons",
+      "carousel": "Multiple devices in carousel with pagination, autoplay, center mode effects"
+    }
+  },
+  "validationRules": {
+    "block_id": "Required, unique identifier",
+    "layoutType": "Required: 'normal' or 'carousel'",
+    "deviceType": "Required for normal layout: 'mobile', 'tablet', 'laptop', 'desktop', 'custom'",
+    "contentType": "Required: 'image', 'iframe', or 'template'",
+    "conImage": "Required when contentType='image'",
+    "conIframe.url": "Required when contentType='iframe', must be full URL with https://",
+    "iframeTitle": "Required when contentType='iframe' for accessibility (WCAG 2.4.2)",
+    "blockTemp": "Required when contentType='template', must be valid template slug",
+    "customMedia": "Required when deviceType='custom'",
+    "cConImg": "Required when layoutType='carousel', minimum 2 images",
+    "rebHoverScroll": "Only works with contentType='image' and layoutType='normal'",
+    "scrollManual": "Requires scrollDimage=true, contentType='image'",
+    "onClickEfct": "Options: 'nothing', 'link', 'popup'",
+    "onClickLink": "Required when onClickEfct='link'",
+    "centerSlideEffect": "Carousel only, options: 'none', 'scale', 'shadow'",
+    "dotsStyle": "Carousel only, options: 'style-1' through 'style-7'"
+  },
+  "warnings": [
+    "CRITICAL: iframeTitle is required when using contentType='iframe' for WCAG 2.4.2 compliance",
+    "Hover scroll (rebHoverScroll) only works on desktop, mobile users see static image",
+    "Some websites block iframe embedding via X-Frame-Options header (test before deploying)",
+    "Custom scrollbar styling (thumbBG, trackBG) only works in Webkit browsers (Chrome, Safari, Edge), Firefox uses default",
+    "Carousel with many slides (>20) can impact performance, optimize images (<200KB each)",
+    "FancyBox popup (onClickEfct='popup') groups adjacent tp-dynamic-device blocks automatically",
+    "Custom device frames (deviceType='custom') require precise offset measurements (imgTopOff, imgLeftOff) for alignment",
+    "Template content (contentType='template') can slow down editor if template is complex, set backendVisi=false",
+    "Autoplay carousels (slideAutoplay=true) should have slideAutoplaySpeed >= 3000ms for accessibility",
+    "Continuous icon animations (iconConAni=true) use CPU, limit to 1-2 per page for performance",
+    "Center mode carousel (centerPadding > 0) requires deviceWidth >= 80% for side slides to be visible",
+    "rebTranDur should scale with image height: 2s for 1500px, 3s for 2500px, 5s for 4000px+"
+  ],
+  "commonMistakes": [
+    "Forgetting iframeTitle when using iframe content (accessibility violation)",
+    "Using rebHoverScroll with iframe or template (only works with images)",
+    "Setting imgTopOff/imgLeftOff without measuring from device frame in Photoshop/Figma (misalignment)",
+    "Using very tall images without rebHoverScroll or scrollDimage (content cuts off)",
+    "Setting centerslideScale too high (>1.3) makes carousel look jarring",
+    "Using dotsTopSpace positive value (pushes pagination up into carousel, should be negative)",
+    "Not optimizing carousel images (<200KB each) causing slow transitions",
+    "Setting slideAutoplaySpeed too fast (<3000ms) prevents users from viewing slides",
+    "Using contentType='iframe' without testing for X-Frame-Options blocking",
+    "Not adding _key to cConImg array items (carousel slides won't render correctly)"
+  ],
+  "bestPractices": [
+    "Use rebHoverScroll for tall screenshots (>1500px height) to showcase full content",
+    "Always set target='_blank' for external iframe URLs (better user experience)",
+    "Optimize carousel images to <200KB each for smooth transitions",
+    "Use center mode carousel (centerPadding + scale effect) for dramatic app showcases",
+    "Set slideAutoplaySpeed to 3000-5000ms for comfortable viewing",
+    "Use shapeHshadow (hover shadow) for clickable devices to indicate interactivity",
+    "Test iframe URLs in incognito mode to check for X-Frame-Options blocking",
+    "Use iconConAniStyle='pulse' for attention-grabbing badges, 'floating' for playful designs",
+    "Set dotsStyle='style-2' for modern bordered pagination dots",
+    "Use deviceWidth 35-45% for mobile, 60-80% for laptop/desktop (responsive sizing)",
+    "Add UTM parameters to onClickLink URLs for tracking (?utm_source=website&utm_medium=device_mockup)",
+    "Use backendVisi=false for template content to improve editor performance"
+  ],
+  "accessibilityNotes": [
+    "iframeTitle is REQUIRED when using iframe content (WCAG 2.4.2: Page Titled)",
+    "Ensure click links (onClickEfct='link') have descriptive surrounding text (not just 'click here')",
+    "Autoplay carousels should allow manual control (navigation arrows or dots)",
+    "Custom scrollbar colors must meet WCAG AA contrast ratio 3:1 (thumb vs track)",
+    "Provide alt text for conImage (set in WordPress media library)",
+    "Hover-only effects (rebHoverScroll, iconConHoverAnimation) should have touch alternatives",
+    "FancyBox popups should be keyboard navigable (arrows, Esc to close) - built-in by default",
+    "Avoid continuous animations (iconConAni) for users with vestibular disorders (use hover-only)",
+    "Test with screen readers: device mockups should convey purpose (alt text, surrounding context)"
+  ],
+  "performanceConsiderations": [
+    "Optimize screenshot images: Use JPG at 80% quality, <300KB per image",
+    "Carousel: Limit to 20 slides maximum, use lazy loading (automatic)",
+    "Iframe embeds: Heavy sites (lots of JS) can slow page load, consider static images instead",
+    "Template content: Keep templates lightweight (<50KB), use backendVisi=false in editor",
+    "Continuous animations: Limit to 1-2 per page (iconConAni uses CPU)",
+    "Hover scroll: Works via CSS transform (GPU accelerated, no performance impact)",
+    "Custom scrollbar: Webkit scrollbar styling has no performance impact",
+    "FancyBox: Loads library on first click (lazy load), no impact until popup opened",
+    "Responsive images: Use deviceWidth % values to avoid loading oversized images on mobile",
+    "Shadow effects: drop-shadow is GPU accelerated, minimal performance impact"
+  ],
+  "troubleshooting": [
+    {
+      "problem": "Iframe shows 'Refused to display' error",
+      "cause": "Target website has X-Frame-Options: DENY or SAMEORIGIN header",
+      "solution": "Use screenshot image instead, or contact site owner to whitelist your domain"
+    },
+    {
+      "problem": "Hover scroll doesn't work",
+      "cause": "contentType not set to 'image', or image not tall enough",
+      "solution": "Ensure contentType='image', rebHoverScroll=true, image height > device screen height"
+    },
+    {
+      "problem": "Custom device content misaligned",
+      "cause": "Incorrect imgTopOff/imgLeftOff values",
+      "solution": "Measure screen position from device frame in Photoshop/Figma, adjust offsets precisely"
+    },
+    {
+      "problem": "Carousel slides don't show",
+      "cause": "Missing _key in cConImg array items",
+      "solution": "Add unique _key to each image object: {url: '...', _key: 'slide1'}"
+    },
+    {
+      "problem": "Custom scrollbar doesn't appear",
+      "cause": "Using Firefox (Webkit only) or scrollManual=false",
+      "solution": "Test in Chrome/Safari/Edge, ensure scrollManual=true and scrollDimage=true"
+    },
+    {
+      "problem": "Icon badge not visible",
+      "cause": "showIcon=false or iconSrc missing URL",
+      "solution": "Set showIcon=true and upload icon to iconSrc.url"
+    },
+    {
+      "problem": "Click link doesn't work",
+      "cause": "onClickEfct='nothing' or onClickLink.url empty",
+      "solution": "Set onClickEfct='link' and provide full URL in onClickLink.url"
+    },
+    {
+      "problem": "Pagination dots not showing in carousel",
+      "cause": "showDots={md: false} or dotsTopSpace too large negative value",
+      "solution": "Set showDots={md: true}, adjust dotsTopSpace to -30 to -60px range"
+    }
+  ],
+  "integrationExamples": [
+    {
+      "name": "App Landing Page Hero Section",
+      "description": "Combine iPhone mockup with heading, description, and download buttons",
+      "blocks": [
+        "tp-container (hero section, 100vh, gradient background)",
+        "tp-row (2 columns: text left, device right)",
+        "tp-column (50%, text content with tp-heading, tp-pro-paragraph, tp-button-core)",
+        "tp-column (50%, tp-dynamic-device with hover scroll)",
+        "tp-advanced-buttons (App Store + Google Play download buttons below)"
+      ]
+    },
+    {
+      "name": "Portfolio Device Carousel with Case Study",
+      "description": "Device carousel showcasing app screens with project description",
+      "blocks": [
+        "tp-container (project section)",
+        "tp-heading-title (project name, style-1 separator)",
+        "tp-dynamic-device (carousel with 5 app screens, center mode)",
+        "tp-pro-paragraph (project description below carousel)",
+        "tp-button (View Case Study link)"
+      ]
+    },
+    {
+      "name": "Feature Comparison - Mobile vs Desktop",
+      "description": "Side-by-side device mockups showing responsive design",
+      "blocks": [
+        "tp-container (comparison section)",
+        "tp-row (2 columns: mobile left, desktop right)",
+        "tp-column (40%, tp-dynamic-device mobile with hover scroll)",
+        "tp-column (60%, tp-dynamic-device desktop with iframe)",
+        "tp-heading (Responsive Design headline above)"
+      ]
+    },
+    {
+      "name": "App Features with Interactive Mockups",
+      "description": "Tabs with different app screens for each feature",
+      "blocks": [
+        "tp-container (features section)",
+        "tp-tabs-tours (horizontal tabs)",
+        "tp-tab-item (each tab contains tp-dynamic-device + description)",
+        "Devices show different screens per feature (messaging, calendar, settings)"
+      ]
+    }
+  ]
 }
