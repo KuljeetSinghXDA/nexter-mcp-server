@@ -1,71 +1,989 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-carousel-remote",
-  "title": "Carousel Remote - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Carousel Remote - Comprehensive Usage Examples",
+  "description": "Remote control for any carousel using unique ID connection. Features prev/next navigation buttons, customizable dot indicators with icons/images, tooltips, pagination display, and extensive styling options.",
   "examples": [
     {
-      "description": "Simple prev/next buttons",
+      "name": "Basic Prev/Next Buttons (Centered)",
+      "description": "Simple navigation with text and FontAwesome icons, centered alignment",
+      "visualDescription": "Blue buttons with white chevron icons and 'Previous'/'Next' text, centered horizontally, rounded corners, hover state darkens background",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
-        "carouselId": "product-carousel",
+        "block_id": "cr001",
+        "carouselId": "product-carousel-main",
         "carobtn": true,
         "btntxt1": "Previous",
         "btntxt2": "Next",
+        "rbtnAlign": "text-center",
+        "BiconFont": "font_awesome",
         "btnIcon1": "fas fa-chevron-left",
-        "btnIcon2": "fas fa-chevron-right"
-      }
+        "btnIcon2": "fas fa-chevron-right",
+        "pAriaLabel": "Go to previous product",
+        "nAriaLabel": "Go to next product",
+        "iconSize": {"md": "18", "unit": "px"},
+        "iconSpace": {"md": "8", "unit": "px"},
+        "btnSpace": {"md": "12", "unit": "px"},
+        "rbtnpadding": {
+          "md": {"top": "12", "right": "24", "bottom": "12", "left": "24"},
+          "unit": "px"
+        },
+        "rbtnTypo": {
+          "openTypography": 1,
+          "size": {"md": "14", "unit": "px"},
+          "weight": "500"
+        },
+        "txtcolor": "#ffffff",
+        "iconColor": "#ffffff",
+        "btnBgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "btnBradius": {
+          "md": {"top": "6", "right": "6", "bottom": "6", "left": "6"},
+          "unit": "px"
+        },
+        "Hvrtxtcolor": "#ffffff",
+        "HvrIcolor": "#ffffff",
+        "hvrBgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#4c51bf"
+        },
+        "showDot": false,
+        "showpagi": false
+      },
+      "useCase": "Product image carousels, general content sliders, basic navigation needs",
+      "carouselIdNote": "The carouselId 'product-carousel-main' must exactly match the carouselId set in the target tpgb/tp-carousel or tpgb/tp-anything-carousel block. This is case-sensitive!"
     },
+
     {
-      "description": "Dot indicators with animated borders",
+      "name": "Icon-Only Buttons (No Text)",
+      "description": "Large arrow icons without button text, purple gradient background",
+      "visualDescription": "Circular buttons with large arrow icons only (no text), purple gradient background, positioned left/right, hover scales up slightly",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
-        "carouselId": "gallery-carousel",
+        "block_id": "cr002",
+        "carouselId": "hero-slider",
+        "carobtn": true,
+        "btntxt1": "",
+        "btntxt2": "",
+        "rbtnAlign": "text-left",
+        "BiconFont": "font_awesome",
+        "btnIcon1": "fas fa-angle-left",
+        "btnIcon2": "fas fa-angle-right",
+        "pAriaLabel": "Previous slide",
+        "nAriaLabel": "Next slide",
+        "iconSize": {"md": "28", "sm": "24", "xs": "20", "unit": "px"},
+        "btnSpace": {"md": "0", "unit": "px"},
+        "rbtnpadding": {
+          "md": {"top": "18", "right": "18", "bottom": "18", "left": "18"},
+          "sm": {"top": "14", "right": "14", "bottom": "14", "left": "14"},
+          "xs": {"top": "12", "right": "12", "bottom": "12", "left": "12"},
+          "unit": "px"
+        },
+        "iconColor": "#ffffff",
+        "btnBgtype": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "btnBradius": {
+          "md": {"top": "50", "right": "50", "bottom": "50", "left": "50"},
+          "unit": "px"
+        },
+        "btnBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.4)"
+        },
+        "HvrIcolor": "#ffffff",
+        "hvrBgtype": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#764ba2", "position": 0},
+              {"color": "#667eea", "position": 100}
+            ]
+          }
+        },
+        "hvrBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 6,
+          "blur": 16,
+          "spread": 0,
+          "color": "rgba(118, 75, 162, 0.5)"
+        },
+        "showDot": false,
+        "showpagi": false
+      },
+      "useCase": "Hero sliders, full-width image carousels, minimal design aesthetics",
+      "responsiveNotes": "Button padding reduces from 18px (desktop) → 14px (tablet) → 12px (mobile) to maintain appropriate touch targets without overwhelming small screens",
+      "ariaRequired": "CRITICAL: When btntxt1 and btntxt2 are empty, pAriaLabel and nAriaLabel are REQUIRED for accessibility. Screen readers need these labels to announce button purpose."
+    },
+
+    {
+      "name": "Horizontal Dots with Animated Border (Style-1)",
+      "description": "5 product dots with FontAwesome icons, animated purple border on active",
+      "visualDescription": "Row of 5 circular dots with shopping bag icons, gray background, active dot has animated purple border that fills over 3 seconds, horizontal layout below carousel",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "cr003",
+        "carouselId": "product-gallery",
+        "carobtn": false,
         "showDot": true,
+        "dotLayout": "horizontal",
         "dotstyle": "style-1",
-        "AborderColor": "#667eea",
+        "dotList": [
+          {
+            "_key": "0",
+            "label": "Product 1",
+            "iconFonts": "font_awesome",
+            "iconName": "fas fa-shopping-bag",
+            "doticonColor": "#64748b",
+            "dotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#e2e8f0"
+            },
+            "acticonColor": "#6f14f1",
+            "actdotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#f3f4f6"
+            }
+          },
+          {
+            "_key": "1",
+            "label": "Product 2",
+            "iconFonts": "font_awesome",
+            "iconName": "fas fa-shopping-bag",
+            "doticonColor": "#64748b",
+            "dotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#e2e8f0"
+            },
+            "acticonColor": "#6f14f1",
+            "actdotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#f3f4f6"
+            }
+          },
+          {
+            "_key": "2",
+            "label": "Product 3",
+            "iconFonts": "font_awesome",
+            "iconName": "fas fa-shopping-bag",
+            "doticonColor": "#64748b",
+            "dotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#e2e8f0"
+            },
+            "acticonColor": "#6f14f1",
+            "actdotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#f3f4f6"
+            }
+          },
+          {
+            "_key": "3",
+            "label": "Product 4",
+            "iconFonts": "font_awesome",
+            "iconName": "fas fa-shopping-bag",
+            "doticonColor": "#64748b",
+            "dotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#e2e8f0"
+            },
+            "acticonColor": "#6f14f1",
+            "actdotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#f3f4f6"
+            }
+          },
+          {
+            "_key": "4",
+            "label": "Product 5",
+            "iconFonts": "font_awesome",
+            "iconName": "fas fa-shopping-bag",
+            "doticonColor": "#64748b",
+            "dotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#e2e8f0"
+            },
+            "acticonColor": "#6f14f1",
+            "actdotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#f3f4f6"
+            }
+          }
+        ],
+        "AborderColor": "#6f14f1",
         "AniDuration": "3000",
-        "dotLayout": "horizontal"
-      }
+        "dotSize": {"md": "48", "sm": "42", "xs": "36", "unit": "px"},
+        "dotSpace": {"md": "12", "sm": "10", "xs": "8", "unit": "px"},
+        "diconSize": {"md": "20", "sm": "18", "xs": "16", "unit": "px"},
+        "dpadding": {
+          "md": {"top": "0", "right": "0", "bottom": "0", "left": "0"},
+          "unit": "px"
+        },
+        "showpagi": false
+      },
+      "useCase": "E-commerce product galleries, image showcases, portfolio carousels",
+      "dotListNotes": {
+        "repeater": "dotList is a repeater array - add/remove items to match carousel slide count",
+        "_keyRequired": "Each dot item MUST have unique _key value (0, 1, 2, etc.)",
+        "iconConsistency": "Keep iconName consistent across all dots for uniform appearance, or use different icons per dot for visual distinction"
+      },
+      "style1BorderAnimation": "AniDuration in milliseconds (3000 = 3 seconds). Border animates around active dot over this duration. Sync with carousel autoplay speed for visual feedback. Set to '' to disable animation.",
+      "borderColorNote": "AborderColor sets the animated border color for style-1. Default purple (#6f14f1) matches brand color."
     },
+
     {
-      "description": "Dots with tooltips (vertical layout)",
+      "name": "Vertical Dots with Tooltips (Style-2)",
+      "description": "4 testimonial dots with user icons and name tooltips on hover",
+      "visualDescription": "Vertical column of 4 dots on the right side, each with user icon, tooltips appear on left hover showing customer names, white tooltips with arrows, active dot has blue background",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
-        "carouselId": "testimonial-carousel",
+        "block_id": "cr004",
+        "carouselId": "testimonial-slider",
+        "carobtn": false,
         "showDot": true,
-        "dotstyle": "style-2",
         "dotLayout": "vertical",
+        "dotstyle": "style-2",
         "vtooltipDir": "left",
         "tooltiparrow": true,
         "dotList": [
           {
-            "label": "Customer 1",
-            "iconName": "fas fa-user"
+            "_key": "0",
+            "label": "Sarah Johnson",
+            "iconFonts": "font_awesome",
+            "iconName": "fas fa-user",
+            "doticonColor": "#64748b",
+            "dotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#f1f5f9"
+            },
+            "acticonColor": "#ffffff",
+            "actdotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#3b82f6"
+            }
           },
           {
-            "label": "Customer 2",
-            "iconName": "fas fa-user"
+            "_key": "1",
+            "label": "Michael Chen",
+            "iconFonts": "font_awesome",
+            "iconName": "fas fa-user",
+            "doticonColor": "#64748b",
+            "dotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#f1f5f9"
+            },
+            "acticonColor": "#ffffff",
+            "actdotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#3b82f6"
+            }
           },
           {
-            "label": "Customer 3",
-            "iconName": "fas fa-user"
+            "_key": "2",
+            "label": "Emily Rodriguez",
+            "iconFonts": "font_awesome",
+            "iconName": "fas fa-user",
+            "doticonColor": "#64748b",
+            "dotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#f1f5f9"
+            },
+            "acticonColor": "#ffffff",
+            "actdotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#3b82f6"
+            }
+          },
+          {
+            "_key": "3",
+            "label": "David Kim",
+            "iconFonts": "font_awesome",
+            "iconName": "fas fa-user",
+            "doticonColor": "#64748b",
+            "dotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#f1f5f9"
+            },
+            "acticonColor": "#ffffff",
+            "actdotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#3b82f6"
+            }
           }
-        ]
-      }
+        ],
+        "dotSize": {"md": "52", "sm": "46", "xs": "40", "unit": "px"},
+        "dotSpace": {"md": "16", "sm": "14", "xs": "12", "unit": "px"},
+        "diconSize": {"md": "22", "sm": "20", "xs": "18", "unit": "px"},
+        "totipmargin": {
+          "md": {"top": "0", "right": "12", "bottom": "0", "left": "0"},
+          "unit": "px"
+        },
+        "totippadding": {
+          "md": {"top": "8", "right": "12", "bottom": "8", "left": "12"},
+          "unit": "px"
+        },
+        "totipAlign": "center",
+        "totipTypo": {
+          "openTypography": 1,
+          "size": {"md": "14", "unit": "px"},
+          "weight": "500"
+        },
+        "totipColor": "#1f2937",
+        "totipBgcolor": "#ffffff",
+        "arrowColor": "#ffffff",
+        "totipBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.1)"
+        },
+        "tipBradius": {
+          "md": {"top": "6", "right": "6", "bottom": "6", "left": "6"},
+          "unit": "px"
+        },
+        "showpagi": false
+      },
+      "useCase": "Testimonial sliders, customer review carousels, team member showcases",
+      "style2TooltipNotes": {
+        "tooltipDirection": "Use vtooltipDir for vertical layouts (left/right make sense), tooltipDir for horizontal layouts (top/bottom make sense)",
+        "labelVisibility": "label text appears in tooltip on hover, not visible by default",
+        "arrowAlignment": "tooltiparrow=true shows CSS arrow pointing to dot, arrowColor must match totipBgcolor for seamless appearance"
+      },
+      "layoutConsiderations": "Vertical dots work best on sidebar of carousel. Place this block in a column next to the carousel for side-by-side layout."
     },
+
     {
-      "description": "Full remote with buttons, dots, and pagination",
+      "name": "Custom Image Icons for Dots",
+      "description": "Team member thumbnails as dot icons with tooltips",
+      "visualDescription": "Horizontal row of 3 dots with circular team member photo thumbnails, hover shows name tooltip above, active member has colored border, photos are 60×60px rounded",
+      "complexity": "advanced",
       "attributes": {
-        "block_id": "g7h8",
-        "carouselId": "featured-carousel",
-        "carobtn": true,
+        "block_id": "cr005",
+        "carouselId": "team-carousel",
+        "carobtn": false,
         "showDot": true,
+        "dotLayout": "horizontal",
+        "dotstyle": "style-2",
+        "tooltipDir": "top",
+        "tooltiparrow": true,
+        "dotList": [
+          {
+            "_key": "0",
+            "label": "Alex Martinez - CEO",
+            "iconFonts": "img",
+            "iconImage": {
+              "url": "/wp-content/uploads/team-member-1.jpg",
+              "id": "101"
+            },
+            "iconimageSize": "thumbnail",
+            "dotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#f3f4f6"
+            },
+            "actdotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#667eea"
+            }
+          },
+          {
+            "_key": "1",
+            "label": "Jordan Lee - CTO",
+            "iconFonts": "img",
+            "iconImage": {
+              "url": "/wp-content/uploads/team-member-2.jpg",
+              "id": "102"
+            },
+            "iconimageSize": "thumbnail",
+            "dotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#f3f4f6"
+            },
+            "actdotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#667eea"
+            }
+          },
+          {
+            "_key": "2",
+            "label": "Taylor Morgan - Designer",
+            "iconFonts": "img",
+            "iconImage": {
+              "url": "/wp-content/uploads/team-member-3.jpg",
+              "id": "103"
+            },
+            "iconimageSize": "thumbnail",
+            "dotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#f3f4f6"
+            },
+            "actdotBgtype": {
+              "openBg": 1,
+              "bgType": "color",
+              "bgDefaultColor": "#667eea"
+            }
+          }
+        ],
+        "dotSize": {"md": "70", "sm": "60", "xs": "50", "unit": "px"},
+        "dotSpace": {"md": "20", "sm": "16", "xs": "12", "unit": "px"},
+        "dimgSize": {"md": "60", "sm": "50", "xs": "40", "unit": "px"},
+        "dpadding": {
+          "md": {"top": "5", "right": "5", "bottom": "5", "left": "5"},
+          "unit": "px"
+        },
+        "totipmargin": {
+          "md": {"top": "12", "right": "0", "bottom": "0", "left": "0"},
+          "unit": "px"
+        },
+        "totippadding": {
+          "md": {"top": "8", "right": "14", "bottom": "8", "left": "14"},
+          "unit": "px"
+        },
+        "totipTypo": {
+          "openTypography": 1,
+          "size": {"md": "13", "unit": "px"},
+          "weight": "500"
+        },
+        "totipColor": "#ffffff",
+        "totipBgcolor": "#1f2937",
+        "arrowColor": "#1f2937",
+        "tipBradius": {
+          "md": {"top": "4", "right": "4", "bottom": "4", "left": "4"},
+          "unit": "px"
+        },
+        "showpagi": false
+      },
+      "useCase": "Team member carousels, author bios, speaker showcases, expert profiles",
+      "imageIconNotes": {
+        "iconFontsValue": "Set iconFonts to 'img' (not 'font_awesome') to use custom images",
+        "iconImage": "Provide WordPress media object with url and id. Use iconimageSize to control WordPress thumbnail size (thumbnail, medium, large, full)",
+        "dimgSize": "Controls max-width of image in pixels. Set smaller than dotSize to leave padding/border room",
+        "imagePadding": "dpadding adds internal spacing between image and dot border (5px recommended for visible border)"
+      },
+      "imageSizeRecommendations": {
+        "thumbnail": "150×150px - Best for dot icons (fast loading)",
+        "medium": "300×300px - Too large for dots, avoid",
+        "optimizeTip": "Use WordPress thumbnail size (150×150) then control display size with dimgSize for best performance"
+      },
+      "borderVisibility": "Active dot background (actdotBgtype) acts as colored border when image is smaller than dot size. 5px padding shows 5px border around image."
+    },
+
+    {
+      "name": "Full Control Panel (All Features)",
+      "description": "Complete remote with buttons, 4 dots, and pagination counter",
+      "visualDescription": "Centered layout with prev/next buttons on sides, 4 horizontal dots in middle with icons, pagination '2 / 4' below dots, all elements styled cohesively in blue theme",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "cr006",
+        "carouselId": "featured-slider",
+        "carobtn": true,
+        "btntxt1": "Prev",
+        "btntxt2": "Next",
+        "rbtnAlign": "text-center",
+        "BiconFont": "font_awesome",
+        "btnIcon1": "fas fa-arrow-left",
+        "btnIcon2": "fas fa-arrow-right",
+        "pAriaLabel": "Previous featured item",
+        "nAriaLabel": "Next featured item",
+        "iconSize": {"md": "16", "unit": "px"},
+        "iconSpace": {"md": "6", "unit": "px"},
+        "btnSpace": {"md": "120", "sm": "80", "xs": "40", "unit": "px"},
+        "rbtnpadding": {
+          "md": {"top": "10", "right": "20", "bottom": "10", "left": "20"},
+          "unit": "px"
+        },
+        "rbtnTypo": {
+          "openTypography": 1,
+          "size": {"md": "13", "unit": "px"},
+          "weight": "600",
+          "transform": "uppercase",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "txtcolor": "#1f2937",
+        "iconColor": "#1f2937",
+        "btnBgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "transparent"
+        },
+        "btnBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "width": {"top": 2, "right": 2, "bottom": 2, "left": 2},
+          "color": "#3b82f6"
+        },
+        "btnBradius": {
+          "md": {"top": "4", "right": "4", "bottom": "4", "left": "4"},
+          "unit": "px"
+        },
+        "Hvrtxtcolor": "#ffffff",
+        "HvrIcolor": "#ffffff",
+        "hvrBgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#3b82f6"
+        },
+        "showDot": true,
+        "dotLayout": "horizontal",
+        "dotstyle": "style-1",
+        "dotList": [
+          {
+            "_key": "0",
+            "label": "Feature 1",
+            "iconFonts": "font_awesome",
+            "iconName": "fas fa-star",
+            "doticonColor": "#94a3b8",
+            "dotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#e2e8f0"},
+            "acticonColor": "#3b82f6",
+            "actdotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#dbeafe"}
+          },
+          {
+            "_key": "1",
+            "label": "Feature 2",
+            "iconFonts": "font_awesome",
+            "iconName": "fas fa-star",
+            "doticonColor": "#94a3b8",
+            "dotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#e2e8f0"},
+            "acticonColor": "#3b82f6",
+            "actdotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#dbeafe"}
+          },
+          {
+            "_key": "2",
+            "label": "Feature 3",
+            "iconFonts": "font_awesome",
+            "iconName": "fas fa-star",
+            "doticonColor": "#94a3b8",
+            "dotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#e2e8f0"},
+            "acticonColor": "#3b82f6",
+            "actdotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#dbeafe"}
+          },
+          {
+            "_key": "3",
+            "label": "Feature 4",
+            "iconFonts": "font_awesome",
+            "iconName": "fas fa-star",
+            "doticonColor": "#94a3b8",
+            "dotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#e2e8f0"},
+            "acticonColor": "#3b82f6",
+            "actdotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#dbeafe"}
+          }
+        ],
+        "AborderColor": "#3b82f6",
+        "AniDuration": "5000",
+        "dotSize": {"md": "44", "sm": "38", "xs": "32", "unit": "px"},
+        "dotSpace": {"md": "10", "sm": "8", "xs": "6", "unit": "px"},
+        "diconSize": {"md": "18", "sm": "16", "xs": "14", "unit": "px"},
         "showpagi": true,
-        "sliderInd": "/",
-        "rbtnAlign": "text-center"
-      }
+        "sliderInd": " / ",
+        "noColor": "#64748b",
+        "noTypo": {
+          "openTypography": 1,
+          "size": {"md": "14", "unit": "px"},
+          "weight": "400"
+        },
+        "ActnoColor": "#1f2937",
+        "ActnoTypo": {
+          "openTypography": 1,
+          "size": {"md": "16", "unit": "px"},
+          "weight": "700"
+        }
+      },
+      "useCase": "Featured content sliders, premium showcases, high-visibility carousels",
+      "layoutBreakdown": {
+        "buttons": "Left: Prev button | Center: Dots + Pagination | Right: Next button",
+        "buttonSpacing": "btnSpace 120px desktop creates wide gap for centered dots, reduces to 40px mobile for compact layout",
+        "alignment": "rbtnAlign='text-center' centers entire control panel"
+      },
+      "paginationNotes": {
+        "sliderInd": "Separator between current/total (e.g., ' / ' shows '2 / 4', '-' shows '2-4', 'of' shows '2of4')",
+        "noTypo": "Typography for total page count (lighter gray)",
+        "ActnoTypo": "Typography for active page number (darker, bolder for emphasis)",
+        "display": "Auto-updates as carousel slides change"
+      },
+      "buttonSpaceResponsive": "CRITICAL: btnSpace must be large enough (120px desktop) to fit dots + pagination in the center gap between buttons. Reduce on mobile to prevent overflow."
+    },
+
+    {
+      "name": "Mobile-Friendly Vertical Dots (Right Sidebar)",
+      "description": "Compact vertical dots optimized for mobile carousel sidebars",
+      "visualDescription": "Small vertical dots on right edge of carousel, simple circles without icons, gray inactive, blue active, minimal spacing for mobile screens",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "cr007",
+        "carouselId": "mobile-gallery",
+        "carobtn": false,
+        "showDot": true,
+        "dotLayout": "vertical",
+        "dotstyle": "style-1",
+        "dotList": [
+          {"_key": "0", "label": "Slide 1", "iconFonts": "font_awesome", "iconName": "", "dotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#cbd5e1"}, "actdotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#3b82f6"}},
+          {"_key": "1", "label": "Slide 2", "iconFonts": "font_awesome", "iconName": "", "dotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#cbd5e1"}, "actdotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#3b82f6"}},
+          {"_key": "2", "label": "Slide 3", "iconFonts": "font_awesome", "iconName": "", "dotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#cbd5e1"}, "actdotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#3b82f6"}},
+          {"_key": "3", "label": "Slide 4", "iconFonts": "font_awesome", "iconName": "", "dotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#cbd5e1"}, "actdotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#3b82f6"}},
+          {"_key": "4", "label": "Slide 5", "iconFonts": "font_awesome", "iconName": "", "dotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#cbd5e1"}, "actdotBgtype": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#3b82f6"}}
+        ],
+        "AborderColor": "#3b82f6",
+        "AniDuration": "",
+        "dotSize": {"md": "32", "sm": "28", "xs": "24", "unit": "px"},
+        "dotSpace": {"md": "12", "sm": "10", "xs": "8", "unit": "px"},
+        "diconSize": {"md": "0", "unit": "px"},
+        "dpadding": {"md": {"top": "0", "right": "0", "bottom": "0", "left": "0"}, "unit": "px"},
+        "showpagi": false
+      },
+      "useCase": "Mobile-first carousels, touch-friendly galleries, compact layouts",
+      "mobileOptimizations": {
+        "noIcons": "iconName set to empty string creates simple circular dots without icons (cleaner, less visual clutter)",
+        "smallDots": "24px mobile dot size meets minimum 24×24px touch target (WCAG 2.5.5 level AAA recommends 44×44, but 24 acceptable for secondary controls)",
+        "compactSpacing": "8px spacing between dots on mobile saves vertical space",
+        "noAnimation": "AniDuration empty string disables border animation for simpler mobile UX"
+      },
+      "placementTip": "Place this block in a narrow column (20-30% width) next to carousel column (70-80% width) for sidebar dot navigation. Use tp-row and tp-column blocks for layout."
+    },
+
+    {
+      "name": "Minimalist Pagination Only",
+      "description": "Clean pagination counter without buttons or dots",
+      "visualDescription": "Simple centered text showing '1 of 8', no buttons or dots, clean typography with active number in bold purple, total count in gray",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "cr008",
+        "carouselId": "blog-slider",
+        "carobtn": false,
+        "showDot": false,
+        "showpagi": true,
+        "sliderInd": " of ",
+        "noColor": "#94a3b8",
+        "noTypo": {
+          "openTypography": 1,
+          "size": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "weight": "400"
+        },
+        "ActnoColor": "#6f14f1",
+        "ActnoTypo": {
+          "openTypography": 1,
+          "size": {"md": "20", "sm": "18", "xs": "16", "unit": "px"},
+          "weight": "700"
+        }
+      },
+      "useCase": "Blog post sliders, article carousels, minimal design aesthetics, progress indicators",
+      "paginationSeparators": {
+        "' / '": "Shows '3 / 8' (slash with spaces)",
+        "' of '": "Shows '3 of 8' (word 'of' with spaces)",
+        "'-'": "Shows '3-8' (hyphen, compact)",
+        "':'": "Shows '3:8' (colon)",
+        "'|'": "Shows '3|8' (pipe/vertical bar)"
+      },
+      "typographyDifference": "Active number (ActnoTypo) is larger (20px) and bolder (700) than total (noTypo 16px, 400) to emphasize current position. Color contrast also helps (purple vs gray).",
+      "whenToUse": "Use pagination-only when carousel auto-rotates and user doesn't need manual navigation (buttons/dots), or when space is extremely limited. Good for awareness of progress without interaction."
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "carouselId": "REQUIRED - Must exactly match the carouselId attribute in the target tpgb/tp-carousel or tpgb/tp-anything-carousel block (case-sensitive)",
+    "carobtn": "If true, buttons will render. Set false to hide buttons entirely.",
+    "showDot": "If true, dotList is used to render dot indicators. Requires dotList array with at least 1 item.",
+    "showpagi": "If true, pagination counter is displayed. Works independently of buttons and dots.",
+    "dotList._key": "Each dot item MUST have unique _key value. Typically sequential: '0', '1', '2', etc.",
+    "BiconFont": "Must be 'font_awesome' (for FA icons) or 'img' (for custom images). Controls how btnIcon1/btnIcon2 vs Ctmicon1/Ctmicon2 are interpreted.",
+    "dotList.iconFonts": "Must be 'font_awesome' (for FA icons) or 'img' (for custom images). Controls whether iconName or iconImage is used for each dot.",
+    "pAriaLabel_nAriaLabel": "REQUIRED when btntxt1 and btntxt2 are empty (icon-only buttons). Screen readers need these for accessibility.",
+    "AniDuration": "Must be numeric string (milliseconds) or empty string. Valid: '3000', '5000', ''. Invalid: '3s', 3000 (number type).",
+    "dotList.length": "Should match the number of slides in connected carousel for 1:1 dot-to-slide mapping. Mismatch causes confusing UX."
+  },
+
+  "warnings": [
+    "CRITICAL: carouselId must EXACTLY match the ID set in the target carousel block. Case-sensitive! 'product-carousel' ≠ 'Product-Carousel'",
+    "Don't set both carobtn=false and showDot=false and showpagi=false - this creates an invisible/useless block with no controls",
+    "When using BiconFont='img', ensure Ctmicon1 and Ctmicon2 have valid image URLs. Empty URLs will show broken image icons",
+    "When using dotList with iconFonts='img', ensure all iconImage objects have valid URLs. Missing images break visual consistency",
+    "AniDuration (border animation) only applies to dotstyle='style-1'. Setting it for style-2 has no effect (tooltips don't animate borders)",
+    "tooltipDir applies to horizontal dotLayout, vtooltipDir applies to vertical dotLayout. Using wrong one has no effect",
+    "btnSpace creates gap between prev/next buttons. If too large on mobile, buttons may overflow viewport. Use responsive values (120 desktop → 40 mobile)",
+    "Pagination (showpagi) auto-updates with carousel slide changes. Don't try to manually set current page - it's controlled by carousel JavaScript",
+    "Active dot border (style-1) animates over AniDuration milliseconds. If carousel autoplay speed is 5000ms but AniDuration is 3000ms, animation finishes early (awkward pause). Sync these values!",
+    "If dotList has 5 items but carousel has 8 slides, dots won't map correctly (dots 6-8 won't exist). Always match counts.",
+    "When btntxt1/btntxt2 are empty, icon-only buttons render. Without pAriaLabel/nAriaLabel, screen readers announce 'button' with no context (accessibility fail)",
+    "iconimageSize ('thumbnail', 'medium', 'large', 'full') is a WordPress image size, not a pixel value. Use dimgSize to control display size in pixels",
+    "tooltiparrow=true shows CSS arrow on tooltip. If arrowColor doesn't match totipBgcolor, arrow will be a different color (usually unintended visual bug)"
+  ],
+
+  "commonMistakes": [
+    "Typo in carouselId - carousel doesn't respond to remote controls (most common mistake)",
+    "Forgetting _key in dotList items - causes React key warnings and potential rendering bugs",
+    "Using AniDuration='3s' instead of '3000' - must be milliseconds as string, not CSS time units",
+    "Setting iconName to icon class with 'fa' prefix in iconFonts='img' mode - won't render, need iconImage URL instead",
+    "Using dimgSize larger than dotSize - image overflows dot circle, breaks layout",
+    "Not setting responsive values for btnSpace - buttons too wide apart on mobile, break to two rows",
+    "Mixing tooltipDir (horizontal) with vertical dotLayout - tooltip direction ignored, falls back to default",
+    "Creating dotList with different icon types (some font_awesome, some img) - inconsistent visual appearance, avoid unless intentional",
+    "Forgetting to set pAriaLabel/nAriaLabel when creating icon-only buttons - fails WCAG accessibility",
+    "Setting showpagi=true but leaving sliderInd empty - pagination shows as '3' with no separator or total count (confusing)",
+    "Using style-2 dots without setting label - tooltips appear empty on hover (bad UX)",
+    "Copying dotList from another carousel but not updating _key values - duplicate keys cause rendering issues"
+  ],
+
+  "bestPractices": [
+    "Always use descriptive, unique carouselId values (e.g., 'product-gallery-main', 'testimonial-homepage', 'team-about-us') to avoid conflicts and aid debugging",
+    "Set ARIA labels (pAriaLabel, nAriaLabel) even when buttons have text - improves accessibility and screen reader context",
+    "Match AniDuration to carousel autoplay speed for seamless visual progress feedback (both 5000ms = perfect sync)",
+    "Use responsive sizing for all elements (dotSize, iconSize, btnSpace, rbtnpadding) to ensure good UX on all devices",
+    "Keep dotList count in sync with carousel slide count - add/remove dots when carousel slides change",
+    "Use style-1 dots for simple, clean navigation (e.g., product galleries, image sliders)",
+    "Use style-2 dots with tooltips when slides have distinct identities (e.g., team members, testimonials) - labels provide context",
+    "For icon-only buttons, use large iconSize (24px+ desktop, 20px+ mobile) to meet touch target requirements",
+    "When using custom image icons (BiconFont='img'), optimize images to <50KB each for fast loading",
+    "Use WordPress 'thumbnail' size (150×150) for dot iconImage - perfect for small icons, fast loading, then control display size with dimgSize",
+    "Set tooltiparrow=false for cleaner tooltip look, or true with matching arrowColor for polished appearance",
+    "Use vertical dotLayout for sidebar navigation (place remote block in narrow column next to carousel)",
+    "Use horizontal dotLayout for below-carousel navigation (centered, full-width placement)",
+    "For minimalist designs, use pagination-only (carobtn=false, showDot=false, showpagi=true) - clean progress indicator",
+    "Test on mobile devices - touch targets should be 44×44px minimum (WCAG 2.5.5 AAA), 24×24px acceptable for secondary controls",
+    "Use uppercase typography (textTransform: 'uppercase') with letter-spacing (0.5-1px) for button text to improve readability",
+    "Keep sliderInd simple (' / ', ' of ', '-') - fancy separators like '→' or emojis may not render consistently across fonts"
+  ],
+
+  "accessibilityNotes": [
+    "ARIA Labels (pAriaLabel, nAriaLabel) are REQUIRED when buttons have no text (btntxt1='', btntxt2='') - screen readers need descriptive context",
+    "Use semantic, descriptive ARIA labels: 'Go to previous product' (good) vs 'Previous' (okay) vs 'Prev' (too brief)",
+    "Active dot state should have sufficient color contrast (3:1 ratio minimum) between active and inactive states for visual distinction",
+    "Touch targets for buttons and dots should be 44×44px minimum (WCAG 2.5.5 Level AAA), 24×24px acceptable for Level A (secondary controls)",
+    "Keyboard navigation: Carousel remote should be operable via keyboard (Tab to focus buttons, Enter/Space to activate) - handled by browser default button behavior",
+    "Don't rely on color alone - use multiple visual cues (size, icon change, border) for active dot state",
+    "Pagination text (e.g., '3 of 8') should have 4.5:1 contrast ratio with background (WCAG AA standard for text)",
+    "If using tooltips (style-2), ensure tooltip text has 4.5:1 contrast ratio with tooltip background",
+    "Consider prefers-reduced-motion: Users with vestibular disorders may prefer AniDuration='' (no border animation)",
+    "Screen reader announcements: Carousel JavaScript should announce slide changes via ARIA live regions - remote block just controls, carousel handles announcements"
+  ],
+
+  "performanceConsiderations": [
+    "Custom image icons (BiconFont='img', iconFonts='img') add HTTP requests - optimize images to <50KB each, use WebP format if possible",
+    "Use WordPress thumbnail size (150×150) for iconImage - pre-generated, optimized, fast loading",
+    "Limit dotList to actual slide count - don't create 50 dots for 5 slides (unnecessary DOM bloat)",
+    "AniDuration animations are CSS-based (low overhead) - safe to use on all devices",
+    "Tooltips (style-2) use CSS positioning, not JavaScript - minimal performance impact",
+    "Pagination auto-updates use lightweight JavaScript - negligible overhead",
+    "If carousel has 100+ slides, consider pagination-only approach (no dots) - rendering 100 dots is DOM-heavy",
+    "FontAwesome icons (BiconFont='font_awesome') are icon fonts - single CSS file, better performance than individual images",
+    "Responsive values (md/sm/xs) generate CSS media queries - efficient, no JavaScript resize listeners",
+    "Active state changes (dot colors, button backgrounds) are CSS transitions - GPU-accelerated, smooth on mobile"
+  ],
+
+  "troubleshooting": [
+    {
+      "problem": "Remote controls don't work - clicking buttons/dots has no effect",
+      "causes": [
+        "carouselId mismatch - remote 'product-carousel' vs carousel 'Product-Carousel' (case-sensitive)",
+        "Carousel JavaScript not loaded - check browser console for errors",
+        "Carousel block not present on same page as remote block"
+      ],
+      "solutions": [
+        "Inspect carousel block settings, copy exact carouselId value (case-sensitive), paste into remote block",
+        "Check browser console (F12) for JavaScript errors - fix any blocking errors",
+        "Ensure carousel and remote blocks are on same page - remote can't control carousels on different pages"
+      ]
+    },
+    {
+      "problem": "Dots render but show no icons or images",
+      "causes": [
+        "iconName empty string but iconFonts='font_awesome' (no icon specified)",
+        "iconImage.url empty but iconFonts='img' (no image URL)",
+        "FontAwesome not loaded on site (icon class doesn't render)"
+      ],
+      "solutions": [
+        "Set iconName to valid FontAwesome class (e.g., 'fas fa-star') when iconFonts='font_awesome'",
+        "Ensure iconImage has valid URL when iconFonts='img'",
+        "Check if FontAwesome CSS is loaded - view page source, search for 'font-awesome' - if missing, enqueue FA in theme"
+      ]
+    },
+    {
+      "problem": "Border animation (style-1) doesn't animate or finishes too fast/slow",
+      "causes": [
+        "AniDuration not set or invalid format ('3s' instead of '3000')",
+        "AniDuration much shorter/longer than carousel autoplay speed (bad sync)"
+      ],
+      "solutions": [
+        "Set AniDuration to milliseconds string: '5000' for 5 seconds",
+        "Match AniDuration to carousel autoplay speed (both 5000ms) for perfect sync"
+      ]
+    },
+    {
+      "problem": "Tooltips (style-2) don't appear or appear in wrong direction",
+      "causes": [
+        "tooltipDir set but dotLayout is vertical (should use vtooltipDir)",
+        "Tooltip CSS z-index conflict with other elements",
+        "label field empty in dotList items"
+      ],
+      "solutions": [
+        "Use tooltipDir for horizontal layout, vtooltipDir for vertical layout",
+        "Inspect element, check z-index - tooltip container should be high (9999)",
+        "Ensure every dotList item has label text for tooltip content"
+      ]
+    },
+    {
+      "problem": "Buttons too wide apart on mobile, break to two rows",
+      "causes": [
+        "btnSpace set to large desktop value (120px) without responsive mobile override"
+      ],
+      "solutions": [
+        "Set responsive btnSpace: {md: '120', sm: '80', xs: '40', unit: 'px'}"
+      ]
+    },
+    {
+      "problem": "Pagination shows '3' with no total count",
+      "causes": [
+        "showpagi=true but sliderInd empty (no separator defined)"
+      ],
+      "solutions": [
+        "Set sliderInd to separator: ' / ' or ' of ' - enables full pagination display"
+      ]
+    },
+    {
+      "problem": "Custom image icons (dotList) too large or overflow dots",
+      "causes": [
+        "dimgSize larger than dotSize (image bigger than container)",
+        "No dpadding set (image fills entire dot, no border visible)"
+      ],
+      "solutions": [
+        "Set dimgSize 10-15px smaller than dotSize (e.g., dotSize 60px, dimgSize 50px)",
+        "Add dpadding (5px recommended) for visible border/background around image"
+      ]
+    },
+    {
+      "problem": "Active dot not visually distinct from inactive dots",
+      "causes": [
+        "actdotBgtype or acticonColor not set (same colors as inactive state)",
+        "Insufficient color contrast between active/inactive states"
+      ],
+      "solutions": [
+        "Set actdotBgtype to contrasting color (e.g., inactive #e2e8f0 gray, active #3b82f6 blue)",
+        "Ensure 3:1 contrast ratio minimum for accessibility"
+      ]
+    }
+  ],
+
+  "integrationExamples": [
+    {
+      "scenario": "Product Image Gallery with Remote Controls",
+      "setup": "Create tpgb/tp-anything-carousel with carouselId='product-images', add 5 product image slides, create tp-carousel-remote below with carouselId='product-images', enable dots (showDot=true, style-1, 5 dots matching 5 slides)",
+      "layout": "Stack carousel above remote - carousel shows large product images, remote below shows horizontal dots for quick navigation",
+      "benefits": "Users can click dots to jump to specific product angle, border animation shows progress during autoplay"
+    },
+    {
+      "scenario": "Testimonial Slider with Sidebar Navigation",
+      "setup": "Create tpgb/tp-row with two tp-column blocks (70% and 30% widths), in 70% column add tp-carousel with carouselId='testimonials', in 30% column add tp-carousel-remote with carouselId='testimonials', enable vertical dots (dotLayout='vertical', style-2 tooltips with customer names)",
+      "layout": "Side-by-side - testimonial content (left 70%) and vertical dots (right 30% sidebar)",
+      "benefits": "Dots with customer name tooltips provide context, clicking dot jumps to that testimonial, vertical layout fits sidebar nicely"
+    },
+    {
+      "scenario": "Blog Post Slider with Progress Indicator",
+      "setup": "Create tp-carousel with 8 blog post slides, carouselId='blog-featured', create tp-carousel-remote with carouselId='blog-featured', disable buttons and dots (carobtn=false, showDot=false), enable pagination only (showpagi=true, sliderInd=' of ')",
+      "layout": "Minimalist - carousel auto-rotates, pagination shows '2 of 8' below for progress awareness",
+      "benefits": "Clean design, no manual controls (auto-rotate only), user sees progress without UI clutter"
+    },
+    {
+      "scenario": "Team Member Carousel with Photo Dots",
+      "setup": "Create tp-carousel with 4 team member bio slides, carouselId='team-about', add tp-carousel-remote with carouselId='team-about', create 4 dotList items with iconFonts='img', iconImage URLs pointing to team member headshots (thumbnail size 150×150), style-2 tooltips with names/titles",
+      "layout": "Carousel shows full bio, dots below show circular headshot thumbnails (60×60 display size), hover shows name tooltip",
+      "benefits": "Visual dot navigation - users see who they're selecting, intuitive UX, photo thumbnails more engaging than generic icons"
+    },
+    {
+      "scenario": "Full-Width Hero Slider with Gradient Buttons",
+      "setup": "Create full-width tp-carousel (align='full') with 3 hero slides, carouselId='hero-home', add tp-carousel-remote with carouselId='hero-home', create icon-only buttons (btntxt1='', btntxt2='', large icons 28px), purple gradient backgrounds, circular shape (radius 50px), positioned left/right edges",
+      "layout": "Buttons float over hero slider edges, no dots (visual distraction on hero), no pagination (only 3 slides)",
+      "benefits": "Elegant hero navigation, gradient buttons match brand, large touch targets, ARIA labels for accessibility"
+    }
+  ],
+
+  "relatedBlocks": [
+    "tpgb/tp-carousel (Anything Carousel) - Target carousel block this remote controls, set matching carouselId",
+    "tpgb/tp-row and tpgb/tp-column - Layout blocks for positioning remote next to/below carousel",
+    "tpgb/tp-testimonials - Often paired with carousel remote for testimonial navigation",
+    "tpgb/tp-product-listing - WooCommerce product carousels can use remote controls"
+  ],
+
+  "carouselIdMatchingGuide": {
+    "step1": "In your carousel block (tpgb/tp-carousel or tpgb/tp-anything-carousel), find the 'Carousel ID' setting",
+    "step2": "Set a unique, descriptive ID (e.g., 'product-gallery-main', 'testimonial-homepage', 'team-slider')",
+    "step3": "Copy this EXACT value (case-sensitive, spaces matter)",
+    "step4": "In carousel remote block, paste the exact value into 'carouselId' attribute",
+    "step5": "Test by clicking prev/next buttons or dots - carousel should respond",
+    "troubleshooting": "If not working, inspect both blocks in editor, compare carouselId values character-by-character for typos"
+  },
+
+  "dotLayoutChoiceGuide": {
+    "horizontal": {
+      "whenToUse": "Below carousel, full-width placement, standard galleries/sliders",
+      "tooltipDirection": "Use tooltipDir (top/bottom make sense for horizontal row)",
+      "spacing": "dotSpace creates horizontal gaps between dots",
+      "advantages": "Familiar UX (most carousels use horizontal dots), fits below content naturally"
+    },
+    "vertical": {
+      "whenToUse": "Sidebar navigation next to carousel, space-constrained layouts, testimonials with names",
+      "tooltipDirection": "Use vtooltipDir (left/right make sense for vertical column)",
+      "spacing": "dotSpace creates vertical gaps between dots",
+      "advantages": "Saves horizontal space, good for tall carousels with many slides, allows longer tooltips (names, titles)"
+    }
+  },
+
+  "styleChoiceGuide": {
+    "style-1": {
+      "appearance": "Dots with animated border that fills around active dot over AniDuration milliseconds",
+      "whenToUse": "Product galleries, image sliders, simple navigation where slides don't have distinct identities",
+      "advantages": "Visual progress indicator (border animation shows time until next slide), clean aesthetic",
+      "configuration": "Set AborderColor (border color), AniDuration (animation milliseconds, sync with carousel autoplay)",
+      "limitations": "No tooltips (can't show slide names/labels)"
+    },
+    "style-2": {
+      "appearance": "Dots with tooltips that appear on hover, showing label text",
+      "whenToUse": "Testimonials (show customer names), team members (show names/titles), any carousel where slides have distinct identities",
+      "advantages": "Context via tooltips, user knows what they're clicking before clicking",
+      "configuration": "Set label in each dotList item (tooltip content), tooltipDir or vtooltipDir (tooltip position), tooltiparrow (show/hide arrow), totipTypo/totipColor/totipBgcolor (tooltip styling)",
+      "limitations": "No animated border progress indicator"
+    }
+  }
 }
