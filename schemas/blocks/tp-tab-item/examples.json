@@ -1,37 +1,744 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-tab-item",
-  "title": "Tab Tours Inner - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Tab Tours Inner - Comprehensive Usage Examples",
+  "description": "Child block for tp-tabs-tours parent, represents individual tab items with clickable button and content panel",
+  "version": "2.0.0",
+  "lastUpdated": "2025-11-23",
+
+  "architectureNote": "CRITICAL: This is a CHILD BLOCK that must be inside tpgb/tp-tabs-tours parent. It cannot be inserted independently (inserter: false). The parent tabs block controls overall layout (horizontal/vertical), styling, and behavior. Each tp-tab-item represents one clickable tab button + its content panel.",
+
   "examples": [
     {
-      "description": "Simple tab with title and content",
+      "name": "Basic Tab Item (Features Overview)",
+      "description": "Simple tab with title and paragraph content, no icon",
+      "visualDescription": "Clickable 'Features' tab button, content panel shows feature description when active",
+      "complexity": "simple",
+      "useCase": "Product features, service descriptions, content organization, navigation menus",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "ti001",
         "tabinTitle": "Features",
         "tabtoIndex": 0,
-        "innerIcon": false
+        "uniqueKey": "tab_0",
+        "activeTab": 1,
+        "innerIcon": false,
+        "navAlign": "text-center"
       },
       "innerBlocks": [
         {
           "blockName": "tpgb/tp-pro-paragraph",
           "attrs": {
-            "block_id": "c3d4",
-            "content": "Our product features include..."
+            "block_id": "para001",
+            "content": "Our product features include advanced analytics, real-time collaboration, automated workflows, and comprehensive reporting. Everything you need to streamline your business operations in one powerful platform."
           }
+        }
+      ],
+      "parentCoordination": {
+        "tabtoIndex": "Must match position in parent tabs (0-based: first tab = 0, second tab = 1)",
+        "activeTab": "Default active tab (1-based: first tab = 1). Set to 1 for first tab to show by default",
+        "uniqueKey": "Recommended format: 'tab_' + index for tracking"
+      }
+    },
+
+    {
+      "name": "Tab with FontAwesome Icon (Pricing)",
+      "description": "Tab button with dollar sign icon before title for visual categorization",
+      "visualDescription": "Purple dollar icon before 'Pricing' text in tab button, content shows pricing details",
+      "complexity": "simple",
+      "useCase": "Categorized tabs, service menus, feature sections, navigation with visual cues",
+      "attributes": {
+        "block_id": "ti002",
+        "tabinTitle": "Pricing",
+        "tabtoIndex": 1,
+        "uniqueKey": "tab_1",
+        "innerIcon": true,
+        "iconFonts": "font_awesome",
+        "innericonName": "fas fa-dollar-sign",
+        "navAlign": "text-center"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-heading",
+          "attrs": {
+            "block_id": "head002",
+            "title": "Flexible Pricing Plans",
+            "titleTag": "h3"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para002",
+            "content": "<strong>Starter:</strong> $29/month - Perfect for individuals<br><strong>Professional:</strong> $79/month - For growing teams<br><strong>Enterprise:</strong> $199/month - Unlimited everything"
+          }
+        }
+      ],
+      "iconOptions": {
+        "faCog": "fas fa-cog - Settings/configuration tabs",
+        "faDollarSign": "fas fa-dollar-sign - Pricing tabs",
+        "faRocket": "fas fa-rocket - Features/performance tabs",
+        "faLifeRing": "fas fa-life-ring - Support/help tabs",
+        "faChartLine": "fas fa-chart-line - Analytics/stats tabs",
+        "faShieldAlt": "fas fa-shield-alt - Security tabs",
+        "faBook": "fas fa-book - Documentation tabs",
+        "faUsers": "fas fa-users - Team/people tabs"
+      }
+    },
+
+    {
+      "name": "Tab with Image Icon (Custom Brand)",
+      "description": "Tab button with custom image icon instead of FontAwesome, ideal for branded tabs",
+      "visualDescription": "Custom logo/icon image before tab title, styled to match brand colors",
+      "complexity": "simple",
+      "useCase": "Brand-specific tabs, product categories with logos, partner sections, platform integrations",
+      "attributes": {
+        "block_id": "ti003",
+        "tabinTitle": "Integrations",
+        "tabtoIndex": 2,
+        "uniqueKey": "tab_2",
+        "innerIcon": true,
+        "iconFonts": "image",
+        "iconImage": {
+          "url": "/images/zapier-icon.png",
+          "Id": "123"
+        },
+        "iconImageSize": "thumbnail",
+        "navAlign": "text-center"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para003",
+            "content": "Connect with 5,000+ apps through our native integrations. Zapier, Make, Slack, Discord, Mailchimp, Google Workspace, and more. Set up automated workflows in minutes without coding."
+          }
+        }
+      ],
+      "imageIconGuidance": {
+        "recommendedSize": "30-40px square icons work best in tab buttons",
+        "imageSize": "Use 'thumbnail' (150px) for icons, 'medium' (300px) if larger icons needed",
+        "format": "SVG or PNG with transparent background recommended",
+        "fallback": "Provide meaningful tabinTitle as fallback when icon doesn't load",
+        "accessibility": "Icon is decorative (aria-hidden), meaning conveyed in tabinTitle"
+      }
+    },
+
+    {
+      "name": "Rich Content Tab (Multi-Block Layout)",
+      "description": "Tab with complex content: heading, multiple paragraphs, styled list, and call-to-action",
+      "visualDescription": "Comprehensive content panel with structured information, visual hierarchy, and CTA button",
+      "complexity": "medium",
+      "useCase": "Detailed product descriptions, service pages, feature showcases, comprehensive documentation",
+      "attributes": {
+        "block_id": "ti004",
+        "tabinTitle": "Why Choose Us",
+        "tabtoIndex": 3,
+        "uniqueKey": "tab_3",
+        "innerIcon": true,
+        "iconFonts": "font_awesome",
+        "innericonName": "fas fa-star",
+        "navAlign": "text-center"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-heading",
+          "attrs": {
+            "block_id": "head004",
+            "title": "Trusted by 10,000+ Businesses Worldwide",
+            "titleTag": "h3"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para004a",
+            "content": "We've been helping businesses transform their operations since 2015. Our platform combines cutting-edge technology with exceptional customer support to deliver results that exceed expectations."
+          }
+        },
+        {
+          "blockName": "tpgb/tp-heading",
+          "attrs": {
+            "block_id": "head004b",
+            "title": "Key Advantages",
+            "titleTag": "h4"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-stylist-list",
+          "attrs": {
+            "block_id": "list004",
+            "listStyle": "icon",
+            "iconName": "fas fa-check-circle",
+            "iconColor": "#27ae60",
+            "items": [
+              {"_key": "0", "text": "99.9% uptime SLA guaranteed"},
+              {"_key": "1", "text": "24/7 premium customer support"},
+              {"_key": "2", "text": "Enterprise-grade security (SOC 2, GDPR)"},
+              {"_key": "3", "text": "30-day money-back guarantee"},
+              {"_key": "4", "text": "Free migration from competitors"}
+            ]
+          }
+        },
+        {
+          "blockName": "tpgb/tp-button",
+          "attrs": {
+            "block_id": "btn004",
+            "buttonText": "Start Free Trial",
+            "style": "style-1"
+          }
+        }
+      ],
+      "contentStrategy": "Use heading hierarchy (h3 main, h4 subheadings), break text into scannable sections, add visual elements (lists, buttons) for engagement"
+    },
+
+    {
+      "name": "Tab with Call-to-Action (Contact Form)",
+      "description": "Tab containing embedded form for lead generation or contact",
+      "visualDescription": "Contact tab opens to show multi-field form with name, email, message, and submit button",
+      "complexity": "medium",
+      "useCase": "Contact forms, newsletter signups, lead generation, feedback collection, demo requests",
+      "attributes": {
+        "block_id": "ti005",
+        "tabinTitle": "Contact Us",
+        "tabtoIndex": 4,
+        "uniqueKey": "tab_4",
+        "innerIcon": true,
+        "iconFonts": "font_awesome",
+        "innericonName": "fas fa-envelope",
+        "navAlign": "text-center"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para005",
+            "content": "Have questions? We're here to help! Fill out the form below and our team will respond within 24 hours."
+          }
+        },
+        {
+          "blockName": "tpgb/tp-form-block",
+          "attrs": {
+            "block_id": "form005",
+            "formLayout": "style-1"
+          },
+          "innerBlocks": [
+            {
+              "blockName": "tpgb/nxt-name-field",
+              "attrs": {
+                "block_id": "name005",
+                "label": "Your Name",
+                "required": true
+              }
+            },
+            {
+              "blockName": "tpgb/nxt-email-field",
+              "attrs": {
+                "block_id": "email005",
+                "label": "Email Address",
+                "required": true
+              }
+            },
+            {
+              "blockName": "tpgb/nxt-message-field",
+              "attrs": {
+                "block_id": "msg005",
+                "label": "Message",
+                "rows": 5,
+                "required": true
+              }
+            },
+            {
+              "blockName": "tpgb/nxt-submit-button",
+              "attrs": {
+                "block_id": "submit005",
+                "buttonText": "Send Message"
+              }
+            }
+          ]
+        }
+      ],
+      "formIntegrationTip": "Tabs are great for organizing multiple forms (Contact, Demo Request, Support) without cluttering the page"
+    },
+
+    {
+      "name": "Tab with Image Gallery (Product Showcase)",
+      "description": "Tab containing image carousel or grid for visual product display",
+      "visualDescription": "Gallery tab shows product images in responsive grid or slider format",
+      "complexity": "medium",
+      "useCase": "Product galleries, portfolio showcases, before/after comparisons, case study visuals",
+      "attributes": {
+        "block_id": "ti006",
+        "tabinTitle": "Gallery",
+        "tabtoIndex": 5,
+        "uniqueKey": "tab_5",
+        "innerIcon": true,
+        "iconFonts": "font_awesome",
+        "innericonName": "fas fa-images",
+        "navAlign": "text-center"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-media-listing",
+          "attrs": {
+            "block_id": "gallery006",
+            "layout": "grid",
+            "columns": {
+              "md": 3,
+              "sm": 2,
+              "xs": 1
+            },
+            "ImgRepeater": [
+              {
+                "_key": "0",
+                "Rimg": {
+                  "url": "/images/product-1.jpg"
+                },
+                "Rtitle": "Product View 1"
+              },
+              {
+                "_key": "1",
+                "Rimg": {
+                  "url": "/images/product-2.jpg"
+                },
+                "Rtitle": "Product View 2"
+              },
+              {
+                "_key": "2",
+                "Rimg": {
+                  "url": "/images/product-3.jpg"
+                },
+                "Rtitle": "Product View 3"
+              }
+            ]
+          }
+        }
+      ],
+      "performanceNote": "Images inside tab content are lazy-loaded when tab becomes active, improving initial page load performance"
+    },
+
+    {
+      "name": "Documentation Tab (Code Examples)",
+      "description": "Tab with technical documentation including formatted code snippets",
+      "visualDescription": "Docs tab shows code examples with syntax highlighting and usage instructions",
+      "complexity": "advanced",
+      "useCase": "API documentation, developer guides, technical tutorials, code references",
+      "attributes": {
+        "block_id": "ti007",
+        "tabinTitle": "API Documentation",
+        "tabtoIndex": 6,
+        "uniqueKey": "tab_6",
+        "innerIcon": true,
+        "iconFonts": "font_awesome",
+        "innericonName": "fas fa-code",
+        "navAlign": "text-left"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-heading",
+          "attrs": {
+            "block_id": "head007",
+            "title": "Authentication",
+            "titleTag": "h3"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para007a",
+            "content": "All API requests require authentication via Bearer token. Include your API key in the Authorization header."
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para007b",
+            "content": "<strong>Example Request:</strong><br><pre><code>curl -X GET https://api.example.com/v1/users \\\n  -H 'Authorization: Bearer YOUR_API_KEY' \\\n  -H 'Content-Type: application/json'</code></pre>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para007c",
+            "content": "<strong>Response (200 OK):</strong><br><pre><code>{\n  \"users\": [\n    {\"id\": 1, \"name\": \"John Doe\", \"email\": \"john@example.com\"},\n    {\"id\": 2, \"name\": \"Jane Smith\", \"email\": \"jane@example.com\"}\n  ]\n}</code></pre>"
+          }
+        }
+      ],
+      "codeFormattingTip": "Use <pre> and <code> tags in tp-pro-paragraph for code blocks. For advanced syntax highlighting, use a dedicated code block plugin."
+    },
+
+    {
+      "name": "Testimonials Tab (Customer Reviews)",
+      "description": "Tab showcasing customer testimonials in blockquote format",
+      "visualDescription": "Reviews tab displays customer quotes with star ratings and attribution",
+      "complexity": "medium",
+      "useCase": "Customer testimonials, case studies, social proof, review showcases",
+      "attributes": {
+        "block_id": "ti008",
+        "tabinTitle": "Customer Reviews",
+        "tabtoIndex": 7,
+        "uniqueKey": "tab_7",
+        "innerIcon": true,
+        "iconFonts": "font_awesome",
+        "innericonName": "fas fa-star",
+        "navAlign": "text-center"
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-blockquote",
+          "attrs": {
+            "block_id": "quote008a",
+            "quoteText": "This platform has completely transformed how we manage our projects. The interface is intuitive, the features are powerful, and the support team is outstanding. Highly recommended!",
+            "authorName": "Michael Chen",
+            "authorRole": "CTO, TechStartup Inc."
+          }
+        },
+        {
+          "blockName": "tpgb/tp-blockquote",
+          "attrs": {
+            "block_id": "quote008b",
+            "quoteText": "We switched from our previous solution six months ago and haven't looked back. The time savings alone have been worth the investment. Best decision we made this year.",
+            "authorName": "Sarah Williams",
+            "authorRole": "Operations Manager, Enterprise Corp"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-button",
+          "attrs": {
+            "block_id": "btn008",
+            "buttonText": "Read More Reviews",
+            "style": "style-2"
+          }
+        }
+      ],
+      "socialProofTip": "Combine tp-blockquote blocks with tp-button to link to full reviews page or third-party review platform"
+    }
+  ],
+
+  "validationRules": {
+    "block_id": "Required, unique identifier",
+    "tabinTitle": "Required, the text shown in tab button (5-15 characters recommended)",
+    "tabtoIndex": "Required, 0-based index matching position in parent tabs (first tab = 0)",
+    "uniqueKey": "Required for tracking, recommended format: 'tab_' + index",
+    "activeTab": "Optional, 1-based (first tab = 1). Only set to 1 for the default active tab",
+    "innerIcon": "Boolean, set to true to show icon in tab button",
+    "iconFonts": "Required if innerIcon is true, options: 'font_awesome' or 'image'",
+    "innericonName": "Required if iconFonts is 'font_awesome', FontAwesome class (e.g., 'fas fa-home')",
+    "iconImage": "Required if iconFonts is 'image', object with url and Id",
+    "iconImageSize": "WordPress image size for custom icons: 'thumbnail', 'medium', 'large', 'full'",
+    "navAlign": "Tab button text alignment: 'text-left', 'text-center', 'text-right'",
+    "innerBlocks": "Array of child blocks, supports any tpgb block for rich content"
+  },
+
+  "warnings": [
+    "CRITICAL: This is a CHILD BLOCK that MUST be inside tpgb/tp-tabs-tours parent - cannot be used independently (inserter: false)",
+    "CRITICAL: tabtoIndex must match position in parent tabs (0-based: first tab = 0, second = 1, third = 2)",
+    "uniqueKey must be unique across all tabs within the same parent tp-tabs-tours",
+    "activeTab is 1-based (first tab = 1) while tabtoIndex is 0-based (first tab = 0) - don't confuse them!",
+    "Only ONE tab should have activeTab: 1 to be shown by default (multiple tabs with activeTab: 1 causes conflicts)",
+    "innerIcon requires iconFonts and innericonName/iconImage to be set (all three work together)",
+    "Parent tp-tabs-tours controls overall tab styling (colors, borders, typography) - individual tabs can't override",
+    "Tab content is hidden until tab is clicked (use lazy loading for heavy content like videos)",
+    "navAlign only affects tab button text, not the button itself (parent controls button layout)",
+    "iconImage should be small icons (30-40px), not large images (breaks tab button layout)",
+    "Don't use more than 8-10 tabs in one parent (UX and mobile concerns - consider accordion or pagination)",
+    "tabinTitle should be concise (long titles break mobile layout)",
+    "Each innerBlock needs unique block_id to avoid React rendering issues",
+    "Heavy content (videos, forms, galleries) inside tabs loads on tab activation (lazy load)",
+    "Parent tp-tabs-tours mode (horizontal/vertical) affects how tabs are displayed"
+  ],
+
+  "commonMistakes": [
+    "Trying to insert tp-tab-item directly without parent tpgb/tp-tabs-tours (won't work - inserter disabled)",
+    "Not matching tabtoIndex with actual position in parent tabs (causes wrong tab to activate)",
+    "Confusing activeTab (1-based) with tabtoIndex (0-based) - common source of bugs",
+    "Setting multiple tabs with activeTab: 1 (only first tab should be default active)",
+    "Forgetting uniqueKey (breaks tab tracking and switching)",
+    "Setting innerIcon: true but forgetting innericonName or iconImage (icon won't show)",
+    "Using large images for iconImage (should be small icons 30-40px)",
+    "Using tabinTitle with 20+ characters (breaks mobile layout, use 5-15 characters)",
+    "Not providing block_id for innerBlocks (can cause rendering issues)",
+    "Setting navAlign on individual tabs thinking it affects layout (parent controls layout)",
+    "Adding too many tabs (8+) without considering mobile UX (tabs become tiny)",
+    "Forgetting to set iconFonts when innerIcon is true (defaults to font_awesome but should be explicit)",
+    "Using iconImageSize 'full' for icons (use 'thumbnail' for small icons)",
+    "Not coordinating activeTab with parent's defaultTab attribute",
+    "Using generic titles like 'Tab 1', 'Tab 2' (bad UX and accessibility)",
+    "Not testing tab content on mobile (vertical stacking, smaller viewports)"
+  ],
+
+  "bestPractices": [
+    "Always test tab items within their parent tpgb/tp-tabs-tours context",
+    "Keep tabinTitle concise: 5-15 characters ideal (e.g., 'Features', 'Pricing', 'FAQ')",
+    "Use uniqueKey format 'tab_0', 'tab_1', etc. for consistency",
+    "Set activeTab: 1 only for the first tab (or whichever should show by default)",
+    "Use innerIcon to categorize tabs visually (dollar for pricing, cog for settings, etc.)",
+    "Keep tabtoIndex sequential (0, 1, 2, 3) matching visual order",
+    "Limit total tabs to 5-7 for optimal UX (more tabs = harder to scan)",
+    "Use horizontal tabs for 3-5 items, vertical tabs for 6+ items",
+    "Provide meaningful tab titles that work standalone (users scan tabs before clicking)",
+    "Structure tab content with headings for hierarchy (h3 for main sections)",
+    "Use tp-stylist-list for bullet points inside tab content",
+    "Add CTAs (tp-button) at the end of tab content when appropriate",
+    "Test mobile responsiveness - parent tabs may switch to accordion mode",
+    "Use iconImageSize 'thumbnail' for custom icon images (30-40px)",
+    "Coordinate with parent's tabLayout (horizontal/vertical) and tabEffect (slide/fade)",
+    "Keep heavy content (videos, galleries) minimal per tab for performance",
+    "Use consistent icon library (font_awesome) across all tabs",
+    "For code documentation, use <pre> and <code> tags in tp-pro-paragraph",
+    "Consider using tp-tabs-tours for horizontal navigation, tp-accordion for FAQ-style content",
+    "Group related tabs (all features, all pricing tiers, all support topics)",
+    "Use navAlign: 'text-center' for balanced tabs, 'text-left' for text-heavy content",
+    "Test keyboard navigation (Tab to focus, Enter to activate, Arrow keys to switch tabs)",
+    "Provide clear visual feedback for active tab (parent controls styling)",
+    "Don't nest tabs inside tabs (use tp-switcher or tp-accordion for sub-navigation)"
+  ],
+
+  "parentChildCoordination": {
+    "requiredParentBlock": "tpgb/tp-tabs-tours",
+    "parentControls": {
+      "styling": "Parent controls all visual styling (colors, borders, shadows, typography)",
+      "layout": "Parent controls tab layout (horizontal/vertical), alignment, spacing",
+      "behavior": "Parent controls tab switching effects (fade/slide), default active tab",
+      "responsive": "Parent may switch to accordion mode on mobile (responsive setting)"
+    },
+    "childControls": {
+      "content": "Child controls tab button title (tabinTitle) and panel content (innerBlocks)",
+      "icon": "Child can add optional icon in tab button (innerIcon, innericonName)",
+      "index": "Child must coordinate tabtoIndex with parent array position",
+      "uniqueKey": "Child sets unique identifier for tab tracking"
+    },
+    "coordinationExample": {
+      "parent": {
+        "blockName": "tpgb/tp-tabs-tours",
+        "attrs": {
+          "block_id": "tabs_parent",
+          "tabLayout": "horizontal",
+          "tabEffect": "fade",
+          "defaultTab": 1
+        }
+      },
+      "children": [
+        {
+          "blockName": "tpgb/tp-tab-item",
+          "attrs": {
+            "block_id": "ti001",
+            "tabinTitle": "Features",
+            "tabtoIndex": 0,
+            "activeTab": 1,
+            "uniqueKey": "tab_0"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-tab-item",
+          "attrs": {
+            "block_id": "ti002",
+            "tabinTitle": "Pricing",
+            "tabtoIndex": 1,
+            "uniqueKey": "tab_1"
+          }
+        }
+      ]
+    }
+  },
+
+  "indexingExplained": {
+    "tabtoIndex": {
+      "description": "0-based index for internal tracking and coordination with parent",
+      "values": "First tab = 0, Second tab = 1, Third tab = 2, etc.",
+      "usage": "Must match actual position in parent's tabs array",
+      "critical": "If tabtoIndex doesn't match position, wrong tab content will show"
+    },
+    "activeTab": {
+      "description": "1-based indicator for default active tab (shown on page load)",
+      "values": "First tab = 1, Second tab = 2, Third tab = 3, etc.",
+      "usage": "Set to 1 for the tab that should be active by default (usually first tab)",
+      "critical": "Only ONE tab should have activeTab: 1 to avoid conflicts"
+    },
+    "example": {
+      "firstTab": {
+        "tabtoIndex": 0,
+        "activeTab": 1,
+        "note": "First tab, shown by default"
+      },
+      "secondTab": {
+        "tabtoIndex": 1,
+        "activeTab": 0,
+        "note": "Second tab, not active by default (activeTab can be 0 or omitted)"
+      },
+      "thirdTab": {
+        "tabtoIndex": 2,
+        "note": "Third tab, activeTab not set (defaults to inactive)"
+      }
+    }
+  },
+
+  "accessibilityConsiderations": [
+    "Tabs are keyboard accessible (Tab to focus, Enter to activate, Arrow keys to switch between tabs)",
+    "ARIA attributes automatically added (role='tablist', aria-selected, aria-controls)",
+    "Tab button text (tabinTitle) is read by screen readers - make it descriptive",
+    "innerIcon should be decorative (aria-hidden='true') - meaning conveyed in tabinTitle",
+    "Use semantic HTML in tab content (headings, lists, paragraphs) for screen reader navigation",
+    "Ensure sufficient color contrast for tab buttons (active vs inactive states)",
+    "Test with keyboard: Tab (focus), Enter (activate), Left/Right Arrow (switch tabs)",
+    "Parent tabs may convert to accordion on mobile for better touch accessibility",
+    "Provide clear visual feedback for active tab (parent styling handles this)",
+    "Don't rely solely on color to indicate active tab (use underline, bold, or other visual cues)"
+  ],
+
+  "performanceOptimization": [
+    "Tab content is lazy-loaded - content only rendered when tab becomes active",
+    "Heavy content (videos, carousels, large images) won't impact initial page load",
+    "CSS-based tab switching (display: none/block) is performant",
+    "Use image lazy loading inside tab content (WordPress native lazy='loading')",
+    "Parent tabs use CSS transitions for smooth switching (GPU-accelerated)",
+    "Limit innerBlocks to essential content per tab (don't nest complex layouts unnecessarily)",
+    "Consider using Swiper effect (parent setting) for touch-friendly mobile tabs",
+    "Test mobile performance - tabs may switch to accordion for better UX",
+    "Total tabs recommended limit: 7-8 tabs per parent (UX and performance)",
+    "SVG icons (innerIcon with FontAwesome) perform better than image icons"
+  ],
+
+  "troubleshooting": [
+    {
+      "issue": "Tab item won't insert/add",
+      "solutions": [
+        "Verify you're inside a tpgb/tp-tabs-tours parent block",
+        "Check parent tabs has space for new items",
+        "Try adding tab via parent tabs' 'Add Tab' control instead",
+        "Check browser console for JavaScript errors"
+      ]
+    },
+    {
+      "issue": "Wrong tab content shows when clicked",
+      "solutions": [
+        "Verify tabtoIndex matches actual position (0-based: first=0, second=1)",
+        "Check uniqueKey is unique across all tabs",
+        "Verify no duplicate tabtoIndex values across tabs",
+        "Check parent tabs structure hasn't been corrupted"
+      ]
+    },
+    {
+      "issue": "No tab is active by default / wrong tab is active",
+      "solutions": [
+        "Verify only ONE tab has activeTab: 1 (not multiple)",
+        "Check first tab has activeTab: 1 if it should be default",
+        "Verify parent's defaultTab attribute coordinates with child activeTab",
+        "Clear browser cache and test in incognito mode"
+      ]
+    },
+    {
+      "issue": "Icon not showing in tab button",
+      "solutions": [
+        "Verify innerIcon is set to true (not false)",
+        "Check iconFonts is set ('font_awesome' or 'image')",
+        "For FontAwesome: verify innericonName has valid class (e.g., 'fas fa-home')",
+        "For image: verify iconImage has valid url",
+        "Verify FontAwesome is loaded on the page (parent theme/plugins)",
+        "Check for CSS conflicts hiding the icon"
+      ]
+    },
+    {
+      "issue": "Tab title breaking on mobile",
+      "solutions": [
+        "Reduce tabinTitle length (use 5-15 characters max)",
+        "Test parent's responsive settings (may need to switch to vertical or accordion)",
+        "Check parent tab button width settings",
+        "Test on actual mobile device (not just resized browser)"
+      ]
+    },
+    {
+      "issue": "Tab content not switching smoothly",
+      "solutions": [
+        "Check parent's tabEffect setting ('fade' vs 'slide')",
+        "Verify no JavaScript errors in browser console",
+        "Check innerBlocks don't have CSS position:fixed (breaks animation)",
+        "Test without browser extensions (some interfere with animations)",
+        "Clear browser cache and test in incognito mode"
+      ]
+    }
+  ],
+
+  "integrationExamples": [
+    {
+      "name": "Complete Product Page Tabs",
+      "description": "Product page with Features, Specifications, Reviews, and FAQ tabs",
+      "structure": "Parent tp-tabs-tours with 4 tp-tab-item children in horizontal layout",
+      "blocks": [
+        {
+          "block": "tpgb/tp-tabs-tours",
+          "attrs": {
+            "block_id": "product_tabs",
+            "tabLayout": "horizontal",
+            "tabEffect": "fade",
+            "defaultTab": 1
+          },
+          "innerBlocks": [
+            {
+              "block": "tpgb/tp-tab-item",
+              "attrs": {
+                "tabinTitle": "Features",
+                "tabtoIndex": 0,
+                "activeTab": 1
+              }
+            },
+            {
+              "block": "tpgb/tp-tab-item",
+              "attrs": {
+                "tabinTitle": "Specs",
+                "tabtoIndex": 1
+              }
+            },
+            {
+              "block": "tpgb/tp-tab-item",
+              "attrs": {
+                "tabinTitle": "Reviews",
+                "tabtoIndex": 2
+              }
+            },
+            {
+              "block": "tpgb/tp-tab-item",
+              "attrs": {
+                "tabinTitle": "FAQ",
+                "tabtoIndex": 3
+              }
+            }
+          ]
         }
       ]
     },
     {
-      "description": "Tab with custom icon",
-      "attributes": {
-        "block_id": "e5f6",
-        "tabinTitle": "Pricing",
-        "tabtoIndex": 1,
-        "innerIcon": true,
-        "innericonName": "fas fa-dollar-sign"
-      }
+      "name": "Service Menu with Icons",
+      "description": "Service page with categorized tabs using FontAwesome icons",
+      "tip": "Use innerIcon with descriptive icons to categorize services (cog, rocket, shield, etc.)"
+    },
+    {
+      "name": "Documentation Portal",
+      "description": "Developer docs with Getting Started, API Reference, Examples, and Support tabs",
+      "tip": "Use vertical tabs for 5+ documentation sections, horizontal for 3-4 sections"
+    },
+    {
+      "name": "Pricing Plans Comparison",
+      "description": "Pricing page with Starter, Pro, and Enterprise tabs showing detailed features",
+      "tip": "Combine with tp-pricing-table inside tab content for detailed plan comparison"
     }
   ],
-  "commonPatterns": {}
+
+  "migrationGuide": {
+    "fromOldArrayApproach": "Older versions used tabsData array in parent attributes",
+    "toInnerBlocksArchitecture": "Current approach uses WordPress innerBlocks with tp-tab-item child blocks",
+    "benefits": "innerBlocks provides rich content, nested blocks, better editor experience",
+    "backwards": "Both approaches supported - existing tabsData arrays still work"
+  },
+
+  "relatedBlocks": [
+    "tpgb/tp-tabs-tours - Parent block (REQUIRED)",
+    "tpgb/tp-accordion - Alternative: expandable content (better for mobile FAQs)",
+    "tpgb/tp-switcher - Alternative: toggle between content sections",
+    "tpgb/tp-expand - Alternative: read more/less for single content",
+    "tpgb/tp-pro-paragraph - Common innerBlock for text content",
+    "tpgb/tp-heading - Common innerBlock for section headings",
+    "tpgb/tp-stylist-list - Common innerBlock for bullet lists",
+    "tpgb/tp-button - Common innerBlock for CTAs inside tabs",
+    "tpgb/tp-form-block - Common innerBlock for contact/signup forms in tabs"
+  ]
 }
