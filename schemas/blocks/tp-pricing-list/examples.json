@@ -2,45 +2,671 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-pricing-list",
   "title": "Pricing List - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Restaurant menus, service lists, pricing catalogs with images, tags, and descriptions",
   "examples": [
     {
-      "description": "Simple menu item with price",
+      "name": "Restaurant Food Menu (Style-1 Simple)",
+      "description": "Classic restaurant menu with title, tags, price, and description - no images",
+      "visualDescription": "Simple left-aligned menu list with 'Caesar Salad' title, green vegetarian tags, $12.99 price, full description",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "pl001",
         "style": "style-1",
+        "Alignment": {
+          "md": "left",
+          "sm": "left",
+          "xs": "left"
+        },
         "title": "Caesar Salad",
+        "tagField": "Vegetarian|Gluten-Free Option",
         "price": "$12.99",
-        "description": "Fresh romaine lettuce, parmesan cheese, croutons, and our signature dressing",
-        "tagField": "Vegetarian|Gluten-Free Option"
+        "description": "Fresh romaine lettuce, parmesan cheese, house-made croutons, and our signature Caesar dressing",
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {"md": "22", "sm": "20", "xs": "18", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "titleColor": "#2c3e50",
+        "tagTypo": {
+          "openTypography": 1,
+          "size": {"md": "12", "sm": "11", "xs": "10", "unit": "px"},
+          "fontWeight": "500",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "tagColor": "#ffffff",
+        "tagBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#10b981"
+        },
+        "tagBRadius": {
+          "md": {
+            "top": "4",
+            "right": "4",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        },
+        "tagPadding": {
+          "md": {
+            "top": "4",
+            "right": "8",
+            "bottom": "4",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "tagSpace": {
+          "md": "6",
+          "unit": "px"
+        },
+        "priceTypo": {
+          "openTypography": 1,
+          "size": {"md": "20", "sm": "18", "xs": "16", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "priceColor": "#667eea",
+        "descTypo": {
+          "openTypography": 1,
+          "size": {"md": "15", "sm": "14", "xs": "13", "unit": "px"},
+          "lineHeight": {"md": "1.6", "unit": "em"}
+        },
+        "descColor": "#6b7280",
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f9fafb"
+        },
+        "bgNmlBRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "normalBGShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.05)"
+        }
+      },
+      "useCase": "Restaurant menus, cafe menus, food delivery apps, catering services",
+      "tagUsage": {
+        "format": "Pipe-separated values (Tag1|Tag2|Tag3)",
+        "examples": "Vegetarian|Vegan|Gluten-Free|Spicy|Chef's Special|New|Popular",
+        "limit": "2-4 tags maximum for readability",
+        "styling": "Use background colors to differentiate (green=vegetarian, red=spicy, blue=new)"
       }
     },
     {
-      "description": "Menu item with image (style-2)",
+      "name": "Salon Service Pricing with Duration Tags",
+      "description": "Beauty salon services with service name, duration tag, price, and no description",
+      "visualDescription": "Center-aligned service list, 'Haircut & Styling' title, purple '45 min' tag, $65 price, light background",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "pl002",
+        "style": "style-1",
+        "Alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "left"
+        },
+        "title": "Haircut & Styling",
+        "tagField": "45 min",
+        "price": "$65",
+        "description": "",
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {"md": "20", "sm": "18", "xs": "16", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "titleColor": "#1f2937",
+        "tagTypo": {
+          "openTypography": 1,
+          "size": {"md": "13", "sm": "12", "xs": "11", "unit": "px"},
+          "fontWeight": "500"
+        },
+        "tagColor": "#ffffff",
+        "tagBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#667eea",
+            "color2": "#764ba2",
+            "type": "linear",
+            "direction": "135",
+            "start": 0,
+            "stop": 100
+          }
+        },
+        "tagBRadius": {
+          "md": {
+            "top": "20",
+            "right": "20",
+            "bottom": "20",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "tagPadding": {
+          "md": {
+            "top": "6",
+            "right": "14",
+            "bottom": "6",
+            "left": "14"
+          },
+          "unit": "px"
+        },
+        "priceTypo": {
+          "openTypography": 1,
+          "size": {"md": "24", "sm": "22", "xs": "20", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "priceColor": "#1f2937",
+        "priceBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#fef3c7"
+        },
+        "priceBRadius": {
+          "md": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        },
+        "pricePadding": {
+          "md": {
+            "top": "6",
+            "right": "12",
+            "bottom": "6",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "bgNormalB": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e7eb",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "bgNmlBRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Salon/spa services, barbershops, wellness centers, fitness classes, appointment-based services",
+      "durationTagTips": {
+        "format": "Use single tag for duration (15 min, 30 min, 1 hour, 90 min)",
+        "color": "Use gradient background for premium feel",
+        "pillShape": "borderRadius: 20px creates pill-shaped tags",
+        "placement": "Duration tags help customers plan appointments"
+      }
+    },
+    {
+      "name": "Coffee Shop Menu with Multiple Size Tags",
+      "description": "Coffee drinks with size options as tags and price for medium size",
+      "visualDescription": "Left-aligned 'Cappuccino' title, three brown tags (Small|Medium|Large), $4.50 price, short description",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "pl003",
+        "style": "style-1",
+        "Alignment": {
+          "md": "left",
+          "sm": "left",
+          "xs": "left"
+        },
+        "title": "Cappuccino",
+        "tagField": "Small|Medium|Large",
+        "price": "$4.50",
+        "description": "Espresso with steamed milk and thick foam",
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {"md": "24", "sm": "22", "xs": "20", "unit": "px"},
+          "fontWeight": "700",
+          "fontFamily": "Georgia"
+        },
+        "titleColor": "#78350f",
+        "titleBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#fef3c7"
+        },
+        "titlePadding": {
+          "md": {
+            "top": "8",
+            "right": "12",
+            "bottom": "8",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "tagTypo": {
+          "openTypography": 1,
+          "size": {"md": "11", "sm": "10", "xs": "9", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase"
+        },
+        "tagColor": "#ffffff",
+        "tagBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#92400e"
+        },
+        "tagBRadius": {
+          "md": {
+            "top": "3",
+            "right": "3",
+            "bottom": "3",
+            "left": "3"
+          },
+          "unit": "px"
+        },
+        "tagPadding": {
+          "md": {
+            "top": "5",
+            "right": "10",
+            "bottom": "5",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "tagSpace": {
+          "md": "8",
+          "unit": "px"
+        },
+        "priceTypo": {
+          "openTypography": 1,
+          "size": {"md": "22", "sm": "20", "xs": "18", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "priceColor": "#78350f",
+        "descTypo": {
+          "openTypography": 1,
+          "size": {"md": "14", "sm": "13", "xs": "12", "unit": "px"},
+          "fontStyle": "italic"
+        },
+        "descColor": "#92400e",
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#fffbeb"
+        },
+        "bgNmlBRadius": {
+          "md": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Coffee shops, juice bars, smoothie shops, beverage menus, size-based pricing",
+      "sizeTagNotes": {
+        "format": "Small|Medium|Large (or S|M|L|XL for clothing)",
+        "priceStrategy": "Show price for medium (default) or 'From $3.50' for variable pricing",
+        "multiPricing": "For different prices per size, create separate tp-pricing-list blocks per size",
+        "visualHierarchy": "Use tight tagSpace (6-8px) to group size tags together"
+      }
+    },
+    {
+      "name": "Restaurant Menu with Image Flip Card (Style-2)",
+      "description": "Interactive flip card menu with food image on front, description and price on back (hover to flip)",
+      "visualDescription": "Card with 'Grilled Salmon' circular image, hover to flip horizontally revealing description and $24.99 price on purple background",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "pl004",
         "style": "style-2",
+        "hoverEffect": "horizontal",
+        "boxAlign": "center-left",
         "title": "Grilled Salmon",
         "price": "$24.99",
+        "description": "Fresh Atlantic salmon grilled to perfection, served with seasonal vegetables and lemon butter sauce",
         "imageField": {
-          "url": "/salmon.jpg"
+          "url": "/menu-images/grilled-salmon.jpg"
         },
+        "imageSize": "medium",
         "imgShape": "circle",
-        "hoverEffect": "horizontal",
-        "boxAlign": "center-left"
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {"md": "26", "sm": "24", "xs": "22", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "titleColor": "#ffffff",
+        "priceTypo": {
+          "openTypography": 1,
+          "size": {"md": "32", "sm": "28", "xs": "24", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "priceColor": "#fef3c7",
+        "descTypo": {
+          "openTypography": 1,
+          "size": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "lineHeight": {"md": "1.8", "unit": "em"}
+        },
+        "descColor": "#ffffff",
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#f3f4f6",
+            "color2": "#e5e7eb",
+            "type": "linear",
+            "direction": "135",
+            "start": 0,
+            "stop": 100
+          }
+        },
+        "bgNmlBRadius": {
+          "md": {
+            "top": "16",
+            "right": "16",
+            "bottom": "16",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "normalBGShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.1)"
+        },
+        "hoverBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#667eea",
+            "color2": "#764ba2",
+            "type": "linear",
+            "direction": "135",
+            "start": 0,
+            "stop": 100
+          }
+        },
+        "bgHvrBRadius": {
+          "md": {
+            "top": "16",
+            "right": "16",
+            "bottom": "16",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "hoverBGShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.4)"
+        }
+      },
+      "useCase": "Upscale restaurants, specialty food menus, premium product showcases, image-focused catalogs",
+      "style2Notes": {
+        "hoverEffect": "horizontal (left-right flip) or vertical (top-bottom flip)",
+        "boxAlign": "Controls content alignment: top-left, center-left, center-right, top-right, etc.",
+        "imgShape": "circle (circular crop), square, none (rectangle)",
+        "frontSide": "Shows imageField + title on front of card",
+        "backSide": "Shows description + price on hover (back of card)",
+        "flipMechanism": "CSS 3D transform flip animation (works on desktop and touch devices)",
+        "performance": "GPU accelerated, smooth 0.6s transition"
+      },
+      "imageRequirements": {
+        "recommendedSize": "800x800px (square for circle/square crop)",
+        "format": "JPG or PNG (WebP for better performance)",
+        "fileSize": "<200KB for fast loading",
+        "circleShape": "Use square images (1:1 aspect ratio) for perfect circular crop",
+        "imageSize": "medium (300x300px), large (1024x1024px), full (original)",
+        "accessibility": "Set alt text in WordPress media library (WCAG requirement)"
       }
     },
     {
-      "description": "Price list with dotted separator (style-3)",
+      "name": "Salon Services with Vertical Flip (Style-2)",
+      "description": "Spa service cards with treatment images, vertical flip effect to reveal details",
+      "visualDescription": "Card with 'Deep Tissue Massage' image, hover flips vertically to show description and $120/90min price on green gradient",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "pl005",
+        "style": "style-2",
+        "hoverEffect": "vertical",
+        "boxAlign": "center-left",
+        "title": "Deep Tissue Massage",
+        "tagField": "",
+        "price": "$120",
+        "description": "90-minute therapeutic massage targeting muscle tension and pain relief. Perfect for athletes and chronic pain sufferers.",
+        "imageField": {
+          "url": "/spa-images/massage-therapy.jpg"
+        },
+        "imageSize": "large",
+        "imgShape": "square",
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {"md": "24", "sm": "22", "xs": "20", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "1", "unit": "px"}
+        },
+        "titleColor": "#ffffff",
+        "priceTypo": {
+          "openTypography": 1,
+          "size": {"md": "36", "sm": "32", "xs": "28", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "priceColor": "#d1fae5",
+        "descTypo": {
+          "openTypography": 1,
+          "size": {"md": "15", "sm": "14", "xs": "13", "unit": "px"},
+          "lineHeight": {"md": "1.7", "unit": "em"}
+        },
+        "descColor": "#ffffff",
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#1f2937"
+        },
+        "bgNmlBRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "normalBGShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 6,
+          "blur": 16,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.15)"
+        },
+        "hoverBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#10b981",
+            "color2": "#059669",
+            "type": "linear",
+            "direction": "180",
+            "start": 0,
+            "stop": 100
+          }
+        },
+        "bgHvrBRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "hoverBGShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 10,
+          "blur": 24,
+          "spread": 0,
+          "color": "rgba(16, 185, 129, 0.35)"
+        }
+      },
+      "useCase": "Spa/wellness services, photography packages, event planning services, premium offerings",
+      "verticalFlipNotes": {
+        "hoverEffect": "vertical creates top-to-bottom flip (vs horizontal side-to-side)",
+        "bestFor": "Tall card layouts, portrait-oriented images, mobile-friendly flip direction",
+        "userExperience": "Vertical flip feels more natural on mobile (similar to scrolling)",
+        "imgShape": "square maintains full image visibility (vs circle crops edges)",
+        "contrastImportance": "Ensure white text on hover background has WCAG AA contrast (4.5:1 minimum)"
+      }
+    },
+    {
+      "name": "Professional Services with Dotted Line (Style-3)",
+      "description": "Horizontal layout with small image left, dotted separator line, price right - compact list style",
+      "visualDescription": "Row layout: 80px circular photo left, 'Web Design Package' title, gray dotted line separator, '$2,500' price right",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "pl006",
         "style": "style-3",
-        "title": "Haircut & Styling",
-        "price": "$45",
+        "boxAlign": "top-left",
+        "title": "Web Design Package",
+        "tagField": "5 Pages|Responsive|SEO",
+        "price": "$2,500",
+        "description": "Complete website design with 5 custom pages, mobile-responsive layout, and basic SEO optimization",
+        "imageField": {
+          "url": "/services/web-design-icon.png"
+        },
+        "imageSize": "thumbnail",
+        "imgMinWidth": {
+          "md": "80",
+          "sm": "70",
+          "xs": "60",
+          "unit": "px"
+        },
+        "imgMaxWidth": {
+          "md": "80",
+          "sm": "70",
+          "xs": "60",
+          "unit": "px"
+        },
+        "imgRightSpace": {
+          "md": "20",
+          "sm": "15",
+          "xs": "12",
+          "unit": "px"
+        },
+        "imgBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e7eb",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "imgBRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "px"
+        },
+        "imgShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 6,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.08)"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {"md": "20", "sm": "18", "xs": "16", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "titleColor": "#1f2937",
+        "tagTypo": {
+          "openTypography": 1,
+          "size": {"md": "11", "sm": "10", "xs": "9", "unit": "px"},
+          "fontWeight": "500",
+          "textTransform": "uppercase"
+        },
+        "tagColor": "#667eea",
+        "tagBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ede9fe"
+        },
+        "tagBRadius": {
+          "md": {
+            "top": "4",
+            "right": "4",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        },
+        "tagPadding": {
+          "md": {
+            "top": "4",
+            "right": "8",
+            "bottom": "4",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "tagSpace": {
+          "md": "6",
+          "unit": "px"
+        },
         "lineStyle": {
           "openBorder": 1,
           "type": "dotted",
-          "color": "#cccccc",
+          "color": "#d1d5db",
           "width": {
             "md": {
               "bottom": "2"
@@ -48,30 +674,654 @@
             "unit": "px"
           }
         },
-        "tagField": "30 min"
+        "priceTypo": {
+          "openTypography": 1,
+          "size": {"md": "24", "sm": "22", "xs": "20", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "priceColor": "#667eea",
+        "descTypo": {
+          "openTypography": 1,
+          "size": {"md": "14", "sm": "13", "xs": "12", "unit": "px"},
+          "lineHeight": {"md": "1.6", "unit": "em"}
+        },
+        "descColor": "#6b7280",
+        "bgPadding": {
+          "md": {
+            "top": "20",
+            "right": "24",
+            "bottom": "20",
+            "left": "24"
+          },
+          "sm": {
+            "top": "16",
+            "right": "18",
+            "bottom": "16",
+            "left": "18"
+          },
+          "xs": {
+            "top": "14",
+            "right": "16",
+            "bottom": "14",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "bgNormalB": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#f3f4f6",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "0",
+              "bottom": "1",
+              "right": "0"
+            },
+            "unit": "px"
+          }
+        }
+      },
+      "useCase": "Professional services pricing, consulting packages, photography pricing, design services, project-based pricing",
+      "style3Layout": {
+        "structure": "Horizontal row: [Image] [Title + Tags + Dotted Line + Description] [Price]",
+        "imagePlacement": "Left side, fixed width (60-100px recommended)",
+        "dottedLine": "Flex-grows between title and price, creates visual connection",
+        "bestFor": "Compact lists, multi-item menus, space-efficient layouts",
+        "responsive": "On mobile (xs), image stacks on top or reduces to 50-60px width"
+      },
+      "dottedLineStyling": {
+        "lineStyle.type": "dotted (classic menu style), dashed (modern), solid (simple)",
+        "lineStyle.color": "Light gray (#d1d5db) for subtle, brand color for emphasis",
+        "lineStyle.width.md.bottom": "1-3px (2px optimal for dotted, 1px for dashed)",
+        "visualEffect": "Dotted line guides eye from item name to price (classic restaurant menu pattern)"
       }
     },
     {
-      "description": "Custom styled menu item",
+      "name": "Event Agenda with Speaker Photos (Style-3)",
+      "description": "Conference schedule with speaker headshots, session titles, times, and topics",
+      "visualDescription": "Row layout: 70px square speaker photo, 'Keynote: Future of AI' title, 'Machine Learning|Ethics' tags, dashed line, '9:00 AM' time",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "g7h8",
-        "title": "Espresso",
-        "price": "$3.50",
+        "block_id": "pl007",
+        "style": "style-3",
+        "boxAlign": "top-left",
+        "title": "Keynote: The Future of AI",
+        "tagField": "Machine Learning|Ethics|Research",
+        "price": "9:00 AM",
+        "description": "Dr. Jane Smith explores the ethical implications of artificial intelligence and machine learning in modern society",
+        "imageField": {
+          "url": "/speakers/jane-smith-headshot.jpg"
+        },
+        "imageSize": "thumbnail",
+        "imgMinWidth": {
+          "md": "70",
+          "sm": "60",
+          "xs": "50",
+          "unit": "px"
+        },
+        "imgMaxWidth": {
+          "md": "70",
+          "sm": "60",
+          "xs": "50",
+          "unit": "px"
+        },
+        "imgRightSpace": {
+          "md": "18",
+          "sm": "14",
+          "xs": "10",
+          "unit": "px"
+        },
+        "imgBRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "imgShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 3,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.12)"
+        },
         "titleTypo": {
           "openTypography": 1,
-          "size": {
-            "md": "24",
+          "size": {"md": "19", "sm": "17", "xs": "15", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "titleColor": "#1f2937",
+        "tagTypo": {
+          "openTypography": 1,
+          "size": {"md": "11", "sm": "10", "xs": "9", "unit": "px"},
+          "fontWeight": "500"
+        },
+        "tagColor": "#5b21b6",
+        "tagBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f3e8ff"
+        },
+        "tagBRadius": {
+          "md": {
+            "top": "3",
+            "right": "3",
+            "bottom": "3",
+            "left": "3"
+          },
+          "unit": "px"
+        },
+        "tagPadding": {
+          "md": {
+            "top": "3",
+            "right": "8",
+            "bottom": "3",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "tagSpace": {
+          "md": "5",
+          "unit": "px"
+        },
+        "lineStyle": {
+          "openBorder": 1,
+          "type": "dashed",
+          "color": "#9ca3af",
+          "width": {
+            "md": {
+              "bottom": "1"
+            },
             "unit": "px"
           }
         },
-        "titleColor": "#2c3e50",
-        "tagField": "Single|Double",
-        "tagSpace": {
-          "md": "10",
+        "priceTypo": {
+          "openTypography": 1,
+          "size": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "priceColor": "#7c3aed",
+        "priceBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ede9fe"
+        },
+        "priceBRadius": {
+          "md": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        },
+        "pricePadding": {
+          "md": {
+            "top": "6",
+            "right": "10",
+            "bottom": "6",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "descTypo": {
+          "openTypography": 1,
+          "size": {"md": "14", "sm": "13", "xs": "12", "unit": "px"},
+          "lineHeight": {"md": "1.5", "unit": "em"},
+          "fontStyle": "italic"
+        },
+        "descColor": "#4b5563",
+        "bgPadding": {
+          "md": {
+            "top": "18",
+            "right": "20",
+            "bottom": "18",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#fafafa"
+        },
+        "bgNmlBRadius": {
+          "md": {
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10"
+          },
           "unit": "px"
         }
+      },
+      "useCase": "Event agendas, conference schedules, webinar listings, speaker lineups, class schedules",
+      "eventAgendaNotes": {
+        "priceField": "Repurposed for time (9:00 AM, 2:30 PM, etc.)",
+        "tagField": "Session topics/tracks (Machine Learning|Ethics|Research)",
+        "descriptionField": "Speaker bio or session description",
+        "imageField": "Speaker headshot (square crop recommended)",
+        "chronologicalOrder": "List sessions in time order (earliest to latest)",
+        "visualGrouping": "Use different tag colors for different tracks (blue=tech, purple=business, green=design)"
+      }
+    },
+    {
+      "name": "Product Catalog with Masked Image (Style-3)",
+      "description": "Product list with custom mask shape image, dotted separator, and product details",
+      "visualDescription": "Row layout: Custom hexagon-masked product photo, 'Premium Headphones' title, tags, solid gold line, '$299.99' price",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "pl008",
+        "style": "style-3",
+        "boxAlign": "top-left",
+        "title": "Premium Headphones",
+        "tagField": "Wireless|Noise Cancelling|40hr Battery",
+        "price": "$299.99",
+        "description": "High-fidelity audio with active noise cancellation, 40-hour battery life, and premium comfort",
+        "imageField": {
+          "url": "/products/headphones-premium.jpg"
+        },
+        "imageSize": "medium",
+        "maskImg": {
+          "url": "/masks/hexagon-mask.svg"
+        },
+        "imgMinWidth": {
+          "md": "90",
+          "sm": "75",
+          "xs": "65",
+          "unit": "px"
+        },
+        "imgMaxWidth": {
+          "md": "90",
+          "sm": "75",
+          "xs": "65",
+          "unit": "px"
+        },
+        "imgRightSpace": {
+          "md": "22",
+          "sm": "18",
+          "xs": "14",
+          "unit": "px"
+        },
+        "imgBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#fbbf24",
+          "width": {
+            "md": {
+              "top": "3",
+              "left": "3",
+              "bottom": "3",
+              "right": "3"
+            },
+            "unit": "px"
+          }
+        },
+        "imgShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(251, 191, 36, 0.25)"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {"md": "22", "sm": "20", "xs": "18", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "titleColor": "#92400e",
+        "tagTypo": {
+          "openTypography": 1,
+          "size": {"md": "10", "sm": "9", "xs": "8", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "tagColor": "#78350f",
+        "tagBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#fef3c7"
+        },
+        "tagBRadius": {
+          "md": {
+            "top": "2",
+            "right": "2",
+            "bottom": "2",
+            "left": "2"
+          },
+          "unit": "px"
+        },
+        "tagPadding": {
+          "md": {
+            "top": "4",
+            "right": "6",
+            "bottom": "4",
+            "left": "6"
+          },
+          "unit": "px"
+        },
+        "tagSpace": {
+          "md": "4",
+          "unit": "px"
+        },
+        "lineStyle": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#fbbf24",
+          "width": {
+            "md": {
+              "bottom": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "priceTypo": {
+          "openTypography": 1,
+          "size": {"md": "28", "sm": "24", "xs": "20", "unit": "px"},
+          "fontWeight": "800"
+        },
+        "priceColor": "#ffffff",
+        "priceBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "color1": "#f59e0b",
+            "color2": "#d97706",
+            "type": "linear",
+            "direction": "135",
+            "start": 0,
+            "stop": 100
+          }
+        },
+        "priceBRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "pricePadding": {
+          "md": {
+            "top": "8",
+            "right": "14",
+            "bottom": "8",
+            "left": "14"
+          },
+          "unit": "px"
+        },
+        "descTypo": {
+          "openTypography": 1,
+          "size": {"md": "14", "sm": "13", "xs": "12", "unit": "px"},
+          "lineHeight": {"md": "1.5", "unit": "em"}
+        },
+        "descColor": "#57534e",
+        "bgPadding": {
+          "md": {
+            "top": "22",
+            "right": "26",
+            "bottom": "22",
+            "left": "26"
+          },
+          "unit": "px"
+        },
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#fffbeb"
+        },
+        "bgNormalB": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#fbbf24",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "bgNmlBRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "normalBGShadow": {
+          "openShadow": 1,
+          "inset": 0,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 14,
+          "spread": 0,
+          "color": "rgba(251, 191, 36, 0.15)"
+        }
+      },
+      "useCase": "E-commerce product catalogs, premium product listings, feature comparisons, spec sheets",
+      "maskedImageNotes": {
+        "maskImg": "SVG mask file path for custom image shapes",
+        "commonShapes": "Hexagon, star, blob, wave, custom logo shape",
+        "maskRequirements": "SVG file with <mask> element, image applies mask via CSS mask-image",
+        "browserSupport": "Modern browsers (Chrome, Firefox, Safari, Edge). No IE11 support.",
+        "fallback": "Browsers without mask support show rectangular image",
+        "createMask": "Design in Illustrator/Figma, export as SVG, ensure <mask> with white fill",
+        "performance": "SVG masks are GPU accelerated, no performance impact"
+      },
+      "productCatalogTips": {
+        "tagField": "Product features (Wireless|Noise Cancelling|40hr Battery)",
+        "lineStyle": "Solid gold line matches premium brand color",
+        "priceGradient": "Gradient background emphasizes price as primary CTA",
+        "borderAccent": "Gold border on image + box creates cohesive premium look",
+        "colorScheme": "Monochromatic gold/brown for luxury feel"
       }
     }
   ],
-  "commonPatterns": {}
+  "commonPatterns": {
+    "styles": {
+      "style-1": "Simple list, text-only or with background boxes, left/center/right aligned",
+      "style-2": "Interactive flip cards with image front and text back, horizontal or vertical flip",
+      "style-3": "Horizontal row layout with image left, dotted/dashed/solid line separator, price right"
+    },
+    "tagFieldFormat": "Pipe-separated values (Tag1|Tag2|Tag3), splits into individual styled tags",
+    "priceFieldUsage": "Can be repurposed for time (9:00 AM), duration (90 min), or custom text",
+    "imageFieldSources": "WordPress media library images, external URLs, or custom uploaded assets",
+    "responsivePatterns": {
+      "style-1": "Maintains alignment, reduces font sizes on mobile",
+      "style-2": "Cards stack vertically on mobile, flip effect still works on touch",
+      "style-3": "Image reduces to 50-60px on mobile, content wraps below if needed"
+    }
+  },
+  "validationRules": {
+    "block_id": "Required, unique identifier",
+    "style": "Required: 'style-1', 'style-2', or 'style-3'",
+    "title": "Required, item name/title",
+    "price": "Required, can be price ($12.99), time (9:00 AM), duration (45 min), or custom text",
+    "tagField": "Optional, pipe-separated values (Tag1|Tag2|Tag3), renders as individual styled tags",
+    "description": "Optional, item description (hidden on style-2 front, shown on back)",
+    "imageField": "Optional for style-1, required for style-2, optional for style-3",
+    "imageSize": "WordPress image size: 'thumbnail', 'medium', 'large', 'full'",
+    "imgShape": "style-2 only: 'none', 'circle', 'square'",
+    "maskImg": "style-3 only, SVG mask file for custom image shapes",
+    "hoverEffect": "style-2 only: 'horizontal' (left-right flip) or 'vertical' (top-bottom flip)",
+    "boxAlign": "style-2 and style-3: 'top-left', 'center-left', 'center-right', 'top-right', etc.",
+    "Alignment": "style-1 only: 'left', 'center', 'right'",
+    "lineStyle.type": "style-3 only: 'dotted', 'dashed', 'solid'"
+  },
+  "warnings": [
+    "tagField uses pipe character (|) as separator - other separators won't work",
+    "style-2 flip effect requires hoverEffect attribute ('horizontal' or 'vertical')",
+    "style-2 image is required - front card will be empty without imageField.url",
+    "style-3 dotted line (lineStyle) only appears when openBorder: 1 is set",
+    "maskImg (SVG masks) only works in modern browsers - IE11 shows rectangular image fallback",
+    "Too many tags (>4) can clutter layout - keep to 2-3 tags per item for readability",
+    "style-2 normalBG applies to front card, hoverBG applies to back card (different backgrounds)",
+    "imageSize 'full' can load very large images - use 'medium' or 'large' for performance",
+    "Circular imgShape (style-2) crops square images - use 1:1 aspect ratio images for best results",
+    "boxAlign doesn't work with style-1 (use Alignment instead for style-1)",
+    "descColor white text requires dark background - ensure WCAG AA contrast ratio 4.5:1 minimum",
+    "style-3 imgMinWidth and imgMaxWidth should be equal for consistent sizing (e.g., both 80px)"
+  ],
+  "commonMistakes": [
+    "Using commas instead of pipes in tagField ('Tag1,Tag2' won't split, use 'Tag1|Tag2')",
+    "Forgetting to set openTypography: 1 before setting typography values (typography won't apply)",
+    "Using style-2 without imageField.url (front card will be blank)",
+    "Setting lineStyle.type without lineStyle.openBorder: 1 (line won't show)",
+    "Using very long title text (>60 characters) causing layout overflow on mobile",
+    "Not setting hoverEffect for style-2 (defaults to horizontal, may not match design intent)",
+    "Using rectangular images with imgShape: 'circle' (image gets cropped awkwardly)",
+    "Setting imgMaxWidth much larger than imgMinWidth in style-3 (causes inconsistent sizing)",
+    "Using low contrast colors for text on background (fails WCAG accessibility)",
+    "Not optimizing images before upload (>500KB images slow page load)"
+  ],
+  "bestPractices": [
+    "Limit tags to 2-4 per item for clean layout and readability",
+    "Use pipe separator (|) for tagField, test splitting in preview before publishing",
+    "Optimize images to <200KB for fast loading (use JPG at 80% quality for photos)",
+    "Use square images (1:1 aspect ratio) for style-2 circle/square shapes to avoid cropping issues",
+    "Set imageSize to 'medium' (300px) or 'large' (1024px) instead of 'full' for performance",
+    "For style-3 dotted lines, use light gray (#d1d5db) for subtle classic menu style",
+    "Use consistent image sizes across all items in a list (all 80px or all 100px)",
+    "For style-2 flip cards, ensure hover background has sufficient contrast for white text (WCAG AA)",
+    "Use responsive typography (reduce md font sizes by 10-20% for sm, 20-30% for xs)",
+    "Add subtle shadows (blur: 8-12px, spread: 0, rgba(0,0,0,0.1)) for depth without overwhelming design",
+    "For restaurant menus, use dotted line separator (style-3) for classic authentic look",
+    "Group related pricing lists in same container for visual consistency"
+  ],
+  "accessibilityNotes": [
+    "Ensure text colors meet WCAG AA contrast ratio: 4.5:1 for normal text, 3:1 for large text (18px+)",
+    "Set alt text for imageField images in WordPress media library (required for screen readers)",
+    "Avoid color-only indicators - use text labels for important information (not just colored tags)",
+    "style-2 flip effect should work via keyboard navigation (Tab + Enter triggers flip)",
+    "Price should be marked up as price semantically (handled by block automatically)",
+    "Long descriptions should have adequate line-height (1.5-1.8) for readability",
+    "Tag text should be readable at small sizes - minimum 10-11px font size",
+    "Don't rely solely on hover states - flip cards should be accessible on touch devices",
+    "Test with screen readers: title, price, and description should be announced in logical order"
+  ],
+  "performanceConsiderations": [
+    "Optimize images: JPG at 80% quality, <200KB per image recommended",
+    "Use appropriate imageSize: 'thumbnail' (150px), 'medium' (300px), 'large' (1024px), avoid 'full'",
+    "style-2 flip effects are GPU accelerated (CSS 3D transforms) - no performance impact",
+    "Avoid using many style-2 flip cards on a single page (>20 cards) - prefers style-1 or style-3 for lists",
+    "SVG masks (maskImg) are GPU accelerated - minimal performance impact on modern browsers",
+    "Dotted/dashed lines (style-3) are CSS borders - no performance impact",
+    "Multiple pricing lists in same page: Use CSS containment to isolate style recalculations",
+    "Lazy load images below fold (WordPress handles this automatically with loading='lazy')",
+    "Minimize custom fonts - system fonts (Arial, Georgia) load instantly, custom fonts add 50-200ms delay",
+    "Avoid gradient backgrounds on >50 items - solid colors render faster"
+  ],
+  "troubleshooting": [
+    {
+      "problem": "Tags don't split into individual badges",
+      "cause": "Using wrong separator (comma instead of pipe)",
+      "solution": "Use pipe character | to separate tags: 'Tag1|Tag2|Tag3' not 'Tag1,Tag2,Tag3'"
+    },
+    {
+      "problem": "style-2 front card shows no image",
+      "cause": "imageField.url is empty or incorrect path",
+      "solution": "Upload image to WordPress media library, select image in block editor, verify URL in attributes"
+    },
+    {
+      "problem": "style-2 flip doesn't work on hover",
+      "cause": "hoverEffect not set or incorrect value",
+      "solution": "Set hoverEffect: 'horizontal' or 'vertical' in attributes"
+    },
+    {
+      "problem": "style-3 dotted line doesn't appear",
+      "cause": "lineStyle.openBorder is 0 (disabled)",
+      "solution": "Set lineStyle.openBorder: 1 to enable border/line"
+    },
+    {
+      "problem": "Typography changes don't apply",
+      "cause": "openTypography is 0 (disabled) in titleTypo/tagTypo/priceTypo/descTypo",
+      "solution": "Set openTypography: 1 before setting fontSize, fontWeight, etc."
+    },
+    {
+      "problem": "Circular image (style-2) looks cropped awkwardly",
+      "cause": "Using rectangular image (e.g., 800x600) with imgShape: 'circle'",
+      "solution": "Use square images (1:1 aspect ratio, e.g., 800x800) for perfect circular crop"
+    },
+    {
+      "problem": "Custom SVG mask doesn't show (style-3)",
+      "cause": "Browser doesn't support CSS mask-image (IE11) or invalid SVG mask",
+      "solution": "Test in modern browser (Chrome/Firefox/Safari), verify SVG has <mask> element with white fill"
+    },
+    {
+      "problem": "style-3 image sizing inconsistent",
+      "cause": "imgMinWidth and imgMaxWidth have different values",
+      "solution": "Set imgMinWidth and imgMaxWidth to same value (e.g., both 80px) for fixed sizing"
+    }
+  ],
+  "integrationExamples": [
+    {
+      "name": "Restaurant Menu Section",
+      "description": "Full menu with category headings and multiple pricing list items",
+      "blocks": [
+        "tp-container (menu section, cream background)",
+        "tp-heading-title (category: 'Appetizers', style-1 separator)",
+        "tp-pricing-list (Caesar Salad, style-1, tags, description)",
+        "tp-pricing-list (Bruschetta, style-1, tags, description)",
+        "tp-pricing-list (Calamari, style-1, tags, description)",
+        "tp-heading-title (category: 'Main Courses')",
+        "tp-pricing-list (Grilled Salmon, style-1)",
+        "tp-pricing-list (Ribeye Steak, style-1)"
+      ]
+    },
+    {
+      "name": "Spa Services with Flip Cards",
+      "description": "Visual service menu with images and hover flip effects",
+      "blocks": [
+        "tp-container (services section, gradient background)",
+        "tp-row (3 columns for grid layout)",
+        "tp-column (33%, tp-pricing-list Deep Tissue Massage, style-2, vertical flip)",
+        "tp-column (33%, tp-pricing-list Swedish Massage, style-2, vertical flip)",
+        "tp-column (33%, tp-pricing-list Hot Stone Therapy, style-2, vertical flip)",
+        "All three cards have matching hover gradients and shadow effects"
+      ]
+    },
+    {
+      "name": "Event Agenda Timeline",
+      "description": "Conference schedule with speaker photos and session times",
+      "blocks": [
+        "tp-container (agenda section)",
+        "tp-heading (Day 1 Schedule)",
+        "tp-pricing-list (Keynote session, style-3, speaker photo, 9:00 AM)",
+        "tp-pricing-list (Workshop A, style-3, speaker photo, 10:30 AM)",
+        "tp-pricing-list (Lunch Break, style-3, no image, 12:00 PM)",
+        "tp-pricing-list (Panel Discussion, style-3, multiple speakers, 1:30 PM)",
+        "Dotted lines create visual timeline flow between sessions"
+      ]
+    },
+    {
+      "name": "Professional Services Pricing",
+      "description": "Consulting packages with feature tags and pricing tiers",
+      "blocks": [
+        "tp-container (pricing section)",
+        "tp-row (2 columns: basic vs premium)",
+        "tp-column (50%, tp-pricing-list Basic Package, style-3, dotted line)",
+        "tp-column (50%, tp-pricing-list Premium Package, style-3, solid gold line)",
+        "Use different line styles (dotted vs solid) to differentiate tiers visually"
+      ]
+    }
+  ]
 }
