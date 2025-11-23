@@ -1,43 +1,783 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-switch-inner",
-  "title": "Switcher Inner - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Switcher Inner - Comprehensive Usage Examples",
+  "description": "Child block for tp-switcher parent, represents one of two switchable content panels for toggle comparisons",
+  "version": "2.0.0",
+  "lastUpdated": "2025-11-23",
+
+  "architectureNote": "CRITICAL: This is a CHILD BLOCK that must be inside tpgb/tp-switcher parent. It cannot be inserted independently (inserter: false). The parent switcher controls the toggle button and switching behavior. EXACTLY TWO tp-switch-inner blocks are required (index 0 and index 1) for the switcher to work.",
+
   "examples": [
     {
-      "description": "First switch panel (index 0) with pricing content",
+      "name": "Monthly vs Annual Pricing (Classic Use Case)",
+      "description": "First panel (index 0) shows monthly pricing, second panel shows annual pricing with savings",
+      "visualDescription": "Toggle between 'Monthly' and 'Annual' pricing plans, annual shows 20% savings badge",
+      "complexity": "simple",
+      "useCase": "Pricing pages, subscription plans, billing period comparison, SaaS pricing",
+      "panelIndex": 0,
+      "pairWith": "Annual pricing panel (index 1)",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "si001_monthly",
+        "index": 0
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-row",
+          "attrs": {
+            "block_id": "row001"
+          },
+          "innerBlocks": [
+            {
+              "blockName": "tpgb/tp-column",
+              "attrs": {
+                "block_id": "col001a",
+                "columns": {"md": "4"}
+              },
+              "innerBlocks": [
+                {
+                  "blockName": "tpgb/tp-pricing-table",
+                  "attrs": {
+                    "block_id": "price001_basic",
+                    "title": "Basic",
+                    "priceValue": "29",
+                    "priceUnit": "/month"
+                  }
+                }
+              ]
+            },
+            {
+              "blockName": "tpgb/tp-column",
+              "attrs": {
+                "block_id": "col001b",
+                "columns": {"md": "4"}
+              },
+              "innerBlocks": [
+                {
+                  "blockName": "tpgb/tp-pricing-table",
+                  "attrs": {
+                    "block_id": "price001_pro",
+                    "title": "Pro",
+                    "priceValue": "79",
+                    "priceUnit": "/month"
+                  }
+                }
+              ]
+            },
+            {
+              "blockName": "tpgb/tp-column",
+              "attrs": {
+                "block_id": "col001c",
+                "columns": {"md": "4"}
+              },
+              "innerBlocks": [
+                {
+                  "blockName": "tpgb/tp-pricing-table",
+                  "attrs": {
+                    "block_id": "price001_enterprise",
+                    "title": "Enterprise",
+                    "priceValue": "199",
+                    "priceUnit": "/month"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parentCoordination": {
+        "requiredPair": "Must have corresponding index 1 panel for annual pricing",
+        "parentLabels": "Parent switcher should have label1='Monthly' and label2='Annual'",
+        "defaultActive": "Parent's defaultValue determines which panel shows first"
+      },
+      "pairedPanelExample": {
+        "block_id": "si001_annual",
+        "index": 1,
+        "note": "Annual panel with same structure but different prices (e.g., $290/year for Basic = ~$24/month, 17% savings)"
+      }
+    },
+
+    {
+      "name": "Basic vs Pro Features (Feature Comparison)",
+      "description": "First panel shows Basic plan features, second panel shows Pro plan features",
+      "visualDescription": "Toggle between 'Basic' and 'Pro' to compare feature availability with checkmarks and crosses",
+      "complexity": "simple",
+      "useCase": "Feature comparisons, plan differences, service tier comparison, product editions",
+      "panelIndex": 0,
+      "attributes": {
+        "block_id": "si002_basic",
+        "index": 0
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-heading",
+          "attrs": {
+            "block_id": "head002",
+            "title": "Basic Plan Features",
+            "titleTag": "h3"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-stylist-list",
+          "attrs": {
+            "block_id": "list002",
+            "listStyle": "icon",
+            "items": [
+              {"_key": "0", "text": "1 website", "iconName": "fas fa-check", "iconColor": "#27ae60"},
+              {"_key": "1", "text": "10GB storage", "iconName": "fas fa-check", "iconColor": "#27ae60"},
+              {"_key": "2", "text": "Email support", "iconName": "fas fa-check", "iconColor": "#27ae60"},
+              {"_key": "3", "text": "Basic analytics", "iconName": "fas fa-check", "iconColor": "#27ae60"},
+              {"_key": "4", "text": "Priority support", "iconName": "fas fa-times", "iconColor": "#e74c3c"},
+              {"_key": "5", "text": "Advanced analytics", "iconName": "fas fa-times", "iconColor": "#e74c3c"},
+              {"_key": "6", "text": "White-label options", "iconName": "fas fa-times", "iconColor": "#e74c3c"}
+            ]
+          }
+        }
+      ],
+      "visualPattern": "Green checkmarks for included features, red crosses for unavailable features"
+    },
+
+    {
+      "name": "Individual vs Team Plans (User Type Comparison)",
+      "description": "First panel for solo users, second panel for teams with collaboration features",
+      "visualDescription": "Toggle between 'Individual' and 'Team' to show different pricing and feature sets",
+      "complexity": "medium",
+      "useCase": "User-based pricing, team vs individual plans, collaboration features, seat-based licensing",
+      "panelIndex": 0,
+      "attributes": {
+        "block_id": "si003_individual",
         "index": 0
       },
       "innerBlocks": [
         {
           "blockName": "tpgb/tp-pricing-table",
           "attrs": {
-            "block_id": "c3d4",
-            "title": "Monthly Plan",
-            "priceValue": "29"
+            "block_id": "price003",
+            "title": "Individual",
+            "priceValue": "49",
+            "priceUnit": "/month",
+            "subtitle": "For freelancers and solo creators"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para003",
+            "content": "<strong>Perfect for:</strong> Freelancers, consultants, solo entrepreneurs, and individual content creators who need full features without team collaboration."
+          }
+        },
+        {
+          "blockName": "tpgb/tp-stylist-list",
+          "attrs": {
+            "block_id": "list003",
+            "listStyle": "icon",
+            "iconName": "fas fa-user",
+            "iconColor": "#3498db",
+            "items": [
+              {"_key": "0", "text": "1 user account"},
+              {"_key": "1", "text": "Unlimited projects"},
+              {"_key": "2", "text": "50GB storage"},
+              {"_key": "3", "text": "Export to all formats"},
+              {"_key": "4", "text": "Email support"}
+            ]
           }
         }
-      ]
+      ],
+      "pairPattern": "Index 1 panel shows 'Team' with per-seat pricing ($39/user/month), collaboration features (shared workspaces, comments, permissions)"
     },
+
     {
-      "description": "Second switch panel (index 1) with alternate content",
+      "name": "Monthly vs Yearly Savings (With Discount Highlight)",
+      "description": "First panel shows monthly prices, second panel highlights annual savings with badges",
+      "visualDescription": "Toggle reveals 'Save 20%' badges on annual plans, visual emphasis on savings",
+      "complexity": "medium",
+      "useCase": "Subscription conversions, discount promotions, annual billing incentives, long-term commitment",
+      "panelIndex": 1,
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "si004_annual",
         "index": 1
       },
       "innerBlocks": [
         {
-          "blockName": "tpgb/tp-pricing-table",
+          "blockName": "tpgb/tp-heading",
           "attrs": {
-            "block_id": "g7h8",
-            "title": "Yearly Plan",
-            "priceValue": "290"
+            "block_id": "head004",
+            "title": "Annual Billing - Save 20%",
+            "titleTag": "h3"
           }
+        },
+        {
+          "blockName": "tpgb/tp-row",
+          "attrs": {
+            "block_id": "row004"
+          },
+          "innerBlocks": [
+            {
+              "blockName": "tpgb/tp-column",
+              "attrs": {
+                "block_id": "col004",
+                "columns": {"md": "4"}
+              },
+              "innerBlocks": [
+                {
+                  "blockName": "tpgb/tp-pricing-table",
+                  "attrs": {
+                    "block_id": "price004",
+                    "title": "Pro",
+                    "priceValue": "63",
+                    "priceUnit": "/month",
+                    "subtitle": "Billed annually at $756/year",
+                    "discountBadge": "Save $180",
+                    "ribbon": "Most Popular"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "blockName": "tpgb/tp-messagebox",
+          "attrs": {
+            "block_id": "msg004",
+            "msgType": "success",
+            "msgTitle": "Annual Savings",
+            "msgDesc": "Save 20% compared to monthly billing. That's 2 months free every year!"
+          }
+        }
+      ],
+      "savingsCalculation": "Monthly $79 × 12 = $948. Annual $756. Savings = $192 (20% discount)",
+      "persuasionTactics": "Use tp-messagebox to highlight savings, add 'Most Popular' ribbon, show monthly equivalent price"
+    },
+
+    {
+      "name": "Grid vs List View (Content Display Toggle)",
+      "description": "First panel shows grid layout, second panel shows list layout of same content",
+      "visualDescription": "Toggle between 'Grid' and 'List' to switch product display format",
+      "complexity": "medium",
+      "useCase": "Product catalogs, portfolio displays, blog archives, content filtering, view preferences",
+      "panelIndex": 0,
+      "attributes": {
+        "block_id": "si005_grid",
+        "index": 0
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-row",
+          "attrs": {
+            "block_id": "row005",
+            "columns": {"md": 3, "sm": 2, "xs": 1}
+          },
+          "innerBlocks": [
+            {
+              "blockName": "tpgb/tp-column",
+              "attrs": {"block_id": "col005a"},
+              "innerBlocks": [
+                {
+                  "blockName": "tpgb/tp-infobox",
+                  "attrs": {
+                    "block_id": "info005a",
+                    "title": "Product 1",
+                    "description": "Grid card layout"
+                  }
+                }
+              ]
+            },
+            {
+              "blockName": "tpgb/tp-column",
+              "attrs": {"block_id": "col005b"},
+              "innerBlocks": [
+                {
+                  "blockName": "tpgb/tp-infobox",
+                  "attrs": {
+                    "block_id": "info005b",
+                    "title": "Product 2",
+                    "description": "Grid card layout"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "alternativePattern": "Index 1 panel uses single-column layout with tp-row containing full-width items for list view"
+    },
+
+    {
+      "name": "Free vs Paid Features (Comparison with Checkmarks)",
+      "description": "First panel shows free plan limitations, second panel shows paid plan benefits",
+      "visualDescription": "Toggle between 'Free' and 'Paid' to see feature availability differences",
+      "complexity": "simple",
+      "useCase": "Freemium models, trial vs paid comparison, upgrade conversions, feature gates",
+      "panelIndex": 0,
+      "attributes": {
+        "block_id": "si006_free",
+        "index": 0
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-heading",
+          "attrs": {
+            "block_id": "head006",
+            "title": "Free Plan",
+            "titleTag": "h3"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para006",
+            "content": "Get started with essential features at no cost. Perfect for personal projects and testing."
+          }
+        },
+        {
+          "blockName": "tpgb/tp-stylist-list",
+          "attrs": {
+            "block_id": "list006",
+            "listStyle": "icon",
+            "items": [
+              {"_key": "0", "text": "Up to 3 projects", "iconName": "fas fa-check", "iconColor": "#27ae60"},
+              {"_key": "1", "text": "Community support", "iconName": "fas fa-check", "iconColor": "#27ae60"},
+              {"_key": "2", "text": "Basic templates", "iconName": "fas fa-check", "iconColor": "#27ae60"},
+              {"_key": "3", "text": "Nexter branding", "iconName": "fas fa-info-circle", "iconColor": "#f39c12"},
+              {"_key": "4", "text": "No priority support", "iconName": "fas fa-times", "iconColor": "#e74c3c"},
+              {"_key": "5", "text": "No advanced features", "iconName": "fas fa-times", "iconColor": "#e74c3c"}
+            ]
+          }
+        },
+        {
+          "blockName": "tpgb/tp-button",
+          "attrs": {
+            "block_id": "btn006",
+            "buttonText": "Get Started Free",
+            "style": "style-2"
+          }
+        }
+      ],
+      "iconColorStrategy": "Green check for included, orange info for caveats, red X for unavailable"
+    },
+
+    {
+      "name": "Beginner vs Advanced Content (Skill Level Content)",
+      "description": "First panel for beginners with simplified content, second panel for advanced users with technical details",
+      "visualDescription": "Toggle between 'Beginner' and 'Advanced' to show appropriate complexity level",
+      "complexity": "medium",
+      "useCase": "Documentation, tutorials, course content, skill-based filtering, progressive disclosure",
+      "panelIndex": 0,
+      "attributes": {
+        "block_id": "si007_beginner",
+        "index": 0
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-heading",
+          "attrs": {
+            "block_id": "head007",
+            "title": "Beginner Tutorial",
+            "titleTag": "h3"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para007a",
+            "content": "Welcome! This guide will walk you through the basics step-by-step. No prior experience needed."
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion",
+          "attrs": {
+            "block_id": "acc007",
+            "mode": "accordion"
+          },
+          "innerBlocks": [
+            {
+              "blockName": "tpgb/tp-accordion-inner",
+              "attrs": {
+                "block_id": "acc007_1",
+                "title": "Step 1: Getting Started",
+                "index": 0
+              }
+            },
+            {
+              "blockName": "tpgb/tp-accordion-inner",
+              "attrs": {
+                "block_id": "acc007_2",
+                "title": "Step 2: Your First Project",
+                "index": 1
+              }
+            },
+            {
+              "blockName": "tpgb/tp-accordion-inner",
+              "attrs": {
+                "block_id": "acc007_3",
+                "title": "Step 3: Publishing",
+                "index": 2
+              }
+            }
+          ]
+        }
+      ],
+      "contentStrategy": "Beginner: Step-by-step, simple language, visual aids. Advanced: Technical details, code examples, architecture diagrams"
+    },
+
+    {
+      "name": "Before vs After (Transformation Showcase)",
+      "description": "First panel shows 'Before' state, second panel shows 'After' transformation",
+      "visualDescription": "Toggle between 'Before' and 'After' to reveal transformation, improvements, or changes",
+      "complexity": "simple",
+      "useCase": "Case studies, redesigns, makeovers, performance improvements, transformations, testimonials",
+      "panelIndex": 0,
+      "attributes": {
+        "block_id": "si008_before",
+        "index": 0
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-heading",
+          "attrs": {
+            "block_id": "head008",
+            "title": "Before Our Service",
+            "titleTag": "h3"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-image",
+          "attrs": {
+            "block_id": "img008_before",
+            "image": {
+              "url": "/images/before-screenshot.jpg"
+            },
+            "caption": "Old website with cluttered design"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-stylist-list",
+          "attrs": {
+            "block_id": "list008_before",
+            "listStyle": "icon",
+            "iconName": "fas fa-times-circle",
+            "iconColor": "#e74c3c",
+            "items": [
+              {"_key": "0", "text": "Slow load times (5+ seconds)"},
+              {"_key": "1", "text": "Poor mobile experience"},
+              {"_key": "2", "text": "Low conversion rate (1.2%)"},
+              {"_key": "3", "text": "Outdated design"}
+            ]
+          }
+        }
+      ],
+      "pairedAfterPanel": {
+        "heading": "After Our Service",
+        "image": "/images/after-screenshot.jpg",
+        "improvements": [
+          "Fast load times (<1 second)",
+          "Responsive mobile design",
+          "High conversion rate (4.8%)",
+          "Modern, clean design"
+        ],
+        "iconColor": "#27ae60",
+        "cta": "Get Your Transformation"
+      }
+    }
+  ],
+
+  "validationRules": {
+    "block_id": "Required, unique identifier for each switch panel",
+    "index": "Required, must be 0 or 1 (switcher supports exactly 2 panels)",
+    "className": "Optional CSS class for custom styling",
+    "requiredPair": "CRITICAL: Must have both index 0 and index 1 panels for switcher to work",
+    "innerBlocks": "Array of child blocks, supports any tpgb block for rich content",
+    "parentRequired": "Must be inside tpgb/tp-switcher parent block"
+  },
+
+  "warnings": [
+    "CRITICAL: This is a CHILD BLOCK that MUST be inside tpgb/tp-switcher parent - cannot be used independently (inserter: false)",
+    "CRITICAL: EXACTLY TWO tp-switch-inner blocks required (index 0 and index 1) - no more, no less",
+    "index must be either 0 or 1 - no other values allowed",
+    "If index 0 or index 1 is missing, switcher won't work (both panels required)",
+    "Parent tp-switcher controls all styling (toggle button colors, borders, typography)",
+    "Parent switcher labels (label1, label2) should describe what each panel contains",
+    "Switcher is designed for binary comparisons (A vs B, not A vs B vs C)",
+    "Content should be comparable or related between the two panels",
+    "Panel content is hidden until toggled - use lazy loading for heavy content",
+    "Each panel should have roughly similar content height to avoid layout shift",
+    "Don't use switcher for unrelated content - use tabs or accordion instead",
+    "innerBlocks must contain valid WordPress block objects with blockName and attrs",
+    "Each innerBlock needs unique block_id to avoid React rendering issues",
+    "Parent switcher's defaultValue (0 or 1) determines which panel shows first"
+  ],
+
+  "commonMistakes": [
+    "Trying to insert tp-switch-inner directly without parent tpgb/tp-switcher (won't work - inserter disabled)",
+    "Creating only one panel (index 0) without the paired panel (index 1)",
+    "Creating more than 2 panels (switcher only supports 2 - use tabs for 3+ options)",
+    "Using index values other than 0 or 1 (e.g., index 2, index 3)",
+    "Forgetting to set index attribute (defaults to undefined, breaks switching)",
+    "Not coordinating panel content with parent switcher labels",
+    "Using generic labels in parent ('Option 1', 'Option 2' instead of 'Monthly', 'Annual')",
+    "Creating vastly different content heights between panels (causes jarring layout shift)",
+    "Not providing block_id for innerBlocks (can cause rendering issues)",
+    "Using switcher for 3+ options (use tp-tabs-tours instead)",
+    "Putting unrelated content in the two panels (confuses users)",
+    "Forgetting that both panels load on page load (don't put heavy content in both)",
+    "Not testing mobile view (toggle button may need different styling)",
+    "Using switcher when accordion or tabs would be more appropriate",
+    "Not matching visual hierarchy between the two panels (one panel has h3, other has h2)"
+  ],
+
+  "bestPractices": [
+    "Always create BOTH panels (index 0 and 1) - switcher requires exactly 2",
+    "Use descriptive parent labels: 'Monthly' vs 'Annual', not 'Option 1' vs 'Option 2'",
+    "Keep content structure similar between panels for visual consistency",
+    "Use switcher for binary comparisons: pricing, features, plans, views, before/after",
+    "Coordinate panel content height to minimize layout shift when switching",
+    "Use tp-pricing-table for pricing comparisons (most common switcher use case)",
+    "Use tp-stylist-list with checkmarks/crosses for feature comparisons",
+    "Add visual emphasis to preferred option (badges, colors, 'Most Popular' ribbons)",
+    "Test toggle animation on mobile (parent controls animation speed)",
+    "Use tp-messagebox to highlight key differences or savings",
+    "Structure innerBlocks consistently: heading → content → list → CTA",
+    "Set parent's defaultValue to show most popular option first (e.g., annual = 1)",
+    "Use responsive column layouts inside panels (tp-row + tp-column)",
+    "Add CTAs (tp-button) at bottom of each panel when appropriate",
+    "Use iconColor strategically: green for included, red for missing, orange for caveats",
+    "For pricing: show monthly equivalent on annual plans ($756/year = $63/month)",
+    "For features: use same order of items in both panels for easy scanning",
+    "Test keyboard accessibility (Tab to focus toggle, Enter/Space to switch)",
+    "Use switcher for A/B presentation, not for navigation (use tabs for navigation)",
+    "Consider using tp-before-after block for image-based before/after comparisons",
+    "Limit innerBlocks to essential content (3-5 blocks per panel ideal)",
+    "Use semantic HTML in panel content (proper heading hierarchy)",
+    "Test on mobile - ensure toggle button is touch-friendly (minimum 44px height)"
+  ],
+
+  "parentChildCoordination": {
+    "requiredParentBlock": "tpgb/tp-switcher",
+    "exactChildCount": 2,
+    "childIndices": [0, 1],
+    "parentControls": {
+      "labels": "Parent sets label1 (for index 0 panel) and label2 (for index 1 panel)",
+      "styling": "Parent controls toggle button styling (colors, borders, typography)",
+      "behavior": "Parent controls switching animation, default active panel (defaultValue)",
+      "layout": "Parent controls toggle button position (above/below content)"
+    },
+    "childControls": {
+      "content": "Child controls what's shown in each panel (innerBlocks)",
+      "index": "Child must set index to 0 or 1 to coordinate with parent"
+    },
+    "coordinationExample": {
+      "parent": {
+        "blockName": "tpgb/tp-switcher",
+        "attrs": {
+          "block_id": "switcher_parent",
+          "label1": "Monthly",
+          "label2": "Annual",
+          "defaultValue": 1
+        }
+      },
+      "children": [
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "attrs": {
+            "block_id": "si_monthly",
+            "index": 0
+          },
+          "note": "This shows when 'Monthly' toggle is active"
+        },
+        {
+          "blockName": "tpgb/tp-switch-inner",
+          "attrs": {
+            "block_id": "si_annual",
+            "index": 1
+          },
+          "note": "This shows when 'Annual' toggle is active (defaultValue: 1 = shown first)"
         }
       ]
     }
+  },
+
+  "commonUseCases": {
+    "pricingToggles": {
+      "description": "Most common use case - toggle between monthly and annual pricing",
+      "labels": "label1: 'Monthly', label2: 'Annual' or 'Yearly'",
+      "tip": "Show savings badge or percentage on annual panel to encourage annual sign-ups"
+    },
+    "featureComparisons": {
+      "description": "Compare free vs paid, basic vs pro, or different plan tiers",
+      "labels": "label1: 'Free', label2: 'Paid' or 'Basic' vs 'Pro'",
+      "tip": "Use tp-stylist-list with checkmarks/crosses for clear visual comparison"
+    },
+    "viewToggles": {
+      "description": "Switch between grid and list views of products/content",
+      "labels": "label1: 'Grid', label2: 'List'",
+      "tip": "Use tp-row with multiple columns for grid, single column for list"
+    },
+    "beforeAfter": {
+      "description": "Show transformation, improvements, or changes",
+      "labels": "label1: 'Before', label2: 'After'",
+      "tip": "Use tp-image for visual comparisons, tp-stylist-list for metric improvements"
+    },
+    "userTypePricing": {
+      "description": "Different pricing for individuals vs teams",
+      "labels": "label1: 'Individual', label2: 'Team' or 'Business'",
+      "tip": "Show per-seat pricing on team panel ($39/user/month)"
+    },
+    "skillLevels": {
+      "description": "Toggle between beginner and advanced content",
+      "labels": "label1: 'Beginner', label2: 'Advanced'",
+      "tip": "Use simpler language/visuals for beginners, technical details for advanced"
+    }
+  },
+
+  "accessibilityConsiderations": [
+    "Switcher is keyboard accessible (Tab to focus toggle, Enter/Space to switch panels)",
+    "ARIA attributes automatically added (role='button', aria-pressed, aria-controls)",
+    "Parent switcher labels are read by screen readers - make them descriptive",
+    "Panel content should have proper heading hierarchy (h3, h4) for screen reader navigation",
+    "Ensure sufficient color contrast for toggle button (active vs inactive states)",
+    "Test with keyboard: Tab (focus), Enter/Space (toggle), Tab (navigate panel content)",
+    "Panel switching should have clear visual feedback (parent controls styling)",
+    "Don't rely solely on color to indicate active panel (use underline, bold, etc.)",
+    "Use semantic HTML in panel content for screen reader comprehension",
+    "Toggle button should have minimum 44px touch target for mobile accessibility"
   ],
-  "commonPatterns": {}
+
+  "performanceOptimization": [
+    "Both panels load on page load (content is hidden, not lazy-loaded like tabs)",
+    "Keep panel content lightweight for fast initial render",
+    "CSS-based switching (display: none/block) is performant",
+    "Use image lazy loading inside panels if heavy images present",
+    "Parent switcher uses CSS transitions for smooth switching (GPU-accelerated)",
+    "Limit innerBlocks to essential content per panel (3-5 blocks ideal)",
+    "Test mobile performance - ensure smooth toggle transitions",
+    "Total content per panel recommended max: 5-7 blocks to avoid slow switching",
+    "Consider using tp-tabs-tours if you have 3+ options (tabs are more performant for many panels)"
+  ],
+
+  "troubleshooting": [
+    {
+      "issue": "Switcher not working / nothing happens when toggled",
+      "solutions": [
+        "Verify BOTH panels exist (index 0 AND index 1)",
+        "Check that parent tpgb/tp-switcher exists",
+        "Verify index values are exactly 0 and 1 (not missing, not other values)",
+        "Check browser console for JavaScript errors",
+        "Test in incognito mode to rule out browser extension conflicts"
+      ]
+    },
+    {
+      "issue": "Wrong panel shows when toggled",
+      "solutions": [
+        "Verify index 0 is for label1 content, index 1 is for label2 content",
+        "Check parent's defaultValue (0 = show index 0 first, 1 = show index 1 first)",
+        "Verify block_id is unique for each panel",
+        "Check that index values haven't been swapped accidentally"
+      ]
+    },
+    {
+      "issue": "Can't insert switch panel",
+      "solutions": [
+        "Verify you're inside a tpgb/tp-switcher parent block",
+        "Check you don't already have 2 panels (switcher only allows 2)",
+        "Try adding panel via parent switcher controls instead",
+        "Check browser console for JavaScript errors"
+      ]
+    },
+    {
+      "issue": "Layout shifts when switching panels",
+      "solutions": [
+        "Ensure both panels have similar content height",
+        "Use consistent innerBlock structure in both panels",
+        "Set min-height on parent switcher to prevent shifting",
+        "Test with actual content (not placeholder text) to see real heights"
+      ]
+    },
+    {
+      "issue": "Toggle button not visible / styled incorrectly",
+      "solutions": [
+        "Check parent switcher styling settings (toggle button colors)",
+        "Verify parent switcher has label1 and label2 set (button needs labels)",
+        "Check for CSS conflicts from theme or plugins",
+        "Test in incognito mode to rule out caching issues"
+      ]
+    }
+  ],
+
+  "integrationExamples": [
+    {
+      "name": "Complete Pricing Page with Switcher",
+      "description": "Full pricing page with monthly/annual toggle and 3 pricing tiers",
+      "structure": "Parent tp-switcher with 2 tp-switch-inner children, each containing tp-row with 3 tp-pricing-table columns",
+      "blocks": [
+        {
+          "block": "tpgb/tp-switcher",
+          "attrs": {
+            "block_id": "price_switcher",
+            "label1": "Monthly",
+            "label2": "Annual",
+            "defaultValue": 1
+          },
+          "innerBlocks": [
+            {
+              "block": "tpgb/tp-switch-inner",
+              "attrs": {
+                "block_id": "monthly_panel",
+                "index": 0
+              }
+            },
+            {
+              "block": "tpgb/tp-switch-inner",
+              "attrs": {
+                "block_id": "annual_panel",
+                "index": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Feature Comparison Page",
+      "description": "Compare Basic vs Pro features with checkmark lists",
+      "tip": "Use tp-stylist-list in both panels with consistent item order for easy comparison"
+    },
+    {
+      "name": "Case Study Before/After",
+      "description": "Showcase transformation with images and metrics",
+      "tip": "Combine tp-image for visuals with tp-stylist-list for quantified improvements"
+    }
+  ],
+
+  "whenToUseSwitcherVsAlternatives": {
+    "useSwitcher": [
+      "Binary comparisons (A vs B only)",
+      "Pricing toggles (monthly vs annual)",
+      "Feature comparisons (free vs paid, basic vs pro)",
+      "View toggles (grid vs list)",
+      "Before vs after showcases"
+    ],
+    "useTabsInstead": [
+      "3+ options to choose from",
+      "Navigation between sections",
+      "Categorized content (features, specs, reviews)",
+      "When users need to see what options are available before choosing"
+    ],
+    "useAccordionInstead": [
+      "FAQ sections (many Q&A pairs)",
+      "Content that should be scannable (users see all titles)",
+      "Mobile-first designs (accordions better for mobile than tabs)",
+      "When content order/hierarchy matters"
+    ]
+  },
+
+  "relatedBlocks": [
+    "tpgb/tp-switcher - Parent block (REQUIRED)",
+    "tpgb/tp-tabs-tours - Alternative for 3+ options",
+    "tpgb/tp-accordion - Alternative for FAQ-style expandable content",
+    "tpgb/tp-before-after - Alternative for image-based before/after comparisons",
+    "tpgb/tp-pricing-table - Common innerBlock for pricing comparisons",
+    "tpgb/tp-stylist-list - Common innerBlock for feature lists",
+    "tpgb/tp-messagebox - Common innerBlock for highlighting key differences",
+    "tpgb/tp-button - Common innerBlock for CTAs in each panel"
+  ]
 }
