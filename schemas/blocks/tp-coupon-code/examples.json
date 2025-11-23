@@ -2,90 +2,657 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-coupon-code",
   "title": "Coupon Code - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Interactive coupon code reveals with click, popup, scratch-off, slide-out, and peel effects for e-commerce promotions",
   "examples": [
     {
-      "description": "Simple click-to-reveal coupon (style-1)",
+      "name": "Standard Click-to-Reveal (Style-1 Dashed Border)",
+      "description": "Simple click-to-reveal coupon with dashed border box and copy icon",
+      "visualDescription": "Dashed purple border box, '20% OFF' text, click reveals 'SAVE20' code with copy icon, clipboard animation",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "cc001",
         "couponType": "standard",
         "standardStyle": "style-1",
-        "couponText": "Get 20% Off",
-        "couponCode": "SAVE20",
         "actionType": "click",
-        "codecopyIcn": true
+        "couponText": "Get 20% Off Your Order",
+        "couponCode": "SAVE20",
+        "codecopyIcn": true,
+        "codeArrow": false,
+        "directionHint": false,
+        "standardConAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "standardAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "saveCookie": false,
+        "redirectLink": {
+          "url": "",
+          "target": false,
+          "nofollow": false
+        }
+      },
+      "useCase": "E-commerce product pages, promotional banners, email campaigns, flash sales",
+      "standardStyleNotes": {
+        "style-1": "Dashed border box (classic coupon look, scissor cut edge feel)",
+        "style-2": "Solid border with corner ribbon (premium offer badge)",
+        "style-3": "Minimal text with underline (clean modern design)"
+      },
+      "clickRevealBehavior": {
+        "beforeClick": "Shows couponText ('Get 20% Off Your Order') as clickable button",
+        "afterClick": "Reveals couponCode ('SAVE20') with copy icon and full width display",
+        "copyIcon": "codecopyIcn: true adds clipboard icon, click to copy code to clipboard",
+        "notification": "Shows 'Copied!' toast notification on successful copy",
+        "persistence": "Revealed code stays visible (doesn't hide on second click)"
       }
     },
     {
-      "description": "Popup modal coupon with redirect",
+      "name": "Standard with Popup Modal (Style-2 Corner Ribbon)",
+      "description": "Click opens modal popup with coupon code, description, and redirect button to store",
+      "visualDescription": "Purple corner ribbon 'FLASH SALE', click opens centered modal with '30% OFF' code, copy button, visit store link",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "cc002",
         "couponType": "standard",
         "standardStyle": "style-2",
         "actionType": "popup",
+        "couponText": "Flash Sale - 30% Off!",
         "couponCode": "FLASH30",
         "popupTitle": "Here's your exclusive 30% discount!",
-        "popupDesc": "Use this code at checkout",
+        "popupDesc": "Use this code at checkout to save big",
+        "copyBtnText": "Copy Code",
+        "afterCopyText": "Copied!",
+        "visitBtnText": "Shop Now",
         "redirectLink": {
           "url": "https://example.com/shop",
-          "target": "_blank"
-        }
+          "target": "_blank",
+          "nofollow": false
+        },
+        "standardConAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "standardAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "saveCookie": true
+      },
+      "useCase": "Limited-time offers, affiliate promotions, partner deals, high-value discounts",
+      "popupModalNotes": {
+        "actionType": "popup triggers modal overlay on click (vs inline reveal)",
+        "modalContent": "popupTitle (headline), couponCode (large text), popupDesc (instructions)",
+        "twoButtons": "Copy button (clipboard icon) + Visit button (redirects to store)",
+        "copyFlow": "Click 'Copy Code' → Shows 'Copied!' → Auto-redirects after 2s (if redirectLink set)",
+        "closeButton": "X button top-right, click outside modal, or Esc key to close"
+      },
+      "cookieNotes": {
+        "saveCookie": "true saves state in browser cookie (hides coupon for returning visitors)",
+        "duration": "Cookie expires after 30 days (configurable in block settings)",
+        "useCase": "One-time offers, welcome discounts, prevent coupon spam",
+        "bypass": "Clear cookies or use incognito mode to show coupon again"
       }
     },
     {
-      "description": "Scratch-off gamified coupon",
+      "name": "Standard with Masked Store Links (Multiple Retailers)",
+      "description": "Coupon code with dropdown to select from multiple partner stores before redirect",
+      "visualDescription": "Coupon box with 'Choose Your Store' dropdown, select 'Amazon', 'Walmart', or 'Target', click copies code and redirects",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "cc003",
+        "couponType": "standard",
+        "standardStyle": "style-1",
+        "actionType": "click",
+        "couponText": "Save $15 at Your Favorite Store",
+        "couponCode": "PARTNER15",
+        "hideLink": true,
+        "linkMaskText": "Choose your store:",
+        "maskLinkList": [
+          {
+            "_key": "0",
+            "label": "Amazon",
+            "linkUrl": {
+              "url": "https://amazon.com/deals?coupon=PARTNER15",
+              "target": "_blank",
+              "nofollow": true
+            }
+          },
+          {
+            "_key": "1",
+            "label": "Walmart",
+            "linkUrl": {
+              "url": "https://walmart.com/promo/PARTNER15",
+              "target": "_blank",
+              "nofollow": true
+            }
+          },
+          {
+            "_key": "2",
+            "label": "Target",
+            "linkUrl": {
+              "url": "https://target.com/offers?code=PARTNER15",
+              "target": "_blank",
+              "nofollow": true
+            }
+          }
+        ],
+        "codecopyIcn": true,
+        "standardConAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "standardAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        }
+      },
+      "useCase": "Affiliate marketing, multi-retailer deals, comparison shopping, partner networks",
+      "maskedLinksNotes": {
+        "hideLink": "true hides single redirectLink, shows maskLinkList dropdown instead",
+        "linkMaskText": "Label above dropdown ('Choose your store:', 'Select retailer:')",
+        "maskLinkList": "Array of store options with label + linkUrl objects",
+        "_key": "Unique identifier for each list item (required for React rendering)",
+        "flow": "User clicks coupon → Reveals code + dropdown → Selects store → Redirects to store URL",
+        "copyFirst": "Code copies to clipboard before redirect (user has code ready at checkout)"
+      },
+      "affiliateNotes": {
+        "nofollow": "Set true for affiliate links (SEO best practice, prevents link juice passing)",
+        "tracking": "Add affiliate IDs to URLs (?ref=yoursite, &aff=12345)",
+        "disclosure": "Add disclaimer 'As an Amazon Associate we earn from qualifying purchases'",
+        "comparison": "Good for price comparison sites showcasing same deal at multiple stores"
+      }
+    },
+    {
+      "name": "Scratch-Off Gamified Coupon (Mystery Discount)",
+      "description": "Interactive scratch-off effect revealing surprise discount code underneath",
+      "visualDescription": "400x250px scratch card with 'Scratch to reveal your discount!' overlay, mouse/touch drag reveals '50% OFF' code beneath",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "cc004",
         "couponType": "scratch",
         "couponCode": "MYSTERY50",
         "fillPercent": "60",
+        "frontContentType": "default",
+        "frontContent": "🎁 Scratch to reveal your exclusive discount!",
         "scratchWidth": {
           "md": "400",
+          "sm": "350",
+          "xs": "300",
           "unit": "px"
         },
         "scratchHeight": {
           "md": "250",
+          "sm": "220",
+          "xs": "200",
           "unit": "px"
         },
-        "frontContent": "Scratch to reveal your discount!"
+        "standardAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "redirectLink": {
+          "url": "/shop/sale",
+          "target": "",
+          "nofollow": false
+        },
+        "saveCookie": true
+      },
+      "useCase": "Gamification, engagement campaigns, surprise offers, interactive promotions, holiday sales",
+      "scratchOffNotes": {
+        "couponType": "scratch enables interactive HTML5 canvas scratch-off effect",
+        "frontContent": "Text/HTML shown on scratchable overlay (supports emoji, HTML tags)",
+        "fillPercent": "Percentage of area that must be scratched to auto-reveal (60 = 60% scratched reveals all)",
+        "mechanics": "Mouse drag or touch drag scratches away overlay revealing code beneath",
+        "autoReveal": "Once fillPercent threshold reached, overlay animates away completely",
+        "canvas": "Uses HTML5 canvas with touch events (works on mobile and desktop)"
+      },
+      "scratchSizeGuide": {
+        "scratchWidth": "400px recommended for desktop (300-500px range)",
+        "scratchHeight": "250px recommended (200-300px range, 16:10 or 3:2 aspect ratio)",
+        "responsive": "Reduce size on mobile (xs: 300x200) for better touch interaction",
+        "tooSmall": "<250px width makes scratching difficult on desktop (low precision)",
+        "tooLarge": ">600px feels empty, requires excessive scratching (user fatigue)"
+      },
+      "gamificationTips": {
+        "mystery": "Don't show code value beforehand ('Mystery Discount', 'Surprise Offer')",
+        "urgency": "Combine with countdown timer for limited-time scratch cards",
+        "cookie": "saveCookie: true ensures one scratch per visitor (prevents abuse)",
+        "reward": "Higher discounts (40-50%) work better for scratch-off vs standard coupons"
       }
     },
     {
-      "description": "Slide-out coupon with masked links",
+      "name": "Slide-Out Coupon (Right-to-Left Reveal)",
+      "description": "Coupon slides out from right edge on click, revealing code and description",
+      "visualDescription": "Tab on right side says 'Exclusive Deal', click slides out 300px panel with '15% OFF' code, description, close button",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "g7h8",
+        "block_id": "cc005",
         "couponType": "slideOut",
         "slideDirection": "right",
-        "couponCode": "PARTNER15",
-        "hideLink": true,
-        "linkMaskText": "Choose your store",
-        "maskLinkList": [
-          {
-            "label": "Store A",
-            "linkUrl": {
-              "url": "https://store-a.com"
-            }
-          },
-          {
-            "label": "Store B",
-            "linkUrl": {
-              "url": "https://store-b.com"
-            }
-          }
-        ]
+        "couponCode": "EXCLUSIVE15",
+        "frontContentType": "default",
+        "frontContent": "Exclusive Deal →",
+        "backTitle": "15% Off Your Order",
+        "backDesc": "Use code EXCLUSIVE15 at checkout. Valid on all products, expires in 7 days.",
+        "scratchWidth": {
+          "md": "300",
+          "sm": "280",
+          "xs": "260",
+          "unit": "px"
+        },
+        "scratchHeight": {
+          "md": "400",
+          "sm": "350",
+          "xs": "100",
+          "unit": "%"
+        },
+        "standardAlign": {
+          "md": "right",
+          "sm": "right",
+          "xs": "center"
+        },
+        "redirectLink": {
+          "url": "/checkout",
+          "target": "",
+          "nofollow": false
+        },
+        "saveCookie": false
+      },
+      "useCase": "Sidebar promotions, edge-of-screen offers, non-intrusive deals, sticky coupons",
+      "slideOutNotes": {
+        "couponType": "slideOut creates fixed-position slide-in panel from screen edge",
+        "slideDirection": "right (slides from right edge), left (slides from left edge)",
+        "frontContent": "Text on visible tab (compact, arrow indicates slide direction '→' or '←')",
+        "backTitle": "Main heading inside slide-out panel (discount value)",
+        "backDesc": "Description/instructions inside panel (supports HTML for formatting)",
+        "trigger": "Click tab to expand, click close button or outside to collapse"
+      },
+      "slideOutPositioning": {
+        "scratchWidth": "Panel width (300px typical, 250-400px range)",
+        "scratchHeight": "Panel height (400px or 100% for full viewport height)",
+        "standardAlign": "right aligns tab to right edge, left to left edge",
+        "fixedPosition": "position: fixed, stays visible on scroll (sticky coupon)",
+        "zIndex": "High z-index (999) appears above most content but below modals"
+      },
+      "slideDirectionGuide": {
+        "right": "Tab on right edge, slides left-to-right (LTR languages, most common)",
+        "left": "Tab on left edge, slides right-to-left (RTL languages or design preference)",
+        "arrows": "Use → for right slides, ← for left slides in frontContent"
       }
     },
     {
-      "description": "Peel effect with cookie persistence",
+      "name": "Peel Effect Corner Reveal",
+      "description": "Page corner peels back revealing hidden coupon code underneath",
+      "visualDescription": "Top-right corner curls up on hover/click, reveals 'WELCOME10' code on reverse side, page peel animation",
+      "complexity": "advanced",
       "attributes": {
-        "block_id": "i9j0",
+        "block_id": "cc006",
         "couponType": "peel",
         "couponCode": "WELCOME10",
-        "saveCookie": true,
+        "frontContentType": "default",
+        "frontContent": "🎉",
         "backTitle": "Welcome!",
-        "backDesc": "Use code WELCOME10 for 10% off your first order"
+        "backDesc": "Get 10% off your first order with code WELCOME10",
+        "scratchWidth": {
+          "md": "250",
+          "sm": "220",
+          "xs": "200",
+          "unit": "px"
+        },
+        "scratchHeight": {
+          "md": "250",
+          "sm": "220",
+          "xs": "200",
+          "unit": "px"
+        },
+        "standardAlign": {
+          "md": "right",
+          "sm": "right",
+          "xs": "right"
+        },
+        "redirectLink": {
+          "url": "/shop",
+          "target": "",
+          "nofollow": false
+        },
+        "saveCookie": true,
+        "codecopyIcn": true
+      },
+      "useCase": "Welcome offers, first-time visitor coupons, subtle promotions, page corner badges",
+      "peelEffectNotes": {
+        "couponType": "peel creates animated page corner curl effect",
+        "positioning": "Fixed to top-right corner (standardAlign: 'right') or top-left (align: 'left')",
+        "frontContent": "Icon or emoji on corner triangle (🎉, 💰, 🎁, or short text 'NEW')",
+        "backTitle": "Headline on revealed reverse side (short, 2-4 words)",
+        "backDesc": "Description with coupon code and instructions (supports HTML)",
+        "animation": "CSS 3D transform creates realistic page peel with shadow"
+      },
+      "peelSizeGuide": {
+        "scratchWidth": "Triangle width (250px recommended, forms right-angled triangle)",
+        "scratchHeight": "Triangle height (same as width for symmetric triangle)",
+        "tooSmall": "<150px hard to click on mobile, doesn't stand out",
+        "tooLarge": ">350px obstructs page content, feels intrusive",
+        "aspect": "Keep width = height for balanced triangle shape"
+      },
+      "peelBestPractices": {
+        "firstVisitors": "Combine with saveCookie: true to show only on first visit (welcome offer)",
+        "nonIntrusive": "Peel is subtle, good for permanent page badges without modal popups",
+        "icon": "Use emoji or FontAwesome icon on frontContent (% symbol, gift box, star)",
+        "timing": "Add delay via CSS (appear 3s after page load) to not overwhelm users"
+      }
+    },
+    {
+      "name": "Standard Style-3 Minimal with Direction Hint Arrow",
+      "description": "Clean minimal text coupon with animated arrow hint and auto-redirect",
+      "visualDescription": "Simple underlined text 'Free Shipping', animated arrow pulses, click reveals 'FREESHIP' and redirects to cart",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "cc007",
+        "couponType": "standard",
+        "standardStyle": "style-3",
+        "actionType": "click",
+        "couponText": "Get Free Shipping Today",
+        "couponCode": "FREESHIP",
+        "codeArrow": true,
+        "directionHint": true,
+        "codecopyIcn": true,
+        "standardConAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "standardAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "redirectLink": {
+          "url": "/cart",
+          "target": "",
+          "nofollow": false
+        },
+        "saveCookie": false
+      },
+      "useCase": "Free shipping banners, minimal designs, inline text coupons, clean modern layouts",
+      "style3Notes": {
+        "visualStyle": "No box border, just underlined text link (minimalist design)",
+        "couponText": "Appears as underlined link (hover shows pointer cursor)",
+        "revealed": "Code appears below with copy icon (no full-width box expansion)",
+        "useWhen": "Inline within paragraphs, header notices, footer promotions"
+      },
+      "directionHintNotes": {
+        "directionHint": "true adds pulsing animated arrow/chevron after coupon text",
+        "codeArrow": "true shows arrow icon next to code (indicates clickability)",
+        "animation": "Subtle pulse animation (1s interval) draws attention without being distracting",
+        "accessibility": "Arrow is decorative (aria-hidden), couponText provides full context"
+      },
+      "autoRedirectNotes": {
+        "redirectLink": "URL to navigate after revealing code (cart, checkout, product page)",
+        "timing": "Waits 1.5s after code reveal before redirect (time to copy code)",
+        "cancelRedirect": "User can cancel by clicking elsewhere or pressing Esc",
+        "target": "'' = same tab (default), '_blank' = new tab (less common for coupons)"
+      }
+    },
+    {
+      "name": "Popup with Tab Reverse Layout (Code First, Button Second)",
+      "description": "Popup modal with reversed layout showing code before description for faster access",
+      "visualDescription": "Click 'VIP Offer' → Modal opens with large 'VIP40' code at top, description below, copy/visit buttons at bottom",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "cc008",
+        "couponType": "standard",
+        "standardStyle": "style-2",
+        "actionType": "popup",
+        "couponText": "VIP Exclusive - 40% Off",
+        "couponCode": "VIP40",
+        "popupTitle": "🌟 VIP Member Exclusive",
+        "popupDesc": "As a valued VIP member, enjoy 40% off your entire purchase. This offer expires in 24 hours!",
+        "copyBtnText": "Copy VIP Code",
+        "afterCopyText": "Code Copied!",
+        "visitBtnText": "Shop VIP Deals",
+        "tabReverse": true,
+        "standardConAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "standardAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "redirectLink": {
+          "url": "https://example.com/vip-deals",
+          "target": "_blank",
+          "nofollow": false
+        },
+        "saveCookie": true
+      },
+      "useCase": "VIP offers, member-only deals, high-value discounts, time-sensitive promotions",
+      "tabReverseNotes": {
+        "tabReverse": "false (default) = popupTitle → popupDesc → couponCode → buttons",
+        "true": "couponCode → popupTitle → popupDesc → buttons (code prominently first)",
+        "useCase": "When code is most important (high-value VIP), user wants code first",
+        "hierarchy": "Reversed layout: Large code at top grabs attention immediately"
+      },
+      "vipOfferNotes": {
+        "exclusivity": "Use emoji (🌟, 👑, 💎) in popupTitle to convey VIP status",
+        "urgency": "Add time limit in popupDesc ('expires in 24 hours', 'today only')",
+        "value": "Higher discounts (35-50%) for VIP vs standard (15-25%) coupons",
+        "redirect": "Link to exclusive VIP landing page (/vip-deals, /member-offers)"
+      },
+      "copyButtonCustomization": {
+        "copyBtnText": "Customize copy button label ('Copy VIP Code', 'Grab Your Discount')",
+        "afterCopyText": "Success message ('Code Copied!', 'Got it!', 'Ready to shop!')",
+        "timing": "afterCopyText shows for 2s, then reverts to copyBtnText",
+        "autoRedirect": "If redirectLink set, auto-redirects 2s after copy (optional)"
       }
     }
   ],
-  "commonPatterns": {}
+  "commonPatterns": {
+    "couponTypes": {
+      "standard": "Classic box/text reveal with click or popup (3 visual styles)",
+      "scratch": "Gamified scratch-off card (interactive canvas)",
+      "slideOut": "Slide-in panel from left/right screen edge (fixed position)",
+      "peel": "Page corner curl reveal (3D transform animation)"
+    },
+    "standardStyles": {
+      "style-1": "Dashed border box (classic coupon look)",
+      "style-2": "Solid border with corner ribbon (premium badge)",
+      "style-3": "Minimal underlined text (clean inline)"
+    },
+    "actionTypes": {
+      "click": "Inline reveal, code appears below button",
+      "popup": "Modal overlay with code, description, copy/visit buttons"
+    },
+    "interactiveFeatures": {
+      "codecopyIcn": "Clipboard icon, click to copy code (shows 'Copied!' toast)",
+      "codeArrow": "Arrow icon next to code (indicates clickability)",
+      "directionHint": "Pulsing arrow animation (draws attention)",
+      "saveCookie": "Browser cookie prevents re-showing (one-time offers)"
+    },
+    "responsiveStrategy": {
+      "scratchWidth/Height": "Responsive sizing (md/sm/xs) for scratch, slideOut, peel",
+      "standardAlign": "Horizontal alignment (left/center/right) per breakpoint",
+      "standardConAlign": "Content alignment within coupon box (flexbox justify-content)"
+    }
+  },
+  "validationRules": {
+    "block_id": "Required, unique identifier",
+    "couponType": "Required: 'standard', 'scratch', 'slideOut', 'peel'",
+    "couponCode": "Required, actual discount code (alphanumeric, 4-15 characters recommended)",
+    "standardStyle": "Required when couponType='standard': 'style-1', 'style-2', 'style-3'",
+    "actionType": "Required when couponType='standard': 'click', 'popup'",
+    "popupTitle/popupDesc": "Required when actionType='popup'",
+    "frontContent": "Required when couponType='scratch', 'slideOut', 'peel' (overlay text)",
+    "backTitle/backDesc": "Required when couponType='slideOut', 'peel' (revealed content)",
+    "scratchWidth/Height": "Required when couponType='scratch', 'slideOut', 'peel' (dimensions)",
+    "slideDirection": "Required when couponType='slideOut': 'left', 'right'",
+    "maskLinkList": "Requires hideLink: true to show dropdown (array of label + linkUrl objects)",
+    "redirectLink.url": "Optional, URL to navigate after code reveal/copy"
+  },
+  "warnings": [
+    "saveCookie: true hides coupon for returning visitors - don't use for permanent promotions",
+    "fillPercent for scratch-off should be 50-70% - too low (30%) requires excessive scratching, too high (90%) reveals too easily",
+    "Popup (actionType='popup') requires popupTitle and popupDesc - empty values show blank modal",
+    "maskLinkList items require unique _key values - duplicate keys break React rendering",
+    "redirectLink with popup causes auto-redirect after copy - can be jarring if unexpected",
+    "scratchWidth/Height for scratch-off should maintain 16:10 or 3:2 aspect ratio - extreme dimensions (100x800) break canvas",
+    "slideOut with scratchHeight: 100% creates full-height panel - can obscure page content on mobile",
+    "peel effect should use scratchWidth = scratchHeight for symmetric triangle - unequal values create distorted shape",
+    "codecopyIcn requires browser clipboard API - doesn't work in insecure contexts (HTTP, not HTTPS)",
+    "standardStyle 'style-3' minimal design may not be obvious as coupon - add directionHint: true for clarity",
+    "tabReverse only applies to popup modals - ignored for click-reveal coupons",
+    "hideLink: true requires maskLinkList with at least 1 item - empty array shows broken dropdown"
+  ],
+  "commonMistakes": [
+    "Using saveCookie: true for permanent/recurring promotions (cookie hides coupon from returning visitors)",
+    "Setting fillPercent too low (<40%) for scratch-off (frustrating user experience, too much scratching)",
+    "Forgetting popupTitle/popupDesc when using actionType='popup' (blank modal appears)",
+    "Not adding _key to maskLinkList items (React key warning, rendering issues)",
+    "Using very long couponCode (>20 characters) that doesn't fit in mobile view",
+    "Setting scratchWidth/Height as percentages instead of pixels for scratch/slideOut/peel (breaks layout)",
+    "Using slideOut with standardAlign: 'center' (should be 'left' or 'right' to anchor to edge)",
+    "Using peel effect with scratchWidth !== scratchHeight (creates asymmetric triangle)",
+    "Enabling codecopyIcn without HTTPS (clipboard API requires secure context)",
+    "Using multiple coupons with saveCookie: true on same page (conflicting cookies, unexpected behavior)"
+  ],
+  "bestPractices": [
+    "Use standard style-1 for traditional e-commerce coupons (familiar dashed border pattern)",
+    "Use scratch-off for gamification and engagement (higher interaction rates, fun experience)",
+    "Use slideOut for persistent non-intrusive offers (sticky sidebar coupon, always accessible)",
+    "Use peel for first-time visitor welcome offers with saveCookie: true (one-time reveal)",
+    "Set fillPercent to 60% for scratch-off (balanced - not too easy, not too hard)",
+    "Enable codecopyIcn for all coupon types (improves UX, reduces typos at checkout)",
+    "Use popup with tabReverse: true for high-value codes (40%+ off) to emphasize code first",
+    "Set saveCookie: true for time-sensitive offers to prevent re-shows (24hr flash sales)",
+    "Use maskLinkList for affiliate coupons valid at multiple retailers (Amazon, Walmart, Target)",
+    "Add directionHint: true for style-3 minimal coupons (pulsing arrow makes coupon obvious)",
+    "Set redirectLink to checkout/cart for friction-free experience (auto-navigate after copy)",
+    "Use emoji in frontContent for scratch/peel effects (🎁, 🎉, 💰 - visually engaging)",
+    "Set scratchWidth 300-400px and scratchHeight 200-300px for scratch cards (optimal touch/click area)",
+    "Use slideDirection: 'right' for LTR languages (slides from right edge, familiar pattern)",
+    "Test on mobile - reduce scratchWidth/Height on xs breakpoint for better touch interaction"
+  ],
+  "accessibilityNotes": [
+    "couponText should be descriptive ('Get 20% Off' vs 'Click Here') for screen readers",
+    "codecopyIcn includes aria-label 'Copy coupon code' for button accessibility",
+    "Popup modals include role='dialog' and aria-labelledby pointing to popupTitle",
+    "Keyboard navigation: Enter/Space activates coupon, Esc closes popup modal",
+    "Focus management: Popup traps focus within modal, restores focus on close",
+    "directionHint arrow is aria-hidden (decorative, couponText provides context)",
+    "Scratch-off canvas includes fallback text for non-visual users (couponCode visible in DOM)",
+    "redirectLink with target='_blank' should include visual indicator (screen reader announcement)",
+    "afterCopyText 'Copied!' should have role='alert' for screen reader announcement",
+    "Color contrast: Ensure couponCode text meets WCAG AA (4.5:1 for normal text)"
+  ],
+  "performanceConsiderations": [
+    "Scratch-off uses HTML5 canvas (GPU accelerated, smooth 60fps on modern devices)",
+    "Popup modal lazy loads on first click (no DOM overhead until needed)",
+    "saveCookie reduces server requests (cookie check happens client-side, no API call)",
+    "slideOut panel uses CSS transform (GPU accelerated, smooth slide animation)",
+    "Peel effect uses CSS 3D transforms (performant on modern browsers, fallback on IE11)",
+    "Clipboard API is async (non-blocking, doesn't freeze UI during copy)",
+    "Multiple coupons on page: Each is independent, minimal performance impact (<5% CPU)",
+    "Scratch canvas size: Larger canvases (>800x600) require more memory, keep under 500x400",
+    "Auto-redirect timeout uses setTimeout (negligible performance impact)",
+    "Modal overlay uses position: fixed (efficient, no reflow on scroll)"
+  ],
+  "troubleshooting": [
+    {
+      "problem": "Coupon doesn't reveal on click",
+      "cause": "JavaScript conflict, or actionType not set to 'click'",
+      "solution": "Check browser console for errors, verify actionType='click', disable conflicting plugins"
+    },
+    {
+      "problem": "Popup modal is blank",
+      "cause": "Missing popupTitle or popupDesc attributes",
+      "solution": "Set popupTitle and popupDesc to non-empty strings"
+    },
+    {
+      "problem": "Copy icon doesn't copy code",
+      "cause": "HTTP site (clipboard API requires HTTPS), or browser doesn't support clipboard API",
+      "solution": "Use HTTPS, or test in modern browser (Chrome/Firefox/Safari), check console for errors"
+    },
+    {
+      "problem": "Scratch-off doesn't work on mobile",
+      "cause": "Touch events not initialized, or canvas too small for touch",
+      "solution": "Ensure scratchWidth/Height >= 250px on mobile, test touch events in browser DevTools"
+    },
+    {
+      "problem": "Slide-out panel covers entire page",
+      "cause": "scratchHeight set to 100vh or very large pixel value",
+      "solution": "Set scratchHeight to 400-600px (fixed height) or 80-90% (viewport percentage)"
+    },
+    {
+      "problem": "Peel effect triangle is distorted",
+      "cause": "scratchWidth !== scratchHeight (asymmetric dimensions)",
+      "solution": "Set scratchWidth and scratchHeight to same value (e.g., both 250px)"
+    },
+    {
+      "problem": "Masked links dropdown doesn't show",
+      "cause": "hideLink: false, or maskLinkList empty array",
+      "solution": "Set hideLink: true and add at least 1 item to maskLinkList with _key, label, linkUrl"
+    },
+    {
+      "problem": "Coupon shows to returning visitors despite saveCookie",
+      "cause": "Cookie was deleted, or user in incognito mode",
+      "solution": "Normal behavior - cookies don't persist in incognito, respect user privacy"
+    }
+  ],
+  "integrationExamples": [
+    {
+      "name": "E-commerce Product Page Coupon Banner",
+      "description": "Standard click-to-reveal coupon above Add to Cart button",
+      "blocks": [
+        "tp-container (product section)",
+        "tp-heading (Product Name)",
+        "tp-pro-paragraph (Product Description)",
+        "tp-coupon-code (standard style-1, click reveal, 'SAVE20' code, codecopyIcn: true)",
+        "tp-button (Add to Cart CTA below coupon)",
+        "Coupon provides immediate incentive above purchase button"
+      ]
+    },
+    {
+      "name": "Landing Page Scratch-Off Contest",
+      "description": "Gamified scratch card for lead generation",
+      "blocks": [
+        "tp-container (contest section, centered)",
+        "tp-heading ('Scratch to Win Up to 50% Off!')",
+        "tp-coupon-code (scratch type, fillPercent 60, 400x250px)",
+        "tp-pro-paragraph ('Enter your email below to claim discount')",
+        "tp-form-block (email capture form)",
+        "Scratch card creates engagement before form submission"
+      ]
+    },
+    {
+      "name": "Sticky Sidebar Slide-Out Coupon",
+      "description": "Persistent slide-out offer visible on all pages",
+      "blocks": [
+        "tp-coupon-code (slideOut type, slideDirection: right, fixed position)",
+        "Placed in sidebar widget area or footer (always visible)",
+        "frontContent: 'Limited Offer →', backTitle: '15% OFF', backDesc with instructions",
+        "Non-intrusive, user-initiated reveal when ready to purchase"
+      ]
+    },
+    {
+      "name": "Welcome Page Corner Peel for New Visitors",
+      "description": "First-time visitor coupon with page corner reveal",
+      "blocks": [
+        "tp-coupon-code (peel type, top-right corner, saveCookie: true)",
+        "frontContent: '🎉' emoji, backTitle: 'Welcome!', backDesc: '10% off first order'",
+        "Only shows once per visitor (cookie-based), subtle non-intrusive design",
+        "Appears on homepage/landing pages for new traffic"
+      ]
+    }
+  ]
 }
