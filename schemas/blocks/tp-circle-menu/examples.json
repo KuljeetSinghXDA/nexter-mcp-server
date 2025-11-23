@@ -1,89 +1,354 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-circle-menu",
-  "title": "Circle Menu - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Circle Menu - Comprehensive Usage Examples",
+  "description": "Complete example configurations for circular and straight menu layouts with animations, tooltips, and custom positioning",
+
   "examples": [
     {
-      "description": "Social media circular menu (bottom-right)",
+      "name": "Social Media Circle Menu (Bottom-Right Quarter)",
+      "description": "Quarter-circle social menu opening bottom-right with 5 social icons",
+      "visualDescription": "Fixed bottom-right corner, 90-degree arc, 5 social icons (FB, Twitter, Instagram, LinkedIn, YouTube), 120px radius",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "cm001",
         "layoutType": "circle",
         "cDirection": "bottom-right",
+        "menuStyle": "style-1",
         "angleStart": "0",
         "angleEnd": "90",
-        "circleRadius": {
-          "md": "120"
-        },
-        "icnTrigger": "hover"
-      }
-    },
-    {
-      "description": "Contact menu with phone and email",
-      "attributes": {
-        "block_id": "c3d4",
-        "layoutType": "circle",
+        "circleRadius": {"md": "120", "unit": "px"},
+        "icnTrigger": "hover",
+        "menuOSpeed": "500",
+        "iconPos": "fixed",
+        "bottomAuto": true,
+        "bottomASize": {"md": "3", "unit": "%"},
+        "rightAuto": true,
+        "rightASize": {"md": "3", "unit": "%"},
         "circleMenu": [
           {
-            "iconStore": "fas fa-phone",
-            "title": "Phone",
-            "linkType": "phone",
-            "phoneNo": "+1234567890"
+            "_key": "0",
+            "iconType": "icon",
+            "iconStore": "fab fa-facebook-f",
+            "title": "Facebook",
+            "linkType": "url",
+            "linkUrl": {"url": "https://facebook.com/yourpage", "target": "_blank", "nofollow": "nofollow"},
+            "ariaLabel": "Visit our Facebook page",
+            "iconNmlColor": "#4267B2",
+            "iconHvrColor": "#365899"
           },
           {
+            "_key": "1",
+            "iconStore": "fab fa-twitter",
+            "title": "Twitter",
+            "linkType": "url",
+            "linkUrl": {"url": "https://twitter.com/yourhandle", "target": "_blank"},
+            "iconNmlColor": "#1DA1F2"
+          },
+          {
+            "_key": "2",
+            "iconStore": "fab fa-instagram",
+            "title": "Instagram",
+            "linkType": "url",
+            "linkUrl": {"url": "https://instagram.com/yourprofile", "target": "_blank"},
+            "iconNmlColor": "#E4405F"
+          },
+          {
+            "_key": "3",
+            "iconStore": "fab fa-linkedin-in",
+            "title": "LinkedIn",
+            "linkType": "url",
+            "linkUrl": {"url": "https://linkedin.com/company/yourcompany", "target": "_blank"},
+            "iconNmlColor": "#0077B5"
+          },
+          {
+            "_key": "4",
+            "iconStore": "fab fa-youtube",
+            "title": "YouTube",
+            "linkType": "url",
+            "linkUrl": {"url": "https://youtube.com/@yourchannel", "target": "_blank"},
+            "iconNmlColor": "#FF0000"
+          }
+        ]
+      },
+      "useCase": "Social media links, brand presence, blog sidebars, footer floating buttons"
+    },
+
+    {
+      "name": "Contact FAB Menu (Phone, Email, WhatsApp)",
+      "description": "Floating action button with contact methods in circle layout",
+      "visualDescription": "Fixed bottom-right, click to open, 3 contact options radiating outward, overlay background",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "cm002",
+        "layoutType": "circle",
+        "cDirection": "bottom-left",
+        "menuStyle": "style-1",
+        "angleStart": "0",
+        "angleEnd": "90",
+        "circleRadius": {"md": "100", "unit": "px"},
+        "icnTrigger": "click",
+        "menuOSpeed": "400",
+        "iconPos": "fixed",
+        "bottomAuto": true,
+        "bottomASize": {"md": "5", "unit": "%"},
+        "rightAuto": true,
+        "rightASize": {"md": "5", "unit": "%"},
+        "overlayColorTgl": true,
+        "overlayColor": "rgba(0, 0, 0, 0.4)",
+        "circleMenu": [
+          {
+            "_key": "0",
+            "iconStore": "fas fa-phone",
+            "title": "Call Us",
+            "linkType": "phone",
+            "phoneNo": "+1-555-123-4567",
+            "ariaLabel": "Call us at +1-555-123-4567",
+            "iconNmlColor": "#25D366"
+          },
+          {
+            "_key": "1",
             "iconStore": "fas fa-envelope",
             "title": "Email",
             "linkType": "email",
-            "emailtxt": "contact@example.com"
+            "emailtxt": "hello@example.com",
+            "ariaLabel": "Email us at hello@example.com",
+            "iconNmlColor": "#EA4335"
+          },
+          {
+            "_key": "2",
+            "iconStore": "fab fa-whatsapp",
+            "title": "WhatsApp",
+            "linkType": "url",
+            "linkUrl": {"url": "https://wa.me/15551234567", "target": "_blank"},
+            "ariaLabel": "Chat with us on WhatsApp",
+            "iconNmlColor": "#25D366"
           }
         ]
-      }
+      },
+      "useCase": "Customer support, contact pages, service businesses, real estate, sales teams"
     },
+
     {
-      "description": "Straight menu with text labels (style-2)",
+      "name": "Straight Menu with Labels (Style-2 Right)",
+      "description": "Straight horizontal menu with visible text labels",
+      "visualDescription": "Style-2 layout, 4 menu items with icons and text labels, opens to the right, 15px gap",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "cm003",
         "layoutType": "straight",
         "menuStyle": "style-2",
         "sDirection": "right",
         "iconGap": "15",
-        "openSpeed": "400"
-      }
+        "openSpeed": "300",
+        "icnTrigger": "hover",
+        "circleMenu": [
+          {
+            "_key": "0",
+            "iconStore": "fas fa-home",
+            "title": "Home",
+            "linkUrl": {"url": "/"}
+          },
+          {
+            "_key": "1",
+            "iconStore": "fas fa-info-circle",
+            "title": "About",
+            "linkUrl": {"url": "/about"}
+          },
+          {
+            "_key": "2",
+            "iconStore": "fas fa-cog",
+            "title": "Services",
+            "linkUrl": {"url": "/services"}
+          },
+          {
+            "_key": "3",
+            "iconStore": "fas fa-envelope",
+            "title": "Contact",
+            "linkUrl": {"url": "/contact"}
+          }
+        ]
+      },
+      "useCase": "Sidebars, horizontal navigation, app menus, dashboard shortcuts"
     },
+
     {
-      "description": "Floating action button with custom positioning",
+      "name": "Full Circle Menu (360 Degrees)",
+      "description": "Complete circular menu around center button",
+      "visualDescription": "360-degree full circle, 8 items evenly distributed, 150px radius, top-left origin",
+      "complexity": "advanced",
       "attributes": {
-        "block_id": "g7h8",
-        "iconPos": "fixed",
-        "bottomAuto": true,
-        "bottomASize": {
-          "md": "5",
-          "unit": "%"
-        },
-        "rightAuto": true,
-        "rightASize": {
-          "md": "5",
-          "unit": "%"
-        },
-        "overlayColorTgl": true,
-        "overlayColor": "rgba(0,0,0,0.5)"
-      }
-    },
-    {
-      "description": "Full semi-circle menu (180 degrees)",
-      "attributes": {
-        "block_id": "i9j0",
+        "block_id": "cm004",
         "layoutType": "circle",
+        "cDirection": "top-left",
+        "angleStart": "0",
+        "angleEnd": "360",
+        "circleRadius": {"md": "150", "unit": "px"},
+        "icnTrigger": "click",
+        "menuOSpeed": "600",
+        "icnStepIn": "-50",
+        "icnStepOut": "50",
+        "circleMenu": [
+          {"_key": "0", "iconStore": "fas fa-home", "title": "Home", "linkUrl": {"url": "/"}},
+          {"_key": "1", "iconStore": "fas fa-search", "title": "Search", "linkUrl": {"url": "/search"}},
+          {"_key": "2", "iconStore": "fas fa-shopping-cart", "title": "Shop", "linkUrl": {"url": "/shop"}},
+          {"_key": "3", "iconStore": "fas fa-user", "title": "Account", "linkUrl": {"url": "/account"}},
+          {"_key": "4", "iconStore": "fas fa-heart", "title": "Favorites", "linkUrl": {"url": "/favorites"}},
+          {"_key": "5", "iconStore": "fas fa-cog", "title": "Settings", "linkUrl": {"url": "/settings"}},
+          {"_key": "6", "iconStore": "fas fa-bell", "title": "Notifications", "linkUrl": {"url": "/notifications"}},
+          {"_key": "7", "iconStore": "fas fa-question-circle", "title": "Help", "linkUrl": {"url": "/help"}}
+        ]
+      },
+      "useCase": "Creative portfolios, app launchers, experimental navigation, showcase sites"
+    },
+
+    {
+      "name": "Semi-Circle Menu (180 Degrees Top Arch)",
+      "description": "Half-circle arc opening upward from bottom center",
+      "visualDescription": "180-degree semicircle, 6 icons in arch, bottom-right position, 140px radius",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "cm005",
+        "layoutType": "circle",
+        "cDirection": "bottom-right",
         "angleStart": "0",
         "angleEnd": "180",
-        "circleRadius": {
-          "md": "150"
-        },
-        "menuOSpeed": "600",
-        "icnStepIn": "-30",
-        "icnStepOut": "30"
-      }
+        "circleRadius": {"md": "140", "unit": "px"},
+        "icnTrigger": "hover",
+        "menuOSpeed": "500",
+        "iconPos": "fixed",
+        "bottomAuto": true,
+        "bottomASize": {"md": "4", "unit": "%"},
+        "rightAuto": true,
+        "rightASize": {"md": "50", "unit": "%"},
+        "circleMenu": [
+          {"_key": "0", "iconStore": "fas fa-home", "title": "Home", "linkUrl": {"url": "/"}},
+          {"_key": "1", "iconStore": "fas fa-briefcase", "title": "Portfolio", "linkUrl": {"url": "/portfolio"}},
+          {"_key": "2", "iconStore": "fas fa-code", "title": "Skills", "linkUrl": {"url": "/skills"}},
+          {"_key": "3", "iconStore": "fas fa-user", "title": "About", "linkUrl": {"url": "/about"}},
+          {"_key": "4", "iconStore": "fas fa-blog", "title": "Blog", "linkUrl": {"url": "/blog"}},
+          {"_key": "5", "iconStore": "fas fa-envelope", "title": "Contact", "linkUrl": {"url": "/contact"}}
+        ]
+      },
+      "useCase": "Personal sites, creative portfolios, unique navigation, center-bottom menus"
+    },
+
+    {
+      "name": "Fixed Bottom-Right FAB (With Overlay)",
+      "description": "Sticky floating action button with dark overlay when open",
+      "visualDescription": "Fixed bottom-right corner, dark overlay rgba(0,0,0,0.6), click to open, 4 quick actions",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "cm006",
+        "layoutType": "circle",
+        "cDirection": "bottom-left",
+        "angleStart": "0",
+        "angleEnd": "90",
+        "circleRadius": {"md": "110", "unit": "px"},
+        "icnTrigger": "click",
+        "menuOSpeed": "400",
+        "iconPos": "fixed",
+        "bottomAuto": true,
+        "bottomASize": {"md": "3", "unit": "%"},
+        "rightAuto": true,
+        "rightASize": {"md": "3", "unit": "%"},
+        "overlayColorTgl": true,
+        "overlayColor": "rgba(0, 0, 0, 0.6)",
+        "circleMenu": [
+          {"_key": "0", "iconStore": "fas fa-plus", "title": "Create Post", "linkUrl": {"url": "/new-post"}},
+          {"_key": "1", "iconStore": "fas fa-upload", "title": "Upload", "linkUrl": {"url": "/upload"}},
+          {"_key": "2", "iconStore": "fas fa-camera", "title": "Take Photo", "linkUrl": {"url": "/camera"}},
+          {"_key": "3", "iconStore": "fas fa-microphone", "title": "Record Audio", "linkUrl": {"url": "/record"}}
+        ]
+      },
+      "useCase": "Content creation apps, social platforms, media sites, productivity tools"
+    },
+
+    {
+      "name": "Image Icons Menu (Custom Images)",
+      "description": "Circle menu using custom image icons instead of FontAwesome",
+      "visualDescription": "Bottom-right quarter circle, 4 custom brand/product images as icons, thumbnail size",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "cm007",
+        "layoutType": "circle",
+        "cDirection": "bottom-right",
+        "angleStart": "0",
+        "angleEnd": "90",
+        "circleRadius": {"md": "120", "unit": "px"},
+        "icnTrigger": "hover",
+        "menuOSpeed": "450",
+        "circleMenu": [
+          {
+            "_key": "0",
+            "iconType": "image",
+            "imageStore": {"url": "/wp-content/uploads/product-1-icon.png"},
+            "imageSize": "thumbnail",
+            "title": "Product 1",
+            "linkUrl": {"url": "/product-1"}
+          },
+          {
+            "_key": "1",
+            "iconType": "image",
+            "imageStore": {"url": "/wp-content/uploads/product-2-icon.png"},
+            "imageSize": "thumbnail",
+            "title": "Product 2",
+            "linkUrl": {"url": "/product-2"}
+          },
+          {
+            "_key": "2",
+            "iconType": "image",
+            "imageStore": {"url": "/wp-content/uploads/product-3-icon.png"},
+            "imageSize": "thumbnail",
+            "title": "Product 3",
+            "linkUrl": {"url": "/product-3"}
+          },
+          {
+            "_key": "3",
+            "iconType": "image",
+            "imageStore": {"url": "/wp-content/uploads/product-4-icon.png"},
+            "imageSize": "thumbnail",
+            "title": "Product 4",
+            "linkUrl": {"url": "/product-4"}
+          }
+        ]
+      },
+      "useCase": "Product showcases, brand navigation, custom icon needs, illustration-based menus"
+    },
+
+    {
+      "name": "Email/Phone Quick Contact (Simple 2-Icon)",
+      "description": "Minimal contact menu with just email and phone",
+      "visualDescription": "Straight horizontal layout, 2 icons (phone + email), simple and clean, style-2 with labels",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "cm008",
+        "layoutType": "straight",
+        "menuStyle": "style-2",
+        "sDirection": "right",
+        "iconGap": "20",
+        "openSpeed": "300",
+        "icnTrigger": "hover",
+        "circleMenu": [
+          {
+            "_key": "0",
+            "iconStore": "fas fa-phone",
+            "title": "Call",
+            "linkType": "phone",
+            "phoneNo": "+1-800-555-0123",
+            "ariaLabel": "Call us at +1-800-555-0123"
+          },
+          {
+            "_key": "1",
+            "iconStore": "fas fa-envelope",
+            "title": "Email",
+            "linkType": "email",
+            "emailtxt": "support@example.com",
+            "ariaLabel": "Email us at support@example.com"
+          }
+        ]
+      },
+      "useCase": "Simple contact options, minimal footers, sidebar widgets, quick support access"
     }
-  ],
-  "commonPatterns": {}
+  ]
 }
