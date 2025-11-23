@@ -2,120 +2,573 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-container-inner",
   "title": "Container Inner - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Advanced column container with sticky positioning, flexbox controls, and backdrop filters. Must be used inside tpgb/tp-container parent block for proper flex layout structure.",
+
   "examples": [
     {
-      "description": "50% width section with center alignment",
+      "name": "Two-Column 50/50 Layout (Basic)",
+      "description": "Standard half-width column with padding, perfect for side-by-side content",
+      "visualDescription": "Half-width column (50% desktop, 100% mobile) with purple gradient background and white padding",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
-        "Width": {
-          "md": 50,
-          "sm": 50,
-          "xs": 100,
-          "unit": "%"
-        },
+        "block_id": "ci001",
+        "Width": {"md": 50, "sm": 50, "xs": 100, "unit": "%"},
         "Padding": {
-          "md": {
-            "top": "20",
-            "bottom": "20",
-            "left": "20",
-            "right": "20"
-          },
+          "md": {"top": "40", "right": "40", "bottom": "40", "left": "40"},
+          "sm": {"top": "30", "right": "30", "bottom": "30", "left": "30"},
+          "xs": {"top": "20", "right": "20", "bottom": "20", "left": "20"},
+          "unit": "px"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "NormalBradius": {
+          "md": {"top": "8", "right": "8", "bottom": "8", "left": "8"},
           "unit": "px"
         }
-      }
+      },
+      "useCase": "Standard two-column layouts, split hero sections, feature comparisons",
+      "warnings": [
+        "Width uses responsive percentages: md: 50% = half width on desktop, xs: 100% = full width on mobile",
+        "Must be inside tpgb/tp-container parent for proper flex layout",
+        "Use pairs of 50/50 columns for equal splits, or 66.67/33.33 for 2:1 ratios"
+      ],
+      "relatedBlocks": ["tpgb/tp-container", "tpgb/tp-row", "tpgb/tp-column"]
     },
+
     {
-      "description": "33% width section with background",
+      "name": "Three-Column 33/33/33 Grid",
+      "description": "One-third width column for three-column grids with responsive stacking",
+      "visualDescription": "Third-width column (33.33% desktop, 50% tablet, 100% mobile) with white background and box shadow",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
-        "Width": {
-          "md": 33.33,
-          "sm": 50,
-          "xs": 100,
-          "unit": "%"
+        "block_id": "ci002",
+        "Width": {"md": 33.33, "sm": 50, "xs": 100, "unit": "%"},
+        "Padding": {
+          "md": {"top": "30", "right": "25", "bottom": "30", "left": "25"},
+          "unit": "px"
         },
         "NormalBg": {
           "openBg": 1,
           "bgType": "color",
-          "bgColor": "#f5f5f5"
+          "bgDefaultColor": "#ffffff"
         },
-        "Padding": {
-          "md": {
-            "top": "30",
-            "bottom": "30",
-            "left": "20",
-            "right": "20"
-          },
+        "NormalBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e5e5",
+          "width": {
+            "md": {"top": "1", "right": "1", "bottom": "1", "left": "1"},
+            "unit": "px"
+          }
+        },
+        "NormalBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.1)"
+        },
+        "Margin": {
+          "md": {"top": "0", "right": "15", "bottom": "30", "left": "15"},
+          "sm": {"top": "0", "right": "10", "bottom": "20", "left": "10"},
+          "xs": {"top": "0", "right": "0", "bottom": "20", "left": "0"},
           "unit": "px"
         }
-      }
+      },
+      "useCase": "Feature grids, service offerings, team member cards, pricing tiers",
+      "warnings": [
+        "Use THREE of these columns inside one container for 33.33/33.33/33.33 layout",
+        "Responsive: md: 33.33% (3 columns), sm: 50% (2 columns), xs: 100% (1 column stacked)",
+        "Add Margin right/left for gutters between columns"
+      ],
+      "responsivePattern": "Desktop: 3 columns | Tablet: 2 columns | Mobile: 1 column stacked",
+      "relatedBlocks": ["tpgb/tp-container", "tpgb/tp-infobox", "tpgb/tp-pricing-table"]
     },
+
     {
-      "description": "Pro: Sticky sidebar section (25% width)",
+      "name": "Sticky Sidebar (25% Desktop-Only)",
+      "description": "Fixed-position sidebar that sticks while scrolling on desktop, stacks on mobile",
+      "visualDescription": "Quarter-width sidebar on desktop with sticky positioning 100px from top, light gray background, full-width on mobile",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
-        "Width": {
-          "md": 25,
-          "sm": 100,
-          "xs": 100,
-          "unit": "%"
-        },
+        "block_id": "ci003",
+        "Width": {"md": 25, "sm": 100, "xs": 100, "unit": "%"},
         "stickycol": true,
         "topSpace": "100",
+        "botSpace": "40",
         "stickyDes": true,
         "stickyTab": false,
-        "stickyMob": false
-      }
-    },
-    {
-      "description": "Pro: Frosted glass section with backdrop blur",
-      "attributes": {
-        "block_id": "g7h8",
-        "Width": {
-          "md": 50,
-          "sm": 100,
-          "xs": 100,
-          "unit": "%"
+        "stickyMob": false,
+        "Padding": {
+          "md": {"top": "30", "right": "20", "bottom": "30", "left": "20"},
+          "unit": "px"
         },
         "NormalBg": {
           "openBg": 1,
           "bgType": "color",
-          "bgColor": "rgba(255,255,255,0.8)"
+          "bgDefaultColor": "#f9f9f9"
+        },
+        "sttopoffet": {"md": "100", "unit": "px"}
+      },
+      "useCase": "Blog sidebars, navigation menus, table of contents, filter panels",
+      "warnings": [
+        "CRITICAL: stickycol: true enables sticky positioning",
+        "topSpace/botSpace control offset from top/bottom edges (default 40px)",
+        "stickyDes: true (desktop), stickyTab: false (tablet), stickyMob: false (mobile) for responsive control",
+        "sttopoffet: responsive top offset (handles WP admin bar automatically with +32px)",
+        "Pair with 75% width main content column for 25/75 sidebar layout"
+      ],
+      "stickyNote": "WordPress admin bar adds 32px automatically, so topSpace: 100 becomes 132px when logged in",
+      "relatedBlocks": ["tpgb/tp-container", "tpgb/tp-table-content", "tpgb/tp-scroll-navigation"]
+    },
+
+    {
+      "name": "Frosted Glass Card with Backdrop Blur",
+      "description": "Semi-transparent column with CSS backdrop-filter blur effect creating frosted glass appearance",
+      "visualDescription": "Half-width card with semi-transparent white background (rgba 0.8), 15px backdrop blur, rounded corners, shadow effect",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ci004",
+        "Width": {"md": 50, "sm": 70, "xs": 100, "unit": "%"},
+        "Padding": {
+          "md": {"top": "50", "right": "50", "bottom": "50", "left": "50"},
+          "sm": {"top": "40", "right": "40", "bottom": "40", "left": "40"},
+          "xs": {"top": "30", "right": "30", "bottom": "30", "left": "30"},
+          "unit": "px"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(255, 255, 255, 0.75)"
         },
         "conInnerFilter": {
           "openFilter": true,
           "isbackdrop": true,
-          "blur": 10
+          "blur": 15,
+          "brightness": 105,
+          "saturate": 110
+        },
+        "NormalBradius": {
+          "md": {"top": "16", "right": "16", "bottom": "16", "left": "16"},
+          "unit": "px"
+        },
+        "NormalBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "rgba(255, 255, 255, 0.3)",
+          "width": {
+            "md": {"top": "1", "right": "1", "bottom": "1", "left": "1"},
+            "unit": "px"
+          }
+        },
+        "NormalBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 32,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.15)"
+        }
+      },
+      "useCase": "Hero CTAs over background images, modal overlays, testimonial cards, premium feature highlights",
+      "warnings": [
+        "CRITICAL: conInnerFilter.isbackdrop: true enables backdrop-filter CSS (Webkit-only)",
+        "backdrop-filter requires semi-transparent background (rgba with alpha <1)",
+        "blur: 10-20px recommended for frosted glass effect",
+        "brightness: 105-110% for slight glow, saturate: 110-120% for vivid colors",
+        "Not supported in Firefox (falls back to normal transparent background)"
+      ],
+      "designTip": "Use over background images for best frosted glass effect. Combine with white border (rgba 0.3) for glass edge highlight.",
+      "browserSupport": "Chrome 76+, Safari 9+, Edge 79+. Firefox: no support (graceful degradation to rgba background)",
+      "relatedBlocks": ["tpgb/tp-container", "tpgb/tp-image", "tpgb/tp-cta-banner"]
+    },
+
+    {
+      "name": "Clickable Column Card with Hover Effects",
+      "description": "Entire column acts as a clickable link with smooth hover state transitions",
+      "visualDescription": "Third-width card with white background, transforms and changes shadow on hover, cursor pointer indicates clickability",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ci005",
+        "Width": {"md": 33.33, "sm": 50, "xs": 100, "unit": "%"},
+        "wrapLink": true,
+        "colUrl": {
+          "url": "/product/premium-plan",
+          "target": "_blank",
+          "nofollow": ""
         },
         "Padding": {
-          "md": {
-            "top": "40",
-            "bottom": "40",
-            "left": "40",
-            "right": "40"
+          "md": {"top": "40", "right": "30", "bottom": "40", "left": "30"},
+          "unit": "px"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "HoverBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f0f4ff"
+        },
+        "NormalBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e5e5",
+          "width": {
+            "md": {"top": "1", "right": "1", "bottom": "1", "left": "1"},
+            "unit": "px"
+          }
+        },
+        "HoverBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#667eea",
+          "width": {
+            "md": {"top": "2", "right": "2", "bottom": "2", "left": "2"},
+            "unit": "px"
+          }
+        },
+        "NormalBradius": {
+          "md": {"top": "8", "right": "8", "bottom": "8", "left": "8"},
+          "unit": "px"
+        },
+        "NormalBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.08)"
+        },
+        "HoverBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 12,
+          "blur": 28,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.25)"
+        },
+        "customClasses": "tpgb-hover-lift"
+      },
+      "useCase": "Product cards, service offerings, portfolio items, clickable feature boxes, call-to-action cards",
+      "warnings": [
+        "CRITICAL: wrapLink: true makes entire column clickable",
+        "colUrl requires url property, target: '_blank' for external links",
+        "Hover state changes apply to entire column (bg, border, shadow)",
+        "Add cursor: pointer via customClasses for better UX",
+        "Don't nest other clickable elements inside (causes nested link issues)"
+      ],
+      "accessibilityNote": "Entire column acts as <a> tag. Use descriptive text content for screen readers.",
+      "relatedBlocks": ["tpgb/tp-animated-service-boxes", "tpgb/tp-pricing-table", "tpgb/tp-infobox"]
+    },
+
+    {
+      "name": "Flexbox Column - Vertical Stacking with Gap",
+      "description": "Column container with flex-direction: column, controlling vertical alignment and spacing of children",
+      "visualDescription": "Half-width column with children stacked vertically, 20px gap between items, centered alignment",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ci006",
+        "Width": {"md": 50, "sm": 100, "xs": 100, "unit": "%"},
+        "flexDirection": {"md": "column", "sm": "column", "xs": "column"},
+        "flexAlign": {"md": "center", "sm": "center", "xs": "center"},
+        "flexJustify": {"md": "flex-start", "sm": "flex-start", "xs": "flex-start"},
+        "flexGap": {"md": "20", "sm": "15", "xs": "10", "unit": "px"},
+        "minHeight": {"md": "500", "sm": "400", "xs": "300", "unit": "px"},
+        "Padding": {
+          "md": {"top": "40", "right": "40", "bottom": "40", "left": "40"},
+          "unit": "px"
+        },
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f5f5f5"
+        }
+      },
+      "useCase": "Vertical navigation menus, stacked cards, form layouts, mobile-first designs",
+      "warnings": [
+        "flexDirection: 'column' stacks children vertically (default is 'row' horizontal)",
+        "flexAlign: 'center' centers children horizontally within column",
+        "flexJustify: 'flex-start' aligns children to top (use 'center' for vertical centering)",
+        "flexGap: '20' creates 20px space between all child elements",
+        "minHeight sets minimum column height (useful for empty/sparse columns)"
+      ],
+      "flexboxOptions": {
+        "flexDirection": "row | row-reverse | column | column-reverse",
+        "flexAlign": "flex-start | center | flex-end | stretch | baseline",
+        "flexJustify": "flex-start | center | flex-end | space-between | space-around | space-evenly",
+        "flexwrap": "nowrap | wrap | wrap-reverse"
+      },
+      "relatedBlocks": ["tpgb/tp-container", "tpgb/tp-row"]
+    },
+
+    {
+      "name": "Advanced Flexbox - Custom Child Sizing with flexChild",
+      "description": "Precise control over child element sizing using flex-grow, flex-shrink, flex-basis, and order",
+      "visualDescription": "Column with 3 children: first child grows 2x, second baseline 1x, third child has custom 40% basis, responsive reordering",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ci007",
+        "Width": {"md": 60, "sm": 100, "xs": 100, "unit": "%"},
+        "flexDirection": {"md": "row", "sm": "column", "xs": "column"},
+        "flexAlign": {"md": "stretch", "sm": "flex-start", "xs": "flex-start"},
+        "flexJustify": {"md": "space-between", "sm": "flex-start", "xs": "flex-start"},
+        "flexGap": {"md": "20", "unit": "px"},
+        "showchild": true,
+        "flexChild": [
+          {
+            "_key": "child1",
+            "flexGrow": {"md": "2"},
+            "flexShrink": {"md": "1"},
+            "flexBasis": {"md": "auto", "unit": "%"},
+            "flexselfAlign": {"md": "auto", "sm": "auto", "xs": "auto"},
+            "flexOrder": {"md": "1", "sm": "1", "xs": "1"}
           },
+          {
+            "_key": "child2",
+            "flexGrow": {"md": "1"},
+            "flexShrink": {"md": "1"},
+            "flexBasis": {"md": "auto", "unit": "%"},
+            "flexselfAlign": {"md": "auto", "sm": "auto", "xs": "auto"},
+            "flexOrder": {"md": "2", "sm": "2", "xs": "2"}
+          },
+          {
+            "_key": "child3",
+            "flexGrow": {"md": "0"},
+            "flexShrink": {"md": "0"},
+            "flexBasis": {"md": "40", "sm": "100", "xs": "100", "unit": "%"},
+            "flexselfAlign": {"md": "center", "sm": "auto", "xs": "auto"},
+            "flexOrder": {"md": "3", "sm": "1", "xs": "1"}
+          }
+        ],
+        "Padding": {
+          "md": {"top": "30", "right": "30", "bottom": "30", "left": "30"},
           "unit": "px"
         }
-      }
+      },
+      "useCase": "Dashboard layouts, complex card grids, pricing tables with variable widths, responsive content prioritization",
+      "warnings": [
+        "CRITICAL: showchild: true required to enable flexChild controls",
+        "flexChild is ARRAY mapping to nth-child CSS selectors (child1 = :nth-child(1), child2 = :nth-child(2))",
+        "flexGrow: how much child grows relative to siblings (2 = double size of 1)",
+        "flexShrink: how much child shrinks when space constrained (0 = never shrink)",
+        "flexBasis: initial size before grow/shrink (40% = starts at 40% width)",
+        "flexOrder: visual order (3 appears last even if first in HTML, 1 appears first)",
+        "flexselfAlign: overrides parent flexAlign for individual child"
+      ],
+      "flexChildExplained": {
+        "flexGrow": "0 = no growth, 1 = grow equally, 2 = grow twice as much as siblings",
+        "flexShrink": "0 = never shrink, 1 = shrink equally with siblings",
+        "flexBasis": "auto = content size, 50% = half container width, 300px = fixed 300px",
+        "flexselfAlign": "auto | flex-start | center | flex-end | stretch (overrides parent flexAlign)",
+        "flexOrder": "-1 = first, 0 = default, 1 = after 0, 2 = after 1 (visual reordering without changing HTML)"
+      },
+      "commonPatterns": [
+        "Sidebar layout: Main content flexGrow: 2, Sidebar flexBasis: 300px flexGrow: 0",
+        "Priority cards: Important card flexOrder: -1 (shows first), others flexOrder: 0",
+        "Responsive images: Image flexShrink: 0 (never shrink), text flexShrink: 1 (shrinks first)"
+      ],
+      "relatedBlocks": ["tpgb/tp-container", "tpgb/tp-row"]
     },
+
     {
-      "description": "Column layout section (flex direction column)",
+      "name": "Asymmetric Two-Column (66.67/33.33) with Reverse Mobile",
+      "description": "Two-thirds width main content column with responsive flex-reverse for mobile content prioritization",
+      "visualDescription": "Two-thirds width column on desktop, reverses to appear below on mobile, purple accent border left",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "i9j0",
-        "Width": {
-          "md": 50,
-          "sm": 100,
-          "xs": 100,
-          "unit": "%"
+        "block_id": "ci008",
+        "Width": {"md": 66.67, "sm": 100, "xs": 100, "unit": "%"},
+        "Padding": {
+          "md": {"top": "40", "right": "50", "bottom": "40", "left": "50"},
+          "sm": {"top": "30", "right": "30", "bottom": "30", "left": "30"},
+          "xs": {"top": "20", "right": "20", "bottom": "20", "left": "20"},
+          "unit": "px"
         },
-        "flexDirection": {
-          "md": "column",
-          "sm": "column",
-          "xs": "column"
-        }
-      }
+        "NormalBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "NormalBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "transparent transparent transparent #667eea",
+          "width": {
+            "md": {"top": "0", "right": "0", "bottom": "0", "left": "4"},
+            "unit": "px"
+          }
+        },
+        "Margin": {
+          "md": {"top": "0", "right": "0", "bottom": "0", "left": "0"},
+          "xs": {"top": "30", "right": "0", "bottom": "0", "left": "0"},
+          "unit": "px"
+        },
+        "ZIndex": "1"
+      },
+      "useCase": "Blog posts with sidebar, product detail pages, landing page content sections",
+      "warnings": [
+        "Use with 33.33% width sidebar column for 66.67/33.33 asymmetric layout",
+        "Responsive: md: 66.67% (main content), xs: 100% (stacks full width)",
+        "Parent container flexDirection controls column order (use flexDirection.xs: 'column-reverse' on parent)",
+        "ZIndex: 1 ensures this column appears above siblings when overlapping",
+        "Border shorthand: 'transparent transparent transparent #667eea' = top right bottom left (only left border)"
+      ],
+      "parentContainerNote": "Set parent tpgb/tp-container flexDirection: {xs: 'column-reverse'} to reverse mobile order",
+      "borderShorthand": "border: 'top right bottom left' color values (use 'transparent' for invisible sides)",
+      "relatedBlocks": ["tpgb/tp-container", "tpgb/tp-row", "tpgb/tp-column"]
     }
   ],
-  "commonPatterns": {}
+
+  "commonPatterns": {
+    "columnWidthLayouts": {
+      "full-width": {"md": 100, "sm": 100, "xs": 100},
+      "half-half": {"md": 50, "sm": 50, "xs": 100},
+      "thirds": {"md": 33.33, "sm": 50, "xs": 100},
+      "quarters": {"md": 25, "sm": 50, "xs": 100},
+      "two-thirds-main": {"md": 66.67, "sm": 100, "xs": 100},
+      "one-third-sidebar": {"md": 33.33, "sm": 100, "xs": 100},
+      "three-quarters-main": {"md": 75, "sm": 100, "xs": 100},
+      "one-quarter-sidebar": {"md": 25, "sm": 100, "xs": 100}
+    },
+
+    "responsiveStacking": {
+      "desktop-3-tablet-2-mobile-1": {"md": 33.33, "sm": 50, "xs": 100},
+      "desktop-4-tablet-2-mobile-1": {"md": 25, "sm": 50, "xs": 100},
+      "desktop-2-tablet-1-mobile-1": {"md": 50, "sm": 100, "xs": 100},
+      "desktop-only-sidebar": {"md": 25, "sm": 100, "xs": 100}
+    },
+
+    "stickyPatterns": {
+      "sidebarDesktopOnly": {
+        "stickycol": true,
+        "stickyDes": true,
+        "stickyTab": false,
+        "stickyMob": false,
+        "topSpace": "100"
+      },
+      "sidebarAllDevices": {
+        "stickycol": true,
+        "stickyDes": true,
+        "stickyTab": true,
+        "stickyMob": true,
+        "topSpace": "100"
+      },
+      "headerNavigation": {
+        "stickycol": true,
+        "stickyDes": true,
+        "stickyTab": true,
+        "stickyMob": false,
+        "topSpace": "0"
+      }
+    },
+
+    "flexDirectionPatterns": {
+      "vertical-stacking": {"md": "column", "sm": "column", "xs": "column"},
+      "horizontal-row": {"md": "row", "sm": "row", "xs": "column"},
+      "reverse-mobile": {"md": "row", "sm": "column", "xs": "column-reverse"},
+      "reverse-desktop": {"md": "row-reverse", "sm": "row", "xs": "column"}
+    },
+
+    "alignmentPatterns": {
+      "center-center": {
+        "flexAlign": {"md": "center"},
+        "flexJustify": {"md": "center"}
+      },
+      "top-left": {
+        "flexAlign": {"md": "flex-start"},
+        "flexJustify": {"md": "flex-start"}
+      },
+      "bottom-right": {
+        "flexAlign": {"md": "flex-end"},
+        "flexJustify": {"md": "flex-end"}
+      },
+      "space-between": {
+        "flexAlign": {"md": "center"},
+        "flexJustify": {"md": "space-between"}
+      }
+    }
+  },
+
+  "validationRules": {
+    "Width": "Required object with md/sm/xs and unit (% or px)",
+    "stickycol": "Boolean, must be true to enable sticky features",
+    "topSpace/botSpace": "String numbers in px (e.g., '100', not 100)",
+    "wrapLink": "Boolean, must be true to enable colUrl click functionality",
+    "colUrl": "Required when wrapLink: true, object {url, target, nofollow}",
+    "showchild": "Boolean, must be true to enable flexChild array controls",
+    "flexChild": "Array of objects, each with _key and flex properties (flexGrow, flexShrink, etc.)",
+    "conInnerFilter": "Requires openFilter: true and isbackdrop: true for backdrop-filter CSS"
+  },
+
+  "warnings": [
+    "CRITICAL: Must be used inside tpgb/tp-container parent block for proper flex layout",
+    "Width percentages should add up to 100% for proper layouts (e.g., 50% + 50%, 33.33% + 33.33% + 33.33%)",
+    "stickycol requires topSpace/botSpace values and device-specific sticky flags (stickyDes/stickyTab/stickyMob)",
+    "wrapLink creates entire column as clickable link - avoid nesting other clickable elements",
+    "flexChild array index matches child element order (child1 = first element, child2 = second, etc.)",
+    "conInnerFilter backdrop-filter only works in Chrome/Safari/Edge (Firefox fallback to rgba background)",
+    "ZIndex controls stacking order - higher values appear above lower values",
+    "flexDirection: 'column' changes layout from horizontal to vertical stacking"
+  ],
+
+  "architectureNote": {
+    "parentBlock": "tpgb/tp-container",
+    "purpose": "Inner column container with advanced features (sticky, flexbox, backdrop-filter)",
+    "difference": "tp-container-inner vs tp-column: Inner has sticky positioning, flex controls, backdrop filters. Column is simpler grid-based.",
+    "usage": "Use Container Inner for advanced layouts with sticky sidebars, flexbox control, or frosted glass effects. Use tp-column for simple grid layouts."
+  },
+
+  "troubleshooting": [
+    {
+      "issue": "Columns not displaying side-by-side",
+      "solution": "Ensure parent is tpgb/tp-container, check Width percentages add up to ≤100%, verify parent has flexDirection: 'row'"
+    },
+    {
+      "issue": "Sticky positioning not working",
+      "solution": "Set stickycol: true, enable appropriate sticky flags (stickyDes/stickyTab/stickyMob), set topSpace value"
+    },
+    {
+      "issue": "Backdrop blur not visible",
+      "solution": "Set conInnerFilter.isbackdrop: true, use semi-transparent background (rgba with alpha <1), check browser support (not Firefox)"
+    },
+    {
+      "issue": "Entire column not clickable",
+      "solution": "Set wrapLink: true and provide colUrl with valid url property"
+    },
+    {
+      "issue": "flexChild not affecting children",
+      "solution": "Set showchild: true, ensure flexChild array indices match child element positions"
+    },
+    {
+      "issue": "Column overflowing container",
+      "solution": "Check Width percentages don't exceed 100%, verify Margin values aren't too large, check parent container width"
+    }
+  ],
+
+  "accessibilityNotes": {
+    "wrapLink": "Entire column becomes <a> tag - ensure meaningful text content for screen readers",
+    "focusIndicator": "Add custom CSS for focus states when using wrapLink for keyboard navigation",
+    "semanticHTML": "Column itself is div, doesn't affect heading hierarchy inside",
+    "colorContrast": "Ensure 4.5:1 contrast ratio for text over background colors/gradients"
+  },
+
+  "performanceNotes": {
+    "stickyPositioning": "CSS position: sticky is GPU-accelerated and performant",
+    "backdropFilter": "backdrop-filter is GPU-intensive - use sparingly (max 3-5 per page)",
+    "flexbox": "Modern flexbox is highly performant, prefer over float-based layouts",
+    "zIndex": "Keep zIndex values reasonable (1-999), avoid extreme values (9999)"
+  }
 }
