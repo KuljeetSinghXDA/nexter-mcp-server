@@ -1,97 +1,1304 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-audio-player",
-  "title": "Audio Player - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Audio Player - Comprehensive Usage Examples",
+  "description": "HTML5 audio player with playlists, multiple styles, and custom controls for podcasts, music, and audio content",
   "examples": [
     {
-      "description": "Simple single-track player (style-1)",
+      "name": "Simple Podcast Episode Player (Style-1)",
+      "description": "Basic audio player for single podcast episode with play/pause, volume, and progress bar",
+      "visualDescription": "Clean player with large play button, purple progress bar, volume control, and episode title below",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "ap001",
         "Apstyle": "style-1",
         "Aprepeater": [
           {
-            "_key": "1",
-            "title": "Episode 1: Introduction",
-            "author": "My Podcast",
+            "_key": "0",
+            "title": "Episode 42: The Future of Web Design",
+            "author": "Design Podcast",
             "AudSource": "url",
             "sorurl": {
-              "url": "https://example.com/audio/episode1.mp3"
+              "url": "https://example.com/podcasts/episode-42.mp3",
+              "target": "",
+              "nofollow": false
+            },
+            "Imagesource": {
+              "url": "/images/podcast-cover.jpg",
+              "Id": "501"
             }
           }
         ],
-        "DefaultVolume": "70"
-      }
-    },
-    {
-      "description": "Album playlist with custom colors (style-3)",
-      "attributes": {
-        "block_id": "c3d4",
-        "Apstyle": "style-3",
-        "Aprepeater": [
-          {
-            "_key": "1",
-            "title": "Track 1",
-            "author": "Artist Name",
-            "AudSource": "url"
-          },
-          {
-            "_key": "2",
-            "title": "Track 2",
-            "author": "Artist Name",
-            "AudSource": "url"
-          },
-          {
-            "_key": "3",
-            "title": "Track 3",
-            "author": "Artist Name",
-            "AudSource": "url"
-          }
-        ],
+        "SplitText": "by",
+        "DefaultVolume": "70",
+        "MaxWidth": {
+          "md": "600",
+          "sm": "100",
+          "unit": "px"
+        },
+        "SongFont": {
+          "openTypography": 1,
+          "fontSize": {"md": "18", "sm": "16", "unit": "px"},
+          "fontWeight": "700"
+        },
         "TitleColor": "#2c3e50",
-        "PlayPausecolor": "#667eea",
-        "TFillcolor": "#667eea",
-        "ActiveColor": "#667eea"
-      }
-    },
-    {
-      "description": "Minimal player with background blur (style-8)",
-      "attributes": {
-        "block_id": "e5f6",
-        "Apstyle": "style-8",
-        "PBGCSSFilters": {
-          "openFilter": true,
-          "blur": 12,
-          "brightness": 80
-        }
-      }
-    },
-    {
-      "description": "Compact player with custom play button (style-5)",
-      "attributes": {
-        "block_id": "g7h8",
-        "Apstyle": "style-5",
+        "AuthorFont": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"},
+          "fontWeight": "400"
+        },
+        "Authorcolor": "#7f8c8d",
+        "SplitFont": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"}
+        },
+        "SpliTextColor": "#95a5a6",
+        "PlayPausecolor": "#ffffff",
+        "PlayPauseSize": {
+          "md": "24",
+          "unit": "px"
+        },
         "bgsize": {
           "md": "60",
           "unit": "px"
         },
         "bgtype": {
           "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "BorderRadius": {
+          "md": {"top": "50", "right": "50", "bottom": "50", "left": "50"},
+          "unit": "%"
+        },
+        "IconColor": "#667eea",
+        "IconSize": {
+          "md": "18",
+          "unit": "px"
+        },
+        "TFillcolor": "#667eea",
+        "Trackcolor": "#e0e0e0",
+        "TDotColor": "#667eea",
+        "VolScolor": "#667eea",
+        "VolSBgColor": "#e0e0e0",
+        "VolIcolor": "#667eea",
+        "PlBgType": {
+          "openBg": 1,
           "bgType": "color",
-          "bgDefaultColor": "#27ae60"
+          "bgDefaultColor": "#ffffff"
+        },
+        "PlBorderType": {
+          "openBorder": 1,
+          "borderWidth": {"top": "1", "right": "1", "bottom": "1", "left": "1"},
+          "borderStyle": "solid",
+          "borderColor": "#e0e0e0"
+        },
+        "PLBgBordeR": {
+          "md": "8",
+          "unit": "px"
+        },
+        "PBGboxshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.1)"
+        }
+      },
+      "useCase": "Podcast episodes, audiobook chapters, single audio file playback, blog post audio versions",
+      "style1Notes": {
+        "layout": "Vertical layout with play button at top, progress bar, and track info below",
+        "playButton": "Circular play/pause button with gradient background (bgtype)",
+        "bgsize": "Button size (60px recommended for touch-friendly 44px minimum)",
+        "BorderRadius": "50% for circular button (use equal values for all corners)",
+        "SplitText": "Text between title and author ('by', '-', '•', etc.)",
+        "progress": "Horizontal progress bar with handle (TDotColor) and fill (TFillcolor)"
+      },
+      "audioSourceNotes": {
+        "AudSource": "url (external link) or self (self-hosted WordPress media)",
+        "sorurl": "External MP3 URL (use for CDN-hosted files, podcasts, SoundCloud links)",
+        "sorself": "WordPress media library file (use for site-hosted audio)",
+        "formats": "Supports MP3, OGG, WAV (MP3 most compatible across browsers)",
+        "fileSize": "Keep under 10MB for web (use 128kbps for speech, 256kbps for music)"
+      }
+    },
+    {
+      "name": "Music Album Playlist (Style-3)",
+      "description": "Music player with full playlist, album artwork, and track navigation",
+      "visualDescription": "Square album artwork on left, playlist on right with clickable tracks, purple active track highlight",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ap002",
+        "Apstyle": "style-3",
+        "Aprepeater": [
+          {
+            "_key": "0",
+            "title": "Neon Lights",
+            "author": "Synthwave Dreams",
+            "AudSource": "url",
+            "sorurl": {
+              "url": "https://example.com/music/track1.mp3",
+              "target": "",
+              "nofollow": false
+            },
+            "Imagesource": {
+              "url": "/images/album-cover-1.jpg",
+              "Id": "601"
+            }
+          },
+          {
+            "_key": "1",
+            "title": "Midnight Drive",
+            "author": "Synthwave Dreams",
+            "AudSource": "url",
+            "sorurl": {
+              "url": "https://example.com/music/track2.mp3",
+              "target": "",
+              "nofollow": false
+            },
+            "Imagesource": {
+              "url": "/images/album-cover-2.jpg",
+              "Id": "602"
+            }
+          },
+          {
+            "_key": "2",
+            "title": "Cyber City",
+            "author": "Synthwave Dreams",
+            "AudSource": "url",
+            "sorurl": {
+              "url": "https://example.com/music/track3.mp3",
+              "target": "",
+              "nofollow": false
+            },
+            "Imagesource": {
+              "url": "/images/album-cover-3.jpg",
+              "Id": "603"
+            }
+          },
+          {
+            "_key": "3",
+            "title": "Electric Dreams",
+            "author": "Synthwave Dreams",
+            "AudSource": "url",
+            "sorurl": {
+              "url": "https://example.com/music/track4.mp3",
+              "target": "",
+              "nofollow": false
+            },
+            "Imagesource": {
+              "url": "/images/album-cover-4.jpg",
+              "Id": "604"
+            }
+          }
+        ],
+        "SplitText": "by",
+        "DefaultVolume": "80",
+        "MaxWidth": {
+          "md": "800",
+          "sm": "100",
+          "unit": "px"
+        },
+        "SongFont": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "14", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "TitleColor": "#2c3e50",
+        "AuthorFont": {
+          "openTypography": 1,
+          "fontSize": {"md": "13", "unit": "px"},
+          "fontWeight": "400"
+        },
+        "Authorcolor": "#95a5a6",
+        "SplitFont": {
+          "openTypography": 1,
+          "fontSize": {"md": "13", "unit": "px"}
+        },
+        "SpliTextColor": "#bdc3c7",
+        "PlayPausecolor": "#ffffff",
+        "PlayPauseSize": {
+          "md": "28",
+          "unit": "px"
+        },
+        "bgsize": {
+          "md": "70",
+          "unit": "px"
+        },
+        "bgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "BackgroundType": {
+          "openBorder": 0
+        },
+        "BorderRadius": {
+          "md": {"top": "50", "right": "50", "bottom": "50", "left": "50"},
+          "unit": "%"
+        },
+        "IconColor": "#667eea",
+        "TFillcolor": "#667eea",
+        "Trackcolor": "#e0e0e0",
+        "TDotColor": "#667eea",
+        "TTimecolor": "#7f8c8d",
+        "TTimeSize": {
+          "md": "12",
+          "unit": "px"
+        },
+        "TIBorder": {
+          "openBorder": 1,
+          "borderWidth": {"top": "0", "right": "0", "bottom": "0", "left": "0"},
+          "borderStyle": "solid",
+          "borderColor": "#e0e0e0"
+        },
+        "TIBorderR": {
+          "md": "8",
+          "unit": "px"
+        },
+        "TIBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.15)"
+        },
+        "PLTypography": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"},
+          "fontWeight": "500"
+        },
+        "NormalColor": "#2c3e50",
+        "ActiveColor": "#ffffff",
+        "PlaBgcolor": "#667eea",
+        "HColor": "#667eea",
+        "HAColor": "#ffffff",
+        "HAPlaBgcolor": "#764ba2",
+        "PlPadding": {
+          "md": "12 16",
+          "unit": "px"
+        },
+        "PlIMargin": {
+          "md": "0 0 8 0",
+          "unit": "px"
+        },
+        "NormalTop": {
+          "md": "15",
+          "unit": "px"
+        },
+        "PlBgCr": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f8f9fa"
+        },
+        "Plborder": {
+          "openBorder": 1,
+          "borderWidth": {"top": "1", "right": "1", "bottom": "1", "left": "1"},
+          "borderStyle": "solid",
+          "borderColor": "#e0e0e0"
+        },
+        "PlborderR": {
+          "md": "8",
+          "unit": "px"
+        },
+        "PlBgType": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "PlBorderType": {
+          "openBorder": 1,
+          "borderWidth": {"top": "1", "right": "1", "bottom": "1", "left": "1"},
+          "borderStyle": "solid",
+          "borderColor": "#e0e0e0"
+        },
+        "PLBgBordeR": {
+          "md": "12",
+          "unit": "px"
+        },
+        "PBGboxshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 16,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.1)"
+        }
+      },
+      "useCase": "Music albums, mixtapes, compilation playlists, multi-track audio courses, meditation sessions",
+      "style3Notes": {
+        "layout": "Horizontal layout: album artwork left, controls center, time display visible",
+        "playlist": "Below player, clickable tracks with active state highlighting",
+        "TTimecolor": "Current time and duration text color (00:45 / 03:21)",
+        "TTimeSize": "Time display font size (12-14px recommended)",
+        "trackImage": "Each track can have unique Imagesource (album artwork changes per track)",
+        "TIBorder": "Album artwork border styling",
+        "TIBorderR": "Album artwork border radius (8px subtle, 50% circular)",
+        "TIBoxShadow": "Album artwork shadow for depth"
+      },
+      "playlistStyling": {
+        "PLTypography": "Playlist item typography (title + author combined)",
+        "NormalColor": "Normal playlist item text color",
+        "ActiveColor": "Active (currently playing) item text color",
+        "PlaBgcolor": "Active item background color (highlight currently playing)",
+        "HColor": "Hover state text color",
+        "HAColor": "Hover + active state text color",
+        "HAPlaBgcolor": "Hover + active state background color",
+        "PlPadding": "Playlist item padding (12px 16px recommended for touch)",
+        "PlIMargin": "Margin between playlist items (8px spacing)",
+        "NormalTop": "Top margin for entire playlist (space below player)",
+        "PlBgCr": "Playlist container background",
+        "Plborder": "Playlist container border",
+        "PlborderR": "Playlist container border radius"
+      }
+    },
+    {
+      "name": "Minimalist Player with Large Image (Style-5)",
+      "description": "Clean player design with prominent album artwork and minimal controls",
+      "visualDescription": "Large square album cover dominates, small circular play button bottom-left, compact progress bar",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ap003",
+        "Apstyle": "style-5",
+        "Aprepeater": [
+          {
+            "_key": "0",
+            "title": "Guided Meditation: Morning Calm",
+            "author": "Mindful Moments",
+            "AudSource": "url",
+            "sorurl": {
+              "url": "https://example.com/audio/meditation-morning.mp3",
+              "target": "",
+              "nofollow": false
+            },
+            "Imagesource": {
+              "url": "/images/meditation-sunrise.jpg",
+              "Id": "701"
+            }
+          }
+        ],
+        "SplitText": "•",
+        "DefaultVolume": "60",
+        "MaxWidth": {
+          "md": "400",
+          "sm": "100",
+          "unit": "px"
+        },
+        "SongFont": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "14", "unit": "px"},
+          "fontWeight": "600",
+          "textAlign": "center"
+        },
+        "TitleColor": "#2c3e50",
+        "AuthorFont": {
+          "openTypography": 1,
+          "fontSize": {"md": "13", "unit": "px"},
+          "fontWeight": "400",
+          "textAlign": "center"
+        },
+        "Authorcolor": "#7f8c8d",
+        "SplitFont": {
+          "openTypography": 1,
+          "fontSize": {"md": "13", "unit": "px"}
+        },
+        "SpliTextColor": "#bdc3c7",
+        "PlayPausecolor": "#ffffff",
+        "PlayPauseSize": {
+          "md": "20",
+          "unit": "px"
+        },
+        "bgsize": {
+          "md": "50",
+          "unit": "px"
+        },
+        "bgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(102, 126, 234, 0.95)"
+        },
+        "BackgroundType": {
+          "openBorder": 1,
+          "borderWidth": {"top": "0", "right": "0", "bottom": "0", "left": "0"},
+          "borderStyle": "solid",
+          "borderColor": "rgba(255, 255, 255, 0.3)"
+        },
+        "BorderRadius": {
+          "md": {"top": "50", "right": "50", "bottom": "50", "left": "50"},
+          "unit": "%"
+        },
+        "IconColor": "#667eea",
+        "IconSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "PlIconcolor": "#667eea",
+        "PlIconSize": {
+          "md": "18",
+          "unit": "px"
+        },
+        "VolIcolor": "#667eea",
+        "VolSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "TFillcolor": "#667eea",
+        "Trackcolor": "#e0e0e0",
+        "TDotColor": "#667eea",
+        "TIBorder": {
+          "openBorder": 0
+        },
+        "TIBorderR": {
+          "md": "12",
+          "unit": "px"
+        },
+        "TIBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 24,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.2)"
+        },
+        "PlBgType": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "PBMargin": {
+          "md": "20 0 0 0",
+          "unit": "px"
+        },
+        "PlBorderType": {
+          "openBorder": 0
+        },
+        "PLBgBordeR": {
+          "md": "12",
+          "unit": "px"
+        },
+        "PBGboxshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.08)"
+        }
+      },
+      "useCase": "Meditation audio, audiobooks with cover art, music singles, feature audio content with visual focus",
+      "style5Notes": {
+        "layout": "Image-first design: large album artwork at top, small play button overlayed bottom-left",
+        "imageEmphasis": "Album artwork is primary visual element (400x400px typical)",
+        "playButtonPosition": "Floating circular button on image (absolute positioned bottom-left)",
+        "bgsize": "Smaller button for unobtrusive design (50px, can go 40-60px)",
+        "transparency": "Use rgba() for bgtype to blend with image (0.95 opacity recommended)",
+        "TIBorderR": "Large border radius for modern aesthetic (12px)",
+        "TIBoxShadow": "Strong shadow for image depth (vertical: 8, blur: 24)",
+        "PBMargin": "Top margin separates image from track info below"
+      }
+    },
+    {
+      "name": "Horizontal Compact Player (Style-6)",
+      "description": "Space-efficient horizontal player for sidebar or narrow containers",
+      "visualDescription": "All controls in single row: small play button, track info, progress bar, volume - all horizontal",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ap004",
+        "Apstyle": "style-6",
+        "Aprepeater": [
+          {
+            "_key": "0",
+            "title": "Background Music Loop",
+            "author": "Ambient Sounds",
+            "AudSource": "url",
+            "sorurl": {
+              "url": "https://example.com/audio/background-loop.mp3",
+              "target": "",
+              "nofollow": false
+            }
+          }
+        ],
+        "SplitText": "-",
+        "DefaultVolume": "50",
+        "MaxWidth": {
+          "md": "100",
+          "sm": "100",
+          "unit": "%"
+        },
+        "SongFont": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "sm": "12", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "TitleColor": "#2c3e50",
+        "AuthorFont": {
+          "openTypography": 1,
+          "fontSize": {"md": "12", "sm": "11", "unit": "px"},
+          "fontWeight": "400"
+        },
+        "Authorcolor": "#95a5a6",
+        "SplitFont": {
+          "openTypography": 1,
+          "fontSize": {"md": "12", "unit": "px"}
+        },
+        "SpliTextColor": "#bdc3c7",
+        "PlayPausecolor": "#667eea",
+        "PlayPauseSize": {
+          "md": "18",
+          "unit": "px"
+        },
+        "bgsize": {
+          "md": "40",
+          "unit": "px"
+        },
+        "bgtype": {
+          "openBg": 0
+        },
+        "BackgroundType": {
+          "openBorder": 1,
+          "borderWidth": {"top": "2", "right": "2", "bottom": "2", "left": "2"},
+          "borderStyle": "solid",
+          "borderColor": "#667eea"
+        },
+        "BorderRadius": {
+          "md": {"top": "50", "right": "50", "bottom": "50", "left": "50"},
+          "unit": "%"
+        },
+        "IconColor": "#667eea",
+        "IconSize": {
+          "md": "14",
+          "unit": "px"
+        },
+        "PlIconcolor": "#667eea",
+        "PlIconSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "VolIcolor": "#667eea",
+        "VolSize": {
+          "md": "14",
+          "unit": "px"
+        },
+        "TFillcolor": "#667eea",
+        "Trackcolor": "#e0e0e0",
+        "TDotColor": "#667eea",
+        "PlBgType": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f8f9fa"
+        },
+        "PlBorderType": {
+          "openBorder": 1,
+          "borderWidth": {"top": "1", "right": "1", "bottom": "1", "left": "1"},
+          "borderStyle": "solid",
+          "borderColor": "#e0e0e0"
+        },
+        "PLBgBordeR": {
+          "md": "6",
+          "unit": "px"
+        },
+        "PBPadding": {
+          "md": "12 16",
+          "unit": "px"
+        }
+      },
+      "useCase": "Sidebar audio players, footer persistent players, narrow widget areas, background music controls",
+      "style6Notes": {
+        "layout": "All-horizontal layout: every element in single row for space efficiency",
+        "compactDesign": "Smaller icons and text for narrow spaces (14px icons, 12-14px text)",
+        "bgsize": "Small play button (40px) to fit horizontal layout",
+        "MaxWidth": "100% to fill container width (responsive to parent)",
+        "borderOnly": "bgtype: 0 with BackgroundType border creates outline button",
+        "PBPadding": "Padding for breathing room (12px 16px recommended)"
+      }
+    },
+    {
+      "name": "Full-Width Player with Background Blur (Style-8)",
+      "description": "Immersive player with blurred album artwork background and centered controls",
+      "visualDescription": "Album artwork fills background with blur effect, white text overlay, large centered play button",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ap005",
+        "Apstyle": "style-8",
+        "Aprepeater": [
+          {
+            "_key": "0",
+            "title": "Live Performance: Symphony No. 9",
+            "author": "City Orchestra",
+            "AudSource": "url",
+            "sorurl": {
+              "url": "https://example.com/audio/symphony-9-live.mp3",
+              "target": "",
+              "nofollow": false
+            },
+            "Imagesource": {
+              "url": "/images/orchestra-performance.jpg",
+              "Id": "801"
+            }
+          }
+        ],
+        "SplitText": "by",
+        "DefaultVolume": "75",
+        "MaxWidth": {
+          "md": "100",
+          "sm": "100",
+          "unit": "%"
+        },
+        "SongFont": {
+          "openTypography": 1,
+          "fontSize": {"md": "24", "sm": "20", "xs": "18", "unit": "px"},
+          "fontWeight": "700",
+          "textAlign": "center"
+        },
+        "TitleColor": "#ffffff",
+        "AuthorFont": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "14", "unit": "px"},
+          "fontWeight": "400",
+          "textAlign": "center"
+        },
+        "Authorcolor": "rgba(255, 255, 255, 0.9)",
+        "SplitFont": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "unit": "px"}
+        },
+        "SpliTextColor": "rgba(255, 255, 255, 0.7)",
+        "PlayPausecolor": "#ffffff",
+        "PlayPauseSize": {
+          "md": "36",
+          "unit": "px"
+        },
+        "bgsize": {
+          "md": "90",
+          "unit": "px"
+        },
+        "bgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(102, 126, 234, 0.85)"
+        },
+        "BackgroundType": {
+          "openBorder": 1,
+          "borderWidth": {"top": "2", "right": "2", "bottom": "2", "left": "2"},
+          "borderStyle": "solid",
+          "borderColor": "rgba(255, 255, 255, 0.3)"
+        },
+        "BorderRadius": {
+          "md": {"top": "50", "right": "50", "bottom": "50", "left": "50"},
+          "unit": "%"
+        },
+        "IconColor": "#ffffff",
+        "IconSize": {
+          "md": "20",
+          "unit": "px"
+        },
+        "TFillcolor": "#ffffff",
+        "Trackcolor": "rgba(255, 255, 255, 0.3)",
+        "TDotColor": "#ffffff",
+        "TIBorder": {
+          "openBorder": 0
+        },
+        "TIBorderR": {
+          "md": "0",
+          "unit": "px"
+        },
+        "TIBoxShadow": {
+          "openShadow": 0
+        },
+        "PBGCSSFilters": {
+          "openFilter": true,
+          "blur": 20,
+          "brightness": 70,
+          "saturate": 120
+        },
+        "PlBgType": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(0, 0, 0, 0.5)"
+        },
+        "PBPadding": {
+          "md": "60 40",
+          "sm": "40 20",
+          "unit": "px"
+        },
+        "PlBorderType": {
+          "openBorder": 0
+        },
+        "PLBgBordeR": {
+          "md": "0",
+          "unit": "px"
+        }
+      },
+      "useCase": "Hero audio players, featured music tracks, immersive listening experiences, artist showcases",
+      "style8Notes": {
+        "backgroundImage": "Album artwork used as full-width background (Imagesource required)",
+        "PBGCSSFilters": "CSS filters applied to background image for blur/darkness effect",
+        "blur": "Blur amount in pixels (10-30px, 20px recommended for readability)",
+        "brightness": "Darken background (50-80%, 70% recommended for white text contrast)",
+        "saturate": "Boost color saturation (100-150%, 120% for vivid effect)",
+        "whiteText": "All text white/rgba white for contrast on dark background",
+        "largeControls": "Larger play button (90px) and text (24px) for hero presentation",
+        "PBPadding": "Large padding (60px 40px) for spacious, premium feel",
+        "transparency": "Use rgba() for overlays (bgtype, PlBgType) to show background",
+        "performance": "CSS blur is GPU-intensive, test on lower-end devices"
+      },
+      "cssFiltersGuide": {
+        "blur": "0-30px (0 = sharp, 30 = very blurred)",
+        "brightness": "0-200% (0 = black, 100 = original, 200 = double bright)",
+        "saturate": "0-200% (0 = grayscale, 100 = original, 200 = hyper-saturated)",
+        "hue": "0-360 degrees (color shift, rarely used for backgrounds)",
+        "contrast": "0-200% (higher = more contrast)",
+        "recommended": "blur: 20, brightness: 70, saturate: 120 for legible white text"
+      }
+    },
+    {
+      "name": "Card-Style Player with Hover Controls (Style-9)",
+      "description": "Modern card design with controls appearing on hover, background image card",
+      "visualDescription": "Card with background image, controls hidden until hover, smooth fade-in effect",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ap006",
+        "Apstyle": "style-9",
+        "Aprepeater": [
+          {
+            "_key": "0",
+            "title": "Piano Sonata in C Minor",
+            "author": "Classical Collection",
+            "AudSource": "url",
+            "sorurl": {
+              "url": "https://example.com/audio/piano-sonata.mp3",
+              "target": "",
+              "nofollow": false
+            },
+            "Imagesource": {
+              "url": "/images/piano-keys.jpg",
+              "Id": "901"
+            }
+          }
+        ],
+        "DefaultVolume": "65",
+        "MaxWidth": {
+          "md": "500",
+          "sm": "100",
+          "unit": "px"
         },
         "PlayPausecolor": "#ffffff",
+        "PlayPauseSize": {
+          "md": "32",
+          "unit": "px"
+        },
+        "bgsize": {
+          "md": "80",
+          "unit": "px"
+        },
+        "bgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(102, 126, 234, 0.9)"
+        },
         "BorderRadius": {
-          "md": {
-            "top": "50",
-            "right": "50",
-            "bottom": "50",
-            "left": "50"
-          },
+          "md": {"top": "50", "right": "50", "bottom": "50", "left": "50"},
           "unit": "%"
+        },
+        "IconColor": "#ffffff",
+        "IconSize": {
+          "md": "22",
+          "unit": "px"
+        },
+        "CBGcolor": "rgba(0, 0, 0, 0.7)",
+        "CBGRadiuss9": {
+          "md": {"top": "0", "right": "0", "bottom": "12", "left": "12"},
+          "unit": "px"
+        },
+        "TIBorder": {
+          "openBorder": 0
+        },
+        "TIBorderR": {
+          "md": "12",
+          "unit": "px"
+        },
+        "TIBoxShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.3)"
         }
+      },
+      "useCase": "Music cards in grids, featured audio content, interactive audio galleries, hover-reveal players",
+      "style9Notes": {
+        "hoverReveal": "Controls hidden by default, appear on card hover (CSS opacity transition)",
+        "CBGcolor": "Controls bar background color (overlays bottom of image)",
+        "CBGRadiuss9": "Controls bar border radius (bottom-left and bottom-right for overlay effect)",
+        "cardLayout": "Image fills card, controls overlay at bottom on hover",
+        "interaction": "Hover-based UI, not ideal for touch devices (controls always visible on mobile)",
+        "imageRequired": "Imagesource required for background (card design relies on image)",
+        "TIBorderR": "Card border radius (12px modern, 0px for sharp edges)",
+        "accessibility": "Consider always-visible controls alternative for keyboard/touch users"
+      }
+    },
+    {
+      "name": "Colorful Playlist with Track Images (Style-2)",
+      "description": "Vibrant player with color accents, individual track thumbnails in playlist",
+      "visualDescription": "Bright purple accents, playlist with small thumbnail images per track, modern typography",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ap007",
+        "Apstyle": "style-2",
+        "Aprepeater": [
+          {
+            "_key": "0",
+            "title": "Intro: Welcome to the Course",
+            "author": "Web Dev Masterclass",
+            "AudSource": "url",
+            "sorurl": {
+              "url": "https://example.com/course/lesson-01.mp3",
+              "target": "",
+              "nofollow": false
+            },
+            "Imagesource": {
+              "url": "/images/lesson-01-thumb.jpg",
+              "Id": "1001"
+            }
+          },
+          {
+            "_key": "1",
+            "title": "Lesson 1: HTML Fundamentals",
+            "author": "Web Dev Masterclass",
+            "AudSource": "url",
+            "sorurl": {
+              "url": "https://example.com/course/lesson-02.mp3",
+              "target": "",
+              "nofollow": false
+            },
+            "Imagesource": {
+              "url": "/images/lesson-02-thumb.jpg",
+              "Id": "1002"
+            }
+          },
+          {
+            "_key": "2",
+            "title": "Lesson 2: CSS Styling Basics",
+            "author": "Web Dev Masterclass",
+            "AudSource": "url",
+            "sorurl": {
+              "url": "https://example.com/course/lesson-03.mp3",
+              "target": "",
+              "nofollow": false
+            },
+            "Imagesource": {
+              "url": "/images/lesson-03-thumb.jpg",
+              "Id": "1003"
+            }
+          },
+          {
+            "_key": "3",
+            "title": "Lesson 3: JavaScript Introduction",
+            "author": "Web Dev Masterclass",
+            "AudSource": "url",
+            "sorurl": {
+              "url": "https://example.com/course/lesson-04.mp3",
+              "target": "",
+              "nofollow": false
+            },
+            "Imagesource": {
+              "url": "/images/lesson-04-thumb.jpg",
+              "Id": "1004"
+            }
+          },
+          {
+            "_key": "4",
+            "title": "Lesson 4: Responsive Design",
+            "author": "Web Dev Masterclass",
+            "AudSource": "url",
+            "sorurl": {
+              "url": "https://example.com/course/lesson-05.mp3",
+              "target": "",
+              "nofollow": false
+            },
+            "Imagesource": {
+              "url": "/images/lesson-05-thumb.jpg",
+              "Id": "1005"
+            }
+          }
+        ],
+        "DefaultVolume": "70",
+        "MaxWidth": {
+          "md": "700",
+          "sm": "100",
+          "unit": "px"
+        },
+        "PlayPausecolor": "#ffffff",
+        "PlayPauseSize": {
+          "md": "26",
+          "unit": "px"
+        },
+        "bgsize": {
+          "md": "65",
+          "unit": "px"
+        },
+        "bgtype": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "BorderRadius": {
+          "md": {"top": "50", "right": "50", "bottom": "50", "left": "50"},
+          "unit": "%"
+        },
+        "IconColor": "#667eea",
+        "IconSize": {
+          "md": "18",
+          "unit": "px"
+        },
+        "TFillcolor": "#667eea",
+        "Trackcolor": "#e0e0e0",
+        "TDotColor": "#667eea",
+        "VolIcolor": "#667eea",
+        "VolSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "VolScolor": "#667eea",
+        "VolSBgColor": "#e0e0e0",
+        "PlBgType": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "PlBorderType": {
+          "openBorder": 1,
+          "borderWidth": {"top": "1", "right": "1", "bottom": "1", "left": "1"},
+          "borderStyle": "solid",
+          "borderColor": "#e0e0e0"
+        },
+        "PLBgBordeR": {
+          "md": "10",
+          "unit": "px"
+        },
+        "PBGboxshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 16,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.15)"
+        }
+      },
+      "useCase": "Audio courses with chapters, tutorial series, lesson playlists, multi-part presentations",
+      "style2Notes": {
+        "thumbnails": "Each track can have unique Imagesource (lesson thumbnails, episode artwork)",
+        "courseStructure": "Ideal for sequential audio content (courses, tutorials, series)",
+        "visualCues": "Track images help identify content at a glance",
+        "gradient": "Gradient play button adds visual interest (bgtype with bgGradient)",
+        "volumeControl": "Visible volume slider (VolScolor, VolSBgColor for styling)"
+      }
+    },
+    {
+      "name": "Self-Hosted Audio with Custom Typography (Style-7)",
+      "description": "Player for self-hosted audio files with refined typography and custom styling",
+      "visualDescription": "Clean player with serif typography, muted colors, professional presentation for voice content",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ap008",
+        "Apstyle": "style-7",
+        "Aprepeater": [
+          {
+            "_key": "0",
+            "title": "Company Announcement: Q4 Results",
+            "author": "CEO Update",
+            "AudSource": "self",
+            "sorself": {
+              "url": "/wp-content/uploads/2024/company-announcement.mp3",
+              "Id": "1101"
+            }
+          }
+        ],
+        "DefaultVolume": "80",
+        "MaxWidth": {
+          "md": "650",
+          "sm": "100",
+          "unit": "px"
+        },
+        "PlayPausecolor": "#34495e",
+        "PlayPauseSize": {
+          "md": "24",
+          "unit": "px"
+        },
+        "bgsize": {
+          "md": "55",
+          "unit": "px"
+        },
+        "bgtype": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ecf0f1"
+        },
+        "BackgroundType": {
+          "openBorder": 1,
+          "borderWidth": {"top": "1", "right": "1", "bottom": "1", "left": "1"},
+          "borderStyle": "solid",
+          "borderColor": "#bdc3c7"
+        },
+        "BorderRadius": {
+          "md": {"top": "50", "right": "50", "bottom": "50", "left": "50"},
+          "unit": "%"
+        },
+        "IconColor": "#7f8c8d",
+        "IconSize": {
+          "md": "16",
+          "unit": "px"
+        },
+        "TFillcolor": "#34495e",
+        "Trackcolor": "#bdc3c7",
+        "TDotColor": "#34495e",
+        "TTWidth": {
+          "md": "70",
+          "unit": "%"
+        },
+        "PlBgType": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "PBPadding": {
+          "md": "20 24",
+          "unit": "px"
+        },
+        "PlBorderType": {
+          "openBorder": 1,
+          "borderWidth": {"top": "1", "right": "1", "bottom": "1", "left": "1"},
+          "borderStyle": "solid",
+          "borderColor": "#ecf0f1"
+        },
+        "PLBgBordeR": {
+          "md": "8",
+          "unit": "px"
+        },
+        "PBGboxshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.06)"
+        }
+      },
+      "useCase": "Corporate announcements, voice memos, internal communications, professional voice content",
+      "style7Notes": {
+        "selfHosted": "AudSource: 'self' with sorself for WordPress media library files",
+        "sorself": "WordPress attachment with url (full path) and Id (attachment ID)",
+        "uploadPath": "Self-hosted files in /wp-content/uploads/ (managed via WP media library)",
+        "TTWidth": "Progress bar width as percentage (70% leaves room for controls)",
+        "professionalDesign": "Muted colors (#ecf0f1, #bdc3c7) for corporate/business use",
+        "typography": "Serif fonts work well for voice/speech content (SongFont, AuthorFont)",
+        "audioFormat": "MP3 most compatible, OGG/WAV alternatives (browsers auto-fallback)"
+      },
+      "selfHostedNotes": {
+        "advantages": "Full control, privacy, no third-party dependencies, works offline",
+        "disadvantages": "Uses server bandwidth, increases backup size, slower than CDN",
+        "fileSize": "Compress audio: 64kbps mono for speech, 128kbps stereo for music",
+        "optimization": "Use MP3 with 128kbps for good quality/size balance (<10MB recommended)",
+        "mediaLibrary": "Upload via WordPress Media Library, use sorself.Id for attachment ID",
+        "bandwidth": "Monitor server bandwidth usage for high-traffic sites (consider CDN for large files)"
       }
     }
   ],
-  "commonPatterns": {}
+  "commonPatterns": {
+    "singleTrack": {
+      "description": "Simple player for one audio file",
+      "attributes": {
+        "Apstyle": "style-1",
+        "Aprepeater": [
+          {
+            "_key": "0",
+            "title": "Track Title",
+            "author": "Artist Name",
+            "AudSource": "url",
+            "sorurl": {"url": "https://example.com/audio.mp3"}
+          }
+        ]
+      }
+    },
+    "playlist": {
+      "description": "Multi-track playlist with clickable tracks",
+      "attributes": {
+        "Apstyle": "style-3",
+        "Aprepeater": "Array with multiple tracks (_key, title, author, sorurl, Imagesource)"
+      }
+    },
+    "immersive": {
+      "description": "Full-width player with background image blur",
+      "attributes": {
+        "Apstyle": "style-8",
+        "PBGCSSFilters": {"openFilter": true, "blur": 20, "brightness": 70}
+      }
+    },
+    "minimal": {
+      "description": "Clean player with image focus",
+      "attributes": {
+        "Apstyle": "style-5",
+        "bgsize": {"md": "50", "unit": "px"}
+      }
+    }
+  },
+  "validationRules": {
+    "block_id": "Required, unique identifier for the block instance",
+    "Apstyle": "Required, must be 'style-1' through 'style-9'",
+    "Aprepeater": "Required, array of track objects with _key (unique), title, author",
+    "Aprepeater._key": "Required for each track, must be unique (React rendering)",
+    "Aprepeater.AudSource": "Required, must be 'url' (external) or 'self' (WordPress media)",
+    "Aprepeater.sorurl": "Required if AudSource is 'url', must have url property with MP3 link",
+    "Aprepeater.sorself": "Required if AudSource is 'self', must have url and Id from WP media library",
+    "DefaultVolume": "Optional, 0-100 percentage (70-80 recommended default)",
+    "MaxWidth": "Responsive object, controls player width (600px typical for single track, 800px for playlist)",
+    "bgsize": "Responsive object, play/pause button size (50-70px recommended, minimum 44px for touch)",
+    "BorderRadius": "Use 50% for all corners to create circular play button"
+  },
+  "warnings": [
+    "⚠️ AudSource: 'url' requires sorurl with valid MP3 URL, 'self' requires sorself with WP media attachment",
+    "⚠️ Aprepeater: Each track MUST have unique _key value (React rendering breaks with duplicates)",
+    "⚠️ sorurl.url: Must be direct link to MP3 file (not HTML page), HTTPS recommended for security",
+    "⚠️ sorself: Use WordPress media library uploader to get correct url and Id (don't manually construct paths)",
+    "⚠️ DefaultVolume: 0-100 integer (70-80 recommended, not 0.7 or '70%')",
+    "⚠️ bgsize: Minimum 44x44px for touch targets (WCAG 2.5.5), 50-70px recommended",
+    "⚠️ BorderRadius: Set all 4 corners to 50% for circular button (not just top/left)",
+    "⚠️ PBGCSSFilters: Only works with style-8, requires Imagesource for background image",
+    "⚠️ Style-9: Hover-based controls not ideal for touch devices (controls always visible on mobile)",
+    "⚠️ Imagesource: Optional for most styles, required for style-8 (background) and style-9 (card)",
+    "⚠️ ImageSize: Use 'thumbnail' (150px), 'medium' (300px), or 'large' (1024px) - not 'full' for performance",
+    "⚠️ File size: Keep MP3 files under 10MB for web (compress to 128kbps for music, 64kbps for speech)",
+    "⚠️ Self-hosted: Uses server bandwidth (monitor usage, consider CDN for high-traffic sites)",
+    "⚠️ Playlist: With 10+ tracks, consider lazy loading or pagination (performance impact)",
+    "⚠️ Volume slider: Some mobile browsers ignore volume controls (system volume only)",
+    "⚠️ Autoplay: Browsers block autoplay without user interaction (don't rely on autoplay)",
+    "⚠️ TTWidth: Percentage value for progress bar width (50-90%, ensure room for controls)"
+  ],
+  "commonMistakes": [
+    "❌ Forgetting to set unique _key values in Aprepeater (causes React 'key prop' warnings)",
+    "❌ Using AudSource: 'url' without setting sorurl.url (audio won't load)",
+    "❌ Using AudSource: 'self' without uploading file to WordPress media library first",
+    "❌ Setting BorderRadius to only 1 corner (use all 4 corners at 50% for circular button)",
+    "❌ Using bgsize smaller than 44px (fails WCAG touch target minimum)",
+    "❌ Setting DefaultVolume to 0.7 instead of 70 (expects integer 0-100, not decimal)",
+    "❌ Using sorurl.url with HTML page instead of direct MP3 file (player won't load)",
+    "❌ Uploading 20MB uncompressed audio files (slow page load, high bandwidth usage)",
+    "❌ Using style-8 without Imagesource (background blur requires image)",
+    "❌ Using ImageSize: 'full' for album artwork (loads 4000px+ images, use 'medium' or 'large')",
+    "❌ Mixing up sorurl (external URL object) and sorself (WP media object) - use correct one for AudSource",
+    "❌ Not testing on mobile (volume controls may not work, hover effects don't translate)",
+    "❌ Using HTTP URLs in sorurl.url (browsers block mixed content on HTTPS sites)",
+    "❌ Setting TTWidth to 100% (no room for volume/playlist controls)",
+    "❌ Creating playlist with 50+ tracks without pagination (slow rendering, bad UX)",
+    "❌ Using PBGCSSFilters with styles other than style-8 (attribute only applies to style-8)"
+  ],
+  "bestPractices": [
+    "✅ Always set unique _key for each track in Aprepeater (use index: '0', '1', '2' or UUIDs)",
+    "✅ Use AudSource: 'url' with CDN-hosted MP3s for better performance and bandwidth savings",
+    "✅ Compress audio files: 128kbps for music, 64kbps mono for speech (balance quality/size)",
+    "✅ Set DefaultVolume to 70-80 for comfortable listening (not too loud, not too quiet)",
+    "✅ Use bgsize: 60-70px for desktop, ensure minimum 44px for mobile touch targets",
+    "✅ Set BorderRadius to 50% on all 4 corners for perfect circular play button",
+    "✅ Use ImageSize: 'medium' (300px) or 'large' (1024px) for album artwork (not 'full')",
+    "✅ Provide Imagesource for all tracks in playlist (visual distinction between tracks)",
+    "✅ Use style-1 or style-3 for podcasts/courses (clear track listing)",
+    "✅ Use style-5 or style-8 for featured music (image-first immersive design)",
+    "✅ Use style-6 for sidebars/widgets (horizontal compact layout)",
+    "✅ Use style-9 for music cards in grids (hover-reveal controls)",
+    "✅ Set MaxWidth to 600px for single track, 800px for playlists (optimal readability)",
+    "✅ Use descriptive title and author text (improves accessibility for screen readers)",
+    "✅ Test on mobile devices (volume controls, touch targets, responsive sizing)",
+    "✅ Use HTTPS URLs for sorurl.url (avoid mixed content warnings)",
+    "✅ Keep playlists to 5-10 tracks (better UX, faster loading)",
+    "✅ Use SplitText: 'by' for music, '-' for podcasts, '•' for minimalist design",
+    "✅ Match player colors to site branding (TitleColor, PlayPausecolor, TFillcolor)",
+    "✅ Add subtle shadows for depth (PBGboxshadow, TIBoxShadow with low opacity)",
+    "✅ Use responsive typography (SongFont, AuthorFont with md/sm/xs breakpoints)",
+    "✅ Test with various audio durations (30s clips vs 60min podcasts)",
+    "✅ Provide clear track titles (not 'Track 1', use descriptive names)",
+    "✅ For style-8, use brightness: 70 and blur: 20 for optimal white text contrast"
+  ],
+  "accessibilityNotes": {
+    "touchTargets": "Play/pause button minimum 44×44px (WCAG 2.5.5), use bgsize: {md: '50', unit: 'px'} or larger",
+    "keyboardControls": "HTML5 audio has native keyboard controls (space = play/pause, arrows = seek)",
+    "screenReaders": "Track title and author announced automatically, use descriptive text",
+    "colorContrast": "Ensure 4.5:1 contrast ratio for TitleColor and Authorcolor against PlBgType background",
+    "volumeControls": "Not all devices support volume controls (iOS uses system volume only)",
+    "progressBar": "Seekable with keyboard (arrow keys) and mouse/touch drag",
+    "playlistNavigation": "Playlist items keyboard accessible (Tab to navigate, Enter to play)",
+    "hoverStates": "Style-9 hover controls problematic for keyboard/touch (consider always-visible alternative)",
+    "audioDescription": "For video content with audio, provide text transcripts",
+    "autoplay": "Don't rely on autoplay (browsers block without user interaction)"
+  },
+  "performanceConsiderations": {
+    "fileSize": "Keep MP3 files under 10MB (compress to 128kbps music, 64kbps speech)",
+    "compression": "Use VBR (variable bitrate) encoding for best quality/size balance",
+    "streaming": "HTML5 audio streams progressively (doesn't wait for full download)",
+    "cdn": "Host large audio files on CDN (faster delivery, saves server bandwidth)",
+    "selfHosted": "Self-hosted audio uses your server bandwidth (monitor usage)",
+    "imageOptimization": "Compress album artwork to <100KB (use ImageSize: 'medium' or 'large', not 'full')",
+    "playlistLength": "Limit to 10-15 tracks per player (use multiple players or pagination for more)",
+    "cssFilters": "PBGCSSFilters (blur) is GPU-intensive (test on lower-end devices)",
+    "lazyLoading": "Consider lazy loading playlist tracks (load audio on click, not page load)",
+    "caching": "Enable browser caching for audio files (set Cache-Control: max-age=31536000)",
+    "formats": "MP3 is universally supported, no need for OGG/WAV fallbacks in modern browsers",
+    "bandwidth": "5-minute 128kbps MP3 ≈ 5MB (calculate bandwidth for expected traffic)",
+    "preload": "HTML5 audio preload='metadata' (loads duration/info, not full file)"
+  },
+  "troubleshooting": {
+    "audioNotPlaying": "Check sorurl.url is direct MP3 link (not HTML page), verify HTTPS on HTTPS sites",
+    "volumeNotWorking": "iOS/mobile devices use system volume (player volume controls ignored)",
+    "imageNotShowing": "Verify Imagesource.url valid, check ImageSize exists in WordPress media settings",
+    "playlistNotClickable": "Ensure Apstyle supports playlists (styles 1, 3, 4, 5, 6 have playlist UI)",
+    "playerTooWide": "Set MaxWidth responsive object (md: 600-800px recommended)",
+    "playButtonNotCircular": "Set BorderRadius to 50% on ALL 4 corners (top, right, bottom, left)",
+    "controlsNotHovering": "Style-9 only: check IconColor, CBGcolor set, works on desktop only",
+    "backgroundBlurNotWorking": "Style-8 only: verify PBGCSSFilters.openFilter: true, Imagesource set",
+    "selfHostedNotLoading": "Upload file via WP Media Library, use sorself.Id (attachment ID) and url (full path)",
+    "progressBarNotSeeking": "Check TFillcolor, Trackcolor, TDotColor set (required for visual feedback)",
+    "playlistItemsDuplicate": "Set unique _key values for each Aprepeater item ('0', '1', '2', etc.)",
+    "mixedContentError": "Use HTTPS URLs in sorurl.url (HTTP blocked on HTTPS sites)",
+    "playerNotResponsive": "Set responsive values for SongFont, AuthorFont, bgsize, MaxWidth (md/sm/xs)",
+    "volumeSliderMissing": "Styles 1-6 have volume controls (7, 8, 9 may hide or omit volume UI)",
+    "autoplayBlocked": "Browsers block autoplay without user interaction (user must click play first)"
+  },
+  "integrationExamples": [
+    {
+      "scenario": "Podcast with ACF Fields",
+      "description": "Dynamically populate player from ACF podcast episode custom fields",
+      "code": "// PHP - populate from ACF\n$episodes = get_field('podcast_episodes');\n$aprepeater = array();\nforeach ($episodes as $index => $episode) {\n  $aprepeater[] = array(\n    '_key' => (string)$index,\n    'title' => $episode['episode_title'],\n    'author' => get_field('podcast_name', 'option'), // Global podcast name\n    'AudSource' => 'self',\n    'sorself' => array(\n      'url' => $episode['audio_file']['url'],\n      'Id' => $episode['audio_file']['ID']\n    ),\n    'Imagesource' => array(\n      'url' => $episode['cover_image']['sizes']['medium'],\n      'Id' => $episode['cover_image']['ID']\n    )\n  );\n}\n// Pass $aprepeater to block attributes"
+    },
+    {
+      "scenario": "SoundCloud Embed Alternative",
+      "description": "Replace SoundCloud embeds with styled audio player (faster, more control)",
+      "code": "// Instead of SoundCloud embed:\n// <iframe src=\"https://w.soundcloud.com/player/?url=...\"></iframe>\n// Use audio player with sorurl pointing to MP3:\n{\n  \"Apstyle\": \"style-5\",\n  \"Aprepeater\": [{\n    \"_key\": \"0\",\n    \"title\": \"Track Name\",\n    \"author\": \"Artist Name\",\n    \"AudSource\": \"url\",\n    \"sorurl\": {\"url\": \"https://example.com/track.mp3\"},\n    \"Imagesource\": {\"url\": \"/images/artwork.jpg\"}\n  }]\n}\n// Benefits: Faster load, custom styling, no third-party dependencies"
+    },
+    {
+      "scenario": "Multiple Players on Same Page",
+      "description": "Pause other players when one starts playing (only one plays at a time)",
+      "code": "// JavaScript - pause other players on play\ndocument.addEventListener('DOMContentLoaded', function() {\n  const audioPlayers = document.querySelectorAll('.tpgb-audioplay-wrap audio');\n  \n  audioPlayers.forEach(player => {\n    player.addEventListener('play', function() {\n      // Pause all other players\n      audioPlayers.forEach(otherPlayer => {\n        if (otherPlayer !== player) {\n          otherPlayer.pause();\n        }\n      });\n    });\n  });\n});"
+    },
+    {
+      "scenario": "Track Analytics with Google Analytics",
+      "description": "Track play events and listening duration in Google Analytics",
+      "code": "// JavaScript - track audio plays\nconst audio = document.querySelector('.tpgb-audioplay-wrap audio');\nconst trackTitle = document.querySelector('.tpgb-audioplay-wrap .title').textContent;\n\naudio.addEventListener('play', function() {\n  // Track play event\n  gtag('event', 'audio_play', {\n    'event_category': 'Audio',\n    'event_label': trackTitle,\n    'value': 1\n  });\n});\n\naudio.addEventListener('ended', function() {\n  // Track completion\n  gtag('event', 'audio_complete', {\n    'event_category': 'Audio',\n    'event_label': trackTitle,\n    'value': audio.duration\n  });\n});\n\n// Track 25%, 50%, 75% progress\nlet progressTracked = [];\naudio.addEventListener('timeupdate', function() {\n  const percent = Math.floor((audio.currentTime / audio.duration) * 100);\n  [25, 50, 75].forEach(milestone => {\n    if (percent >= milestone && !progressTracked.includes(milestone)) {\n      progressTracked.push(milestone);\n      gtag('event', 'audio_progress', {\n        'event_category': 'Audio',\n        'event_label': trackTitle,\n        'value': milestone\n      });\n    }\n  });\n});"
+    }
+  ]
 }
