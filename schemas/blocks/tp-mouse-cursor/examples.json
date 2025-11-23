@@ -1,64 +1,496 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-mouse-cursor",
-  "title": "Mouse Cursor - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Mouse Cursor - Comprehensive Usage Examples",
+  "description": "Complete example configurations for custom cursor effects with icons, images, text, circles, animations, and hover interactions",
+
   "examples": [
     {
-      "description": "Simple circle cursor following mouse",
+      "name": "Creative Portfolio Cursor (Mix-Blend Difference)",
+      "description": "Dual-circle cursor with mix-blend difference effect for premium portfolios",
+      "visualDescription": "Large 60px outer circle + small 40px inner circle, white color, 'difference' blend mode inverts colors underneath, smooth transitions",
+      "complexity": "advanced",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "mc001",
+        "cursorEffect": "mc-body",
+        "cursorType": "mouse-follow-circle",
+        "circleStyle": "mc-cs3",
+        "circleCursorType": "cursor-predefine",
+        "mcCursorSymbol": "none",
+        "firstCircleSize": "60",
+        "secondCircleSize": "40",
+        "circleNmlBG": "#ffffff",
+        "circleHvrBG": "#667eea",
+        "crclMixBMode": "difference",
+        "circleNmlTranDur": "0.3",
+        "circleHvrTranDur": "0.15",
+        "circleTansNmlCss": "scale(1)",
+        "circleTansHvrCss": "scale(1.5)",
+        "listTagHover": "a, button, .clickable",
+        "circleZindex": "9999",
+        "mcClick": true,
+        "mcClickText": "View Project",
+        "pointLeftOffset": "15",
+        "pointTopOffset": "15"
+      },
+      "useCase": "Creative agencies, designer portfolios, art showcases, premium brand sites"
+    },
+
+    {
+      "name": "Product Showcase Cursor (Custom Image)",
+      "description": "Custom magnifying glass icon cursor for product galleries",
+      "visualDescription": "30px custom magnifying glass PNG, appears on hover over product images, click shows 'Zoom In' text",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "mc002",
+        "cursorEffect": "mc-body",
+        "cursorType": "mouse-follow-image",
+        "mcPointerIcon": {
+          "url": "/wp-content/uploads/magnifying-glass-icon.png",
+          "id": ""
+        },
+        "iconMaxWidth": {"md": "30", "sm": "25", "xs": "20", "unit": "px"},
+        "pointLeftOffset": "5",
+        "pointTopOffset": "5",
+        "circleZindex": "100",
+        "mcClick": true,
+        "mcClickIcon": {
+          "url": "/wp-content/uploads/zoom-icon.png"
+        },
+        "mcClickText": "Zoom In",
+        "listTagHover": ".product-image, .gallery-item"
+      },
+      "useCase": "E-commerce product pages, photography galleries, image showcases, zoom features"
+    },
+
+    {
+      "name": "Interactive Link Cursor (Text Label)",
+      "description": "Text label appears when hovering over links and buttons",
+      "visualDescription": "Invisible default cursor, 'Click Me' text appears on link/button hover, 10px offset from pointer",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "mc003",
+        "cursorEffect": "mc-body",
+        "cursorType": "mouse-follow-text",
+        "pointerText": "Click Me",
+        "pointLeftOffset": "10",
+        "pointTopOffset": "10",
+        "listTagHover": "a, button, input[type='submit']",
+        "circleZindex": "999",
+        "mcClick": true,
+        "mcClickText": "Clicked!",
+        "showBlockContent": false
+      },
+      "useCase": "Interactive sites, educational platforms, CTAs, user guidance, accessibility hints"
+    },
+
+    {
+      "name": "Agency Website Cursor (Gradient Circle)",
+      "description": "Solid circle cursor with purple gradient background",
+      "visualDescription": "40px circle, purple gradient (#667eea), 60% opacity, expands to 50px on hover, smooth 0.2s transitions",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "mc004",
         "cursorEffect": "mc-body",
         "cursorType": "mouse-follow-circle",
         "circleStyle": "mc-cs1",
-        "circleMaxWidth": {
-          "md": "40",
-          "unit": "px"
-        },
-        "circleMaxHeight": {
-          "md": "40",
-          "unit": "px"
-        },
+        "circleCursorType": "cursor-predefine",
+        "mcCursorSymbol": "none",
+        "circleMaxWidth": {"md": "40", "sm": "35", "xs": "30", "unit": "px"},
+        "circleMaxHeight": {"md": "40", "sm": "35", "xs": "30", "unit": "px"},
         "circleNmlBG": "#667eea",
-        "circleOpacity": "0.6"
-      }
+        "circleHvrBG": "#764ba2",
+        "circleOpacity": "0.6",
+        "circleNmlTranDur": "0.2",
+        "circleHvrTranDur": "0.1",
+        "circleTansNmlCss": "scale(1)",
+        "circleTansHvrCss": "scale(1.25)",
+        "listTagHover": "a, button",
+        "circleZindex": "9999"
+      },
+      "useCase": "Modern agencies, SaaS platforms, tech startups, brand sites, corporate pages"
     },
+
     {
-      "description": "Custom image cursor",
+      "name": "Crosshair Gaming Cursor (Predefined Icon)",
+      "description": "CSS crosshair cursor for gaming or precision interfaces",
+      "visualDescription": "Built-in CSS crosshair cursor, no custom images, lightweight and performant",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
-        "cursorType": "mouse-follow-image",
-        "mcPointerIcon": {
-          "url": "/cursor-icon.png"
+        "block_id": "mc005",
+        "cursorEffect": "mc-body",
+        "cursorType": "mouse-cursor-icon",
+        "curIconType": "icon-predefine",
+        "curPreIcon": "crosshair",
+        "circleZindex": "9999",
+        "showBlockContent": false
+      },
+      "useCase": "Gaming sites, interactive maps, design tools, precision interfaces, aiming systems"
+    },
+
+    {
+      "name": "SVG Stroke Circle Cursor (Style-2)",
+      "description": "Animated SVG stroke circle that follows cursor with outline effect",
+      "visualDescription": "50px SVG circle with 2px stroke, orange outline (#ff6b6b), no fill, rotates on hover, smooth following",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "mc006",
+        "cursorEffect": "mc-body",
+        "cursorType": "mouse-follow-circle",
+        "circleStyle": "mc-cs2",
+        "circleCursorType": "cursor-predefine",
+        "mcCursorSymbol": "none",
+        "circleMaxWidth": {"md": "50", "sm": "45", "xs": "40", "unit": "px"},
+        "circleMaxHeight": {"md": "50", "sm": "45", "xs": "40", "unit": "px"},
+        "circleNmlBG": "transparent",
+        "circleHvrBG": "#ff6b6b",
+        "circleNmlTranDur": "0.3",
+        "circleHvrTranDur": "0.15",
+        "circleTansNmlCss": "rotate(0deg)",
+        "circleTansHvrCss": "rotate(180deg) scale(1.3)",
+        "listTagHover": "a, .hover-target",
+        "circleZindex": "9999"
+      },
+      "useCase": "Creative portfolios, design studios, artistic sites, modern UI experiments"
+    },
+
+    {
+      "name": "Click Ripple Effect Cursor",
+      "description": "Circle cursor with special click animation and ripple effect",
+      "visualDescription": "35px teal circle, on click shows larger blue circle with 'Explore' text, pulsing animation",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "mc007",
+        "cursorEffect": "mc-body",
+        "cursorType": "mouse-follow-circle",
+        "circleStyle": "mc-cs1",
+        "circleCursorType": "cursor-predefine",
+        "mcCursorSymbol": "pointer",
+        "circleMaxWidth": {"md": "35", "sm": "30", "xs": "25", "unit": "px"},
+        "circleMaxHeight": {"md": "35", "sm": "30", "xs": "25", "unit": "px"},
+        "circleNmlBG": "#4ecdc4",
+        "circleHvrBG": "#45b7aa",
+        "circleOpacity": "0.7",
+        "circleNmlTranDur": "0.2",
+        "circleHvrTranDur": "0.1",
+        "circleTansNmlCss": "scale(1)",
+        "circleTansHvrCss": "scale(1.2)",
+        "listTagHover": "a, button, [role='button']",
+        "circleZindex": "9999",
+        "mcClick": true,
+        "mcClickIcon": {
+          "url": "/wp-content/uploads/ripple-icon.png"
         },
-        "iconMaxWidth": {
-          "md": "30",
-          "unit": "px"
-        }
-      }
+        "mcClickText": "Explore",
+        "pointLeftOffset": "12",
+        "pointTopOffset": "12"
+      },
+      "useCase": "Interactive presentations, storytelling sites, immersive experiences, event pages"
     },
+
     {
-      "description": "Text label following cursor",
+      "name": "Block-Specific Cursor (Hero Section Only)",
+      "description": "Custom cursor applied only to specific block/section, not entire page",
+      "visualDescription": "45px white circle with 'exclusion' blend mode, only active within hero section block",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
-        "cursorType": "mouse-follow-text",
-        "pointerText": "Click Here",
-        "listTagHover": "a, button"
-      }
-    },
+        "block_id": "mc008",
+        "cursorEffect": "mc-block",
+        "cursorType": "mouse-follow-circle",
+        "circleStyle": "mc-cs3",
+        "circleCursorType": "cursor-predefine",
+        "mcCursorSymbol": "none",
+        "firstCircleSize": "45",
+        "secondCircleSize": "25",
+        "circleNmlBG": "#ffffff",
+        "circleHvrBG": "#ffd700",
+        "crclMixBMode": "exclusion",
+        "circleNmlTranDur": "0.25",
+        "circleHvrTranDur": "0.12",
+        "circleTansNmlCss": "scale(1) rotate(0deg)",
+        "circleTansHvrCss": "scale(1.4) rotate(90deg)",
+        "listTagHover": "a, button",
+        "circleZindex": "9999"
+      },
+      "useCase": "Hero sections, specific CTAs, featured content blocks, interactive modules"
+    }
+  ],
+
+  "commonPatterns": [
     {
-      "description": "Mix-blend circle with dual sizes",
+      "name": "Mix-Blend Creative Effect",
+      "description": "Dual-circle cursor with blend mode for artistic sites",
       "attributes": {
-        "block_id": "g7h8",
         "cursorType": "mouse-follow-circle",
         "circleStyle": "mc-cs3",
         "crclMixBMode": "difference",
         "firstCircleSize": "60",
-        "secondCircleSize": "40",
-        "mcClick": true,
-        "mcClickText": "View"
+        "secondCircleSize": "40"
+      }
+    },
+    {
+      "name": "Hover Text Label",
+      "description": "Text appears when hovering links/buttons",
+      "attributes": {
+        "cursorType": "mouse-follow-text",
+        "pointerText": "Click",
+        "listTagHover": "a, button"
+      }
+    },
+    {
+      "name": "Custom Image Cursor",
+      "description": "Upload custom cursor icon image",
+      "attributes": {
+        "cursorType": "mouse-follow-image",
+        "mcPointerIcon": {"url": "/cursor-icon.png"},
+        "iconMaxWidth": {"md": "30", "unit": "px"}
+      }
+    },
+    {
+      "name": "Simple Circle Following",
+      "description": "Basic solid circle that follows cursor",
+      "attributes": {
+        "cursorType": "mouse-follow-circle",
+        "circleStyle": "mc-cs1",
+        "circleMaxWidth": {"md": "40", "unit": "px"},
+        "circleMaxHeight": {"md": "40", "unit": "px"},
+        "circleOpacity": "0.6"
       }
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "block_id": "Required, unique 4-character hex identifier",
+    "cursorEffect": "Must be 'mc-body' (entire page) or 'mc-block' (specific block)",
+    "cursorType": "Must be 'mouse-cursor-icon', 'mouse-follow-image', 'mouse-follow-text', or 'mouse-follow-circle'",
+    "curIconType": "Required when cursorType is 'mouse-cursor-icon', must be 'icon-predefine' or 'icon-custom'",
+    "curPreIcon": "Required when curIconType is 'icon-predefine', must be valid CSS cursor name",
+    "circleStyle": "Required when cursorType is 'mouse-follow-circle', must be 'mc-cs1', 'mc-cs2', or 'mc-cs3'",
+    "firstCircleSize": "Number string in pixels (style-3 only)",
+    "secondCircleSize": "Number string in pixels (style-3 only)",
+    "circleOpacity": "String number 0-1 (e.g., '0.6')",
+    "crclMixBMode": "Valid CSS mix-blend-mode value (difference, exclusion, multiply, etc.)",
+    "listTagHover": "CSS selector string (e.g., 'a', 'button', 'a, button, .clickable')",
+    "circleZindex": "Number string for layering (recommend 9999 for top-most)"
+  },
+
+  "warnings": [
+    "Custom cursors don't work on touch devices (mobile/tablets) - provide fallback experience",
+    "mix-blend-mode (style-3) may not work on older browsers (IE, pre-2020 Safari)",
+    "Setting cursorEffect to 'mc-body' affects entire page - test thoroughly before deploying",
+    "High z-index (9999) needed to appear above all content",
+    "mcCursorSymbol: 'none' hides default cursor - ensure custom cursor is visible",
+    "Large cursor images (>50px) may feel sluggish on low-end devices",
+    "listTagHover selector must match actual HTML elements (case-sensitive class names)",
+    "Transition durations <0.1s may feel too fast, >1s too slow (sweet spot: 0.2-0.4s)",
+    "Don't use both predefined icon (curPreIcon) and custom image (mcPointerIcon) simultaneously",
+    "circleStyle 'mc-cs3' (mix-blend) requires dual circles (firstCircleSize + secondCircleSize)"
+  ],
+
+  "commonMistakes": [
+    "Forgetting to set mcCursorSymbol: 'none' when using custom cursor (default pointer shows)",
+    "Using cursorEffect: 'mc-body' without testing on all pages (may conflict with specific sections)",
+    "Not providing sufficient contrast between cursor and background (visibility issues)",
+    "Setting circleZindex too low (cursor appears behind content)",
+    "Using text cursor (mouse-follow-text) without listTagHover (text always visible)",
+    "Not testing cursor on different background colors (especially with mix-blend modes)",
+    "Forgetting to set iconMaxWidth for custom images (huge cursors)",
+    "Using complex CSS transforms without sufficient transition duration (jarring animations)",
+    "Setting mcClick: true without defining mcClickText or mcClickIcon (no visible click effect)",
+    "Not accounting for touch devices (custom cursors invisible on mobile)"
+  ],
+
+  "bestPractices": [
+    "Use cursorEffect: 'mc-block' for specific sections to avoid page-wide impact",
+    "Set circleZindex: 9999 to ensure cursor appears above all content",
+    "Use mcCursorSymbol: 'none' to hide default cursor when showing custom cursor",
+    "Keep cursor size 30-60px for optimal visibility without obstruction",
+    "Use transition durations 0.2-0.4s for smooth, natural animations",
+    "Set circleOpacity: 0.5-0.8 for semi-transparent effect that doesn't block content",
+    "Use 'difference' or 'exclusion' blend modes for universal contrast on any background",
+    "Test custom cursors on light and dark backgrounds for visibility",
+    "Provide click feedback with mcClick: true for interactive sites",
+    "Use listTagHover with specific selectors (e.g., 'a, button') for targeted hover effects",
+    "Keep pointLeftOffset and pointTopOffset 5-15px for proper cursor positioning",
+    "Use responsive sizing (md/sm/xs) for cursor elements",
+    "Consider hiding custom cursor on mobile with CSS media queries",
+    "Use SVG style (mc-cs2) for lightweight, scalable cursor graphics",
+    "Test performance with requestAnimationFrame to ensure 60fps smooth following"
+  ],
+
+  "accessibilityNotes": [
+    "Custom cursors may confuse users with disabilities - provide option to disable",
+    "Ensure custom cursor doesn't obscure important content or text",
+    "Don't rely solely on cursor for interaction feedback (use hover states too)",
+    "Consider prefers-reduced-motion to disable custom cursor animations for motion-sensitive users",
+    "Provide sufficient size (minimum 30px) for visibility by low-vision users",
+    "Use high contrast colors between cursor and background (WCAG AA)",
+    "Don't hide default cursor without providing visible custom cursor",
+    "Test with keyboard navigation (cursor effects shouldn't interfere)",
+    "Provide text alternatives for icon-based cursors (aria-labels)",
+    "Consider that screen reader users won't see custom cursor effects",
+    "Don't use cursor as primary means of conveying information",
+    "Test cursor visibility at 200% zoom level (WCAG 1.4.4)"
+  ],
+
+  "performanceConsiderations": [
+    "Use requestAnimationFrame for smooth 60fps cursor following",
+    "Avoid complex CSS transforms (multiple rotations, scales, skews) - stick to 1-2 simple transforms",
+    "Keep cursor images <10KB for fast loading (use SVG when possible)",
+    "Limit cursor to specific sections (mc-block) instead of entire page (mc-body) for better performance",
+    "Use CSS transforms over position changes (GPU-accelerated)",
+    "Avoid animating expensive properties like box-shadow or filters on cursor",
+    "Use will-change: transform on cursor element for rendering optimization",
+    "Limit transition durations to 0.1-0.5s (longer = more render cycles)",
+    "Test on low-end devices - complex cursors can drop frames on older hardware",
+    "Consider disabling custom cursor on mobile to save resources"
+  ],
+
+  "cursorTypeGuide": {
+    "mouse-cursor-icon": {
+      "description": "CSS predefined cursors or custom icon images",
+      "useCases": "Gaming sites, precision tools, simple custom cursors",
+      "options": {
+        "icon-predefine": "Use CSS cursors: crosshair, pointer, grab, help, wait, text, move, not-allowed",
+        "icon-custom": "Upload custom cursor image (PNG, SVG)"
+      },
+      "bestFor": "Lightweight, fast-loading, browser-native cursors"
+    },
+    "mouse-follow-image": {
+      "description": "Custom image that follows mouse pointer",
+      "useCases": "Product showcases, branded cursors, custom interactions",
+      "attributes": ["mcPointerIcon (image URL)", "iconMaxWidth (size)", "pointLeftOffset", "pointTopOffset"],
+      "bestFor": "Branded experiences, unique visual identity, product galleries"
+    },
+    "mouse-follow-text": {
+      "description": "Text label that follows cursor, appears on hover",
+      "useCases": "CTAs, user guidance, interactive hints, educational sites",
+      "attributes": ["pointerText (label)", "listTagHover (target elements)"],
+      "bestFor": "User guidance, accessibility hints, interactive tutorials"
+    },
+    "mouse-follow-circle": {
+      "description": "Animated circle (solid, SVG, or blend mode) that follows cursor",
+      "useCases": "Creative portfolios, agencies, modern UI, artistic sites",
+      "styles": {
+        "mc-cs1": "Solid circle with background color and opacity",
+        "mc-cs2": "SVG stroke circle with outline effect",
+        "mc-cs3": "Dual circles with mix-blend-mode (difference, exclusion, etc.)"
+      },
+      "bestFor": "Creative sites, premium brands, artistic showcases"
+    }
+  },
+
+  "circleStyleGuide": {
+    "mc-cs1": {
+      "description": "Solid filled circle",
+      "visualAppearance": "Single solid circle with background color, configurable opacity",
+      "supports": ["circleNmlBG", "circleHvrBG", "circleOpacity", "circleMaxWidth", "circleMaxHeight"],
+      "bestFor": "Simple, clean cursor effects, most common style"
+    },
+    "mc-cs2": {
+      "description": "SVG stroke circle (outline only)",
+      "visualAppearance": "Circle outline with no fill, animated SVG stroke",
+      "supports": ["circleNmlBG (stroke color)", "circleHvrBG", "circleMaxWidth", "circleMaxHeight"],
+      "bestFor": "Lightweight, elegant cursor with outline effect"
+    },
+    "mc-cs3": {
+      "description": "Dual circles with CSS mix-blend-mode",
+      "visualAppearance": "Two concentric circles with blend mode (difference, exclusion, etc.) for creative inversion effects",
+      "supports": ["firstCircleSize", "secondCircleSize", "crclMixBMode", "circleNmlBG", "circleHvrBG"],
+      "bestFor": "Creative portfolios, artistic sites, modern experimental UI",
+      "notes": "Requires firstCircleSize and secondCircleSize instead of circleMaxWidth/Height"
+    }
+  },
+
+  "mixBlendModeGuide": {
+    "difference": {
+      "effect": "Inverts colors - white becomes black, black becomes white",
+      "bestFor": "Universal contrast on any background, creative portfolios",
+      "visualAppearance": "Cursor inverts everything underneath it"
+    },
+    "exclusion": {
+      "effect": "Similar to difference but lower contrast, softer inversion",
+      "bestFor": "Subtle artistic effects, modern UI",
+      "visualAppearance": "Soft color inversion with mid-tones"
+    },
+    "multiply": {
+      "effect": "Darkens content underneath, like layering transparent dark glass",
+      "bestFor": "Dark emphasis, shadow effects",
+      "visualAppearance": "Darkens colors underneath cursor"
+    },
+    "screen": {
+      "effect": "Lightens content underneath, opposite of multiply",
+      "bestFor": "Light emphasis, glow effects",
+      "visualAppearance": "Lightens colors underneath cursor"
+    },
+    "overlay": {
+      "effect": "Combination of multiply and screen, increases contrast",
+      "bestFor": "High-contrast creative effects",
+      "visualAppearance": "Intensifies light and dark areas"
+    },
+    "color-dodge": {
+      "effect": "Brightens and saturates colors",
+      "bestFor": "Vibrant, glowing effects",
+      "visualAppearance": "Creates bright, glowing highlights"
+    },
+    "color-burn": {
+      "effect": "Darkens and saturates colors",
+      "bestFor": "Rich, dramatic effects",
+      "visualAppearance": "Creates deep, saturated shadows"
+    }
+  },
+
+  "cssTransformExamples": {
+    "scale": {
+      "normal": "scale(1)",
+      "hover": "scale(1.5)",
+      "description": "Enlarges cursor on hover (1 = normal, 1.5 = 150% size)"
+    },
+    "rotate": {
+      "normal": "rotate(0deg)",
+      "hover": "rotate(180deg)",
+      "description": "Rotates cursor on hover (0-360 degrees)"
+    },
+    "combined": {
+      "normal": "scale(1) rotate(0deg)",
+      "hover": "scale(1.3) rotate(90deg)",
+      "description": "Multiple transforms combined (space-separated)"
+    },
+    "translate": {
+      "normal": "translate(0, 0)",
+      "hover": "translate(5px, -5px)",
+      "description": "Shifts cursor position (x, y offsets)"
+    }
+  },
+
+  "useCaseTips": [
+    "Creative Portfolios: Use mc-cs3 with 'difference' blend mode for artistic inversion effect",
+    "E-commerce: Use mouse-follow-image with magnifying glass icon on product images",
+    "Agencies: Use mc-cs1 solid circle with brand color and opacity for modern feel",
+    "Gaming: Use predefined 'crosshair' cursor for precision aiming interfaces",
+    "Interactive Sites: Use mouse-follow-text with 'Click Me' label for user guidance"
+  ],
+
+  "integrationExamples": [
+    {
+      "name": "Disable Custom Cursor on Mobile",
+      "description": "Hide custom cursor on touch devices",
+      "code": "/* CSS Media Query */\n@media (hover: none) and (pointer: coarse) {\n  .tp-mouse-cursor {\n    display: none !important;\n  }\n  body {\n    cursor: auto !important;\n  }\n}"
+    },
+    {
+      "name": "Prefers-Reduced-Motion Accessibility",
+      "description": "Disable cursor animations for motion-sensitive users",
+      "code": "/* Respect user's motion preference */\n@media (prefers-reduced-motion: reduce) {\n  .tp-mouse-cursor {\n    transition: none !important;\n    animation: none !important;\n  }\n}"
+    },
+    {
+      "name": "Custom Cursor Toggle Button",
+      "description": "Allow users to enable/disable custom cursor",
+      "code": "<!-- HTML Toggle -->\n<button id=\"toggle-cursor\">Toggle Custom Cursor</button>\n\n<script>\ndocument.getElementById('toggle-cursor').addEventListener('click', function() {\n  document.body.classList.toggle('custom-cursor-disabled');\n  localStorage.setItem('customCursorDisabled', document.body.classList.contains('custom-cursor-disabled'));\n});\n\n// Apply saved preference on load\nif (localStorage.getItem('customCursorDisabled') === 'true') {\n  document.body.classList.add('custom-cursor-disabled');\n}\n</script>\n\n<style>\n.custom-cursor-disabled .tp-mouse-cursor {\n  display: none !important;\n}\n.custom-cursor-disabled body {\n  cursor: auto !important;\n}\n</style>"
+    },
+    {
+      "name": "RequestAnimationFrame Smooth Following",
+      "description": "60fps cursor tracking implementation",
+      "code": "// JavaScript smooth cursor following\nlet cursorX = 0;\nlet cursorY = 0;\nlet cursorCircle = document.querySelector('.cursor-circle');\n\ndocument.addEventListener('mousemove', (e) => {\n  cursorX = e.clientX;\n  cursorY = e.clientY;\n});\n\nfunction animateCursor() {\n  cursorCircle.style.transform = `translate(${cursorX}px, ${cursorY}px)`;\n  requestAnimationFrame(animateCursor);\n}\n\nrequestAnimationFrame(animateCursor);"
+    }
+  ]
 }
