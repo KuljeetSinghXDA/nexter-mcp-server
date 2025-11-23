@@ -1,62 +1,465 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-preloader",
-  "title": "Preloader - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Preloader - Comprehensive Usage Examples",
+  "description": "Complete example configurations for page loading screens with animations, progress bars, custom branding, and trigger options",
+
   "examples": [
     {
-      "description": "Simple spinner with text",
+      "name": "Classic Spinner (Default Page Load)",
+      "description": "Standard circular spinner with 'Loading...' text for page initialization",
+      "visualDescription": "Purple spinning circle (60px), white background, 'Loading...' text below, 1s min display, 500ms fade out",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "pl001",
         "loaderStyle": "style-1",
+        "loaderTrigger": "page-load",
+        "loaderColor": "#667eea",
+        "loaderSize": {"md": "60", "sm": "55", "xs": "50", "unit": "px"},
+        "backgroundColor": "#ffffff",
+        "loadingText": "Loading...",
+        "showText": true,
+        "showProgress": false,
+        "minDisplayTime": "1000",
+        "fadeOutDuration": "500",
+        "zIndex": "999999"
+      },
+      "useCase": "Corporate sites, blogs, simple websites, standard page loads"
+    },
+
+    {
+      "name": "Branded Logo Preloader (Pulse Animation)",
+      "description": "Custom company logo with pulsing animation for brand consistency",
+      "visualDescription": "120px company logo PNG/SVG, white background, logo pulses while loading, no text, 1.5s min display",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "pl002",
+        "loaderStyle": "custom",
+        "loaderTrigger": "page-load",
+        "customImage": {
+          "url": "/wp-content/uploads/company-logo.svg",
+          "id": "123"
+        },
+        "imageSize": {"md": "120", "sm": "100", "xs": "80", "unit": "px"},
+        "backgroundColor": "#ffffff",
+        "showText": false,
+        "showProgress": false,
+        "minDisplayTime": "1500",
+        "fadeOutDuration": "600",
+        "zIndex": "999999"
+      },
+      "useCase": "Brand-focused sites, corporate pages, agency portfolios, premium experiences"
+    },
+
+    {
+      "name": "Progress Bar Preloader (Style-5 Dots)",
+      "description": "Animated dots loader with horizontal progress bar showing load percentage",
+      "visualDescription": "Style-5 bouncing dots (80px), purple color, progress bar at bottom (0-100%), 'Please wait...' text",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "pl003",
+        "loaderStyle": "style-5",
+        "loaderTrigger": "page-load",
+        "loaderColor": "#764ba2",
+        "loaderSize": {"md": "80", "sm": "70", "xs": "60", "unit": "px"},
+        "backgroundColor": "#f8f9fa",
         "loadingText": "Please wait...",
         "showText": true,
-        "loaderColor": "#667eea",
-        "backgroundColor": "#ffffff"
-      }
-    },
-    {
-      "description": "Custom logo preloader with progress bar",
-      "attributes": {
-        "block_id": "c3d4",
-        "loaderStyle": "custom",
-        "customImage": {
-          "url": "/logo.svg"
-        },
-        "imageSize": {
-          "md": "120",
-          "unit": "px"
-        },
         "showProgress": true,
         "progressType": "bar",
-        "minDisplayTime": "1500"
-      }
+        "minDisplayTime": "1200",
+        "fadeOutDuration": "700",
+        "zIndex": "999999"
+      },
+      "useCase": "E-commerce sites, data-heavy pages, asset-rich content, dashboard loading"
     },
+
     {
-      "description": "Pulse animation with percentage",
+      "name": "Percentage Counter Preloader (Style-8 Circle)",
+      "description": "Circular progress with animated percentage counter (0-100%)",
+      "visualDescription": "Style-8 circular loader (70px), teal color, large percentage text in center, no loading text, dark background",
+      "complexity": "advanced",
       "attributes": {
-        "block_id": "e5f6",
-        "loaderStyle": "style-5",
+        "block_id": "pl004",
+        "loaderStyle": "style-8",
+        "loaderTrigger": "page-load",
+        "loaderColor": "#4ecdc4",
+        "loaderSize": {"md": "70", "sm": "65", "xs": "60", "unit": "px"},
+        "backgroundColor": "#1a1a2e",
+        "showText": false,
         "showProgress": true,
         "progressType": "percentage",
+        "minDisplayTime": "1000",
+        "fadeOutDuration": "500",
+        "zIndex": "999999"
+      },
+      "useCase": "Modern apps, SaaS platforms, dashboards, progressive loading experiences"
+    },
+
+    {
+      "name": "Dark Overlay Preloader (Transparent Background)",
+      "description": "Dark semi-transparent overlay with white spinner for light backgrounds",
+      "visualDescription": "Style-3 rotating squares (65px), white loader on dark overlay rgba(0,0,0,0.9), 'Processing' text",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "pl005",
+        "loaderStyle": "style-3",
+        "loaderTrigger": "page-load",
+        "loaderColor": "#ffffff",
+        "loaderSize": {"md": "65", "sm": "60", "xs": "55", "unit": "px"},
+        "backgroundColor": "rgba(0, 0, 0, 0.9)",
+        "loadingText": "Processing",
+        "showText": true,
+        "showProgress": false,
+        "minDisplayTime": "800",
+        "fadeOutDuration": "400",
+        "zIndex": "999999"
+      },
+      "useCase": "Video sites, media platforms, dark-themed sites, overlays on existing content"
+    },
+
+    {
+      "name": "Button-Click Form Submission Loader",
+      "description": "Triggered by submit button click for form processing feedback",
+      "visualDescription": "Style-4 double-bounce (60px), orange color, 'Submitting...' text, triggered by #contact-form submit",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "pl006",
+        "loaderStyle": "style-4",
+        "loaderTrigger": "button-click",
+        "triggerSelector": "#contact-form button[type='submit'], .submit-btn",
+        "loaderColor": "#ff6b6b",
+        "loaderSize": {"md": "60", "sm": "55", "xs": "50", "unit": "px"},
+        "backgroundColor": "rgba(255, 255, 255, 0.95)",
+        "loadingText": "Submitting...",
+        "showText": true,
+        "showProgress": false,
+        "minDisplayTime": "500",
+        "fadeOutDuration": "300",
+        "zIndex": "999999"
+      },
+      "useCase": "Contact forms, checkout processes, AJAX submissions, data processing"
+    },
+
+    {
+      "name": "Fast Minimal Preloader (Quick Load)",
+      "description": "Lightweight minimal loader for fast-loading pages",
+      "visualDescription": "Style-2 fading circle (50px), gray color, no text, 600ms min display, 300ms fade out, subtle and quick",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "pl007",
+        "loaderStyle": "style-2",
+        "loaderTrigger": "page-load",
+        "loaderColor": "#95a5a6",
+        "loaderSize": {"md": "50", "sm": "45", "xs": "40", "unit": "px"},
+        "backgroundColor": "#ffffff",
+        "showText": false,
+        "showProgress": false,
+        "minDisplayTime": "600",
+        "fadeOutDuration": "300",
+        "zIndex": "999999"
+      },
+      "useCase": "Fast-loading sites, minimal designs, landing pages, quick transitions"
+    },
+
+    {
+      "name": "Multi-Style Showcase (Style-10 Grid)",
+      "description": "Grid-pattern loader with progress bar and custom styling",
+      "visualDescription": "Style-10 grid squares (75px), gradient purple-pink, progress bar + percentage, 'Initializing...' text",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "pl008",
+        "loaderStyle": "style-10",
+        "loaderTrigger": "page-load",
+        "loaderColor": "#667eea",
+        "loaderSize": {"md": "75", "sm": "70", "xs": "65", "unit": "px"},
+        "backgroundColor": "#f0f0f5",
+        "loadingText": "Initializing...",
+        "showText": true,
+        "showProgress": true,
+        "progressType": "bar",
+        "minDisplayTime": "1400",
         "fadeOutDuration": "800",
-        "loaderSize": {
-          "md": "80",
-          "unit": "px"
-        }
+        "zIndex": "999999"
+      },
+      "useCase": "Creative portfolios, modern apps, stylish websites, unique loading experiences"
+    }
+  ],
+
+  "commonPatterns": [
+    {
+      "name": "Standard Page Load",
+      "description": "Simple spinner on page initialization",
+      "attributes": {
+        "loaderTrigger": "page-load",
+        "loaderStyle": "style-1",
+        "minDisplayTime": "1000",
+        "fadeOutDuration": "500"
       }
     },
     {
-      "description": "Button-triggered loading overlay",
+      "name": "Branded Loading",
+      "description": "Custom logo/image preloader",
       "attributes": {
-        "block_id": "g7h8",
-        "loaderStyle": "style-3",
+        "loaderStyle": "custom",
+        "customImage": {"url": "/logo.svg"},
+        "imageSize": {"md": "120", "unit": "px"},
+        "showText": false
+      }
+    },
+    {
+      "name": "Progress Tracking",
+      "description": "Show loading progress bar or percentage",
+      "attributes": {
+        "showProgress": true,
+        "progressType": "bar",
+        "minDisplayTime": "1200"
+      }
+    },
+    {
+      "name": "Button-Triggered Loader",
+      "description": "Show loader on button click",
+      "attributes": {
         "loaderTrigger": "button-click",
-        "triggerSelector": "#submit-button",
-        "loadingText": "Processing...",
-        "backgroundColor": "rgba(0,0,0,0.8)"
+        "triggerSelector": ".submit-btn",
+        "minDisplayTime": "500"
       }
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "block_id": "Required, unique 4-character hex identifier",
+    "loaderStyle": "Must be 'style-1' through 'style-12' or 'custom'",
+    "customImage": "Required when loaderStyle is 'custom', must have valid URL",
+    "loaderTrigger": "Must be 'page-load', 'button-click', or 'scroll'",
+    "triggerSelector": "Required when loaderTrigger is 'button-click', must be valid CSS selector",
+    "progressType": "Must be 'bar' or 'percentage' when showProgress is true",
+    "minDisplayTime": "Number string in milliseconds (recommended 500-2000ms)",
+    "fadeOutDuration": "Number string in milliseconds (recommended 300-1000ms)",
+    "loaderSize": "Recommended 40-100px for visibility",
+    "zIndex": "Number string, recommend 999999 for top-most layer",
+    "backgroundColor": "Valid CSS color (hex, rgba, rgb, color name)"
+  },
+
+  "warnings": [
+    "Preloader blocks page interaction until loading completes - ensure minDisplayTime isn't too long",
+    "minDisplayTime too short (<500ms) may cause flash/flicker on fast connections",
+    "zIndex must be high enough (999999) to appear above all content",
+    "Custom images should be optimized (<50KB) to avoid loading the loader",
+    "Button-click trigger requires exact CSS selector match (triggerSelector)",
+    "Don't use preloader on every page navigation - can frustrate users",
+    "fadeOutDuration too long (>1s) delays content reveal",
+    "backgroundColor with low opacity may not fully hide content underneath",
+    "Progress bars may not be accurate if page resources load asynchronously",
+    "Avoid using preloader for fast-loading pages (<1s) - unnecessary friction"
+  ],
+
+  "commonMistakes": [
+    "Setting minDisplayTime too high (>3s) - users perceive site as slow",
+    "Forgetting to set high zIndex - preloader appears behind content",
+    "Using button-click trigger without triggerSelector - preloader never shows",
+    "Not optimizing custom images - preloader loads slowly",
+    "Setting backgroundColor to transparent - content visible while loading",
+    "Using showProgress: true without understanding it's simulated (not real progress)",
+    "Forgetting to test on fast connections - preloader may flash too quickly",
+    "Not providing responsive loaderSize (md/sm/xs) - huge loaders on mobile",
+    "Using custom image without fallback (broken image = blank preloader)",
+    "Setting loaderTrigger: 'scroll' without clear use case - confusing UX"
+  ],
+
+  "bestPractices": [
+    "Set minDisplayTime between 800-1500ms for pleasant loading experience",
+    "Use fadeOutDuration 400-600ms for smooth transition",
+    "Keep loaderSize 50-80px for optimal visibility without obstruction",
+    "Use custom logo preloader for brand consistency on key pages",
+    "Set zIndex to 999999 to ensure preloader appears above all content",
+    "Use semi-transparent backgroundColor (rgba) for subtle overlay effect",
+    "Show progress bar (showProgress: true) for long-loading pages (>3s)",
+    "Use percentage display for quantifiable loading (e.g., file uploads)",
+    "Optimize custom images (<30KB, SVG preferred for scalability)",
+    "Test preloader on slow connections to ensure appropriate timing",
+    "Use button-click trigger for form submissions and AJAX requests",
+    "Provide loading text for clarity ('Loading...', 'Processing...', 'Please wait...')",
+    "Use responsive sizing (md/sm/xs) for mobile optimization",
+    "Match loaderColor to brand colors for visual consistency",
+    "Consider dark overlay (rgba(0,0,0,0.8)) for light-themed sites"
+  ],
+
+  "accessibilityNotes": [
+    "Add aria-live='polite' region for screen reader announcements during loading",
+    "Ensure loadingText is descriptive and announced to screen readers",
+    "Don't rely solely on color - use animation and text for loading state",
+    "Provide keyboard focus management - prevent focus on hidden content while loading",
+    "Use role='status' for loading text container",
+    "Consider users with motion sensitivity - provide option to disable animations",
+    "Ensure sufficient color contrast between loader and background (WCAG AA)",
+    "Don't hide critical error messages behind preloader",
+    "Provide timeout mechanism - don't block indefinitely if loading fails",
+    "Test with screen readers to ensure loading state is communicated",
+    "Avoid flashing animations that may trigger photosensitive epilepsy",
+    "Ensure preloader doesn't trap keyboard focus"
+  ],
+
+  "performanceConsiderations": [
+    "Preload custom images in <head> to avoid delayed preloader appearance",
+    "Use CSS animations over JavaScript for loader animations (GPU-accelerated)",
+    "Keep minDisplayTime reasonable (<2s) to avoid artificial slowdown",
+    "Optimize custom images: SVG (scalable), PNG (compressed <30KB), WebP (modern)",
+    "Avoid complex animations on low-end devices - use simple spinners",
+    "Use will-change: transform on animated elements for rendering optimization",
+    "Lazy load non-critical resources to speed up actual page load",
+    "Monitor Core Web Vitals - excessive preloader time increases LCP",
+    "Use requestAnimationFrame for JavaScript-based progress tracking",
+    "Consider disabling preloader on repeat visits (use sessionStorage flag)"
+  ],
+
+  "loaderStyleGuide": {
+    "style-1": {
+      "description": "Classic circular spinner",
+      "visualAppearance": "Rotating circle with gap, continuous animation",
+      "bestFor": "Universal use, familiar pattern, all sites"
+    },
+    "style-2": {
+      "description": "Fading circle",
+      "visualAppearance": "Circle that fades in and out, pulsing effect",
+      "bestFor": "Minimal designs, subtle loading, quick loads"
+    },
+    "style-3": {
+      "description": "Rotating squares",
+      "visualAppearance": "Four squares rotating around center point",
+      "bestFor": "Modern designs, geometric aesthetics"
+    },
+    "style-4": {
+      "description": "Double bounce",
+      "visualAppearance": "Two circles bouncing and crossing over each other",
+      "bestFor": "Playful sites, creative designs, unique feel"
+    },
+    "style-5": {
+      "description": "Bouncing dots",
+      "visualAppearance": "Three dots bouncing up and down in sequence",
+      "bestFor": "Chat apps, messaging, conversational UI"
+    },
+    "style-6": {
+      "description": "Wave",
+      "visualAppearance": "Five vertical bars growing and shrinking like sound wave",
+      "bestFor": "Audio sites, music platforms, rhythm-based brands"
+    },
+    "style-7": {
+      "description": "Wandering cubes",
+      "visualAppearance": "Two cubes rotating and flipping around each other",
+      "bestFor": "3D-focused sites, gaming, tech products"
+    },
+    "style-8": {
+      "description": "Circular progress",
+      "visualAppearance": "Circular arc growing from 0-100%, smooth fill",
+      "bestFor": "Progress tracking, file uploads, step completion"
+    },
+    "style-9": {
+      "description": "Chasing dots",
+      "visualAppearance": "Dots chasing each other in circular path",
+      "bestFor": "Continuous processes, looping animations"
+    },
+    "style-10": {
+      "description": "Grid squares",
+      "visualAppearance": "9 squares in 3x3 grid fading in sequence",
+      "bestFor": "Dashboard loading, data visualization, grid layouts"
+    },
+    "style-11": {
+      "description": "Folding cube",
+      "visualAppearance": "Single cube folding and unfolding in 3D space",
+      "bestFor": "3D products, architectural sites, spatial designs"
+    },
+    "style-12": {
+      "description": "Circular orbit",
+      "visualAppearance": "Multiple dots orbiting around central point",
+      "bestFor": "Scientific sites, astronomy, orbital concepts"
+    },
+    "custom": {
+      "description": "Custom logo or image",
+      "visualAppearance": "Your uploaded image with optional pulse animation",
+      "bestFor": "Brand consistency, corporate sites, unique identity"
+    }
+  },
+
+  "progressTypeGuide": {
+    "bar": {
+      "description": "Horizontal progress bar (0-100%)",
+      "visualAppearance": "Bar at bottom of preloader fills left to right",
+      "bestFor": "Long page loads, asset-heavy sites, file downloads",
+      "notes": "Progress is simulated based on time, not actual resource loading"
+    },
+    "percentage": {
+      "description": "Numerical percentage display (0-100%)",
+      "visualAppearance": "Large percentage number that counts up to 100%",
+      "bestFor": "Quantifiable loading, data processing, step-by-step loads",
+      "notes": "Simulated progress - counts up over minDisplayTime duration"
+    }
+  },
+
+  "triggerTypeGuide": {
+    "page-load": {
+      "description": "Show preloader on page initialization (most common)",
+      "when": "Page first loads or refreshes",
+      "useCases": ["Homepage", "Landing pages", "Heavy pages", "Initial app load"],
+      "notes": "Fires on window load event"
+    },
+    "button-click": {
+      "description": "Show preloader when specific button is clicked",
+      "when": "User clicks element matching triggerSelector",
+      "useCases": ["Form submissions", "AJAX requests", "Download triggers", "Checkout processes"],
+      "notes": "Requires triggerSelector CSS selector (e.g., '#submit-btn')"
+    },
+    "scroll": {
+      "description": "Show preloader when user scrolls to specific point",
+      "when": "User scrolls past threshold",
+      "useCases": ["Infinite scroll", "Lazy loading sections", "Dynamic content loading"],
+      "notes": "Experimental - test thoroughly for UX clarity"
+    }
+  },
+
+  "timingGuide": {
+    "minDisplayTime": {
+      "recommended": "800-1500ms",
+      "tooShort": "<500ms - may flash/flicker",
+      "tooLong": ">3000ms - frustrates users",
+      "purpose": "Ensures preloader is visible long enough to be perceived as intentional loading, not a glitch"
+    },
+    "fadeOutDuration": {
+      "recommended": "400-600ms",
+      "tooShort": "<300ms - abrupt transition",
+      "tooLong": ">1000ms - delays content reveal",
+      "purpose": "Smooth transition from preloader to content, polished user experience"
+    }
+  },
+
+  "useCaseTips": [
+    "E-commerce: Use branded logo preloader on homepage for premium feel (style: custom)",
+    "Blogs: Fast minimal preloader with short minDisplayTime (style-2, 600ms)",
+    "Dashboards: Progress bar loader for data-heavy pages (style-8 + progressType: bar)",
+    "Forms: Button-click trigger for submission feedback (style-4, 'Submitting...')",
+    "Portfolios: Creative loader matching brand personality (style-7 wandering cubes)"
+  ],
+
+  "integrationExamples": [
+    {
+      "name": "Preload Custom Loader Image",
+      "description": "Ensure custom image loads before preloader shows",
+      "code": "<!-- In <head> section -->\n<link rel=\"preload\" href=\"/wp-content/uploads/company-logo.svg\" as=\"image\">"
+    },
+    {
+      "name": "Session Storage to Skip Preloader on Repeat Visits",
+      "description": "Only show preloader on first visit per session",
+      "code": "// JavaScript to skip preloader for returning visitors\nif (sessionStorage.getItem('preloaderShown')) {\n  document.querySelector('.tp-preloader').style.display = 'none';\n} else {\n  sessionStorage.setItem('preloaderShown', 'true');\n}"
+    },
+    {
+      "name": "ARIA Live Region for Accessibility",
+      "description": "Announce loading state to screen readers",
+      "code": "<!-- Add to preloader container -->\n<div class=\"tp-preloader\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\">\n  <p class=\"loading-text\">Loading, please wait...</p>\n</div>"
+    },
+    {
+      "name": "Timeout Mechanism for Failed Loads",
+      "description": "Auto-hide preloader if page takes too long",
+      "code": "// JavaScript timeout failsafe (10 seconds max)\nsetTimeout(function() {\n  const preloader = document.querySelector('.tp-preloader');\n  if (preloader && preloader.style.display !== 'none') {\n    preloader.style.opacity = '0';\n    setTimeout(() => {\n      preloader.style.display = 'none';\n    }, 500);\n  }\n}, 10000); // 10 second timeout"
+    }
+  ]
 }
