@@ -1,82 +1,894 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-scroll-navigation",
-  "title": "Scroll Navigation - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Scroll Navigation - Comprehensive Usage Examples",
+  "description": "Complete example configurations for one-page navigation with scroll indicators, tooltips, progress tracking, and custom positioning",
+
   "examples": [
     {
-      "description": "Simple dot navigation (right side)",
+      "name": "Dot Navigation Right Side (Classic Portfolio)",
+      "description": "Traditional right-side dot navigation with icons and tooltips",
+      "visualDescription": "Vertical dots on right edge, FontAwesome icons, tooltips on left hover, active state highlights current section",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "sn001",
         "scrollNavStyle": "style-1",
         "scrollDirection": "vertical",
         "scrollPosition": "right",
         "scrollOffset": {
           "md": "50",
+          "sm": "30",
+          "xs": "20",
           "unit": "px"
         },
+        "scrollSpeed": "1000",
+        "activeOffset": "100",
+        "showTooltip": true,
+        "tooltipPosition": "left",
+        "progressBar": false,
         "scrollNavRepeater": [
           {
             "_key": "0",
-            "title": "Home",
-            "sectionId": "home",
-            "icon": "fas fa-home"
+            "title": "Hero",
+            "sectionId": "hero",
+            "icon": "fas fa-home",
+            "tooltip": "Home"
           },
           {
             "_key": "1",
             "title": "About",
             "sectionId": "about",
-            "icon": "fas fa-user"
+            "icon": "fas fa-user",
+            "tooltip": "About Me"
           },
           {
             "_key": "2",
             "title": "Portfolio",
             "sectionId": "portfolio",
-            "icon": "fas fa-folder"
+            "icon": "fas fa-folder-open",
+            "tooltip": "My Work"
+          },
+          {
+            "_key": "3",
+            "title": "Skills",
+            "sectionId": "skills",
+            "icon": "fas fa-code",
+            "tooltip": "Skills & Tools"
+          },
+          {
+            "_key": "4",
+            "title": "Contact",
+            "sectionId": "contact",
+            "icon": "fas fa-envelope",
+            "tooltip": "Get in Touch"
+          }
+        ]
+      },
+      "useCase": "Creative portfolios, personal websites, one-page resumes, freelancer sites, agency showcases",
+      "notes": [
+        "style-1 = dot indicators with icons (most common for portfolios)",
+        "scrollPosition: 'right' = fixed right edge positioning",
+        "Responsive scrollOffset: 50px desktop, 30px tablet, 20px mobile",
+        "sectionId must match HTML element ID (e.g., <div id='hero'>)",
+        "activeOffset: 100 = section becomes active 100px before top of viewport",
+        "tooltipPosition: 'left' = tooltips appear on left side of dots (right-side nav)",
+        "FontAwesome icons require Font Awesome library loaded on site"
+      ]
+    },
+
+    {
+      "name": "Text Label Navigation Left (Corporate Site)",
+      "description": "Left-side text label navigation with full section names",
+      "visualDescription": "Vertical text labels on left edge, no icons, tooltips on right, clean corporate aesthetic",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "sn002",
+        "scrollNavStyle": "style-2",
+        "scrollDirection": "vertical",
+        "scrollPosition": "left",
+        "scrollOffset": {
+          "md": "40",
+          "sm": "25",
+          "xs": "15",
+          "unit": "px"
+        },
+        "scrollSpeed": "1200",
+        "activeOffset": "80",
+        "showTooltip": true,
+        "tooltipPosition": "right",
+        "progressBar": false,
+        "scrollNavRepeater": [
+          {
+            "_key": "0",
+            "title": "Home",
+            "sectionId": "home-section",
+            "tooltip": "Welcome & Overview"
+          },
+          {
+            "_key": "1",
+            "title": "Services",
+            "sectionId": "services-section",
+            "tooltip": "What We Offer"
+          },
+          {
+            "_key": "2",
+            "title": "Solutions",
+            "sectionId": "solutions-section",
+            "tooltip": "Business Solutions"
+          },
+          {
+            "_key": "3",
+            "title": "Team",
+            "sectionId": "team-section",
+            "tooltip": "Meet Our Experts"
+          },
+          {
+            "_key": "4",
+            "title": "Testimonials",
+            "sectionId": "testimonials-section",
+            "tooltip": "Client Success Stories"
+          },
+          {
+            "_key": "5",
+            "title": "Contact",
+            "sectionId": "contact-section",
+            "tooltip": "Request a Consultation"
+          }
+        ]
+      },
+      "useCase": "Corporate websites, business landing pages, service providers, consulting firms, B2B sites",
+      "notes": [
+        "style-2 = text labels visible (better for longer section names)",
+        "scrollPosition: 'left' = fixed left edge positioning",
+        "6 sections = good for comprehensive business sites",
+        "No icons in style-2, only text labels shown",
+        "Tooltips provide additional context beyond label text",
+        "scrollSpeed: 1200ms = slightly slower for professional feel",
+        "Longer section names readable without hover (unlike dots)"
+      ]
+    },
+
+    {
+      "name": "Horizontal Top Navigation (Presentation Mode)",
+      "description": "Horizontal dot navigation at top for slide-style layouts",
+      "visualDescription": "Horizontal dots centered at top edge, 80px offset, bottom tooltips, minimal distraction",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "sn003",
+        "scrollNavStyle": "style-1",
+        "scrollDirection": "horizontal",
+        "scrollPosition": "top",
+        "scrollOffset": {
+          "md": "80",
+          "sm": "60",
+          "xs": "50",
+          "unit": "px"
+        },
+        "scrollSpeed": "800",
+        "activeOffset": "50",
+        "showTooltip": true,
+        "tooltipPosition": "bottom",
+        "progressBar": false,
+        "scrollNavRepeater": [
+          {
+            "_key": "0",
+            "title": "Intro",
+            "sectionId": "slide-1",
+            "icon": "fas fa-play-circle",
+            "tooltip": "Introduction"
+          },
+          {
+            "_key": "1",
+            "title": "Problem",
+            "sectionId": "slide-2",
+            "icon": "fas fa-exclamation-triangle",
+            "tooltip": "The Problem"
+          },
+          {
+            "_key": "2",
+            "title": "Solution",
+            "sectionId": "slide-3",
+            "icon": "fas fa-lightbulb",
+            "tooltip": "Our Solution"
+          },
+          {
+            "_key": "3",
+            "title": "Demo",
+            "sectionId": "slide-4",
+            "icon": "fas fa-desktop",
+            "tooltip": "Product Demo"
+          },
+          {
+            "_key": "4",
+            "title": "Pricing",
+            "sectionId": "slide-5",
+            "icon": "fas fa-dollar-sign",
+            "tooltip": "Pricing Plans"
+          },
+          {
+            "_key": "5",
+            "title": "CTA",
+            "sectionId": "slide-6",
+            "icon": "fas fa-rocket",
+            "tooltip": "Get Started"
+          }
+        ]
+      },
+      "useCase": "Presentation-style landing pages, pitch decks, product launches, webinar pages, slide-based storytelling",
+      "notes": [
+        "scrollDirection: 'horizontal' = dots arranged horizontally",
+        "scrollPosition: 'top' = fixed top edge (works with horizontal direction)",
+        "80px offset accounts for fixed header navigation",
+        "tooltipPosition: 'bottom' = tooltips below dots (top nav)",
+        "Faster scrollSpeed: 800ms for quick slide transitions",
+        "activeOffset: 50 = tighter activation for slide-style sections",
+        "Works well with full-viewport height sections (100vh)"
+      ]
+    },
+
+    {
+      "name": "Progress Bar Navigation (Reading Progress)",
+      "description": "Dot navigation with scroll progress bar indicator",
+      "visualDescription": "Right-side dots with top progress bar showing page scroll percentage, visual feedback for long content",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "sn004",
+        "scrollNavStyle": "style-1",
+        "scrollDirection": "vertical",
+        "scrollPosition": "right",
+        "scrollOffset": {
+          "md": "60",
+          "unit": "px"
+        },
+        "scrollSpeed": "1000",
+        "activeOffset": "120",
+        "showTooltip": true,
+        "tooltipPosition": "left",
+        "progressBar": true,
+        "progressPosition": "top",
+        "scrollNavRepeater": [
+          {
+            "_key": "0",
+            "title": "Introduction",
+            "sectionId": "intro",
+            "icon": "fas fa-book-open",
+            "tooltip": "Introduction"
+          },
+          {
+            "_key": "1",
+            "title": "Chapter 1",
+            "sectionId": "chapter-1",
+            "icon": "fas fa-bookmark",
+            "tooltip": "Getting Started"
+          },
+          {
+            "_key": "2",
+            "title": "Chapter 2",
+            "sectionId": "chapter-2",
+            "icon": "fas fa-bookmark",
+            "tooltip": "Core Concepts"
+          },
+          {
+            "_key": "3",
+            "title": "Chapter 3",
+            "sectionId": "chapter-3",
+            "icon": "fas fa-bookmark",
+            "tooltip": "Advanced Topics"
+          },
+          {
+            "_key": "4",
+            "title": "Chapter 4",
+            "sectionId": "chapter-4",
+            "icon": "fas fa-bookmark",
+            "tooltip": "Best Practices"
+          },
+          {
+            "_key": "5",
+            "title": "Conclusion",
+            "sectionId": "conclusion",
+            "icon": "fas fa-flag-checkered",
+            "tooltip": "Summary & Next Steps"
+          }
+        ]
+      },
+      "useCase": "Long-form articles, documentation, tutorials, ebooks, research papers, educational content, multi-chapter guides",
+      "notes": [
+        "progressBar: true = adds horizontal progress indicator",
+        "progressPosition: 'top' = progress bar at top of page",
+        "Progress bar fills as user scrolls down page",
+        "Provides visual feedback on reading progress",
+        "activeOffset: 120 = accounts for longer content sections",
+        "Great for content >3000 words where users need orientation",
+        "Progress bar uses theme accent color for fill"
+      ]
+    },
+
+    {
+      "name": "Minimal Dot Navigation (Clean Design)",
+      "description": "Ultra-minimal dot navigation without icons or tooltips",
+      "visualDescription": "Clean dots on right, no icons, no tooltips, minimal visual distraction, modern aesthetic",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "sn005",
+        "scrollNavStyle": "style-1",
+        "scrollDirection": "vertical",
+        "scrollPosition": "right",
+        "scrollOffset": {
+          "md": "40",
+          "sm": "25",
+          "unit": "px"
+        },
+        "scrollSpeed": "900",
+        "activeOffset": "100",
+        "showTooltip": false,
+        "progressBar": false,
+        "scrollNavRepeater": [
+          {
+            "_key": "0",
+            "title": "Hero",
+            "sectionId": "hero"
+          },
+          {
+            "_key": "1",
+            "title": "Features",
+            "sectionId": "features"
+          },
+          {
+            "_key": "2",
+            "title": "Pricing",
+            "sectionId": "pricing"
+          },
+          {
+            "_key": "3",
+            "title": "FAQ",
+            "sectionId": "faq"
+          }
+        ]
+      },
+      "useCase": "Minimalist designs, modern SaaS sites, clean portfolios, product pages, mobile-first sites",
+      "notes": [
+        "showTooltip: false = no hover tooltips for cleaner look",
+        "No icons specified in repeater items (dots only)",
+        "4 sections = good for short landing pages",
+        "Minimal visual distraction from content",
+        "Works well with bold, full-width section designs",
+        "Lower cognitive load for users (simple dots only)",
+        "Responsive offset: smaller on mobile to maximize screen space"
+      ]
+    },
+
+    {
+      "name": "Icon-Rich Navigation (Visual Storytelling)",
+      "description": "Colorful icon-based navigation with descriptive tooltips",
+      "visualDescription": "Large icons in dots, vibrant visual indicators, detailed tooltips, engaging interaction",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "sn006",
+        "scrollNavStyle": "style-1",
+        "scrollDirection": "vertical",
+        "scrollPosition": "right",
+        "scrollOffset": {
+          "md": "55",
+          "sm": "35",
+          "xs": "25",
+          "unit": "px"
+        },
+        "scrollSpeed": "1100",
+        "activeOffset": "90",
+        "showTooltip": true,
+        "tooltipPosition": "left",
+        "progressBar": false,
+        "scrollNavRepeater": [
+          {
+            "_key": "0",
+            "title": "Vision",
+            "sectionId": "our-vision",
+            "icon": "fas fa-eye",
+            "tooltip": "Our Vision for the Future"
+          },
+          {
+            "_key": "1",
+            "title": "Mission",
+            "sectionId": "our-mission",
+            "icon": "fas fa-bullseye",
+            "tooltip": "Mission & Core Values"
+          },
+          {
+            "_key": "2",
+            "title": "Journey",
+            "sectionId": "our-journey",
+            "icon": "fas fa-route",
+            "tooltip": "Our Story & Timeline"
+          },
+          {
+            "_key": "3",
+            "title": "Impact",
+            "sectionId": "our-impact",
+            "icon": "fas fa-chart-line",
+            "tooltip": "Social Impact & Results"
+          },
+          {
+            "_key": "4",
+            "title": "Partners",
+            "sectionId": "our-partners",
+            "icon": "fas fa-handshake",
+            "tooltip": "Strategic Partnerships"
+          },
+          {
+            "_key": "5",
+            "title": "Community",
+            "sectionId": "our-community",
+            "icon": "fas fa-users",
+            "tooltip": "Join Our Community"
+          },
+          {
+            "_key": "6",
+            "title": "Future",
+            "sectionId": "whats-next",
+            "icon": "fas fa-rocket",
+            "tooltip": "What's Next for Us"
+          }
+        ]
+      },
+      "useCase": "Brand storytelling, nonprofit sites, mission-driven companies, about pages, annual reports, impact pages",
+      "notes": [
+        "7 sections = good for comprehensive storytelling",
+        "Detailed tooltips provide additional context",
+        "Icons visually reinforce section themes",
+        "sectionId uses descriptive naming (our-vision, our-mission)",
+        "Works well with image-heavy, narrative-driven content",
+        "scrollSpeed: 1100ms = moderate pace for reading flow",
+        "Icon colors can be customized via CSS to match brand"
+      ]
+    },
+
+    {
+      "name": "Mobile-Responsive Navigation (Desktop Only)",
+      "description": "Desktop-focused navigation hidden on mobile devices",
+      "visualDescription": "Full navigation on desktop/tablet, hidden on mobile (< 768px), prevents small-screen clutter",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "sn007",
+        "scrollNavStyle": "style-1",
+        "scrollDirection": "vertical",
+        "scrollPosition": "right",
+        "scrollOffset": {
+          "md": "50",
+          "sm": "30",
+          "unit": "px"
+        },
+        "scrollSpeed": "1000",
+        "activeOffset": "100",
+        "showTooltip": true,
+        "tooltipPosition": "left",
+        "progressBar": false,
+        "hideOnMobile": true,
+        "scrollNavRepeater": [
+          {
+            "_key": "0",
+            "title": "Home",
+            "sectionId": "home",
+            "icon": "fas fa-home",
+            "tooltip": "Home"
+          },
+          {
+            "_key": "1",
+            "title": "Products",
+            "sectionId": "products",
+            "icon": "fas fa-shopping-bag",
+            "tooltip": "Our Products"
+          },
+          {
+            "_key": "2",
+            "title": "About",
+            "sectionId": "about",
+            "icon": "fas fa-info-circle",
+            "tooltip": "About Us"
           },
           {
             "_key": "3",
             "title": "Contact",
             "sectionId": "contact",
-            "icon": "fas fa-envelope"
+            "icon": "fas fa-phone",
+            "tooltip": "Contact Us"
           }
         ]
-      }
+      },
+      "useCase": "Sites with complex mobile navigation, hamburger menu sites, mobile-first designs where fixed nav conflicts",
+      "notes": [
+        "hideOnMobile: true = navigation hidden on screens < 768px width",
+        "Prevents scroll nav from conflicting with mobile hamburger menus",
+        "Mobile users rely on traditional scroll or mobile nav menu",
+        "scrollOffset only defined for md/sm (not xs)",
+        "Desktop users get enhanced navigation experience",
+        "Consider accessibility - mobile users lose quick jump navigation",
+        "Combine with tp-mobile-menu for comprehensive navigation strategy"
+      ]
     },
+
     {
-      "description": "Text label navigation with progress bar",
+      "name": "Fast Navigation (Long Page Quick Jump)",
+      "description": "Super-fast scrolling for very long pages with many sections",
+      "visualDescription": "Quick 600ms scroll animation, tight active detection, 8 sections, efficient navigation for content-heavy pages",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "sn008",
         "scrollNavStyle": "style-2",
+        "scrollDirection": "vertical",
         "scrollPosition": "left",
-        "progressBar": true,
-        "progressPosition": "top",
-        "scrollSpeed": "800"
-      }
-    },
-    {
-      "description": "Horizontal navigation (top)",
-      "attributes": {
-        "block_id": "e5f6",
-        "scrollDirection": "horizontal",
-        "scrollPosition": "top",
         "scrollOffset": {
-          "md": "80",
+          "md": "45",
+          "sm": "30",
           "unit": "px"
         },
-        "showTooltip": false
-      }
-    },
-    {
-      "description": "Mobile-hidden nav with custom speed",
-      "attributes": {
-        "block_id": "g7h8",
-        "hideOnMobile": true,
-        "scrollSpeed": "1500",
-        "activeOffset": "150",
-        "tooltipPosition": "left"
-      }
+        "scrollSpeed": "600",
+        "activeOffset": "60",
+        "showTooltip": true,
+        "tooltipPosition": "right",
+        "progressBar": true,
+        "progressPosition": "bottom",
+        "scrollNavRepeater": [
+          {
+            "_key": "0",
+            "title": "Intro",
+            "sectionId": "introduction",
+            "tooltip": "Introduction"
+          },
+          {
+            "_key": "1",
+            "title": "Methods",
+            "sectionId": "methodology",
+            "tooltip": "Research Methodology"
+          },
+          {
+            "_key": "2",
+            "title": "Results",
+            "sectionId": "results",
+            "tooltip": "Key Findings"
+          },
+          {
+            "_key": "3",
+            "title": "Analysis",
+            "sectionId": "analysis",
+            "tooltip": "Data Analysis"
+          },
+          {
+            "_key": "4",
+            "title": "Discussion",
+            "sectionId": "discussion",
+            "tooltip": "Discussion & Implications"
+          },
+          {
+            "_key": "5",
+            "title": "Limitations",
+            "sectionId": "limitations",
+            "tooltip": "Study Limitations"
+          },
+          {
+            "_key": "6",
+            "title": "Future Work",
+            "sectionId": "future-research",
+            "tooltip": "Future Research Directions"
+          },
+          {
+            "_key": "7",
+            "title": "References",
+            "sectionId": "references",
+            "tooltip": "Citations & Bibliography"
+          }
+        ]
+      },
+      "useCase": "Academic papers, research reports, documentation, long-form journalism, technical guides, multi-section tutorials",
+      "notes": [
+        "scrollSpeed: 600ms = fastest recommended (< 500ms feels jarring)",
+        "style-2 text labels = better for academic/formal content",
+        "8 sections = typical research paper structure",
+        "activeOffset: 60 = tight detection for dense content",
+        "progressBar at bottom = less intrusive for reading",
+        "Fast scrolling reduces wait time between sections",
+        "Left-side positioning = doesn't interfere with right-side footnotes/margins",
+        "Text labels more descriptive than dots for complex topics"
+      ]
     }
   ],
-  "commonPatterns": {}
+
+  "commonPatterns": {
+    "dot_navigation_right": {
+      "description": "Classic right-side dot navigation for portfolios",
+      "attributes": {
+        "scrollNavStyle": "style-1",
+        "scrollPosition": "right",
+        "showTooltip": true,
+        "tooltipPosition": "left"
+      }
+    },
+    "text_navigation_left": {
+      "description": "Left-side text label navigation for corporate sites",
+      "attributes": {
+        "scrollNavStyle": "style-2",
+        "scrollPosition": "left",
+        "showTooltip": true,
+        "tooltipPosition": "right"
+      }
+    },
+    "horizontal_top": {
+      "description": "Horizontal navigation for presentation-style pages",
+      "attributes": {
+        "scrollDirection": "horizontal",
+        "scrollPosition": "top",
+        "tooltipPosition": "bottom"
+      }
+    },
+    "with_progress_bar": {
+      "description": "Add scroll progress indicator for long content",
+      "attributes": {
+        "progressBar": true,
+        "progressPosition": "top"
+      }
+    },
+    "minimal_design": {
+      "description": "Clean minimal navigation without tooltips",
+      "attributes": {
+        "showTooltip": false,
+        "scrollNavStyle": "style-1"
+      }
+    }
+  },
+
+  "validationRules": {
+    "block_id": {
+      "required": true,
+      "type": "string",
+      "description": "Unique block identifier"
+    },
+    "scrollNavStyle": {
+      "type": "string",
+      "enum": ["style-1", "style-2"],
+      "default": "style-1",
+      "description": "style-1 = dot indicators with icons, style-2 = text labels (no icons)"
+    },
+    "scrollNavRepeater": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 10,
+      "description": "Navigation items (2-10 sections recommended)",
+      "itemSchema": {
+        "_key": "Unique key for React rendering",
+        "title": "Section title/label",
+        "sectionId": "HTML element ID (without #) - MUST exist on page",
+        "icon": "Font Awesome class (style-1 only, e.g., 'fas fa-home')",
+        "tooltip": "Hover tooltip text"
+      }
+    },
+    "scrollDirection": {
+      "type": "string",
+      "enum": ["vertical", "horizontal"],
+      "default": "vertical",
+      "description": "vertical = left/right positioning, horizontal = top/bottom positioning"
+    },
+    "scrollPosition": {
+      "type": "string",
+      "enum": ["left", "right", "top", "bottom"],
+      "default": "right",
+      "description": "Page position - vertical: left/right, horizontal: top/bottom"
+    },
+    "scrollOffset": {
+      "type": "object",
+      "responsive": true,
+      "description": "Distance from edge in pixels",
+      "default": {"md": "100", "unit": "px"}
+    },
+    "scrollSpeed": {
+      "type": "string",
+      "default": "1000",
+      "range": "600-2000 recommended (milliseconds)",
+      "description": "Scroll animation duration - too fast (<500ms) feels jarring, too slow (>2000ms) frustrates"
+    },
+    "activeOffset": {
+      "type": "string",
+      "default": "100",
+      "range": "50-200 recommended (pixels)",
+      "description": "Offset for active section detection - section becomes active this many pixels before viewport top"
+    },
+    "showTooltip": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show hover tooltips on navigation items"
+    },
+    "tooltipPosition": {
+      "type": "string",
+      "enum": ["left", "right", "top", "bottom"],
+      "default": "left",
+      "description": "Tooltip placement relative to nav item"
+    },
+    "progressBar": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show horizontal scroll progress indicator"
+    },
+    "progressPosition": {
+      "type": "string",
+      "enum": ["top", "bottom"],
+      "default": "top",
+      "description": "Progress bar position (only if progressBar: true)"
+    },
+    "hideOnMobile": {
+      "type": "boolean",
+      "optional": true,
+      "description": "Hide navigation on mobile devices (< 768px)"
+    }
+  },
+
+  "warnings": [
+    "sectionId MUST match actual HTML element IDs on page - navigation won't work if IDs don't exist",
+    "Only ONE tp-scroll-navigation block per page - multiple instances will conflict",
+    "Requires page sections to have unique IDs (e.g., <div id='about'>)",
+    "scrollDirection: 'vertical' works with scrollPosition: 'left'/'right' only",
+    "scrollDirection: 'horizontal' works with scrollPosition: 'top'/'bottom' only",
+    "FontAwesome icons require Font Awesome library loaded - icons won't show without it",
+    "style-2 (text labels) ignores icon attribute - don't waste time setting icons for style-2",
+    "progressBar requires sufficient page height (>2000px) to be meaningful",
+    "hideOnMobile: true removes navigation for mobile users - ensure alternative navigation exists",
+    "Maximum 10 navigation items recommended - more creates visual clutter"
+  ],
+
+  "commonMistakes": [
+    "Mismatched sectionId - using 'About' instead of 'about' (case-sensitive)",
+    "Including # in sectionId - use 'home' not '#home'",
+    "Missing HTML element IDs on page - navigation clicks do nothing",
+    "Setting icons in style-2 - style-2 only shows text labels, icons are ignored",
+    "Wrong tooltip position - tooltipPosition: 'right' for scrollPosition: 'right' (tooltips hidden off-screen)",
+    "Too many items - 12+ navigation items creates overwhelming visual clutter",
+    "scrollSpeed too slow (>2000ms) - users get impatient waiting for scroll animation",
+    "Not loading Font Awesome - icons don't show if library missing",
+    "Forgetting responsive scrollOffset - fixed position on mobile may overlap content",
+    "Using horizontal direction with left/right position - creates broken layout"
+  ],
+
+  "bestPractices": [
+    "Use 4-6 navigation items for optimal balance (not too few, not too many)",
+    "Match sectionId exactly to HTML element IDs (case-sensitive)",
+    "Choose tooltip position opposite of scroll position (right nav = left tooltips)",
+    "Test on actual devices - fixed positioning can conflict with mobile UI",
+    "Provide descriptive tooltips that add value beyond the label",
+    "Use style-1 (dots) for minimal designs, style-2 (text) for corporate/formal sites",
+    "Set scrollSpeed: 800-1200ms for balanced feel (1000ms is sweet spot)",
+    "Use progressBar: true only for long content (>3000 words / >5 sections)",
+    "Ensure section IDs are semantic (use 'our-services' not 'section-2')",
+    "Add hideOnMobile: true if navigation conflicts with mobile hamburger menu",
+    "Test active state detection - adjust activeOffset if sections activate too early/late",
+    "Use consistent icon style (all solid, or all outline) for visual harmony",
+    "Combine with tp-smooth-scroll for enhanced scrolling experience",
+    "Ensure sufficient scrollOffset to avoid overlapping with fixed headers",
+    "Make navigation visually subtle - shouldn't dominate the design"
+  ],
+
+  "accessibilityNotes": [
+    "Keyboard navigation: Tab to focus navigation items, Enter/Space to activate",
+    "Screen readers announce each navigation item with tooltip text",
+    "Active state should have sufficient color contrast (WCAG AA: 4.5:1)",
+    "Tooltips should be brief and descriptive for screen reader users",
+    "Provide alternative skip-to-section links in header for keyboard-only users",
+    "Focus indicators must be visible on navigation dots/labels",
+    "ARIA labels automatically added to navigation items",
+    "progressBar has aria-valuenow for screen readers (announces scroll percentage)",
+    "Ensure navigation doesn't trap keyboard focus - users can Tab away",
+    "Test with keyboard only - all sections must be accessible without mouse",
+    "Consider users with motion sensitivity - smooth scroll animations may cause discomfort",
+    "Provide option to disable smooth scrolling via prefers-reduced-motion CSS"
+  ],
+
+  "performanceConsiderations": [
+    "Scroll navigation uses Intersection Observer API - minimal performance impact",
+    "Active section detection uses IntersectionObserver, not scroll event (efficient)",
+    "Smooth scroll animation uses requestAnimationFrame for 60fps",
+    "progressBar updates on scroll throttled to 100ms - prevents excessive repaints",
+    "Navigation renders once - no re-renders during scroll (optimized React)",
+    "Icon fonts (Font Awesome) ~80KB - consider SVG icons for smaller footprint",
+    "Works smoothly with 10+ sections without performance degradation",
+    "Mobile devices may ignore smooth scroll for native momentum scrolling"
+  ],
+
+  "sectionIdGuide": {
+    "correct_format": {
+      "html": "<div id='about-us'>Content</div>",
+      "sectionId": "about-us",
+      "notes": "No # symbol, exact case match"
+    },
+    "common_naming": {
+      "home": "home, hero, top",
+      "about": "about, about-us, who-we-are",
+      "services": "services, what-we-do, offerings",
+      "portfolio": "portfolio, work, projects, case-studies",
+      "testimonials": "testimonials, reviews, social-proof",
+      "contact": "contact, get-in-touch, reach-us"
+    },
+    "naming_tips": [
+      "Use lowercase with hyphens (not underscores or spaces)",
+      "Be descriptive but concise (about-us, not section-about-our-company-history)",
+      "Avoid numbers alone (use 'chapter-1' not '1')",
+      "Match semantic meaning (our-team, not random-id-xyz)"
+    ]
+  },
+
+  "styleGuide": {
+    "style-1": {
+      "description": "Dot indicators with icons",
+      "visual": "Small circular dots, icons inside, active state highlighted",
+      "bestFor": "Portfolios, modern designs, creative sites, minimal aesthetics",
+      "requires": "Font Awesome library for icons",
+      "tooltip": "Essential - dots alone don't convey section names"
+    },
+    "style-2": {
+      "description": "Text labels visible",
+      "visual": "Text labels always visible, active state highlighted",
+      "bestFor": "Corporate sites, formal designs, longer section names, accessibility-focused",
+      "requires": "Nothing - text only",
+      "tooltip": "Optional - label already visible, tooltip adds extra context"
+    }
+  },
+
+  "useCaseSpecificTips": {
+    "portfolios": {
+      "tip": "Use style-1 dots on right with icons, 4-5 sections max",
+      "recommended": {
+        "scrollNavStyle": "style-1",
+        "scrollPosition": "right",
+        "showTooltip": true,
+        "scrollSpeed": "1000"
+      }
+    },
+    "corporate_sites": {
+      "tip": "Use style-2 text on left with detailed tooltips, 5-6 sections",
+      "recommended": {
+        "scrollNavStyle": "style-2",
+        "scrollPosition": "left",
+        "showTooltip": true,
+        "scrollSpeed": "1200"
+      }
+    },
+    "presentations": {
+      "tip": "Use horizontal navigation at top for slide-style sections",
+      "recommended": {
+        "scrollDirection": "horizontal",
+        "scrollPosition": "top",
+        "scrollSpeed": "800",
+        "activeOffset": "50"
+      }
+    },
+    "long_form_content": {
+      "tip": "Add progress bar and fast scrolling for articles/docs",
+      "recommended": {
+        "progressBar": true,
+        "scrollSpeed": "700",
+        "scrollNavStyle": "style-2"
+      }
+    },
+    "mobile_first": {
+      "tip": "Hide on mobile if conflicts with hamburger menu",
+      "recommended": {
+        "hideOnMobile": true,
+        "scrollOffset": {"md": "50", "sm": "30"}
+      }
+    }
+  },
+
+  "integrationExamples": {
+    "section_id_setup": {
+      "description": "HTML setup for scroll navigation sections",
+      "code": "<!-- Each section needs unique ID matching sectionId in scrollNavRepeater -->\n<div id='hero' class='section'>\n    <h1>Welcome</h1>\n</div>\n\n<div id='about' class='section'>\n    <h2>About Us</h2>\n</div>\n\n<div id='services' class='section'>\n    <h2>Our Services</h2>\n</div>\n\n<!-- CSS to ensure sections are tall enough -->\n<style>\n.section {\n    min-height: 100vh; /* Full viewport height */\n    padding: 80px 20px;\n}\n</style>"
+    },
+    "progress_bar_customization": {
+      "description": "CSS to customize progress bar appearance",
+      "code": "/* Progress bar container */\n.tp-scroll-navigation-progress {\n    height: 4px;\n    background: rgba(0, 0, 0, 0.1);\n    position: fixed;\n    width: 100%;\n    z-index: 999;\n}\n\n/* Progress bar fill (active) */\n.tp-scroll-navigation-progress-fill {\n    height: 100%;\n    background: linear-gradient(90deg, #667eea, #764ba2); /* Custom gradient */\n    transition: width 0.2s ease-out;\n}\n\n/* Alternative: Bottom progress bar */\n.tp-scroll-navigation-progress.bottom {\n    top: auto;\n    bottom: 0;\n}"
+    },
+    "active_state_styling": {
+      "description": "CSS to customize active navigation item appearance",
+      "code": "/* Active dot styling (style-1) */\n.tp-scroll-navigation-item.active .tp-scroll-navigation-dot {\n    background: #667eea; /* Active color */\n    transform: scale(1.3); /* Slightly larger */\n    box-shadow: 0 0 15px rgba(102, 126, 234, 0.5); /* Glow effect */\n}\n\n/* Active text label styling (style-2) */\n.tp-scroll-navigation-item.active .tp-scroll-navigation-label {\n    color: #667eea;\n    font-weight: 700;\n    font-size: 1.1em;\n}\n\n/* Active icon color */\n.tp-scroll-navigation-item.active .tp-scroll-navigation-icon {\n    color: #ffffff;\n}"
+    },
+    "smooth_scroll_integration": {
+      "description": "Combine with tp-smooth-scroll for enhanced experience",
+      "code": "// tp-smooth-scroll block settings\n{\n    'block_id': 'smooth001',\n    'aniTime': '1000', // Match scrollSpeed from tp-scroll-navigation\n    'easing': 'ease-in-out-cubic',\n    'smNav': true // Enable smooth scroll for navigation links\n}\n\n// tp-scroll-navigation block settings\n{\n    'block_id': 'nav001',\n    'scrollSpeed': '1000', // Match aniTime from tp-smooth-scroll\n    'scrollNavStyle': 'style-1',\n    'scrollPosition': 'right'\n}\n\n// Note: Both blocks use same 1000ms duration for consistent feel"
+    }
+  }
 }
