@@ -1,46 +1,418 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-form-message-field",
-  "title": "Message - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Message - Comprehensive Examples",
+  "description": "Multi-line text area (textarea) for forms. Must be child of tpgb/tp-form-block. Supports variable height (lineNum), required validation, help text, autocomplete control, custom sizing.",
   "examples": [
     {
-      "description": "Simple message field",
+      "name": "Contact Form Message (Standard 4 Lines)",
+      "description": "Standard message field for contact forms with 4 visible rows",
+      "visualDescription": "Textarea with 4 visible lines, required asterisk, full width, placeholder text",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "mf001",
         "labelss": "Your Message",
-        "placeholder": "Enter your message here...",
+        "placeholder": "Tell us how we can help you...",
         "lineNum": "4",
-        "reqTgl": true
-      }
+        "reqTgl": true,
+        "error": "Please enter your message.",
+        "uniqueid": "message",
+        "autoComplete": "off"
+      },
+      "useCase": "Contact forms, inquiry forms, general questions, customer service requests",
+      "bestPractices": [
+        "Use 4-6 lines for standard contact messages (balance between visible space and form length)",
+        "Clear placeholder that prompts action ('Tell us how we can help')",
+        "Make required (reqTgl: true) for contact forms (message is essential)",
+        "Set uniqueid to 'message' or 'inquiry' for easy backend processing",
+        "Turn off autocomplete (autoComplete: 'off') for privacy",
+        "Keep 100% width for better readability and typing experience"
+      ]
     },
     {
-      "description": "Feedback form with help text",
+      "name": "Feedback Form with Help Text (6 Lines, Detailed)",
+      "description": "Larger textarea for detailed feedback with instructional help text",
+      "visualDescription": "6-line textarea with help text above field explaining what to include",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
-        "labelss": "Feedback",
-        "placeholder": "Tell us what you think",
+        "block_id": "mf002",
+        "labelss": "Your Feedback",
+        "placeholder": "Please share your thoughts in detail...",
         "lineNum": "6",
+        "reqTgl": true,
         "hlpTxt": true,
-        "desctxt": "Please provide detailed feedback to help us improve",
+        "desctxt": "We value your feedback! Please tell us what you liked, what could be improved, and any suggestions you have.",
         "descPoss": "top",
-        "reqTgl": true
-      }
+        "error": "We'd love to hear your feedback. Please share your thoughts.",
+        "uniqueid": "feedback",
+        "autoComplete": "off"
+      },
+      "useCase": "Product feedback, service reviews, user experience surveys, beta testing feedback",
+      "bestPractices": [
+        "Use 6-8 lines for detailed responses (encourages thorough feedback)",
+        "Help text at top (descPoss: 'top') guides user before typing",
+        "Explain what kind of feedback you want (liked, improvements, suggestions)",
+        "Friendly error message ('We'd love to hear...' vs 'This field is required')",
+        "Optional: Add character counter on frontend for longer responses",
+        "Consider making optional (reqTgl: false) to reduce barrier to submission"
+      ]
     },
     {
-      "description": "Large comment area",
+      "name": "Support Ticket Description (8 Lines, Large)",
+      "description": "Large textarea for detailed bug reports or support requests",
+      "visualDescription": "8-line tall textarea for comprehensive issue descriptions, required field",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "e5f6",
-        "labelss": "Additional Comments",
-        "placeholder": "Any additional information...",
+        "block_id": "mf003",
+        "labelss": "Describe the Issue",
+        "placeholder": "Please provide as much detail as possible: What happened? What were you trying to do? What did you expect to happen?",
         "lineNum": "8",
-        "reqTgl": false
-      }
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "Include steps to reproduce, error messages, and any relevant screenshots or logs.",
+        "descPoss": "bottom",
+        "error": "Please describe the issue you're experiencing.",
+        "uniqueid": "issue_description",
+        "autoComplete": "off"
+      },
+      "useCase": "Bug reports, technical support, troubleshooting requests, help desk tickets",
+      "bestPractices": [
+        "Use 8+ lines for technical descriptions (need space for details)",
+        "Detailed placeholder with guiding questions (What? Trying to do? Expected?)",
+        "Help text below provides additional context (steps, errors, screenshots)",
+        "Clear label ('Describe the Issue' vs vague 'Message')",
+        "Essential field for support tickets (reqTgl: true)",
+        "Consider adding file upload field after this for screenshots"
+      ],
+      "warnings": [
+        "Long placeholder text may not be fully visible on mobile (keep concise or use help text)",
+        "Users may not provide enough detail - backend should prompt for clarification if needed",
+        "Don't rely solely on free-form text - consider structured fields for common issues"
+      ]
+    },
+    {
+      "name": "Optional Comments (3 Lines, Compact)",
+      "description": "Compact optional textarea for additional comments or notes",
+      "visualDescription": "Small 3-line textarea, optional field, minimal design",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "mf004",
+        "labelss": "Additional Comments (Optional)",
+        "placeholder": "Any other information you'd like to share?",
+        "lineNum": "3",
+        "reqTgl": false,
+        "uniqueid": "additional_comments",
+        "autoComplete": "off"
+      },
+      "useCase": "Optional fields in applications, supplementary info, preferences, special requests",
+      "bestPractices": [
+        "Use 2-3 lines for optional/supplementary fields (keeps form compact)",
+        "Indicate optional in label to reduce user anxiety",
+        "Question-based placeholder ('Any other information you'd like to share?')",
+        "Not required (reqTgl: false) - truly optional",
+        "Place at end of form (after all required fields)",
+        "Useful for capturing unexpected info or edge cases"
+      ]
+    },
+    {
+      "name": "Product Review (5 Lines, Medium)",
+      "description": "Medium-sized textarea for product reviews or testimonials",
+      "visualDescription": "5-line textarea for detailed product feedback, required for review submission",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "mf005",
+        "labelss": "Your Review",
+        "placeholder": "Share your experience with this product. What did you like? How has it helped you?",
+        "lineNum": "5",
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "Your honest review helps other customers make informed decisions. Minimum 50 characters.",
+        "descPoss": "top",
+        "error": "Please write your review (minimum 50 characters).",
+        "uniqueid": "product_review",
+        "autoComplete": "off",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Product reviews, testimonials, customer stories, case studies, service ratings",
+      "bestPractices": [
+        "Use 5-6 lines for reviews (balance between detail and not overwhelming)",
+        "Mention minimum character requirement in help text (e.g., 50 chars)",
+        "Validate minimum length on backend (prevent 'Good' as entire review)",
+        "Guiding questions in placeholder (What did you like? How helped?)",
+        "Required for review submission (reqTgl: true)",
+        "Pair with star rating field for complete review system"
+      ],
+      "validationPatterns": [
+        "Minimum length: 50 characters (prevent single-word reviews)",
+        "Maximum length: 1000 characters (keep reviews focused)",
+        "Profanity filter on backend",
+        "Spam detection (duplicate reviews, promotional content)"
+      ]
+    },
+    {
+      "name": "Cover Letter/Bio (10 Lines, Extra Large)",
+      "description": "Very large textarea for long-form content like cover letters or biographies",
+      "visualDescription": "10-line tall textarea for extensive writing, full width, required field",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "mf006",
+        "labelss": "Cover Letter",
+        "placeholder": "Tell us why you're interested in this position and what makes you a great fit...",
+        "lineNum": "10",
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "Write a brief cover letter (200-500 words) highlighting your relevant experience and why you want to join our team.",
+        "descPoss": "top",
+        "error": "Please provide a cover letter.",
+        "uniqueid": "cover_letter",
+        "autoComplete": "off"
+      },
+      "useCase": "Job applications, scholarship essays, bio/about sections, grant proposals, artist statements",
+      "bestPractices": [
+        "Use 10-15 lines for long-form content (gives adequate visual space)",
+        "Specify word/character count in help text (200-500 words)",
+        "Validate length on backend (too short = incomplete, too long = didn't follow instructions)",
+        "Clear expectations in placeholder and help text",
+        "Save drafts on client side (localStorage) to prevent loss on accidental refresh",
+        "Consider rich text editor for formatted content (bold, lists, etc.)"
+      ],
+      "warnings": [
+        "Very tall textareas can make forms feel overwhelming (place strategically)",
+        "Users may paste from Word (handle special characters, formatting)",
+        "Long content = larger form payload (check server limits)",
+        "Mobile users may find 10+ lines difficult to edit (consider adjusting lineNum for mobile)"
+      ]
+    },
+    {
+      "name": "Survey Open-Ended Response (6 Lines with Bottom Help Text)",
+      "description": "Textarea for open-ended survey questions with help text positioned below",
+      "visualDescription": "6-line textarea with help text below field, optional to reduce survey abandonment",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "mf007",
+        "labelss": "What could we do better?",
+        "placeholder": "Your suggestions are valuable to us...",
+        "lineNum": "6",
+        "reqTgl": false,
+        "hlpTxt": true,
+        "desctxt": "This is optional, but we'd really appreciate your honest feedback on how we can improve.",
+        "descPoss": "bottom",
+        "uniqueid": "improvement_suggestions",
+        "autoComplete": "off"
+      },
+      "useCase": "Surveys, questionnaires, feedback forms, NPS follow-up, exit surveys",
+      "bestPractices": [
+        "Make optional (reqTgl: false) for surveys to reduce abandonment",
+        "Question as label ('What could we do better?' vs 'Comments')",
+        "Help text below field (descPoss: 'bottom') as supplementary info",
+        "Emphasize value of their input ('really appreciate your honest feedback')",
+        "Use friendly, conversational tone in placeholder",
+        "Pair with rating/multiple choice questions for structured + open-ended data"
+      ]
+    },
+    {
+      "name": "Message with Custom Width (50% for Multi-Column)",
+      "description": "Half-width message field for multi-column form layouts",
+      "visualDescription": "4-line textarea at 50% width on desktop, 100% on mobile, for side-by-side layouts",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "mf008",
+        "labelss": "Special Requests",
+        "placeholder": "Any special requirements or preferences?",
+        "lineNum": "4",
+        "reqTgl": false,
+        "inpSz": {
+          "md": "50",
+          "sm": "100",
+          "unit": "%"
+        },
+        "uniqueid": "special_requests",
+        "autoComplete": "off"
+      },
+      "useCase": "Order forms with notes section, reservation special requests, multi-column application forms",
+      "bestPractices": [
+        "Use custom width (50%) for multi-column layouts (pair with another field)",
+        "Responsive: 50% desktop (md), 100% mobile (sm) for readability",
+        "Always unit: '%' for responsive layouts",
+        "Shorter lineNum (3-4) works better in constrained width",
+        "Use for supplementary info (special requests, dietary restrictions, etc.)",
+        "Test readability at 50% width - may need adjustment for long words"
+      ],
+      "layoutTips": [
+        "Place two 50% width fields side-by-side (e.g., Special Requests + Delivery Instructions)",
+        "On mobile, fields stack vertically automatically",
+        "Add gap between columns (10-20px margin)",
+        "Don't use for primary message field (use full width instead)"
+      ]
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
+  "commonPatterns": [
+    {
+      "pattern": "Standard Contact Message",
+      "fields": ["labelss: 'Your Message'", "lineNum: 4", "reqTgl: true"],
+      "description": "4-line required message field for contact forms"
+    },
+    {
+      "pattern": "Detailed Feedback",
+      "fields": ["labelss: 'Feedback'", "lineNum: 6-8", "hlpTxt: true", "reqTgl: true"],
+      "description": "6-8 line textarea with guidance for detailed responses"
+    },
+    {
+      "pattern": "Optional Comments",
+      "fields": ["labelss: 'Additional Comments (Optional)'", "lineNum: 2-3", "reqTgl: false"],
+      "description": "Compact 2-3 line optional field for supplementary info"
+    },
+    {
+      "pattern": "Long-Form Content",
+      "fields": ["lineNum: 10-15", "reqTgl: true", "help text with word count"],
+      "description": "Large textarea for cover letters, essays, bios"
+    }
+  ],
+  "validationRules": {
+    "block_id": "Required - Unique identifier",
+    "labelss": "Required - Field label displayed to user",
+    "reqTgl": "Optional - Boolean, true = required, false = optional",
+    "placeholder": "Optional - Placeholder text, can be empty string",
+    "lineNum": "Optional - String representing number of visible rows (e.g., '2', '4', '10'), default '2'",
+    "error": "Optional - Custom error message for required validation",
+    "hlpTxt": "Optional - Boolean, true = show help text, false = hide",
+    "desctxt": "Conditional - Required if hlpTxt is true, help text content",
+    "descPoss": "Optional - 'top' or 'bottom', position of help text, default 'top'",
+    "autoComplete": "Optional - String, 'off' or 'on', default 'off'",
+    "inpSz": "Optional - Responsive width {md, sm, xs, unit}, default 100%",
+    "uniqueid": "Optional - Unique field identifier for backend processing",
+    "ancestor": "MUST be child of tpgb/tp-form-block"
+  },
+  "warnings": [
+    "Textarea allows unlimited text (users can paste novels) - validate max length on backend",
+    "lineNum controls visible height, not maximum characters (users can type/paste beyond visible area)",
+    "No client-side character limit - implement on backend (e.g., 5000 chars max)",
+    "Placeholder text may not wrap on all browsers (keep concise or use help text)",
+    "Very tall textareas (lineNum > 10) can make forms feel overwhelming",
+    "Users may paste formatted text from Word/Google Docs (strip formatting on backend)",
+    "Mobile keyboards can cover textarea on small screens (test thoroughly)",
+    "autocomplete='off' may not be respected by all browsers (especially password managers)",
+    "Textareas don't resize automatically - fixed height based on lineNum",
+    "Empty textareas still take vertical space (lineNum rows) - consider visual design impact"
+  ],
+  "commonMistakes": [
+    "Using single-line text field instead of textarea for messages (use textarea for multi-line)",
+    "Setting lineNum too small (1-2 lines) for required messages (use 4+ for important content)",
+    "Setting lineNum too large (15+ lines) for optional fields (overwhelming users)",
+    "Not validating maximum length on backend (users can submit megabytes of text)",
+    "Generic labels ('Message', 'Comments') instead of specific ('Your Feedback', 'Describe the Issue')",
+    "No guidance in placeholder or help text (users don't know what to write)",
+    "Making every textarea required (reduces form completion rate)",
+    "Using pixel width (inpSz: {md: '500', unit: 'px'}) - breaks responsive design",
+    "Not making mobile full-width (sm: 100) when using custom desktop width",
+    "Forgetting uniqueid for backend processing (field data gets lost)"
+  ],
+  "bestPractices": [
+    "Use 4-6 lines for standard messages (good balance)",
+    "Use 6-8 lines for detailed responses (feedback, bug reports)",
+    "Use 2-3 lines for optional/supplementary fields (compact)",
+    "Use 10+ lines for long-form content (cover letters, essays) sparingly",
+    "Provide clear labels: 'Describe the Issue' not 'Message'",
+    "Use help text to guide users (what to include, word count, examples)",
+    "Set uniqueid for easy backend processing (use snake_case)",
+    "Validate max length on backend (prevent abuse, database limits)",
+    "Turn off autocomplete (autoComplete: 'off') for privacy-sensitive content",
+    "Make required (reqTgl: true) for essential fields only",
+    "Use percentage width (unit: '%') for responsive design",
+    "Always set sm: 100 for mobile when using custom desktop width",
+    "Use friendly, specific error messages ('Please describe the issue' vs 'Required')",
+    "Consider minimum character count for quality responses (50+ chars)",
+    "Test on mobile - virtual keyboard takes screen space"
+  ],
+  "accessibilityNotes": [
+    "Textarea must have clear label (labelss attribute)",
+    "Screen readers announce label and input type (textarea)",
+    "Placeholder text is accessible hint (not label replacement)",
+    "Error messages announced by screen readers when validation fails",
+    "Keyboard navigation: Tab to field, Type/Arrow keys to edit, Shift+Tab to exit",
+    "Help text (desctxt) is associated with textarea for screen readers",
+    "Required fields should have visual indicator (asterisk) and aria-required",
+    "Error state should have aria-invalid when validation fails",
+    "Provide clear character count if enforcing limits (accessible to screen readers)",
+    "lineNum affects visual height but doesn't limit accessibility"
+  ],
+  "performanceConsiderations": [
+    "Textarea is native HTML element (no external library = fast)",
+    "No performance impact on page load",
+    "Large textareas (10+ lines) take more visual space but same performance",
+    "Validation happens on form submit (minimal performance cost)",
+    "Very long user input (>10KB) can slow form submission slightly",
+    "Backend should limit max length to prevent DoS (e.g., 5000-10000 chars)",
+    "Total field weight: ~150 bytes (very lightweight)"
+  },
+  "characterLimitRecommendations": {
+    "Contact Messages": "500-1000 characters (short to medium)",
+    "Feedback": "1000-2000 characters (medium)",
+    "Support Tickets": "2000-5000 characters (detailed)",
+    "Product Reviews": "500-1000 characters (focused)",
+    "Cover Letters": "2000-4000 characters (300-600 words)",
+    "Survey Responses": "500-1000 characters (concise)",
+    "Comments": "250-500 characters (brief)",
+    "Note": "Enforce max length on backend, display counter on frontend for user guidance"
+  },
+  "lineNumGuidelines": {
+    "2-3 lines": "Brief optional fields (comments, notes)",
+    "4-6 lines": "Standard required fields (messages, inquiries)",
+    "6-8 lines": "Detailed responses (feedback, bug reports)",
+    "10-15 lines": "Long-form content (cover letters, essays, bios)",
+    "15+ lines": "Rarely needed - consider rich text editor instead"
+  },
+  "useCaseSpecificTips": {
+    "Contact Forms": {
+      "tips": [
+        "Use 4-6 lines for message field",
+        "Make required (essential for contact purpose)",
+        "Clear placeholder: 'How can we help you?'",
+        "Pair with name, email, subject fields",
+        "Send auto-reply with message confirmation"
+      ]
+    },
+    "Feedback Forms": {
+      "tips": [
+        "Use 6-8 lines for detailed feedback",
+        "Help text explaining what feedback you want",
+        "Consider making optional to reduce barrier",
+        "Ask specific questions (liked? improve? suggest?)",
+        "Follow up with users who provide detailed feedback"
+      ]
+    },
+    "Support Tickets": {
+      "tips": [
+        "Use 8+ lines for issue descriptions",
+        "Guiding questions in placeholder (What? Expected?)",
+        "Help text: include steps, errors, screenshots",
+        "Required field (can't help without details)",
+        "Pair with file upload for screenshots/logs",
+        "Validate minimum length (prevent 'broken' as entire ticket)"
+      ]
+    },
+    "Product Reviews": {
+      "tips": [
+        "Use 5-6 lines for reviews",
+        "Minimum character requirement (50-100 chars)",
+        "Guiding questions: What liked? How helped?",
+        "Pair with star rating for complete review",
+        "Moderate for spam/profanity on backend",
+        "Display character count to encourage detail"
+      ]
+    },
+    "Job Applications": {
+      "tips": [
+        "Use 10-15 lines for cover letters",
+        "Specify word count range (200-500 words)",
+        "Save drafts to localStorage (prevent loss)",
+        "Validate length (too short = incomplete)",
+        "Consider rich text editor for formatting",
+        "Allow file upload as alternative (attach cover letter PDF)"
+      ]
     }
   }
 }

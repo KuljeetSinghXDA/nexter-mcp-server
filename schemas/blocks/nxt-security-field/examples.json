@@ -1,38 +1,466 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-security-field",
-  "title": "Security Code - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Security Code - Comprehensive Examples",
+  "description": "Security/CAPTCHA field for spam prevention. Must be child of tpgb/tp-form-block. Supports Google reCAPTCHA (v2/v3/invisible), hCaptcha, and Cloudflare Turnstile.",
   "examples": [
     {
-      "description": "Google reCAPTCHA v2",
+      "name": "Google reCAPTCHA v2 Checkbox (Most Common)",
+      "description": "Standard 'I'm not a robot' checkbox requiring user interaction",
+      "visualDescription": "Checkbox with reCAPTCHA logo, 'I'm not a robot' text, image challenge on failure",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "sc001",
         "securityOptions": "recaptcha",
         "captchaOptions": "v2",
         "cloudSiteKey": "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
         "cloudSecretKey": "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
-      }
+      },
+      "useCase": "Contact forms, newsletter signup, comment sections - balance between security and user experience",
+      "bestPractices": [
+        "Use test keys during development (keys above are Google's test keys)",
+        "Replace with production keys before going live",
+        "Get keys from: https://www.google.com/recaptcha/admin",
+        "Store secret key securely (environment variable, not in version control)",
+        "Test with real submissions to verify configuration",
+        "Position after form fields, before submit button",
+        "Add visual spacing (margin-top: 20px) for clarity"
+      ],
+      "setupInstructions": [
+        "1. Visit https://www.google.com/recaptcha/admin",
+        "2. Click 'Add' to register a new site",
+        "3. Select 'reCAPTCHA v2' → 'I'm not a robot' checkbox",
+        "4. Enter your domain(s) (e.g., example.com)",
+        "5. Accept terms and submit",
+        "6. Copy Site Key → paste in cloudSiteKey",
+        "7. Copy Secret Key → paste in cloudSecretKey (keep private!)"
+      ]
     },
     {
-      "description": "hCaptcha integration",
+      "name": "Google reCAPTCHA v3 (Invisible, Score-Based)",
+      "description": "Invisible reCAPTCHA that scores user behavior without interaction",
+      "visualDescription": "Small reCAPTCHA badge in bottom-right corner, no user interaction required",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "sc002",
+        "securityOptions": "recaptcha",
+        "captchaOptions": "v3",
+        "cloudSiteKey": "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+        "cloudSecretKey": "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+      },
+      "useCase": "High-traffic forms, login pages, checkout - better UX, scores 0.0-1.0 (1.0 = human, 0.0 = bot)",
+      "bestPractices": [
+        "Set score threshold on backend (recommended: 0.5 or higher = human)",
+        "Don't block low scores automatically - use multi-factor decision",
+        "Log scores for analysis and threshold tuning",
+        "Provide fallback for low scores (email verification, manual review)",
+        "Test with different user behaviors (slow typing, mouse movement)",
+        "Monitor false positives (real users blocked)",
+        "Display reCAPTCHA badge (required by Google TOS)"
+      ],
+      "warnings": [
+        "v3 has no visual challenge - bots may submit if score logic fails",
+        "Requires backend implementation to check score",
+        "Score is not 100% accurate - use as one factor, not sole decider",
+        "Legitimate users can score low (VPN, Tor, fast typing, etc.)",
+        "Must display reCAPTCHA badge - cannot hide completely"
+      ],
+      "setupInstructions": [
+        "1. Visit https://www.google.com/recaptcha/admin",
+        "2. Click 'Add' to register a new site",
+        "3. Select 'reCAPTCHA v3'",
+        "4. Enter your domain(s)",
+        "5. Copy Site Key and Secret Key",
+        "6. Implement backend score verification (WordPress: verify with Google API)",
+        "7. Set score threshold (0.5 recommended)"
+      ]
+    },
+    {
+      "name": "Google reCAPTCHA Invisible (User-Triggered)",
+      "description": "Invisible reCAPTCHA that shows challenge only if suspicious activity detected",
+      "visualDescription": "No visible element unless triggered, then shows image challenge modal",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "sc003",
+        "securityOptions": "recaptcha",
+        "captchaOptions": "invisible",
+        "cloudSiteKey": "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+        "cloudSecretKey": "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+      },
+      "useCase": "Forms where UX is critical, checkout flows, mobile-first designs - minimal friction for legitimate users",
+      "bestPractices": [
+        "Triggers automatically on form submit - no user action needed",
+        "Shows challenge only if suspicious (VPN, fast submission, bot-like behavior)",
+        "Best of both worlds: invisible for humans, challenge for bots",
+        "Ideal for mobile (no checkbox to tap)",
+        "Test with different IPs and browsers to verify trigger logic",
+        "Provide clear loading state during verification",
+        "Handle timeout errors gracefully (slow connections)"
+      ],
+      "warnings": [
+        "May show challenge to legitimate users on VPN",
+        "Adds slight delay to form submission (API call to Google)",
+        "Requires JavaScript - won't work if JS disabled",
+        "Cannot be tested with test keys (use production keys in staging)"
+      ]
+    },
+    {
+      "name": "hCaptcha (Privacy-Focused Alternative)",
+      "description": "Privacy-focused CAPTCHA alternative to Google reCAPTCHA, GDPR compliant",
+      "visualDescription": "Similar checkbox UI to reCAPTCHA v2, but with hCaptcha branding",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "sc004",
         "securityOptions": "hcaptcha",
         "cloudSiteKey": "10000000-ffff-ffff-ffff-000000000001",
         "cloudSecretKey": "0x0000000000000000000000000000000000000000"
-      }
+      },
+      "useCase": "GDPR-strict sites, privacy-conscious users, sites blocked from reCAPTCHA, monetization (hCaptcha pays sites)",
+      "bestPractices": [
+        "Get keys from: https://www.hcaptcha.com/",
+        "hCaptcha doesn't send data to Google (better privacy)",
+        "GDPR/CCPA compliant out of the box",
+        "Optionally earn rewards for CAPTCHA solves",
+        "Lower false positive rate than reCAPTCHA in some tests",
+        "Offers accessibility options (audio challenge, high contrast)",
+        "Free for most sites (unlimited)"
+      ],
+      "setupInstructions": [
+        "1. Visit https://www.hcaptcha.com/ and sign up",
+        "2. Click 'New Site' in dashboard",
+        "3. Enter site domain(s)",
+        "4. Choose difficulty (easy, moderate, difficult)",
+        "5. Copy Sitekey → cloudSiteKey",
+        "6. Copy Secret → cloudSecretKey",
+        "7. Test with test keys first: sitekey=10000000-ffff-ffff-ffff-000000000001, secret=0x0000000000000000000000000000000000000000"
+      ],
+      "advantages": [
+        "Privacy-focused (no Google tracking)",
+        "GDPR/CCPA compliant",
+        "Monetization option (earn for solves)",
+        "Lower infrastructure dependency (not tied to Google)",
+        "Good accessibility support",
+        "Enterprise features available"
+      ]
     },
     {
-      "description": "Cloudflare Turnstile",
+      "name": "Cloudflare Turnstile Managed (Modern CAPTCHA)",
+      "description": "Cloudflare's modern CAPTCHA replacement with better UX and privacy",
+      "visualDescription": "Small interactive widget, minimal friction, adapts difficulty based on visitor behavior",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "sc005",
         "securityOptions": "turnstile",
         "captchaOptions": "managed",
         "cloudSiteKey": "1x00000000000000000000AA",
         "cloudSecretKey": "1x0000000000000000000000000000000AA"
+      },
+      "useCase": "Modern sites, Cloudflare users, forms wanting minimal user friction with strong bot protection",
+      "bestPractices": [
+        "Get keys from: https://dash.cloudflare.com/ → Turnstile",
+        "Managed mode: Automatically chooses non-interactive or interactive based on risk",
+        "Free forever (no limits, no cost)",
+        "Fast (< 1 second for most users)",
+        "Privacy-preserving (no cookies, no tracking)",
+        "Works without Cloudflare site protection (standalone)",
+        "Ideal for Cloudflare customers (integrated analytics)"
+      ],
+      "setupInstructions": [
+        "1. Log in to Cloudflare dashboard",
+        "2. Navigate to Turnstile section",
+        "3. Click 'Add site'",
+        "4. Select 'Managed' widget mode",
+        "5. Enter domain(s)",
+        "6. Copy Site Key and Secret Key",
+        "7. Test with visible test keys: sitekey=1x00000000000000000000AA (always passes)"
+      ],
+      "advantages": [
+        "Free forever with no limits",
+        "Better UX than traditional CAPTCHA (adaptive difficulty)",
+        "Privacy-preserving (no personal data collection)",
+        "Fast verification (< 1 second typical)",
+        "No cookies required",
+        "Modern UI that matches site design"
+      ]
+    },
+    {
+      "name": "Cloudflare Turnstile Non-Interactive (Invisible)",
+      "description": "Invisible Turnstile that verifies users without any interaction",
+      "visualDescription": "No visible element, completely invisible verification in background",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "sc006",
+        "securityOptions": "turnstile",
+        "captchaOptions": "non-interactive",
+        "cloudSiteKey": "2x00000000000000000000AB",
+        "cloudSecretKey": "2x0000000000000000000000000000000AB"
+      },
+      "useCase": "Premium UX, checkout flows, high-trust forms - zero visible friction for users",
+      "bestPractices": [
+        "Non-interactive mode: No widget shown, verification in background",
+        "Best UX possible (user sees nothing)",
+        "May fall back to interactive if suspicious",
+        "Use for low-risk forms (newsletter, contact)",
+        "Monitor challenge rate (high rate = too many bots)",
+        "Combine with backend validation for critical forms",
+        "Test thoroughly (invisible = harder to debug)"
+      ],
+      "warnings": [
+        "May require interactive challenge for suspicious visitors",
+        "Harder to debug (no visual feedback)",
+        "Users won't know why form is slow if verification takes time",
+        "Not suitable for high-risk forms (login, payment) alone",
+        "Requires backend verification implementation"
+      ],
+      "setupInstructions": [
+        "1. Cloudflare dashboard → Turnstile → Add site",
+        "2. Select 'Non-Interactive' widget mode",
+        "3. Copy keys",
+        "4. Test with: sitekey=2x00000000000000000000AB (always passes, invisible)"
+      ]
+    },
+    {
+      "name": "Cloudflare Turnstile Invisible (Hybrid)",
+      "description": "Invisible Turnstile that shows challenge only when needed",
+      "visualDescription": "Invisible by default, shows minimal challenge if risk detected",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "sc007",
+        "securityOptions": "turnstile",
+        "captchaOptions": "invisible",
+        "cloudSiteKey": "3x00000000000000000000AD",
+        "cloudSecretKey": "3x0000000000000000000000000000000AD"
+      },
+      "useCase": "Balance between UX and security - invisible for trusted users, challenge for suspicious ones",
+      "bestPractices": [
+        "Invisible mode: Shows challenge only if needed (adaptive)",
+        "Best for forms with mixed traffic (human + bot)",
+        "Cloudflare intelligence decides when to challenge",
+        "Lower false positives than always-on CAPTCHA",
+        "Monitors visitor signals (IP reputation, browser fingerprint, behavior)",
+        "Ideal for forms with moderate bot risk",
+        "Provides analytics on challenge rate"
+      ],
+      "setupInstructions": [
+        "1. Cloudflare dashboard → Turnstile → Add site",
+        "2. Select 'Invisible' widget mode",
+        "3. Configure appearance settings (optional)",
+        "4. Copy Site Key and Secret Key",
+        "5. Test with: sitekey=3x00000000000000000000AD (forces challenge)"
+      ],
+      "testingKeys": {
+        "alwaysPass": "1x00000000000000000000AA",
+        "alwaysFail": "2x00000000000000000000AB",
+        "forceInteractive": "3x00000000000000000000AD"
       }
+    },
+    {
+      "name": "Multiple Security Layers (Recommended Production)",
+      "description": "Production-ready setup with CAPTCHA + honeypot + backend validation",
+      "visualDescription": "Visible reCAPTCHA v2 checkbox with invisible honeypot field and server-side checks",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "sc008",
+        "securityOptions": "recaptcha",
+        "captchaOptions": "v2",
+        "cloudSiteKey": "YOUR_PRODUCTION_SITE_KEY",
+        "cloudSecretKey": "YOUR_PRODUCTION_SECRET_KEY"
+      },
+      "relatedSecurityMeasures": [
+        {
+          "measure": "Honeypot Field",
+          "implementation": "Hidden field (CSS: display:none) that bots fill but humans don't",
+          "example": "<input type=\"text\" name=\"website\" style=\"display:none\" />"
+        },
+        {
+          "measure": "Rate Limiting",
+          "implementation": "Limit submissions per IP (e.g., 5 per hour)",
+          "tool": "WordPress plugin or server-level (Cloudflare, nginx)"
+        },
+        {
+          "measure": "Email Verification",
+          "implementation": "Send confirmation email before processing submission",
+          "benefit": "Confirms email is real and accessible"
+        },
+        {
+          "measure": "Backend Validation",
+          "implementation": "Verify CAPTCHA response on server, validate all fields, sanitize inputs",
+          "critical": "Never trust client-side validation alone"
+        }
+      ],
+      "useCase": "High-value forms (lead gen, registration, checkout) requiring maximum spam protection",
+      "bestPractices": [
+        "Use visible CAPTCHA (v2) for critical forms (better than invisible)",
+        "Add honeypot field for basic bot detection",
+        "Implement rate limiting (prevent brute force)",
+        "Verify CAPTCHA on backend (don't trust client)",
+        "Log failed attempts (detect attack patterns)",
+        "Monitor spam rate (adjust security if needed)",
+        "Use HTTPS (protect secret key in transit)",
+        "Rotate secret keys periodically (security best practice)",
+        "Test with real users (avoid false positives)"
+      ],
+      "securityChecklist": [
+        "✓ CAPTCHA enabled and verified on backend",
+        "✓ Honeypot field added (invisible to users)",
+        "✓ Rate limiting configured (per IP and/or per session)",
+        "✓ Email verification for new submissions",
+        "✓ Backend validation for all fields",
+        "✓ Input sanitization (prevent XSS, SQL injection)",
+        "✓ HTTPS enabled (protect data in transit)",
+        "✓ Secret key stored securely (environment variable)",
+        "✓ Error messages don't reveal security details",
+        "✓ Failed attempts logged for monitoring",
+        "✓ Regular security audits and key rotation"
+      ]
     }
   ],
-  "commonPatterns": {}
+  "commonPatterns": [
+    {
+      "pattern": "Basic Spam Prevention",
+      "security": "reCAPTCHA v2",
+      "description": "Standard checkbox CAPTCHA for contact forms"
+    },
+    {
+      "pattern": "Invisible Protection",
+      "security": "reCAPTCHA v3 or Turnstile Non-Interactive",
+      "description": "No user interaction, score-based bot detection"
+    },
+    {
+      "pattern": "Privacy-Focused",
+      "security": "hCaptcha or Cloudflare Turnstile",
+      "description": "GDPR compliant, no Google tracking"
+    },
+    {
+      "pattern": "Maximum Security",
+      "security": "reCAPTCHA v2 + honeypot + rate limiting + email verification",
+      "description": "Multi-layer protection for high-value forms"
+    }
+  ],
+  "securityProviderComparison": {
+    "reCAPTCHA": {
+      "pros": ["Most widely used", "Strong bot detection", "v3 has good invisible mode", "Free"],
+      "cons": ["Google tracking concerns", "Privacy issues in EU", "Requires Google account", "Accessibility complaints"],
+      "bestFor": "General use, high traffic sites already using Google services"
+    },
+    "hCaptcha": {
+      "pros": ["Privacy-focused", "GDPR compliant", "Monetization option", "No Google dependency", "Free"],
+      "cons": ["Less widespread", "Smaller dataset than reCAPTCHA", "New challenges may vary"],
+      "bestFor": "Privacy-conscious sites, EU sites, those wanting to earn from CAPTCHA"
+    },
+    "Turnstile": {
+      "pros": ["Modern UX", "Free forever", "Privacy-preserving", "Fast", "No cookies", "Cloudflare integration"],
+      "cons": ["Newer (less track record)", "Requires Cloudflare account"],
+      "bestFor": "Modern sites, Cloudflare users, those wanting best UX with strong protection"
+    }
+  },
+  "validationRules": {
+    "block_id": "Required - Unique identifier",
+    "securityOptions": "Required - Must be 'recaptcha', 'hcaptcha', or 'turnstile'",
+    "captchaOptions": "Conditional - Required for reCAPTCHA (v2/v3/invisible) and Turnstile (managed/non-interactive/invisible), not used for hCaptcha",
+    "cloudSiteKey": "Required - Public site key from CAPTCHA provider",
+    "cloudSecretKey": "Required - Private secret key (keep secure!)",
+    "ancestor": "MUST be child of tpgb/tp-form-block"
+  },
+  "warnings": [
+    "NEVER commit secret keys to version control (use .env files)",
+    "ALWAYS verify CAPTCHA on backend (client-side can be bypassed)",
+    "Use HTTPS in production (keys sent over network)",
+    "Test with production keys in staging environment first",
+    "Monitor false positive rate (legitimate users blocked)",
+    "CAPTCHAs can fail (accessibility, regional blocks, service outages)",
+    "Provide fallback contact method (email, phone) if CAPTCHA fails",
+    "reCAPTCHA tracks users across sites (privacy concern)",
+    "Invisible CAPTCHAs may not work for all users (VPN, Tor, privacy browsers)",
+    "Secret keys have API rate limits (check provider documentation)",
+    "CAPTCHA services can experience downtime (have contingency plan)",
+    "Some users cannot solve visual CAPTCHAs (provide audio alternative)"
+  ],
+  "commonMistakes": [
+    "Using test keys in production (forms will always pass/fail)",
+    "Not verifying CAPTCHA response on backend (security hole)",
+    "Storing secret key in JavaScript (visible to all users)",
+    "Blocking all users if CAPTCHA service is down (provide fallback)",
+    "Not testing with real users before launch (accessibility issues)",
+    "Using same keys across multiple domains (against TOS)",
+    "Not handling CAPTCHA errors gracefully (poor UX)",
+    "Assuming CAPTCHA is 100% effective (bots can solve some CAPTCHAs)",
+    "Not logging failed attempts (miss attack patterns)",
+    "Using expired or invalid keys (forms will break)"
+  ],
+  "bestPractices": [
+    "Store secret keys in environment variables (never hardcode)",
+    "Use test keys during development, production keys only in production",
+    "Verify CAPTCHA response on server before processing form",
+    "Implement rate limiting as additional layer (CAPTCHA is not enough)",
+    "Monitor CAPTCHA solve rates and failure patterns",
+    "Provide clear error messages when CAPTCHA fails",
+    "Test accessibility (keyboard navigation, screen readers)",
+    "Consider privacy implications (reCAPTCHA tracks users)",
+    "Have backup plan if CAPTCHA service is unavailable",
+    "Regularly review and update security measures",
+    "Log all security events for analysis",
+    "Use HTTPS to protect keys and responses in transit",
+    "Rotate secret keys periodically (every 6-12 months)",
+    "Document which CAPTCHA solution is used and why",
+    "Test with VPN, Tor, and privacy browsers (potential blocking)"
+  ],
+  "accessibilityNotes": [
+    "All CAPTCHAs must provide audio alternative (required by WCAG)",
+    "Keyboard navigation must work (no mouse-only interactions)",
+    "Screen readers should announce CAPTCHA presence and instructions",
+    "Visual challenges must have sufficient contrast",
+    "Timeout limits should be generous (some users need more time)",
+    "Provide clear instructions (don't assume user knows what CAPTCHA is)",
+    "Consider users with cognitive disabilities (complex challenges may exclude)",
+    "Test with assistive technologies before launch",
+    "Provide alternative contact method (phone, email) for those who can't solve CAPTCHA"
+  ],
+  "performanceConsiderations": [
+    "CAPTCHA scripts add 50-150KB to page weight",
+    "External API calls add 200-500ms latency to form submission",
+    "reCAPTCHA v3 loads on every page (affects page speed)",
+    "Lazy load CAPTCHA scripts until form is interacted with",
+    "Use async/defer for CAPTCHA script loading",
+    "Consider impact on Core Web Vitals (LCP, FID, CLS)",
+    "Mobile users may have slower CAPTCHA load times",
+    "CAPTCHA verification can timeout on slow connections (handle gracefully)"
+  ],
+  "setupGuides": {
+    "reCAPTCHA": "https://www.google.com/recaptcha/admin",
+    "hCaptcha": "https://www.hcaptcha.com/",
+    "Turnstile": "https://dash.cloudflare.com/ → Turnstile section"
+  },
+  "testKeys": {
+    "reCAPTCHA_v2": {
+      "siteKey": "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+      "secretKey": "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe",
+      "note": "Always passes validation"
+    },
+    "hCaptcha": {
+      "siteKey": "10000000-ffff-ffff-ffff-000000000001",
+      "secretKey": "0x0000000000000000000000000000000000000000",
+      "note": "Test keys that always pass"
+    },
+    "Turnstile_visible_pass": {
+      "siteKey": "1x00000000000000000000AA",
+      "secretKey": "1x0000000000000000000000000000000AA",
+      "note": "Visible widget, always passes"
+    },
+    "Turnstile_invisible_pass": {
+      "siteKey": "2x00000000000000000000AB",
+      "secretKey": "2x0000000000000000000000000000000AB",
+      "note": "Invisible widget, always passes"
+    },
+    "Turnstile_force_interactive": {
+      "siteKey": "3x00000000000000000000AD",
+      "secretKey": "3x0000000000000000000000000000000AD",
+      "note": "Forces interactive challenge"
+    }
+  },
+  "backendVerificationExample": {
+    "description": "Server-side CAPTCHA verification is CRITICAL for security",
+    "reCAPTCHA_PHP": "// Verify with Google API\n$response = wp_remote_post('https://www.google.com/recaptcha/api/siteverify', [\n  'body' => [\n    'secret' => $secret_key,\n    'response' => $_POST['g-recaptcha-response'],\n    'remoteip' => $_SERVER['REMOTE_ADDR']\n  ]\n]);\n$result = json_decode(wp_remote_retrieve_body($response));\nif (!$result->success || $result->score < 0.5) {\n  // Reject submission\n}",
+    "note": "Always verify on server, never trust client-side validation"
+  }
 }

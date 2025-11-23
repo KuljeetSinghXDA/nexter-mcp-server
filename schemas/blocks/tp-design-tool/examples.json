@@ -1,53 +1,417 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-design-tool",
-  "title": "Design Tool - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Design Tool - Comprehensive Usage Examples",
+  "description": "Complete example configurations for grid overlay systems to verify layout alignment with customizable columns, spacing, and colors",
+
   "examples": [
     {
-      "description": "Default grid system overlay",
+      "name": "Default Grid Overlay (Editor Only)",
+      "description": "Standard grid overlay using default settings for quick alignment checking",
+      "visualDescription": "Pre-configured grid visible in editor only, standard purple semi-transparent columns",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "dt001",
+        "designToolOpt": "grid_stystem",
         "gridSystemOpt": "gs_default",
+        "gridDirection": "ltr",
         "gridOnFront": false
-      }
+      },
+      "useCase": "Quick layout verification, editor-only alignment checking, development workflow"
     },
+
     {
-      "description": "Custom 12-column grid with purple overlay",
+      "name": "Bootstrap-Style 12-Column Grid",
+      "description": "Custom 12-column grid matching Bootstrap framework specs",
+      "visualDescription": "1140px max width, 12 columns, 30px gutters, purple semi-transparent overlay, editor-only",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "dt002",
+        "designToolOpt": "grid_stystem",
         "gridSystemOpt": "gs_custom",
-        "gridColumn": {
-          "md": "12"
-        },
-        "gridMaxWidth": {
-          "md": "1140",
-          "unit": "px"
-        },
+        "gridDirection": "ltr",
+        "gridMaxWidth": {"md": "1140", "sm": "960", "xs": "720", "unit": "px"},
+        "gridColumn": {"md": "12", "unit": ""},
         "gridBGcolor": "#8072fc40",
-        "alleySpace": {
-          "md": "30",
-          "unit": "px"
-        },
-        "gridOffset": {
-          "md": "30",
-          "unit": "px"
-        },
+        "alleySpace": {"md": "30", "sm": "20", "xs": "15", "unit": "px"},
+        "alleyBGcolor": "#00000000",
+        "gridOffset": {"md": "30", "sm": "20", "xs": "15", "unit": "px"},
         "gridOnFront": false
-      }
+      },
+      "useCase": "Bootstrap-based layouts, 12-column frameworks, responsive grid systems, standard web layouts"
     },
+
     {
-      "description": "RTL grid for right-to-left languages",
+      "name": "16-Column Dense Grid (High Precision)",
+      "description": "Dense 16-column grid for detailed layout alignment",
+      "visualDescription": "1200px max width, 16 narrow columns, 20px gutters, blue overlay, high precision alignment",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "dt003",
+        "designToolOpt": "grid_stystem",
+        "gridSystemOpt": "gs_custom",
+        "gridDirection": "ltr",
+        "gridMaxWidth": {"md": "1200", "unit": "px"},
+        "gridColumn": {"md": "16", "unit": ""},
+        "gridBGcolor": "#3b82f640",
+        "alleySpace": {"md": "20", "unit": "px"},
+        "alleyBGcolor": "#00000000",
+        "gridOffset": {"md": "40", "unit": "px"},
+        "gridOnFront": false
+      },
+      "useCase": "Complex layouts, detailed alignment, multi-column designs, precise spacing verification"
+    },
+
+    {
+      "name": "Wide Layout Grid (Full HD Monitors)",
+      "description": "Extra-wide grid for large monitor layouts",
+      "visualDescription": "1600px max width, 12 columns, 40px gutters, green overlay, spacious desktop layouts",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "dt004",
+        "designToolOpt": "grid_stystem",
+        "gridSystemOpt": "gs_custom",
+        "gridDirection": "ltr",
+        "gridMaxWidth": {"md": "1600", "unit": "px"},
+        "gridColumn": {"md": "12", "unit": ""},
+        "gridBGcolor": "#10b98140",
+        "alleySpace": {"md": "40", "unit": "px"},
+        "alleyBGcolor": "#00000000",
+        "gridOffset": {"md": "50", "unit": "px"},
+        "gridOnFront": false
+      },
+      "useCase": "Large screen layouts, full HD designs, wide desktop sites, high-resolution displays"
+    },
+
+    {
+      "name": "High-Contrast Grid (Dark Backgrounds)",
+      "description": "Bright red grid for visibility on dark-themed websites",
+      "visualDescription": "12 columns, 1140px max width, bright red semi-transparent overlay, visible on dark backgrounds",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "dt005",
+        "designToolOpt": "grid_stystem",
+        "gridSystemOpt": "gs_custom",
+        "gridDirection": "ltr",
+        "gridMaxWidth": {"md": "1140", "unit": "px"},
+        "gridColumn": {"md": "12", "unit": ""},
+        "gridBGcolor": "#ef444450",
+        "alleySpace": {"md": "30", "unit": "px"},
+        "alleyBGcolor": "#00000000",
+        "gridOffset": {"md": "30", "unit": "px"},
+        "gridOnFront": false
+      },
+      "useCase": "Dark-themed sites, high-contrast needs, visibility on black backgrounds, night mode designs"
+    },
+
+    {
+      "name": "RTL Grid for Arabic/Hebrew Layouts",
+      "description": "Right-to-left grid direction for RTL languages",
+      "visualDescription": "1140px max width, 12 columns, RTL direction, mirrors grid for Arabic/Hebrew layouts",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "dt006",
+        "designToolOpt": "grid_stystem",
         "gridSystemOpt": "gs_custom",
         "gridDirection": "rtl",
-        "gridColumn": {
-          "md": "12"
-        },
+        "gridMaxWidth": {"md": "1140", "unit": "px"},
+        "gridColumn": {"md": "12", "unit": ""},
+        "gridBGcolor": "#8072fc40",
+        "alleySpace": {"md": "30", "unit": "px"},
+        "alleyBGcolor": "#00000000",
+        "gridOffset": {"md": "30", "unit": "px"},
+        "gridOnFront": false
+      },
+      "useCase": "Arabic websites, Hebrew layouts, RTL language sites, mirrored grid systems",
+      "rtlNotes": {
+        "direction": "Grid starts from right edge instead of left",
+        "languages": "Arabic, Hebrew, Persian, Urdu",
+        "testing": "Essential for RTL layout verification"
+      }
+    },
+
+    {
+      "name": "Client Preview Grid (Frontend Visible)",
+      "description": "Grid visible on frontend for client design reviews",
+      "visualDescription": "1140px, 12 columns, visible on live site for client approval, semi-transparent yellow overlay",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "dt007",
+        "designToolOpt": "grid_stystem",
+        "gridSystemOpt": "gs_custom",
+        "gridDirection": "ltr",
+        "gridMaxWidth": {"md": "1140", "unit": "px"},
+        "gridColumn": {"md": "12", "unit": ""},
+        "gridBGcolor": "#fbbf2440",
+        "alleySpace": {"md": "30", "unit": "px"},
+        "alleyBGcolor": "#00000000",
+        "gridOffset": {"md": "30", "unit": "px"},
         "gridOnFront": true
+      },
+      "useCase": "Client presentations, design reviews, layout approval process, stakeholder demos",
+      "warnings": [
+        "REMEMBER TO DISABLE gridOnFront: true before site launch (grid will show to visitors!)",
+        "Use distinctive color when gridOnFront: true to avoid forgetting to remove"
+      ]
+    },
+
+    {
+      "name": "Responsive Grid with Breakpoints",
+      "description": "Fully responsive grid adapting to all device sizes",
+      "visualDescription": "Desktop: 1140px/12 cols, Tablet: 960px/8 cols, Mobile: 100%/4 cols, adaptive gutters",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "dt008",
+        "designToolOpt": "grid_stystem",
+        "gridSystemOpt": "gs_custom",
+        "gridDirection": "ltr",
+        "gridMaxWidth": {"md": "1140", "sm": "960", "xs": "100%", "unit": "px"},
+        "gridColumn": {"md": "12", "sm": "8", "xs": "4", "unit": ""},
+        "gridBGcolor": "#8072fc40",
+        "alleySpace": {"md": "30", "sm": "20", "xs": "10", "unit": "px"},
+        "alleyBGcolor": "#00000000",
+        "gridOffset": {"md": "30", "sm": "20", "xs": "10", "unit": "px"},
+        "gridOnFront": false
+      },
+      "useCase": "Mobile-first designs, responsive verification, multi-device testing, adaptive layouts",
+      "responsiveNotes": {
+        "desktop": "12 columns, 1140px max, 30px gutters",
+        "tablet": "8 columns, 960px max, 20px gutters",
+        "mobile": "4 columns, full width, 10px gutters",
+        "testing": "Switch device preview to see grid adapt"
       }
     }
   ],
-  "commonPatterns": {}
+
+  "gridModes": {
+    "gs_default": {
+      "description": "Pre-configured default grid settings",
+      "columns": 12,
+      "maxWidth": "1140px",
+      "gutters": "30px",
+      "color": "#8072fc40",
+      "whenToUse": "Quick layout checks, no customization needed"
+    },
+    "gs_custom": {
+      "description": "Fully customizable grid parameters",
+      "customizable": [
+        "gridColumn - Number of columns (1-24 recommended)",
+        "gridMaxWidth - Container max width",
+        "gridBGcolor - Column background color",
+        "alleySpace - Gutter/spacing between columns",
+        "alleyBGcolor - Gutter background color",
+        "gridOffset - Left/right edge offset"
+      ],
+      "whenToUse": "Custom frameworks, specific column counts, branded colors, responsive grids"
+    }
+  },
+
+  "colorRecommendations": {
+    "purpleDefault": {
+      "color": "#8072fc40",
+      "hex": "rgba(128, 114, 252, 0.25)",
+      "bestFor": "Light backgrounds, general purpose, default choice"
+    },
+    "blueSubtle": {
+      "color": "#3b82f640",
+      "hex": "rgba(59, 130, 246, 0.25)",
+      "bestFor": "Blue-tinted sites, professional layouts"
+    },
+    "greenCalm": {
+      "color": "#10b98140",
+      "hex": "rgba(16, 185, 129, 0.25)",
+      "bestFor": "Green/nature themes, eco-friendly sites"
+    },
+    "redHighContrast": {
+      "color": "#ef444450",
+      "hex": "rgba(239, 68, 68, 0.31)",
+      "bestFor": "Dark backgrounds, high visibility needed"
+    },
+    "yellowWarning": {
+      "color": "#fbbf2440",
+      "hex": "rgba(251, 191, 36, 0.25)",
+      "bestFor": "Client previews, temporary visibility, warnings"
+    },
+    "alphaGuide": {
+      "notes": "Last 2 hex digits = opacity (40 = 25%, 50 = 31%, 60 = 38%, 80 = 50%)",
+      "recommendation": "Use 25-38% opacity (40-60 hex) for subtle overlay"
+    }
+  },
+
+  "validationRules": {
+    "block_id": "Required - Unique 4-character hex identifier",
+    "gridSystemOpt": "Required - Must be 'gs_default' or 'gs_custom'",
+    "gridColumn": "When gs_custom: Recommended 4-24 columns (12 is standard)",
+    "gridMaxWidth": "When gs_custom: Typical values 960px, 1140px, 1200px, 1600px",
+    "gridBGcolor": "Semi-transparent recommended (25-38% opacity) for visibility",
+    "alleySpace": "Typical values: 10px (tight), 20px (compact), 30px (standard), 40px (spacious)",
+    "gridOffset": "Usually matches alleySpace for visual consistency",
+    "gridOnFront": "Must be false before site launch (otherwise visitors see grid)"
+  },
+
+  "warnings": [
+    "CRITICAL: Set gridOnFront: false before launching site (grid will show to all visitors if true!)",
+    "Custom grid settings (gridColumn, gridMaxWidth, etc.) only apply when gridSystemOpt: 'gs_custom'",
+    "Grid overlay can impact editor performance on complex pages (consider toggling off when editing)",
+    "Very high column counts (>24) may cause visual clutter and slow rendering",
+    "Fully opaque gridBGcolor (no transparency) will completely obscure content",
+    "gridDirection: 'rtl' mirrors the entire grid - use only for RTL language sites",
+    "Grid uses CSS custom properties (--tp_grid_*) - may conflict with theme CSS variables",
+    "Multiple Design Tool blocks on same page will override each other (last one wins)",
+    "Grid is page-level overlay - affects entire viewport, not just block location"
+  ],
+
+  "commonMistakes": [
+    "Forgetting to set gridOnFront: false before site launch (grid visible to visitors)",
+    "Setting gridSystemOpt: 'gs_custom' but not configuring custom values (uses defaults anyway)",
+    "Using gridBGcolor without transparency (100% opaque blocks all content)",
+    "Setting gridColumn too high (>24) creates visual mess",
+    "Not setting responsive values for gridMaxWidth/alleySpace on mobile",
+    "Using alleyBGcolor with high opacity (obscures gutters)",
+    "Placing multiple Design Tool blocks (only last one applies)",
+    "Setting gridMaxWidth in % instead of px (unpredictable results)",
+    "Expecting grid to show only in specific section (it's viewport-wide)",
+    "Using Design Tool in production instead of removing after design phase"
+  ],
+
+  "bestPractices": [
+    "Use gs_default for quick checks, gs_custom for framework matching",
+    "Set gridOnFront: false (editor-only) unless showing to client temporarily",
+    "Use 25-38% opacity colors (hex ending in 40-60) for subtle overlay",
+    "Match gridMaxWidth to your CSS framework (Bootstrap: 1140px, Tailwind: 1280px)",
+    "Use 12 columns for standard layouts, 16 for complex designs",
+    "Set responsive gridMaxWidth/alleySpace values (md/sm/xs) for mobile testing",
+    "Choose grid color that contrasts with your site's dominant colors",
+    "Remove Design Tool block entirely after design phase complete",
+    "Use distinct color (yellow/orange) when gridOnFront: true as reminder to disable",
+    "Document grid settings in site style guide for team consistency"
+  ],
+
+  "accessibilityNotes": [
+    "Grid overlay is purely visual - no accessibility impact when gridOnFront: false",
+    "If gridOnFront: true (client preview), ensure sufficient color contrast for grid visibility",
+    "Grid does not affect tab navigation, screen readers, or keyboard interaction",
+    "Transparent overlay does not create color contrast issues for content",
+    "No ARIA attributes needed - this is a development/design aid only"
+  ],
+
+  "performanceConsiderations": [
+    "Grid overlay uses CSS custom properties - minimal performance impact",
+    "High column counts (>24) increase DOM complexity slightly",
+    "Transparent overlays use GPU compositing - hardware accelerated",
+    "Multiple Design Tool blocks create CSS variable conflicts (only last applies)",
+    "Grid rendering is CSS-only - no JavaScript performance cost",
+    "Editor performance may degrade on complex pages with grid enabled",
+    "gridOnFront: true adds CSS to frontend (minimal ~1KB)",
+    "Remove block entirely after design phase to eliminate any overhead"
+  ],
+
+  "workflowIntegration": {
+    "designPhase": {
+      "when": "During initial layout design and alignment work",
+      "settings": "Use gs_custom with framework-matching columns (12 for Bootstrap, etc.)",
+      "gridOnFront": false
+    },
+    "clientReview": {
+      "when": "Showing layout to client for approval",
+      "settings": "Use distinctive color (yellow/orange), set gridOnFront: true temporarily",
+      "gridOnFront": true,
+      "reminder": "DISABLE gridOnFront after client review!"
+    },
+    "developmentTesting": {
+      "when": "Verifying responsive breakpoints and alignment",
+      "settings": "Use responsive gridMaxWidth/alleySpace (md/sm/xs)",
+      "gridOnFront": false
+    },
+    "preLaunch": {
+      "when": "Before site goes live",
+      "action": "Remove Design Tool block entirely or set gridOnFront: false",
+      "verification": "Check frontend in incognito mode - grid should not be visible"
+    }
+  },
+
+  "frameworkMatching": {
+    "Bootstrap5": {
+      "gridMaxWidth": {"md": "1140", "sm": "960", "xs": "720", "unit": "px"},
+      "gridColumn": {"md": "12", "unit": ""},
+      "alleySpace": {"md": "30", "sm": "30", "xs": "30", "unit": "px"},
+      "gridOffset": {"md": "15", "sm": "15", "xs": "15", "unit": "px"}
+    },
+    "TailwindCSS": {
+      "gridMaxWidth": {"md": "1280", "sm": "1024", "xs": "768", "unit": "px"},
+      "gridColumn": {"md": "12", "unit": ""},
+      "alleySpace": {"md": "32", "sm": "32", "xs": "16", "unit": "px"},
+      "gridOffset": {"md": "32", "sm": "32", "xs": "16", "unit": "px"}
+    },
+    "Foundation": {
+      "gridMaxWidth": {"md": "1200", "sm": "1024", "xs": "640", "unit": "px"},
+      "gridColumn": {"md": "12", "unit": ""},
+      "alleySpace": {"md": "20", "sm": "20", "xs": "20", "unit": "px"},
+      "gridOffset": {"md": "20", "sm": "20", "xs": "20", "unit": "px"}
+    },
+    "MaterializeCSS": {
+      "gridMaxWidth": {"md": "1280", "sm": "992", "xs": "600", "unit": "px"},
+      "gridColumn": {"md": "12", "unit": ""},
+      "alleySpace": {"md": "24", "sm": "24", "xs": "24", "unit": "px"},
+      "gridOffset": {"md": "24", "sm": "24", "xs": "24", "unit": "px"}
+    }
+  },
+
+  "cssCustomProperties": {
+    "injectedVariables": [
+      "--tp_grid_cont_max_width: Grid container max width",
+      "--tp_grid_columns: Number of columns",
+      "--tp_grid_color: Column background color",
+      "--tp_grid_alley: Gutter/alley space between columns",
+      "--tp_grid_alley_color: Gutter background color",
+      "--tp_grid_left_right_offset: Left/right viewport offset"
+    ],
+    "scope": "html element (global scope)",
+    "important": "All values use !important to override theme styles",
+    "access": "Can be accessed in custom CSS via var(--tp_grid_columns) etc."
+  },
+
+  "troubleshooting": {
+    "problemsAndSolutions": [
+      {
+        "problem": "Grid not visible in editor",
+        "solution": "Ensure block is added to page. Check if gridBGcolor has transparency (alpha channel)."
+      },
+      {
+        "problem": "Grid showing on frontend unexpectedly",
+        "solution": "Set gridOnFront: false. Check for multiple Design Tool blocks (last one applies)."
+      },
+      {
+        "problem": "Custom settings not applying",
+        "solution": "Verify gridSystemOpt: 'gs_custom' (not 'gs_default'). Custom settings ignored in gs_default mode."
+      },
+      {
+        "problem": "Grid columns don't match my framework",
+        "solution": "Check gridColumn count, gridMaxWidth, and alleySpace values match your CSS framework specs."
+      },
+      {
+        "problem": "Grid too opaque, can't see content",
+        "solution": "Reduce gridBGcolor opacity. Use hex values ending in 40 (25%), 50 (31%), or 60 (38%)."
+      },
+      {
+        "problem": "Multiple grids appearing",
+        "solution": "Remove duplicate Design Tool blocks. Only one should exist per page (last one applies)."
+      },
+      {
+        "problem": "RTL grid mirrored incorrectly",
+        "solution": "Verify gridDirection: 'rtl'. Ensure site is actually RTL language (Arabic, Hebrew, etc.)."
+      },
+      {
+        "problem": "Grid doesn't adapt on mobile preview",
+        "solution": "Set responsive values for gridMaxWidth, gridColumn, alleySpace (md/sm/xs breakpoints)."
+      }
+    ]
+  },
+
+  "relatedBlocks": [
+    "tpgb/tp-container - Main layout container (should align with grid)",
+    "core/columns - WordPress core columns (verify column widths match grid)",
+    "tpgb/tp-row - Row structure (should respect grid spacing)",
+    "tpgb/tp-column - Column blocks (widths should align with grid columns)"
+  ]
 }

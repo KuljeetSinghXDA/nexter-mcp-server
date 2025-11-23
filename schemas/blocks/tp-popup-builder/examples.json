@@ -2,71 +2,518 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-popup-builder",
   "title": "Popup Builder - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for creating modals, popups, slide panels, and overlay content with multiple trigger options",
   "examples": [
     {
-      "description": "Simple button-triggered popup",
+      "name": "Simple Center Popup (Button Trigger)",
+      "description": "Basic center popup modal triggered by button click, with styled button and close icon",
+      "visualDescription": "Purple gradient button that opens a 600x500px center modal with smooth fadeIn animation, white background, shadow, rounded corners, and close icon in top-right",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "pb001",
         "toggleCanvas": "button",
-        "btnText": "Open Popup",
+        "btnText": "View Special Offer",
+        "btnIcon": "fa fa-gift",
+        "iconPosition": "before",
+        "btnAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
         "openStyle": "popup",
+        "popupDir": "center",
         "popupWidth": {
+          "md": 600,
+          "unit": "px"
+        },
+        "popupHeight": {
           "md": 500,
+          "unit": "px"
+        },
+        "onbtnClick": true,
+        "closeContent": true,
+        "bodyClickClose": true,
+        "contentCloseIcon": true,
+        "closeIconAlign": "right",
+        "closeContentColor": "#666666",
+        "contentPadding": {
+          "md": {
+            "top": "40",
+            "right": "40",
+            "bottom": "40",
+            "left": "40"
+          },
+          "unit": "px"
+        },
+        "contentBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "contentRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "contentShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 10,
+          "blur": 50,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.2)"
+        },
+        "btnTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "18",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "btnPadding": {
+          "md": {
+            "top": "16",
+            "right": "32",
+            "bottom": "16",
+            "left": "32"
+          },
+          "unit": "px"
+        },
+        "btnTextColor": "#ffffff",
+        "btnBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#667eea",
+                "position": 0
+              },
+              {
+                "color": "#764ba2",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "btnRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "px"
+        },
+        "inAnimation": "fadeIn",
+        "inanimDur": "normal",
+        "outAnimation": "fadeOut",
+        "outanimDur": "normal"
+      },
+      "useCase": "Product promotions, special offers, newsletter signups, general modal content"
+    },
+    {
+      "name": "Slide from Left Panel (Hamburger Icon)",
+      "description": "Mobile menu-style slide panel from left with hamburger icon trigger, push effect on page content",
+      "visualDescription": "Hamburger icon (style-1) in top-left that opens 350px wide left panel, pushes page content to the right, dark background, custom scrollbar",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "pb002",
+        "toggleCanvas": "icon",
+        "toggleIconStyle": "style-1",
+        "iconSize": {
+          "md": "40",
+          "unit": "px"
+        },
+        "iconWeight": {
+          "md": "3",
+          "unit": "px"
+        },
+        "iconPadding": {
+          "md": {
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "iconColor": "#333333",
+        "iconBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f8f8f8"
+        },
+        "iconRadius": {
+          "md": {
+            "top": "4",
+            "right": "4",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        },
+        "fixedToggleBtn": true,
+        "leftAutoD": true,
+        "xPosD": "20",
+        "topAutoD": true,
+        "yPosD": "20",
+        "openStyle": "push",
+        "openDir": "left",
+        "openWidth": {
+          "md": 350,
+          "unit": "px"
+        },
+        "onbtnClick": true,
+        "closeContent": true,
+        "bodyClickClose": true,
+        "contentCloseIcon": true,
+        "closeIconAlign": "right",
+        "contentPadding": {
+          "md": {
+            "top": "30",
+            "right": "30",
+            "bottom": "30",
+            "left": "30"
+          },
+          "unit": "px"
+        },
+        "contentBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#2a2a2a"
+        },
+        "scrlBar": true,
+        "scrlWidth": {
+          "md": "8",
+          "unit": "px"
+        },
+        "scrlThumbBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "scrlThumbBorderR": {
+          "md": {
+            "top": "4",
+            "right": "4",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        },
+        "trackBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#1a1a1a"
+        },
+        "inAnimation": "slideInLeft",
+        "inanimDur": "fast",
+        "outAnimation": "slideOutLeft",
+        "outanimDur": "fast"
+      },
+      "useCase": "Mobile navigation menus, filter panels, shopping carts, side navigation"
+    },
+    {
+      "name": "Exit Intent Popup (Marketing)",
+      "description": "Exit intent popup for lead capture, shows once per user when mouse leaves viewport, time-limited campaign",
+      "visualDescription": "Automatically appears when user attempts to leave page, large 700x600px modal with gradient background, shows max 1 time per user every 7 days",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "pb003",
+        "toggleCanvas": "button",
+        "backendVisi": true,
+        "openStyle": "popup",
+        "popupDir": "center",
+        "popupWidth": {
+          "md": 700,
+          "unit": "px"
+        },
+        "popupHeight": {
+          "md": 600,
+          "unit": "px"
+        },
+        "exitInlet": true,
+        "showRestricted": true,
+        "showXTimes": "1",
+        "showXDays": "7",
+        "showTime": true,
+        "dateStart": "2025-01-01 00:00",
+        "dateEnd": "2025-12-31 23:59",
+        "closeContent": true,
+        "bodyClickClose": false,
+        "contentCloseIcon": true,
+        "closeIconAlign": "right",
+        "closeContentColor": "#ffffff",
+        "openCloseBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(0,0,0,0.3)"
+        },
+        "openCloseRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "px"
+        },
+        "contentPadding": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "px"
+        },
+        "contentBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#667eea",
+                "position": 0
+              },
+              {
+                "color": "#764ba2",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "contentRadius": {
+          "md": {
+            "top": "16",
+            "right": "16",
+            "bottom": "16",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "contentShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 20,
+          "blur": 80,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.3)"
+        },
+        "openOverlayBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(0,0,0,0.7)"
+        },
+        "inAnimation": "zoomIn",
+        "inanimDur": "slow",
+        "animDelay": "0.5",
+        "outAnimation": "zoomOut",
+        "outanimDur": "fast"
+      },
+      "useCase": "Lead capture, cart abandonment prevention, special offer promotions, exit surveys"
+    },
+    {
+      "name": "Scroll-Triggered Popup (Engagement)",
+      "description": "Popup appears when user scrolls 70% down page, newsletter signup with styled close button",
+      "visualDescription": "Appears at 70% scroll depth, 550x450px center modal with white background, gradient close button, smooth slide-up animation",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "pb004",
+        "toggleCanvas": "button",
+        "backendVisi": true,
+        "openStyle": "popup",
+        "popupDir": "center",
+        "popupWidth": {
+          "md": 550,
+          "unit": "px"
+        },
+        "popupHeight": {
+          "md": 450,
+          "unit": "px"
+        },
+        "onScroll": true,
+        "scrollHeight": "70",
+        "showRestricted": true,
+        "showXTimes": "2",
+        "showXDays": "3",
+        "closeContent": true,
+        "bodyClickClose": true,
+        "contentCloseIcon": true,
+        "closeIconAlign": "right",
+        "closeContentColor": "#ffffff",
+        "openCloseBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#10b981",
+                "position": 0
+              },
+              {
+                "color": "#059669",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "openCloseRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "px"
+        },
+        "openCloseShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(16,185,129,0.4)"
+        },
+        "contentPadding": {
+          "md": {
+            "top": "40",
+            "right": "40",
+            "bottom": "40",
+            "left": "40"
+          },
+          "unit": "px"
+        },
+        "contentBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "contentRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "contentShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 15,
+          "blur": 60,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.15)"
+        },
+        "openOverlayBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(0,0,0,0.5)"
+        },
+        "inAnimation": "slideInUp",
+        "inanimDur": "normal",
+        "outAnimation": "slideOutDown",
+        "outanimDur": "normal"
+      },
+      "useCase": "Newsletter signups, content upgrades, related article suggestions, engagement triggers"
+    },
+    {
+      "name": "Time-Delayed Page Load Popup (Announcement)",
+      "description": "Popup appears 3 seconds after page load, announcement banner with custom positioning",
+      "visualDescription": "Appears 3 seconds after page loads, positioned at 50% horizontally and 30% vertically, 650x400px modal with fade-in animation",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "pb005",
+        "toggleCanvas": "button",
+        "backendVisi": true,
+        "openStyle": "popup",
+        "popupDir": "center",
+        "popupWidth": {
+          "md": 650,
           "unit": "px"
         },
         "popupHeight": {
           "md": 400,
           "unit": "px"
         },
-        "onbtnClick": true
-      }
-    },
-    {
-      "description": "Exit-intent promotional popup",
-      "attributes": {
-        "block_id": "c3d4",
-        "toggleCanvas": "icon",
-        "toggleIconStyle": "style-1",
-        "openStyle": "popup",
-        "exitInlet": true,
-        "showRestricted": true,
-        "showXTimes": "1",
-        "showXDays": "7"
-      }
-    },
-    {
-      "description": "Scroll-triggered side panel",
-      "attributes": {
-        "block_id": "e5f6",
-        "openStyle": "slide-along",
-        "openDir": "right",
-        "openWidth": {
-          "md": 400,
-          "unit": "px"
-        },
-        "onScroll": true,
-        "scrollHeight": "50",
-        "inAnimation": "slideInRight"
-      }
-    },
-    {
-      "description": "Timed announcement popup",
-      "attributes": {
-        "block_id": "g7h8",
+        "popLeftAuto": true,
+        "popXPos": "50",
+        "popTopAuto": true,
+        "popYPos": "30",
         "onpageLoad": true,
         "loadpodelay": "3000",
-        "showTime": true,
-        "dateStart": "2025-01-01 00:00",
-        "dateEnd": "2025-12-31 23:59",
+        "showRestricted": true,
+        "showXTimes": "1",
+        "showXDays": "1",
         "closeContent": true,
-        "bodyClickClose": true
-      }
+        "bodyClickClose": true,
+        "contentCloseIcon": true,
+        "closeIconAlign": "right",
+        "contentPadding": {
+          "md": {
+            "top": "40",
+            "right": "40",
+            "bottom": "40",
+            "left": "40"
+          },
+          "unit": "px"
+        },
+        "contentBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f8f9fa"
+        },
+        "contentRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "contentShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 10,
+          "blur": 40,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.1)"
+        },
+        "openOverlayBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(0,0,0,0.4)"
+        },
+        "inAnimation": "fadeIn",
+        "inanimDur": "slow",
+        "outAnimation": "fadeOut",
+        "outanimDur": "normal"
+      },
+      "useCase": "Site announcements, cookie notices, important updates, welcome messages"
     },
     {
-      "description": "Corner box notification",
+      "name": "Corner Box Notification (Bottom-Right)",
+      "description": "Small notification popup in bottom-right corner, appears 5 seconds after page load with bounce animation",
+      "visualDescription": "300x300px square box in bottom-right corner, purple gradient background, bounces in after 5 seconds, sticky close button",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "i9j0",
+        "block_id": "pb006",
+        "toggleCanvas": "button",
+        "backendVisi": true,
         "openStyle": "corner-box",
         "cornerBoxDir": "bottom-right",
         "openWidth": {
@@ -75,9 +522,619 @@
         },
         "onpageLoad": true,
         "loadpodelay": "5000",
-        "inAnimation": "bounceIn"
-      }
+        "showRestricted": true,
+        "showXTimes": "3",
+        "showXDays": "1",
+        "closeContent": true,
+        "bodyClickClose": false,
+        "contentCloseIcon": true,
+        "closeIconSticky": true,
+        "closeIconAlign": "right",
+        "closeContentColor": "#ffffff",
+        "contentPadding": {
+          "md": {
+            "top": "25",
+            "right": "25",
+            "bottom": "25",
+            "left": "25"
+          },
+          "unit": "px"
+        },
+        "contentBg": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#8b5cf6",
+                "position": 0
+              },
+              {
+                "color": "#6d28d9",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "contentRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "contentShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 30,
+          "spread": 0,
+          "color": "rgba(139,92,246,0.4)"
+        },
+        "inAnimation": "bounceIn",
+        "inanimDur": "normal",
+        "outAnimation": "bounceOut",
+        "outanimDur": "fast"
+      },
+      "useCase": "Chat widgets, notifications, special offers, quick announcements, help tips"
+    },
+    {
+      "name": "Full-Width Top Bar (Slide from Top)",
+      "description": "Full-width announcement bar slides from top, push effect, auto-height content",
+      "visualDescription": "Full-width bar slides down from top pushing page content, 400px height, dark background with white text, slide animation",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "pb007",
+        "toggleCanvas": "button",
+        "btnText": "Show Announcement",
+        "btnAlign": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "openStyle": "push",
+        "openDir": "top",
+        "openWidth": {
+          "md": 400,
+          "unit": "px"
+        },
+        "onbtnClick": true,
+        "closeContent": true,
+        "bodyClickClose": false,
+        "contentCloseIcon": true,
+        "closeIconAlign": "right",
+        "closeContentColor": "#ffffff",
+        "contentPadding": {
+          "md": {
+            "top": "30",
+            "right": "40",
+            "bottom": "30",
+            "left": "40"
+          },
+          "unit": "px"
+        },
+        "contentBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#1a1a1a"
+        },
+        "btnTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "btnPadding": {
+          "md": {
+            "top": "12",
+            "right": "24",
+            "bottom": "12",
+            "left": "24"
+          },
+          "unit": "px"
+        },
+        "btnTextColor": "#333333",
+        "btnBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f59e0b"
+        },
+        "btnRadius": {
+          "md": {
+            "top": "4",
+            "right": "4",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        },
+        "btnTextColorH": "#ffffff",
+        "btnBgH": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#d97706"
+        },
+        "inAnimation": "slideInDown",
+        "inanimDur": "fast",
+        "outAnimation": "slideOutUp",
+        "outanimDur": "fast"
+      },
+      "useCase": "Announcement bars, discount banners, important notices, call-to-action banners"
+    },
+    {
+      "name": "External Element Trigger (Click Any Element)",
+      "description": "Popup triggered by clicking any page element with custom ID, inactivity fallback trigger",
+      "visualDescription": "Popup opens when user clicks element with ID 'cta-trigger' OR after 30 seconds of inactivity, 600x500px modal with custom styling",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "pb008",
+        "toggleCanvas": "button",
+        "backendVisi": true,
+        "openStyle": "popup",
+        "popupDir": "center",
+        "popupWidth": {
+          "md": 600,
+          "unit": "px"
+        },
+        "popupHeight": {
+          "md": 500,
+          "unit": "px"
+        },
+        "extraclick": true,
+        "extraId": "cta-trigger",
+        "inactivity": true,
+        "inactivitySec": "30",
+        "showRestricted": true,
+        "showXTimes": "2",
+        "showXDays": "7",
+        "closeContent": true,
+        "bodyClickClose": true,
+        "contentCloseIcon": true,
+        "closeIconCustom": false,
+        "closeIconAlign": "right",
+        "closeContentColor": "#666666",
+        "openCloseColorH": "#333333",
+        "contentPadding": {
+          "md": {
+            "top": "40",
+            "right": "40",
+            "bottom": "40",
+            "left": "40"
+          },
+          "unit": "px"
+        },
+        "contentBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "contentRadius": {
+          "md": {
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "contentShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 12,
+          "blur": 50,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.15)"
+        },
+        "openOverlayBg": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(0,0,0,0.6)"
+        },
+        "openCssfilter": {
+          "openFilter": true,
+          "blur": 3,
+          "brightness": 90,
+          "contrast": 100,
+          "saturate": 100,
+          "hue": 0
+        },
+        "inAnimation": "fadeInUp",
+        "inanimDur": "normal",
+        "AnimEasing": "ease-out",
+        "outAnimation": "fadeOutDown",
+        "outanimDur": "fast",
+        "outAnimEasing": "ease-in"
+      },
+      "useCase": "Custom trigger popups, engagement popups, inactivity re-engagement, link click popups"
     }
   ],
-  "commonPatterns": {}
+  "validationRules": [
+    "block_id is required and must be unique 4-character hex string",
+    "toggleCanvas must be 'button' or 'icon' (determines trigger element)",
+    "When toggleCanvas='button': btnText is required",
+    "When toggleCanvas='icon': toggleIconStyle required ('style-1', 'style-2', 'style-3', 'custom')",
+    "openStyle must be 'popup' (center), 'push', 'slide-along', or 'corner-box'",
+    "When openStyle='popup': popupWidth and popupHeight define dimensions",
+    "When openStyle='push' or 'slide-along': openDir required ('left', 'right', 'top', 'bottom')",
+    "When openStyle='corner-box': cornerBoxDir required ('top-left', 'top-right', etc.)",
+    "Trigger conditions (at least one required): onbtnClick, onpageLoad, onScroll, exitInlet, inactivity, pageviews, prevurl, extraclick",
+    "When onpageLoad=true: loadpodelay sets delay in milliseconds (default 500)",
+    "When onScroll=true: scrollHeight sets percentage 0-100 (default 100)",
+    "When exitInlet=true: popup triggers when mouse leaves viewport",
+    "When inactivity=true: inactivitySec sets seconds of inactivity (required)",
+    "When pageviews=true: pageViews sets number of page views (required)",
+    "When prevurl=true: previousUrl.url sets referring URL (required)",
+    "When extraclick=true: extraId sets element ID to trigger popup (required)",
+    "showRestricted enables frequency limiting with showXTimes and showXDays",
+    "showTime enables date range with dateStart and dateEnd (format: 'YYYY-MM-DD HH:MM')",
+    "closeContent controls close button visibility (default true)",
+    "bodyClickClose controls click-outside-to-close (default true)",
+    "Fixed positioning: fixedToggleBtn requires leftAutoD/rightAutoD and topAutoD/bottomAutoD positioning",
+    "Responsive positioning: responsiveT (tablet) and responsiveM (mobile) enable breakpoint-specific positions",
+    "inAnimation and outAnimation use CSS animation names (fadeIn, slideInLeft, zoomIn, bounceIn, etc.)",
+    "Animation duration: inanimDur and outanimDur ('fast', 'normal', 'slow', 'custom' with custDur/outcustDur)",
+    "Custom scrollbar requires scrlBar=true",
+    "backendVisi=true hides toggle button on frontend (for auto-triggers only)"
+  ],
+  "warnings": [
+    "Don't set multiple trigger conditions unless intentional (may cause unexpected behavior)",
+    "Don't use onbtnClick=true with backendVisi=true (button won't be visible to click)",
+    "exitInlet may not work on mobile devices (no mouse cursor)",
+    "showRestricted uses browser localStorage (may not work in private/incognito mode)",
+    "Don't set bodyClickClose=false with no closeContent button (user can't close popup)",
+    "Fixed positioning (fixedToggleBtn) may overlap content on small screens",
+    "Don't use leftAutoD and rightAutoD simultaneously (conflict)",
+    "Don't use topAutoD and bottomAutoD simultaneously (conflict)",
+    "popupWidth and popupHeight only apply to openStyle='popup' (ignored for slide panels)",
+    "openWidth applies to slide panels and corner boxes, not center popups",
+    "Corner box direction (cornerBoxDir) is ignored unless openStyle='corner-box'",
+    "Custom icon (toggleIconStyle='custom') requires imgSvg.url to be set",
+    "closeIconCustom=true requires closeIconCustomSource.url for custom close icon",
+    "Overlay blur (openCssfilter) may affect performance on low-end devices",
+    "Multiple popups on same page may conflict (use unique block_id)",
+    "Animations may not work on browsers without CSS animation support",
+    "loadpodelay values <500ms may cause popup to appear before page fully loads",
+    "scrollHeight=0 triggers immediately on page load (use onpageLoad instead)",
+    "inactivitySec <10 seconds may annoy users (recommend 30+ seconds)",
+    "showXTimes=0 disables frequency limiting (shows every time)",
+    "dateStart/dateEnd times are in site timezone, not user timezone",
+    "extraId must match existing element ID exactly (case-sensitive)"
+  ],
+  "commonMistakes": [
+    "Setting backendVisi=true with onbtnClick=true (no button to click on frontend)",
+    "Forgetting to set trigger condition (popup never shows)",
+    "Using exitInlet without showRestricted (annoys users with repeated exit popups)",
+    "Setting bodyClickClose=false without close button (popup can't be closed)",
+    "Using fixed positioning without testing on mobile (may overlap content)",
+    "Not setting openBg=1 before using bgDefaultColor or bgGradient",
+    "Forgetting to set openTypography=1 in btnTypo before setting typography values",
+    "Using leftAutoD=true and rightAutoD=true simultaneously (positioning conflict)",
+    "Setting popupWidth/popupHeight for slide panels (doesn't apply, use openWidth)",
+    "Using cornerBoxDir without openStyle='corner-box' (ignored)",
+    "Not testing popup triggers (onScroll, exitInlet, etc.) before deploying",
+    "Using custom close icon without providing closeIconCustomSource.url",
+    "Setting showXTimes without showXDays (frequency limiting incomplete)",
+    "Using inactivity trigger without inactivitySec value",
+    "Forgetting unit in size values (iconSize needs md and unit: 'px')",
+    "Not providing responsive values for button alignment (btnAlign needs md/sm/xs)",
+    "Using extraId without extraclick=true (external trigger not enabled)",
+    "Setting multiple conflicting animations (inAnimation and custom CSS)",
+    "Not testing on all screen sizes (fixed positions may break responsive layout)",
+    "Using very large popupWidth on mobile (may overflow viewport)"
+  ],
+  "bestPractices": [
+    "Always provide a way to close popup (closeContent=true or bodyClickClose=true)",
+    "Use frequency limiting (showRestricted) for marketing popups to avoid annoying users",
+    "Set reasonable delays for onpageLoad (3-5 seconds minimum)",
+    "Test exit intent popups thoroughly (behavior varies across browsers)",
+    "Use semantic animations (slideInLeft for left panels, bounceIn for notifications)",
+    "Match animation duration to popup size (larger popups = longer duration)",
+    "Provide responsive sizing for fixed toggle buttons",
+    "Use gradient backgrounds for modern, eye-catching popups",
+    "Add shadows to popups for depth and visual separation",
+    "Style close buttons to be clearly visible but not overwhelming",
+    "Use dark overlay backgrounds (rgba(0,0,0,0.5-0.7)) for center popups",
+    "Limit corner box dimensions (300-350px max) to avoid blocking content",
+    "Use slide panels for navigation menus and filters",
+    "Use center popups for important messages and forms",
+    "Use corner boxes for notifications and chat widgets",
+    "Set showXDays=7 minimum for exit intent popups (avoid annoying returning users)",
+    "Combine multiple trigger conditions for fallback behavior (e.g., extraclick + inactivity)",
+    "Use custom scrollbar styling for branded slide panels",
+    "Test popups on mobile devices (touch interactions differ from mouse)",
+    "Use time-based popups (showTime) for seasonal campaigns",
+    "Provide clear call-to-action in popup content",
+    "Use URL parameter triggers (calltoUrlpara) for campaign-specific popups",
+    "Add hover effects to close buttons for better UX",
+    "Use push/slide-along effects for immersive experiences",
+    "Keep corner box content concise (limited space)",
+    "Use consistent branding (colors, fonts) between popup and site"
+  ],
+  "styleComparisons": [
+    {
+      "title": "Toggle Canvas Types (toggleCanvas)",
+      "options": [
+        {
+          "value": "button",
+          "description": "Standard button trigger with text and optional icon",
+          "attributes": "btnText, btnIcon, iconPosition, btnTypo, btnPadding, btnBg, btnTextColor",
+          "bestFor": "Explicit CTAs, user-initiated popups, primary actions"
+        },
+        {
+          "value": "icon",
+          "description": "Hamburger icon trigger (3 styles + custom)",
+          "attributes": "toggleIconStyle, iconSize, iconWeight, iconColor, iconBg",
+          "bestFor": "Mobile menus, slide panels, minimalist triggers"
+        }
+      ]
+    },
+    {
+      "title": "Open Styles (openStyle)",
+      "options": [
+        {
+          "value": "popup",
+          "description": "Center modal popup overlay",
+          "visualOutcome": "Modal appears in center with overlay background",
+          "attributes": "popupWidth, popupHeight, popupDir (center/left/right positioning)",
+          "bestFor": "Important messages, forms, media, focused content"
+        },
+        {
+          "value": "push",
+          "description": "Slide panel that pushes page content",
+          "visualOutcome": "Panel slides in, page content shifts to make room",
+          "attributes": "openDir (left/right/top/bottom), openWidth",
+          "bestFor": "Navigation menus, immersive experiences, full-attention content"
+        },
+        {
+          "value": "slide-along",
+          "description": "Slide panel overlays page content",
+          "visualOutcome": "Panel slides in over content without pushing it",
+          "attributes": "openDir (left/right/top/bottom), openWidth",
+          "bestFor": "Filters, shopping carts, side navigation, quick access panels"
+        },
+        {
+          "value": "corner-box",
+          "description": "Small notification box in corner",
+          "visualOutcome": "Square box appears in corner with rotate animation",
+          "attributes": "cornerBoxDir (top-left/top-right/bottom-left/bottom-right), openWidth (square)",
+          "bestFor": "Notifications, chat widgets, help tips, non-intrusive messages"
+        }
+      ]
+    },
+    {
+      "title": "Trigger Conditions",
+      "options": [
+        {
+          "value": "onbtnClick",
+          "description": "User clicks toggle button/icon",
+          "attributes": "toggleCanvas, btnText or iconStyle",
+          "bestFor": "User-initiated popups, explicit actions, CTAs"
+        },
+        {
+          "value": "onpageLoad",
+          "description": "Popup appears after page loads",
+          "attributes": "loadpodelay (milliseconds)",
+          "bestFor": "Welcome messages, announcements, cookie notices"
+        },
+        {
+          "value": "onScroll",
+          "description": "Triggers at specific scroll depth",
+          "attributes": "scrollHeight (0-100 percentage)",
+          "bestFor": "Engagement popups, newsletter signups, content upgrades"
+        },
+        {
+          "value": "exitInlet",
+          "description": "Mouse leaves viewport (exit intent)",
+          "attributes": "showRestricted, showXTimes, showXDays",
+          "bestFor": "Lead capture, cart abandonment, last-chance offers"
+        },
+        {
+          "value": "inactivity",
+          "description": "No user activity for X seconds",
+          "attributes": "inactivitySec (seconds)",
+          "bestFor": "Re-engagement, help offers, idle user prompts"
+        },
+        {
+          "value": "pageviews",
+          "description": "After user views X pages",
+          "attributes": "pageViews (number)",
+          "bestFor": "Engagement campaigns, loyalty offers, site surveys"
+        },
+        {
+          "value": "prevurl",
+          "description": "User came from specific URL",
+          "attributes": "previousUrl.url",
+          "bestFor": "Referral campaigns, targeted messages, ad landing pages"
+        },
+        {
+          "value": "extraclick",
+          "description": "Click any element by ID",
+          "attributes": "extraId (element ID)",
+          "bestFor": "Custom triggers, link popups, inline CTAs"
+        }
+      ]
+    },
+    {
+      "title": "Hamburger Icon Styles (toggleIconStyle)",
+      "options": [
+        {
+          "value": "style-1",
+          "description": "Three horizontal lines (classic hamburger)",
+          "visualOutcome": "Three evenly spaced horizontal bars",
+          "bestFor": "Standard mobile menus, universal recognition"
+        },
+        {
+          "value": "style-2",
+          "description": "Two horizontal lines (minimalist)",
+          "visualOutcome": "Two horizontal bars",
+          "bestFor": "Minimalist designs, modern interfaces"
+        },
+        {
+          "value": "style-3",
+          "description": "Vertical dots (kebab menu)",
+          "visualOutcome": "Three vertical dots",
+          "bestFor": "Options menus, secondary actions"
+        },
+        {
+          "value": "custom",
+          "description": "Custom image/SVG icon",
+          "attributes": "imgSvg.url (image URL)",
+          "bestFor": "Branded icons, unique designs"
+        }
+      ]
+    },
+    {
+      "title": "Popup Animations",
+      "commonAnimations": [
+        {
+          "name": "fadeIn / fadeOut",
+          "description": "Smooth opacity transition",
+          "bestFor": "General purpose, subtle entrance/exit"
+        },
+        {
+          "name": "slideInLeft / slideOutLeft",
+          "description": "Horizontal slide from/to left",
+          "bestFor": "Left panels, left-to-right reading flow"
+        },
+        {
+          "name": "slideInUp / slideOutDown",
+          "description": "Vertical slide from bottom/to bottom",
+          "bestFor": "Bottom sheets, mobile-style modals"
+        },
+        {
+          "name": "zoomIn / zoomOut",
+          "description": "Scale from/to center",
+          "bestFor": "Attention-grabbing, important messages"
+        },
+        {
+          "name": "bounceIn / bounceOut",
+          "description": "Playful bounce effect",
+          "bestFor": "Notifications, fun brand personalities"
+        }
+      ]
+    }
+  ],
+  "responsivePatterns": [
+    {
+      "pattern": "Fixed Toggle Button Positioning",
+      "description": "Position toggle button at specific coordinates on screen",
+      "implementation": "Set fixedToggleBtn=true, then use leftAutoD/xPosD or rightAutoD/rightPosD for horizontal, topAutoD/yPosD or bottomAutoD/bottomPosD for vertical",
+      "example": "Top-left hamburger: leftAutoD=true, xPosD='20', topAutoD=true, yPosD='20'"
+    },
+    {
+      "pattern": "Responsive Toggle Positioning",
+      "description": "Different toggle positions for tablet and mobile",
+      "implementation": "Enable responsiveT and responsiveM, then use xPosT/yPosT for tablet, xPosM/yPosM for mobile",
+      "example": "Desktop top-left (20,20), Tablet top-right, Mobile center top"
+    },
+    {
+      "pattern": "Button Full Width on Mobile",
+      "description": "Make trigger button full width on small screens",
+      "implementation": "Use btnrespo=true, then btnmoFull=true for mobile full width, btntabFull=true for tablet",
+      "example": "Desktop centered button, mobile full-width bottom sticky"
+    },
+    {
+      "pattern": "Responsive Popup Sizing",
+      "description": "Adjust popup dimensions for different screen sizes",
+      "implementation": "Use responsive units in popupWidth/popupHeight (md/sm/xs breakpoints)",
+      "example": "popupWidth: {md: 700, sm: 600, xs: '90%', unit: 'px'}"
+    }
+  ],
+  "accessibilityNotes": [
+    "Ensure close buttons are keyboard accessible (native button elements)",
+    "Provide ARIA labels for toggle buttons and close buttons",
+    "Use semantic HTML in popup content (headings, paragraphs, lists)",
+    "Ensure sufficient color contrast for text and buttons (WCAG AA: 4.5:1)",
+    "Test keyboard navigation (Tab, Escape key to close)",
+    "Provide focus trap within popup (don't allow tabbing outside)",
+    "Announce popup opening to screen readers (role='dialog', aria-modal='true')",
+    "Use descriptive button text (not just 'Click Here' or 'Open')",
+    "Ensure close button is visible and large enough (min 44x44px tap target)",
+    "Provide alternative to exit intent for keyboard users (can't trigger with mouse)"
+  ],
+  "performanceConsiderations": [
+    "Minimize popup content size (lazy load images, defer heavy scripts)",
+    "Use CSS animations instead of JavaScript for smooth 60fps performance",
+    "Avoid blur filters (openCssfilter) on low-end devices (GPU intensive)",
+    "Limit number of popups per page (1-2 maximum recommended)",
+    "Use frequency limiting (showRestricted) to reduce localStorage operations",
+    "Optimize overlay background (solid colors perform better than gradients)",
+    "Defer non-critical popup content until popup opens",
+    "Use will-change CSS hint for animated elements (but remove after animation)",
+    "Test popup performance on mobile devices (slower CPUs)",
+    "Avoid auto-playing videos in popups (bandwidth and performance impact)"
+  ],
+  "integrationPatterns": [
+    {
+      "pattern": "Newsletter Signup Popup",
+      "description": "Combine popup with form block for email capture",
+      "blocks": ["tp-popup-builder", "tp-form-block", "nxt-email-field", "nxt-submit-button"],
+      "example": "Exit intent popup → Form with email field → Mailchimp integration"
+    },
+    {
+      "pattern": "Mobile Navigation Menu",
+      "description": "Hamburger icon that opens slide panel with navigation",
+      "blocks": ["tp-popup-builder", "tp-heading", "tp-button"],
+      "example": "Hamburger icon → Slide-from-left panel → Navigation links → Close button"
+    },
+    {
+      "pattern": "Product Quick View",
+      "description": "External trigger popup showing product details",
+      "blocks": ["tp-popup-builder", "tp-image", "tp-heading", "tp-pro-paragraph", "tp-button"],
+      "example": "Product 'Quick View' link (extraId) → Center popup → Product image + details + Add to Cart"
+    },
+    {
+      "pattern": "Video Popup",
+      "description": "Button-triggered popup with embedded video",
+      "blocks": ["tp-popup-builder", "tp-video"],
+      "example": "Watch Video button → Center popup → YouTube/Vimeo embed → Autoplay on open"
+    }
+  ],
+  "commonPatterns": [
+    {
+      "pattern": "Exit Intent Lead Capture",
+      "attributes": {
+        "exitInlet": true,
+        "showRestricted": true,
+        "showXTimes": "1",
+        "showXDays": "7",
+        "openStyle": "popup"
+      }
+    },
+    {
+      "pattern": "Mobile Hamburger Menu",
+      "attributes": {
+        "toggleCanvas": "icon",
+        "toggleIconStyle": "style-1",
+        "openStyle": "push",
+        "openDir": "left",
+        "fixedToggleBtn": true
+      }
+    },
+    {
+      "pattern": "Scroll-Triggered Newsletter",
+      "attributes": {
+        "onScroll": true,
+        "scrollHeight": "70",
+        "showRestricted": true,
+        "showXTimes": "2",
+        "openStyle": "popup"
+      }
+    },
+    {
+      "pattern": "Corner Notification Box",
+      "attributes": {
+        "openStyle": "corner-box",
+        "cornerBoxDir": "bottom-right",
+        "onpageLoad": true,
+        "loadpodelay": "5000"
+      }
+    }
+  ]
 }

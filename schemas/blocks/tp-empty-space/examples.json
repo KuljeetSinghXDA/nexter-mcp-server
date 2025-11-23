@@ -1,59 +1,406 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-empty-space",
-  "title": "Spacer - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Spacer - Comprehensive Usage Examples",
+  "description": "Complete example configurations for vertical spacing control with responsive heights and multiple unit types (px, rem, em, vh)",
+
   "examples": [
     {
-      "description": "Simple 50px spacer",
+      "name": "Small Section Spacer (30px)",
+      "description": "Tight spacing between related content blocks",
+      "visualDescription": "30px vertical gap, subtle breathing room, keeps elements visually connected",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "es001",
         "toggle": "normal",
-        "space": {
-          "md": 50
-        }
-      }
+        "space": {"md": 30}
+      },
+      "useCase": "Between paragraphs, list items, minor sections, tightly grouped content"
     },
+
     {
-      "description": "Responsive spacer (100px desktop, 60px tablet, 30px mobile)",
+      "name": "Medium Section Spacer (60px)",
+      "description": "Standard spacing for general content separation",
+      "visualDescription": "60px vertical gap, balanced spacing, default content rhythm",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "es002",
         "toggle": "normal",
-        "space": {
-          "md": 100,
-          "sm": 60,
-          "xs": 30
-        }
+        "space": {"md": 60}
+      },
+      "useCase": "Between content blocks, after headings, standard section gaps, default spacing"
+    },
+
+    {
+      "name": "Large Section Divider (120px)",
+      "description": "Strong visual separation between major sections",
+      "visualDescription": "120px vertical gap, clear section break, emphasizes hierarchy",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "es003",
+        "toggle": "normal",
+        "space": {"md": 120}
+      },
+      "useCase": "Between major sections, before footer, after hero, large content dividers"
+    },
+
+    {
+      "name": "Responsive Spacer (Adaptive Heights)",
+      "description": "Fully responsive spacing adapting to all device sizes",
+      "visualDescription": "Desktop: 100px, Tablet: 60px, Mobile: 30px - scales down for smaller screens",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "es004",
+        "toggle": "normal",
+        "space": {"md": 100, "sm": 60, "xs": 30}
+      },
+      "useCase": "Mobile-first designs, responsive layouts, screen-size-adaptive spacing, consistent vertical rhythm",
+      "responsiveNotes": {
+        "desktop": "100px - generous desktop spacing",
+        "tablet": "60px - moderate tablet spacing",
+        "mobile": "30px - compact mobile spacing",
+        "pattern": "Common 100-60-30 ratio maintains visual proportion"
       }
     },
+
     {
-      "description": "Global mode with rem units",
+      "name": "Typography-Relative Spacer (rem Units)",
+      "description": "Spacing that scales with user font size preferences",
+      "visualDescription": "3rem desktop, 2rem tablet, 1.5rem mobile - adapts to user's font size settings",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "es005",
         "toggle": "global",
-        "space": {
-          "md": "3rem",
-          "sm": "2rem",
-          "xs": "1rem"
-        }
+        "space": {"md": "3rem", "sm": "2rem", "xs": "1.5rem"}
+      },
+      "useCase": "Accessible designs, typography-based spacing, user font size respect, semantic spacing",
+      "remNotes": {
+        "calculation": "1rem = browser root font size (typically 16px)",
+        "3rem": "48px if root font is 16px, 60px if user increased to 20px",
+        "accessibility": "Respects user font size preferences (WCAG best practice)",
+        "whenToUse": "Content-heavy sites, blog posts, documentation, accessibility-focused designs"
       }
     },
+
     {
-      "description": "Viewport-based spacing",
+      "name": "Viewport-Relative Spacer (vh Units)",
+      "description": "Spacing proportional to screen height for full-screen sections",
+      "visualDescription": "10vh desktop, 7vh tablet, 5vh mobile - always proportional to viewport height",
+      "complexity": "advanced",
       "attributes": {
-        "block_id": "g7h8",
+        "block_id": "es006",
         "toggle": "global",
-        "space": {
-          "md": "10vh",
-          "sm": "7vh",
-          "xs": "5vh"
-        }
+        "space": {"md": "10vh", "sm": "7vh", "xs": "5vh"}
+      },
+      "useCase": "Full-screen designs, landing pages, hero sections, scroll-based layouts, parallax designs",
+      "vhNotes": {
+        "calculation": "1vh = 1% of viewport height",
+        "10vh": "On 1080px tall screen = 108px, on 768px screen = 76.8px",
+        "dynamicBehavior": "Changes when user resizes browser or rotates device",
+        "caution": "Mobile browsers have vh bugs with URL bar (consider using fixed px on mobile)",
+        "whenToUse": "Full-screen hero spacing, scroll-based interactions, viewport-dependent layouts"
+      }
+    },
+
+    {
+      "name": "Form Field Separator (40px)",
+      "description": "Spacing between form fields for readability",
+      "visualDescription": "40px vertical gap between form inputs, balanced spacing for form flow",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "es007",
+        "toggle": "normal",
+        "space": {"md": 40, "sm": 30, "xs": 25}
+      },
+      "useCase": "Form layouts, input field spacing, fieldset separators, multi-step forms",
+      "formNotes": {
+        "idealRange": "30-50px between fields for comfortable reading",
+        "tooSmall": "<20px feels cramped, increases input errors",
+        "tooLarge": ">70px breaks visual field grouping",
+        "responsive": "Reduce on mobile to avoid excessive scrolling"
+      }
+    },
+
+    {
+      "name": "Heading Separator (80px Before, 20px After)",
+      "description": "Asymmetric spacing for heading visual hierarchy",
+      "visualDescription": "Large gap before heading (new topic), small gap after (connects to content)",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "es008",
+        "toggle": "normal",
+        "space": {"md": 80, "sm": 50, "xs": 30}
+      },
+      "useCase": "Before H2/H3 headings, section titles, content hierarchy, topic changes",
+      "typographyNotes": {
+        "pattern": "More space before heading than after (3:1 or 4:1 ratio)",
+        "reasoning": "Heading belongs to content below, not above",
+        "beforeHeading": "Use 60-100px spacer before heading (new section starts)",
+        "afterHeading": "Use 15-30px after heading (connects heading to paragraph)",
+        "example": "80px spacer → H2 Heading → 20px spacer → Paragraph",
+        "visualHierarchy": "Creates clear content blocks and improves scannability"
       }
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
+
+  "spacingModes": {
+    "normal": {
+      "description": "Fixed pixel spacing mode",
+      "units": "px (pixels)",
+      "valueFormat": "Numeric only - e.g., space: {md: 50}",
+      "responsive": "Set different px values for md/sm/xs",
+      "whenToUse": "Precise control, most common use case, predictable spacing",
+      "examples": [
+        "space: {md: 30} - 30px on all devices",
+        "space: {md: 100, sm: 60, xs: 30} - Responsive px values"
+      ]
+    },
+    "global": {
+      "description": "Custom unit mode (rem, em, vh, vw, %)",
+      "units": "rem, em, vh, vw, % (any CSS unit)",
+      "valueFormat": "String with unit - e.g., space: {md: '3rem'}",
+      "responsive": "Set different unit values for md/sm/xs",
+      "whenToUse": "Accessible designs, viewport-relative, typography-relative spacing",
+      "examples": [
+        "space: {md: '2rem'} - Typography-relative",
+        "space: {md: '10vh'} - Viewport height-relative",
+        "space: {md: '5em'} - Parent element font size-relative"
+      ]
     }
-  }
+  },
+
+  "unitGuide": {
+    "px": {
+      "description": "Absolute pixels - fixed size",
+      "toggle": "normal",
+      "calculation": "1px = 1 screen pixel (on 1x displays)",
+      "responsive": "No automatic scaling - set explicit md/sm/xs values",
+      "whenToUse": "Default choice, precise control, most predictable",
+      "example": "space: {md: 60} (60px)"
+    },
+    "rem": {
+      "description": "Root em - relative to root (html) font size",
+      "toggle": "global",
+      "calculation": "1rem = root font size (typically 16px)",
+      "responsive": "Scales with user font size preferences",
+      "whenToUse": "Accessible designs, content sites, respects user preferences",
+      "example": "space: {md: '3rem'} (48px if root is 16px)",
+      "accessibility": "WCAG AAA compliance - respects user font size"
+    },
+    "em": {
+      "description": "Em - relative to parent element font size",
+      "toggle": "global",
+      "calculation": "1em = parent element's font size",
+      "responsive": "Scales with parent container typography",
+      "whenToUse": "Component-relative spacing, nested contexts",
+      "example": "space: {md: '2em'} (32px if parent font is 16px)",
+      "caution": "Can compound in nested elements (avoid deep nesting)"
+    },
+    "vh": {
+      "description": "Viewport height - percentage of screen height",
+      "toggle": "global",
+      "calculation": "1vh = 1% of viewport height",
+      "responsive": "Dynamically adjusts on resize/rotation",
+      "whenToUse": "Full-screen layouts, hero sections, scroll-based designs",
+      "example": "space: {md: '10vh'} (108px on 1080px screen)",
+      "caution": "Mobile browsers have vh bugs with URL bar - test thoroughly"
+    },
+    "vw": {
+      "description": "Viewport width - percentage of screen width",
+      "toggle": "global",
+      "calculation": "1vw = 1% of viewport width",
+      "responsive": "Dynamically adjusts on resize",
+      "whenToUse": "Horizontal scrolling, width-relative spacing (rare for vertical spacers)",
+      "example": "space: {md: '5vw'} (96px on 1920px screen)",
+      "note": "Rarely used for vertical spacing - vh is more common"
+    }
+  },
+
+  "validationRules": {
+    "block_id": "Required - Unique 4-character hex identifier",
+    "toggle": "Required - Must be 'normal' (px) or 'global' (custom units)",
+    "space": "Required - Numeric in normal mode, string with unit in global mode",
+    "space.md": "Required - At least desktop value must be set",
+    "space.sm": "Optional - Falls back to md if not set",
+    "space.xs": "Optional - Falls back to sm or md if not set",
+    "normalMode": "space values must be numbers (e.g., 50, not '50px')",
+    "globalMode": "space values must be strings with units (e.g., '3rem', not 3)"
+  },
+
+  "warnings": [
+    "In 'normal' mode, space values are NUMBERS (e.g., 50), not strings ('50px')",
+    "In 'global' mode, space values are STRINGS with units (e.g., '3rem', '10vh')",
+    "vh units on mobile can be buggy due to URL bar behavior (test on real devices)",
+    "Very large spacing (>200px or >15vh) may cause excessive scrolling",
+    "Don't use vw for vertical spacers - use vh or px instead",
+    "em units compound in nested elements - prefer rem for consistency",
+    "Space values without responsive breakpoints (sm/xs) fall back to md",
+    "Spacer adds height but no content - won't show up if space: 0 or negative",
+    "Multiple spacers in a row add up (2×50px = 100px total spacing)"
+  ],
+
+  "commonMistakes": [
+    "Using 'normal' mode with string values: space: {md: '50px'} (should be {md: 50})",
+    "Using 'global' mode with number values: space: {md: 3} (should be {md: '3rem'})",
+    "Forgetting to set toggle: 'global' when using rem/vh units",
+    "Not setting responsive values (sm/xs) for mobile optimization",
+    "Using excessive spacing (>150px) on mobile (causes scroll fatigue)",
+    "Setting negative spacing (not supported - min 0)",
+    "Using em units without understanding parent font size context",
+    "Over-using vh on mobile without testing URL bar behavior",
+    "Stacking multiple large spacers when one larger spacer would suffice",
+    "Using spacer where padding/margin on containers would be more semantic"
+  ],
+
+  "bestPractices": [
+    "Use 'normal' mode with px for most cases (simple, predictable)",
+    "Use 'global' mode with rem for accessible, content-heavy sites",
+    "Set responsive values (md/sm/xs) - reduce spacing 30-50% on mobile",
+    "Common spacing scale: 20px, 30px, 40px, 60px, 80px, 120px",
+    "Use 3:1 or 4:1 ratio before/after headings (more space before than after)",
+    "For section dividers, use 80-120px on desktop, 40-60px on mobile",
+    "Test vh-based spacing on actual mobile devices (not just browser preview)",
+    "Prefer rem over px for accessibility (respects user font size)",
+    "Use consistent spacing multiples (e.g., 20px, 40px, 60px, 80px)",
+    "Don't overuse spacers - consider padding on containers instead"
+  ],
+
+  "accessibilityNotes": [
+    "Spacer blocks have no accessibility impact - purely visual spacing",
+    "Use rem units to respect user font size preferences (WCAG AAA)",
+    "Don't use excessive spacing that requires excessive scrolling",
+    "Spacers should not replace semantic HTML structure (use headings, sections)",
+    "No ARIA attributes needed - this is layout spacing, not content",
+    "Screen readers ignore empty divs - no impact on navigation",
+    "Keyboard navigation skips over spacers (no tab stops)",
+    "Proper vertical rhythm (spacing) improves readability for all users"
+  ],
+
+  "performanceConsiderations": [
+    "Spacer blocks are lightweight - minimal DOM/CSS overhead",
+    "Creates single empty div with inline height style",
+    "No JavaScript - pure CSS spacing",
+    "Multiple spacers add minimal DOM nodes",
+    "vh units trigger reflow on resize (minimal impact)",
+    "rem units are fast - browser calculates once",
+    "Hundreds of spacers may bloat HTML slightly (use sparingly)",
+    "Consider CSS padding/margin on containers as alternative for fewer DOM nodes"
+  ],
+
+  "responsivePatterns": {
+    "conservative": {
+      "description": "Moderate reduction for mobile",
+      "md": 100,
+      "sm": 70,
+      "xs": 50,
+      "ratio": "50% reduction desktop→mobile",
+      "whenToUse": "Standard responsive sites"
+    },
+    "aggressive": {
+      "description": "Strong reduction to minimize mobile scrolling",
+      "md": 120,
+      "sm": 60,
+      "xs": 30,
+      "ratio": "75% reduction desktop→mobile",
+      "whenToUse": "Content-heavy pages, long articles"
+    },
+    "proportional": {
+      "description": "Maintains visual proportion across devices",
+      "md": "5rem",
+      "sm": "3rem",
+      "xs": "2rem",
+      "ratio": "Scales with font size (rem)",
+      "whenToUse": "Accessible designs, typography-based layouts"
+    },
+    "viewportBased": {
+      "description": "Scales with screen height",
+      "md": "10vh",
+      "sm": "7vh",
+      "xs": "5vh",
+      "ratio": "Always proportional to viewport",
+      "whenToUse": "Full-screen designs, landing pages"
+    }
+  },
+
+  "useCasesByContext": {
+    "betweenParagraphs": {
+      "spacing": "20-30px",
+      "example": {"md": 25, "sm": 20, "xs": 15},
+      "notes": "Subtle breathing room, maintains reading flow"
+    },
+    "afterHeadings": {
+      "spacing": "15-25px",
+      "example": {"md": 20, "sm": 18, "xs": 15},
+      "notes": "Small gap connects heading to content below"
+    },
+    "beforeHeadings": {
+      "spacing": "60-100px",
+      "example": {"md": 80, "sm": 50, "xs": 30},
+      "notes": "Large gap signals new topic/section"
+    },
+    "sectionDividers": {
+      "spacing": "80-150px",
+      "example": {"md": 120, "sm": 70, "xs": 40},
+      "notes": "Strong visual separation between major sections"
+    },
+    "formFields": {
+      "spacing": "30-50px",
+      "example": {"md": 40, "sm": 30, "xs": 25},
+      "notes": "Balanced spacing for form readability"
+    },
+    "heroToContent": {
+      "spacing": "100-200px or 10-15vh",
+      "example": {"md": "12vh", "sm": "8vh", "xs": "6vh"},
+      "notes": "Dramatic transition from hero to content"
+    },
+    "beforeFooter": {
+      "spacing": "100-150px",
+      "example": {"md": 120, "sm": 80, "xs": 50},
+      "notes": "Clear end-of-content signal"
+    },
+    "cardGrids": {
+      "spacing": "40-60px (vertical), 20-30px (horizontal)",
+      "example": {"md": 50, "sm": 35, "xs": 25},
+      "notes": "Use between rows in card grids"
+    }
+  },
+
+  "troubleshooting": {
+    "problemsAndSolutions": [
+      {
+        "problem": "Spacer not showing any height",
+        "solution": "Check space value is not 0. Verify toggle mode matches value format (normal=number, global=string)."
+      },
+      {
+        "problem": "Error: 'space: {md: '50px'}' not working in normal mode",
+        "solution": "In normal mode, use numbers without units: space: {md: 50}. Or switch to global mode."
+      },
+      {
+        "problem": "rem spacing not scaling with font size",
+        "solution": "Ensure toggle: 'global' is set. Check value is string: space: {md: '3rem'}"
+      },
+      {
+        "problem": "vh spacing jumps on mobile when scrolling",
+        "solution": "Mobile browser URL bar affects vh. Use fixed px on mobile: space: {md: '10vh', xs: 80}"
+      },
+      {
+        "problem": "Spacing too large on mobile",
+        "solution": "Set smaller xs value: space: {md: 100, sm: 60, xs: 30}"
+      },
+      {
+        "problem": "Multiple spacers creating excessive gap",
+        "solution": "Spacers add up - use single larger spacer instead of multiple small ones"
+      },
+      {
+        "problem": "Spacer not responsive",
+        "solution": "Set sm/xs values explicitly: space: {md: 100, sm: 70, xs: 40}"
+      }
+    ]
+  },
+
+  "relatedBlocks": [
+    "core/spacer - WordPress core spacer (similar functionality)",
+    "tpgb/tp-container - Container with padding (alternative to spacers)",
+    "tpgb/tp-row - Row with gap control (alternative for consistent spacing)"
+  ]
 }

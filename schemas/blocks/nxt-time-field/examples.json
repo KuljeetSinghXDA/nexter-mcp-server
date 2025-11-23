@@ -1,42 +1,421 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-form-time-field",
-  "title": "Pick a Time - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Pick a Time - Comprehensive Examples",
+  "description": "Clock-based time picker for forms. Must be child of tpgb/tp-form-block. Supports 12/24-hour format, required validation, help text, custom sizing.",
   "examples": [
     {
-      "description": "Simple time picker",
+      "name": "Appointment Time Picker (Basic Required)",
+      "description": "Simple time picker for appointment booking with required validation",
+      "visualDescription": "Clock icon input field with time picker popup, required asterisk, standard 100% width",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
-        "labelss": "Select Time",
-        "placeholder": "Pick a time",
-        "reqTgl": true
-      }
+        "block_id": "tf001",
+        "labelss": "Preferred Appointment Time",
+        "placeholder": "Select time",
+        "reqTgl": true,
+        "error": "Please select your preferred appointment time.",
+        "uniqueid": "appointment_time"
+      },
+      "useCase": "Doctor appointments, salon bookings, consultation scheduling, service reservations",
+      "bestPractices": [
+        "Use clear label: 'Preferred Appointment Time' (not just 'Time')",
+        "Make required for appointment forms (reqTgl: true)",
+        "Custom error message specific to context",
+        "Set uniqueid for backend processing (appointment_time)",
+        "Keep 100% width for better mobile experience",
+        "Use placeholder to indicate format (e.g., 'HH:MM' or '9:00 AM')"
+      ]
     },
     {
-      "description": "Appointment time with help text",
+      "name": "Event Start Time with Help Text (Top)",
+      "description": "Event start time with descriptive help text positioned above field",
+      "visualDescription": "Help text above field explaining time input, clock picker, full width",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
-        "labelss": "Preferred Appointment Time",
+        "block_id": "tf002",
+        "labelss": "Event Start Time",
+        "placeholder": "When does the event begin?",
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "Select the time when your event will begin. Please use your local timezone.",
+        "descPoss": "top",
+        "error": "Event start time is required.",
+        "uniqueid": "event_start_time"
+      },
+      "useCase": "Event registration, webinar signup, workshop scheduling, conference forms",
+      "bestPractices": [
+        "Use help text to clarify expectations (timezone, format, restrictions)",
+        "Position help text at top (descPoss: 'top') for visibility before input",
+        "Mention timezone in help text if relevant",
+        "Clear placeholder as question ('When does the event begin?')",
+        "Required for events that need specific timing"
+      ]
+    },
+    {
+      "name": "Delivery Time Preference with Help Text (Bottom)",
+      "description": "Optional time field for delivery preferences with help text below",
+      "visualDescription": "Time picker with help text positioned below field, not required, standard width",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "tf003",
+        "labelss": "Preferred Delivery Time (Optional)",
+        "placeholder": "Select preferred time",
+        "reqTgl": false,
+        "hlpTxt": true,
+        "desctxt": "Delivery between 9 AM - 6 PM. We'll do our best to deliver at your preferred time.",
+        "descPoss": "bottom",
+        "uniqueid": "delivery_time"
+      },
+      "useCase": "E-commerce delivery, food delivery, package delivery, service scheduling",
+      "bestPractices": [
+        "Make optional (reqTgl: false) for preferences not requirements",
+        "Indicate optional in label: '(Optional)'",
+        "Use help text to set expectations (delivery window, best-effort)",
+        "Position help text at bottom (descPoss: 'bottom') for supplementary info",
+        "Clear about constraints ('between 9 AM - 6 PM')"
+      ]
+    },
+    {
+      "name": "Meeting Time with Custom Width (50%)",
+      "description": "Half-width time picker for meeting scheduling, useful in multi-column layouts",
+      "visualDescription": "50% width time picker, allows for side-by-side with date field",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "tf004",
+        "labelss": "Meeting Time",
         "placeholder": "HH:MM",
         "reqTgl": true,
-        "hlpTxt": true,
-        "desctxt": "Select your preferred time slot for the appointment",
-        "descPoss": "bottom"
-      }
+        "inpSz": {
+          "md": "50",
+          "sm": "100",
+          "unit": "%"
+        },
+        "error": "Please select a meeting time.",
+        "uniqueid": "meeting_time"
+      },
+      "useCase": "Meeting requests, interview scheduling, call-back time, consultation booking",
+      "bestPractices": [
+        "Use custom width (50%) to pair with date picker in same row",
+        "Responsive: 50% on desktop (md), 100% on tablet/mobile (sm)",
+        "Always unit: '%' for responsive layouts (not 'px')",
+        "Pair with date field for complete datetime input",
+        "Use HH:MM placeholder to indicate expected format"
+      ],
+      "layoutTips": [
+        "Place date picker (50%) and time picker (50%) in same row",
+        "On mobile (sm: 100%), they stack vertically automatically",
+        "Use Nexter Blocks column layout for side-by-side",
+        "Add small gap between fields (10-20px)"
+      ]
     },
     {
-      "description": "Event start time",
+      "name": "Business Hours Input (Opening Time)",
+      "description": "Time picker for business hours or availability windows",
+      "visualDescription": "Time picker for entering business opening hours, required field",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
-        "labelss": "Event Start Time",
-        "placeholder": "Start time",
+        "block_id": "tf005",
+        "labelss": "Opening Time",
+        "placeholder": "e.g., 9:00 AM",
         "reqTgl": true,
         "hlpTxt": true,
-        "desctxt": "What time will the event begin?",
-        "descPoss": "top"
-      }
+        "desctxt": "What time do you open for business? Use 12-hour format (AM/PM).",
+        "descPoss": "top",
+        "error": "Opening time is required.",
+        "uniqueid": "opening_time"
+      },
+      "relatedFields": [
+        {
+          "label": "Closing Time",
+          "uniqueid": "closing_time",
+          "note": "Pair with closing time field to capture full business hours"
+        }
+      ],
+      "useCase": "Business registration, store hours submission, availability forms, service hours",
+      "bestPractices": [
+        "Pair with 'Closing Time' field for complete schedule",
+        "Specify format in help text ('12-hour format (AM/PM)')",
+        "Use example in placeholder ('e.g., 9:00 AM')",
+        "Validate on backend: opening < closing time",
+        "Consider time zone if business operates across zones"
+      ],
+      "validationPatterns": [
+        "Opening time must be before closing time",
+        "Time must be in valid format (HH:MM AM/PM or HH:MM 24-hour)",
+        "Business hours typically 6 AM - 11 PM (flag unusual hours)",
+        "Consider lunch breaks (some businesses close mid-day)"
+      ]
+    },
+    {
+      "name": "Reservation Time Slot (Narrow Width 40%)",
+      "description": "Compact time picker for reservation forms in multi-field layouts",
+      "visualDescription": "40% width time picker, compact for dense forms, clock icon",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "tf006",
+        "labelss": "Reservation Time",
+        "placeholder": "Time",
+        "reqTgl": true,
+        "inpSz": {
+          "md": "40",
+          "sm": "100",
+          "unit": "%"
+        },
+        "hlpTxt": true,
+        "desctxt": "Available slots: 12 PM, 2 PM, 4 PM, 6 PM, 8 PM",
+        "descPoss": "bottom",
+        "error": "Please select a reservation time.",
+        "uniqueid": "reservation_time"
+      },
+      "useCase": "Restaurant reservations, table booking, venue reservations, time-slot booking",
+      "bestPractices": [
+        "Use narrower width (40%) for compact reservation forms",
+        "List available time slots in help text",
+        "Responsive: 40% desktop, 100% mobile",
+        "Validate against available slots on backend",
+        "Consider disabling unavailable times (requires custom JS)",
+        "Show timezone if restaurant has multiple locations"
+      ],
+      "warnings": [
+        "Don't rely on help text to enforce slots (validate on backend)",
+        "User can type any time - validate against available slots",
+        "Consider using dropdown for fixed time slots instead",
+        "Time picker allows free-form entry (e.g., 1:37 PM) - may need rounding"
+      ]
+    },
+    {
+      "name": "Flexible Availability (No Placeholder)",
+      "description": "Open-ended time field for user to specify availability",
+      "visualDescription": "Time picker without placeholder, label only, clean minimalist design",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "tf007",
+        "labelss": "Your Availability",
+        "placeholder": "",
+        "reqTgl": false,
+        "hlpTxt": true,
+        "desctxt": "When are you generally available? We'll use this to schedule our call.",
+        "descPoss": "bottom",
+        "uniqueid": "availability_time"
+      },
+      "useCase": "Call-back requests, consultation requests, follow-up scheduling, flexible meeting times",
+      "bestPractices": [
+        "Optional field (reqTgl: false) for flexibility",
+        "Empty placeholder for clean UI (user knows it's time input from label)",
+        "Help text explains purpose ('schedule our call')",
+        "Use for general availability (not strict appointments)",
+        "Allow backend flexibility (user enters preference, not strict slot)"
+      ]
+    },
+    {
+      "name": "Inline Time Picker (With Inline Submit Button)",
+      "description": "Compact inline time picker with submit button on same line",
+      "visualDescription": "Time picker with submit button inline, compact horizontal layout, 70% + 30% width",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "tf008",
+        "labelss": "Check Availability",
+        "placeholder": "Enter time",
+        "reqTgl": true,
+        "inpSz": {
+          "md": "70",
+          "sm": "100",
+          "unit": "%"
+        },
+        "error": "Time is required.",
+        "uniqueid": "check_time"
+      },
+      "relatedBlocks": [
+        {
+          "block": "nxt-submit-button",
+          "note": "Add submit button with isInline: true to appear on same line"
+        }
+      ],
+      "useCase": "Quick availability checks, time-based searches, instant booking, fast queries",
+      "bestPractices": [
+        "Use 70% width for time picker (md: 70)",
+        "Add inline submit button (30% width) on same line",
+        "Submit button: isInline: true, align: 'left'",
+        "Mobile: Time picker 100% width, submit button below (sm: 100)",
+        "Keep label short ('Check Availability' not 'Please Enter Time to Check Availability')",
+        "Use for quick actions (not multi-step forms)"
+      ],
+      "implementationNotes": [
+        "Time picker inpSz: {md: '70', sm: '100', unit: '%'}",
+        "Submit button isInline: true (critical for inline layout)",
+        "Submit button btnSz: {md: '30', unit: '%'} to fit remaining space",
+        "Both fields should have same parent (tp-form-block)",
+        "On mobile, inline mode disabled automatically (stack vertically)"
+      ],
+      "warnings": [
+        "Inline layout works only on desktop (md breakpoint)",
+        "Mobile always stacks vertically (ignore inline setting)",
+        "Don't force inline on forms with many fields (use for quick actions only)",
+        "Test on mobile - inline can break if not configured properly"
+      ]
     }
   ],
-  "commonPatterns": {}
+  "commonPatterns": [
+    {
+      "pattern": "Basic Time Input",
+      "fields": ["labelss", "placeholder", "reqTgl", "error"],
+      "description": "Standard time picker with required validation"
+    },
+    {
+      "pattern": "Time with Help Text",
+      "fields": ["labelss", "hlpTxt", "desctxt", "descPoss"],
+      "description": "Time picker with explanatory help text above or below"
+    },
+    {
+      "pattern": "Multi-Column Time",
+      "fields": ["labelss", "inpSz: {md: 50, sm: 100}"],
+      "description": "Half-width time picker for side-by-side with date picker"
+    },
+    {
+      "pattern": "Inline Time + Button",
+      "fields": ["labelss", "inpSz: {md: 70}", "isInline submit button"],
+      "description": "Compact inline time picker with submit button"
+    }
+  ],
+  "validationRules": {
+    "block_id": "Required - Unique identifier",
+    "labelss": "Required - Field label displayed to user",
+    "reqTgl": "Optional - Boolean, true = required field, false = optional",
+    "placeholder": "Optional - Placeholder text, can be empty string",
+    "inpSz": "Optional - Responsive width {md, sm, xs, unit}, default 100%",
+    "hlpTxt": "Optional - Boolean, true = show help text, false = hide",
+    "desctxt": "Conditional - Required if hlpTxt is true, help text content",
+    "descPoss": "Optional - 'top' or 'bottom', position of help text, default 'top'",
+    "error": "Optional - Custom error message for required validation",
+    "uniqueid": "Optional - Unique field identifier for backend processing",
+    "ancestor": "MUST be child of tpgb/tp-form-block"
+  },
+  "warnings": [
+    "Time picker allows free-form entry (users can type any time, not just picker values)",
+    "Validate time format on backend (HH:MM, 12/24-hour, AM/PM)",
+    "Time picker doesn't enforce specific slots - validate on server",
+    "Users may enter invalid times (25:00, 13:70) - add validation",
+    "Time zones are NOT captured by this field - handle separately if needed",
+    "Browser time picker UI varies (Chrome vs Firefox vs Safari)",
+    "Some browsers may not support time picker (fallback to text input)",
+    "Time picker may show 12-hour or 24-hour based on browser/OS locale",
+    "Mobile time pickers behave differently than desktop",
+    "Don't assume time format - normalize on backend (convert to 24-hour)",
+    "Time picker doesn't validate against business logic (opening hours, availability)",
+    "Placeholder text may not show in some browsers for time input type"
+  ],
+  "commonMistakes": [
+    "Not validating time format on backend (trusting client input)",
+    "Assuming all users use same time format (12-hour vs 24-hour)",
+    "Not specifying timezone (ambiguous for global users)",
+    "Using pixel width (inpSz: {md: '300', unit: 'px'}) instead of percentage (breaks responsive)",
+    "Forgetting to make mobile full-width (sm: 100) when using custom desktop width",
+    "Not providing clear placeholder or help text for expected format",
+    "Using generic error message ('This field is required') instead of context-specific",
+    "Not pairing start/end times in forms (appointment start without end)",
+    "Forgetting uniqueid for backend processing (field submissions get lost)",
+    "Using time picker for discrete slots (use dropdown instead for fixed options)"
+  ],
+  "bestPractices": [
+    "Use percentage width for responsive design (unit: '%')",
+    "Always set sm: 100 for mobile when using custom desktop width",
+    "Provide clear labels: 'Appointment Time' not just 'Time'",
+    "Use help text to clarify format, timezone, constraints",
+    "Set uniqueid for easy backend processing (use snake_case)",
+    "Validate time format on backend (never trust client)",
+    "Normalize times to 24-hour format on backend (consistent storage)",
+    "For time slots, consider dropdown instead of time picker (better UX)",
+    "Pair with date picker for complete datetime (side-by-side layout)",
+    "Use placeholder to hint at format (but don't rely on it)",
+    "Make required (reqTgl: true) for critical fields (appointments, events)",
+    "Provide timezone field separately if users are in different zones",
+    "Test across browsers (time picker UI varies)",
+    "Use custom error messages specific to field purpose",
+    "Validate logical constraints (start < end, within business hours)"
+  ],
+  "accessibilityNotes": [
+    "Time picker must have clear label (labelss attribute)",
+    "Screen readers announce label and input type (time)",
+    "Placeholder text is accessible hint (but not replacement for label)",
+    "Error messages are announced by screen readers when validation fails",
+    "Keyboard navigation: Tab to field, arrow keys to adjust time, Enter to confirm",
+    "Help text (desctxt) is associated with input for screen readers",
+    "Required fields should have visual indicator (asterisk) and aria-required",
+    "Error state should have aria-invalid when validation fails",
+    "Time picker native browser widget is generally accessible",
+    "Test with keyboard only (no mouse) to ensure full functionality"
+  ],
+  "performanceConsiderations": [
+    "Time picker is native HTML input (no external library = fast)",
+    "No performance impact on page load",
+    "Browser handles time picker UI (no additional JS)",
+    "Validation happens on form submit (minimal performance cost)",
+    "Responsive width calculation is CSS-based (instant)",
+    "Help text adds minimal DOM nodes (negligible impact)",
+    "Total field weight: ~200 bytes (very lightweight)"
+  ],
+  "browserCompatibility": {
+    "Chrome": "Full support - Native time picker with clock UI",
+    "Firefox": "Full support - Native time picker",
+    "Safari": "Full support - Native time picker (iOS has wheel picker)",
+    "Edge": "Full support - Same as Chrome (Chromium-based)",
+    "IE11": "Fallback to text input - No native time picker (deprecated browser)",
+    "Mobile": "Excellent - Native mobile time pickers are very UX-friendly"
+  },
+  "timeFormatExamples": [
+    {
+      "format": "12-hour AM/PM",
+      "examples": ["9:00 AM", "2:30 PM", "11:45 PM"],
+      "note": "Common in US, Canada, Philippines, Australia"
+    },
+    {
+      "format": "24-hour",
+      "examples": ["09:00", "14:30", "23:45"],
+      "note": "Common in Europe, Asia, military time"
+    },
+    {
+      "format": "Browser dependent",
+      "note": "Time picker uses browser/OS locale - may display 12 or 24-hour"
+    }
+  ],
+  "backendValidationExample": {
+    "description": "Always validate and normalize time on server",
+    "PHP": "// Validate time format\nif (!preg_match('/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/', $time)) {\n  $errors[] = 'Invalid time format';\n}\n\n// Convert to 24-hour format for storage\n$time_24 = date('H:i', strtotime($time));\n\n// Validate business hours (9 AM - 5 PM)\nif ($time_24 < '09:00' || $time_24 > '17:00') {\n  $errors[] = 'Time must be between 9 AM and 5 PM';\n}",
+    "note": "Never trust client-side validation - always verify on server"
+  },
+  "useCaseSpecificTips": {
+    "Appointment Booking": {
+      "tips": [
+        "Validate against available slots on backend",
+        "Send confirmation email with selected time",
+        "Show timezone in confirmation (avoid confusion)",
+        "Consider buffer times between appointments"
+      ]
+    },
+    "Event Registration": {
+      "tips": [
+        "Display event timezone clearly",
+        "Validate event time is in future (not past)",
+        "Send calendar invite with registration confirmation",
+        "Handle all-day events separately (don't use time picker)"
+      ]
+    },
+    "Delivery Scheduling": {
+      "tips": [
+        "Show delivery windows (9 AM - 12 PM, 12 PM - 3 PM)",
+        "Use dropdown for discrete slots instead of time picker",
+        "Validate against delivery hours (no 3 AM deliveries)",
+        "Consider cutoff times (order by 2 PM for same-day)"
+      ]
+    },
+    "Business Hours": {
+      "tips": [
+        "Pair opening and closing times",
+        "Validate opening < closing",
+        "Handle 24-hour businesses separately (midnight crossing)",
+        "Consider day-specific hours (Monday hours may differ from Sunday)"
+      ]
+    }
+  }
 }

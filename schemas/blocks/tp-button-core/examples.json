@@ -1,61 +1,437 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-button-core",
-  "title": "Button - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Button - Comprehensive Usage Examples",
+  "description": "Complete example configurations for call-to-action buttons with typography, icons, colors, and positioning options (Free version)",
+
   "examples": [
     {
-      "description": "Simple button with icon",
+      "name": "Primary CTA Button (Centered)",
+      "description": "Standard call-to-action button with purple background",
+      "visualDescription": "White text on purple (#6f14f1) background, centered, rounded corners, generous padding",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
-        "btxt": "Get Started",
-        "bLink": {
-          "url": "/signup",
-          "target": "",
-          "nofollow": ""
+        "block_id": "bc001",
+        "btxt": "Get Started Free",
+        "bLink": {"url": "/signup", "target": "", "nofollow": ""},
+        "bAlign": {"md": "center", "sm": "center", "xs": "center"},
+        "btColor": "#ffffff",
+        "btBg": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#6f14f1"},
+        "bthBg": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#5a0fd4"},
+        "brad": {"md": {"top": "5", "bottom": "5", "left": "5", "right": "5"}, "unit": "px"},
+        "btPad": {"md": {"top": "15", "bottom": "15", "left": "35", "right": "35"}, "unit": "px"},
+        "biType": "none"
+      },
+      "useCase": "Homepage CTAs, landing pages, signup forms, primary actions, hero sections"
+    },
+
+    {
+      "name": "Secondary Outline Button",
+      "description": "Transparent button with border, no background fill",
+      "visualDescription": "Purple text with purple border, transparent background, hover fills background",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "bc002",
+        "btxt": "Learn More",
+        "bLink": {"url": "/about", "target": "", "nofollow": ""},
+        "bAlign": {"md": "left", "sm": "left", "xs": "center"},
+        "btColor": "#6f14f1",
+        "bthColor": "#ffffff",
+        "btBg": {"openBg": 0},
+        "bthBg": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#6f14f1"},
+        "bBord": {
+          "openBorder": 1,
+          "type": "solid",
+          "width": {"md": {"top": "2", "bottom": "2", "left": "2", "right": "2"}, "unit": "px"},
+          "color": "#6f14f1"
         },
+        "bthBColor": "#5a0fd4",
+        "brad": {"md": {"top": "5", "bottom": "5", "left": "5", "right": "5"}, "unit": "px"},
+        "btPad": {"md": {"top": "12", "bottom": "12", "left": "30", "right": "30"}, "unit": "px"}
+      },
+      "useCase": "Secondary actions, cancel buttons, alternative CTAs, ghost buttons"
+    },
+
+    {
+      "name": "Icon Button (Arrow Right)",
+      "description": "Button with FontAwesome arrow icon after text",
+      "visualDescription": "Purple background, white text with right arrow icon, 10px gap between text and icon",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "bc003",
+        "btxt": "Continue",
+        "bLink": {"url": "/next-step", "target": "", "nofollow": ""},
+        "bAlign": {"md": "center", "sm": "center", "xs": "center"},
         "biType": "fontAwesome",
         "bIcon": "fas fa-arrow-right",
-        "bAlign": {
-          "md": "center"
-        }
+        "bipos": "1",
+        "bispac": {"md": "10", "sm": "8", "xs": "8", "unit": "px"},
+        "biSize": {"md": "16", "sm": "14", "xs": "14", "unit": "px"},
+        "btColor": "#ffffff",
+        "btBg": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#6f14f1"},
+        "brad": {"md": {"top": "5", "bottom": "5", "left": "5", "right": "5"}, "unit": "px"},
+        "btPad": {"md": {"top": "14", "bottom": "14", "left": "32", "right": "32"}, "unit": "px"}
+      },
+      "useCase": "Next buttons, navigation, form progression, directional actions",
+      "iconNotes": {
+        "bipos": "Icon position using CSS flexbox order ('' = before text, '1' = after text)",
+        "bispac": "Gap between icon and text using column-gap",
+        "biSize": "Icon font-size for FontAwesome icons"
       }
     },
+
     {
-      "description": "Styled button with custom colors",
+      "name": "Download Button (Icon Left)",
+      "description": "Download button with download icon before text",
+      "visualDescription": "Green background, white text with download icon on left, 12px icon spacing",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
-        "btxt": "Learn More",
+        "block_id": "bc004",
+        "btxt": "Download PDF",
+        "bLink": {"url": "/files/brochure.pdf", "target": "_blank", "nofollow": ""},
+        "bAlign": {"md": "left", "sm": "left", "xs": "left"},
+        "biType": "fontAwesome",
+        "bIcon": "fas fa-download",
+        "bipos": "",
+        "bispac": {"md": "12", "sm": "10", "xs": "10", "unit": "px"},
+        "biSize": {"md": "18", "sm": "16", "xs": "16", "unit": "px"},
+        "btColor": "#ffffff",
+        "btBg": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#10b981"},
+        "bthBg": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#059669"},
+        "brad": {"md": {"top": "5", "bottom": "5", "left": "5", "right": "5"}, "unit": "px"},
+        "btPad": {"md": {"top": "12", "bottom": "12", "left": "25", "right": "25"}, "unit": "px"}
+      },
+      "useCase": "File downloads, PDF links, resource downloads, attachment buttons"
+    },
+
+    {
+      "name": "Gradient Background Button",
+      "description": "Button with purple-to-blue gradient background",
+      "visualDescription": "Linear gradient 135deg from purple to blue, white text, subtle shadow",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "bc005",
+        "btxt": "Start Your Journey",
+        "bLink": {"url": "/onboarding", "target": "", "nofollow": ""},
+        "bAlign": {"md": "center", "sm": "center", "xs": "center"},
         "btColor": "#ffffff",
         "btBg": {
           "openBg": 1,
-          "bgType": "color",
-          "bgDefaultColor": "#667eea"
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
         },
-        "brad": {
-          "md": {
-            "top": "5",
-            "bottom": "5",
-            "left": "5",
-            "right": "5"
-          },
-          "unit": "px"
+        "brad": {"md": {"top": "25", "bottom": "25", "left": "25", "right": "25"}, "unit": "px"},
+        "btPad": {"md": {"top": "16", "bottom": "16", "left": "40", "right": "40"}, "unit": "px"},
+        "btshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.3)"
         },
-        "btPad": {
-          "md": {
-            "top": "15",
-            "bottom": "15",
-            "left": "30",
-            "right": "30"
-          },
-          "unit": "px"
+        "bTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "18", "sm": "16", "xs": "15", "unit": "px"},
+          "fontWeight": "600",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
         }
+      },
+      "useCase": "Premium CTAs, special offers, featured actions, eye-catching buttons"
+    },
+
+    {
+      "name": "External Link Button (New Tab, NoFollow)",
+      "description": "Button for external links with security attributes",
+      "visualDescription": "Blue background, white text with external link icon, opens in new tab",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "bc006",
+        "btxt": "Visit Website",
+        "bLink": {"url": "https://example.com", "target": "_blank", "nofollow": "nofollow"},
+        "bAlign": {"md": "left", "sm": "left", "xs": "left"},
+        "biType": "fontAwesome",
+        "bIcon": "fas fa-external-link-alt",
+        "bipos": "1",
+        "bispac": {"md": "10", "unit": "px"},
+        "biSize": {"md": "14", "unit": "px"},
+        "btColor": "#ffffff",
+        "btBg": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#3b82f6"},
+        "brad": {"md": {"top": "4", "bottom": "4", "left": "4", "right": "4"}, "unit": "px"},
+        "btPad": {"md": {"top": "10", "bottom": "10", "left": "20", "right": "20"}, "unit": "px"}
+      },
+      "useCase": "External links, partner sites, affiliate links, third-party resources",
+      "linkNotes": {
+        "target": "'_blank' opens in new tab (recommended for external links)",
+        "nofollow": "'nofollow' tells search engines not to follow link (for SEO control)"
+      }
+    },
+
+    {
+      "name": "Fixed Bottom-Right FAB (Floating Action Button)",
+      "description": "Fixed-position button in bottom-right corner",
+      "visualDescription": "Round purple button fixed to bottom-right, 30px from edges, circular with plus icon",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "bc007",
+        "btxt": "",
+        "bLink": {"url": "/create", "target": "", "nofollow": ""},
+        "bAlign": {"md": "center", "sm": "center", "xs": "center"},
+        "biType": "fontAwesome",
+        "bIcon": "fas fa-plus",
+        "bipos": "",
+        "biSize": {"md": "24", "sm": "20", "xs": "18", "unit": "px"},
+        "btColor": "#ffffff",
+        "btBg": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#6f14f1"},
+        "bthBg": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#5a0fd4"},
+        "brad": {"md": {"top": "50", "bottom": "50", "left": "50", "right": "50"}, "unit": "px"},
+        "btPad": {"md": {"top": "20", "bottom": "20", "left": "20", "right": "20"}, "unit": "px"},
+        "globalPosition": {"md": "fixed", "sm": "fixed", "xs": "fixed"},
+        "glohoriOffset": {"md": "30", "sm": "20", "xs": "15", "unit": "px"},
+        "gloverticalOffset": {"md": "30", "sm": "20", "xs": "15", "unit": "px"},
+        "btshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 6,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(111, 20, 241, 0.4)"
+        }
+      },
+      "useCase": "Create buttons, chat widgets, quick actions, mobile FABs, always-visible CTAs",
+      "positioningNotes": {
+        "globalPosition": "'fixed' keeps button visible while scrolling",
+        "glohoriOffset": "Distance from right edge (right: 30px)",
+        "gloverticalOffset": "Distance from bottom edge (bottom: 30px)",
+        "zIndex": "Button appears above other content"
+      }
+    },
+
+    {
+      "name": "Responsive Padding & Typography Button",
+      "description": "Button with fully responsive padding and font sizes",
+      "visualDescription": "Desktop: large padding/18px text, Tablet: medium padding/16px text, Mobile: compact padding/14px text",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "bc008",
+        "btxt": "Join Now",
+        "bLink": {"url": "/register", "target": "", "nofollow": ""},
+        "bAlign": {"md": "center", "sm": "center", "xs": "center"},
+        "btColor": "#ffffff",
+        "btBg": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#ef4444"},
+        "bthBg": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#dc2626"},
+        "brad": {"md": {"top": "6", "bottom": "6", "left": "6", "right": "6"}, "unit": "px"},
+        "btPad": {
+          "md": {"top": "18", "bottom": "18", "left": "45", "right": "45"},
+          "sm": {"top": "14", "bottom": "14", "left": "35", "right": "35"},
+          "xs": {"top": "12", "bottom": "12", "left": "25", "right": "25"},
+          "unit": "px"
+        },
+        "bTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "18", "sm": "16", "xs": "14", "unit": "px"},
+          "fontWeight": "700",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "1", "unit": "px"}
+        }
+      },
+      "useCase": "Mobile-first designs, responsive CTAs, adaptive button sizing, cross-device optimization",
+      "responsiveNotes": {
+        "desktop": "Large button: 18px text, 18/45 padding",
+        "tablet": "Medium button: 16px text, 14/35 padding",
+        "mobile": "Compact button: 14px text, 12/25 padding",
+        "pattern": "~20-30% size reduction from desktop to mobile"
       }
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
+
+  "attributeGuide": {
+    "textAndLink": {
+      "btxt": "Button text content (HTML source)",
+      "bLink": {
+        "url": "Link URL (relative or absolute)",
+        "target": "'' (same tab) or '_blank' (new tab)",
+        "nofollow": "'' (follow link) or 'nofollow' (no SEO link juice)"
+      },
+      "bAlign": "Text alignment (left/center/right, responsive)"
+    },
+    "icons": {
+      "biType": {
+        "none": "No icon",
+        "fontAwesome": "Font Awesome icon class",
+        "image": "Custom image icon"
+      },
+      "bIcon": "FontAwesome class (e.g., 'fas fa-arrow-right') when biType='fontAwesome'",
+      "bImg": "Image object {url, Id} when biType='image'",
+      "bipos": "Icon position: '' (before text) or '1' (after text) - CSS flexbox order",
+      "bispac": "Icon spacing from text (column-gap) - responsive object",
+      "biSize": "Icon size: font-size for FA, max-width for images - responsive"
+    },
+    "typography": {
+      "bTypo": "Typography object (openTypography, fontSize, fontWeight, etc.)",
+      "tShadow": "Text shadow object (openShadow, horizontal, vertical, blur, color)"
+    },
+    "colors": {
+      "btColor": "Text color (normal state)",
+      "bthColor": "Text color (hover state)",
+      "btBg": "Background object (normal) - supports color/gradient",
+      "bthBg": "Background object (hover)"
+    },
+    "borderAndRadius": {
+      "bBord": "Border object (openBorder, type, width, color) - normal state",
+      "bthBColor": "Border color (hover state)",
+      "brad": "Border radius - responsive object with top/bottom/left/right"
+    },
+    "spacing": {
+      "btPad": "Button padding - responsive object with top/bottom/left/right",
+      "btshadow": "Box shadow object (openShadow, horizontal, vertical, blur, spread, color)"
+    },
+    "positioning": {
+      "globalPosition": "Positioning mode (static/relative/absolute/fixed) - responsive",
+      "glohoriOffset": "Horizontal offset for absolute/fixed (right: X) - responsive",
+      "gloverticalOffset": "Vertical offset for absolute/fixed (bottom: X) - responsive"
     }
-  }
+  },
+
+  "validationRules": {
+    "block_id": "Required - Unique 4-character hex identifier",
+    "btxt": "Required - Button text (can be empty for icon-only buttons)",
+    "bLink.url": "Required - At minimum set to '#' for no-op buttons",
+    "biType": "When using icons, must be 'fontAwesome' or 'image' (not 'none')",
+    "bIcon": "Required when biType='fontAwesome' (e.g., 'fas fa-star')",
+    "bImg": "Required when biType='image' (must have url property)",
+    "bipos": "Icon position: empty string (before) or '1' (after)",
+    "btBg.openBg": "Must be 1 to show background",
+    "btBg.bgType": "Must be 'color' or 'gradient' when openBg=1",
+    "bBord.openBorder": "Must be 1 to show border",
+    "bTypo.openTypography": "Must be 1 to enable typography settings",
+    "tShadow.openShadow": "Must be 1 to enable text shadow",
+    "btshadow.openShadow": "Must be 1 to enable box shadow"
+  },
+
+  "warnings": [
+    "Button with no text (btxt='') and no icon creates invisible button (ensure icon is set)",
+    "target='_blank' without rel='noopener noreferrer' has security risks (WordPress adds automatically)",
+    "Fixed positioning (globalPosition='fixed') removes button from document flow",
+    "Icon-only buttons should have aria-label for accessibility (not available in this block)",
+    "Very large padding on mobile (>20px top/bottom) may create oversized buttons",
+    "Gradient backgrounds don't support hover gradients - use solid hover color instead",
+    "bipos value is CSS order (empty or '1') - other values may break layout",
+    "nofollow links won't pass SEO value - only use for untrusted/paid links",
+    "Circular buttons (brad: 50%) require equal width/height - use equal padding"
+  ],
+
+  "commonMistakes": [
+    "Setting biType='fontAwesome' but forgetting to set bIcon class name",
+    "Using bipos='left' or 'right' (should be '' or '1' for flexbox order)",
+    "Forgetting to set openBg: 1 before setting background color",
+    "Setting target='_blank' for internal links (use only for external)",
+    "Not setting responsive padding (btPad) - creates oversized mobile buttons",
+    "Using brad with only one value instead of top/bottom/left/right object",
+    "Setting very large bispac (icon spacing >20px) creating excessive gap",
+    "Forgetting to set hover colors (bthColor, bthBg) for interactive feedback",
+    "Using absolute/fixed positioning without understanding offset behavior"
+  ],
+
+  "bestPractices": [
+    "Use descriptive button text (avoid 'Click Here' - use 'Download PDF', 'Sign Up Free')",
+    "Set target='_blank' and nofollow='nofollow' for external links",
+    "Always define hover states (bthColor, bthBg) for visual feedback",
+    "Use 5-8px border radius for modern look, 25-50px for pill/rounded buttons",
+    "Standard padding: 12-18px top/bottom, 25-45px left/right",
+    "Icon spacing (bispac): 8-12px is optimal for readability",
+    "For icon-only buttons, use circular shape (brad: 50px, equal padding)",
+    "Set responsive padding (reduce 20-30% on mobile) to avoid oversized buttons",
+    "Use semantic colors: green for success, red for danger, blue for info",
+    "Limit gradient angles to 135deg or 90deg for clean appearance",
+    "For FAB buttons, use fixed positioning with 20-30px offsets"
+  ],
+
+  "accessibilityNotes": [
+    "Button text (btxt) provides accessible label - keep descriptive and clear",
+    "Icon-only buttons lack accessible labels (use Pro version for aria-label support)",
+    "Ensure sufficient color contrast: WCAG AA requires 4.5:1 for text",
+    "Button should have visible focus state for keyboard navigation",
+    "Use target='_blank' sparingly - notify users link opens new tab",
+    "Don't rely solely on color for button states - add border/shadow changes",
+    "Button text should describe action ('Download PDF', not 'Click Here')",
+    "Minimum touch target: 44×44px for mobile (WCAG 2.5.5)"
+  ],
+
+  "performanceConsiderations": [
+    "Button blocks are lightweight - minimal DOM overhead",
+    "FontAwesome icons require Font Awesome library loaded",
+    "Gradient backgrounds use GPU compositing - hardware accelerated",
+    "Fixed positioning triggers new stacking context",
+    "Image icons (biType='image') require HTTP request for each image",
+    "Hover effects use CSS transitions - no JavaScript cost",
+    "Shadow effects (btshadow, tShadow) may impact rendering performance if excessive"
+  ],
+
+  "comparisonWithProVersion": {
+    "tpgb/tp-button-core": {
+      "version": "Free",
+      "attributes": "Basic (btxt, bLink, icons, colors, padding, positioning)",
+      "iconTypes": "2 (FontAwesome, image)",
+      "effects": "Basic (text shadow, box shadow)",
+      "features": "Core functionality, responsive controls"
+    },
+    "tpgb/tp-button": {
+      "version": "Pro",
+      "attributes": "Advanced (all Free + 23 button styles, animations, effects)",
+      "iconTypes": "4 (FontAwesome, image, SVG, Lottie)",
+      "effects": "Advanced (parallax, sticky, scroll animations, tooltips)",
+      "features": "FancyBox popups, particles, custom CSS, advanced positioning"
+    },
+    "whenToUseWhich": {
+      "useFree": "Simple CTAs, basic buttons, standard layouts, minimal designs",
+      "usePro": "Advanced effects, parallax, FancyBox popups, Lottie animations, 23 style presets"
+    }
+  },
+
+  "troubleshooting": {
+    "problemsAndSolutions": [
+      {
+        "problem": "Icon not showing",
+        "solution": "Check biType='fontAwesome' and bIcon has valid FA class (e.g., 'fas fa-star'). Ensure Font Awesome is loaded."
+      },
+      {
+        "problem": "Button has no background color",
+        "solution": "Set btBg.openBg: 1 and btBg.bgType: 'color' with btBg.bgDefaultColor: '#yourcolor'"
+      },
+      {
+        "problem": "Hover state not working",
+        "solution": "Set hover attributes: bthColor for text, bthBg.openBg: 1 with bthBg.bgDefaultColor for background"
+      },
+      {
+        "problem": "Button too large on mobile",
+        "solution": "Set responsive padding: btPad.xs with smaller values (e.g., {top: 12, bottom: 12, left: 25, right: 25})"
+      },
+      {
+        "problem": "Icon and text have no gap",
+        "solution": "Set bispac: {md: '10', unit: 'px'} for 10px spacing between icon and text"
+      },
+      {
+        "problem": "Circular button looks squished",
+        "solution": "Ensure equal padding (top=bottom=left=right) and brad all sides set to 50px or higher"
+      },
+      {
+        "problem": "Fixed button not positioning correctly",
+        "solution": "globalPosition='fixed' uses right/bottom offsets. glohoriOffset is right: X, gloverticalOffset is bottom: X"
+      }
+    ]
+  },
+
+  "relatedBlocks": [
+    "tpgb/tp-button - Pro version with 23 styles and advanced effects",
+    "tpgb/tp-advanced-buttons - Pro button group block",
+    "core/button - WordPress core button (basic alternative)"
+  ]
 }

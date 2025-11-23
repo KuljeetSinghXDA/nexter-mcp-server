@@ -1,47 +1,427 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-dynamic-heading",
-  "title": "Dynamic HTML - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Dynamic HTML - Comprehensive Usage Examples",
+  "description": "Complete example configurations for displaying dynamic HTML content within ACF repeater templates with typography and color controls",
+
   "examples": [
     {
-      "description": "Simple dynamic text display",
+      "name": "ACF Text Field Display (Product Name)",
+      "description": "Display ACF repeater field value as styled text",
+      "visualDescription": "Product name from ACF field, left-aligned, 18px font, hover effect changes color to purple",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
-        "textValue": "{{field_name}}",
-        "hAlign": {
-          "md": "left"
-        },
-        "hColor": "#333333"
-      }
-    },
-    {
-      "description": "Centered dynamic heading with hover",
-      "attributes": {
-        "block_id": "c3d4",
-        "textValue": "<h3>{{title}}</h3>",
-        "hAlign": {
-          "md": "center"
-        },
+        "block_id": "dh001",
+        "textValue": "{{product_name}}",
+        "hAlign": {"md": "left", "sm": "left", "xs": "left"},
         "hColor": "#2c3e50",
-        "hvrHColor": "#667eea"
-      }
-    },
-    {
-      "description": "Custom HTML with typography",
-      "attributes": {
-        "block_id": "e5f6",
-        "textValue": "<div class='custom'>{{content}}</div>",
+        "hvrHColor": "#667eea",
         "hTypo": {
           "openTypography": 1,
-          "size": {
-            "md": "18",
-            "unit": "px"
-          }
-        },
-        "hColor": "#555555"
+          "size": {"md": "18", "sm": "16", "xs": "14", "unit": "px"},
+          "fontWeight": "600",
+          "lineHeight": {"md": "1.4", "unit": "em"}
+        }
+      },
+      "useCase": "Product lists, service grids, feature displays, team member cards, portfolio items",
+      "parentContext": {
+        "required": "Must be inside tpgb/tp-repeater-block → tpgb/tp-repeater-template",
+        "acfFieldName": "product_name",
+        "receivesContext": ["tpgb/dynamicRepField", "tpgb/dynamicRowIndex"]
+      }
+    },
+
+    {
+      "name": "Centered Dynamic Heading (H3 Semantic)",
+      "description": "ACF field wrapped in H3 tag with center alignment",
+      "visualDescription": "Centered heading with responsive sizing, semantic HTML, gradient hover effect",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "dh002",
+        "textValue": "<h3>{{section_title}}</h3>",
+        "hAlign": {"md": "center", "sm": "center", "xs": "center"},
+        "hColor": "#1a202c",
+        "hvrHColor": "#764ba2",
+        "hTypo": {
+          "openTypography": 1,
+          "size": {"md": "28", "sm": "24", "xs": "20", "unit": "px"},
+          "fontWeight": "700",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "1", "unit": "px"}
+        }
+      },
+      "useCase": "Section headings, card titles, feature names, timeline events",
+      "parentContext": {
+        "required": "Must be inside tpgb/tp-repeater-template",
+        "acfFieldName": "section_title",
+        "receivesContext": ["tpgb/dynamicRepField"]
+      }
+    },
+
+    {
+      "name": "Badge with Icon and Count",
+      "description": "Custom HTML with FontAwesome icon and dynamic count value",
+      "visualDescription": "Purple badge with star icon and number, right-aligned, compact sizing",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "dh003",
+        "textValue": "<span class='badge'><i class='fas fa-star'></i> {{rating_count}} Reviews</span>",
+        "hAlign": {"md": "right", "sm": "right", "xs": "center"},
+        "hColor": "#667eea",
+        "hvrHColor": "#764ba2",
+        "hTypo": {
+          "openTypography": 1,
+          "size": {"md": "14", "sm": "13", "xs": "12", "unit": "px"},
+          "fontWeight": "500",
+          "textTransform": "capitalize"
+        }
+      },
+      "useCase": "Review counts, rating displays, badge counters, notification numbers",
+      "htmlStructure": {
+        "notes": "FontAwesome icon classes work if theme/plugin loads Font Awesome",
+        "customCSS": ".badge { display: inline-block; padding: 4px 12px; border-radius: 20px; background: rgba(102, 126, 234, 0.1); }"
+      },
+      "parentContext": {
+        "required": "Must be inside tpgb/tp-repeater-template",
+        "acfFieldName": "rating_count",
+        "receivesContext": ["tpgb/dynamicRepField", "tpgb/dynamicRowIndex"]
+      }
+    },
+
+    {
+      "name": "Team Member Position (Multi-Line)",
+      "description": "Job title and department on separate lines",
+      "visualDescription": "Two-line display: position name (bold) above department (lighter), centered",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "dh004",
+        "textValue": "<div class='position'><strong>{{job_title}}</strong><br><span class='dept'>{{department}}</span></div>",
+        "hAlign": {"md": "center", "sm": "center", "xs": "center"},
+        "hColor": "#374151",
+        "hvrHColor": "#667eea",
+        "hTypo": {
+          "openTypography": 1,
+          "size": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "lineHeight": {"md": "1.6", "unit": "em"}
+        }
+      },
+      "useCase": "Team member cards, employee directories, author bios, speaker profiles",
+      "htmlStructure": {
+        "notes": "Uses <strong> for job title emphasis, <span> for department",
+        "multipleFields": "Combines two ACF fields: {{job_title}} and {{department}}",
+        "customCSS": ".dept { font-size: 0.9em; opacity: 0.7; }"
+      },
+      "parentContext": {
+        "required": "Must be inside tpgb/tp-repeater-template",
+        "acfFieldNames": ["job_title", "department"],
+        "receivesContext": ["tpgb/dynamicRepField", "tpgb/dynamicPost"]
+      }
+    },
+
+    {
+      "name": "Event Date Display (Formatted HTML)",
+      "description": "Date with custom formatting and calendar icon",
+      "visualDescription": "Calendar icon + date, left-aligned, gray color scheme, responsive sizing",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "dh005",
+        "textValue": "<div class='event-date'><i class='far fa-calendar-alt'></i> <time datetime='{{event_date}}'>{{event_date_formatted}}</time></div>",
+        "hAlign": {"md": "left", "sm": "left", "xs": "left"},
+        "hColor": "#6b7280",
+        "hvrHColor": "#374151",
+        "hTypo": {
+          "openTypography": 1,
+          "size": {"md": "15", "sm": "14", "xs": "13", "unit": "px"},
+          "fontWeight": "400",
+          "fontFamily": "Roboto"
+        }
+      },
+      "useCase": "Event listings, webinar schedules, conference agendas, calendar displays",
+      "htmlStructure": {
+        "semanticHTML": "Uses <time> tag with datetime attribute for SEO",
+        "accessibility": "datetime attribute provides machine-readable date format",
+        "multipleFields": "{{event_date}} for datetime, {{event_date_formatted}} for display"
+      },
+      "parentContext": {
+        "required": "Must be inside tpgb/tp-repeater-template",
+        "acfFieldNames": ["event_date", "event_date_formatted"],
+        "acfFieldType": "Date Picker field with custom format",
+        "receivesContext": ["tpgb/dynamicRepField", "tpgb/dynamicPost"]
+      }
+    },
+
+    {
+      "name": "Service Description (Rich HTML)",
+      "description": "Multi-paragraph description with custom wrapper classes",
+      "visualDescription": "Description text with custom styling, justified alignment, readable typography",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "dh006",
+        "textValue": "<div class='service-desc'><p>{{service_description}}</p></div>",
+        "hAlign": {"md": "left", "sm": "left", "xs": "left"},
+        "hColor": "#4b5563",
+        "hvrHColor": "#1f2937",
+        "hTypo": {
+          "openTypography": 1,
+          "size": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "lineHeight": {"md": "1.8", "unit": "em"},
+          "fontWeight": "400",
+          "fontFamily": "Open Sans"
+        }
+      },
+      "useCase": "Service pages, feature descriptions, product details, about sections",
+      "htmlStructure": {
+        "notes": "ACF field {{service_description}} should be Textarea or WYSIWYG field",
+        "customCSS": ".service-desc p { margin-bottom: 1em; } .service-desc p:last-child { margin-bottom: 0; }",
+        "richContent": "WYSIWYG fields may include <strong>, <em>, <a> tags"
+      },
+      "parentContext": {
+        "required": "Must be inside tpgb/tp-repeater-template",
+        "acfFieldName": "service_description",
+        "acfFieldType": "Textarea or WYSIWYG",
+        "receivesContext": ["tpgb/dynamicRepField", "tpgb/dynamicSubFieldData"]
+      }
+    },
+
+    {
+      "name": "Testimonial Quote with Attribution",
+      "description": "Blockquote-style testimonial with author name",
+      "visualDescription": "Italic quote text with author name, centered, elegant typography, hover effect",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "dh007",
+        "textValue": "<blockquote><p>\"{{testimonial_text}}\"</p><cite>— {{author_name}}</cite></blockquote>",
+        "hAlign": {"md": "center", "sm": "center", "xs": "center"},
+        "hColor": "#374151",
+        "hvrHColor": "#667eea",
+        "hTypo": {
+          "openTypography": 1,
+          "size": {"md": "18", "sm": "16", "xs": "15", "unit": "px"},
+          "fontStyle": "italic",
+          "lineHeight": {"md": "1.7", "unit": "em"},
+          "fontWeight": "400"
+        }
+      },
+      "useCase": "Testimonial sliders, review sections, customer quotes, social proof",
+      "htmlStructure": {
+        "semanticHTML": "Uses <blockquote> and <cite> for proper quote markup",
+        "multipleFields": "Combines {{testimonial_text}} and {{author_name}}",
+        "customCSS": "blockquote { border-left: 4px solid #667eea; padding-left: 20px; } cite { font-style: normal; font-size: 0.9em; }"
+      },
+      "parentContext": {
+        "required": "Must be inside tpgb/tp-repeater-template",
+        "acfFieldNames": ["testimonial_text", "author_name"],
+        "acfFieldType": "Textarea for testimonial_text, Text for author_name",
+        "receivesContext": ["tpgb/dynamicRepField", "tpgb/dynamicPost", "tpgb/dynamicRowIndex"]
+      }
+    },
+
+    {
+      "name": "Portfolio Item Title with Category Tag",
+      "description": "Project title with category badge overlay",
+      "visualDescription": "Bold title with small category tag, left-aligned, responsive sizing, gradient hover",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "dh008",
+        "textValue": "<div class='portfolio-item'><h4>{{project_title}}</h4><span class='category-tag'>{{project_category}}</span></div>",
+        "hAlign": {"md": "left", "sm": "left", "xs": "left"},
+        "hColor": "#1f2937",
+        "hvrHColor": "#764ba2",
+        "hTypo": {
+          "openTypography": 1,
+          "size": {"md": "22", "sm": "20", "xs": "18", "unit": "px"},
+          "fontWeight": "700",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        }
+      },
+      "useCase": "Portfolio grids, project showcases, work galleries, case study listings",
+      "htmlStructure": {
+        "notes": "Combines title and category in single dynamic block",
+        "multipleFields": "{{project_title}} (H4) and {{project_category}} (span tag)",
+        "customCSS": ".portfolio-item { position: relative; } .category-tag { display: inline-block; font-size: 0.6em; padding: 2px 8px; background: #667eea; color: white; border-radius: 4px; margin-left: 8px; }"
+      },
+      "parentContext": {
+        "required": "Must be inside tpgb/tp-repeater-template",
+        "acfFieldNames": ["project_title", "project_category"],
+        "receivesContext": ["tpgb/dynamicRepField", "tpgb/dynamicPost", "tpgb/dynamicRowIndex"]
       }
     }
   ],
-  "commonPatterns": {}
+
+  "placeholderSyntax": {
+    "format": "{{field_name}}",
+    "description": "ACF field placeholder syntax for dynamic content",
+    "examples": [
+      {
+        "placeholder": "{{title}}",
+        "acfFieldName": "title",
+        "fieldType": "Text"
+      },
+      {
+        "placeholder": "{{description}}",
+        "acfFieldName": "description",
+        "fieldType": "Textarea or WYSIWYG"
+      },
+      {
+        "placeholder": "{{price}}",
+        "acfFieldName": "price",
+        "fieldType": "Number"
+      },
+      {
+        "placeholder": "{{event_date}}",
+        "acfFieldName": "event_date",
+        "fieldType": "Date Picker"
+      }
+    ],
+    "notes": "Field names must match ACF repeater sub-field names exactly (case-sensitive)"
+  },
+
+  "contextRequirements": {
+    "parentBlock": "tpgb/tp-repeater-template",
+    "ancestorBlock": "tpgb/tp-repeater-block",
+    "requiredContext": [
+      "tpgb/dynamicRepField - ACF repeater field data",
+      "tpgb/dynamicPost - Current post context",
+      "tpgb/dynamicSubFieldData - Sub-field values",
+      "tpgb/dynamicRowIndex - Current row index in repeater"
+    ],
+    "blockHierarchy": "tp-repeater-block (ACF source) → tp-repeater-template (layout) → tp-dynamic-heading (this block)"
+  },
+
+  "validationRules": {
+    "block_id": "Required - Unique 4-character hex identifier",
+    "textValue": "Required - Cannot be empty (use placeholder or HTML)",
+    "parentBlock": "Must be inside tpgb/tp-repeater-template",
+    "placeholders": "Must match ACF sub-field names exactly",
+    "hAlign": "Optional - Defaults to left if not specified",
+    "hTypo.openTypography": "Must be 1 to enable typography settings"
+  },
+
+  "warnings": [
+    "CRITICAL: Must be used inside tpgb/tp-repeater-template block (will not display otherwise)",
+    "ACF field names in {{placeholders}} are case-sensitive ({{Title}} ≠ {{title}})",
+    "If using WYSIWYG ACF field, {{field}} outputs may include <p> tags (creates nested <p> if you wrap in <p>)",
+    "FontAwesome icons require Font Awesome to be loaded by theme or plugin",
+    "Custom HTML classes require corresponding CSS to be defined in theme/custom CSS",
+    "Hover color (hvrHColor) requires user interaction - won't show in editor preview",
+    "Multiple field placeholders (e.g., {{field1}} {{field2}}) all pull from same repeater row",
+    "Empty ACF fields will render empty {{placeholders}} (use ACF default values or conditional logic)",
+    "Don't nest <p> tags in textValue if ACF field is WYSIWYG (already outputs <p> tags)",
+    "<time> datetime attribute should use ISO 8601 format (YYYY-MM-DD) for SEO"
+  ],
+
+  "commonMistakes": [
+    "Using tp-dynamic-heading outside of repeater template (block won't render)",
+    "Typo in ACF field name: {{prodcut_name}} instead of {{product_name}}",
+    "Forgetting to set openTypography: 1 before setting typography values",
+    "Using responsive hAlign with empty sm/xs values (falls back to md)",
+    "Creating nested <p> tags: <p>{{wysiwyg_field}}</p> when WYSIWYG already has <p>",
+    "Using placeholder syntax without ACF field configured in repeater",
+    "Setting hvrHColor without setting hColor (no hover transition)",
+    "Combining too many fields in single textValue (creates hard-to-edit monolithic content)"
+  ],
+
+  "bestPractices": [
+    "Use semantic HTML tags (<h3>, <time>, <cite>) for SEO and accessibility",
+    "Set responsive typography (md/sm/xs) for optimal readability across devices",
+    "Use hover effects (hvrHColor) sparingly for interactive elements only",
+    "Keep textValue simple - use 1-3 field placeholders max per block",
+    "Use custom CSS classes for complex styling instead of inline styles",
+    "Test with empty ACF field values to ensure graceful degradation",
+    "Use ACF field formatting options (date_format, number_format) for consistent display",
+    "Combine with other dynamic blocks (tp-dynamic-image, tp-dynamic-button) for complete cards",
+    "Use lineHeight 1.6-1.8em for body text readability",
+    "Add ARIA labels if custom HTML creates interactive elements"
+  ],
+
+  "accessibilityNotes": [
+    "Use semantic HTML (<h3>, <h4>) to maintain proper heading hierarchy",
+    "Include datetime attribute in <time> tags for machine-readable dates",
+    "Use <cite> tag for attributions in quotes/testimonials",
+    "Ensure sufficient color contrast between hColor and background (WCAG AA: 4.5:1 for text)",
+    "Don't rely solely on color for hover states - add underline or other visual indicator",
+    "If using icons, add aria-label to provide text alternative",
+    "Avoid <div> soup - use semantic tags when appropriate",
+    "Test keyboard navigation if creating interactive elements in HTML"
+  ],
+
+  "performanceConsiderations": [
+    "Keep HTML simple - complex nested structures slow rendering",
+    "Avoid inline styles in textValue - use CSS classes instead",
+    "Don't load heavy custom fonts in hTypo.fontFamily without optimization",
+    "Use CSS transforms for hover effects instead of changing layout properties",
+    "Cache ACF queries at repeater parent level (not per dynamic heading block)",
+    "Limit number of dynamic heading blocks per repeater row (1-3 recommended)",
+    "Use CSS will-change for hover effects on large repeaters (100+ items)",
+    "Optimize WYSIWYG ACF field output (strip unnecessary tags)"
+  ],
+
+  "integrationExamples": [
+    {
+      "name": "Product Grid with ACF Repeater",
+      "structure": "tp-repeater-block (products ACF field) → tp-repeater-template → tp-column → tp-dynamic-image (product_image) + tp-dynamic-heading (product_name) + tp-dynamic-heading (product_price)",
+      "acfFields": ["product_name", "product_price", "product_image"],
+      "notes": "Use two tp-dynamic-heading blocks for name and price with different typography"
+    },
+    {
+      "name": "Team Member Cards",
+      "structure": "tp-repeater-block (team_members) → tp-repeater-template → tp-column → tp-dynamic-image (photo) + tp-dynamic-heading (name + position)",
+      "acfFields": ["photo", "name", "position"],
+      "notes": "Combine name and position in single tp-dynamic-heading with <br> separator"
+    },
+    {
+      "name": "Testimonial Slider",
+      "structure": "tp-repeater-block (testimonials) → tp-repeater-template → tp-anything-carousel → tp-anything-slide → tp-dynamic-heading (quote + author)",
+      "acfFields": ["quote", "author", "rating"],
+      "notes": "Use blockquote structure with italic typography for quotes"
+    },
+    {
+      "name": "Event Timeline",
+      "structure": "tp-repeater-block (events ACF) → tp-repeater-template → tp-timeline → tp-timeline-inner → tp-dynamic-heading (event_date) + tp-dynamic-heading (event_title) + tp-dynamic-heading (event_description)",
+      "acfFields": ["event_date", "event_title", "event_description"],
+      "notes": "Use <time> tag for dates with datetime attribute for SEO"
+    }
+  ],
+
+  "relatedBlocks": [
+    "tpgb/tp-repeater-block - Parent container for ACF repeater data",
+    "tpgb/tp-repeater-template - Direct parent template for layout",
+    "tpgb/tp-dynamic-image - Display ACF image fields",
+    "tpgb/tp-dynamic-button - Dynamic buttons with ACF links",
+    "tpgb/tp-heading - Static heading alternative (no ACF)",
+    "tpgb/tp-pro-paragraph - Static paragraph alternative"
+  ],
+
+  "troubleshooting": {
+    "problemsAndSolutions": [
+      {
+        "problem": "Block doesn't display anything",
+        "solution": "Verify block is inside tp-repeater-template. Check ACF field names match exactly."
+      },
+      {
+        "problem": "{{placeholder}} renders literally instead of field value",
+        "solution": "Ensure ACF field name is correct and repeater is configured properly. Check field is sub-field of repeater."
+      },
+      {
+        "problem": "Typography settings not applying",
+        "solution": "Set openTypography: 1 before setting size, fontWeight, etc."
+      },
+      {
+        "problem": "Hover color not working",
+        "solution": "Ensure both hColor and hvrHColor are set. Check CSS transitions are enabled."
+      },
+      {
+        "problem": "Nested <p> tags creating extra spacing",
+        "solution": "Don't wrap WYSIWYG fields in <p> tags - they already output paragraphs"
+      },
+      {
+        "problem": "Icons not displaying",
+        "solution": "Verify Font Awesome is loaded. Check icon class names (fas fa-*, far fa-*, fab fa-*)"
+      },
+      {
+        "problem": "Multiple fields not displaying",
+        "solution": "Check all field names in textValue exist as sub-fields in ACF repeater"
+      }
+    ]
+  }
 }

@@ -1,63 +1,492 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-advanced-buttons",
-  "title": "Pro Buttons - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Pro Buttons - Comprehensive Usage Examples",
+  "description": "Complete example configurations for high-converting CTA and download buttons with creative styles, emoji reactions, extra text, and loading states",
+
   "examples": [
     {
-      "description": "Simple CTA button with icon",
+      "name": "Standard CTA Button (Style-1)",
+      "description": "Classic CTA button with icon and gradient background",
+      "visualDescription": "Purple gradient background, white text, arrow-right icon after text, hover darkens gradient",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "ab001",
         "btnType": "cta",
         "ctaStyle": "style-1",
-        "btnText": "Get Started",
+        "btnText": "Get Started Free",
+        "btnLink": {"url": "/signup", "target": "", "nofollow": ""},
+        "ariaLabel": "Sign up for free account",
+        "btnAlign": "text-center",
         "btnIcon": true,
+        "iconLibrary": "font_awesome",
         "iconName": "fas fa-arrow-right",
+        "iconPosition": "after",
+        "iconSize": {"md": "18", "sm": "16", "xs": "14", "unit": "px"},
+        "iconSpacing": {"md": "10", "sm": "8", "xs": "8", "unit": "px"},
+        "btnColor": "#ffffff",
+        "btnHvrColor": "#ffffff",
         "btnBgType": {
           "openBg": 1,
-          "bgType": "color",
-          "bgDefaultColor": "#667eea"
-        }
-      }
-    },
-    {
-      "description": "Download button with progress (style-5)",
-      "attributes": {
-        "block_id": "c3d4",
-        "btnType": "download",
-        "dwnldStyle": "style-5",
-        "btnText": "Download PDF",
-        "dst5LoadingText": "downloading...",
-        "dst5SuccessText": "done!",
-        "downloadFile": {
-          "url": "/files/guide.pdf"
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
         },
-        "downloadName": "guide.pdf"
-      }
+        "btnHvrBgType": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#5a0fd4"
+        },
+        "btnPadding": {"md": {"top": "16", "bottom": "16", "left": "40", "right": "40"}, "unit": "px"},
+        "btnBradius": {"md": {"top": "8", "bottom": "8", "left": "8", "right": "8"}, "unit": "px"},
+        "btnBshadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.3)"
+        }
+      },
+      "useCase": "Primary CTAs, landing pages, hero sections, signup forms, main actions"
     },
+
     {
-      "description": "CTA with emoji reactions (style-8)",
+      "name": "CTA with Extra Text Overlay (Style-6)",
+      "description": "Button with two lines of extra promotional text",
+      "visualDescription": "Main button text with 'Limited Time' and '50% OFF' overlay text, centered, attention-grabbing",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
-        "btnType": "cta",
-        "ctaStyle": "style-8",
-        "btnText": "Join Now",
-        "nmlEmoji": "💯",
-        "hvrEmoji": "👏"
-      }
-    },
-    {
-      "description": "CTA with extra text overlay (style-6)",
-      "attributes": {
-        "block_id": "g7h8",
+        "block_id": "ab002",
         "btnType": "cta",
         "ctaStyle": "style-6",
         "btnText": "Buy Now",
         "extraText1": "Limited Time",
         "extraText2": "50% OFF",
-        "btnAlign": "text-center"
+        "btnLink": {"url": "/shop/special-offer", "target": "", "nofollow": ""},
+        "ariaLabel": "Buy now with 50% discount - limited time offer",
+        "btnAlign": "text-center",
+        "btnColor": "#ffffff",
+        "btnHvrColor": "#fbbf24",
+        "btnBgType": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#ef4444"},
+        "btnHvrBgType": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#dc2626"},
+        "btnPadding": {"md": {"top": "20", "bottom": "20", "left": "50", "right": "50"}, "unit": "px"},
+        "btnBradius": {"md": {"top": "12", "bottom": "12", "left": "12", "right": "12"}, "unit": "px"},
+        "btnWidth": {"md": "300", "sm": "250", "xs": "100%", "unit": "px"}
+      },
+      "useCase": "Sale promotions, limited-time offers, urgency marketing, discount announcements"
+    },
+
+    {
+      "name": "Emoji Reaction Button (Style-8)",
+      "description": "Interactive button with emoji that changes on hover",
+      "visualDescription": "Button with 💯 emoji in normal state, changes to 👏 on hover, fun and engaging",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ab003",
+        "btnType": "cta",
+        "ctaStyle": "style-8",
+        "btnText": "Join Our Community",
+        "nmlEmoji": "💯",
+        "hvrEmoji": "👏",
+        "btnLink": {"url": "/community", "target": "", "nofollow": ""},
+        "ariaLabel": "Join our community - click to get started",
+        "btnAlign": "text-center",
+        "btnColor": "#1f2937",
+        "btnHvrColor": "#111827",
+        "btnBgType": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#fbbf24"},
+        "btnHvrBgType": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#f59e0b"},
+        "btnPadding": {"md": {"top": "18", "bottom": "18", "left": "45", "right": "45"}, "unit": "px"},
+        "btnBradius": {"md": {"top": "50", "bottom": "50", "left": "50", "right": "50"}, "unit": "px"},
+        "btnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "18", "sm": "16", "xs": "15", "unit": "px"},
+          "fontWeight": "700"
+        }
+      },
+      "useCase": "Social engagement, community signup, fun/casual brands, gamification, reactions"
+    },
+
+    {
+      "name": "Download Button with Progress (Style-5)",
+      "description": "File download button with animated progress indicator and state changes",
+      "visualDescription": "Shows download progress bar, changes text during download (downloading...) and completion (done!)",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ab004",
+        "btnType": "download",
+        "dwnldStyle": "style-5",
+        "btnText": "Download PDF Guide",
+        "dst5LoadingText": "downloading...",
+        "dst5SuccessText": "done!",
+        "downloadFile": {"url": "/files/ultimate-guide.pdf"},
+        "downloadName": "ultimate-guide.pdf",
+        "btnIcon": true,
+        "iconLibrary": "font_awesome",
+        "iconName": "fas fa-download",
+        "iconPosition": "before",
+        "iconSize": {"md": "20", "unit": "px"},
+        "iconSpacing": {"md": "12", "unit": "px"},
+        "btnColor": "#ffffff",
+        "btnBgType": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#10b981"},
+        "btnHvrBgType": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#059669"},
+        "btnPadding": {"md": {"top": "14", "bottom": "14", "left": "35", "right": "35"}, "unit": "px"},
+        "btnBradius": {"md": {"top": "6", "bottom": "6", "left": "6", "right": "6"}, "unit": "px"}
+      },
+      "useCase": "PDF downloads, eBook downloads, resource downloads, file delivery, lead magnets",
+      "downloadNotes": {
+        "progressBar": "Style-5 shows animated progress bar during download",
+        "stateChanges": "Button text changes: normal → dst5LoadingText → dst5SuccessText",
+        "downloadFile": "Must point to actual file URL on server",
+        "downloadName": "Specifies saved filename (default uses original filename)"
       }
+    },
+
+    {
+      "name": "Download Button Classic (Style-1)",
+      "description": "Simple download button with file size indicator",
+      "visualDescription": "Clean download button with document icon, file type/size info, green color scheme",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ab005",
+        "btnType": "download",
+        "dwnldStyle": "style-1",
+        "btnText": "Download Brochure",
+        "extraText": "PDF · 2.3 MB",
+        "downloadFile": {"url": "/files/product-brochure.pdf"},
+        "downloadName": "product-brochure.pdf",
+        "btnIcon": true,
+        "iconLibrary": "font_awesome",
+        "iconName": "far fa-file-pdf",
+        "iconPosition": "before",
+        "iconSize": {"md": "24", "unit": "px"},
+        "iconSpacing": {"md": "14", "unit": "px"},
+        "btnColor": "#ffffff",
+        "btnBgType": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#059669"},
+        "btnPadding": {"md": {"top": "16", "bottom": "16", "left": "35", "right": "35"}, "unit": "px"},
+        "btnBradius": {"md": {"top": "8", "bottom": "8", "left": "8", "right": "8"}, "unit": "px"},
+        "btnAlign": "text-left"
+      },
+      "useCase": "Brochures, catalogs, product sheets, documentation, white papers"
+    },
+
+    {
+      "name": "Download Button with Min Width (Style-3)",
+      "description": "Download button with minimum width constraint for consistent sizing",
+      "visualDescription": "Wide download button (min 350px), centered, consistent sizing across layouts",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ab006",
+        "btnType": "download",
+        "dwnldStyle": "style-3",
+        "btnText": "Download App",
+        "extraText": "Version 2.1.0",
+        "downloadFile": {"url": "/downloads/app-installer.exe"},
+        "downloadName": "MyApp-v2.1.0.exe",
+        "dst3MWidth": {"md": "350", "sm": "300", "xs": "100%", "unit": "px"},
+        "btnIcon": true,
+        "iconLibrary": "font_awesome",
+        "iconName": "fas fa-desktop",
+        "iconPosition": "before",
+        "iconSize": {"md": "28", "unit": "px"},
+        "iconSpacing": {"md": "16", "unit": "px"},
+        "btnColor": "#1f2937",
+        "btnBgType": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#f3f4f6"},
+        "btnHvrBgType": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#e5e7eb"},
+        "btnBorder": {
+          "openBorder": 1,
+          "type": "solid",
+          "width": {"md": {"top": "2", "bottom": "2", "left": "2", "right": "2"}, "unit": "px"},
+          "color": "#d1d5db"
+        },
+        "btnPadding": {"md": {"top": "20", "bottom": "20", "left": "40", "right": "40"}, "unit": "px"},
+        "btnBradius": {"md": {"top": "10", "bottom": "10", "left": "10", "right": "10"}, "unit": "px"},
+        "btnAlign": "text-center"
+      },
+      "useCase": "Software downloads, app installers, large files, desktop applications"
+    },
+
+    {
+      "name": "CTA with Multiple Text Layers (Style-9)",
+      "description": "Complex button with main text and two extra text layers",
+      "visualDescription": "Three-layer text: main CTA + extra text 1 (subtitle) + extra text 2 (badge/label)",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ab007",
+        "btnType": "cta",
+        "ctaStyle": "style-9",
+        "btnText": "Start Free Trial",
+        "extraText1": "No credit card required",
+        "extraText2": "14 days free",
+        "btnLink": {"url": "/trial", "target": "", "nofollow": ""},
+        "ariaLabel": "Start 14-day free trial - no credit card required",
+        "btnAlign": "text-center",
+        "btnColor": "#ffffff",
+        "btnBgType": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 90,
+            "gradientColor": [
+              {"color": "#3b82f6", "position": 0},
+              {"color": "#2563eb", "position": 100}
+            ]
+          }
+        },
+        "btnPadding": {"md": {"top": "24", "bottom": "24", "left": "50", "right": "50"}, "unit": "px"},
+        "btnBradius": {"md": {"top": "12", "bottom": "12", "left": "12", "right": "12"}, "unit": "px"},
+        "btnWidth": {"md": "400", "sm": "320", "xs": "100%", "unit": "px"},
+        "btnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "20", "sm": "18", "xs": "16", "unit": "px"},
+          "fontWeight": "700"
+        }
+      },
+      "useCase": "Free trials, SaaS signups, multi-tier messaging, value propositions, trust signals"
+    },
+
+    {
+      "name": "External Link CTA with Icon (Style-13)",
+      "description": "Button for external links with new tab indicator",
+      "visualDescription": "Blue button with external link icon, opens in new tab, clear external indicator",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ab008",
+        "btnType": "cta",
+        "ctaStyle": "style-13",
+        "btnText": "View Documentation",
+        "extraText2": "Opens in new tab",
+        "btnLink": {"url": "https://docs.example.com", "target": "_blank", "nofollow": ""},
+        "ariaLabel": "View documentation - opens in new tab",
+        "btnIcon": true,
+        "iconLibrary": "font_awesome",
+        "iconName": "fas fa-external-link-alt",
+        "iconPosition": "after",
+        "iconSize": {"md": "16", "unit": "px"},
+        "iconSpacing": {"md": "10", "unit": "px"},
+        "btnColor": "#ffffff",
+        "btnBgType": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#3b82f6"},
+        "btnHvrBgType": {"openBg": 1, "bgType": "color", "bgDefaultColor": "#2563eb"},
+        "btnPadding": {"md": {"top": "12", "bottom": "12", "left": "30", "right": "30"}, "unit": "px"},
+        "btnBradius": {"md": {"top": "6", "bottom": "6", "left": "6", "right": "6"}, "unit": "px"},
+        "btnAlign": "text-left"
+      },
+      "useCase": "External documentation, partner links, knowledge base, help articles, third-party resources"
     }
   ],
-  "commonPatterns": {}
+
+  "buttonTypes": {
+    "cta": {
+      "description": "Call-to-action buttons for user engagement",
+      "styles": "Multiple style variants (style-1 through style-13+)",
+      "features": [
+        "Extra text overlays (extraText, extraText1, extraText2)",
+        "Emoji reactions (nmlEmoji, hvrEmoji)",
+        "Link URLs with target and nofollow",
+        "Standard hover states",
+        "Icon support"
+      ],
+      "whenToUse": "Signups, purchases, demos, contact, engagement actions"
+    },
+    "download": {
+      "description": "File download buttons with progress tracking",
+      "styles": "Download-specific style variants (style-1 through style-5+)",
+      "features": [
+        "File download functionality",
+        "Progress indicators (style-5)",
+        "Loading text (dst5LoadingText)",
+        "Success text (dst5SuccessText)",
+        "Custom download filename",
+        "File info display (extraText for size/type)",
+        "Minimum width control (dst3MWidth for style-3)"
+      ],
+      "whenToUse": "PDF downloads, eBooks, software, resources, lead magnets"
+    }
+  },
+
+  "styleVariants": {
+    "ctaStyles": {
+      "style-1": "Classic button with icon (most common)",
+      "style-6": "Extra text overlay (2 lines) for promotions",
+      "style-8": "Emoji reaction button (fun/engaging)",
+      "style-9": "Multi-layer text (main + 2 extra layers)",
+      "style-13": "External link style with indicator",
+      "others": "Additional creative variants available (check plugin documentation)"
+    },
+    "downloadStyles": {
+      "style-1": "Classic download button",
+      "style-3": "Download with minimum width constraint",
+      "style-5": "Animated progress bar with state changes",
+      "others": "Additional download variants available"
+    }
+  },
+
+  "validationRules": {
+    "block_id": "Required - Unique 4-character hex identifier",
+    "btnType": "Required - Must be 'cta' or 'download'",
+    "ctaStyle": "Required when btnType='cta' (e.g., 'style-1', 'style-6')",
+    "dwnldStyle": "Required when btnType='download' (e.g., 'style-1', 'style-5')",
+    "btnText": "Required - Main button text",
+    "btnLink.url": "Required for CTA buttons - Link URL",
+    "downloadFile.url": "Required for download buttons - File to download",
+    "btnIcon": "Boolean - Set true to show icon",
+    "iconName": "Required when btnIcon=true and iconLibrary='font_awesome'",
+    "iconImage.url": "Required when btnIcon=true and iconLibrary='icon_image'",
+    "ariaLabel": "Recommended for accessibility - Descriptive label",
+    "downloadName": "Optional - Custom filename for downloaded file"
+  },
+
+  "warnings": [
+    "Download buttons require actual file at downloadFile.url (test downloads in production)",
+    "Progress indicator (style-5) requires JavaScript - ensure scripts are loaded",
+    "Emoji reactions (style-8) require Unicode emoji support (test on target browsers)",
+    "Extra text overlays vary by style - not all styles support all extraText fields",
+    "target='_blank' for external links should include security attributes (auto-added by WordPress)",
+    "Download progress only works with style-5 - other styles show instant download",
+    "dst3MWidth only applies to download style-3 (ignored for other styles)",
+    "Large downloadFile sizes (>10MB) may cause browser timeout - test thoroughly",
+    "Custom iconImage requires image file - FontAwesome is more reliable",
+    "btnAlign uses text-left/text-center/text-right format (not left/center/right)"
+  ],
+
+  "commonMistakes": [
+    "Setting btnType='download' but forgetting to set downloadFile.url",
+    "Using dst5LoadingText/dst5SuccessText with styles other than style-5",
+    "Setting nmlEmoji/hvrEmoji with styles other than style-8 (no effect)",
+    "Forgetting ariaLabel for accessibility (especially important for icon-only buttons)",
+    "Not testing actual file downloads (broken download links)",
+    "Using very long extraText that breaks layout on mobile",
+    "Setting btnIcon=true but not providing iconName or iconImage",
+    "Using incompatible extraText fields for current style (e.g., extraText2 on style that doesn't support it)",
+    "Not setting responsive btnWidth (creates oversized buttons on mobile)",
+    "Forgetting to set btnBgType.openBg: 1 before setting background color"
+  ],
+
+  "bestPractices": [
+    "Always set ariaLabel for accessibility (describe button action clearly)",
+    "Use descriptive downloadName (e.g., 'product-brochure-2024.pdf' not 'download.pdf')",
+    "For download buttons, include file info in extraText (e.g., 'PDF · 2.3 MB')",
+    "Test emoji rendering on target browsers/devices (some emojis vary by platform)",
+    "Use style-5 for large file downloads to show progress feedback",
+    "Set responsive btnWidth to avoid oversized buttons on mobile",
+    "Use external link icon (fa-external-link-alt) for target='_blank' links",
+    "For promotions, use style-6 with extraText1/extraText2 for urgency/scarcity",
+    "Include hover states (btnHvrColor, btnHvrBgType) for visual feedback",
+    "Use gradient backgrounds sparingly - solid colors convert better",
+    "For file downloads, use green colors (#10b981) - convention for downloads",
+    "Test actual downloads in production environment before launch"
+  ],
+
+  "accessibilityNotes": [
+    "Always provide ariaLabel for screen readers (especially icon-only buttons)",
+    "ariaLabel should describe action and outcome (e.g., 'Download PDF guide - 2.3 MB')",
+    "Ensure sufficient color contrast: WCAG AA requires 4.5:1 for text",
+    "Button text should be descriptive (avoid 'Click Here' - use 'Download Guide')",
+    "External links should indicate 'opens in new tab' in ariaLabel",
+    "Emoji-only buttons need descriptive ariaLabel (emojis aren't read by screen readers)",
+    "Download progress should have aria-live region for state announcements",
+    "Minimum touch target: 44×44px for mobile (WCAG 2.5.5)",
+    "Focus state should be visible for keyboard navigation",
+    "Disabled state should be communicated via aria-disabled attribute"
+  ],
+
+  "performanceConsiderations": [
+    "Download progress (style-5) uses JavaScript - minimal performance impact",
+    "Large downloadFile sizes may cause browser memory issues",
+    "Emoji rendering varies by platform - no performance impact",
+    "Gradient backgrounds use GPU compositing - hardware accelerated",
+    "Icon images require HTTP requests - FontAwesome is cached",
+    "Hover effects use CSS transitions - no JavaScript cost",
+    "Multiple extra text layers add minimal DOM nodes",
+    "Progress bar animations target 60fps for smooth experience"
+  ],
+
+  "downloadButtonGuide": {
+    "fileTypes": {
+      "pdf": "Most common - use far fa-file-pdf icon",
+      "zip": "Archives - use fas fa-file-archive icon",
+      "doc": "Documents - use far fa-file-word icon",
+      "xls": "Spreadsheets - use far fa-file-excel icon",
+      "exe": "Software - use fas fa-desktop icon",
+      "image": "Photos - use far fa-file-image icon"
+    },
+    "fileSize": {
+      "small": "<1MB - instant download, use style-1",
+      "medium": "1-10MB - consider style-5 for progress",
+      "large": ">10MB - always use style-5 with progress indicator",
+      "veryLarge": ">50MB - consider chunked download or CDN"
+    },
+    "downloadFlow": {
+      "normal": "Click → Download starts immediately",
+      "style5": "Click → Shows 'downloading...' → Progress bar → Shows 'done!'",
+      "security": "Browser may prompt for permission on large/executable files"
+    }
+  },
+
+  "emojiGuide": {
+    "common": {
+      "positive": "💯 👏 🎉 ✨ 🚀 ⭐ 💪 🔥 ❤️",
+      "actions": "👉 👇 ☝️ 👆 🖱️ ⏬ ⏩",
+      "objects": "🎁 📦 💎 🏆 🎯 📱 💻 🌟"
+    },
+    "pairing": {
+      "signup": "Normal: 💯 → Hover: 👏",
+      "download": "Normal: 📥 → Hover: ✅",
+      "celebrate": "Normal: 🎉 → Hover: 🎊",
+      "engage": "Normal: ⭐ → Hover: ✨"
+    },
+    "notes": [
+      "Test emoji rendering on Windows, Mac, iOS, Android",
+      "Some emojis look different across platforms",
+      "Keep emojis relevant to action (don't use random emojis)",
+      "Consider cultural differences in emoji meanings"
+    ]
+  },
+
+  "troubleshooting": {
+    "problemsAndSolutions": [
+      {
+        "problem": "Download button doesn't download file",
+        "solution": "Check downloadFile.url points to actual file. Verify file permissions on server. Test URL in browser directly."
+      },
+      {
+        "problem": "Progress bar (style-5) not showing",
+        "solution": "Ensure JavaScript is enabled. Check browser console for errors. Verify file size is large enough to show progress."
+      },
+      {
+        "problem": "Emoji not displaying",
+        "solution": "Verify Unicode emoji is used (not image emoji). Test on target browser/device. Use common emojis for better support."
+      },
+      {
+        "problem": "Extra text not showing",
+        "solution": "Verify style supports extra text (e.g., style-6 for extraText1/2, style-8 for emojis). Check spelling of attribute names."
+      },
+      {
+        "problem": "Icon not displaying",
+        "solution": "Set btnIcon: true. Verify iconName has valid FontAwesome class. Ensure Font Awesome is loaded on site."
+      },
+      {
+        "problem": "Button too wide on mobile",
+        "solution": "Set responsive btnWidth: {xs: '100%'} or reduce padding for mobile breakpoint."
+      },
+      {
+        "problem": "Background not showing",
+        "solution": "Set btnBgType.openBg: 1. Verify bgType is 'color' or 'gradient'. Check bgDefaultColor is set."
+      }
+    ]
+  },
+
+  "relatedBlocks": [
+    "tpgb/tp-button - Single button block with 23 styles",
+    "tpgb/tp-button-core - Free version basic button",
+    "core/button - WordPress core button (basic alternative)",
+    "tpgb/tp-form-block - Forms with submit buttons"
+  ]
 }

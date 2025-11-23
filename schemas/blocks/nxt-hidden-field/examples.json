@@ -1,33 +1,439 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-form-hidden-field",
-  "title": "Hidden Field - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Hidden Field - Comprehensive Examples",
+  "description": "Hidden field block for passing data silently in forms. Must be child of tpgb/tp-form-block. Used for tracking, identifiers, and metadata.",
   "examples": [
     {
-      "description": "Simple hidden field",
+      "name": "Form Identifier (Basic Tracking)",
+      "description": "Simple form ID to identify which form was submitted",
+      "visualDescription": "Invisible field that passes form identifier for backend processing",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "hf001",
         "nameValue": "form_id",
-        "actualValue": "contact-form-2025"
-      }
+        "actualValue": "contact-form-homepage"
+      },
+      "useCase": "Identify form submissions when multiple forms exist on site, tracking form performance, routing submissions",
+      "bestPractices": [
+        "Use descriptive form IDs (contact-form-homepage, not form1)",
+        "Keep nameValue consistent across site (always 'form_id', not 'formId' or 'form-id')",
+        "Include location context in actualValue (homepage, pricing-page, etc.)",
+        "Use lowercase with hyphens for consistency"
+      ]
     },
     {
-      "description": "Campaign source tracking",
+      "name": "UTM Campaign Tracking (Complete Suite)",
+      "description": "Full UTM parameter suite for marketing attribution",
+      "visualDescription": "Multiple hidden fields capturing campaign source, medium, campaign name, term, and content for analytics",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "hf002",
         "nameValue": "utm_source",
-        "actualValue": "newsletter"
-      }
+        "actualValue": "google"
+      },
+      "relatedFields": [
+        {
+          "nameValue": "utm_medium",
+          "actualValue": "cpc"
+        },
+        {
+          "nameValue": "utm_campaign",
+          "actualValue": "spring-sale-2025"
+        },
+        {
+          "nameValue": "utm_term",
+          "actualValue": "wordpress-forms"
+        },
+        {
+          "nameValue": "utm_content",
+          "actualValue": "blue-cta-button"
+        }
+      ],
+      "useCase": "Track marketing campaign effectiveness, measure ROI, attribute conversions to specific ads/content",
+      "bestPractices": [
+        "Use standard UTM parameter names (utm_source, utm_medium, utm_campaign, utm_term, utm_content)",
+        "Populate from URL query parameters with JavaScript if needed",
+        "Store lowercase values for consistency",
+        "Document UTM naming conventions for team",
+        "Common sources: google, facebook, newsletter, organic, referral",
+        "Common mediums: cpc, email, social, organic, referral"
+      ],
+      "commonMistakes": [
+        "Using non-standard parameter names (source instead of utm_source)",
+        "Inconsistent capitalization (Google vs google vs GOOGLE)",
+        "Not handling missing parameters (empty value if no UTM in URL)",
+        "Hardcoding values instead of dynamically capturing from URL"
+      ]
     },
     {
-      "description": "Referral code passing",
+      "name": "Referral Code Passing (Affiliate/Partner)",
+      "description": "Pass referral or promo code for tracking affiliate conversions",
+      "visualDescription": "Hidden field containing referral code from affiliate link or promo campaign",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "hf003",
         "nameValue": "referral_code",
-        "actualValue": "PROMO2025"
-      }
+        "actualValue": "SPRING25"
+      },
+      "useCase": "Affiliate marketing, referral programs, promotional campaigns, discount code tracking",
+      "bestPractices": [
+        "Use uppercase for codes (SPRING25, REFER123) for consistency",
+        "Include expiry tracking on backend (not in hidden field)",
+        "Validate code on server side (never trust client-side values)",
+        "Consider including referrer ID: referrer_id with user ID who referred",
+        "Log all referral submissions for fraud detection"
+      ],
+      "warnings": [
+        "Hidden fields can be manipulated by users (always validate on server)",
+        "Don't rely solely on hidden field for security",
+        "Verify referral code validity on backend before applying discount",
+        "Never expose sensitive referral data (commission rates, etc.)"
+      ]
+    },
+    {
+      "name": "Page Context Metadata (Post/Page ID & Title)",
+      "description": "Capture which page the form was submitted from",
+      "visualDescription": "Hidden fields storing current page ID, title, and URL for context",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "hf004",
+        "nameValue": "page_id",
+        "actualValue": "1234"
+      },
+      "relatedFields": [
+        {
+          "nameValue": "page_title",
+          "actualValue": "Pricing - Professional Plan"
+        },
+        {
+          "nameValue": "page_url",
+          "actualValue": "https://example.com/pricing/professional"
+        }
+      ],
+      "useCase": "Know context of form submission, follow up with relevant info, segment leads by interest page",
+      "bestPractices": [
+        "Use WordPress dynamic values if available (shortcodes, ACF, etc.)",
+        "Capture full URL including query parameters",
+        "Include page category or section (pricing, blog, product, etc.)",
+        "Store both human-readable (title) and system (ID) identifiers",
+        "Use page_id for backend lookups, page_title for human emails"
+      ],
+      "integrationPatterns": [
+        "WordPress: Use get_the_ID() in PHP to populate actualValue",
+        "ACF: Pull custom field data about page",
+        "WooCommerce: Include product ID if form is on product page",
+        "Email notifications: Include page context in admin notification"
+      ]
+    },
+    {
+      "name": "Timestamp Tracking (Submission Time)",
+      "description": "Record when form was loaded and submitted for lead scoring",
+      "visualDescription": "Hidden fields with ISO timestamp of page load and form submission time",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "hf005",
+        "nameValue": "form_loaded_at",
+        "actualValue": "2025-01-15T10:30:00Z"
+      },
+      "relatedFields": [
+        {
+          "nameValue": "form_submitted_at",
+          "actualValue": "2025-01-15T10:32:45Z"
+        },
+        {
+          "nameValue": "time_on_page",
+          "actualValue": "165"
+        }
+      ],
+      "useCase": "Lead scoring (quick submission = high intent), fraud detection (too fast = bot), analytics (time to complete)",
+      "bestPractices": [
+        "Use ISO 8601 format (2025-01-15T10:30:00Z) for timestamps",
+        "Include timezone offset (Z for UTC, or +00:00)",
+        "Store both load and submit times for calculating duration",
+        "Use JavaScript to populate dynamically (new Date().toISOString())",
+        "Flag submissions < 3 seconds as potential bots"
+      ],
+      "commonMistakes": [
+        "Using server time instead of client time (doesn't reflect user engagement)",
+        "Not handling timezone differences",
+        "Using non-standard date formats (MM/DD/YYYY)",
+        "Storing Unix timestamp instead of readable ISO format"
+      ],
+      "warnings": [
+        "User can manipulate client-side timestamps (always verify on server)",
+        "Time-based validation should be lenient (slow connections, distractions)",
+        "Don't reject legitimate users due to strict time limits"
+      ]
+    },
+    {
+      "name": "A/B Test Variant Tracking",
+      "description": "Track which A/B test variant user saw when submitting form",
+      "visualDescription": "Hidden field recording test variant (control vs variant A/B/C) for conversion attribution",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "hf006",
+        "nameValue": "ab_test_variant",
+        "actualValue": "variant-b-long-form"
+      },
+      "relatedFields": [
+        {
+          "nameValue": "ab_test_name",
+          "actualValue": "homepage-hero-test-q1-2025"
+        },
+        {
+          "nameValue": "ab_test_id",
+          "actualValue": "test-123"
+        }
+      ],
+      "useCase": "Measure conversion rates by variant, optimize forms, prove test results with submission data",
+      "bestPractices": [
+        "Use descriptive variant names (variant-b-long-form, not variantB)",
+        "Include test ID for database lookups",
+        "Include test name for human readability",
+        "Record variant shown, not just submitted (exclude drop-offs)",
+        "Common variant patterns: control, variant-a, variant-b, variant-c",
+        "Use consistent naming: test-name-variant-letter"
+      ],
+      "integrationPatterns": [
+        "Google Optimize: Read variant from dataLayer or cookie",
+        "VWO: Capture from VWO JavaScript API",
+        "Custom: Set via JavaScript when variant is assigned",
+        "Track in analytics: Send to GA4/Mixpanel for cross-platform analysis"
+      ],
+      "commonMistakes": [
+        "Not tracking control group (always include control submissions)",
+        "Hardcoding variant instead of dynamic detection",
+        "Not matching variant names between tool and form",
+        "Forgetting to end test (remove hidden fields after winner declared)"
+      ]
+    },
+    {
+      "name": "User Authentication Context (Logged-in User)",
+      "description": "Capture user ID and email if user is logged into WordPress",
+      "visualDescription": "Hidden fields pre-populated with logged-in user data for seamless submission",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "hf007",
+        "nameValue": "user_id",
+        "actualValue": "456"
+      },
+      "relatedFields": [
+        {
+          "nameValue": "user_email",
+          "actualValue": "john.doe@example.com"
+        },
+        {
+          "nameValue": "user_role",
+          "actualValue": "subscriber"
+        },
+        {
+          "nameValue": "is_logged_in",
+          "actualValue": "true"
+        }
+      ],
+      "useCase": "Pre-fill forms for logged-in users, link submissions to user account, personalize follow-ups, members-only forms",
+      "bestPractices": [
+        "Use WordPress functions: get_current_user_id(), wp_get_current_user()",
+        "Include both ID (for backend) and email (for CRM)",
+        "Add user role for segmentation (subscriber, customer, administrator)",
+        "Set is_logged_in flag for conditional processing",
+        "Don't expose sensitive user data (passwords, API keys, etc.)",
+        "Respect privacy: Only collect data users expect you to have"
+      ],
+      "warnings": [
+        "CRITICAL: Validate user_id on server side (client value can be faked)",
+        "Don't trust hidden field for authorization (check wp_verify_nonce)",
+        "Comply with privacy laws (GDPR, CCPA) when storing user data",
+        "Allow logged-in users to edit pre-filled data",
+        "Never use hidden fields for sensitive data (use server-side sessions)"
+      ],
+      "securityNotes": [
+        "Hidden fields are visible in HTML source (not secure)",
+        "Use nonces for security, not hidden fields",
+        "Verify user_id matches current session on backend",
+        "Don't rely on hidden fields to prevent unauthorized access"
+      ]
+    },
+    {
+      "name": "Landing Page Attribution (First/Last Touch)",
+      "description": "Track user journey from first landing to conversion",
+      "visualDescription": "Hidden fields storing first page landed on and last page before form submission for attribution modeling",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "hf008",
+        "nameValue": "first_landing_page",
+        "actualValue": "/blog/how-to-grow-your-business"
+      },
+      "relatedFields": [
+        {
+          "nameValue": "last_page_before_form",
+          "actualValue": "/pricing"
+        },
+        {
+          "nameValue": "pages_visited",
+          "actualValue": "5"
+        },
+        {
+          "nameValue": "session_duration",
+          "actualValue": "420"
+        },
+        {
+          "nameValue": "referrer_source",
+          "actualValue": "google.com"
+        }
+      ],
+      "useCase": "Multi-touch attribution, understand conversion paths, optimize content funnel, measure blog → conversion",
+      "bestPractices": [
+        "Store in browser localStorage/sessionStorage for persistence",
+        "Update 'last_page_before_form' on each page view",
+        "Capture 'first_landing_page' only once per session",
+        "Include external referrer (where they came from originally)",
+        "Track session metrics: pages visited, time spent, scroll depth",
+        "Use full paths (/blog/post-title) not just slugs (post-title)"
+      ],
+      "integrationPatterns": [
+        "JavaScript: sessionStorage.getItem('first_landing_page')",
+        "Cookie-based: Read from _ga or custom cookie",
+        "Analytics: Sync with Google Analytics clientId",
+        "CRM: Send to HubSpot, Salesforce for lead nurturing"
+      ],
+      "commonMistakes": [
+        "Overwriting first landing page on subsequent visits",
+        "Not handling direct traffic (referrer_source = 'direct')",
+        "Counting page refreshes as new pages visited",
+        "Not clearing data after conversion (skews multi-conversion users)"
+      ],
+      "warnings": [
+        "Respect Do Not Track (DNT) browser settings",
+        "Comply with cookie consent laws (GDPR)",
+        "Don't track PII without consent",
+        "Allow users to opt out of tracking"
+      ]
     }
   ],
-  "commonPatterns": {}
+  "commonPatterns": [
+    {
+      "pattern": "Basic Tracking",
+      "fields": ["form_id", "page_id", "page_title"],
+      "description": "Minimal tracking for form identification and context"
+    },
+    {
+      "pattern": "Marketing Attribution",
+      "fields": ["utm_source", "utm_medium", "utm_campaign", "referral_code"],
+      "description": "Full marketing campaign tracking"
+    },
+    {
+      "pattern": "User Context",
+      "fields": ["user_id", "user_email", "is_logged_in"],
+      "description": "Logged-in user information"
+    },
+    {
+      "pattern": "Journey Tracking",
+      "fields": ["first_landing_page", "last_page_before_form", "pages_visited", "session_duration"],
+      "description": "Full user journey from landing to conversion"
+    }
+  ],
+  "validationRules": {
+    "block_id": "Required - Unique identifier for the block",
+    "nameValue": "Required - Field name attribute (will be key in form data)",
+    "actualValue": "Optional - Can be empty string, populated dynamically, or hardcoded",
+    "ancestor": "MUST be child of tpgb/tp-form-block - Will not work outside form"
+  },
+  "warnings": [
+    "Hidden fields are NOT secure - visible in HTML source, can be modified by users",
+    "NEVER use hidden fields for authentication or authorization",
+    "ALWAYS validate and sanitize values on server side",
+    "Don't store sensitive data (passwords, credit cards, SSN) in hidden fields",
+    "Hidden fields can be manipulated - treat as untrusted user input",
+    "Bots can read and modify hidden fields - use honeypot or CAPTCHA for spam prevention",
+    "Hidden fields add to form payload - don't overuse (affects performance)",
+    "Values are sent with form submission - check privacy compliance",
+    "Browser may cache values - don't rely on hidden fields for real-time data",
+    "Screen readers ignore hidden fields (not accessibility issue since not meant for users)"
+  ],
+  "commonMistakes": [
+    "Using hidden fields for security (nonces, tokens) - use proper WordPress nonce fields",
+    "Expecting hidden field to prevent spam - use reCAPTCHA or honeypot instead",
+    "Hardcoding dynamic data (user ID, timestamp) - use JavaScript or PHP to populate",
+    "Not sanitizing actualValue on backend - SQL injection risk",
+    "Using inconsistent nameValue across forms - breaks reporting",
+    "Forgetting to update actualValue when duplicating forms",
+    "Not documenting what each hidden field is for - maintenance nightmare",
+    "Overloading single hidden field with multiple values (use separate fields)"
+  ],
+  "bestPractices": [
+    "Use descriptive nameValue: 'utm_source' not 'us', 'form_id' not 'fid'",
+    "Keep actualValue consistent: lowercase, hyphens, no spaces",
+    "Document each hidden field purpose in form admin notes",
+    "Group related hidden fields (all UTM params together)",
+    "Use JavaScript to populate dynamic values (timestamps, URLs, user data)",
+    "Test form submissions to verify hidden fields are captured",
+    "Include hidden fields in form admin email for debugging",
+    "Create naming conventions for your team (utm_*, page_*, user_*)",
+    "Use WordPress shortcodes for dynamic content if available",
+    "Consider privacy implications before adding tracking fields",
+    "Minimize number of hidden fields (only track what you'll use)",
+    "Use consistent data types (strings for IDs, numbers for counts)",
+    "Add validation rules on backend for expected values",
+    "Log unexpected values for debugging and security monitoring"
+  ],
+  "accessibilityNotes": [
+    "Hidden fields are correctly hidden from screen readers (display:none or hidden attribute)",
+    "No accessibility concerns as fields are not meant for user interaction",
+    "Ensure visible form fields have proper labels (hidden fields don't need labels)",
+    "Don't use hidden fields to hide required user inputs (use proper field types)"
+  ],
+  "performanceConsiderations": [
+    "Each hidden field adds ~50-200 bytes to form payload (minimal impact)",
+    "Excessive hidden fields (50+) can slow form submission slightly",
+    "Long actualValue strings (>500 chars) increase payload size",
+    "JavaScript population adds minor delay (< 1ms per field)",
+    "Server-side processing time is negligible for hidden fields",
+    "Database storage: Plan for hidden field data in submissions table"
+  ],
+  "integrationExamples": [
+    {
+      "integration": "Mailchimp",
+      "fields": ["MERGE_TAG", "EMAIL", "FNAME", "LNAME"],
+      "description": "Hidden fields for Mailchimp merge tags"
+    },
+    {
+      "integration": "Google Analytics",
+      "fields": ["ga_client_id", "ga_session_id"],
+      "description": "Track GA IDs for cross-platform attribution"
+    },
+    {
+      "integration": "Salesforce",
+      "fields": ["oid", "retURL", "lead_source"],
+      "description": "Required Salesforce Web-to-Lead fields"
+    },
+    {
+      "integration": "HubSpot",
+      "fields": ["hutk", "pageUri", "pageName"],
+      "description": "HubSpot tracking cookie and page context"
+    }
+  ],
+  "dynamicPopulationMethods": [
+    {
+      "method": "JavaScript",
+      "example": "document.querySelector('[name=\"timestamp\"]').value = new Date().toISOString()",
+      "useCase": "Client-side dynamic values (timestamp, URL, referrer)"
+    },
+    {
+      "method": "WordPress Shortcode",
+      "example": "[user_id] or [post_id] in actualValue",
+      "useCase": "Server-side dynamic values (user data, post meta)"
+    },
+    {
+      "method": "PHP Filter",
+      "example": "add_filter('tpgb_form_hidden_field_value', callback)",
+      "useCase": "Advanced server-side logic"
+    },
+    {
+      "method": "URL Parameter",
+      "example": "Read ?ref=affiliate from URL with JavaScript",
+      "useCase": "Capture referral codes, campaign IDs from links"
+    }
+  ]
 }

@@ -2,63 +2,1151 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-progress-tracker",
   "title": "Progress Tracker - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for scroll progress indicators, reading progress bars, and content navigation trackers",
   "examples": [
     {
-      "description": "Simple horizontal progress bar at top",
+      "name": "Simple Horizontal Top Bar (Gradient Fill)",
+      "description": "Minimal top progress bar with purple gradient fill, tracking entire page scroll",
+      "visualDescription": "Thin 4px bar at top of page, purple gradient fill animates left-to-right as user scrolls, subtle shadow effect",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "pt001",
         "progressType": "horizontal",
         "horizontalPos": "top",
+        "hzDirection": "ltr",
         "trackSize": {
           "md": "4",
           "unit": "px"
         },
+        "trackBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f3f4f6"
+        },
+        "fillBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 90,
+            "gradientColor": [
+              {
+                "color": "#667eea",
+                "position": 0
+              },
+              {
+                "color": "#764ba2",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "trackBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 4,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.1)"
+        },
+        "applyTo": "entire"
+      },
+      "useCase": "Blog posts, articles, documentation, long-form content, reading progress"
+    },
+    {
+      "name": "Vertical Progress Bar (Left Side with Percentage)",
+      "description": "Left sidebar progress bar with percentage text display, styled badge background",
+      "visualDescription": "6px wide vertical bar on left edge, green fill animates top-to-bottom, white percentage badge with rounded corners at 50% position",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "pt002",
+        "progressType": "vertical",
+        "verticalPos": "left",
+        "trackSize": {
+          "md": "6",
+          "unit": "px"
+        },
+        "trackBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#e5e7eb"
+        },
         "fillBG": {
           "openBg": 1,
           "bgType": "color",
-          "bgDefaultColor": "#667eea"
+          "bgDefaultColor": "#10b981"
+        },
+        "trackBRadius": {
+          "md": {
+            "top": "0",
+            "right": "3",
+            "bottom": "0",
+            "left": "3"
+          },
+          "unit": "px"
+        },
+        "percentageText": true,
+        "percentageStyle": "style-2",
+        "texTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "12",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "ttPadding": {
+          "md": {
+            "top": "8",
+            "right": "12",
+            "bottom": "8",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "textColor": "#10b981",
+        "ttBGColor": "#ffffff",
+        "applyTo": "entire",
+        "trackOffset": {
+          "md": "0",
+          "unit": "px"
         }
-      }
+      },
+      "useCase": "Tutorials, step-by-step guides, course content, vertical layouts"
     },
     {
-      "description": "Circular progress with percentage",
+      "name": "Circular Progress with Percentage (Bottom-Right)",
+      "description": "Circular SVG progress indicator in bottom-right corner with percentage text, styled with shadow",
+      "visualDescription": "70px circular ring in bottom-right, gray track with purple fill animating clockwise, percentage centered inside circle, drop shadow effect",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "pt003",
         "progressType": "circular",
         "circularPos": "bottom-right",
+        "cPosBottomOff": {
+          "md": "30",
+          "unit": "px"
+        },
+        "cPosRightOff": {
+          "md": "30",
+          "unit": "px"
+        },
+        "circleSize": "70",
+        "circleBGColor": "rgba(255,255,255,0.9)",
+        "trackSize": {
+          "md": "8",
+          "unit": "px"
+        },
+        "cTrackColor": "#e5e7eb",
+        "cFillColor": "#8b5cf6",
+        "cTrackDShadow": {
+          "openShadow": 1,
+          "typeShadow": "drop-shadow",
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "color": "rgba(0,0,0,0.15)"
+        },
         "percentageText": true,
-        "circleSize": "60",
-        "cTrackColor": "#e0e0e0",
-        "cFillColor": "#667eea"
-      }
+        "percentageStyle": "style-1",
+        "texTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "textColor": "#1f2937",
+        "applyTo": "entire"
+      },
+      "useCase": "Minimalist designs, floating progress indicators, modern interfaces, single-page layouts"
     },
     {
-      "description": "Progress with pin points for sections",
+      "name": "Horizontal with Pin Points (Style-1, Section Navigation)",
+      "description": "Top progress bar with labeled pin points for each content section, active state tracking",
+      "visualDescription": "Blue progress bar at top with 5 section labels (Intro, Features, Pricing, FAQ, Contact), active section highlighted in bold with darker background",
+      "complexity": "advanced",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "pt004",
         "progressType": "horizontal",
         "horizontalPos": "top",
+        "hzDirection": "ltr",
+        "trackSize": {
+          "md": "5",
+          "unit": "px"
+        },
+        "trackBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#dbeafe"
+        },
+        "fillBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#3b82f6"
+        },
         "pinPoint": true,
+        "pinPStyle": "style-1",
         "pinPointRep": [
           {
             "_key": "0",
             "Title": "Introduction",
-            "conID": "intro"
+            "conID": "intro-section"
           },
           {
             "_key": "1",
             "Title": "Features",
-            "conID": "features"
+            "conID": "features-section"
           },
           {
             "_key": "2",
             "Title": "Pricing",
-            "conID": "pricing"
+            "conID": "pricing-section"
+          },
+          {
+            "_key": "3",
+            "Title": "FAQ",
+            "conID": "faq-section"
+          },
+          {
+            "_key": "4",
+            "Title": "Contact",
+            "conID": "contact-section"
           }
-        ]
-      }
+        ],
+        "pinTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "12",
+            "unit": "px"
+          },
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "0.5",
+            "unit": "px"
+          }
+        },
+        "pinPadding": {
+          "md": {
+            "top": "8",
+            "right": "12",
+            "bottom": "8",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "pinOffset": {
+          "md": "10",
+          "unit": "px"
+        },
+        "pinColor": "#6b7280",
+        "pinHColor": "#3b82f6",
+        "pinAColor": "#ffffff",
+        "pinBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f9fafb"
+        },
+        "pinHBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#eff6ff"
+        },
+        "pinABG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#3b82f6"
+        },
+        "pinBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e7eb",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "pinABdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#2563eb",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "pinRadius": {
+          "md": {
+            "top": "4",
+            "right": "4",
+            "bottom": "4",
+            "left": "4"
+          },
+          "unit": "px"
+        },
+        "pinBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 4,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.05)"
+        },
+        "pinABShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(59,130,246,0.3)"
+        },
+        "applyTo": "entire"
+      },
+      "useCase": "Landing pages with sections, sales pages, multi-section content, one-page websites, navigation aid"
+    },
+    {
+      "name": "Vertical with Pin Dots (Style-2, Dot Markers)",
+      "description": "Right sidebar vertical tracker with dot-style pin points, minimal labels on hover",
+      "visualDescription": "Thin vertical bar on right edge with circular dot markers for each section, dots fill with color as sections are reached, labels appear on hover",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "pt005",
+        "progressType": "vertical",
+        "verticalPos": "right",
+        "trackSize": {
+          "md": "3",
+          "unit": "px"
+        },
+        "trackBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f3f4f6"
+        },
+        "fillBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 180,
+            "gradientColor": [
+              {
+                "color": "#f59e0b",
+                "position": 0
+              },
+              {
+                "color": "#ef4444",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "pinPoint": true,
+        "pinPStyle": "style-2",
+        "pinPointRep": [
+          {
+            "_key": "0",
+            "Title": "Hero",
+            "conID": "hero"
+          },
+          {
+            "_key": "1",
+            "Title": "About",
+            "conID": "about"
+          },
+          {
+            "_key": "2",
+            "Title": "Services",
+            "conID": "services"
+          },
+          {
+            "_key": "3",
+            "Title": "Portfolio",
+            "conID": "portfolio"
+          },
+          {
+            "_key": "4",
+            "Title": "Testimonials",
+            "conID": "testimonials"
+          },
+          {
+            "_key": "5",
+            "Title": "Contact",
+            "conID": "contact"
+          }
+        ],
+        "pinTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "11",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "pinPadding": {
+          "md": {
+            "top": "6",
+            "right": "10",
+            "bottom": "6",
+            "left": "10"
+          },
+          "unit": "px"
+        },
+        "pinOffset": {
+          "md": "15",
+          "unit": "px"
+        },
+        "pinColor": "#9ca3af",
+        "pinHColor": "#1f2937",
+        "pinAColor": "#ffffff",
+        "pinBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(255,255,255,0)"
+        },
+        "pinHBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(31,41,55,0.9)"
+        },
+        "pinABG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(239,68,68,0.9)"
+        },
+        "pinRadius": {
+          "md": {
+            "top": "3",
+            "right": "3",
+            "bottom": "3",
+            "left": "3"
+          },
+          "unit": "px"
+        },
+        "pinDotSize": {
+          "md": "10",
+          "unit": "px"
+        },
+        "pDotBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "pDotHBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f59e0b"
+        },
+        "pDotABG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ef4444"
+        },
+        "pDotBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#d1d5db",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "pDotABdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#dc2626",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "pDotRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "pDotBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 6,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.1)"
+        },
+        "pDotABShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(239,68,68,0.4)"
+        },
+        "applyTo": "entire"
+      },
+      "useCase": "Portfolio sites, agency websites, presentation pages, dot navigation, minimal interfaces"
+    },
+    {
+      "name": "Circular with Custom Offsets (Precise Positioning)",
+      "description": "Circular progress in top-left corner with custom offset positioning, no percentage text",
+      "visualDescription": "50px circle in top-left corner with 20px offset from edges, teal track with dark teal fill, clean minimal design",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "pt006",
+        "progressType": "circular",
+        "circularPos": "top-left",
+        "cPosTopOff": {
+          "md": "20",
+          "unit": "px"
+        },
+        "cPosLeftOff": {
+          "md": "20",
+          "unit": "px"
+        },
+        "circleSize": "50",
+        "circleBGColor": "transparent",
+        "trackSize": {
+          "md": "6",
+          "unit": "px"
+        },
+        "cTrackColor": "#99f6e4",
+        "cFillColor": "#14b8a6",
+        "percentageText": false,
+        "applyTo": "entire"
+      },
+      "useCase": "Minimalist blogs, clean designs, subtle progress indicators, top-corner placements"
+    },
+    {
+      "name": "Custom Selector Tracking (Specific Section Only)",
+      "description": "Horizontal bar tracking progress within a specific content container, not entire page",
+      "visualDescription": "Bottom bar that only tracks scroll within #main-content container, useful for tracking article progress while ignoring header/footer",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "pt007",
+        "progressType": "horizontal",
+        "horizontalPos": "bottom",
+        "hzDirection": "ltr",
+        "trackSize": {
+          "md": "5",
+          "unit": "px"
+        },
+        "trackBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#fef3c7"
+        },
+        "fillBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 90,
+            "gradientColor": [
+              {
+                "color": "#fbbf24",
+                "position": 0
+              },
+              {
+                "color": "#f59e0b",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "trackBRadius": {
+          "md": {
+            "top": "3",
+            "right": "3",
+            "bottom": "0",
+            "left": "0"
+          },
+          "unit": "px"
+        },
+        "applyTo": "custom",
+        "unqSelector": "#main-content",
+        "relTselector": false
+      },
+      "useCase": "Article containers, specific sections, content-specific tracking, excluding header/footer"
+    },
+    {
+      "name": "Fully Styled with All Features (RTL, Shadows, Complete)",
+      "description": "Right-to-left horizontal bar with percentage badge, pin points, complete styling including shadows and borders",
+      "visualDescription": "Top bar filling right-to-left with gradient, white percentage badge with shadow, pin point labels with hover effects, complete visual polish",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "pt008",
+        "progressType": "horizontal",
+        "horizontalPos": "top",
+        "hzDirection": "rtl",
+        "trackSize": {
+          "md": "6",
+          "unit": "px"
+        },
+        "trackBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ede9fe"
+        },
+        "trackBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e9d5ff",
+          "width": {
+            "md": {
+              "top": "0",
+              "left": "0",
+              "bottom": "1",
+              "right": "0"
+            },
+            "unit": "px"
+          }
+        },
+        "trackBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 3,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(139,92,246,0.1)"
+        },
+        "fillBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 90,
+            "gradientColor": [
+              {
+                "color": "#a78bfa",
+                "position": 0
+              },
+              {
+                "color": "#8b5cf6",
+                "position": 50
+              },
+              {
+                "color": "#7c3aed",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "percentageText": true,
+        "percentageStyle": "style-2",
+        "texTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "13",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "letterSpacing": {
+            "md": "0.3",
+            "unit": "px"
+          }
+        },
+        "ttPadding": {
+          "md": {
+            "top": "10",
+            "right": "16",
+            "bottom": "10",
+            "left": "16"
+          },
+          "unit": "px"
+        },
+        "textColor": "#8b5cf6",
+        "ttBGColor": "#ffffff",
+        "pinPoint": true,
+        "pinPStyle": "style-1",
+        "pinPointRep": [
+          {
+            "_key": "0",
+            "Title": "Welcome",
+            "conID": "welcome"
+          },
+          {
+            "_key": "1",
+            "Title": "Overview",
+            "conID": "overview"
+          },
+          {
+            "_key": "2",
+            "Title": "Details",
+            "conID": "details"
+          },
+          {
+            "_key": "3",
+            "Title": "Summary",
+            "conID": "summary"
+          }
+        ],
+        "pinTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "12",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "pinPadding": {
+          "md": {
+            "top": "8",
+            "right": "14",
+            "bottom": "8",
+            "left": "14"
+          },
+          "unit": "px"
+        },
+        "pinOffset": {
+          "md": "12",
+          "unit": "px"
+        },
+        "pinColor": "#9ca3af",
+        "pinHColor": "#6b7280",
+        "pinAColor": "#ffffff",
+        "pinBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#faf5ff"
+        },
+        "pinHBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f3e8ff"
+        },
+        "pinABG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#8b5cf6",
+                "position": 0
+              },
+              {
+                "color": "#7c3aed",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "pinBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e9d5ff",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "pinHBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#c4b5fd",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "pinABdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#7c3aed",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "pinRadius": {
+          "md": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        },
+        "pinHRadius": {
+          "md": {
+            "top": "6",
+            "right": "6",
+            "bottom": "6",
+            "left": "6"
+          },
+          "unit": "px"
+        },
+        "pinARadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
+        },
+        "pinBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 6,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.05)"
+        },
+        "pinHBShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 3,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.1)"
+        },
+        "pinABShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 6,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(139,92,246,0.4)"
+        },
+        "applyTo": "entire",
+        "trackOffset": {
+          "md": "0",
+          "unit": "px"
+        }
+      },
+      "useCase": "Premium sites, RTL languages (Arabic, Hebrew), complete branding, polished interfaces"
     }
   ],
-  "commonPatterns": {}
+  "validationRules": [
+    "block_id is required and must be unique 4-character hex string",
+    "progressType must be 'horizontal', 'vertical', or 'circular'",
+    "When progressType='horizontal': horizontalPos required ('top' or 'bottom'), hzDirection ('ltr' or 'rtl')",
+    "When progressType='vertical': verticalPos required ('left' or 'right')",
+    "When progressType='circular': circularPos required (6 options: top-left, top-right, center-left, center-right, bottom-left, bottom-right)",
+    "applyTo must be 'entire' (full page) or 'custom' (CSS selector)",
+    "When applyTo='custom': unqSelector is required (CSS selector string)",
+    "pinPoint enables pin points (boolean)",
+    "When pinPoint=true: pinPStyle required ('style-1' for labels, 'style-2' for dots), pinPointRep array with items",
+    "pinPointRep items require _key, Title, and conID (element ID to track)",
+    "percentageText enables percentage display (boolean)",
+    "When percentageText=true: percentageStyle required ('style-1' inline, 'style-2' badge)",
+    "Circular: circleSize is number string (pixels), cTrackColor and cFillColor for strokes",
+    "Circular: position offsets (cPosTopOff, cPosBottomOff, cPosLeftOff, cPosRightOff) based on circularPos",
+    "Horizontal/Vertical: trackSize for thickness, trackBG and fillBG for backgrounds",
+    "trackBG, fillBG, pinBG, pinHBG, pinABG require openBg=1 for backgrounds",
+    "Pin states: normal, hover (H), active (A) - separate styling for each",
+    "pinDotSize, pDotBG, pDotBdr, pDotRadius only apply to pinPStyle='style-2'",
+    "relTselector uses relative selector for custom tracking (boolean)",
+    "trackOffset positions track away from viewport edge (responsive)"
+  ],
+  "warnings": [
+    "Don't forget _key field in pinPointRep array items",
+    "conID must match actual element IDs on the page (case-sensitive)",
+    "Don't use percentageStyle='style-2' with progressType='circular' (conflicts visually)",
+    "hzDirection='rtl' fills right-to-left (for RTL languages or special effects)",
+    "Custom selector (applyTo='custom') requires valid CSS selector in unqSelector",
+    "Pin points only work with horizontal and vertical types (not circular)",
+    "circularPos offsets depend on position (top-left uses cPosTopOff/cPosLeftOff, etc.)",
+    "Don't use conflicting offsets (e.g., top-left position with cPosBottomOff)",
+    "percentageText appears at current scroll position on track (may overlap pins)",
+    "pinPStyle='style-2' shows dots with labels on hover (style-1 shows labels always)",
+    "trackSize applies to all types (horizontal/vertical thickness, circular stroke width)",
+    "Circular SVG size is circleSize + (trackSize * 2) to accommodate stroke",
+    "Pin active state triggers when section is in viewport (Intersection Observer)",
+    "Multiple pins can be active simultaneously if sections overlap in viewport",
+    "unqSelector with relTselector uses relative positioning (experimental)",
+    "trackOffset only works with horizontal top/bottom and vertical left/right",
+    "Percentage text displays current scroll percentage (0-100%)",
+    "Admin bar compatibility: tracker adjusts for WordPress admin bar automatically"
+  ],
+  "commonMistakes": [
+    "Forgetting _key field in pinPointRep items",
+    "Using conID that doesn't match actual page element IDs",
+    "Setting applyTo='custom' without unqSelector",
+    "Using openBg=0 while trying to set background colors (must be openBg=1)",
+    "Not setting openTypography=1 before using typography values",
+    "Using pinDotSize with pinPStyle='style-1' (only works with style-2)",
+    "Trying to use pin points with progressType='circular' (not supported)",
+    "Setting both cPosTopOff and cPosBottomOff for same circular position (conflict)",
+    "Using percentageStyle='style-2' with circular progress (creates visual overlap)",
+    "Forgetting to set fillBG (progress won't be visible)",
+    "Using trackSize without unit (needs md and unit: 'px')",
+    "Setting hzDirection='rtl' unintentionally (causes unexpected right-to-left fill)",
+    "Not testing conID values on actual page (non-existent IDs silently fail)",
+    "Using very large circleSize (>100px) on mobile (overlaps content)",
+    "Not providing responsive values for circular offsets on mobile",
+    "Setting pinOffset too large (pins appear far from track)",
+    "Using identical normal/hover/active styles (no visual feedback)",
+    "Forgetting openShadow=1 before setting shadow values",
+    "Using relTselector without understanding relative selector behavior"
+  ],
+  "bestPractices": [
+    "Use horizontal top bar for article reading progress",
+    "Use vertical left/right for long-form content or documentation",
+    "Use circular bottom-right for minimal, unobtrusive progress",
+    "Match fill color to site brand colors",
+    "Use subtle track backgrounds (#f3f4f6 or similar)",
+    "Add shadows to circular progress for depth (cTrackDShadow)",
+    "Provide clear visual feedback for pin states (normal vs hover vs active)",
+    "Use pinPStyle='style-1' for navigation, style-2 for minimalist designs",
+    "Keep conID values short and semantic (e.g., 'intro', 'features', not 'section-1-intro-text')",
+    "Test pin points with actual page content to ensure IDs match",
+    "Use percentageStyle='style-2' for horizontal/vertical (badge looks better)",
+    "Use percentageStyle='style-1' for circular (inline text in circle)",
+    "Provide responsive offsets for circular on mobile (avoid screen edges)",
+    "Use gradient fills for modern, eye-catching progress bars",
+    "Keep trackSize between 3-8px for horizontal/vertical (too thick is distracting)",
+    "Use circleSize 50-70px for desktop, 40-50px for mobile",
+    "Provide hover effects on pin points for interactivity cues",
+    "Use active state styling to clearly show current section",
+    "Test custom selectors (applyTo='custom') thoroughly before deploying",
+    "Use trackOffset to avoid overlapping with fixed headers",
+    "Match percentage text color to fill color for cohesive design",
+    "Use uppercase typography for pin labels (more readable at small sizes)",
+    "Provide letter-spacing for uppercase text (0.3-0.5px)",
+    "Use border radius on track for polished appearance",
+    "Add subtle box shadows for depth without being overwhelming",
+    "Test on all devices (mobile, tablet, desktop) for positioning",
+    "Use hzDirection='rtl' only for actual RTL languages or intentional effects",
+    "Keep pin point titles concise (1-2 words max)",
+    "Use consistent pin spacing (pinOffset) for visual rhythm",
+    "Test scroll behavior with different content lengths"
+  ],
+  "styleComparisons": [
+    {
+      "title": "Progress Types (progressType)",
+      "options": [
+        {
+          "value": "horizontal",
+          "description": "Horizontal bar at top or bottom of viewport",
+          "visualOutcome": "Full-width bar fills left-to-right (or right-to-left) as user scrolls",
+          "attributes": "horizontalPos (top/bottom), hzDirection (ltr/rtl)",
+          "bestFor": "Reading progress, article tracking, top/bottom placement"
+        },
+        {
+          "value": "vertical",
+          "description": "Vertical bar at left or right edge of viewport",
+          "visualOutcome": "Full-height bar fills top-to-bottom as user scrolls",
+          "attributes": "verticalPos (left/right)",
+          "bestFor": "Side navigation, documentation, long-form content"
+        },
+        {
+          "value": "circular",
+          "description": "Circular SVG ring in corner or center position",
+          "visualOutcome": "Ring fills clockwise from top as user scrolls",
+          "attributes": "circularPos (6 positions), circleSize, position offsets",
+          "bestFor": "Minimal designs, floating indicators, modern interfaces"
+        }
+      ]
+    },
+    {
+      "title": "Pin Point Styles (pinPStyle)",
+      "options": [
+        {
+          "value": "style-1",
+          "description": "Label badges with text always visible",
+          "visualOutcome": "Rectangular badges with section titles, normal/hover/active states",
+          "bestFor": "Navigation aid, section indicators, desktop designs"
+        },
+        {
+          "value": "style-2",
+          "description": "Dots with labels appearing on hover",
+          "visualOutcome": "Small circular dots on track, labels show on hover, minimal look",
+          "attributes": "pinDotSize, pDotBG, pDotBdr, pDotRadius (dot-specific styling)",
+          "bestFor": "Minimalist designs, mobile-friendly, subtle navigation"
+        }
+      ]
+    },
+    {
+      "title": "Percentage Text Styles (percentageStyle)",
+      "options": [
+        {
+          "value": "style-1",
+          "description": "Inline percentage text (no background)",
+          "visualOutcome": "Percentage number appears directly on track/circle",
+          "bestFor": "Circular progress, minimal designs, subtle indicators"
+        },
+        {
+          "value": "style-2",
+          "description": "Badge style with background and padding",
+          "visualOutcome": "Percentage in rounded badge with background color",
+          "attributes": "ttPadding, ttBGColor for badge styling",
+          "bestFor": "Horizontal/vertical bars, prominent percentage display"
+        }
+      ]
+    },
+    {
+      "title": "Tracking Scope (applyTo)",
+      "options": [
+        {
+          "value": "entire",
+          "description": "Track entire page scroll from top to bottom",
+          "visualOutcome": "Progress represents full page scroll position",
+          "bestFor": "Most common use case, general page progress"
+        },
+        {
+          "value": "custom",
+          "description": "Track specific element scroll (CSS selector)",
+          "visualOutcome": "Progress represents scroll within selected element only",
+          "attributes": "unqSelector (CSS selector), relTselector (relative mode)",
+          "bestFor": "Article containers, excluding header/footer, specific sections"
+        }
+      ]
+    }
+  ],
+  "responsivePatterns": [
+    {
+      "pattern": "Circular Position Offsets",
+      "description": "Adjust circular progress position on smaller screens",
+      "implementation": "Use responsive values in cPos*Off (md/sm/xs breakpoints)",
+      "example": "cPosBottomOff: {md: '30', sm: '20', xs: '15', unit: 'px'}"
+    },
+    {
+      "pattern": "Pin Point Simplification",
+      "description": "Switch from style-1 to style-2 on mobile for cleaner look",
+      "implementation": "Use pinPStyle='style-2' to hide labels by default, show on hover/tap",
+      "example": "Desktop: style-1 with visible labels, Mobile: style-2 with dots only"
+    },
+    {
+      "pattern": "Responsive Track Sizing",
+      "description": "Reduce track thickness on mobile devices",
+      "implementation": "Use responsive values in trackSize (md/sm/xs)",
+      "example": "trackSize: {md: '6', sm: '5', xs: '4', unit: 'px'}"
+    },
+    {
+      "pattern": "Hide Percentage on Mobile",
+      "description": "Disable percentage text on small screens to save space",
+      "implementation": "Use percentageText conditionally or style percentageText display:none on mobile",
+      "example": "Show percentage on desktop, hide on mobile for cleaner UI"
+    }
+  ],
+  "accessibilityNotes": [
+    "Progress tracker is purely visual (doesn't affect keyboard navigation)",
+    "Pin points should not be the only way to navigate content (provide table of contents)",
+    "Use semantic section IDs in conID for better screen reader compatibility",
+    "Ensure sufficient color contrast for percentage text (WCAG AA: 4.5:1)",
+    "Pin point labels should be descriptive (not just 'Section 1')",
+    "Don't rely solely on color to indicate active pin (use borders, shadows, scale)",
+    "Test with screen readers to ensure progress doesn't interfere with content",
+    "Circular progress with percentage should have aria-label describing purpose",
+    "Pin points should be clickable for keyboard users (focus states)",
+    "Ensure progress tracker doesn't block content on small screens"
+  ],
+  "performanceConsiderations": [
+    "Uses Intersection Observer for pin point tracking (efficient)",
+    "Scroll event listener for progress calculation (throttled)",
+    "SVG for circular progress (better than canvas for small sizes)",
+    "Limit pin points to 10-15 max (more causes performance degradation)",
+    "Use CSS transforms for smooth animations (GPU-accelerated)",
+    "Avoid very complex gradients in fillBG (use 2-3 colors max)",
+    "Test custom selector performance with large DOM trees",
+    "Circular drop shadow (cTrackDShadow) can impact rendering (use sparingly)",
+    "Multiple progress trackers on same page may conflict (use one per page)",
+    "Pin point hover effects should be CSS-based (not JavaScript)"
+  ],
+  "integrationPatterns": [
+    {
+      "pattern": "Smooth Scroll Navigation",
+      "description": "Combine with smooth scroll block for clickable pin points",
+      "blocks": ["tp-progress-tracker", "tp-smooth-scroll"],
+      "example": "Pin points trigger smooth scroll to sections when clicked"
+    },
+    {
+      "pattern": "Table of Contents",
+      "description": "Progress tracker with pin points mirrors TOC structure",
+      "blocks": ["tp-progress-tracker", "tp-accordion", "tp-heading"],
+      "example": "TOC in sidebar, progress tracker shows current position"
+    },
+    {
+      "pattern": "Multi-Step Form Progress",
+      "description": "Track form completion progress",
+      "blocks": ["tp-progress-tracker", "tp-form-block", "tp-process-steps"],
+      "example": "Progress bar fills as user completes form sections"
+    },
+    {
+      "pattern": "Reading Time Estimate",
+      "description": "Combine progress with estimated reading time",
+      "blocks": ["tp-progress-tracker", "tp-heading", "tp-pro-paragraph"],
+      "example": "Show '5 min read' at top with progress bar tracking completion"
+    }
+  ],
+  "commonPatterns": [
+    {
+      "pattern": "Simple Reading Progress",
+      "attributes": {
+        "progressType": "horizontal",
+        "horizontalPos": "top",
+        "trackSize": {"md": "4", "unit": "px"},
+        "fillBG": {"openBg": 1, "bgType": "color"}
+      }
+    },
+    {
+      "pattern": "Circular with Percentage",
+      "attributes": {
+        "progressType": "circular",
+        "circularPos": "bottom-right",
+        "percentageText": true,
+        "percentageStyle": "style-1"
+      }
+    },
+    {
+      "pattern": "Vertical with Dots",
+      "attributes": {
+        "progressType": "vertical",
+        "verticalPos": "right",
+        "pinPoint": true,
+        "pinPStyle": "style-2"
+      }
+    },
+    {
+      "pattern": "Section Navigation",
+      "attributes": {
+        "progressType": "horizontal",
+        "pinPoint": true,
+        "pinPStyle": "style-1",
+        "pinPointRep": "[multiple sections]"
+      }
+    }
+  ]
 }

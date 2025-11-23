@@ -2,20 +2,330 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-form-acceptance-button",
   "title": "Agree to Terms - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for single acceptance checkbox with integrated link support for legal agreements, GDPR consent, and policy acceptance",
   "examples": [
     {
-      "description": "Simple terms acceptance",
+      "name": "Terms and Conditions (Simple Required, No Link)",
+      "description": "Basic required acceptance checkbox for Terms and Conditions without clickable link",
+      "visualDescription": "Single checkbox with label 'I agree to the Terms and Conditions', checkbox must be checked to submit form",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "ab001",
+        "labelss": "I agree to the Terms and Conditions",
+        "reqTgl": true
+      },
+      "useCase": "Simple registration forms, quick signups, newsletter forms where full legal link isn't required",
+      "acceptanceDetails": {
+        "labelss": "Full acceptance text displayed next to checkbox",
+        "reqTgl": "true - Checkbox must be checked to submit form (validation enforced)",
+        "singleCheckbox": "This block creates ONE checkbox only (not a group like nxt-checkbox-button)"
+      },
+      "bestPractices": [
+        "Use reqTgl: true for required legal agreements (Terms, Privacy Policy)",
+        "Keep label concise and clear about what user is agreeing to",
+        "For legal compliance, add link to actual terms document (use lnkTgl: true)"
+      ]
+    },
+    {
+      "name": "Privacy Policy with Link (Purple Theme, New Tab)",
+      "description": "Acceptance checkbox with clickable link to Privacy Policy opening in new tab",
+      "visualDescription": "Checkbox with text 'I have read and accept the' followed by purple linked text 'Privacy Policy', link opens in new tab, darker purple on hover",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ab002",
+        "labelss": "I have read and accept the",
+        "lnkTgl": true,
+        "lnkLbl": "Privacy Policy",
+        "lnk": {
+          "url": "/privacy-policy",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "reqTgl": true,
+        "lnkLblClr": "#667eea",
+        "hvrLnkLblClr": "#764ba2"
+      },
+      "useCase": "Account registration, checkout pages, membership signups, data collection forms",
+      "linkPatternDetails": {
+        "labelss": "Text before the link ('I have read and accept the')",
+        "lnkTgl": "true - Enable link functionality",
+        "lnkLbl": "Link text ('Privacy Policy')",
+        "lnk.url": "URL to linked document (/privacy-policy or full URL)",
+        "lnk.target": "_blank - Opens in new tab, '' - Opens in same tab",
+        "lnk.nofollow": "'' - Normal link, 'nofollow' - SEO nofollow attribute",
+        "rendering": "Displays as: [labelss] <a href='url' target='target'>lnkLbl</a>"
+      },
+      "warnings": [
+        "Only ONE link supported per acceptance button (lnkLbl + lnk)",
+        "For multiple links (Terms + Privacy), use two separate nxt-acceptance-button blocks",
+        "Link color (lnkLblClr) only affects lnkLbl, not the main labelss text"
+      ]
+    },
+    {
+      "name": "GDPR Data Processing Consent (Detailed Wording)",
+      "description": "GDPR-compliant consent checkbox with formal wording and link to Privacy Notice",
+      "visualDescription": "Checkbox with formal GDPR wording, small 14px gray text, linked 'Privacy Notice' in blue, opens in new tab",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ab003",
+        "labelss": "I consent to the processing of my personal data as described in the",
+        "lnkTgl": true,
+        "lnkLbl": "Privacy Notice",
+        "lnk": {
+          "url": "/gdpr-privacy-notice",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "reqTgl": true,
+        "lblTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "14",
+            "sm": "13",
+            "xs": "12",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          }
+        },
+        "lblClr": "#555555",
+        "lnkLblClr": "#2563EB",
+        "hvrLnkLblClr": "#1D4ED8"
+      },
+      "useCase": "GDPR-compliant forms, EU user registrations, data collection in regulated industries, newsletter signups",
+      "gdprCompliance": {
+        "wording": "Use formal, clear language about data processing",
+        "specificity": "Mention 'personal data' and 'processing' explicitly",
+        "link": "Must link to actual Privacy Notice/Policy document",
+        "required": "GDPR data processing consent is typically required (reqTgl: true)",
+        "granular": "For multiple consent types, use separate acceptance buttons (don't bundle)"
+      },
+      "typographyDetails": {
+        "lblTypo.openTypography": "1 - Enable typography settings",
+        "lblTypo.fontSize": "Responsive font size (14px desktop, 13px tablet, 12px mobile)",
+        "lblTypo.lineHeight": "1.6em for better readability with long legal text",
+        "lblClr": "Label text color (#555555 gray for subtle appearance)",
+        "lnkLblClr": "Link color (#2563EB blue for clickable link)",
+        "hvrLnkLblClr": "Hover link color (#1D4ED8 darker blue)"
+      }
+    },
+    {
+      "name": "Age Verification (18+ Confirmation, Link to Policy)",
+      "description": "Age verification checkbox confirming user is 18 or older with link to age policy",
+      "visualDescription": "Checkbox stating 'I confirm that I am 18 years of age or older as per', linked 'Age Verification Policy', red color scheme for emphasis",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ab004",
+        "labelss": "I confirm that I am 18 years of age or older as per",
+        "lnkTgl": true,
+        "lnkLbl": "Age Verification Policy",
+        "lnk": {
+          "url": "/age-verification-policy",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "reqTgl": true,
+        "lblClr": "#1F2937",
+        "lnkLblClr": "#DC2626",
+        "hvrLnkLblClr": "#991B1B"
+      },
+      "useCase": "Age-restricted content, alcohol/tobacco sales, adult content access, gaming sites, dating platforms",
+      "ageVerificationNotes": {
+        "limitation": "Checkbox only confirms user claims to be 18+ (not actual age verification)",
+        "alternative": "For real age verification, use nxt-date-field for birth date and calculate age",
+        "legal": "Some jurisdictions require actual birth date, not just confirmation checkbox",
+        "color": "Red color scheme (#DC2626) emphasizes importance of age requirement"
+      },
+      "warnings": [
+        "Checkbox confirmation alone is NOT secure age verification (users can lie)",
+        "For legal age verification (alcohol, tobacco, gambling), use birth date field + backend validation",
+        "Consider adding IP geolocation to restrict access by jurisdiction",
+        "Log acceptance with timestamp and IP address for audit trail"
+      ]
+    },
+    {
+      "name": "Newsletter Opt-In (Optional Marketing Consent)",
+      "description": "Optional newsletter subscription checkbox with link to email preferences",
+      "visualDescription": "Optional checkbox (not required) stating 'I want to receive marketing emails', linked 'Email Preferences', green color for positive action",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ab005",
+        "labelss": "I want to receive marketing emails as described in",
+        "lnkTgl": true,
+        "lnkLbl": "Email Preferences",
+        "lnk": {
+          "url": "/email-preferences",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "reqTgl": false,
+        "lblClr": "#374151",
+        "lnkLblClr": "#10B981",
+        "hvrLnkLblClr": "#059669"
+      },
+      "useCase": "Newsletter signups, marketing opt-ins, email preference forms, subscription management",
+      "optionalConsentPattern": {
+        "reqTgl": "false - Checkbox is optional (user can skip)",
+        "gdprCompliance": "GDPR requires marketing consent to be OPTIONAL and SEPARATE from required terms",
+        "preChecked": "Never pre-check marketing opt-ins (violates GDPR)",
+        "color": "Green color (#10B981) signals positive opt-in action"
+      },
+      "bestPractices": [
+        "Always set reqTgl: false for marketing/newsletter opt-ins (must be optional for GDPR)",
+        "Never pre-check marketing consent boxes (violates GDPR - must be user's active choice)",
+        "Separate marketing consent from required Terms acceptance (different checkboxes)",
+        "Provide easy unsubscribe mechanism linked in Email Preferences",
+        "Use positive language ('I want to receive') instead of double negatives"
+      ]
+    },
+    {
+      "name": "Cookie Consent (Required, Nofollow Link)",
+      "description": "Cookie consent checkbox with nofollow link to cookie policy",
+      "visualDescription": "Required checkbox for cookie consent, linked 'Cookie Policy' with nofollow attribute, orange color scheme",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ab006",
+        "labelss": "I accept the use of cookies as described in the",
+        "lnkTgl": true,
+        "lnkLbl": "Cookie Policy",
+        "lnk": {
+          "url": "/cookie-policy",
+          "target": "_blank",
+          "nofollow": "nofollow"
+        },
+        "reqTgl": true,
+        "lblClr": "#1F2937",
+        "lnkLblClr": "#EA580C",
+        "hvrLnkLblClr": "#C2410C"
+      },
+      "useCase": "EU ePrivacy compliance, GDPR cookie consent, website access gates, tracking acceptance",
+      "cookieConsentDetails": {
+        "reqTgl": "true - Cookie consent often required for site functionality",
+        "nofollow": "'nofollow' - SEO attribute to prevent search engine crawling of policy page",
+        "target": "_blank - Opens policy in new tab so user doesn't lose form progress",
+        "color": "Orange color scheme (#EA580C) for cookie-related UI (common convention)"
+      },
+      "nofollowAttribute": {
+        "lnk.nofollow": "'nofollow' - Adds rel='nofollow' to link (tells search engines not to follow)",
+        "useCase": "Use for policy pages, legal documents, user-generated content links",
+        "seoImpact": "Prevents link juice from flowing to linked page",
+        "when": "Optional for internal links, sometimes used for legal/policy pages"
+      },
+      "warnings": [
+        "Cookie consent requirements vary by jurisdiction (EU GDPR, ePrivacy Directive)",
+        "Some regions require granular cookie consent (analytics vs marketing vs essential)",
+        "For full GDPR compliance, consider cookie consent banner with detailed options",
+        "This checkbox only confirms user accepts cookies, doesn't control actual cookie placement"
+      ]
+    },
+    {
+      "name": "Community Guidelines (Styled Typography, Centered)",
+      "description": "Community guidelines acceptance with custom typography, centered alignment, and styled colors",
+      "visualDescription": "Checkbox with larger 16px text, centered, formal wording, linked 'Community Guidelines' in purple",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ab007",
+        "labelss": "I agree to abide by the",
+        "lnkTgl": true,
+        "lnkLbl": "Community Guidelines",
+        "lnk": {
+          "url": "/community-guidelines",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "reqTgl": true,
+        "lblTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "16",
+            "sm": "15",
+            "xs": "14",
+            "unit": "px"
+          },
+          "fontWeight": "500",
+          "lineHeight": {
+            "md": "1.5",
+            "unit": "em"
+          },
+          "textTransform": "none"
+        },
+        "lblClr": "#111827",
+        "lnkLblClr": "#7C3AED",
+        "hvrLblClr": "#374151",
+        "hvrLnkLblClr": "#6D28D9"
+      },
+      "useCase": "Forum registration, social platforms, comment systems, user-generated content sites",
+      "communityGuidelinesContext": {
+        "purpose": "Establish rules of conduct for community participation",
+        "required": "Typically required (reqTgl: true) to participate in community",
+        "enforcement": "Backend should flag violators and link to accepted guidelines timestamp",
+        "typography": "Larger text (16px) makes important agreement more prominent"
+      },
+      "advancedTypography": {
+        "fontSize": "Responsive sizing (16px/15px/14px) for different devices",
+        "fontWeight": "500 (medium weight) for emphasis without being bold",
+        "lineHeight": "1.5em for comfortable reading",
+        "textTransform": "none (default case, not uppercase)",
+        "hvrLblClr": "Hover changes main label color (#374151 gray)",
+        "hvrLnkLblClr": "Hover changes link color (#6D28D9 darker purple)"
+      }
+    },
+    {
+      "name": "Terms + Privacy Combined (Workaround with Long Label)",
+      "description": "Accept both Terms and Privacy Policy using one checkbox with long label and link to combined document",
+      "visualDescription": "Single checkbox with combined wording, link to page containing both policies, blue professional theme",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ab008",
+        "labelss": "I have read and agree to the Terms of Service and Privacy Policy as detailed in the",
+        "lnkTgl": true,
+        "lnkLbl": "Legal Documentation",
+        "lnk": {
+          "url": "/legal",
+          "target": "_blank",
+          "nofollow": ""
+        },
+        "reqTgl": true,
+        "lblClr": "#1F2937",
+        "lnkLblClr": "#3B82F6",
+        "hvrLnkLblClr": "#2563EB"
+      },
+      "useCase": "Checkout pages, quick registration, simple forms where space is limited",
+      "combinedPolicyPattern": {
+        "limitation": "Only ONE link supported - must link to page containing both policies",
+        "alternative": "For separate links, use TWO nxt-acceptance-button blocks (one for Terms, one for Privacy)",
+        "bestPractice": "Ideally use separate checkboxes for granular consent (GDPR compliance)",
+        "workaround": "Create /legal page with both Terms and Privacy Policy documents combined"
+      },
+      "warnings": [
+        "GDPR prefers granular consent - separate checkboxes for Terms vs Privacy is better",
+        "Single combined checkbox may not meet strict GDPR requirements in some jurisdictions",
+        "If using combined checkbox, ensure linked page clearly separates both documents",
+        "For e-commerce/SaaS, regulatory bodies may require separate acceptance checkboxes"
+      ],
+      "alternatives": [
+        "Use two separate nxt-acceptance-button blocks (Terms + Privacy separately)",
+        "Use nxt-checkbox-button with fldOptions array for multiple separate checkboxes",
+        "Create dedicated legal page (/legal) with clear sections for Terms and Privacy"
+      ]
+    }
+  ],
+
+  "commonPatterns": [
+    {
+      "name": "Simple Required Acceptance (No Link)",
+      "description": "Basic checkbox for terms acceptance without clickable link",
+      "attributes": {
         "labelss": "I agree to the Terms and Conditions",
         "reqTgl": true
       }
     },
     {
-      "description": "Privacy policy with link",
+      "name": "With Link (New Tab, Styled)",
+      "description": "Acceptance with clickable link opening in new tab",
       "attributes": {
-        "block_id": "c3d4",
         "labelss": "I have read and accept the",
         "lnkTgl": true,
         "lnkLbl": "Privacy Policy",
@@ -30,32 +340,209 @@
       }
     },
     {
-      "description": "GDPR consent with styled text",
+      "name": "Optional Consent (Marketing)",
+      "description": "Optional checkbox for marketing/newsletter opt-in",
       "attributes": {
-        "block_id": "e5f6",
-        "labelss": "I consent to the processing of my personal data as described in the",
-        "lnkTgl": true,
-        "lnkLbl": "Privacy Notice",
-        "lnk": {
-          "url": "/gdpr-privacy-notice",
-          "target": "_blank",
-          "nofollow": ""
-        },
-        "reqTgl": true,
+        "labelss": "I want to receive marketing emails",
+        "reqTgl": false,
+        "lblClr": "#374151"
+      }
+    },
+    {
+      "name": "With Typography Styling",
+      "description": "Custom typography for prominent legal agreements",
+      "attributes": {
         "lblTypo": {
           "openTypography": 1,
-          "size": {
-            "md": "14",
-            "unit": "px"
-          }
+          "fontSize": {"md": "14", "unit": "px"},
+          "lineHeight": {"md": "1.6", "unit": "em"}
         },
         "lblClr": "#555555"
       }
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
+
+  "validationRules": {
+    "labelss": "Required string - Text displayed before link (or full text if no link)",
+    "reqTgl": "Boolean - true makes checkbox required, false makes it optional",
+    "lnkTgl": "Boolean - true enables link functionality, false shows plain text only",
+    "lnkLbl": "String - Text to display as clickable link (requires lnkTgl: true)",
+    "lnk.url": "String - URL for link (relative '/privacy' or absolute 'https://...')",
+    "lnk.target": "String - '_blank' opens new tab, '' opens same tab",
+    "lnk.nofollow": "String - 'nofollow' adds rel='nofollow', '' normal link",
+    "lblClr": "String - Color for main label text (hex color)",
+    "lnkLblClr": "String - Color for link text (hex color)",
+    "lblTypo": "Object - Typography settings ($ref definitions://typography)",
+    "hvrLblClr": "String - Hover color for main label",
+    "hvrLnkLblClr": "String - Hover color for link"
+  },
+
+  "warnings": [
+    "Only ONE link supported per acceptance button (lnkLbl + lnk object)",
+    "For multiple links (Terms + Privacy), use TWO separate nxt-acceptance-button blocks",
+    "Link color (lnkLblClr) only affects lnkLbl text, not the main labelss text",
+    "reqTgl: true enforces checkbox must be checked (validation on submit)",
+    "Pre-checked acceptance checkboxes violate GDPR - all must default unchecked",
+    "Marketing consent must be optional (reqTgl: false) and separate from Terms",
+    "Checkbox alone doesn't constitute legal agreement - backend must log acceptance with timestamp/IP",
+    "target: '_blank' opens new tab which may annoy some users (consider same tab for internal links)",
+    "nofollow attribute ('nofollow') affects SEO but not functionality",
+    "Label + link rendering: 'labelss' <a href='url'>lnkLbl</a> (no space automatically added)",
+    "Long labelss text can wrap awkwardly on mobile - test responsive behavior"
+  ],
+
+  "commonMistakes": [
+    "Trying to add multiple links in one acceptance button (only one link supported)",
+    "Forgetting to set lnkTgl: true when using lnkLbl and lnk (link won't appear)",
+    "Setting reqTgl: false for Terms & Conditions (legal agreements should be required)",
+    "Setting reqTgl: true for marketing opt-ins (GDPR violation - must be optional)",
+    "Not including space at end of labelss when using link ('...accept the' + 'Privacy Policy' → 'accept thePrivacy Policy')",
+    "Using same color for lblClr and lnkLblClr (link not visually distinguishable)",
+    "Forgetting target: '_blank' for long policy documents (user loses form progress if same tab)",
+    "Using nofollow for critical internal pages (SEO impact - only use for legal/UGC)",
+    "Not testing mobile text wrapping with long labelss + lnkLbl combinations",
+    "Bundling Terms + Privacy in one checkbox (better to use separate checkboxes for granular consent)"
+  ],
+
+  "bestPractices": [
+    "Use reqTgl: true for required legal agreements (Terms, Privacy, Cookie Consent)",
+    "Use reqTgl: false for optional consents (Marketing, Newsletter, Data Sharing)",
+    "Always include lnkTgl: true and link to actual policy document for transparency",
+    "Use target: '_blank' for policy links so user doesn't lose form progress",
+    "End labelss with space when using link: 'I accept the ' (note trailing space)",
+    "Use distinct colors for link (lnkLblClr) vs main text (lblClr) for clarity",
+    "Set hover colors (hvrLnkLblClr) slightly darker for visual feedback",
+    "For GDPR compliance, separate required Terms from optional Marketing consent (different blocks)",
+    "Use descriptive link text (lnkLbl: 'Privacy Policy') instead of generic ('here', 'click here')",
+    "Test long label + link combinations on mobile (check for awkward wrapping)",
+    "Log acceptance in backend with timestamp, IP, and user agent for audit trail",
+    "Use typography (lblTypo) to make important agreements more prominent (14-16px)",
+    "For cookie consent, consider orange color scheme (#EA580C) for consistency",
+    "For age verification, use red/warning colors (#DC2626) to emphasize importance",
+    "For marketing opt-ins, use green colors (#10B981) to signal positive action"
+  ],
+
+  "accessibilityNotes": [
+    "Label text (labelss + lnkLbl) is announced by screen readers as checkbox label",
+    "Links (lnkLbl) are keyboard navigable (Tab to focus, Enter to activate)",
+    "Ensure sufficient color contrast for lblClr and lnkLblClr (minimum 4.5:1 ratio)",
+    "Link should be visually distinct from plain text (use color and/or underline)",
+    "Don't rely on color alone to indicate links (ensure text is clearly clickable)",
+    "Use descriptive link text (lnkLbl: 'Privacy Policy' not 'click here')",
+    "target='_blank' should be announced by screen readers as opening in new window",
+    "Checkbox is keyboard accessible (Tab to focus, Space to toggle)",
+    "Error messages for reqTgl: true are announced by screen readers on submit",
+    "Large touch target on mobile (minimum 44x44px) - TPGB default styling handles this"
+  ],
+
+  "performanceConsiderations": [
+    "Browser native checkbox and link rendering is instant (no custom JavaScript)",
+    "Single checkbox validation happens on submit, not on every click",
+    "Link target='_blank' may trigger popup blocker warnings in some browsers",
+    "Typography settings (lblTypo) add minimal rendering overhead",
+    "Color styling (lblClr, lnkLblClr) is CSS-based (fast)",
+    "No external dependencies - all styling handled by TPGB CSS"
+  ],
+
+  "legalComplianceNotes": {
+    "GDPR": {
+      "requirements": "Consent must be freely given, specific, informed, and unambiguous",
+      "granular": "Separate required Terms from optional Marketing consent (different checkboxes)",
+      "preChecked": "Never pre-check consent boxes (violates GDPR - must be active opt-in)",
+      "withdrawal": "Provide easy mechanism to withdraw consent (link in Email Preferences)",
+      "audit": "Log acceptance with timestamp, IP address, user agent, and checkbox text",
+      "children": "Special rules for children under 16 (verify age before processing data)"
+    },
+    "ePrivacy": {
+      "cookies": "Cookie consent required in EU before setting non-essential cookies",
+      "granular": "Consider granular cookie consent (essential vs analytics vs marketing)",
+      "placement": "Cookie consent must be obtained before cookies are set (not after)"
+    },
+    "CCPA": {
+      "california": "California Consumer Privacy Act requires opt-out mechanism for data sales",
+      "disclosure": "Must disclose categories of personal data collected and purposes"
     }
-  }
+  },
+
+  "useCaseSpecificTips": {
+    "AccountRegistration": {
+      "tip": "Use required Terms + optional Newsletter as separate checkboxes",
+      "pattern": "nxt-acceptance-button (Terms, reqTgl: true) + nxt-acceptance-button (Marketing, reqTgl: false)",
+      "link": "Link to /terms-of-service and /email-preferences"
+    },
+    "ECommerceCheckout": {
+      "tip": "Required Terms + optional Marketing, short labels for space constraints",
+      "pattern": "Single checkbox can combine Terms + Privacy (link to /legal page)",
+      "color": "Professional blue (#3B82F6) for trustworthy appearance"
+    },
+    "NewsletterSignup": {
+      "tip": "Optional consent only (reqTgl: false), green color for positive action",
+      "wording": "Use positive language ('I want to receive') not double negatives",
+      "link": "Link to /email-preferences for transparency"
+    },
+    "AgeRestrictedContent": {
+      "tip": "Required age confirmation (reqTgl: true), red color for emphasis",
+      "warning": "Checkbox alone is NOT secure age verification (users can lie)",
+      "alternative": "For legal compliance, use nxt-date-field for birth date + backend age calculation"
+    },
+    "CookieConsent": {
+      "tip": "Required cookie acceptance (reqTgl: true), orange color scheme",
+      "link": "Link to /cookie-policy with detailed cookie categories",
+      "alternative": "For full GDPR compliance, use dedicated cookie consent banner with granular options"
+    }
+  },
+
+  "integrationExamples": [
+    {
+      "name": "Log Acceptance for Audit Trail (Backend PHP)",
+      "description": "Store acceptance with timestamp, IP, and checkbox text for GDPR compliance",
+      "code": "// Log acceptance checkbox for audit trail\n$terms_accepted = isset($_POST['terms_agreement']) ? true : false;\n\nif (!$terms_accepted) {\n  return new WP_Error('terms_required', 'You must accept the Terms and Conditions.');\n}\n\n// Log acceptance with full context\n$acceptance_log = [\n  'user_id' => get_current_user_id(),\n  'checkbox_text' => 'I agree to the Terms and Conditions', // Store exact text user saw\n  'checkbox_link' => '/terms-of-service', // Store policy version/URL\n  'timestamp' => current_time('mysql'),\n  'ip_address' => $_SERVER['REMOTE_ADDR'],\n  'user_agent' => $_SERVER['HTTP_USER_AGENT'],\n  'form_id' => 'registration_form'\n];\n\n// Store in custom table\nglobal $wpdb;\n$wpdb->insert(\n  $wpdb->prefix . 'acceptance_log',\n  $acceptance_log,\n  ['%d', '%s', '%s', '%s', '%s', '%s', '%s']\n);\n\n// Also update user meta\nupdate_user_meta($user_id, 'terms_accepted_date', current_time('mysql'));"
+    },
+    {
+      "name": "GDPR Compliant Consent Management",
+      "description": "Handle multiple consent checkboxes with granular tracking",
+      "code": "// Handle multiple consent types (Terms required, Marketing optional)\n$terms_accepted = isset($_POST['terms_acceptance']) ? true : false;\n$marketing_consent = isset($_POST['marketing_acceptance']) ? true : false;\n\n// Validate required terms\nif (!$terms_accepted) {\n  return new WP_Error('terms_required', 'You must accept the Terms and Conditions.');\n}\n\n// Store granular consents\n$consents = [\n  'terms_conditions' => [\n    'accepted' => $terms_accepted,\n    'timestamp' => current_time('mysql'),\n    'ip' => $_SERVER['REMOTE_ADDR'],\n    'policy_version' => '2.1', // Track which version user accepted\n    'policy_url' => '/terms-of-service'\n  ],\n  'marketing_emails' => [\n    'accepted' => $marketing_consent,\n    'timestamp' => $marketing_consent ? current_time('mysql') : null,\n    'ip' => $marketing_consent ? $_SERVER['REMOTE_ADDR'] : null,\n    'can_withdraw' => true // User can opt-out later\n  ]\n];\n\nupdate_user_meta($user_id, 'gdpr_consents', $consents);\n\n// If marketing consent given, add to mailing list\nif ($marketing_consent) {\n  add_user_to_mailing_list($user_id);\n}"
+    },
+    {
+      "name": "Age Verification with Birth Date Validation",
+      "description": "Combine age confirmation checkbox with birth date field for legal compliance",
+      "code": "// Age verification: Checkbox + Birth Date field\n$age_confirmed = isset($_POST['age_confirmation']) ? true : false;\n$birth_date = isset($_POST['birth_date']) ? sanitize_text_field($_POST['birth_date']) : '';\n\n// Validate checkbox checked\nif (!$age_confirmed) {\n  return new WP_Error('age_not_confirmed', 'You must confirm you are 18 or older.');\n}\n\n// Calculate actual age from birth date\nif (!empty($birth_date)) {\n  $birth = new DateTime($birth_date);\n  $today = new DateTime();\n  $age = $today->diff($birth)->y;\n  \n  if ($age < 18) {\n    return new WP_Error('underage', 'You must be at least 18 years old to register.');\n  }\n  \n  // Log both checkbox and calculated age\n  update_user_meta($user_id, 'age_verified', [\n    'checkbox_confirmed' => true,\n    'birth_date' => $birth_date,\n    'calculated_age' => $age,\n    'verification_date' => current_time('mysql'),\n    'ip_address' => $_SERVER['REMOTE_ADDR']\n  ]);\n} else {\n  // Checkbox alone without birth date (less secure)\n  update_user_meta($user_id, 'age_confirmed_checkbox_only', current_time('mysql'));\n}"
+    },
+    {
+      "name": "Consent Withdrawal Mechanism",
+      "description": "Allow users to withdraw marketing consent after registration",
+      "code": "// Consent withdrawal page/endpoint\nfunction withdraw_marketing_consent($user_id) {\n  $consents = get_user_meta($user_id, 'gdpr_consents', true);\n  \n  if (!empty($consents['marketing_emails']['accepted'])) {\n    // Log withdrawal\n    $consents['marketing_emails']['accepted'] = false;\n    $consents['marketing_emails']['withdrawn_at'] = current_time('mysql');\n    $consents['marketing_emails']['withdrawn_ip'] = $_SERVER['REMOTE_ADDR'];\n    \n    update_user_meta($user_id, 'gdpr_consents', $consents);\n    \n    // Remove from mailing list\n    remove_user_from_mailing_list($user_id);\n    \n    return true;\n  }\n  \n  return new WP_Error('not_subscribed', 'You are not subscribed to marketing emails.');\n}\n\n// Usage in email preferences page\nif (isset($_POST['withdraw_marketing'])) {\n  withdraw_marketing_consent(get_current_user_id());\n  wp_redirect('/account/preferences?consent_withdrawn=1');\n}"
+    }
+  ],
+
+  "differencesFromCheckboxButton": {
+    "nxt-acceptance-button": {
+      "purpose": "Single acceptance checkbox for legal agreements",
+      "checkboxCount": "Always ONE checkbox only",
+      "linkSupport": "Built-in link support (lnkTgl, lnkLbl, lnk object)",
+      "styling": "Dedicated label + link color controls",
+      "useCase": "Terms acceptance, Privacy Policy, GDPR consent, Age verification",
+      "validation": "reqTgl applies to single checkbox (must be checked if true)"
+    },
+    "nxt-checkbox-button": {
+      "purpose": "Multiple checkbox group for multi-select options",
+      "checkboxCount": "Multiple checkboxes (fldOptions array)",
+      "linkSupport": "No built-in link support (would need HTML in fldLabel)",
+      "styling": "Group-level styling (bRadius, optPos, chkPosition)",
+      "useCase": "Skills selection, Newsletter topics, Dietary restrictions, Services",
+      "validation": "reqTgl requires at least ONE checkbox checked (not all)"
+    },
+    "whenToUse": {
+      "acceptance-button": "Legal agreements where user must actively consent (Terms, Privacy, GDPR)",
+      "checkbox-button": "Multiple options where user selects one or more (Skills, Interests, Preferences)"
+    }
+  },
+
+  "relatedBlocks": [
+    "nxt-checkbox-button - For multiple checkbox groups (use instead if you need multiple separate checkboxes)",
+    "tp-form-block - Parent form container with form actions",
+    "nxt-date-field - For age verification (use birth date + calculate age instead of simple confirmation)",
+    "nxt-hidden-field - Store policy version, acceptance timestamp for backend processing",
+    "nxt-submit-button - Pair with form submission"
+  ]
 }

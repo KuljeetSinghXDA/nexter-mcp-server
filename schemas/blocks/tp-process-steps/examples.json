@@ -2,76 +2,1543 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-process-steps",
   "title": "Process Steps - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for creating process workflows, timelines, step-by-step guides, and multi-step visualizations",
   "examples": [
     {
-      "description": "Simple 3-step process with icons",
+      "name": "Simple 4-Step Horizontal Process (Icon Steps)",
+      "description": "Horizontal process workflow with 4 icon steps, connecting lines, hover effects, and gradient backgrounds",
+      "visualDescription": "Four steps displayed horizontally with Font Awesome icons in circular backgrounds, purple gradient color scheme, solid connecting lines between steps, scale transform on hover",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "ps001",
         "style": "style-1",
         "processSteps": [
           {
             "_key": "0",
-            "title": "Plan",
-            "desc": "Define your goals and requirements",
-            "fontAwesomeIcon": "fas fa-lightbulb"
+            "title": "Discover",
+            "desc": "Research your needs and explore solutions",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-search",
+            "linkUrl": {
+              "url": "",
+              "target": "",
+              "nofollow": ""
+            }
           },
           {
             "_key": "1",
-            "title": "Build",
-            "desc": "Develop and implement your solution",
-            "fontAwesomeIcon": "fas fa-wrench"
+            "title": "Plan",
+            "desc": "Define scope, timeline, and budget",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-clipboard-list"
           },
           {
             "_key": "2",
+            "title": "Build",
+            "desc": "Develop and implement your solution",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-tools"
+          },
+          {
+            "_key": "3",
             "title": "Launch",
-            "desc": "Deploy and celebrate success",
+            "desc": "Deploy, monitor, and optimize",
+            "selectIcon": "icon",
             "fontAwesomeIcon": "fas fa-rocket"
           }
-        ]
-      }
+        ],
+        "iconSize": {
+          "md": "28",
+          "unit": "px"
+        },
+        "iconNmlColor": "#ffffff",
+        "iconHvrColor": "#ffffff",
+        "bgSize": {
+          "md": "80",
+          "unit": "px"
+        },
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#667eea",
+                "position": 0
+              },
+              {
+                "color": "#764ba2",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "hoverBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#764ba2",
+                "position": 0
+              },
+              {
+                "color": "#667eea",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "nmlBRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "bType": "solid",
+        "sepNmlColor": "#e5e7eb",
+        "sepHvrColor": "#667eea",
+        "sepBSize": {
+          "md": "2",
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "20",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "titleNmlColor": "#1f2937",
+        "titleHvrColor": "#667eea",
+        "descTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "14",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          }
+        },
+        "descNmlColor": "#6b7280",
+        "descHvrColor": "#4b5563",
+        "transformHvrCSS": "scale(1.1)"
+      },
+      "useCase": "Onboarding processes, checkout flows, how-to guides, project workflows, service packages"
     },
     {
-      "description": "Vertical process with counter badges",
+      "name": "Vertical Timeline with Counters (Numbered Steps)",
+      "description": "Vertical timeline layout with numbered counter badges, style-2 layout, dotted connecting lines",
+      "visualDescription": "Vertical timeline with 5 steps, numbered counter badges (1-5) in circles, dotted vertical lines connecting steps, left-aligned content",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "ps002",
         "style": "style-2",
         "displayCounter": true,
         "counterStyle": "number_normal",
         "processSteps": [
           {
             "_key": "0",
-            "title": "Step 1",
-            "desc": "First action item"
+            "title": "Account Created",
+            "desc": "User signed up and verified email",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-user-check"
           },
           {
             "_key": "1",
-            "title": "Step 2",
-            "desc": "Second action item"
+            "title": "Profile Completed",
+            "desc": "Added personal details and preferences",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-id-card"
+          },
+          {
+            "_key": "2",
+            "title": "First Purchase",
+            "desc": "Placed initial order successfully",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-shopping-cart"
+          },
+          {
+            "_key": "3",
+            "title": "Order Shipped",
+            "desc": "Package dispatched to delivery address",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-shipping-fast"
+          },
+          {
+            "_key": "4",
+            "title": "Delivered",
+            "desc": "Package received and confirmed",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-box-open"
           }
-        ]
-      }
+        ],
+        "iconSize": {
+          "md": "22",
+          "unit": "px"
+        },
+        "iconNmlColor": "#10b981",
+        "bgSize": {
+          "md": "60",
+          "unit": "px"
+        },
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ecfdf5"
+        },
+        "nmlBRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "counterTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "14",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "counterNmlColor": "#10b981",
+        "counterNmlBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "counterNmlB": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#10b981",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "counterNmlBRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "bType": "dotted",
+        "sepNmlColor": "#d1d5db",
+        "sepBSize": {
+          "md": "2",
+          "unit": "px"
+        },
+        "sepSize": {
+          "md": "50",
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "18",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "titleNmlColor": "#1f2937",
+        "descTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "14",
+            "unit": "px"
+          }
+        },
+        "descNmlColor": "#6b7280",
+        "imgSt2Align": "center",
+        "cntntSt2Align": "left"
+      },
+      "useCase": "Order tracking, user journeys, historical timelines, progress indicators, milestone tracking"
     },
     {
-      "description": "Process with custom separator image",
+      "name": "Icon + Image Steps with Gradient Backgrounds",
+      "description": "Mixed icon and image steps with gradient backgrounds, hover effects, and shadow styling",
+      "visualDescription": "Three steps mixing Font Awesome icons and custom images, vibrant gradient backgrounds transitioning on hover, shadows and border radius effects",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "ps003",
         "style": "style-1",
-        "bType": "custom",
-        "customImg": {
-          "url": "/arrow-separator.svg"
+        "processSteps": [
+          {
+            "_key": "0",
+            "title": "Choose Your Plan",
+            "desc": "Select from our range of subscription options",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-th-large"
+          },
+          {
+            "_key": "1",
+            "title": "Customize Features",
+            "desc": "Pick add-ons and configure your workspace",
+            "selectIcon": "image",
+            "stepImage": {
+              "url": "https://example.com/wp-content/uploads/customize-icon.png",
+              "id": "601"
+            },
+            "imageSize": "thumbnail"
+          },
+          {
+            "_key": "2",
+            "title": "Start Creating",
+            "desc": "Access all tools and begin your journey",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-magic"
+          }
+        ],
+        "iconSize": {
+          "md": "30",
+          "unit": "px"
+        },
+        "iconNmlColor": "#ffffff",
+        "iconHvrColor": "#ffffff",
+        "imgSize": {
+          "md": "50",
+          "unit": "px"
+        },
+        "bgSize": {
+          "md": "90",
+          "unit": "px"
+        },
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#f59e0b",
+                "position": 0
+              },
+              {
+                "color": "#ef4444",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "hoverBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#ef4444",
+                "position": 0
+              },
+              {
+                "color": "#dc2626",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "nmlBRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "nmlBGShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 15,
+          "spread": 0,
+          "color": "rgba(245,158,11,0.3)"
+        },
+        "hvrBGShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 25,
+          "spread": 0,
+          "color": "rgba(239,68,68,0.4)"
+        },
+        "bType": "solid",
+        "sepNmlColor": "#fef3c7",
+        "sepHvrColor": "#f59e0b",
+        "sepBSize": {
+          "md": "3",
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "22",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "titleNmlColor": "#1f2937",
+        "titleHvrColor": "#f59e0b",
+        "contentPadding": {
+          "md": {
+            "top": "20",
+            "right": "20",
+            "bottom": "20",
+            "left": "20"
+          },
+          "unit": "px"
+        },
+        "contentNmlBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#fffbeb"
+        },
+        "contentHvrBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#fef3c7"
+        },
+        "contentNmlBRadius": {
+          "md": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "unit": "px"
         }
-      }
+      },
+      "useCase": "Product showcases, feature highlights, service tiers, multi-step forms"
     },
     {
-      "description": "Carousel-integrated process steps",
+      "name": "Custom Text Labels (Custom Counter Text)",
+      "description": "Process steps with custom text labels instead of numbers, styled counter badges",
+      "visualDescription": "Four steps with custom labels ('Start', 'Design', 'Review', 'Finish'), purple counter badges with custom text, horizontal layout",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "g7h8",
+        "block_id": "ps004",
+        "style": "style-1",
+        "displayCounter": true,
+        "counterStyle": "dc_custom_text",
+        "processSteps": [
+          {
+            "_key": "0",
+            "title": "Kick-Off Meeting",
+            "desc": "Align with stakeholders on goals and deliverables",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-handshake",
+            "customText": "Start"
+          },
+          {
+            "_key": "1",
+            "title": "Design Phase",
+            "desc": "Create wireframes, mockups, and prototypes",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-palette",
+            "customText": "Design"
+          },
+          {
+            "_key": "2",
+            "title": "Review & Feedback",
+            "desc": "Present designs and incorporate client feedback",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-comments",
+            "customText": "Review"
+          },
+          {
+            "_key": "3",
+            "title": "Final Delivery",
+            "desc": "Hand off all assets and documentation",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-check-circle",
+            "customText": "Finish"
+          }
+        ],
+        "iconSize": {
+          "md": "26",
+          "unit": "px"
+        },
+        "iconNmlColor": "#8b5cf6",
+        "bgSize": {
+          "md": "70",
+          "unit": "px"
+        },
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f5f3ff"
+        },
+        "nmlBRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "counterPadding": {
+          "md": {
+            "top": "6",
+            "right": "12",
+            "bottom": "6",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "counterTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "11",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "textTransform": "uppercase",
+          "letterSpacing": {
+            "md": "0.5",
+            "unit": "px"
+          }
+        },
+        "counterNmlColor": "#ffffff",
+        "counterNmlBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#8b5cf6",
+                "position": 0
+              },
+              {
+                "color": "#6d28d9",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "counterNmlBRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "counterNmlShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(139,92,246,0.3)"
+        },
+        "bType": "dashed",
+        "sepNmlColor": "#e9d5ff",
+        "sepBSize": {
+          "md": "2",
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "18",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "titleNmlColor": "#1f2937"
+      },
+      "useCase": "Project phases, workflow stages, custom processes, labeled milestones"
+    },
+    {
+      "name": "Responsive Process Steps (Vertical on Tablet)",
+      "description": "Horizontal on desktop, automatically switches to vertical layout on tablet and mobile devices",
+      "visualDescription": "Three steps displayed horizontally on desktop with connecting arrows, switches to vertical stacked layout on tablets and mobile",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ps005",
+        "style": "style-1",
+        "vertOnTablet": true,
+        "nmlLoutMobile": false,
+        "processSteps": [
+          {
+            "_key": "0",
+            "title": "Sign Up",
+            "desc": "Create your free account in seconds",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-user-plus"
+          },
+          {
+            "_key": "1",
+            "title": "Connect",
+            "desc": "Link your data sources and tools",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-plug"
+          },
+          {
+            "_key": "2",
+            "title": "Automate",
+            "desc": "Set up workflows and start saving time",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-cogs"
+          }
+        ],
+        "iconSize": {
+          "md": "32",
+          "sm": "28",
+          "xs": "24",
+          "unit": "px"
+        },
+        "iconNmlColor": "#3b82f6",
+        "bgSize": {
+          "md": "85",
+          "sm": "75",
+          "xs": "65",
+          "unit": "px"
+        },
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#dbeafe"
+        },
+        "nmlBRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "bType": "solid",
+        "sepNmlColor": "#93c5fd",
+        "sepBSize": {
+          "md": "2",
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "20",
+            "sm": "18",
+            "xs": "16",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "titleNmlColor": "#1e40af",
+        "descTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "14",
+            "sm": "13",
+            "xs": "12",
+            "unit": "px"
+          }
+        },
+        "descNmlColor": "#6b7280"
+      },
+      "useCase": "Mobile-first designs, responsive workflows, onboarding for all devices"
+    },
+    {
+      "name": "Special Background Effect (Concentric Circles)",
+      "description": "Process steps with special concentric circle background effects on icons, animated ripple effect",
+      "visualDescription": "Three steps with icons surrounded by animated concentric circles creating a ripple effect, modern and eye-catching design",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ps006",
+        "style": "style-1",
+        "specialBG": true,
+        "processSteps": [
+          {
+            "_key": "0",
+            "title": "Analyze",
+            "desc": "Deep dive into your data and metrics",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-chart-line"
+          },
+          {
+            "_key": "1",
+            "title": "Strategize",
+            "desc": "Develop actionable plans and roadmaps",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-chess-knight"
+          },
+          {
+            "_key": "2",
+            "title": "Execute",
+            "desc": "Implement and track your initiatives",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-bullseye"
+          }
+        ],
+        "iconSize": {
+          "md": "34",
+          "unit": "px"
+        },
+        "iconNmlColor": "#ffffff",
+        "bgSize": {
+          "md": "100",
+          "unit": "px"
+        },
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#ec4899",
+                "position": 0
+              },
+              {
+                "color": "#8b5cf6",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "nmlBRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "bType": "solid",
+        "sepNmlColor": "#e5e7eb",
+        "sepBSize": {
+          "md": "2",
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "24",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "titleNmlColor": "#1f2937",
+        "descTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "15",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          }
+        },
+        "descNmlColor": "#6b7280",
+        "contentHeight": {
+          "md": "180",
+          "unit": "px"
+        }
+      },
+      "useCase": "Premium presentations, eye-catching workflows, animated processes, modern landing pages"
+    },
+    {
+      "name": "Carousel-Synced Steps (With Active States)",
+      "description": "Process steps synchronized with carousel, showing active state for current slide, hover interaction",
+      "visualDescription": "Four steps with carousel integration, active step highlighted with different color and border, clicks navigate carousel slides",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ps007",
+        "style": "style-2",
         "carouselToggle": true,
-        "carouselID": "carousel-1",
-        "carouselEffect": "con_pro_hover"
-      }
+        "carouselID": "product-carousel",
+        "carouselEffect": "con_pro_hover",
+        "dfltActive": "0",
+        "processSteps": [
+          {
+            "_key": "0",
+            "title": "Overview",
+            "desc": "Product introduction and key benefits",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-home"
+          },
+          {
+            "_key": "1",
+            "title": "Features",
+            "desc": "Detailed feature showcase and demos",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-list-ul"
+          },
+          {
+            "_key": "2",
+            "title": "Pricing",
+            "desc": "Plans, packages, and pricing options",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-dollar-sign"
+          },
+          {
+            "_key": "3",
+            "title": "Testimonials",
+            "desc": "Customer reviews and success stories",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-star"
+          }
+        ],
+        "iconSize": {
+          "md": "24",
+          "unit": "px"
+        },
+        "iconNmlColor": "#6b7280",
+        "iconHvrColor": "#ffffff",
+        "bgSize": {
+          "md": "65",
+          "unit": "px"
+        },
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f3f4f6"
+        },
+        "hoverBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#10b981",
+                "position": 0
+              },
+              {
+                "color": "#059669",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "bgNmlB": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e7eb",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "bgHvrB": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#10b981",
+          "width": {
+            "md": {
+              "top": "2",
+              "left": "2",
+              "bottom": "2",
+              "right": "2"
+            },
+            "unit": "px"
+          }
+        },
+        "nmlBRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "bType": "solid",
+        "sepNmlColor": "#e5e7eb",
+        "sepHvrColor": "#10b981",
+        "sepBSize": {
+          "md": "2",
+          "unit": "px"
+        },
+        "sepSize": {
+          "md": "40",
+          "unit": "px"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "18",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "titleNmlColor": "#4b5563",
+        "titleHvrColor": "#10b981",
+        "descTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "13",
+            "unit": "px"
+          }
+        },
+        "descNmlColor": "#9ca3af",
+        "descHvrColor": "#6b7280"
+      },
+      "useCase": "Product tours, tabbed content navigation, slide deck navigation, interactive presentations"
+    },
+    {
+      "name": "Complete Styled Process (All Features)",
+      "description": "Fully styled process with all features: separators, transforms, overlays, shadows, hover effects, equal height",
+      "visualDescription": "Five-step process with custom styling, transform animations (scale + rotate on hover), color overlays, equal height containers, gradient backgrounds, custom separators",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "ps008",
+        "style": "style-1",
+        "displayCounter": true,
+        "counterStyle": "number_normal",
+        "tpgbEqualHeight": true,
+        "equalUnqClass": "ps-equal-height",
+        "processSteps": [
+          {
+            "_key": "0",
+            "title": "Discovery",
+            "desc": "Understand your unique challenges and opportunities through in-depth research",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-compass",
+            "linkUrl": {
+              "url": "/services/discovery",
+              "target": "",
+              "nofollow": ""
+            },
+            "contentHeight": {
+              "md": "200",
+              "unit": "px"
+            }
+          },
+          {
+            "_key": "1",
+            "title": "Strategy",
+            "desc": "Develop comprehensive roadmap aligned with your business goals and KPIs",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-chess",
+            "linkUrl": {
+              "url": "/services/strategy",
+              "target": "",
+              "nofollow": ""
+            },
+            "contentHeight": {
+              "md": "200",
+              "unit": "px"
+            }
+          },
+          {
+            "_key": "2",
+            "title": "Design",
+            "desc": "Create intuitive, beautiful interfaces that delight users and drive conversions",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-paint-brush",
+            "contentHeight": {
+              "md": "200",
+              "unit": "px"
+            }
+          },
+          {
+            "_key": "3",
+            "title": "Development",
+            "desc": "Build robust, scalable solutions using cutting-edge technologies and best practices",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-code",
+            "contentHeight": {
+              "md": "200",
+              "unit": "px"
+            }
+          },
+          {
+            "_key": "4",
+            "title": "Optimization",
+            "desc": "Continuously improve performance through testing, analytics, and user feedback",
+            "selectIcon": "icon",
+            "fontAwesomeIcon": "fas fa-chart-bar",
+            "contentHeight": {
+              "md": "200",
+              "unit": "px"
+            }
+          }
+        ],
+        "iconSize": {
+          "md": "28",
+          "unit": "px"
+        },
+        "iconNmlColor": "#ffffff",
+        "iconHvrColor": "#ffffff",
+        "bgSize": {
+          "md": "80",
+          "unit": "px"
+        },
+        "normalBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#3b82f6",
+                "position": 0
+              },
+              {
+                "color": "#1d4ed8",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "hoverBG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {
+                "color": "#1d4ed8",
+                "position": 0
+              },
+              {
+                "color": "#1e3a8a",
+                "position": 100
+              }
+            ]
+          }
+        },
+        "bgNmlB": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#93c5fd",
+          "width": {
+            "md": {
+              "top": "3",
+              "left": "3",
+              "bottom": "3",
+              "right": "3"
+            },
+            "unit": "px"
+          }
+        },
+        "bgHvrB": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#1d4ed8",
+          "width": {
+            "md": {
+              "top": "3",
+              "left": "3",
+              "bottom": "3",
+              "right": "3"
+            },
+            "unit": "px"
+          }
+        },
+        "nmlBRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "nmlBGShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(59,130,246,0.3)"
+        },
+        "hvrBGShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(29,78,216,0.5)"
+        },
+        "transformNmlCSS": "",
+        "transformHvrCSS": "scale(1.15) rotate(5deg)",
+        "nmlOverlay": "",
+        "hvrOverlay": "rgba(255,255,255,0.1)",
+        "bType": "solid",
+        "sepNmlColor": "#bfdbfe",
+        "sepHvrColor": "#3b82f6",
+        "sepBSize": {
+          "md": "2",
+          "unit": "px"
+        },
+        "counterTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "16",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "counterNmlColor": "#3b82f6",
+        "counterHvrColor": "#ffffff",
+        "counterNmlBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "counterHvrBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#1d4ed8"
+        },
+        "counterNmlBRadius": {
+          "md": {
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50"
+          },
+          "unit": "%"
+        },
+        "titleTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "22",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "titleNmlColor": "#1f2937",
+        "titleHvrColor": "#3b82f6",
+        "titleTopSpace": {
+          "md": "15",
+          "unit": "px"
+        },
+        "descTypo": {
+          "openTypography": 1,
+          "size": {
+            "md": "14",
+            "unit": "px"
+          },
+          "lineHeight": {
+            "md": "1.6",
+            "unit": "em"
+          }
+        },
+        "descNmlColor": "#6b7280",
+        "descHvrColor": "#4b5563",
+        "descTopSpace": {
+          "md": "10",
+          "unit": "px"
+        },
+        "contentPadding": {
+          "md": {
+            "top": "25",
+            "right": "25",
+            "bottom": "25",
+            "left": "25"
+          },
+          "unit": "px"
+        },
+        "contentNmlBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f9fafb"
+        },
+        "contentHvrBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#eff6ff"
+        },
+        "contentNmlB": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e7eb",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "contentHvrB": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#93c5fd",
+          "width": {
+            "md": {
+              "top": "1",
+              "left": "1",
+              "bottom": "1",
+              "right": "1"
+            },
+            "unit": "px"
+          }
+        },
+        "contentNmlBRadius": {
+          "md": {
+            "top": "12",
+            "right": "12",
+            "bottom": "12",
+            "left": "12"
+          },
+          "unit": "px"
+        },
+        "contentNmlShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(0,0,0,0.05)"
+        },
+        "contentHvrShadow": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 6,
+          "blur": 20,
+          "spread": 0,
+          "color": "rgba(59,130,246,0.15)"
+        },
+        "repPadding": {
+          "md": {
+            "top": "20",
+            "right": "0",
+            "bottom": "20",
+            "left": "0"
+          },
+          "unit": "px"
+        }
+      },
+      "useCase": "Premium service showcases, agency workflows, comprehensive processes, enterprise presentations"
     }
   ],
-  "commonPatterns": {}
+  "validationRules": [
+    "block_id is required and must be unique 4-character hex string",
+    "style must be 'style-1' or 'style-2' (layout variants)",
+    "processSteps is an array with minimum 1 step (each step requires _key field)",
+    "Each step in processSteps must have title and desc (content)",
+    "selectIcon must be 'icon', 'image', or 'text' (determines step indicator type)",
+    "When selectIcon='icon': fontAwesomeIcon is required (Font Awesome class)",
+    "When selectIcon='image': stepImage.url is required",
+    "When selectIcon='text': stepText is required",
+    "displayCounter controls counter visibility (boolean)",
+    "When displayCounter=true: counterStyle required ('number_normal' or 'dc_custom_text')",
+    "When counterStyle='dc_custom_text': each step needs customText attribute",
+    "bType separator options: 'solid', 'dashed', 'dotted', 'custom'",
+    "When bType='custom': customImg.url is required for custom separator image",
+    "sepSize only applies to style-2 (horizontal separator width)",
+    "specialBG creates concentric circle background effect (boolean)",
+    "vertOnTablet switches to vertical layout on tablet devices (boolean)",
+    "nmlLoutMobile keeps normal (horizontal) layout on mobile (boolean)",
+    "carouselToggle enables carousel synchronization (boolean)",
+    "When carouselToggle=true: carouselID is required (must match carousel block_id)",
+    "dfltActive sets default active step ('none' or step index 0-based)",
+    "tpgbEqualHeight enables equal height containers (boolean)",
+    "When tpgbEqualHeight=true: equalUnqClass recommended for grouping",
+    "linkUrl is optional for each step (makes step clickable)",
+    "contentHeight can be set globally or per-step (min-height)"
+  ],
+  "warnings": [
+    "Don't forget _key field in processSteps array items (required for React rendering)",
+    "Don't mix selectIcon types inconsistently (pick icon, image, or text and stick with it)",
+    "sepSize only works with style-2, not style-1 (ignored for style-1)",
+    "customImg separator only works when bType='custom' (ignored otherwise)",
+    "specialBG effect may not work well with rectangular icon backgrounds (use circles)",
+    "vertOnTablet and nmlLoutMobile conflict (both true = confusing responsive behavior)",
+    "carouselID must exactly match the carousel block's block_id (case-sensitive)",
+    "dfltActive index is 0-based (first step = '0', second = '1', etc.)",
+    "Equal height (tpgbEqualHeight) may cause layout issues with varying content lengths",
+    "Don't use too many steps (5-7 max recommended for horizontal layouts)",
+    "Per-step contentHeight in repeater overrides global contentHeight",
+    "transformHvrCSS affects icons, images, AND text (not just backgrounds)",
+    "nmlOverlay/hvrOverlay use box-shadow inset trick (may conflict with other shadows)",
+    "Custom separator images should be small (max 50-100px) for performance",
+    "Responsive icon/text sizing requires separate md/sm/xs values",
+    "Counter positioning (counterLeftSpace, counterTopSpace) only works when displayCounter=true",
+    "imgSt2Align and cntntSt2Align only apply to style-2 (ignored for style-1)",
+    "Hover states (.active class) apply to both hover AND active carousel states"
+  ],
+  "commonMistakes": [
+    "Forgetting _key field in processSteps array items",
+    "Using string index instead of number for sepBSize (should be {md: '2', unit: 'px'})",
+    "Setting sepSize for style-1 (only works with style-2)",
+    "Using customImg without setting bType='custom'",
+    "Not providing fontAwesomeIcon when selectIcon='icon'",
+    "Not providing stepImage.url when selectIcon='image'",
+    "Setting displayCounter=true without counterStyle",
+    "Using counterStyle='dc_custom_text' without customText in each step",
+    "Forgetting to enable openBg=1 before setting background colors/gradients",
+    "Not setting openTypography=1 before using typography values",
+    "Using carouselToggle without matching carouselID to actual carousel",
+    "Setting dfltActive to step count instead of index (5 steps = index 0-4, not 1-5)",
+    "Using tpgbEqualHeight with wildly different content lengths (causes squishing)",
+    "Not testing responsive layouts on actual tablets/mobile devices",
+    "Using transformHvrCSS without understanding it affects all indicator content",
+    "Setting both vertOnTablet=true and nmlLoutMobile=true (conflicting)",
+    "Using per-step iconNormalBG/iconHoverBG instead of global normalBG/hoverBG",
+    "Forgetting unit in size values (bgSize needs md and unit: 'px')",
+    "Not providing responsive alignment values for style-2 (imgSt2Align, cntntSt2Align)"
+  ],
+  "bestPractices": [
+    "Use 4-6 steps for horizontal layouts (more becomes crowded)",
+    "Use semantic step titles (verbs work best: 'Plan', 'Build', 'Launch')",
+    "Keep step descriptions concise (1-2 sentences max)",
+    "Use consistent selectIcon type across all steps (all icons, all images, or all text)",
+    "Match icon colors to brand palette",
+    "Use gradient backgrounds for modern, eye-catching designs",
+    "Add hover effects (scale, rotate) for interactive feel",
+    "Use connecting lines (separators) to show flow direction",
+    "Enable responsive layouts (vertOnTablet) for mobile-friendly designs",
+    "Use counters for numbered processes or custom labels for named phases",
+    "Link steps to relevant pages (linkUrl) for deeper exploration",
+    "Test carousel synchronization thoroughly (carouselToggle + carouselID)",
+    "Use equal height (tpgbEqualHeight) for consistent visual alignment",
+    "Provide adequate spacing between steps (repMargin, contentMargin)",
+    "Use shadows to create depth and visual hierarchy",
+    "Match separator colors to overall design (subtle for minimal, bold for emphasis)",
+    "Use custom separators (arrows, dots) for unique branding",
+    "Add transform effects for engaging micro-interactions",
+    "Use specialBG sparingly for premium, attention-grabbing sections",
+    "Ensure sufficient color contrast for accessibility (WCAG AA: 4.5:1)",
+    "Test on all screen sizes (desktop, tablet, mobile)",
+    "Use style-1 for horizontal flows, style-2 for vertical timelines",
+    "Provide clear active states for carousel-synced steps",
+    "Use content backgrounds to separate steps visually",
+    "Match typography hierarchy to step importance",
+    "Use responsive sizing for icons and text on small screens"
+  ],
+  "styleComparisons": [
+    {
+      "title": "Layout Styles (style)",
+      "options": [
+        {
+          "value": "style-1",
+          "description": "Horizontal flow with icons on left, content on right, vertical connecting lines",
+          "visualOutcome": "Steps arranged horizontally with icons/counters on left, vertical line connecting them",
+          "bestFor": "Horizontal processes, workflows, multi-step forms, desktop-first designs"
+        },
+        {
+          "value": "style-2",
+          "description": "Vertical timeline layout with flexible positioning",
+          "visualOutcome": "Steps stacked vertically with customizable icon/content alignment",
+          "bestFor": "Timelines, chronological events, mobile-friendly layouts, vertical flows"
+        }
+      ]
+    },
+    {
+      "title": "Step Indicator Types (selectIcon)",
+      "options": [
+        {
+          "value": "icon",
+          "description": "Font Awesome icon indicators",
+          "attributes": "fontAwesomeIcon (e.g., 'fas fa-check')",
+          "bestFor": "Universal recognition, icon-based processes, consistent sizing"
+        },
+        {
+          "value": "image",
+          "description": "Custom image indicators",
+          "attributes": "stepImage.url, imageSize (WordPress size)",
+          "bestFor": "Custom branding, product photos, unique visual identity"
+        },
+        {
+          "value": "text",
+          "description": "Text label indicators",
+          "attributes": "stepText (short label)",
+          "bestFor": "Initials, abbreviations, simple labels"
+        }
+      ]
+    },
+    {
+      "title": "Counter Styles (counterStyle)",
+      "options": [
+        {
+          "value": "number_normal",
+          "description": "Numeric counters (1, 2, 3, 4...)",
+          "visualOutcome": "Numbered badges in sequence",
+          "bestFor": "Ordered processes, step numbers, sequential flows"
+        },
+        {
+          "value": "dc_custom_text",
+          "description": "Custom text labels per step",
+          "attributes": "customText in each step (e.g., 'Start', 'Design', 'Finish')",
+          "bestFor": "Named phases, custom labels, non-numeric progression"
+        }
+      ]
+    },
+    {
+      "title": "Separator Types (bType)",
+      "options": [
+        {
+          "value": "solid",
+          "description": "Solid connecting lines",
+          "visualOutcome": "Clean, continuous line between steps",
+          "bestFor": "Professional, straightforward processes"
+        },
+        {
+          "value": "dashed",
+          "description": "Dashed connecting lines",
+          "visualOutcome": "Intermittent dashes between steps",
+          "bestFor": "Flexible processes, optional paths"
+        },
+        {
+          "value": "dotted",
+          "description": "Dotted connecting lines",
+          "visualOutcome": "Small dots between steps",
+          "bestFor": "Soft, subtle connections"
+        },
+        {
+          "value": "custom",
+          "description": "Custom image separators (arrows, dots, etc.)",
+          "attributes": "customImg.url (separator image)",
+          "bestFor": "Branded separators, unique visual elements"
+        }
+      ]
+    }
+  ],
+  "responsivePatterns": [
+    {
+      "pattern": "Vertical on Tablet",
+      "description": "Switch from horizontal desktop layout to vertical tablet layout",
+      "implementation": "Set vertOnTablet=true, optionally provide tablet-specific sizing (sm values)",
+      "example": "Desktop horizontal → Tablet/mobile vertical stacking"
+    },
+    {
+      "pattern": "Horizontal on Mobile",
+      "description": "Keep horizontal layout on mobile devices (unusual but possible)",
+      "implementation": "Set nmlLoutMobile=true",
+      "example": "Scrollable horizontal process on mobile"
+    },
+    {
+      "pattern": "Responsive Icon Sizing",
+      "description": "Scale icons down on smaller screens",
+      "implementation": "Use responsive values in iconSize/bgSize (md/sm/xs breakpoints)",
+      "example": "iconSize: {md: '32', sm: '28', xs: '24', unit: 'px'}"
+    },
+    {
+      "pattern": "Responsive Typography",
+      "description": "Adjust text sizes for readability on all devices",
+      "implementation": "Use responsive values in titleTypo/descTypo",
+      "example": "titleTypo.size: {md: '20', sm: '18', xs: '16', unit: 'px'}"
+    }
+  ],
+  "accessibilityNotes": [
+    "Use semantic heading tags in title content (H2, H3 based on page structure)",
+    "Provide meaningful icon aria-labels when using fontAwesomeIcon",
+    "Ensure sufficient color contrast for text and icons (WCAG AA: 4.5:1)",
+    "Use linkUrl with descriptive text for screen readers",
+    "Test keyboard navigation through steps (Tab key should focus each step)",
+    "Provide alternative text for stepImage when using image indicators",
+    "Don't rely solely on color to convey active state (use borders, shadows, transforms)",
+    "Ensure counter text is large enough to read (min 14px recommended)",
+    "Test with screen readers to ensure steps are announced correctly",
+    "Use ARIA roles for better semantic structure (role='list' for container, role='listitem' for steps)"
+  ],
+  "performanceConsiderations": [
+    "Limit number of steps (5-7 max) to avoid layout overcrowding",
+    "Optimize stepImage files to <100KB for fast loading",
+    "Use CSS transforms instead of JavaScript for hover effects",
+    "Minimize use of box-shadows (combine normal and hover shadows efficiently)",
+    "Avoid large custom separator images (max 100px recommended)",
+    "Use equal height (tpgbEqualHeight) sparingly (can cause reflows)",
+    "Test carousel synchronization performance with multiple carousels",
+    "Lazy load images in stepImage when below fold",
+    "Use CSS gradients instead of image backgrounds when possible",
+    "Minimize use of specialBG (concentric circles) to 1-2 blocks per page"
+  ],
+  "integrationPatterns": [
+    {
+      "pattern": "Onboarding Process with Accordion",
+      "description": "Combine process steps with accordion for expandable details",
+      "blocks": ["tp-process-steps", "tp-accordion", "tp-accordion-inner"],
+      "example": "Process step overview → Click to expand accordion → Detailed instructions"
+    },
+    {
+      "pattern": "Carousel-Synced Product Tour",
+      "description": "Process steps navigate carousel slides showing different features",
+      "blocks": ["tp-process-steps", "tp-anything-carousel", "tp-anything-slide"],
+      "example": "Click process step → Carousel slides to matching feature → Content updates"
+    },
+    {
+      "pattern": "Multi-Step Form Visualization",
+      "description": "Show form progress with clickable process steps",
+      "blocks": ["tp-process-steps", "tp-form-block", "nxt-submit-button"],
+      "example": "Process steps show form sections → Click to jump to section → Submit at end"
+    },
+    {
+      "pattern": "Timeline with Content Reveal",
+      "description": "Historical timeline with expandable content sections",
+      "blocks": ["tp-process-steps", "tp-expand", "tp-heading"],
+      "example": "Timeline steps → Click to expand content → Read more about each milestone"
+    }
+  ],
+  "commonPatterns": [
+    {
+      "pattern": "Simple 3-Step Horizontal",
+      "attributes": {
+        "style": "style-1",
+        "processSteps": "[3 steps with icons]",
+        "bType": "solid"
+      }
+    },
+    {
+      "pattern": "Vertical Timeline with Numbers",
+      "attributes": {
+        "style": "style-2",
+        "displayCounter": true,
+        "counterStyle": "number_normal",
+        "bType": "dotted"
+      }
+    },
+    {
+      "pattern": "Carousel-Synced Steps",
+      "attributes": {
+        "carouselToggle": true,
+        "carouselID": "carousel-id",
+        "dfltActive": "0"
+      }
+    },
+    {
+      "pattern": "Special Effect Process",
+      "attributes": {
+        "specialBG": true,
+        "transformHvrCSS": "scale(1.1)",
+        "tpgbEqualHeight": true
+      }
+    }
+  ]
 }

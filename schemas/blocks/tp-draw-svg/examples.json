@@ -1,56 +1,438 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-draw-svg",
-  "title": "Draw SVG - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Draw SVG - Comprehensive Usage Examples",
+  "description": "Complete example configurations for animated SVG vector graphics with stroke drawing effects, custom colors, and trigger options",
+
   "examples": [
     {
-      "description": "Animated logo on scroll",
+      "name": "Animated Logo on Scroll (Staggered Drawing)",
+      "description": "Company logo draws in with staggered stroke animation when scrolled into view",
+      "visualDescription": "200px centered logo, purple stroke (#667eea), delayed drawing type for staggered paths, 120 frames (smooth), triggers on scroll",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "ds001",
         "selectSvg": "preBuild",
         "svgList": "app",
         "alignment": "center",
-        "maxWidth": {
-          "md": "200",
-          "unit": "px"
-        },
+        "maxWidth": {"md": "200", "sm": "180", "xs": "150", "unit": "px"},
         "strokeColor": "#667eea",
+        "fillToggle": false,
+        "drawType": "delayed",
+        "duration": "120",
+        "hoverDraw": "onScroll"
+      },
+      "useCase": "Brand sections, about pages, hero areas, logo showcases, scroll-triggered reveals"
+    },
+
+    {
+      "name": "Custom Company Logo with Fill (Branded Colors)",
+      "description": "Upload custom brand logo SVG with fill color for complete branding",
+      "visualDescription": "Custom uploaded SVG, 250px, centered, black stroke + green fill (#27ae60), sync drawing (all paths simultaneously), scroll trigger",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ds002",
+        "selectSvg": "custom",
+        "customSVG": {
+          "url": "/wp-content/uploads/company-logo.svg",
+          "id": "456"
+        },
+        "alignment": "center",
+        "maxWidth": {"md": "250", "sm": "220", "xs": "180", "unit": "px"},
+        "strokeColor": "#000000",
+        "fillToggle": true,
+        "fillColor": "#27ae60",
+        "drawType": "sync",
+        "duration": "90",
+        "hoverDraw": "onScroll"
+      },
+      "useCase": "Corporate sites, brand pages, logo walls, partner showcases, custom branding"
+    },
+
+    {
+      "name": "Hover-Activated Icon (Interactive Reveal)",
+      "description": "Icon redraws on mouse hover for interactive user engagement",
+      "visualDescription": "100px icon, red stroke (#e74c3c), oneByOne sequential drawing, 60 frames (fast), hover trigger for interactivity",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ds003",
+        "selectSvg": "preBuild",
+        "svgList": "heart",
+        "alignment": "center",
+        "maxWidth": {"md": "100", "sm": "90", "xs": "80", "unit": "px"},
+        "strokeColor": "#e74c3c",
+        "fillToggle": false,
+        "drawType": "oneByOne",
+        "duration": "60",
+        "hoverDraw": "onHover"
+      },
+      "useCase": "Interactive cards, hover effects, call-to-action elements, icon showcases, engagement triggers"
+    },
+
+    {
+      "name": "Looping Badge Animation (Continuous)",
+      "description": "Badge or certification icon with continuous looping animation",
+      "visualDescription": "120px badge, gold stroke (#f39c12), sync drawing, 100 frames, loop trigger for endless animation",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ds004",
+        "selectSvg": "preBuild",
+        "svgList": "award",
+        "alignment": "center",
+        "maxWidth": {"md": "120", "sm": "110", "xs": "100", "unit": "px"},
+        "strokeColor": "#f39c12",
+        "fillToggle": false,
+        "drawType": "sync",
+        "duration": "100",
+        "hoverDraw": "loop"
+      },
+      "useCase": "Certifications, awards, badges, trust signals, animated backgrounds, ambient animations"
+    },
+
+    {
+      "name": "One-by-One Path Drawing (Sequential Reveal)",
+      "description": "Complex illustration with paths drawing sequentially one after another",
+      "visualDescription": "300px illustration, teal stroke (#4ecdc4), oneByOne sequential, 150 frames (slow reveal), scroll trigger",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ds005",
+        "selectSvg": "custom",
+        "customSVG": {
+          "url": "/wp-content/uploads/illustration.svg",
+          "id": "789"
+        },
+        "alignment": "center",
+        "maxWidth": {"md": "300", "sm": "260", "xs": "220", "unit": "px"},
+        "strokeColor": "#4ecdc4",
+        "fillToggle": false,
+        "drawType": "oneByOne",
+        "duration": "150",
+        "hoverDraw": "onScroll"
+      },
+      "useCase": "Illustrations, infographics, storytelling, step-by-step reveals, educational content"
+    },
+
+    {
+      "name": "Fast Responsive Icon (Mobile-Optimized)",
+      "description": "Quick-drawing icon optimized for mobile with responsive sizing",
+      "visualDescription": "80px icon (desktop), 60px (mobile), orange stroke (#ff6b6b), delayed stagger, 50 frames (very fast), scroll trigger",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ds006",
+        "selectSvg": "preBuild",
+        "svgList": "rocket",
+        "alignment": "left",
+        "maxWidth": {"md": "80", "sm": "70", "xs": "60", "unit": "px"},
+        "strokeColor": "#ff6b6b",
+        "fillToggle": false,
+        "drawType": "delayed",
+        "duration": "50",
+        "hoverDraw": "onScroll"
+      },
+      "useCase": "Feature lists, benefit icons, process steps, mobile-first designs, quick reveals"
+    },
+
+    {
+      "name": "Colorful Brand Icon (Multi-Color)",
+      "description": "Brand icon with vibrant colors and fill for modern aesthetic",
+      "visualDescription": "180px icon, purple stroke (#8072fc), orange fill (#ffa500), delayed stagger, 110 frames, right-aligned, scroll trigger",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ds007",
+        "selectSvg": "custom",
+        "customSVG": {
+          "url": "/wp-content/uploads/brand-icon.svg",
+          "id": "101"
+        },
+        "alignment": "right",
+        "maxWidth": {"md": "180", "sm": "160", "xs": "140", "unit": "px"},
+        "strokeColor": "#8072fc",
+        "fillToggle": true,
+        "fillColor": "#ffa500",
+        "drawType": "delayed",
+        "duration": "110",
+        "hoverDraw": "onScroll"
+      },
+      "useCase": "Modern brands, creative portfolios, colorful designs, artistic showcases"
+    },
+
+    {
+      "name": "Large Hero SVG (Full-Width Section)",
+      "description": "Large decorative SVG for hero sections with slow, dramatic reveal",
+      "visualDescription": "400px large SVG, white stroke (#ffffff), sync drawing, 180 frames (very slow dramatic), centered, scroll trigger for impact",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ds008",
+        "selectSvg": "custom",
+        "customSVG": {
+          "url": "/wp-content/uploads/hero-graphic.svg",
+          "id": "202"
+        },
+        "alignment": "center",
+        "maxWidth": {"md": "400", "sm": "340", "xs": "280", "unit": "px"},
+        "strokeColor": "#ffffff",
+        "fillToggle": false,
+        "drawType": "sync",
+        "duration": "180",
+        "hoverDraw": "onScroll"
+      },
+      "useCase": "Hero sections, full-width graphics, dramatic reveals, landing pages, dark backgrounds"
+    }
+  ],
+
+  "commonPatterns": [
+    {
+      "name": "Logo Reveal on Scroll",
+      "description": "Standard logo drawing animation when scrolled into view",
+      "attributes": {
+        "selectSvg": "custom",
+        "customSVG": {"url": "/logo.svg"},
+        "alignment": "center",
+        "maxWidth": {"md": "200", "unit": "px"},
         "drawType": "delayed",
         "duration": "120",
         "hoverDraw": "onScroll"
       }
     },
     {
-      "description": "Custom SVG with fill",
+      "name": "Interactive Hover Icon",
+      "description": "Icon redraws on hover for engagement",
       "attributes": {
-        "block_id": "c3d4",
-        "selectSvg": "custom",
-        "customSVG": {
-          "url": "/path/to/custom-logo.svg"
-        },
-        "fillToggle": true,
-        "strokeColor": "#000000",
-        "fillColor": "#27ae60",
-        "drawType": "sync",
+        "selectSvg": "preBuild",
+        "svgList": "heart",
+        "drawType": "oneByOne",
+        "duration": "60",
         "hoverDraw": "onHover"
       }
     },
     {
-      "description": "Looping animated icon",
+      "name": "Continuous Loop Badge",
+      "description": "Endlessly looping animation for ambient effect",
       "attributes": {
-        "block_id": "e5f6",
         "selectSvg": "preBuild",
-        "maxWidth": {
-          "md": "100",
-          "unit": "px"
-        },
-        "strokeColor": "#e74c3c",
-        "drawType": "oneByOne",
-        "duration": "60",
+        "svgList": "award",
+        "drawType": "sync",
+        "duration": "100",
         "hoverDraw": "loop"
+      }
+    },
+    {
+      "name": "Sequential Illustration",
+      "description": "Complex multi-path SVG with sequential drawing",
+      "attributes": {
+        "selectSvg": "custom",
+        "customSVG": {"url": "/illustration.svg"},
+        "drawType": "oneByOne",
+        "duration": "150",
+        "hoverDraw": "onScroll"
       }
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "block_id": "Required, unique 4-character hex identifier",
+    "selectSvg": "Must be 'preBuild' (library icons) or 'custom' (upload)",
+    "svgList": "Required when selectSvg is 'preBuild', icon name from library",
+    "customSVG": "Required when selectSvg is 'custom', must have valid SVG file URL",
+    "alignment": "Must be 'left', 'center', or 'right'",
+    "maxWidth": "Recommended 80-400px for optimal display",
+    "strokeColor": "Valid CSS color (hex, rgba, rgb, color name)",
+    "fillColor": "Valid CSS color, requires fillToggle: true",
+    "drawType": "Must be 'delayed' (staggered), 'sync' (simultaneous), or 'oneByOne' (sequential)",
+    "duration": "Number string in frames (30-200 typical range, 60 = 1 second at 60fps)",
+    "hoverDraw": "Must be 'onScroll', 'onHover', or 'loop'"
+  },
+
+  "warnings": [
+    "Custom SVGs must be true vector SVG files, not rasterized images saved as SVG",
+    "Complex SVGs with many paths may perform poorly with oneByOne drawing",
+    "Loop animation (hoverDraw: 'loop') continuously consumes CPU - use sparingly",
+    "Duration too short (<30 frames) may appear glitchy or too fast to perceive",
+    "Duration too long (>200 frames) may frustrate users waiting for completion",
+    "fillToggle without fillColor defined may result in default black fill",
+    "Large SVG files (>100KB) should be optimized with SVGO or similar tools",
+    "SVGs with embedded images or text may not animate correctly - use pure paths",
+    "Hover trigger (hoverDraw: 'onHover') requires clear hover area - ensure sufficient size",
+    "Scroll trigger accuracy depends on viewport visibility threshold"
+  ],
+
+  "commonMistakes": [
+    "Uploading rasterized PNG/JPG saved as SVG instead of true vector SVG",
+    "Not optimizing SVG files - including unnecessary metadata, comments, or hidden layers",
+    "Setting fillToggle: true without defining fillColor (defaults to black)",
+    "Using onHover trigger with tiny icons (<60px) - hard to hover accurately",
+    "Setting duration too short (e.g., 10 frames) - animation completes instantly",
+    "Using loop trigger on multiple elements - causes performance issues",
+    "Not providing responsive maxWidth (md/sm/xs) - huge SVGs on mobile",
+    "Using selectSvg: 'custom' without uploading customSVG file",
+    "Expecting fill animation when fillToggle is false - only stroke animates",
+    "Using complex gradients or filters in custom SVG - may break animation"
+  ],
+
+  "bestPractices": [
+    "Optimize custom SVGs with SVGO or similar tools before uploading (<50KB ideal)",
+    "Use delayed or sync drawType for most use cases - oneByOne for special reveals",
+    "Set duration between 60-120 frames (1-2 seconds) for smooth, pleasant animation",
+    "Use onScroll trigger for hero sections and key visual elements",
+    "Use onHover for interactive icons and cards",
+    "Reserve loop trigger for subtle ambient animations only",
+    "Provide responsive sizing (md/sm/xs) for optimal mobile display",
+    "Match strokeColor to brand colors for visual consistency",
+    "Use fillToggle sparingly - stroke-only animations often more elegant",
+    "Center-align large decorative SVGs for balance",
+    "Left-align small feature icons for list alignment",
+    "Test SVG animation on different scroll speeds - ensure it's always visible",
+    "Use contrasting stroke colors against backgrounds for visibility",
+    "Keep SVG complexity reasonable - fewer paths = better performance",
+    "Consider using pre-built icons for common symbols to save upload time"
+  ],
+
+  "accessibilityNotes": [
+    "Add alt text via block settings for SVG icons (screen readers)",
+    "Use role='img' and aria-label for decorative SVGs",
+    "Ensure sufficient color contrast for stroke/fill colors (WCAG AA)",
+    "Don't rely solely on color - SVG should be recognizable in grayscale",
+    "Consider users with motion sensitivity - provide option to disable animations",
+    "Ensure SVG content doesn't convey critical information lost when not animated",
+    "Test with screen readers to ensure SVG meaning is communicated",
+    "Use semantic HTML around SVGs for context (e.g., <figure> with <figcaption>)",
+    "Avoid flashing animations that may trigger photosensitive epilepsy",
+    "Ensure hover-triggered animations don't hide important content",
+    "Provide keyboard navigation for interactive SVG elements",
+    "Consider prefers-reduced-motion CSS to disable animations for sensitive users"
+  ],
+
+  "performanceConsiderations": [
+    "Optimize SVGs with SVGO - remove unnecessary attributes, comments, metadata",
+    "Keep SVG file size <50KB for fast loading (ideally <20KB)",
+    "Limit number of paths in complex SVGs - more paths = more CPU for animation",
+    "Use CSS animations over JavaScript where possible (GPU-accelerated)",
+    "Avoid loop animations on multiple elements simultaneously - CPU intensive",
+    "Test on low-end devices - complex SVG animations may drop frames",
+    "Use will-change: transform on animated SVG elements for rendering optimization",
+    "Consider lazy loading SVGs below the fold to improve initial page load",
+    "Inline small (<5KB) SVGs directly in HTML to save HTTP requests",
+    "Monitor animation frame rate - aim for consistent 60fps"
+  ],
+
+  "drawTypeGuide": {
+    "delayed": {
+      "description": "Staggered drawing - paths animate with slight delay between each",
+      "visualAppearance": "Paths start drawing one after another with overlap, creating flowing wave effect",
+      "bestFor": "Logos, brand graphics, smooth multi-path reveals, professional feel",
+      "performance": "Good - moderate CPU usage"
+    },
+    "sync": {
+      "description": "Synchronous drawing - all paths animate simultaneously",
+      "visualAppearance": "All strokes appear at the same time, unified reveal",
+      "bestFor": "Simple icons, single-path graphics, fast reveals, badges",
+      "performance": "Best - lowest CPU usage"
+    },
+    "oneByOne": {
+      "description": "Sequential drawing - paths animate completely one at a time",
+      "visualAppearance": "First path completes fully, then second starts, creating step-by-step reveal",
+      "bestFor": "Illustrations, storytelling, complex graphics, dramatic reveals",
+      "performance": "Moderate - higher CPU for complex SVGs"
+    }
+  },
+
+  "triggerGuide": {
+    "onScroll": {
+      "description": "Animate when element scrolls into viewport",
+      "when": "Element becomes visible in browser window",
+      "bestFor": "Hero sections, feature graphics, scroll-triggered reveals, storytelling",
+      "notes": "Animation plays once when scrolled into view (IntersectionObserver)"
+    },
+    "onHover": {
+      "description": "Animate on mouse hover",
+      "when": "User hovers mouse cursor over SVG",
+      "bestFor": "Interactive icons, cards, buttons, engagement elements, tooltips",
+      "notes": "Animation replays each time user hovers"
+    },
+    "loop": {
+      "description": "Continuous infinite looping animation",
+      "when": "Page load - plays endlessly",
+      "bestFor": "Ambient animations, loading indicators, subtle backgrounds, badges",
+      "notes": "CPU-intensive - use sparingly, consider performance impact"
+    }
+  },
+
+  "durationGuide": {
+    "frames": {
+      "description": "Animation duration measured in frames (60fps)",
+      "calculation": "Duration in seconds = frames / 60",
+      "examples": {
+        "30 frames": "0.5 seconds - very fast",
+        "60 frames": "1 second - quick",
+        "90 frames": "1.5 seconds - standard",
+        "120 frames": "2 seconds - smooth (recommended)",
+        "150 frames": "2.5 seconds - slow",
+        "180 frames": "3 seconds - dramatic"
+      }
+    },
+    "recommendations": {
+      "simple_icons": "60-90 frames (1-1.5s)",
+      "logos": "90-120 frames (1.5-2s)",
+      "illustrations": "120-180 frames (2-3s)",
+      "hover_effects": "30-60 frames (0.5-1s)",
+      "loops": "100-150 frames (1.6-2.5s per cycle)"
+    }
+  },
+
+  "svgOptimizationGuide": {
+    "toolsRecommended": [
+      "SVGO (command line or GUI) - remove unnecessary data",
+      "SVGOMG (web-based SVGO) - https://jakearchibald.github.io/svgomg/",
+      "Adobe Illustrator 'Export As' SVG - with 'Presentation Attributes' checked",
+      "Figma SVG export - with 'Outline stroke' option"
+    ],
+    "whatToRemove": [
+      "Comments and metadata",
+      "Hidden layers and elements",
+      "Unused definitions (<defs>)",
+      "Default values",
+      "Excessive decimal precision (2 decimal places sufficient)",
+      "Editor-specific namespaces (Sketch, Illustrator)",
+      "Embedded images (convert to paths)",
+      "Text elements (convert to paths for animation)"
+    ],
+    "whatToKeep": [
+      "Path data (<path d='...' />)",
+      "Stroke and fill attributes (for animation control)",
+      "ViewBox attribute (for scaling)",
+      "Basic shapes (circle, rect, polygon) as paths"
+    ],
+    "targetFileSize": "<20KB ideal, <50KB acceptable, >100KB needs optimization"
+  },
+
+  "useCaseTips": [
+    "Brand Logos: Use delayed drawType, 120 frames, onScroll trigger, center alignment",
+    "Feature Icons: Use sync drawType, 60-90 frames, onScroll trigger, left alignment for lists",
+    "Interactive Cards: Use oneByOne drawType, 60 frames, onHover trigger for engagement",
+    "Ambient Animations: Use sync drawType, 100 frames, loop trigger for subtle motion",
+    "Hero Graphics: Use delayed drawType, 150-180 frames, onScroll trigger for dramatic impact"
+  ],
+
+  "integrationExamples": [
+    {
+      "name": "Convert Text to Paths in Illustrator",
+      "description": "Ensure text in SVG animates correctly",
+      "code": "1. Select all text elements in Illustrator\n2. Type > Create Outlines (Cmd/Ctrl + Shift + O)\n3. File > Export > Export As > SVG\n4. Options: Presentation Attributes (checked)"
+    },
+    {
+      "name": "Optimize SVG with SVGO Command Line",
+      "description": "Reduce file size and clean up SVG",
+      "code": "# Install SVGO\nnpm install -g svgo\n\n# Optimize single file\nsvgo input.svg -o output.svg\n\n# Optimize with custom config (preserve viewBox)\nsvgo input.svg --multipass --config '{\"plugins\":[{\"removeViewBox\":false}]}'"
+    },
+    {
+      "name": "Disable Animation for Motion-Sensitive Users",
+      "description": "Respect prefers-reduced-motion",
+      "code": "/* CSS to disable SVG animation */\n@media (prefers-reduced-motion: reduce) {\n  .tp-draw-svg svg * {\n    animation: none !important;\n    stroke-dasharray: none !important;\n    stroke-dashoffset: 0 !important;\n  }\n}"
+    },
+    {
+      "name": "Inline Small SVG for Performance",
+      "description": "Inline critical SVGs to avoid HTTP requests",
+      "code": "<!-- For small (<5KB) above-the-fold SVGs -->\n<div class=\"tp-draw-svg\">\n  <svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path d=\"M10,30 Q50,5 90,30 T90,70\" stroke=\"#667eea\" fill=\"none\" />\n  </svg>\n</div>"
+    }
+  ]
 }

@@ -2,55 +2,532 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-form-number-field",
   "title": "Numeric Input - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for number input fields with min/max validation, icons, and character limits",
   "examples": [
     {
-      "description": "Simple quantity field",
+      "name": "Product Quantity (1-100, Validation)",
+      "description": "E-commerce product quantity selector with min/max validation to prevent invalid quantities",
+      "visualDescription": "Clean number input with up/down arrows (browser native), validates 1-100 range, cart icon",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "nf001",
         "labelss": "Quantity",
         "placeholder": "Enter quantity",
+        "reqTgl": true,
         "valNum": true,
         "minNum": "1",
         "maxNum": "100",
+        "maxCount": "3",
+        "error": "Please enter a quantity between 1 and 100.",
+        "numIconType": "fontAwesome",
+        "numIcons": "fas fa-shopping-cart",
+        "icnClr": "#667eea",
+        "hvrIcnClr": "#764ba2",
+        "uniqueid": "product_quantity",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "E-commerce product pages, order forms, wholesale inquiries, bulk purchase requests",
+      "validationRules": {
+        "valNum": "true - Enable numeric validation (min/max enforcement)",
+        "minNum": "1 - Minimum allowed value (cannot order 0 or negative)",
+        "maxNum": "100 - Maximum allowed value (stock limit or bulk order cap)",
+        "maxCount": "3 - Maximum 3 characters (prevents entering values like 10000)"
+      },
+      "bestPractices": [
+        "Always set minNum to 1 for product quantities (0 makes no sense)",
+        "Set maxNum based on available stock or reasonable bulk limits",
+        "Use maxCount to prevent unrealistic values (3 chars = max 999)",
+        "Provide specific error message mentioning the valid range"
+      ]
+    },
+    {
+      "name": "Age Verification (18+ Required, Calendar Icon)",
+      "description": "Age input field with 18+ minimum requirement for adult content or services",
+      "visualDescription": "Number input with purple calendar icon, validates 18-120 age range, shows minimum age requirement",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "nf002",
+        "labelss": "Your Age",
+        "placeholder": "Age",
+        "reqTgl": true,
+        "valNum": true,
+        "minNum": "18",
+        "maxNum": "120",
+        "maxCount": "3",
+        "hlpTxt": true,
+        "desctxt": "You must be at least 18 years old to register.",
+        "descPoss": "bottom",
+        "numIconType": "fontAwesome",
+        "numIcons": "fas fa-calendar-alt",
+        "icnClr": "#667eea",
+        "hvrIcnClr": "#764ba2",
+        "error": "You must be at least 18 years old.",
+        "uniqueid": "user_age",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Age-restricted registrations, alcohol/tobacco purchases, adult content access, dating sites",
+      "ageVerificationNotes": {
+        "minNum": "18 - Legal adult age in most countries (adjust to 21 for US alcohol)",
+        "maxNum": "120 - Reasonable maximum human age (prevents typos like 999)",
+        "limitation": "Note: Number field only validates age value, not actual birth date",
+        "alternative": "For accurate age verification, use nxt-date-field with birth date and calculate age"
+      },
+      "warnings": [
+        "Number field accepts any number in range - users can lie about age",
+        "For legal age verification, use nxt-date-field (birth date) instead",
+        "Browser autofill may not work for age fields (no autocomplete attribute)"
+      ]
+    },
+    {
+      "name": "Phone Number Last 4 Digits (Verification)",
+      "description": "Last 4 digits of phone number for identity verification (no formatting)",
+      "visualDescription": "Compact number input for 4 digits only, phone icon, used for account verification",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "nf003",
+        "labelss": "Last 4 Digits of Phone",
+        "placeholder": "1234",
+        "reqTgl": true,
+        "valNum": true,
+        "minNum": "0",
+        "maxNum": "9999",
+        "maxCount": "4",
+        "hlpTxt": true,
+        "desctxt": "Enter the last 4 digits of your phone number for verification.",
+        "descPoss": "bottom",
+        "numIconType": "fontAwesome",
+        "numIcons": "fas fa-phone",
+        "icnClr": "#10B981",
+        "hvrIcnClr": "#059669",
+        "error": "Please enter exactly 4 digits.",
+        "uniqueid": "phone_last4",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Identity verification, customer service authentication, account recovery, two-factor auth",
+      "implementationNotes": {
+        "maxCount": "4 - Limits to 4 characters exactly",
+        "minNum": "0 - Allows 0000 (valid last 4 digits)",
+        "maxNum": "9999 - Maximum value for 4 digits",
+        "format": "No dashes or formatting - plain numbers only"
+      },
+      "relatedUseCase": [
+        "Credit card last 4 digits (same approach)",
+        "SSN last 4 digits (same approach)",
+        "Account number partial verification"
+      ]
+    },
+    {
+      "name": "US ZIP Code (5 Digits, Location Icon)",
+      "description": "US postal code input field with 5-digit validation",
+      "visualDescription": "Number input with location pin icon, validates 5-digit US ZIP codes (e.g., 90210)",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "nf004",
+        "labelss": "ZIP Code",
+        "placeholder": "90210",
+        "reqTgl": true,
+        "valNum": true,
+        "minNum": "00501",
+        "maxNum": "99950",
+        "maxCount": "5",
+        "hlpTxt": true,
+        "desctxt": "Enter your 5-digit US ZIP code.",
+        "descPoss": "bottom",
+        "numIconType": "fontAwesome",
+        "numIcons": "fas fa-map-marker-alt",
+        "icnClr": "#EF4444",
+        "hvrIcnClr": "#DC2626",
+        "error": "Please enter a valid 5-digit ZIP code.",
+        "uniqueid": "zip_code",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Shipping addresses, location-based services, store locators, delivery forms",
+      "zipCodeDetails": {
+        "minNum": "00501 - Lowest valid US ZIP code (IRS in Holtsville, NY)",
+        "maxNum": "99950 - Highest valid US ZIP code (Ketchikan, AK)",
+        "maxCount": "5 - Standard ZIP code length (ZIP+4 uses 9 digits)",
+        "limitation": "Does not validate if ZIP code actually exists, only checks range"
+      },
+      "warnings": [
+        "This validates format only, not if ZIP code exists in USPS database",
+        "For ZIP+4 format (12345-6789), use text field instead",
+        "Consider using geolocation API to auto-fill ZIP code from browser location"
+      ],
+      "internationalAlternatives": {
+        "Canada": "Postal code (A1A 1A1) - use text field",
+        "UK": "Postcode (SW1A 1AA) - use text field",
+        "Numbers only": "US ZIP, India PIN (6 digits), China (6 digits)"
+      }
+    },
+    {
+      "name": "Team Size (Employees Count, 50% Width)",
+      "description": "Company team size input in half-width layout for multi-column forms",
+      "visualDescription": "Half-width number input with users icon, designed to pair with another 50% field, stacks on mobile",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "nf005",
+        "labelss": "Team Size",
+        "placeholder": "Number of employees",
+        "reqTgl": true,
+        "valNum": true,
+        "minNum": "1",
+        "maxNum": "10000",
+        "maxCount": "5",
+        "hlpTxt": true,
+        "desctxt": "How many employees work at your company?",
+        "descPoss": "top",
+        "numIconType": "fontAwesome",
+        "numIcons": "fas fa-users",
+        "icnClr": "#3B82F6",
+        "hvrIcnClr": "#2563EB",
+        "uniqueid": "team_size",
+        "inpSz": {
+          "md": "50",
+          "sm": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "B2B lead forms, enterprise sales, partnership applications, SaaS pricing calculators",
+      "responsiveLayout": {
+        "md": "50% - Half width on desktop (pair with Company Revenue or Industry field)",
+        "sm": "100% - Full width on tablet and mobile (stacks vertically)",
+        "unit": "% - Percentage-based for fluid responsive layouts"
+      },
+      "layoutExamples": [
+        "Team Size (50%) + Annual Revenue (50%) side by side",
+        "Team Size (50%) + Industry (50%) side by side",
+        "Pair with any other business metric field"
+      ]
+    },
+    {
+      "name": "Monthly Budget (Large Range, Dollar Icon)",
+      "description": "Budget/price input field with large numeric range and currency icon",
+      "visualDescription": "Number input with green dollar sign icon, accepts values from $500 to $50,000, help text explains USD",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "nf006",
+        "labelss": "Monthly Budget",
+        "placeholder": "Enter amount",
+        "reqTgl": true,
+        "valNum": true,
+        "minNum": "500",
+        "maxNum": "50000",
+        "maxCount": "5",
+        "hlpTxt": true,
+        "desctxt": "Enter your estimated monthly budget in USD (minimum $500).",
+        "descPoss": "bottom",
+        "numIconType": "fontAwesome",
+        "numIcons": "fas fa-dollar-sign",
+        "icnClr": "#10B981",
+        "hvrIcnClr": "#059669",
+        "error": "Please enter a budget between $500 and $50,000.",
+        "uniqueid": "monthly_budget",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Project budget forms, freelance quotes, SaaS pricing tiers, financial planning",
+      "currencyNotes": {
+        "icon": "fas fa-dollar-sign - US Dollar symbol",
+        "alternatives": "fas fa-euro-sign (€), fas fa-pound-sign (£), fas fa-yen-sign (¥)",
+        "format": "Plain number (500) not formatted ($500 or 500.00)",
+        "limitation": "Does not handle decimal values - for prices with cents, see warnings"
+      },
+      "warnings": [
+        "Number field only accepts integers - cannot enter $1,234.56 (use text field for decimals)",
+        "No currency symbol in actual input - user enters '500' not '$500'",
+        "No thousand separators - user enters '50000' not '50,000'",
+        "For precise monetary values with cents, use text field with regex validation"
+      ]
+    },
+    {
+      "name": "Rating/Score (1-10 Scale, Star Icon)",
+      "description": "Satisfaction rating or score input on 1-10 scale with star icon",
+      "visualDescription": "Number input with yellow star icon, limited to 1-10 range for rating/scoring",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "nf007",
+        "labelss": "Rate Your Experience",
+        "placeholder": "1-10",
+        "reqTgl": true,
+        "valNum": true,
+        "minNum": "1",
+        "maxNum": "10",
+        "maxCount": "2",
+        "hlpTxt": true,
+        "desctxt": "Rate your experience from 1 (poor) to 10 (excellent).",
+        "descPoss": "bottom",
+        "numIconType": "fontAwesome",
+        "numIcons": "fas fa-star",
+        "icnClr": "#F59E0B",
+        "hvrIcnClr": "#D97706",
+        "error": "Please enter a rating between 1 and 10.",
+        "uniqueid": "experience_rating",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Feedback forms, NPS surveys, product reviews, service ratings, customer satisfaction",
+      "ratingScales": {
+        "1-10": "Comprehensive scale (current example)",
+        "1-5": "Standard star rating (use minNum: 1, maxNum: 5)",
+        "0-100": "Percentage-based (use minNum: 0, maxNum: 100, maxCount: 3)",
+        "1-100": "Test scores (use minNum: 1, maxNum: 100, maxCount: 3)"
+      },
+      "bestPractices": [
+        "Use 1-5 for simple ratings (maps to star icons)",
+        "Use 1-10 for detailed feedback (Net Promoter Score)",
+        "Always explain scale in help text (1=poor, 10=excellent)",
+        "Consider using visual slider or star rating instead for better UX"
+      ]
+    },
+    {
+      "name": "Promo Code Uses Remaining (40% Width, Inline)",
+      "description": "Number of remaining promo code uses in compact inline layout",
+      "visualDescription": "Compact 40% width number input with tag icon, designed for inline form with submit button",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "nf008",
+        "labelss": "Uses Remaining",
+        "placeholder": "100",
+        "reqTgl": false,
+        "valNum": true,
+        "minNum": "0",
+        "maxNum": "1000",
+        "maxCount": "4",
+        "numIconType": "fontAwesome",
+        "numIcons": "fas fa-tag",
+        "icnClr": "#8B5CF6",
+        "hvrIcnClr": "#7C3AED",
+        "uniqueid": "promo_uses",
+        "inpSz": {
+          "md": "40",
+          "sm": "70",
+          "xs": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Promo code creation, coupon management, referral program limits, API quota settings",
+      "responsiveInlineLayout": {
+        "md": "40% - Compact on desktop, leaves 60% for submit button or other field",
+        "sm": "70% - Larger on tablet, 30% for button",
+        "xs": "100% - Full width on mobile, button stacks below",
+        "pattern": "Number field + inline button OR two number fields (40% + 40% + 20% gap)"
+      },
+      "relatedBlocks": [
+        "Pair with nxt-submit-button (isInline: true, inpSz: 60%/30%)",
+        "Pair with nxt-date-field (Promo Uses 40% + Expiration Date 40%)"
+      ]
+    }
+  ],
+
+  "commonPatterns": [
+    {
+      "name": "Simple Range Validation",
+      "description": "Basic number input with min/max validation",
+      "attributes": {
+        "valNum": true,
+        "minNum": "1",
+        "maxNum": "100",
+        "maxCount": "3",
         "reqTgl": true
       }
     },
     {
-      "description": "Age input with icon and validation",
+      "name": "Age Verification (18+)",
+      "description": "Adult age verification with minimum 18 years",
       "attributes": {
-        "block_id": "c3d4",
-        "labelss": "Your Age",
-        "numIconType": "fontAwesome",
-        "numIcons": "fas fa-calendar-alt",
-        "placeholder": "Age",
         "valNum": true,
         "minNum": "18",
         "maxNum": "120",
         "maxCount": "3",
         "reqTgl": true,
-        "icnClr": "#667eea"
+        "error": "You must be at least 18 years old."
       }
     },
     {
-      "description": "Budget field with help text",
+      "name": "With Icon and Help Text",
+      "description": "Number field with FontAwesome icon and explanatory help text",
       "attributes": {
-        "block_id": "e5f6",
-        "labelss": "Monthly Budget",
-        "placeholder": "Enter amount",
-        "valNum": true,
-        "minNum": "500",
-        "maxNum": "50000",
+        "numIconType": "fontAwesome",
+        "numIcons": "fas fa-icon-name",
+        "icnClr": "#667eea",
         "hlpTxt": true,
-        "desctxt": "Enter your estimated monthly budget (USD)",
-        "descPoss": "bottom",
-        "reqTgl": true
+        "desctxt": "Explanation of valid range or format"
+      }
+    },
+    {
+      "name": "Multi-Column Layout (50/50)",
+      "description": "Two number fields side by side on desktop",
+      "attributes": {
+        "inpSz": {
+          "md": "50",
+          "sm": "100",
+          "unit": "%"
+        }
       }
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
+
+  "validationRules": {
+    "labelss": "Required string - Field label text",
+    "placeholder": "Optional string - Example number or format hint",
+    "reqTgl": "Boolean - true for required fields, false for optional",
+    "valNum": "Boolean - true to enable min/max validation, false to allow any number",
+    "minNum": "String - Minimum allowed value (requires valNum: true)",
+    "maxNum": "String - Maximum allowed value (requires valNum: true)",
+    "maxCount": "String - Maximum number of characters/digits allowed (e.g., '3' = max 999)",
+    "numIconType": "String - 'none', 'fontAwesome', or 'image'",
+    "numIcons": "String - FontAwesome class (requires numIconType: 'fontAwesome')",
+    "numImage": "Object - {url, Id} for custom image (requires numIconType: 'image')",
+    "inpSz.md": "String - Desktop width (recommended: 100, 50, 40, 33 for columns)",
+    "uniqueid": "String - Unique form field identifier for submission data"
+  },
+
+  "warnings": [
+    "Number field only accepts INTEGERS - cannot handle decimals like 12.50 (use text field for prices with cents)",
+    "Browser number input shows up/down arrows (spinners) - may not match your design",
+    "Mobile keyboards show numeric keypad, but users can still type letters (browser dependent)",
+    "minNum/maxNum validation only works when valNum: true (otherwise any number allowed)",
+    "maxCount limits total characters, not the numeric value (maxCount: 3 allows -99 because '-' counts)",
+    "Number field does NOT format values - no commas (50000 not 50,000), no currency symbols ($500 not allowed)",
+    "Browser autofill may insert non-numeric characters (e.g., '(555) 123-4567' for phone)",
+    "Negative numbers allowed unless minNum >= 0 (set minNum: 0 to prevent negatives)",
+    "Scientific notation accepted (1e5 = 100000) which may confuse users",
+    "Leading zeros are removed by browser (00123 becomes 123)"
+  ],
+
+  "commonMistakes": [
+    "Using number field for phone numbers with formatting (use text field instead for (555) 123-4567)",
+    "Using number field for credit cards (use text field with pattern validation for spaces/dashes)",
+    "Using number field for prices with cents (12.99 requires text field, not number field)",
+    "Setting minNum without valNum: true (validation won't work)",
+    "Using maxCount alone without minNum/maxNum (doesn't prevent values like -999)",
+    "Forgetting that maxCount counts ALL characters including minus sign (maxCount: 3 allows -99)",
+    "Not providing specific error messages (use 'Enter a number between 1 and 100' not 'Required field')",
+    "Using number field for postal codes with letters (UK: SW1A 1AA requires text field)",
+    "Setting unrealistic maxNum (maxNum: 999999999 for age makes no sense)",
+    "Not testing mobile numeric keyboard behavior (varies by browser/OS)"
+  ],
+
+  "bestPractices": [
+    "Always set valNum: true if you have min/max requirements (otherwise validation won't work)",
+    "Use maxCount to prevent unreasonably large numbers (maxCount: 3 for quantities, 5 for team size)",
+    "Set minNum: 0 to prevent negative numbers for quantities, prices, counts",
+    "Provide descriptive error messages mentioning the valid range (minNum and maxNum values)",
+    "Use help text (hlpTxt + desctxt) to explain what the number represents and valid range",
+    "For age verification, set minNum: 18 (or 21 for US alcohol) and maxNum: 120 (reasonable max age)",
+    "For quantities, set minNum: 1 (can't order 0 items) and realistic maxNum based on stock",
+    "Choose appropriate icons: fas fa-shopping-cart (quantity), fas fa-dollar-sign (price), fas fa-users (team size)",
+    "Use 50% width (inpSz.md: 50) for paired fields (Team Size + Revenue side by side)",
+    "Always set inpSz.xs: 100 for mobile devices (stacks fields vertically)",
+    "For prices with decimals, use text field with pattern validation instead",
+    "For formatted numbers (phone, SSN, credit card), use text field with input masking",
+    "Consider using range slider for better UX when min/max are narrow (1-10 rating)",
+    "Use uniqueid that describes the field ('product_quantity', 'user_age', 'team_size') for backend processing"
+  ],
+
+  "accessibilityNotes": [
+    "Label (labelss) is required for screen readers to identify input purpose",
+    "Placeholder is NOT a replacement for label (screen readers may not announce it)",
+    "Use descriptive labels: 'Product Quantity' not just 'Number'",
+    "Help text (desctxt) provides additional context for assistive technology",
+    "Error messages (error attribute) are announced by screen readers when validation fails",
+    "Include min/max range in help text so screen reader users know valid values",
+    "Icons should be decorative only (don't rely on icon alone to convey meaning)",
+    "Ensure sufficient color contrast for icon colors (icnClr) - minimum 4.5:1 ratio",
+    "Number inputs work with keyboard navigation (up/down arrows adjust value)",
+    "Mobile numeric keyboard makes input easier for users with motor disabilities"
+  ],
+
+  "performanceConsiderations": [
+    "Browser native number validation is instant (no server round trip)",
+    "FontAwesome icons are lighter than custom images (vector vs raster)",
+    "valNum validation happens on blur and submit, not on every keystroke",
+    "Large maxNum values don't impact performance (validation is simple comparison)",
+    "Custom image icons should be optimized (<10KB) to avoid slowing form render"
+  ],
+
+  "iconSuggestions": {
+    "Quantity/Count": "fas fa-shopping-cart, fas fa-hashtag, fas fa-boxes",
+    "Age": "fas fa-calendar-alt, fas fa-birthday-cake, fas fa-user-clock",
+    "Money/Budget": "fas fa-dollar-sign, fas fa-euro-sign, fas fa-pound-sign, fas fa-coins",
+    "Rating/Score": "fas fa-star, fas fa-trophy, fas fa-medal, fas fa-award",
+    "Team/People": "fas fa-users, fas fa-user-friends, fas fa-user-tie",
+    "Location/ZIP": "fas fa-map-marker-alt, fas fa-map-pin, fas fa-location-arrow",
+    "Phone": "fas fa-phone, fas fa-mobile-alt, fas fa-phone-square",
+    "Percentage": "fas fa-percent, fas fa-chart-line, fas fa-chart-pie"
+  },
+
+  "useCaseSpecificTips": {
+    "ECommerce": {
+      "tip": "Use number field for quantity (1-100), minNum: 1 to prevent 0 orders",
+      "validation": "Set maxNum based on available stock or bulk order limits",
+      "icon": "fas fa-shopping-cart (#667eea)"
+    },
+    "AgeVerification": {
+      "tip": "Set minNum: 18 (or 21 for US alcohol), maxNum: 120 for reasonable max age",
+      "warning": "Number field only validates age value - users can lie. Use nxt-date-field for birth date to calculate actual age.",
+      "icon": "fas fa-calendar-alt (#667eea)"
+    },
+    "FinancialForms": {
+      "tip": "For budget/revenue WITHOUT decimals, use number field. For prices WITH cents ($12.99), use text field.",
+      "validation": "Set realistic min/max based on your pricing tiers",
+      "icon": "fas fa-dollar-sign (#10B981)"
+    },
+    "B2BLeadForms": {
+      "tip": "Team size (1-10000), Annual revenue (50000-10000000), maxCount to limit digits",
+      "layout": "Use 50% width for Team Size + Revenue side by side",
+      "icon": "fas fa-users (team), fas fa-dollar-sign (revenue)"
+    },
+    "SurveysAndRatings": {
+      "tip": "Use 1-5 for simple ratings, 1-10 for NPS (Net Promoter Score)",
+      "alternative": "Consider visual star rating or slider for better UX than plain number input",
+      "icon": "fas fa-star (#F59E0B)"
     }
-  }
+  },
+
+  "integrationExamples": [
+    {
+      "name": "Format Number with Commas (Display Only)",
+      "description": "Display submitted number with thousand separators (50000 → 50,000)",
+      "code": "// Format number for display after submission\nfunction format_number_with_commas($number) {\n  return number_format((int)$number);\n}\n\n// Usage\n$team_size = $_POST['team_size']; // '5000'\n$formatted = format_number_with_commas($team_size); // '5,000'\necho \"Team Size: \" . $formatted;"
+    },
+    {
+      "name": "Calculate Age from Birth Year",
+      "description": "If collecting birth year instead of age, calculate current age",
+      "code": "// Calculate age from birth year\nfunction calculate_age_from_year($birth_year) {\n  $current_year = date('Y');\n  return $current_year - $birth_year;\n}\n\n// Usage\n$birth_year = $_POST['birth_year']; // '1990'\n$age = calculate_age_from_year($birth_year); // 35 (in 2025)\n\nif ($age < 18) {\n  return new WP_Error('too_young', 'You must be at least 18 years old.');\n}"
+    },
+    {
+      "name": "Validate ZIP Code Range (US)",
+      "description": "Backend validation to ensure ZIP code is in valid US range",
+      "code": "// Validate US ZIP code range\nfunction validate_us_zip($zip) {\n  $zip = (int)$zip;\n  \n  if ($zip < 501 || $zip > 99950) {\n    return new WP_Error('invalid_zip', 'Please enter a valid US ZIP code.');\n  }\n  \n  // Optional: Check if ZIP exists in database of valid ZIPs\n  // $valid_zips = get_option('valid_zip_codes');\n  // if (!in_array($zip, $valid_zips)) {\n  //   return new WP_Error('zip_not_found', 'ZIP code not found.');\n  // }\n  \n  return true;\n}"
+    },
+    {
+      "name": "Dynamic Max Value Based on Stock",
+      "description": "Set maxNum dynamically based on available product stock (requires custom JS)",
+      "code": "// Dynamically set max quantity based on product stock\n// In PHP (render time)\n$product_id = get_the_ID();\n$stock_quantity = get_post_meta($product_id, '_stock', true);\n\n// Pass to block attributes\n$attributes = [\n  'maxNum' => (string)$stock_quantity,\n  'desctxt' => \"We have {$stock_quantity} units in stock.\"\n];\n\n// Or via JavaScript (dynamic update)\n<script>\nconst stockQuantity = <?php echo $stock_quantity; ?>;\nconst quantityField = document.querySelector('[name=\"product_quantity\"]');\nquantityField.setAttribute('max', stockQuantity);\n</script>"
+    }
+  ],
+
+  "relatedBlocks": [
+    "nxt-date-field - For age verification (use birth date instead of age number)",
+    "nxt-submit-button - Pair with inline submit for compact forms",
+    "nxt-hidden-field - Store calculated values (e.g., total price = quantity × unit price)",
+    "tp-form-block - Parent form container with form actions"
+  ]
 }
