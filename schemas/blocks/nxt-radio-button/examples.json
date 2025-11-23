@@ -2,39 +2,71 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-form-radio-button",
   "title": "Radio Button - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Common usage patterns and example configurations for single-select radio button groups with vertical/horizontal layouts and custom styling",
   "examples": [
     {
-      "description": "Simple single-choice question",
+      "name": "How Did You Hear About Us? (5 Options, Vertical)",
+      "description": "Marketing source tracking with single-select radio buttons in vertical layout",
+      "visualDescription": "Five round radio buttons stacked vertically (Search Engine, Social Media, Friend Referral, Advertisement, Other), only one can be selected at a time",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "rb001",
         "labelss": "How did you hear about us?",
         "fldOptions": [
           {
-            "fldLabel": "Search Engine",
-            "fldValue": "search"
+            "fldLabel": "Search Engine (Google, Bing)",
+            "fldValue": "search_engine"
           },
           {
-            "fldLabel": "Social Media",
-            "fldValue": "social"
+            "fldLabel": "Social Media (Facebook, Instagram, LinkedIn)",
+            "fldValue": "social_media"
           },
           {
-            "fldLabel": "Friend Referral",
+            "fldLabel": "Friend or Colleague Referral",
             "fldValue": "referral"
           },
           {
-            "fldLabel": "Advertisement",
-            "fldValue": "ad"
+            "fldLabel": "Online Advertisement",
+            "fldValue": "advertisement"
+          },
+          {
+            "fldLabel": "Other",
+            "fldValue": "other"
           }
         ],
         "optPos": "vertical",
-        "reqTgl": true
-      }
+        "bRadius": "round",
+        "reqTgl": true,
+        "error": "Please select how you heard about us.",
+        "uniqueid": "referral_source",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Marketing attribution, lead generation forms, customer surveys, registration forms",
+      "radioButtonDetails": {
+        "fldOptions": "Array of radio button options - each has fldLabel (display text) and fldValue (submitted value)",
+        "optPos": "vertical - Radio buttons stack vertically (one per line)",
+        "bRadius": "round - Circular radio buttons (default for radios)",
+        "singleSelect": "Only ONE option can be selected at a time (unlike checkboxes which allow multiple)",
+        "reqTgl": "true - User must select one option (prevents empty submission)"
+      },
+      "bestPractices": [
+        "Use underscore_case for fldValue (search_engine) for backend processing",
+        "Keep fldLabel descriptive (Search Engine vs just Search)",
+        "Include 'Other' option for sources not listed",
+        "Use vertical layout (optPos: vertical) for better readability with 4+ options",
+        "Set reqTgl: true for required question where user must choose one answer"
+      ]
     },
     {
-      "description": "Horizontal rating scale",
+      "name": "Service Rating Scale (Horizontal, 5 Levels)",
+      "description": "Satisfaction rating with 5 levels from Poor to Excellent in horizontal layout",
+      "visualDescription": "Five round radio buttons in horizontal row (Poor, Fair, Good, Very Good, Excellent), help text below explains to select one option",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "rb002",
         "labelss": "How would you rate our service?",
         "fldOptions": [
           {
@@ -50,22 +82,54 @@
             "fldValue": "3"
           },
           {
-            "fldLabel": "Excellent",
+            "fldLabel": "Very Good",
             "fldValue": "4"
+          },
+          {
+            "fldLabel": "Excellent",
+            "fldValue": "5"
           }
         ],
         "optPos": "horizontal",
+        "bRadius": "round",
         "reqTgl": true,
         "hlpTxt": true,
-        "desctxt": "Please select one option",
-        "descPoss": "bottom"
-      }
+        "desctxt": "Please select one rating that best describes your experience.",
+        "descPoss": "bottom",
+        "uniqueid": "service_rating",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Customer satisfaction surveys, product reviews, service feedback, post-purchase ratings",
+      "ratingScalePattern": {
+        "fldValue": "Use numeric values (1-5) for easy backend scoring/averaging",
+        "fldLabel": "Use descriptive words (Poor, Fair, Good, Very Good, Excellent)",
+        "order": "Low to high (Poor → Excellent) or high to low based on preference",
+        "optPos": "horizontal - Works well for rating scales (users familiar with left-to-right progression)",
+        "help": "Explain that user should select ONE rating that best fits their experience"
+      },
+      "layoutDetails": {
+        "optPos": "horizontal - Radio buttons display in a row (side by side)",
+        "bRadius": "round - Circular radio buttons (traditional radio style)",
+        "hlpTxt": "true - Show help text to explain rating selection",
+        "descPoss": "bottom - Help text appears below radio buttons"
+      },
+      "warnings": [
+        "Horizontal layout works best with 3-6 options (too many wraps awkwardly on mobile)",
+        "On mobile, horizontal radio buttons may stack vertically automatically (depends on label length)",
+        "Ensure adequate spacing between radio buttons in horizontal layout for touch targets"
+      ]
     },
     {
-      "description": "Yes/No question with square style",
+      "name": "Yes/No Question (Binary Choice, Horizontal, Square Style)",
+      "description": "Simple binary choice with square-styled radio buttons",
+      "visualDescription": "Two square radio buttons in horizontal row (Yes, No), square styling instead of traditional circular",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "e5f6",
-        "labelss": "Would you recommend us?",
+        "block_id": "rb003",
+        "labelss": "Would you recommend us to a friend?",
         "fldOptions": [
           {
             "fldLabel": "Yes",
@@ -78,13 +142,531 @@
         ],
         "optPos": "horizontal",
         "bRadius": "square",
-        "reqTgl": true
+        "reqTgl": true,
+        "error": "Please indicate whether you would recommend us.",
+        "uniqueid": "would_recommend",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "NPS (Net Promoter Score) surveys, binary questions, yes/no decisions, recommendation tracking",
+      "binaryChoicePattern": {
+        "options": "Two options only (Yes/No, True/False, Agree/Disagree)",
+        "optPos": "horizontal - Compact side-by-side layout for binary choices",
+        "bRadius": "square - Alternative styling (round is default, square for variation)",
+        "values": "Use lowercase (yes/no) or boolean-friendly values (true/false, 1/0)"
+      },
+      "squareRadioStyle": {
+        "bRadius": "square - Square corners instead of circular (visual variation)",
+        "when": "Use for binary choices, modern designs, or to match form aesthetics",
+        "default": "Radio buttons default to round (circular) - square is optional override"
+      },
+      "npsContext": {
+        "useCase": "Net Promoter Score (NPS) surveys often use Yes/No for recommendation",
+        "followUp": "Pair with nxt-number-field (0-10 rating) or nxt-message-field (reason)",
+        "calculation": "Yes = Promoter, No = Detractor (for NPS scoring)"
+      }
+    },
+    {
+      "name": "Gender Selection (Demographic, 3 Options)",
+      "description": "Standard demographic gender question with inclusive options",
+      "visualDescription": "Three round radio buttons stacked vertically (Male, Female, Prefer not to say), required field",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "rb004",
+        "labelss": "Gender",
+        "fldOptions": [
+          {
+            "fldLabel": "Male",
+            "fldValue": "male"
+          },
+          {
+            "fldLabel": "Female",
+            "fldValue": "female"
+          },
+          {
+            "fldLabel": "Prefer not to say",
+            "fldValue": "no_answer"
+          }
+        ],
+        "optPos": "vertical",
+        "bRadius": "round",
+        "reqTgl": true,
+        "uniqueid": "gender",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Demographics forms, user profiles, registration, surveys, health forms",
+      "demographicGuidelines": {
+        "inclusive": "Always include 'Prefer not to say' option for privacy",
+        "modern": "Consider adding 'Non-binary' or 'Other' for inclusive forms",
+        "optional": "Consider making gender optional (reqTgl: false) unless truly necessary",
+        "privacy": "Explain why gender data is collected (help text)"
+      },
+      "warnings": [
+        "Gender questions can be sensitive - consider making optional (reqTgl: false)",
+        "For inclusive forms, add 'Non-binary', 'Other', or 'Prefer to self-describe' options",
+        "Some jurisdictions have legal requirements for inclusive gender options",
+        "Always include 'Prefer not to say' for user privacy"
+      ],
+      "inclusiveOptions": [
+        {"fldLabel": "Male", "fldValue": "male"},
+        {"fldLabel": "Female", "fldValue": "female"},
+        {"fldLabel": "Non-binary", "fldValue": "non_binary"},
+        {"fldLabel": "Other", "fldValue": "other"},
+        {"fldLabel": "Prefer not to say", "fldValue": "no_answer"}
+      ]
+    },
+    {
+      "name": "Shipping Method (E-Commerce, Pricing Display)",
+      "description": "Shipping options with speed and pricing information in labels",
+      "visualDescription": "Three radio buttons showing shipping methods with prices (Standard $5 - 5-7 days, Express $15 - 2-3 days, Overnight $25 - Next day), vertical layout",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "rb005",
+        "labelss": "Select Shipping Method",
+        "fldOptions": [
+          {
+            "fldLabel": "Standard Shipping - $5.00 (5-7 business days)",
+            "fldValue": "standard_5"
+          },
+          {
+            "fldLabel": "Express Shipping - $15.00 (2-3 business days)",
+            "fldValue": "express_15"
+          },
+          {
+            "fldLabel": "Overnight Shipping - $25.00 (Next business day)",
+            "fldValue": "overnight_25"
+          }
+        ],
+        "optPos": "vertical",
+        "bRadius": "round",
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "Estimated delivery times may vary based on destination.",
+        "descPoss": "bottom",
+        "error": "Please select a shipping method to continue.",
+        "uniqueid": "shipping_method",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "E-commerce checkout, shipping selection, delivery options, order forms",
+      "pricingDisplayPattern": {
+        "fldLabel": "Include price and timeframe in label (Standard Shipping - $5.00 - 5-7 days)",
+        "fldValue": "Encode price in value (standard_5) for backend calculation",
+        "format": "Name - Price - Timeframe for clarity",
+        "calculation": "Backend extracts price from fldValue (standard_5 → $5) and adds to order total"
+      },
+      "implementationNotes": {
+        "extraction": "Parse fldValue 'standard_5' → extract '5' → shipping cost = $5",
+        "total": "Order total = product price + shipping cost",
+        "display": "Show selected shipping option and cost in order summary",
+        "default": "Consider pre-selecting cheapest option (requires JavaScript)"
+      }
+    },
+    {
+      "name": "Payment Method (Icons Recommended, 3 Options)",
+      "description": "Payment method selection with descriptive labels for Credit Card, PayPal, Bank Transfer",
+      "visualDescription": "Three round radio buttons (Credit/Debit Card, PayPal, Bank Transfer), vertical layout, help text explains processing",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "rb006",
+        "labelss": "Payment Method",
+        "fldOptions": [
+          {
+            "fldLabel": "Credit or Debit Card (Visa, Mastercard, Amex)",
+            "fldValue": "credit_card"
+          },
+          {
+            "fldLabel": "PayPal",
+            "fldValue": "paypal"
+          },
+          {
+            "fldLabel": "Bank Transfer / ACH",
+            "fldValue": "bank_transfer"
+          }
+        ],
+        "optPos": "vertical",
+        "bRadius": "round",
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "All payment methods are secure and encrypted.",
+        "descPoss": "top",
+        "error": "Please select your payment method.",
+        "uniqueid": "payment_method",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "E-commerce checkout, donation forms, subscription payments, invoice payments",
+      "paymentMethodPattern": {
+        "labels": "Include accepted card types or details (Visa, Mastercard, Amex)",
+        "values": "Use standard payment method codes (credit_card, paypal, bank_transfer)",
+        "security": "Add help text about encryption/security to build trust",
+        "icons": "Consider adding payment icons (Visa/MC logos) - requires custom implementation"
+      },
+      "warnings": [
+        "Radio button block doesn't support icons natively - use custom CSS or HTML in fldLabel",
+        "For actual payment processing, use dedicated payment gateway (Stripe, PayPal, etc.)",
+        "Selected payment method should trigger appropriate payment form fields (card number, PayPal email, etc.)",
+        "Consider using payment gateway's hosted fields for PCI compliance"
+      ],
+      "conditionalFields": {
+        "credit_card": "Show: Card Number, Expiry Date, CVV, Cardholder Name fields",
+        "paypal": "Show: PayPal email or redirect to PayPal checkout",
+        "bank_transfer": "Show: Account Number, Routing Number, Account Holder Name fields"
+      }
+    },
+    {
+      "name": "T-Shirt Size (Horizontal, 6 Options)",
+      "description": "Apparel size selection in horizontal layout from XS to XXL",
+      "visualDescription": "Six round radio buttons in horizontal row (XS, S, M, L, XL, XXL), compact design for size selection",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "rb007",
+        "labelss": "T-Shirt Size",
+        "fldOptions": [
+          {
+            "fldLabel": "XS",
+            "fldValue": "xs"
+          },
+          {
+            "fldLabel": "S",
+            "fldValue": "s"
+          },
+          {
+            "fldLabel": "M",
+            "fldValue": "m"
+          },
+          {
+            "fldLabel": "L",
+            "fldValue": "l"
+          },
+          {
+            "fldLabel": "XL",
+            "fldValue": "xl"
+          },
+          {
+            "fldLabel": "XXL",
+            "fldValue": "xxl"
+          }
+        ],
+        "optPos": "horizontal",
+        "bRadius": "round",
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "See size chart for measurements",
+        "descPoss": "bottom",
+        "uniqueid": "tshirt_size",
+        "inpSz": {
+          "md": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "E-commerce apparel, event registration with shirt giveaway, merchandise orders, uniform selection",
+      "sizeSelectionPattern": {
+        "abbreviations": "Use standard abbreviations (XS, S, M, L, XL, XXL) for compact horizontal layout",
+        "order": "Smallest to largest (XS → XXL) for intuitive left-to-right progression",
+        "optPos": "horizontal - Works well for size scales (users expect left-to-right sizing)",
+        "helpText": "Link to size chart for measurements (desctxt: 'See size chart')"
+      },
+      "warnings": [
+        "Six horizontal radio buttons may wrap on small mobile screens (test on actual devices)",
+        "Consider using short labels (XS, S, M) instead of full names (Extra Small, Small, Medium)",
+        "International sizing differs (US vs EU vs UK) - specify sizing standard",
+        "For unisex items, consider separate Men's/Women's size options"
+      ],
+      "internationalSizing": {
+        "US": "XS, S, M, L, XL, XXL",
+        "EU": "42, 44, 46, 48, 50, 52 (numeric)",
+        "UK": "6, 8, 10, 12, 14, 16 (numeric)"
+      }
+    },
+    {
+      "name": "Preferred Contact Method (50% Width, Multi-Column)",
+      "description": "Contact preference radio buttons in half-width layout for multi-column forms",
+      "visualDescription": "Three round radio buttons vertical (Email, Phone Call, Text Message), takes 50% width on desktop, stacks to full width on mobile",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "rb008",
+        "labelss": "Preferred Contact Method",
+        "fldOptions": [
+          {
+            "fldLabel": "Email",
+            "fldValue": "email"
+          },
+          {
+            "fldLabel": "Phone Call",
+            "fldValue": "phone"
+          },
+          {
+            "fldLabel": "Text Message (SMS)",
+            "fldValue": "sms"
+          }
+        ],
+        "optPos": "vertical",
+        "bRadius": "round",
+        "reqTgl": true,
+        "hlpTxt": true,
+        "desctxt": "We will use this method for important updates.",
+        "descPoss": "top",
+        "uniqueid": "contact_preference",
+        "inpSz": {
+          "md": "50",
+          "sm": "100",
+          "unit": "%"
+        }
+      },
+      "useCase": "Contact forms, appointment scheduling, customer support, sales follow-up, notification preferences",
+      "responsiveLayout": {
+        "md": "50% - Half width on desktop (pair with another 50% field)",
+        "sm": "100% - Full width on tablet and mobile (stacks vertically)",
+        "unit": "% - Percentage-based for fluid responsive layouts"
+      },
+      "layoutExamples": [
+        "Contact Method (50%) + Best Time to Call (50%) side by side",
+        "Contact Method (50%) + Timezone (50%) side by side",
+        "Pair with any other preference or demographic field"
+      ],
+      "conditionalLogic": {
+        "email": "Ensure email field is filled (nxt-email-field)",
+        "phone": "Ensure phone field is filled (nxt-phone-field)",
+        "sms": "Ensure mobile phone number is provided (nxt-phone-field)"
       }
     }
   ],
-  "commonPatterns": {
-    "default": {
-      "block_id": "example"
+
+  "commonPatterns": [
+    {
+      "name": "Simple Single-Select (Vertical)",
+      "description": "Basic vertical radio button group with 3-5 options",
+      "attributes": {
+        "optPos": "vertical",
+        "bRadius": "round",
+        "reqTgl": true,
+        "fldOptions": [
+          {"fldLabel": "Option 1", "fldValue": "option1"},
+          {"fldLabel": "Option 2", "fldValue": "option2"},
+          {"fldLabel": "Option 3", "fldValue": "option3"}
+        ]
+      }
+    },
+    {
+      "name": "Horizontal Scale (3-6 options)",
+      "description": "Horizontal layout for rating scales and small option sets",
+      "attributes": {
+        "optPos": "horizontal",
+        "bRadius": "round",
+        "fldOptions": [
+          {"fldLabel": "Poor", "fldValue": "1"},
+          {"fldLabel": "Fair", "fldValue": "2"},
+          {"fldLabel": "Good", "fldValue": "3"},
+          {"fldLabel": "Excellent", "fldValue": "4"}
+        ]
+      }
+    },
+    {
+      "name": "Binary Choice (Yes/No)",
+      "description": "Simple yes/no question with horizontal layout",
+      "attributes": {
+        "optPos": "horizontal",
+        "bRadius": "square",
+        "reqTgl": true,
+        "fldOptions": [
+          {"fldLabel": "Yes", "fldValue": "yes"},
+          {"fldLabel": "No", "fldValue": "no"}
+        ]
+      }
+    },
+    {
+      "name": "Multi-Column Layout (50/50)",
+      "description": "Two radio button groups side by side on desktop",
+      "attributes": {
+        "inpSz": {
+          "md": "50",
+          "sm": "100",
+          "unit": "%"
+        }
+      }
     }
-  }
+  ],
+
+  "validationRules": {
+    "labelss": "Required string - Field label/heading for radio button group",
+    "fldOptions": "Required array - List of radio button options (minimum 2 for meaningful choice)",
+    "fldOptions[].fldLabel": "Required string - Display text shown to user",
+    "fldOptions[].fldValue": "Required string - Value submitted to backend (use lowercase, underscores)",
+    "optPos": "String - 'vertical' (stacked) or 'horizontal' (row). Default: 'vertical'",
+    "bRadius": "String - 'round' (circular) or 'square' (square corners). Default: 'round'",
+    "reqTgl": "Boolean - true requires one option selected, false makes selection optional",
+    "inpSz.md": "String - Desktop width (recommended: 100, 50, 40, 33 for columns)",
+    "uniqueid": "String - Unique form field identifier for submission data"
+  },
+
+  "warnings": [
+    "Radio buttons allow selecting ONLY ONE option (unlike checkboxes which allow multiple)",
+    "reqTgl: true validates that exactly ONE option is selected (prevents empty submission)",
+    "No way to set default selected option in block.json - requires JavaScript or backend pre-selection",
+    "Once user selects a radio button, they cannot 'unselect' all - there's always one selected",
+    "Horizontal layout (optPos: horizontal) can wrap awkwardly with 6+ options on mobile",
+    "bRadius only affects visual styling (round vs square), not functionality",
+    "Long fldLabel text in horizontal layout causes wrapping - keep labels concise (1-3 words)",
+    "Radio button value is submitted as string, not array (unlike checkboxes)",
+    "For 'Other' option with free text input, pair with nxt-message-field using conditional logic",
+    "Once a radio is selected, user cannot deselect all options - ensure 'N/A' or 'None' option if needed"
+  ],
+
+  "commonMistakes": [
+    "Using radio buttons for multi-select (use nxt-checkbox-button instead)",
+    "Using horizontal layout with 10+ options (wraps poorly on mobile)",
+    "Using spaces or special characters in fldValue (use underscores: 'search_engine' not 'Search Engine')",
+    "Not providing 'Other' or 'None of the above' option when appropriate",
+    "Making radio buttons optional when user should provide an answer (set reqTgl: true)",
+    "Using generic fldValue like 'option1' instead of descriptive 'search_engine'",
+    "Not testing mobile layout for horizontal radio buttons (may need vertical on small screens)",
+    "Including prices in fldValue instead of fldLabel (put '$5' in label, 'standard_5' in value)",
+    "Forgetting that radio selections cannot be unselected (always one selected after first click)",
+    "Using radio buttons for single Yes/No when checkbox might be clearer"
+  ],
+
+  "bestPractices": [
+    "Use descriptive fldValue names (search_engine, credit_card) not generic (option1, option2)",
+    "Keep fldValue lowercase with underscores for consistent backend processing",
+    "Use vertical layout (optPos: vertical) for 4+ options for better readability",
+    "Use horizontal layout (optPos: horizontal) only for 2-6 short options (Yes/No, sizes, ratings)",
+    "Set reqTgl: true when user must choose one answer (prevent empty submission)",
+    "Set reqTgl: false only when selection is truly optional (rare for radio buttons)",
+    "Provide 'Other', 'None of the above', or 'N/A' option when appropriate",
+    "Use help text (hlpTxt + desctxt) to clarify what the selection means or affects",
+    "Include pricing/timeframes in fldLabel for e-commerce options (Standard $5 - 5-7 days)",
+    "Use numeric values (1-5) for rating scales to simplify backend averaging",
+    "For binary choices (Yes/No), consider horizontal layout for compact display",
+    "Use round bRadius for traditional radio appearance, square for modern/alternative styling",
+    "Test horizontal layouts on mobile - 6+ options likely need vertical on small screens",
+    "Use uniqueid that describes the field purpose ('shipping_method', 'payment_method')",
+    "For 'Other' option, pair with conditional nxt-message-field for user explanation"
+  ],
+
+  "accessibilityNotes": [
+    "Label (labelss) is required for screen readers to identify radio button group purpose",
+    "Each fldLabel is announced individually by screen readers as radio button label",
+    "Use descriptive fldLabel text: 'Search Engine (Google, Bing)' not just 'Search'",
+    "Help text (desctxt) provides additional context for assistive technology",
+    "Error messages (error attribute) are announced by screen readers when validation fails",
+    "Radio buttons are keyboard accessible (Tab to navigate, Arrow keys to select within group)",
+    "Ensure sufficient color contrast for radio button borders (minimum 3:1 ratio)",
+    "Don't rely on color alone to indicate selected state (use filled circle/check icon)",
+    "Group related radio buttons under clear heading (labelss) for screen reader navigation",
+    "Large touch targets on mobile (minimum 44x44px) - TPGB default styling handles this",
+    "Arrow keys should work within radio group (↑↓ for vertical, ←→ for horizontal)"
+  ],
+
+  "performanceConsiderations": [
+    "Browser native radio button rendering is instant (no custom JavaScript needed)",
+    "Large number of radio buttons (20+) may slow down form rendering - consider nxt-option-field (dropdown) instead",
+    "Radio button validation happens on submit, not on every selection",
+    "Vertical layout performs better on mobile than horizontal (no wrapping calculations)",
+    "If using dynamic radio buttons, debounce selection logic to avoid excessive re-renders"
+  ],
+
+  "layoutGuide": {
+    "vertical": {
+      "bestFor": "4+ options, long labels, default choice for most forms",
+      "spacing": "Each radio button on separate line for easy scanning",
+      "mobile": "Works perfectly on mobile (no wrapping issues)"
+    },
+    "horizontal": {
+      "bestFor": "2-6 options, short labels (1-3 words), rating scales, binary choices",
+      "spacing": "Radio buttons in a row, may wrap on mobile if too many",
+      "mobile": "Test carefully - long labels cause wrapping, consider vertical for mobile"
+    }
+  },
+
+  "differenceFrom Checkbox": {
+    "nxt-radio-button": {
+      "selection": "SINGLE-select only (one option at a time)",
+      "unselect": "Cannot unselect all after first selection",
+      "defaultStyle": "bRadius: 'round' (circular)",
+      "submissionData": "Submitted as string value (e.g., 'search_engine')",
+      "useCase": "Mutually exclusive choices (shipping method, payment method, gender, rating)",
+      "validation": "reqTgl ensures exactly ONE option selected"
+    },
+    "nxt-checkbox-button": {
+      "selection": "MULTI-select (multiple options simultaneously)",
+      "unselect": "Can uncheck all options (empty selection possible)",
+      "defaultStyle": "bRadius: 'square' (square corners)",
+      "submissionData": "Submitted as array of values (e.g., ['skill1', 'skill2'])",
+      "useCase": "Multiple selections allowed (skills, interests, preferences, features)",
+      "validation": "reqTgl ensures at least ONE checkbox checked"
+    },
+    "whenToUse": {
+      "radio": "User picks ONE from several options (Which method? Select shipping. Choose size.)",
+      "checkbox": "User picks MULTIPLE from several options (What skills? Select interests. Choose features.)"
+    }
+  },
+
+  "useCaseSpecificTips": {
+    "MarketingAttribution": {
+      "tip": "Track referral source with 'How did you hear about us?' radio buttons",
+      "options": "Search Engine, Social Media, Referral, Advertisement, Other",
+      "analysis": "Use backend to group submissions by source for marketing ROI"
+    },
+    "SatisfactionSurveys": {
+      "tip": "Use horizontal 5-point scale (Poor to Excellent) for rating questions",
+      "values": "Numeric values (1-5) make averaging/analysis easier",
+      "layout": "Horizontal layout for intuitive left-to-right progression"
+    },
+    "ECommerceCheckout": {
+      "tip": "Use radio buttons for shipping method and payment method (single selections)",
+      "pricing": "Include prices in labels (Standard $5, Express $15)",
+      "conditional": "Show relevant fields based on selection (credit card vs PayPal)"
+    },
+    "Demographics": {
+      "tip": "Gender, Age Range, Income Range - all single-select radio buttons",
+      "inclusive": "Always provide 'Prefer not to say' option",
+      "optional": "Consider making demographic questions optional (reqTgl: false)"
+    },
+    "AppointmentBooking": {
+      "tip": "Time slot selection with radio buttons (9am, 10am, 11am, etc.)",
+      "vertical": "Use vertical layout for 6+ time slots",
+      "horizontal": "Use horizontal for AM/PM or Morning/Afternoon/Evening"
+    }
+  },
+
+  "integrationExamples": [
+    {
+      "name": "Handle Radio Button Selection (Backend PHP)",
+      "description": "Process single selected value from radio button group",
+      "code": "// Radio button field submits as single string value (not array like checkboxes)\n$referral_source = isset($_POST['referral_source']) ? sanitize_text_field($_POST['referral_source']) : '';\n\n// $referral_source = 'search_engine' (single value, not array)\n\n// Validate selection made if required\nif (empty($referral_source)) {\n  return new WP_Error('no_selection', 'Please select how you heard about us.');\n}\n\n// Store the selection\nupdate_user_meta($user_id, 'referral_source', $referral_source);\n\n// Or update database\nglobal $wpdb;\n$wpdb->update(\n  $wpdb->prefix . 'leads',\n  ['referral_source' => $referral_source],\n  ['user_id' => $user_id],\n  ['%s'],\n  ['%d']\n);"
+    },
+    {
+      "name": "Calculate Shipping Cost from Radio Selection",
+      "description": "Extract shipping price from selected radio value",
+      "code": "// Shipping method with price encoded in value: standard_5, express_15, overnight_25\n$shipping_method = isset($_POST['shipping_method']) ? sanitize_text_field($_POST['shipping_method']) : '';\n\nif (empty($shipping_method)) {\n  return new WP_Error('no_shipping', 'Please select a shipping method.');\n}\n\n// Extract price from value (e.g., 'standard_5' → 5)\npreg_match('/_([0-9]+)$/', $shipping_method, $matches);\n$shipping_cost = !empty($matches[1]) ? (int)$matches[1] : 0;\n\n// Calculate total\n$product_total = 100; // Example product price\n$order_total = $product_total + $shipping_cost;\n\n// Store shipping info\nupdate_post_meta($order_id, 'shipping_method', $shipping_method);\nupdate_post_meta($order_id, 'shipping_cost', $shipping_cost);\nupdate_post_meta($order_id, 'order_total', $order_total);\n\necho \"Shipping: $\" . $shipping_cost;\necho \"Total: $\" . $order_total;"
+    },
+    {
+      "name": "Conditional Form Fields Based on Radio Selection",
+      "description": "Show/hide form fields based on selected radio button (requires JavaScript)",
+      "code": "// JavaScript to show different fields based on payment method selection\nconst paymentRadios = document.querySelectorAll('[name=\"payment_method\"]');\nconst creditCardFields = document.getElementById('credit-card-fields');\nconst paypalFields = document.getElementById('paypal-fields');\nconst bankFields = document.getElementById('bank-transfer-fields');\n\npaymentRadios.forEach(radio => {\n  radio.addEventListener('change', function() {\n    // Hide all payment fields\n    creditCardFields.style.display = 'none';\n    paypalFields.style.display = 'none';\n    bankFields.style.display = 'none';\n    \n    // Show relevant fields based on selection\n    if (this.value === 'credit_card') {\n      creditCardFields.style.display = 'block';\n    } else if (this.value === 'paypal') {\n      paypalFields.style.display = 'block';\n    } else if (this.value === 'bank_transfer') {\n      bankFields.style.display = 'block';\n    }\n  });\n});\n\n// Trigger change on page load to show default selection\ndocument.querySelector('[name=\"payment_method\"]:checked')?.dispatchEvent(new Event('change'));"
+    },
+    {
+      "name": "Survey Rating Analysis (Average Ratings)",
+      "description": "Calculate average rating from radio button submissions",
+      "code": "// Calculate average service rating from survey responses\nfunction calculate_average_rating($form_id) {\n  global $wpdb;\n  \n  $ratings = $wpdb->get_col($wpdb->prepare(\n    \"SELECT meta_value FROM {$wpdb->postmeta} \n     WHERE meta_key = 'service_rating' \n     AND post_id IN (SELECT ID FROM {$wpdb->posts} WHERE post_parent = %d)\",\n    $form_id\n  ));\n  \n  if (empty($ratings)) {\n    return 0;\n  }\n  \n  // Ratings are numeric strings: '1', '2', '3', '4', '5'\n  $total = array_sum(array_map('intval', $ratings));\n  $count = count($ratings);\n  $average = $total / $count;\n  \n  // Store aggregated data\n  update_post_meta($form_id, 'average_rating', round($average, 2));\n  update_post_meta($form_id, 'total_responses', $count);\n  \n  return round($average, 2);\n}\n\n// Usage\n$avg_rating = calculate_average_rating($form_id);\necho \"Average Rating: \" . $avg_rating . \" / 5.0 ({$count} responses)\";"
+    }
+  ],
+
+  "relatedBlocks": [
+    "nxt-checkbox-button - For multi-select options (use instead if multiple selections needed)",
+    "nxt-option-field - For dropdown select (use instead for 10+ options to save space)",
+    "tp-form-block - Parent form container with form actions",
+    "nxt-message-field - Pair with 'Other' radio option for user explanation",
+    "nxt-submit-button - Pair with form submission"
+  ]
 }
