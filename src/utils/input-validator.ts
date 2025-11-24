@@ -305,14 +305,180 @@ export function validateAndFix(blocks: any[]): {
     }
     return fixed;
   });
-  
+
   const validation = validateBlocks(fixedBlocks);
-  
+
   return {
     valid: validation.valid,
     blocks: fixedBlocks,
     errors: validation.errors,
     warnings: validation.warnings,
     fixes_applied
+  };
+}
+
+/**
+ * Validate block attributes against schema
+ */
+export function validateBlockAgainstSchema(
+  block: any,
+  schema: any
+): ValidationResult {
+  const errors: StructuredError[] = [];
+  const warnings: string[] = [];
+
+  if (!schema || !schema.attributes) {
+    // No schema available - skip schema validation
+    return { valid: true, errors: [], warnings: ['No schema available for validation'] };
+  }
+
+  const attrs = block.attrs || {};
+
+  // Validate each attribute in schema
+  for (const [attrName, attrSchema] of Object.entries(schema.attributes)) {
+    const attrDef: any = attrSchema;
+    const value = attrs[attrName];
+
+    // Check if attribute is required
+    if (attrDef.required && value === undefined) {
+      errors.push(missingFieldError(
+        attrName,
+        attrDef.default !== undefined ? String(attrDef.default) : 'required'
+      ));
+      continue;
+    }
+
+    // Skip validation if value is undefined and not required
+    if (value === undefined) {
+      continue;
+    }
+
+    // Validate type
+    if (attrDef.type) {
+      const typeError = validateAttributeType(value, attrDef.type, attrName, block.blockName);
+      if (typeError) {
+        errors.push(typeError);
+        continue; // Skip further validation if type is wrong
+      }
+    }
+
+    // Validate enum values
+    if (attrDef.enum && Array.isArray(attrDef.enum)) {
+      if (!attrDef.enum.includes(value)) {
+        errors.push(validationError(
+          attrName,
+          `one of: ${attrDef.enum.slice(0, 5).join(', ')}${attrDef.enum.length > 5 ? '...' : ''}`,
+          value,
+          block.blockName
+        ));
+      }
+    }
+
+    // Validate string patterns
+    if (attrDef.pattern && typeof value === 'string') {
+      const regex = new RegExp(attrDef.pattern);
+      if (!regex.test(value)) {
+        errors.push(validationError(
+          attrName,
+          `matching pattern: ${attrDef.pattern}`,
+          value,
+          block.blockName
+        ));
+      }
+    }
+
+    // Validate min/max for numbers
+    if (typeof value === 'number') {
+      if (attrDef.minimum !== undefined && value < attrDef.minimum) {
+        warnings.push(`${block.blockName}: ${attrName} is ${value}, below minimum of ${attrDef.minimum}`);
+      }
+      if (attrDef.maximum !== undefined && value > attrDef.maximum) {
+        warnings.push(`${block.blockName}: ${attrName} is ${value}, above maximum of ${attrDef.maximum}`);
+      }
+    }
+
+    // Validate string length
+    if (typeof value === 'string') {
+      if (attrDef.minLength !== undefined && value.length < attrDef.minLength) {
+        warnings.push(`${block.blockName}: ${attrName} length is ${value.length}, below minimum of ${attrDef.minLength}`);
+      }
+      if (attrDef.maxLength !== undefined && value.length > attrDef.maxLength) {
+        warnings.push(`${block.blockName}: ${attrName} length is ${value.length}, above maximum of ${attrDef.maxLength}`);
+      }
+    }
+  }
+
+  // Check for unknown attributes (not in schema)
+  for (const attrName of Object.keys(attrs)) {
+    if (attrName === 'block_id' || attrName === 'className') {
+      continue; // Skip special attributes
+    }
+    if (!schema.attributes[attrName]) {
+      warnings.push(`${block.blockName}: Unknown attribute "${attrName}" not in schema (may be deprecated or custom)`);
+    }
+  }
+
+  return {
+    valid: errors.length === 0,
+    errors,
+    warnings
+  };
+}
+
+/**
+ * Validate blocks with their schemas
+ */
+export function validateBlocksWithSchemas(
+  blocks: any[],
+  schemas: Map<string, any>
+): ValidationResult {
+  const allErrors: StructuredError[] = [];
+  const allWarnings: string[] = [];
+
+  // First do basic structural validation
+  const basicValidation = validateBlocks(blocks);
+  allErrors.push(...basicValidation.errors);
+  allWarnings.push(...basicValidation.warnings);
+
+  // Then validate against schemas
+  const validateBlockWithSchema = (block: any, path: string = ''): void => {
+    const schema = schemas.get(block.blockName);
+
+    if (schema) {
+      const schemaValidation = validateBlockAgainstSchema(block, schema);
+
+      // Add path prefix to errors
+      schemaValidation.errors.forEach(error => {
+        if (error.details?.field && path) {
+          error.details.field = `${path}.${error.details.field}`;
+        } else if (path) {
+          error.details = { field: path };
+        }
+        allErrors.push(error);
+      });
+
+      // Add path prefix to warnings
+      schemaValidation.warnings.forEach(warning => {
+        allWarnings.push(path ? `${path}: ${warning}` : warning);
+      });
+    }
+
+    // Recursively validate innerBlocks
+    if (block.innerBlocks && Array.isArray(block.innerBlocks)) {
+      block.innerBlocks.forEach((innerBlock: any, index: number) => {
+        const innerPath = path ? `${path}.innerBlocks[${index}]` : `innerBlocks[${index}]`;
+        validateBlockWithSchema(innerBlock, innerPath);
+      });
+    }
+  };
+
+  blocks.forEach((block, index) => {
+    validateBlockWithSchema(block, `blocks[${index}]`);
+  });
+
+  return {
+    valid: allErrors.length === 0,
+    errors: allErrors,
+    warnings: allWarnings
   };
 }

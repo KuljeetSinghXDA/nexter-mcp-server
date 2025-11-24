@@ -11,7 +11,7 @@ import { WordPressClient } from '../services/wordpress-client.js';
 import { SchemaLoader } from '../services/schema-loader.js';
 import { logger, logToolCall } from '../utils/logger.js';
 import { preprocessBlocks } from '../utils/block-formatter.js';
-import { validateBlocks, validateAndFix } from '../utils/input-validator.js';
+import { validateBlocks, validateAndFix, validateBlocksWithSchemas } from '../utils/input-validator.js';
 
 export function registerTools(
   server: Server,
@@ -423,7 +423,7 @@ RETURNS:
           break;
 
         case 'create_content':
-          result = await handleCreateContent(args, wpClient);
+          result = await handleCreateContent(args, wpClient, schemaLoader);
           break;
 
         case 'analyze_content':
@@ -646,7 +646,7 @@ async function handleGetBlockSchemas(args: any, schemaLoader: SchemaLoader) {
   };
 }
 
-async function handleCreateContent(args: any, wpClient: WordPressClient) {
+async function handleCreateContent(args: any, wpClient: WordPressClient, schemaLoader: SchemaLoader) {
   // Validate input schema
   const schema = z.object({
     post_type: z.enum(['post', 'page']),
@@ -668,17 +668,27 @@ async function handleCreateContent(args: any, wpClient: WordPressClient) {
     };
   }
 
-  // Validate block structure with enhanced validator
-  const blockValidation = validateBlocks(validated.data.blocks);
+  // Load schemas for all blocks (for schema-based validation)
+  const blockNames = [
+    ...new Set(
+      getAllBlockNames(validated.data.blocks)
+    )
+  ];
+  const loadedSchemas = await schemaLoader.getSchemas(blockNames);
+  const schemaMap = new Map(loadedSchemas.map(s => [s.blockName, s]));
+
+  // Validate block structure with schema-based validator
+  const blockValidation = validateBlocksWithSchemas(validated.data.blocks, schemaMap);
   if (!blockValidation.valid) {
     return {
       status: 'error',
       error_type: 'validation_error',
       error_code: 'INVALID_BLOCK_STRUCTURE',
-      message: 'Block validation failed. See errors for fix suggestions.',
+      message: 'Block validation failed against schemas. See errors for fix suggestions.',
       errors: blockValidation.errors,
       warnings: blockValidation.warnings,
-      suggestion: 'Use validate_content tool with auto_fix: true to automatically fix common issues'
+      suggestion: 'Use validate_content tool with auto_fix: true to automatically fix common issues',
+      validated_against_schemas: true
     };
   }
 
@@ -1115,4 +1125,23 @@ function removeBlock(blocks: any[], blockId: string): any[] {
 
     return true;
   });
+}
+
+/**
+ * Extract all unique block names from block tree (including innerBlocks)
+ */
+function getAllBlockNames(blocks: any[]): string[] {
+  const names: string[] = [];
+
+  const extract = (block: any): void => {
+    if (block.blockName) {
+      names.push(block.blockName);
+    }
+    if (block.innerBlocks && Array.isArray(block.innerBlocks)) {
+      block.innerBlocks.forEach(extract);
+    }
+  };
+
+  blocks.forEach(extract);
+  return names;
 }
