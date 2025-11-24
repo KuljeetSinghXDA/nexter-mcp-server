@@ -1,91 +1,1527 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-media-listing",
-  "title": "Media Listing - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Media Listing - Comprehensive Usage Examples",
+  "description": "Image and video galleries with grid, masonry, metro, and carousel layouts",
   "examples": [
     {
-      "description": "Simple 3-column image grid",
+      "name": "Basic Image Grid Portfolio with FancyBox Lightbox",
+      "description": "3-column responsive image grid with lightbox popup functionality",
+      "visualDescription": "Clean portfolio grid, purple search icon on hover, full-screen FancyBox lightbox with arrows and thumbnails",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "ml001",
         "GalleryType": "image",
         "layout": "grid",
         "style": "style-1",
+        "Imgoption": "repeater",
         "columns": {
           "md": 3,
           "sm": 4,
           "xs": 6
         },
-        "Imgoption": "fancybox"
-      }
-    },
-    {
-      "description": "Masonry layout portfolio",
-      "attributes": {
-        "block_id": "c3d4",
-        "layout": "masonry",
-        "style": "style-2",
-        "columns": {
-          "md": 4,
-          "sm": 6,
-          "xs": 12
-        },
-        "Dtitle": true,
-        "Dcontent": true,
         "columnSpace": {
           "md": "20",
           "unit": "px"
-        }
-      }
-    },
-    {
-      "description": "Video gallery with YouTube",
-      "attributes": {
-        "block_id": "e5f6",
-        "GalleryType": "video",
-        "style": "style-3",
+        },
         "ImgRepeater": [
           {
-            "Rtitle": "Video 1",
-            "VSource": "youtube",
-            "YouTubeId": "dQw4w9WgXcQ"
+            "_key": "0",
+            "Rimg": {
+              "url": "/images/portfolio-1.jpg",
+              "Id": "101"
+            },
+            "Rtitle": "Modern Architecture",
+            "RCaption": "Contemporary building design with glass facade",
+            "RCategory": "Architecture"
           },
           {
-            "Rtitle": "Video 2",
-            "VSource": "youtube",
-            "YouTubeId": "9bZkp7q19f0"
+            "_key": "1",
+            "Rimg": {
+              "url": "/images/portfolio-2.jpg",
+              "Id": "102"
+            },
+            "Rtitle": "Brand Identity",
+            "RCaption": "Complete branding package for tech startup",
+            "RCategory": "Branding"
+          },
+          {
+            "_key": "2",
+            "Rimg": {
+              "url": "/images/portfolio-3.jpg",
+              "Id": "103"
+            },
+            "Rtitle": "Product Photography",
+            "RCaption": "Professional product shots for e-commerce",
+            "RCategory": "Photography"
+          },
+          {
+            "_key": "3",
+            "Rimg": {
+              "url": "/images/portfolio-4.jpg",
+              "Id": "104"
+            },
+            "Rtitle": "Web Design",
+            "RCaption": "Responsive website design for local business",
+            "RCategory": "Web Design"
+          },
+          {
+            "_key": "4",
+            "Rimg": {
+              "url": "/images/portfolio-5.jpg",
+              "Id": "105"
+            },
+            "Rtitle": "Interior Design",
+            "RCaption": "Minimalist residential interior project",
+            "RCategory": "Architecture"
+          },
+          {
+            "_key": "5",
+            "Rimg": {
+              "url": "/images/portfolio-6.jpg",
+              "Id": "106"
+            },
+            "Rtitle": "Logo Design",
+            "RCaption": "Modern geometric logo for coffee brand",
+              "RCategory": "Branding"
           }
-        ]
+        ],
+        "Dtitle": true,
+        "TitleTag": "h3",
+        "Dcontent": true,
+        "Disicon": true,
+        "PopupNone": "icon",
+        "PopupIcon": "fa fa-search-plus",
+        "Iconsize": {
+          "md": "24",
+          "unit": "px"
+        },
+        "NIcolor": "#ffffff",
+        "HIcolor": "#667eea",
+        "ImgSize": "large",
+        "FancyOption": "{\"loop\":true,\"arrows\":true,\"infobar\":true,\"thumbs\":{\"autoStart\":true}}",
+        "LoopFancy": true,
+        "ArrowsFancy": true,
+        "infobar": true,
+        "thumbnails": "yes",
+        "TransitionFancy": "slide"
+      },
+      "useCase": "Portfolio websites, photography galleries, design showcases, case study listings",
+      "layoutNotes": {
+        "columns": "md: 3 (4 columns), sm: 4 (3 columns), xs: 6 (2 columns) - Bootstrap 12-column grid",
+        "columnSpace": "20px gap creates breathing room between items",
+        "responsive": "Stacks to 2 columns on mobile for optimal touch interaction"
+      },
+      "fancyBoxNotes": {
+        "FancyOption": "Must be valid JSON string (use double quotes inside, escape if needed)",
+        "loop": "true allows circular navigation (last image → first image)",
+        "thumbs.autoStart": "Shows thumbnail strip at bottom by default",
+        "infobar": "Shows image counter (1/6) at top",
+        "TransitionFancy": "slide (default), fade, zoom, rotate, circular, tube, zoom-in-out, rotate"
       }
     },
     {
-      "description": "Metro layout with custom pattern",
+      "name": "Masonry Photo Gallery with Category Filtering",
+      "description": "Pinterest-style masonry layout with clickable category filters above the gallery",
+      "visualDescription": "Staggered grid with natural height images, purple filter buttons with underline hover effect, smooth Isotope filtering animations",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "g7h8",
+        "block_id": "ml002",
+        "GalleryType": "image",
+        "layout": "masonry",
+        "style": "style-2",
+        "Imgoption": "repeater",
+        "columns": {
+          "md": 3,
+          "sm": 4,
+          "xs": 6
+        },
+        "columnSpace": {
+          "md": "15",
+          "unit": "px"
+        },
+        "ImgRepeater": [
+          {
+            "_key": "0",
+            "Rimg": {"url": "/images/travel-1.jpg", "Id": "201"},
+            "Rtitle": "Santorini Sunset",
+            "RCaption": "White buildings against blue Aegean Sea",
+            "RCategory": "Travel"
+          },
+          {
+            "_key": "1",
+            "Rimg": {"url": "/images/food-1.jpg", "Id": "202"},
+            "Rtitle": "Gourmet Burger",
+            "RCaption": "Artisan burger with truffle fries",
+            "RCategory": "Food"
+          },
+          {
+            "_key": "2",
+            "Rimg": {"url": "/images/nature-1.jpg", "Id": "203"},
+            "Rtitle": "Mountain Vista",
+            "RCaption": "Snow-capped peaks at golden hour",
+            "RCategory": "Nature"
+          },
+          {
+            "_key": "3",
+            "Rimg": {"url": "/images/travel-2.jpg", "Id": "204"},
+            "Rtitle": "Tokyo Streets",
+            "RCaption": "Neon-lit streets of Shibuya at night",
+            "RCategory": "Travel"
+          },
+          {
+            "_key": "4",
+            "Rimg": {"url": "/images/food-2.jpg", "Id": "205"},
+            "Rtitle": "Fresh Sushi",
+            "RCaption": "Traditional Japanese sushi platter",
+            "RCategory": "Food"
+          },
+          {
+            "_key": "5",
+            "Rimg": {"url": "/images/nature-2.jpg", "Id": "206"},
+            "Rtitle": "Forest Path",
+            "RCaption": "Misty morning in Pacific Northwest forest",
+            "RCategory": "Nature"
+          },
+          {
+            "_key": "6",
+            "Rimg": {"url": "/images/travel-3.jpg", "Id": "207"},
+            "Rtitle": "Paris Eiffel",
+            "RCaption": "Eiffel Tower illuminated at twilight",
+            "RCategory": "Travel"
+          },
+          {
+            "_key": "7",
+            "Rimg": {"url": "/images/food-3.jpg", "Id": "208"},
+            "Rtitle": "Italian Pasta",
+            "RCaption": "Handmade pasta with fresh basil",
+            "RCategory": "Food"
+          }
+        ],
+        "Dtitle": true,
+        "TitleTag": "h3",
+        "Dcontent": true,
+        "Category": true,
+        "TextCat": "All",
+        "CatFilterS": "style-1",
+        "FilterHs": "style-1",
+        "FilterAlig": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "Disicon": true,
+        "PopupNone": "icon",
+        "PopupIcon": "fa fa-expand",
+        "NIcolor": "#667eea",
+        "HIcolor": "#764ba2",
+        "Nbgcolor": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 180,
+            "gradientColor": [
+              {"color": "rgba(0, 0, 0, 0)", "position": 0},
+              {"color": "rgba(0, 0, 0, 0.8)", "position": 100}
+            ]
+          }
+        },
+        "Hbgcolor": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 180,
+            "gradientColor": [
+              {"color": "rgba(102, 126, 234, 0.2)", "position": 0},
+              {"color": "rgba(118, 75, 162, 0.9)", "position": 100}
+            ]
+          }
+        },
+        "ImgSize": "full",
+        "LoopFancy": true,
+        "ArrowsFancy": true
+      },
+      "useCase": "Photo blogs, travel galleries, food photography, lifestyle magazines, Instagram-style feeds",
+      "categoryFilteringNotes": {
+        "Category": "true enables filtering UI above gallery",
+        "TextCat": "'All' is the label for the show-all filter (translatable)",
+        "RCategory": "Must match exactly across images (case-sensitive: 'Travel' !== 'travel')",
+        "FilterHs": "style-1 (underline), style-2 (bubble), style-3 (background), style-4 (arrow)",
+        "animation": "Uses Isotope.js for smooth filtering transitions (items fade in/out)"
+      },
+      "masonryLayoutNotes": {
+        "layout": "masonry uses natural image heights (no cropping)",
+        "imageSize": "Use 'full' or 'large' to preserve aspect ratios",
+        "columnWidth": "Images fill column width, heights vary naturally",
+        "performance": "Loads Isotope.js library (~15KB gzipped)"
+      },
+      "style2Notes": {
+        "style": "style-2 positions content at bottom with gradient overlay",
+        "Nbgcolor": "Normal gradient: transparent → black 80% (readable text)",
+        "Hbgcolor": "Hover gradient: purple 20% → purple 90% (brand color reveal)"
+      }
+    },
+    {
+      "name": "Metro Layout Pinterest-Style (Mixed Tile Sizes)",
+      "description": "Windows Metro-inspired layout with style-2 pattern (featured large tiles + standard tiles)",
+      "visualDescription": "Dynamic grid with 1 large featured tile (2x2) surrounded by standard tiles, purple hover overlay",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ml003",
+        "GalleryType": "image",
         "layout": "metro",
+        "style": "style-1",
+        "Imgoption": "repeater",
         "MetroSty": {
           "md": "style-2",
           "sm": "style-1",
           "xs": "style-1"
         },
         "colMetro": {
-          "md": 4,
-          "sm": 3,
+          "md": 3,
+          "sm": 4,
           "xs": 6
-        }
+        },
+        "columnSpace": {
+          "md": "10",
+          "unit": "px"
+        },
+        "ImgRepeater": [
+          {
+            "_key": "0",
+            "Rimg": {"url": "/images/featured-work.jpg", "Id": "301"},
+            "Rtitle": "Featured Project",
+            "RCaption": "Our flagship design project of 2024",
+            "RCategory": "Featured"
+          },
+          {
+            "_key": "1",
+            "Rimg": {"url": "/images/work-2.jpg", "Id": "302"},
+            "Rtitle": "Mobile App UI",
+            "RCaption": "Health & fitness tracking app",
+            "RCategory": "UI/UX"
+          },
+          {
+            "_key": "2",
+            "Rimg": {"url": "/images/work-3.jpg", "Id": "303"},
+            "Rtitle": "E-commerce Store",
+            "RCaption": "Shopify store design and development",
+            "RCategory": "Web"
+          },
+          {
+            "_key": "3",
+            "Rimg": {"url": "/images/work-4.jpg", "Id": "304"},
+            "Rtitle": "Brand Guidelines",
+            "RCaption": "Complete brand identity system",
+            "RCategory": "Branding"
+          },
+          {
+            "_key": "4",
+            "Rimg": {"url": "/images/work-5.jpg", "Id": "305"},
+            "Rtitle": "Dashboard Design",
+            "RCaption": "SaaS analytics dashboard",
+            "RCategory": "UI/UX"
+          },
+          {
+            "_key": "5",
+            "Rimg": {"url": "/images/work-6.jpg", "Id": "306"},
+            "Rtitle": "Marketing Site",
+            "RCaption": "Landing page with animations",
+            "RCategory": "Web"
+          }
+        ],
+        "Dtitle": true,
+        "TitleTag": "h3",
+        "Dcontent": true,
+        "Disicon": true,
+        "PopupNone": "icon",
+        "PopupIcon": "fa fa-plus",
+        "Iconsize": {
+          "md": "32",
+          "unit": "px"
+        },
+        "NIcolor": "#ffffff",
+        "HIcolor": "#667eea",
+        "Nbgcolor": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(0, 0, 0, 0.3)"
+        },
+        "Hbgcolor": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(102, 126, 234, 0.85)"
+        },
+        "TitleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "18", "sm": "16", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase"
+        },
+        "TNcolor": "#ffffff",
+        "THcolor": "#ffffff",
+        "ImgSize": "large",
+        "LoopFancy": true
+      },
+      "useCase": "Agency portfolios, creative showcases, featured work galleries, magazine-style layouts",
+      "metroLayoutNotes": {
+        "MetroSty": "style-1 (uniform tiles), style-2 (1st item 2x2 large), style-3 (alternating pattern), style-4 (custom via metroCustom)",
+        "colMetro": "md: 3 (4 columns) means featured tile spans 2×2 columns in style-2",
+        "responsiveBehavior": "Desktop: style-2 mixed sizes, Tablet/Mobile: style-1 uniform (easier touch navigation)",
+        "pattern": "style-2 pattern: [Large 2×2] [1×1] [1×1] [1×1] [1×1] [1×1] ...",
+        "customPattern": "Use metroCustom with grid-column and grid-row-end values for full control"
+      },
+      "metroVsMasonry": {
+        "metro": "Fixed heights, controlled layout, predictable grid",
+        "masonry": "Natural heights, organic flow, Pinterest-style"
       }
     },
     {
-      "description": "Carousel showcase (style-4 with buttons)",
+      "name": "Video Gallery Mixed Sources (YouTube + Vimeo + Self-Hosted)",
+      "description": "Video showcase with multiple video hosting platforms, style-3 center overlay",
+      "visualDescription": "Video thumbnails with play icon overlay, click opens inline video player or FancyBox lightbox",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "i9j0",
+        "block_id": "ml004",
+        "GalleryType": "video",
+        "layout": "grid",
+        "style": "style-3",
+        "Imgoption": "repeater",
+        "columns": {
+          "md": 3,
+          "sm": 6,
+          "xs": 12
+        },
+        "columnSpace": {
+          "md": "25",
+          "unit": "px"
+        },
+        "ImgRepeater": [
+          {
+            "_key": "0",
+            "VSource": "youtube",
+            "YouTubeId": "dQw4w9WgXcQ",
+            "Rimg": {"url": "/images/video-thumb-1.jpg", "Id": "401"},
+            "Rtitle": "Product Demo",
+            "RCaption": "Full product walkthrough and features",
+            "RCategory": "Tutorials"
+          },
+          {
+            "_key": "1",
+            "VSource": "vimeo",
+            "VimeoId": "87591302",
+            "Rimg": {"url": "/images/video-thumb-2.jpg", "Id": "402"},
+            "Rtitle": "Customer Testimonial",
+            "RCaption": "Real customer success story",
+            "RCategory": "Testimonials"
+          },
+          {
+            "_key": "2",
+            "VSource": "self-hosted",
+            "RVideo": {
+              "url": "/videos/company-overview.mp4",
+              "Id": "403"
+            },
+            "Rimg": {"url": "/images/video-thumb-3.jpg", "Id": "404"},
+            "Rtitle": "Company Overview",
+            "RCaption": "Our story and mission",
+            "RCategory": "About"
+          },
+          {
+            "_key": "3",
+            "VSource": "youtube",
+            "YouTubeId": "9bZkp7q19f0",
+            "Rimg": {"url": "/images/video-thumb-4.jpg", "Id": "405"},
+            "Rtitle": "Setup Tutorial",
+            "RCaption": "Quick start guide for beginners",
+            "RCategory": "Tutorials"
+          },
+          {
+            "_key": "4",
+            "VSource": "vimeo",
+            "VimeoId": "148751763",
+            "Rimg": {"url": "/images/video-thumb-5.jpg", "Id": "406"},
+            "Rtitle": "Behind the Scenes",
+            "RCaption": "Making of our latest campaign",
+            "RCategory": "Behind the Scenes"
+          },
+          {
+            "_key": "5",
+            "VSource": "youtube",
+            "YouTubeId": "Ks-_Mh1QhMc",
+            "Rimg": {"url": "/images/video-thumb-6.jpg", "Id": "407"},
+            "Rtitle": "Case Study",
+            "RCaption": "How we helped XYZ company grow 300%",
+            "RCategory": "Case Studies"
+          }
+        ],
+        "Dtitle": true,
+        "TitleTag": "h3",
+        "Dcontent": true,
+        "Disicon": true,
+        "PopupNone": "icon",
+        "PopupIcon": "fa fa-play-circle",
+        "Iconsize": {
+          "md": "48",
+          "unit": "px"
+        },
+        "NIcolor": "#ffffff",
+        "HIcolor": "#667eea",
+        "BSpace": {
+          "md": "15",
+          "unit": "px"
+        },
+        "Nbgcolor": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(0, 0, 0, 0.5)"
+        },
+        "Hbgcolor": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(102, 126, 234, 0.75)"
+        },
+        "ImgSize": "large",
+        "Category": true,
+        "TextCat": "All Videos",
+        "FilterHs": "style-2",
+        "LoopFancy": false,
+        "ArrowsFancy": true
+      },
+      "useCase": "Video tutorials, testimonial galleries, product demos, case study showcases, YouTube channel embeds",
+      "videoSourceNotes": {
+        "VSource": "youtube (YouTube embed), vimeo (Vimeo embed), self-hosted (HTML5 video player)",
+        "YouTubeId": "11-character ID from URL (youtube.com/watch?v=dQw4w9WgXcQ)",
+        "VimeoId": "Numeric ID from URL (vimeo.com/87591302)",
+        "RVideo": "self-hosted requires video file uploaded to WordPress media library",
+        "Rimg": "Custom thumbnail recommended (YouTube/Vimeo auto-fetch if omitted)",
+        "playback": "Click thumbnail opens FancyBox lightbox with embedded player"
+      },
+      "videoPerformance": {
+        "lazyLoad": "Videos load on demand (not on page load) to save bandwidth",
+        "thumbnails": "Always use custom thumbnails to control quality and branding",
+        "selfHosted": "Self-hosted videos increase server bandwidth (use YouTube/Vimeo for high traffic)",
+        "autoplay": "FancyBox can autoplay videos (add autoplay: true to FancyOption JSON)"
+      }
+    },
+    {
+      "name": "Carousel Image Showcase with Navigation Arrows",
+      "description": "Swiper carousel slider with 4 visible slides, arrows, and dot pagination",
+      "visualDescription": "Horizontal scrolling carousel, purple navigation arrows on sides, dot indicators below, smooth slide transitions",
+      "complexity": "simple",
+      "attributes": {
+        "block_id": "ml005",
+        "GalleryType": "image",
         "layout": "carousel",
+        "style": "style-1",
+        "Imgoption": "repeater",
+        "slideColumns": {
+          "md": 4,
+          "sm": 3,
+          "xs": 2
+        },
+        "columnSpace": {
+          "md": "20",
+          "unit": "px"
+        },
+        "ImgRepeater": [
+          {
+            "_key": "0",
+            "Rimg": {"url": "/images/client-1.jpg", "Id": "501"},
+            "Rtitle": "Acme Corp",
+            "RCaption": "Fortune 500 technology company"
+          },
+          {
+            "_key": "1",
+            "Rimg": {"url": "/images/client-2.jpg", "Id": "502"},
+            "Rtitle": "TechStart Inc",
+            "RCaption": "Fast-growing SaaS startup"
+          },
+          {
+            "_key": "2",
+            "Rimg": {"url": "/images/client-3.jpg", "Id": "503"},
+            "Rtitle": "Design Studio",
+            "RCaption": "Award-winning creative agency"
+          },
+          {
+            "_key": "3",
+            "Rimg": {"url": "/images/client-4.jpg", "Id": "504"},
+            "Rtitle": "E-commerce Plus",
+            "RCaption": "Leading online marketplace"
+          },
+          {
+            "_key": "4",
+            "Rimg": {"url": "/images/client-5.jpg", "Id": "505"},
+            "Rtitle": "Global Brands",
+            "RCaption": "International marketing firm"
+          },
+          {
+            "_key": "5",
+            "Rimg": {"url": "/images/client-6.jpg", "Id": "506"},
+            "Rtitle": "Finance Group",
+            "RCaption": "Investment banking services"
+          },
+          {
+            "_key": "6",
+            "Rimg": {"url": "/images/client-7.jpg", "Id": "507"},
+            "Rtitle": "Health Systems",
+            "RCaption": "Healthcare technology provider"
+          },
+          {
+            "_key": "7",
+            "Rimg": {"url": "/images/client-8.jpg", "Id": "508"},
+            "Rtitle": "Retail Chain",
+            "RCaption": "National retail brand"
+          }
+        ],
+        "Dtitle": true,
+        "TitleTag": "h4",
+        "Dcontent": true,
+        "Disicon": false,
+        "Nbgcolor": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(255, 255, 255, 0.95)"
+        },
+        "Hbgcolor": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "TNcolor": "#333333",
+        "THcolor": "#ffffff",
+        "ExNcolor": "#666666",
+        "ExHcolor": "#ffffff",
+        "TitleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "14", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "ExTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "sm": "12", "unit": "px"}
+        },
+        "ImgSize": "medium"
+      },
+      "useCase": "Client logos, team members, product showcases, testimonial rotators, partner galleries",
+      "carouselNotes": {
+        "layout": "carousel uses Swiper.js library (touch-enabled, responsive)",
+        "slideColumns": "md: 4 shows 4 slides at once, sm: 3, xs: 2 (responsive)",
+        "navigation": "Arrows enabled by default, dots/pagination configurable",
+        "autoplay": "Can enable autoplay with timing via Swiper options",
+        "loop": "Infinite loop scrolling (last slide → first slide seamlessly)",
+        "responsive": "Automatically adjusts visible slides based on breakpoints"
+      },
+      "carouselVsGrid": {
+        "carousel": "Horizontal scrolling, limited visible items, interactive navigation",
+        "grid": "All items visible, vertical scrolling, better for SEO/accessibility"
+      }
+    },
+    {
+      "name": "Style-4 Grid with Learn More Buttons and Custom URLs",
+      "description": "Grid layout with prominent 'Learn More' buttons below each item, custom links per item",
+      "visualDescription": "Clean grid, purple 'View Project' buttons with underline, click opens custom URLs in new tabs",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "ml006",
+        "GalleryType": "image",
+        "layout": "grid",
         "style": "style-4",
+        "Imgoption": "repeater",
+        "columns": {
+          "md": 3,
+          "sm": 6,
+          "xs": 12
+        },
+        "columnSpace": {
+          "md": "30",
+          "unit": "px"
+        },
+        "ImgRepeater": [
+          {
+            "_key": "0",
+            "Rimg": {"url": "/images/project-1.jpg", "Id": "601"},
+            "Rtitle": "E-commerce Platform",
+            "RCaption": "Full-stack online store with custom checkout flow",
+            "Rurl": {
+              "url": "/case-studies/ecommerce-platform",
+              "target": "_blank",
+              "nofollow": false
+            },
+            "RCategory": "Web Development"
+          },
+          {
+            "_key": "1",
+            "Rimg": {"url": "/images/project-2.jpg", "Id": "602"},
+            "Rtitle": "Mobile Banking App",
+            "RCaption": "Secure iOS and Android banking application",
+            "Rurl": {
+              "url": "/case-studies/mobile-banking-app",
+              "target": "_blank",
+              "nofollow": false
+            },
+            "RCategory": "Mobile Apps"
+          },
+          {
+            "_key": "2",
+            "Rimg": {"url": "/images/project-3.jpg", "Id": "603"},
+            "Rtitle": "SaaS Dashboard",
+            "RCaption": "Analytics dashboard with real-time data visualization",
+            "Rurl": {
+              "url": "/case-studies/saas-dashboard",
+              "target": "_blank",
+              "nofollow": false
+            },
+            "RCategory": "UI/UX Design"
+          },
+          {
+            "_key": "3",
+            "Rimg": {"url": "/images/project-4.jpg", "Id": "604"},
+            "Rtitle": "Brand Redesign",
+            "RCaption": "Complete brand identity refresh for Fortune 500 company",
+            "Rurl": {
+              "url": "/case-studies/brand-redesign",
+              "target": "_blank",
+              "nofollow": false
+            },
+            "RCategory": "Branding"
+          },
+          {
+            "_key": "4",
+            "Rimg": {"url": "/images/project-5.jpg", "Id": "605"},
+            "Rtitle": "Marketing Website",
+            "RCaption": "High-converting landing page with scroll animations",
+            "Rurl": {
+              "url": "/case-studies/marketing-website",
+              "target": "_blank",
+              "nofollow": false
+            },
+            "RCategory": "Web Development"
+          },
+          {
+            "_key": "5",
+            "Rimg": {"url": "/images/project-6.jpg", "Id": "606"},
+            "Rtitle": "Design System",
+            "RCaption": "Scalable component library for enterprise product",
+            "Rurl": {
+              "url": "/case-studies/design-system",
+              "target": "_blank",
+              "nofollow": false
+            },
+            "RCategory": "UI/UX Design"
+          }
+        ],
+        "Dtitle": true,
+        "TitleTag": "h3",
+        "Dcontent": true,
+        "FCusURl": true,
+        "Boxlink": false,
         "DisBtns4": true,
-        "Btns4txt": "View Details",
-        "BtnCr": "#667eea"
+        "Btns4txt": "View Project",
+        "BtnTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "BtnCr": "#667eea",
+        "Disicon": false,
+        "Nbgcolor": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "TitleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "20", "sm": "18", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "TNcolor": "#333333",
+        "THcolor": "#667eea",
+        "ExTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"},
+          "lineHeight": {"md": "1.6", "unit": "em"}
+        },
+        "ExNcolor": "#666666",
+        "TtopS": {
+          "md": "15",
+          "unit": "px"
+        },
+        "TBspc": {
+          "md": "10",
+          "unit": "px"
+        },
+        "ExtopS": {
+          "md": "0",
+          "unit": "px"
+        },
+        "ExBspc": {
+          "md": "15",
+          "unit": "px"
+        },
+        "ImgSize": "large",
+        "BoxT": true,
+        "BoxB": {
+          "openBorder": 1,
+          "borderWidth": {"top": "0", "right": "0", "bottom": "0", "left": "0"},
+          "borderStyle": "solid",
+          "borderColor": "#e5e7eb"
+        },
+        "BoxNBrs": {
+          "md": "8",
+          "unit": "px"
+        },
+        "BoxNsd": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.08)"
+        },
+        "BoxHsd": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 8,
+          "blur": 24,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.15)"
+        }
+      },
+      "useCase": "Case study listings, project portfolios, service showcases, clickable portfolio items with dedicated pages",
+      "style4Notes": {
+        "style": "style-4 is unique - content appears BELOW image (not overlay), with prominent CTA button",
+        "DisBtns4": "true shows button, false hides button (leaving just title/caption)",
+        "Btns4txt": "Customizable button text (default: 'Learn more')",
+        "BtnCr": "Button text and border-bottom color (1px underline effect)",
+        "FCusURl": "true uses Rurl from repeater (each item has unique link), false makes all items link to lightbox",
+        "Boxlink": "true makes entire card clickable (not just button), false only button is clickable"
+      },
+      "customURLNotes": {
+        "Rurl.url": "Can be relative (/case-studies/project) or absolute (https://example.com)",
+        "Rurl.target": "_blank (new tab), _self (same tab), _parent, _top",
+        "Rurl.nofollow": "true adds rel='nofollow' (SEO: don't pass link juice), false omits",
+        "FCusURl": "MUST be true to enable custom URLs per item (otherwise all items lightbox)"
+      }
+    },
+    {
+      "name": "Image Gallery with Custom FontAwesome Icons and Filtering",
+      "description": "Portfolio grid with custom FontAwesome icons overlaid on each image, category filters above",
+      "visualDescription": "Purple cog/briefcase/palette icons on hover, category filter buttons with bubble hover effect (style-2)",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "ml007",
+        "GalleryType": "image",
+        "layout": "grid",
+        "style": "style-1",
+        "Imgoption": "repeater",
+        "columns": {
+          "md": 4,
+          "sm": 6,
+          "xs": 12
+        },
+        "columnSpace": {
+          "md": "20",
+          "unit": "px"
+        },
+        "ImgRepeater": [
+          {
+            "_key": "0",
+            "Rimg": {"url": "/images/service-web-dev.jpg", "Id": "701"},
+            "Rtitle": "Custom Web Development",
+            "RCaption": "Bespoke websites built with modern frameworks",
+            "RCategory": "Development",
+            "RselImg": "icon",
+            "RIcon": "fa fa-code"
+          },
+          {
+            "_key": "1",
+            "Rimg": {"url": "/images/service-app-dev.jpg", "Id": "702"},
+            "Rtitle": "Mobile App Development",
+            "RCaption": "Native iOS and Android applications",
+            "RCategory": "Development",
+            "RselImg": "icon",
+            "RIcon": "fa fa-mobile"
+          },
+          {
+            "_key": "2",
+            "Rimg": {"url": "/images/service-ui-design.jpg", "Id": "703"},
+            "Rtitle": "UI/UX Design",
+            "RCaption": "User-centered interface design",
+            "RCategory": "Design",
+            "RselImg": "icon",
+            "RIcon": "fa fa-paint-brush"
+          },
+          {
+            "_key": "3",
+            "Rimg": {"url": "/images/service-branding.jpg", "Id": "704"},
+            "Rtitle": "Brand Identity",
+            "RCaption": "Complete brand strategy and design",
+            "RCategory": "Design",
+            "RselImg": "icon",
+            "RIcon": "fa fa-lightbulb-o"
+          },
+          {
+            "_key": "4",
+            "Rimg": {"url": "/images/service-seo.jpg", "Id": "705"},
+            "Rtitle": "SEO Optimization",
+            "RCaption": "Search engine ranking and analytics",
+            "RCategory": "Marketing",
+            "RselImg": "icon",
+            "RIcon": "fa fa-line-chart"
+          },
+          {
+            "_key": "5",
+            "Rimg": {"url": "/images/service-content.jpg", "Id": "706"},
+            "Rtitle": "Content Strategy",
+            "RCaption": "Content planning and creation",
+            "RCategory": "Marketing",
+            "RselImg": "icon",
+            "RIcon": "fa fa-pencil"
+          },
+          {
+            "_key": "6",
+            "Rimg": {"url": "/images/service-consulting.jpg", "Id": "707"},
+            "Rtitle": "Technical Consulting",
+            "RCaption": "Expert guidance and architecture planning",
+            "RCategory": "Consulting",
+            "RselImg": "icon",
+            "RIcon": "fa fa-cogs"
+          },
+          {
+            "_key": "7",
+            "Rimg": {"url": "/images/service-training.jpg", "Id": "708"},
+            "Rtitle": "Team Training",
+            "RCaption": "Workshops and skill development",
+            "RCategory": "Consulting",
+            "RselImg": "icon",
+            "RIcon": "fa fa-graduation-cap"
+          }
+        ],
+        "Dtitle": true,
+        "TitleTag": "h3",
+        "Dcontent": true,
+        "Category": true,
+        "TextCat": "All Services",
+        "CatFilterS": "style-1",
+        "FilterHs": "style-2",
+        "FilterAlig": {
+          "md": "center",
+          "sm": "center",
+          "xs": "left"
+        },
+        "FcatTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase"
+        },
+        "InPadding": {
+          "md": "10 20",
+          "unit": "px"
+        },
+        "FCMargin": {
+          "md": "0 8 16 0",
+          "unit": "px"
+        },
+        "FCNcr": "#666666",
+        "FCHcr": "#ffffff",
+        "FCBgHs": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "FCBgRs": {
+          "md": "25",
+          "unit": "px"
+        },
+        "FcBoxhsd": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 2,
+          "blur": 8,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.3)"
+        },
+        "ExtIcon": {
+          "md": "48",
+          "unit": "px"
+        },
+        "ExtIconCr": "#ffffff",
+        "ExtIconHCr": "#667eea",
+        "ExtTops": {
+          "md": "30",
+          "unit": "px"
+        },
+        "ExtBots": {
+          "md": "15",
+          "unit": "px"
+        },
+        "Disicon": false,
+        "Nbgcolor": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(0, 0, 0, 0.7)"
+        },
+        "Hbgcolor": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "TNcolor": "#ffffff",
+        "THcolor": "#ffffff",
+        "ExNcolor": "#e5e7eb",
+        "ExHcolor": "#ffffff",
+        "ImgSize": "medium",
+        "BoxT": true,
+        "BoxNBrs": {
+          "md": "10",
+          "unit": "px"
+        },
+        "BoxNsd": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 12,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.1)"
+        }
+      },
+      "useCase": "Service listings, feature showcases, skills/capabilities grid, icon-driven portfolios",
+      "customIconNotes": {
+        "RselImg": "none (no icon), icon (FontAwesome), image (custom image upload)",
+        "RIcon": "FontAwesome class name (fa fa-code, fa fa-mobile, etc.) - requires FA loaded",
+        "RIimg": "Custom icon image if RselImg: 'image' (upload small PNG/SVG icons)",
+        "ExtIcon": "Icon font-size (or max-width for images) - 32-64px typical",
+        "ExtIconCr": "Normal icon color (white on dark overlay works well)",
+        "ExtIconHCr": "Hover icon color (brand color for emphasis)",
+        "ExtTops": "Padding-top for icon (centers vertically in overlay)",
+        "ExtBots": "Padding-bottom for icon (space between icon and title)",
+        "positioning": "Icons appear centered above title/caption in overlay"
+      },
+      "filterStyle2Notes": {
+        "FilterHs": "style-2 creates bubble background on hover (pill-shaped buttons)",
+        "FCBgHs": "Hover background color (purple bubble appears behind text)",
+        "FCBgRs": "Border-radius for bubble (25px creates pill shape)",
+        "FcBoxhsd": "Box shadow on hover (purple glow around active/hover filters)",
+        "InPadding": "Filter button padding (10px top/bottom, 20px left/right)",
+        "FCMargin": "Space between filter buttons (0 top, 8px right, 16px bottom, 0 left)"
+      }
+    },
+    {
+      "name": "Full-Featured Portfolio (All Features Combined)",
+      "description": "Complete portfolio showcase with filtering, FancyBox, hover effects, custom styling, and responsive design",
+      "visualDescription": "Masonry grid with gradient overlays, purple filter pills above, search icons on hover, full-screen lightbox with thumbnails, smooth animations",
+      "complexity": "expert",
+      "attributes": {
+        "block_id": "ml008",
+        "GalleryType": "image",
+        "layout": "masonry",
+        "style": "style-1",
+        "Imgoption": "repeater",
+        "columns": {
+          "md": 3,
+          "sm": 4,
+          "xs": 6
+        },
+        "columnSpace": {
+          "md": "20",
+          "unit": "px"
+        },
+        "ImgRepeater": [
+          {
+            "_key": "0",
+            "Rimg": {"url": "/images/portfolio-architecture-1.jpg", "Id": "801"},
+            "Rtitle": "Modern Office Complex",
+            "RCaption": "25-story glass and steel corporate headquarters in downtown",
+            "RCategory": "Architecture",
+            "Rurl": {"url": "/portfolio/modern-office-complex", "target": "_blank", "nofollow": false}
+          },
+          {
+            "_key": "1",
+            "Rimg": {"url": "/images/portfolio-branding-1.jpg", "Id": "802"},
+            "Rtitle": "Tech Startup Identity",
+            "RCaption": "Complete brand identity including logo, colors, typography, and guidelines",
+            "RCategory": "Branding",
+            "Rurl": {"url": "/portfolio/tech-startup-identity", "target": "_blank", "nofollow": false}
+          },
+          {
+            "_key": "2",
+            "Rimg": {"url": "/images/portfolio-web-1.jpg", "Id": "803"},
+            "Rtitle": "E-commerce Platform",
+            "RCaption": "Headless commerce site built with Next.js and Shopify",
+            "RCategory": "Web Design",
+            "Rurl": {"url": "/portfolio/ecommerce-platform", "target": "_blank", "nofollow": false}
+          },
+          {
+            "_key": "3",
+            "Rimg": {"url": "/images/portfolio-photography-1.jpg", "Id": "804"},
+            "Rtitle": "Wedding Photography",
+            "RCaption": "Destination wedding in Santorini, Greece",
+            "RCategory": "Photography",
+            "Rurl": {"url": "/portfolio/wedding-photography", "target": "_blank", "nofollow": false}
+          },
+          {
+            "_key": "4",
+            "Rimg": {"url": "/images/portfolio-architecture-2.jpg", "Id": "805"},
+            "Rtitle": "Residential Villa",
+            "RCaption": "Luxury beachfront property with infinity pool",
+            "RCategory": "Architecture",
+            "Rurl": {"url": "/portfolio/residential-villa", "target": "_blank", "nofollow": false}
+          },
+          {
+            "_key": "5",
+            "Rimg": {"url": "/images/portfolio-branding-2.jpg", "Id": "806"},
+            "Rtitle": "Restaurant Rebrand",
+            "RCaption": "Farm-to-table restaurant brand refresh with organic aesthetic",
+            "RCategory": "Branding",
+            "Rurl": {"url": "/portfolio/restaurant-rebrand", "target": "_blank", "nofollow": false}
+          },
+          {
+            "_key": "6",
+            "Rimg": {"url": "/images/portfolio-web-2.jpg", "Id": "807"},
+            "Rtitle": "SaaS Dashboard",
+            "RCaption": "Analytics platform with real-time data visualization",
+            "RCategory": "Web Design",
+            "Rurl": {"url": "/portfolio/saas-dashboard", "target": "_blank", "nofollow": false}
+          },
+          {
+            "_key": "7",
+            "Rimg": {"url": "/images/portfolio-photography-2.jpg", "Id": "808"},
+            "Rtitle": "Product Photography",
+            "RCaption": "Studio shots for luxury watch collection",
+            "RCategory": "Photography",
+            "Rurl": {"url": "/portfolio/product-photography", "target": "_blank", "nofollow": false}
+          },
+          {
+            "_key": "8",
+            "Rimg": {"url": "/images/portfolio-architecture-3.jpg", "Id": "809"},
+            "Rtitle": "Public Library",
+            "RCaption": "Community library with sustainable design features",
+            "RCategory": "Architecture",
+            "Rurl": {"url": "/portfolio/public-library", "target": "_blank", "nofollow": false}
+          },
+          {
+            "_key": "9",
+            "Rimg": {"url": "/images/portfolio-web-3.jpg", "Id": "810"},
+            "Rtitle": "Marketing Website",
+            "RCaption": "High-converting landing page with scroll animations",
+            "RCategory": "Web Design",
+            "Rurl": {"url": "/portfolio/marketing-website", "target": "_blank", "nofollow": false}
+          },
+          {
+            "_key": "10",
+            "Rimg": {"url": "/images/portfolio-photography-3.jpg", "Id": "811"},
+            "Rtitle": "Portrait Series",
+            "RCaption": "Environmental portraits of local artisans",
+            "RCategory": "Photography",
+            "Rurl": {"url": "/portfolio/portrait-series", "target": "_blank", "nofollow": false}
+          },
+          {
+            "_key": "11",
+            "Rimg": {"url": "/images/portfolio-branding-3.jpg", "Id": "812"},
+            "Rtitle": "Fashion Label",
+            "RCaption": "Sustainable fashion brand identity and packaging",
+            "RCategory": "Branding",
+            "Rurl": {"url": "/portfolio/fashion-label", "target": "_blank", "nofollow": false}
+          }
+        ],
+        "Dtitle": true,
+        "TitleTag": "h3",
+        "Dcontent": true,
+        "Category": true,
+        "TextCat": "All",
+        "CatFilterS": "style-1",
+        "FilterHs": "style-2",
+        "FilterAlig": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "FcatTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "sm": "13", "unit": "px"},
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "0.5", "unit": "px"}
+        },
+        "InPadding": {
+          "md": "12 24",
+          "sm": "10 20",
+          "unit": "px"
+        },
+        "FCMargin": {
+          "md": "0 10 20 0",
+          "sm": "0 8 16 0",
+          "unit": "px"
+        },
+        "FCNcr": "#666666",
+        "FCHcr": "#ffffff",
+        "FCBgHs": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "FCBgRs": {
+          "md": "30",
+          "unit": "px"
+        },
+        "FcBoxhsd": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 3,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.4)"
+        },
+        "Disicon": true,
+        "PopupNone": "icon",
+        "PopupIcon": "fa fa-search-plus",
+        "Iconsize": {
+          "md": "36",
+          "sm": "32",
+          "unit": "px"
+        },
+        "NIcolor": "#ffffff",
+        "HIcolor": "#667eea",
+        "BSpace": {
+          "md": "20",
+          "unit": "px"
+        },
+        "Nbgcolor": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 180,
+            "gradientColor": [
+              {"color": "rgba(0, 0, 0, 0)", "position": 0},
+              {"color": "rgba(0, 0, 0, 0.75)", "position": 100}
+            ]
+          }
+        },
+        "Hbgcolor": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "rgba(102, 126, 234, 0.85)", "position": 0},
+              {"color": "rgba(118, 75, 162, 0.9)", "position": 100}
+            ]
+          }
+        },
+        "ImgHE": "style-1",
+        "Nfilter": {
+          "openFilter": false
+        },
+        "Hfilter": {
+          "openFilter": true,
+          "blur": 0,
+          "brightness": 110,
+          "contrast": 105,
+          "saturate": 120,
+          "hue": 0
+        },
+        "TitleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "20", "sm": "18", "xs": "16", "unit": "px"},
+          "fontWeight": "700",
+          "lineHeight": {"md": "1.3", "unit": "em"}
+        },
+        "TNcolor": "#ffffff",
+        "THcolor": "#ffffff",
+        "ExTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "sm": "13", "xs": "12", "unit": "px"},
+          "lineHeight": {"md": "1.6", "unit": "em"}
+        },
+        "ExNcolor": "rgba(255, 255, 255, 0.85)",
+        "ExHcolor": "#ffffff",
+        "TtopS": {
+          "md": "0",
+          "unit": "px"
+        },
+        "TBspc": {
+          "md": "8",
+          "unit": "px"
+        },
+        "ExtopS": {
+          "md": "0",
+          "unit": "px"
+        },
+        "ImgSize": "full",
+        "BoxT": true,
+        "BoxNBrs": {
+          "md": "12",
+          "sm": "10",
+          "xs": "8",
+          "unit": "px"
+        },
+        "BoxNsd": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 4,
+          "blur": 15,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.1)"
+        },
+        "BoxHsd": {
+          "openShadow": 1,
+          "horizontal": 0,
+          "vertical": 12,
+          "blur": 30,
+          "spread": 0,
+          "color": "rgba(102, 126, 234, 0.25)"
+        },
+        "FancyOption": "{\"loop\":true,\"arrows\":true,\"infobar\":true,\"thumbs\":{\"autoStart\":true,\"axis\":\"x\"},\"buttons\":[\"zoom\",\"slideShow\",\"fullScreen\",\"close\"],\"animationEffect\":\"zoom-in-out\",\"transitionEffect\":\"slide\"}",
+        "LoopFancy": true,
+        "ArrowsFancy": true,
+        "infobar": true,
+        "thumbnails": "yes",
+        "TransitionFancy": "slide"
+      },
+      "useCase": "Professional portfolio sites, agency showcases, creative studio galleries, multi-category project listings",
+      "fullFeaturedNotes": {
+        "combination": "Combines masonry + filtering + FancyBox + hover effects + responsive + custom styling",
+        "performance": "Loads Isotope.js (filtering), FancyBox (lightbox), Swiper.js if needed",
+        "interactions": "Hover reveals gradient overlay, click filter animates items, click icon opens lightbox",
+        "responsive": "3 columns desktop, 2 columns tablet, 2 columns mobile (optimal for touch)",
+        "accessibility": "Use alt text on images, aria-labels on filters, keyboard navigation in FancyBox"
+      },
+      "hoverEffectNotes": {
+        "ImgHE": "style-1 (zoom in), style-2 (zoom out), style-3 (rotate), style-4 (slide), and more",
+        "Hfilter": "brightness: 110 (10% brighter), contrast: 105 (5% more contrast), saturate: 120 (20% more saturation)",
+        "transitionDuration": "Defaults to 0.3s, configurable via CSS (smooth 60fps GPU-accelerated)",
+        "combined": "Hover combines: overlay gradient change + icon color change + image filter + shadow increase"
+      },
+      "fancyBoxAdvancedNotes": {
+        "buttons": "Array of toolbar buttons: zoom, slideShow, fullScreen, thumbs, download, close",
+        "animationEffect": "zoom-in-out (modal zoom animation), fade, slide-in-out, rotate, circular, tube",
+        "thumbs.axis": "x (horizontal thumbnails at bottom), y (vertical thumbnails on side)",
+        "keyboard": "Arrow keys navigate, Esc closes, Space toggles slideshow",
+        "touch": "Swipe gestures on mobile, pinch-to-zoom on images"
       }
     }
   ],
-  "commonPatterns": {}
+  "commonPatterns": {
+    "imageGallery": {
+      "description": "Standard image gallery with lightbox",
+      "attributes": {
+        "GalleryType": "image",
+        "layout": "grid",
+        "Imgoption": "repeater",
+        "Disicon": true,
+        "PopupNone": "icon",
+        "LoopFancy": true,
+        "ArrowsFancy": true
+      }
+    },
+    "videoShowcase": {
+      "description": "Video gallery with YouTube/Vimeo embeds",
+      "attributes": {
+        "GalleryType": "video",
+        "layout": "grid",
+        "Imgoption": "repeater",
+        "PopupIcon": "fa fa-play-circle"
+      }
+    },
+    "filteredPortfolio": {
+      "description": "Portfolio with category filtering",
+      "attributes": {
+        "layout": "masonry",
+        "Category": true,
+        "FilterHs": "style-2",
+        "FilterAlig": {"md": "center"}
+      }
+    },
+    "carouselSlider": {
+      "description": "Carousel slider with multiple visible slides",
+      "attributes": {
+        "layout": "carousel",
+        "slideColumns": {"md": 4, "sm": 3, "xs": 2}
+      }
+    },
+    "metroGrid": {
+      "description": "Metro-style mixed tile sizes",
+      "attributes": {
+        "layout": "metro",
+        "MetroSty": {"md": "style-2"},
+        "colMetro": {"md": 3}
+      }
+    }
+  },
+  "validationRules": {
+    "block_id": "Required, unique identifier for the block instance",
+    "GalleryType": "Required, must be 'image' or 'video'",
+    "layout": "Required, must be 'grid', 'masonry', 'metro', or 'carousel'",
+    "style": "Required, must be 'style-1', 'style-2', 'style-3', or 'style-4'",
+    "Imgoption": "Required, must be 'normal', 'repeater', or 'fancybox'",
+    "ImgRepeater": "Required if Imgoption is 'repeater', minimum 1 item recommended 4-12 for best UX",
+    "NAddImg": "Required if Imgoption is 'normal', array of WordPress media IDs",
+    "ImgRepeater._key": "Required for each repeater item, must be unique within array (React key)",
+    "ImgRepeater.Rimg": "Required for each image item, must have url property",
+    "ImgRepeater.VSource": "Required for video items, must be 'self-hosted', 'youtube', or 'vimeo'",
+    "ImgRepeater.YouTubeId": "Required if VSource is 'youtube', 11-character video ID",
+    "ImgRepeater.VimeoId": "Required if VSource is 'vimeo', numeric video ID",
+    "ImgRepeater.RVideo": "Required if VSource is 'self-hosted', must have url property",
+    "columns": "Responsive object, md/sm/xs values must add up to 12 (Bootstrap grid system)",
+    "colMetro": "Required for metro layout, defines column count",
+    "MetroSty": "Required for metro layout, defines tile pattern per breakpoint",
+    "Category": "If true, RCategory must be set on all ImgRepeater items for filtering to work",
+    "FCusURl": "If true, Rurl must be set on ImgRepeater items for custom links",
+    "DisBtns4": "Only applies to style-4, requires Btns4txt if true",
+    "FancyOption": "Must be valid JSON string, invalid JSON breaks lightbox"
+  },
+  "warnings": [
+    "⚠️ GalleryType: 'video' cannot use FancyBox lightbox (videos play inline in modal, not full lightbox)",
+    "⚠️ layout: 'carousel' disables category filtering (Category setting ignored)",
+    "⚠️ layout: 'metro' requires colMetro and MetroSty to be set (layout breaks without these)",
+    "⚠️ ImgRepeater: Each item MUST have unique _key value (React rendering breaks with duplicates)",
+    "⚠️ RCategory: Case-sensitive ('Travel' !== 'travel') - filters won't match if case differs",
+    "⚠️ columns: Values use Bootstrap 12-column system (md: 3 = 4 columns, md: 4 = 3 columns, md: 6 = 2 columns)",
+    "⚠️ FancyOption: Must escape quotes in JSON string or use single quotes outside (breaks if invalid JSON)",
+    "⚠️ VSource: 'self-hosted' increases bandwidth usage (use YouTube/Vimeo for high-traffic sites)",
+    "⚠️ ImgSize: 'full' loads full-resolution images (can be 2-5MB each, use 'large' for web)",
+    "⚠️ Category filters: Requires at least 2 different RCategory values to be useful",
+    "⚠️ style-4: Only style that shows content BELOW image (not overlay) - different layout behavior",
+    "⚠️ FCusURl: Must be true for Rurl links to work, false makes all items open in FancyBox",
+    "⚠️ Boxlink: true makes entire card clickable (can interfere with button clicks in style-4)",
+    "⚠️ PopupIcon: Requires FontAwesome loaded (icons won't show without FA CSS)",
+    "⚠️ Masonry layout: Images with similar heights work best (extreme height differences create large gaps)",
+    "⚠️ Metro style-2: First item becomes 2x2 large tile (ensure it's your best/featured image)",
+    "⚠️ Carousel: Requires Swiper.js library (adds ~30KB to page load)",
+    "⚠️ Hfilter: CSS filter effects (blur, brightness, etc.) are GPU-intensive (limit to <20 items for 60fps)"
+  ],
+  "commonMistakes": [
+    "❌ Forgetting to set unique _key values in ImgRepeater array (causes React 'key prop' warnings)",
+    "❌ Using columns: {md: 3} expecting 3 columns (actually creates 4 columns in 12-column grid)",
+    "❌ Setting Category: true but not adding RCategory to ImgRepeater items (filters show 'All' with 0 items)",
+    "❌ Mixing uppercase/lowercase in RCategory ('Design' vs 'design') breaks filtering",
+    "❌ Using ImgSize: 'full' for web galleries (loads massive 5MB images, slow page load)",
+    "❌ Setting FCusURl: false expecting custom links to work (requires FCusURl: true)",
+    "❌ Adding invalid JSON to FancyOption (breaks FancyBox, no error shown to user)",
+    "❌ Using YouTube URLs instead of IDs (YouTubeId: 'dQw4w9WgXcQ' not 'https://youtube.com/watch?v=dQw4w9WgXcQ')",
+    "❌ Enabling Category filters on carousel layout (filters are disabled for carousel)",
+    "❌ Using metro layout without setting MetroSty (defaults to style-1, not the expected mixed tiles)",
+    "❌ Setting Dtitle: false and Dcontent: false with Disicon: false (completely empty overlay, confusing UX)",
+    "❌ Using style-4 with Boxlink: true and DisBtns4: true (entire card and button both clickable, bad UX)",
+    "❌ Loading 50+ full-resolution images in masonry layout (page loads 100MB+ of images, very slow)",
+    "❌ Using fa-solid-* icon names (should be fa fa-icon-name for FontAwesome 4.x)",
+    "❌ Setting columnSpace too large (>50px creates excessive whitespace, breaks visual cohesion)",
+    "❌ Not testing on mobile (carousel slideColumns: {xs: 1} recommended, not xs: 4)"
+  ],
+  "bestPractices": [
+    "✅ Always set unique _key values for ImgRepeater items (use indices '0', '1', '2' or UUIDs)",
+    "✅ Use ImgSize: 'large' for web galleries (1024px max, good balance of quality and performance)",
+    "✅ Keep ImgRepeater to 12-24 items per gallery (use pagination or load more for larger galleries)",
+    "✅ Use descriptive Rtitle and RCaption (improves accessibility and SEO)",
+    "✅ Set Rimg even for videos (custom thumbnails control branding, better than auto-generated)",
+    "✅ Use masonry for photography galleries (natural heights showcase images best)",
+    "✅ Use grid for portfolios/products (uniform heights create clean, professional look)",
+    "✅ Use metro for featured content (style-2 highlights first item as hero)",
+    "✅ Use carousel for client logos/testimonials (horizontal scrolling saves vertical space)",
+    "✅ Set Category filters with 3-6 categories (2 too few, 10+ overwhelming)",
+    "✅ Use FilterHs: 'style-2' for modern UI (bubble hover effect more engaging than underline)",
+    "✅ Set columnSpace: 15-25px for breathing room (10px too tight, 40px too loose)",
+    "✅ Use gradient overlays for readability (Nbgcolor transparent → black 70% ensures text contrast)",
+    "✅ Set responsive typography (TitleTypo fontSize: {md: 20, sm: 18, xs: 16} scales nicely)",
+    "✅ Enable FancyBox thumbnails for galleries (thumbs: {autoStart: true} aids navigation)",
+    "✅ Use LoopFancy: true for circular navigation (better UX than hitting dead end)",
+    "✅ Set target: '_blank' for external portfolio links (keeps users on your site)",
+    "✅ Use nofollow: true for client/affiliate links (SEO: don't pass link juice)",
+    "✅ Test all breakpoints (md/sm/xs) - columns, typography, spacing should adjust",
+    "✅ Optimize images before upload (compress to <200KB each, use WebP if supported)",
+    "✅ Use alt text on Rimg (accessibility and SEO, describe image content)",
+    "✅ Set TitleTag: 'h3' for galleries (maintains semantic heading hierarchy)",
+    "✅ Use style-1 or style-2 for image-focused galleries (style-4 is button-focused)",
+    "✅ Limit Hfilter effects (brightness + saturate only, avoid blur for performance)"
+  ],
+  "accessibilityNotes": {
+    "images": "All images should have alt text (set via WordPress media library)",
+    "filters": "Category filters should have aria-labels ('Filter by Design', 'Filter by Photography')",
+    "lightbox": "FancyBox has built-in keyboard navigation (arrows, Esc, Space)",
+    "focusManagement": "Ensure filters, images, and buttons are keyboard accessible (Tab navigation)",
+    "colorContrast": "Overlay text must have 4.5:1 contrast ratio (white text on dark overlay recommended)",
+    "screenReaders": "Use TitleTag: 'h3' to maintain heading hierarchy (don't skip from h2 to h5)",
+    "animations": "Respect prefers-reduced-motion (disable hover effects for users who prefer less animation)",
+    "touchTargets": "Minimum 44×44px touch target (set Iconsize to at least 44px on mobile)",
+    "videoAccessibility": "YouTube/Vimeo embeds should have captions enabled (set in video platform)",
+    "linkPurpose": "Button text should be descriptive (use 'View Architecture Project' not 'Learn more')"
+  },
+  "performanceConsiderations": {
+    "imageOptimization": "Compress images to <200KB each, use WebP format (80-90% smaller than JPEG)",
+    "lazyLoading": "Enable lazy loading for images (WordPress 5.5+ has native lazy loading)",
+    "totalImages": "Limit to 12-24 images per page (use pagination/load more for larger galleries)",
+    "ImgSize": "Use 'large' (1024px) not 'full' (4000px+) - saves 80-90% bandwidth",
+    "videoEmbeds": "YouTube/Vimeo embeds lazy-load on click (don't embed videos on page load)",
+    "libraryLoading": "Isotope.js (masonry/filtering) + FancyBox + Swiper.js can add 50-80KB total",
+    "columnSpace": "Larger gaps mean fewer items visible, faster initial render",
+    "FancyBox": "Thumbnails add overhead (load 12 thumbnail images + full images)",
+    "hoverEffects": "CSS filters (Hfilter) are GPU-intensive, limit to <20 items",
+    "masonryPerformance": "Isotope.js calculates layout on resize (can lag on mobile with 50+ items)",
+    "carouselPerformance": "Swiper.js renders only visible slides + 1-2 adjacent (efficient for 100+ slides)",
+    "metroPerformance": "CSS Grid layout is highly performant (better than masonry for 50+ items)",
+    "filterAnimation": "Isotope filtering animates all items (can lag with 100+ items)",
+    "caching": "Enable browser caching for images (set Cache-Control: max-age=31536000)",
+    "CDN": "Serve images from CDN (reduces latency, improves Time to First Byte)"
+  },
+  "troubleshooting": {
+    "imagesNotShowing": "Check Rimg.url is valid, check ImgSize exists in WordPress, check image file actually uploaded",
+    "filtersNotWorking": "Verify RCategory set on ALL items, verify Category: true, check for typos in category names (case-sensitive)",
+    "fancyBoxNotOpening": "Check FancyOption is valid JSON (test in JSON validator), verify FancyBox CSS/JS loaded, check browser console for errors",
+    "videoNotPlaying": "Check YouTubeId is 11 characters, check VimeoId is numeric, check RVideo.url is direct .mp4 link",
+    "metroLayoutBroken": "Verify MetroSty set, verify colMetro set, check if metroCustom syntax is valid",
+    "carouselNotSliding": "Check Swiper.js loaded, check slideColumns set, verify ImgRepeater has 2+ items",
+    "masonryGaps": "Images with extreme height differences create gaps (use similar aspect ratios)",
+    "buttonsNotShowing": "style-4 only: check DisBtns4: true, check Btns4txt not empty",
+    "customLinksNotWorking": "Check FCusURl: true, verify Rurl.url set on each item",
+    "overlayNotShowing": "Check Nbgcolor openBg: 1, verify bgType and color set, check z-index not conflicting",
+    "iconsNotShowing": "Check PopupIcon is valid FontAwesome class, verify FA CSS loaded, check Disicon: true",
+    "filterStyleNotApplying": "Check FilterHs value, verify filter-specific color attributes set (FCNcr, FCHcr, etc.)",
+    "responsiveNotWorking": "Check all breakpoints set (md/sm/xs), verify responsive object syntax {md: value}",
+    "hoverEffectsNotWorking": "Check Hbgcolor or Hfilter set, verify ImgHE value, check CSS transitions not disabled",
+    "sluggishPerformance": "Too many images (reduce to 12-24), images too large (use 'large' not 'full'), too many filters (CPU-intensive)"
+  },
+  "integrationExamples": [
+    {
+      "scenario": "Portfolio with ACF Repeater",
+      "description": "Use ACF repeater to dynamically populate ImgRepeater from custom fields",
+      "code": "// PHP - populate from ACF\n$projects = get_field('portfolio_projects');\n$imgRepeater = array();\nforeach ($projects as $index => $project) {\n  $imgRepeater[] = array(\n    '_key' => (string)$index,\n    'Rimg' => array('url' => $project['image']['url'], 'Id' => $project['image']['ID']),\n    'Rtitle' => $project['title'],\n    'RCaption' => $project['description'],\n    'RCategory' => $project['category'],\n    'Rurl' => array('url' => $project['link'], 'target' => '_blank', 'nofollow' => false)\n  );\n}\n// Pass $imgRepeater to block attributes"
+    },
+    {
+      "scenario": "FancyBox with Custom Buttons",
+      "description": "Add download button and custom toolbar to FancyBox",
+      "code": "{\n  \"FancyOption\": \"{\\\"buttons\\\":[\\\"zoom\\\",\\\"download\\\",\\\"slideShow\\\",\\\"fullScreen\\\",\\\"thumbs\\\",\\\"close\\\"],\\\"toolbar\\\":true,\\\"infobar\\\":true,\\\"protect\\\":true}\"\n}"
+    },
+    {
+      "scenario": "Dynamic Category Filtering with URL Parameters",
+      "description": "Pre-filter gallery based on URL parameter (?category=Architecture)",
+      "code": "// JavaScript - auto-select filter from URL\nconst urlParams = new URLSearchParams(window.location.search);\nconst category = urlParams.get('category');\nif (category) {\n  const filter = document.querySelector(`.tpgb-filter-list a[data-filter='${category}']`);\n  if (filter) filter.click();\n}"
+    },
+    {
+      "scenario": "Lazy Load Images with Intersection Observer",
+      "description": "Load images only when they enter viewport (performance optimization)",
+      "code": "// JavaScript - lazy load images\nconst images = document.querySelectorAll('.tpgb-gallery-image img[data-src]');\nconst observer = new IntersectionObserver((entries) => {\n  entries.forEach(entry => {\n    if (entry.isIntersecting) {\n      const img = entry.target;\n      img.src = img.dataset.src;\n      img.removeAttribute('data-src');\n      observer.unobserve(img);\n    }\n  });\n});\nimages.forEach(img => observer.observe(img));"
+    }
+  ]
 }

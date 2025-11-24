@@ -1,35 +1,706 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-accordion-inner",
-  "title": "Accordion Inner - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Accordion Inner - Comprehensive Usage Examples",
+  "description": "Child block for tp-accordion parent, represents individual collapsible accordion items with innerBlocks support",
+  "version": "2.0.0",
+  "lastUpdated": "2025-11-23",
+
+  "architectureNote": "CRITICAL: This is a CHILD BLOCK that must be inside tpgb/tp-accordion parent. It cannot be inserted independently (inserter: false). The parent accordion controls overall styling, layout, and behavior. Each tp-accordion-inner represents one expandable item.",
+
   "examples": [
     {
-      "description": "Simple accordion item with title and content",
+      "name": "Basic FAQ Item (Simple Q&A)",
+      "description": "Simple accordion item with question as title and answer as paragraph content",
+      "visualDescription": "Collapsible FAQ item with 'What is WordPress?' as clickable title, paragraph answer expands on click",
+      "complexity": "simple",
+      "useCase": "FAQ sections, help documentation, knowledge bases, support pages",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "ai001",
         "title": "What is WordPress?",
-        "innerIcon": false
+        "index": 0,
+        "defaultAct": 0,
+        "uniqueKey": "acc_0",
+        "innerIcon": false,
+        "titleAlign": "text-left",
+        "markupSch": true
       },
       "innerBlocks": [
         {
           "blockName": "tpgb/tp-pro-paragraph",
           "attrs": {
-            "block_id": "c3d4",
-            "content": "WordPress is a free and open-source content management system."
+            "block_id": "para001",
+            "content": "WordPress is a free and open-source content management system (CMS) written in PHP and paired with a MySQL or MariaDB database. It powers over 43% of all websites on the internet and is known for its ease of use, flexibility, and extensive plugin ecosystem."
+          }
+        }
+      ],
+      "parentCoordination": {
+        "index": "Must match parent accordion's accordianList array index (0-based)",
+        "defaultAct": "If this matches parent's activeIndex, item opens by default",
+        "uniqueKey": "Recommended format: 'acc_' + index for tracking"
+      }
+    },
+
+    {
+      "name": "FAQ with Inner Icon (Icon Before Title)",
+      "description": "Accordion item with FontAwesome icon before the title for visual categorization",
+      "visualDescription": "Purple dollar sign icon before 'Pricing Information' title, expands to show pricing details",
+      "complexity": "simple",
+      "useCase": "Categorized FAQs, service features, product specifications, help sections with icons",
+      "attributes": {
+        "block_id": "ai002",
+        "title": "Pricing Information",
+        "index": 1,
+        "uniqueKey": "acc_1",
+        "innerIcon": true,
+        "iniconFonts": "font_awesome",
+        "innericonName": "fas fa-dollar-sign",
+        "titleAlign": "text-left",
+        "markupSch": true
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para002",
+            "content": "<strong>Basic Plan:</strong> $29/month - 1 website, 10GB storage<br><strong>Pro Plan:</strong> $79/month - Unlimited websites, 50GB storage<br><strong>Agency Plan:</strong> $199/month - Unlimited everything + priority support"
+          }
+        }
+      ],
+      "innerIconOptions": {
+        "faQuestionCircle": "fas fa-question-circle - For general questions",
+        "faDollarSign": "fas fa-dollar-sign - For pricing/money topics",
+        "faCog": "fas fa-cog - For settings/technical topics",
+        "faShieldAlt": "fas fa-shield-alt - For security topics",
+        "faRocket": "fas fa-rocket - For features/performance topics",
+        "faLifeRing": "fas fa-life-ring - For support topics",
+        "faBook": "fas fa-book - For documentation/guides",
+        "faChartLine": "fas fa-chart-line - For stats/analytics topics"
+      }
+    },
+
+    {
+      "name": "Detailed Content Item (Rich InnerBlocks)",
+      "description": "Accordion item with multiple paragraphs, headings, and formatted content",
+      "visualDescription": "Expands to show rich content with subheading and two detailed paragraphs",
+      "complexity": "medium",
+      "useCase": "Product descriptions, detailed tutorials, comprehensive guides, policy documents",
+      "attributes": {
+        "block_id": "ai003",
+        "title": "What are the benefits of using The Plus Addons?",
+        "index": 2,
+        "uniqueKey": "acc_2",
+        "innerIcon": true,
+        "iniconFonts": "font_awesome",
+        "innericonName": "fas fa-star",
+        "titleAlign": "text-left",
+        "titleTag": "h3",
+        "markupSch": true
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-heading",
+          "attrs": {
+            "block_id": "head003",
+            "title": "Key Benefits",
+            "titleTag": "h4"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para003a",
+            "content": "The Plus Addons provides 120+ advanced Gutenberg blocks that extend the default WordPress editor with professional features. You get pixel-perfect layouts, advanced animations, interactive elements, and dynamic content capabilities without writing any code."
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para003b",
+            "content": "Additional benefits include responsive design controls, extensive styling options, ACF repeater integration, WooCommerce support, and regular updates with new blocks and features. All blocks are optimized for performance and SEO."
+          }
+        }
+      ],
+      "innerBlocksGuidance": {
+        "supportedBlocks": "Any tpgb block can be used inside accordion items (tp-heading, tp-pro-paragraph, tp-button, tp-image, etc.)",
+        "bestPractices": "Keep content focused and scannable, use headings for hierarchy, limit to 3-5 blocks per item to avoid overwhelming users",
+        "performance": "Heavy blocks (videos, carousels) inside accordions are lazy-loaded on expansion for better performance"
+      }
+    },
+
+    {
+      "name": "Product Feature Accordion (With Image)",
+      "description": "Accordion item showcasing product feature with image and description",
+      "visualDescription": "Expands to show feature image on left (40% width) and description text on right",
+      "complexity": "medium",
+      "useCase": "Product showcases, feature lists, service descriptions, portfolio items",
+      "attributes": {
+        "block_id": "ai004",
+        "title": "Advanced Form Builder",
+        "index": 3,
+        "uniqueKey": "acc_3",
+        "innerIcon": true,
+        "iniconFonts": "font_awesome",
+        "innericonName": "fas fa-edit",
+        "titleAlign": "text-left",
+        "markupSch": false
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-row",
+          "attrs": {
+            "block_id": "row004"
+          },
+          "innerBlocks": [
+            {
+              "blockName": "tpgb/tp-column",
+              "attrs": {
+                "block_id": "col004a",
+                "columns": {
+                  "md": "5"
+                }
+              },
+              "innerBlocks": [
+                {
+                  "blockName": "tpgb/tp-image",
+                  "attrs": {
+                    "block_id": "img004",
+                    "image": {
+                      "url": "/images/form-builder-screenshot.jpg"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "blockName": "tpgb/tp-column",
+              "attrs": {
+                "block_id": "col004b",
+                "columns": {
+                  "md": "7"
+                }
+              },
+              "innerBlocks": [
+                {
+                  "blockName": "tpgb/tp-pro-paragraph",
+                  "attrs": {
+                    "block_id": "para004",
+                    "content": "Create complex multi-step forms with 15+ field types including file uploads, conditional logic, calculations, and payment integrations. Connect to Mailchimp, ConvertKit, Slack, Discord, and more with built-in integrations."
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "layoutTechnique": "Using tp-row and tp-column blocks inside accordion item for side-by-side image+text layout"
+    },
+
+    {
+      "name": "Pricing Plan Details (Expandable Features)",
+      "description": "Accordion item for pricing plan with bullet list of features",
+      "visualDescription": "Expands to show comprehensive feature list with checkmark icons and pricing details",
+      "complexity": "medium",
+      "useCase": "Pricing tables, plan comparisons, package details, membership tiers",
+      "attributes": {
+        "block_id": "ai005",
+        "title": "Pro Plan - $79/month",
+        "index": 4,
+        "uniqueKey": "acc_4",
+        "innerIcon": true,
+        "iniconFonts": "font_awesome",
+        "innericonName": "fas fa-crown",
+        "titleAlign": "text-left",
+        "markupSch": false
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para005a",
+            "content": "<strong>Everything in Basic, plus:</strong>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-stylist-list",
+          "attrs": {
+            "block_id": "list005",
+            "listStyle": "icon",
+            "iconName": "fas fa-check-circle",
+            "iconColor": "#27ae60",
+            "items": [
+              {"_key": "0", "text": "Unlimited websites"},
+              {"_key": "1", "text": "50GB storage"},
+              {"_key": "2", "text": "Priority email support"},
+              {"_key": "3", "text": "Advanced analytics"},
+              {"_key": "4", "text": "White-label options"},
+              {"_key": "5", "text": "Custom domain mapping"}
+            ]
+          }
+        },
+        {
+          "blockName": "tpgb/tp-button",
+          "attrs": {
+            "block_id": "btn005",
+            "buttonText": "Upgrade to Pro",
+            "style": "style-1"
+          }
+        }
+      ],
+      "integrationNote": "Combine with tp-stylist-list for feature lists and tp-button for CTAs within accordion items"
+    },
+
+    {
+      "name": "Service Description (Multi-Block Content)",
+      "description": "Accordion item with heading, description, and benefit list",
+      "visualDescription": "Expands to show service overview paragraph followed by 4 key benefits in styled list",
+      "complexity": "medium",
+      "useCase": "Service descriptions, consulting offerings, package details, methodology explanations",
+      "attributes": {
+        "block_id": "ai006",
+        "title": "SEO Optimization Services",
+        "index": 5,
+        "uniqueKey": "acc_5",
+        "innerIcon": true,
+        "iniconFonts": "font_awesome",
+        "innericonName": "fas fa-search",
+        "titleAlign": "text-left",
+        "titleTag": "h3",
+        "markupSch": false
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para006",
+            "content": "Our comprehensive SEO services help your website rank higher in search engines, drive organic traffic, and convert visitors into customers. We use proven white-hat techniques and the latest best practices."
+          }
+        },
+        {
+          "blockName": "tpgb/tp-heading",
+          "attrs": {
+            "block_id": "head006",
+            "title": "What's Included",
+            "titleTag": "h4"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-stylist-list",
+          "attrs": {
+            "block_id": "list006",
+            "listStyle": "icon",
+            "iconName": "fas fa-arrow-right",
+            "iconColor": "#3498db",
+            "items": [
+              {"_key": "0", "text": "Keyword research and competitor analysis"},
+              {"_key": "1", "text": "On-page optimization (meta tags, headings, content)"},
+              {"_key": "2", "text": "Technical SEO audit and fixes"},
+              {"_key": "3", "text": "Monthly performance reports and analytics"}
+            ]
           }
         }
       ]
     },
+
     {
-      "description": "Accordion item with custom icon",
+      "name": "Testimonial Expandable (Quote with Details)",
+      "description": "Accordion item with customer testimonial and full details on expansion",
+      "visualDescription": "Title shows customer name and company, expands to show full quote, role, and rating",
+      "complexity": "medium",
+      "useCase": "Testimonial showcases, case study previews, review collections, client feedback",
       "attributes": {
-        "block_id": "e5f6",
-        "title": "Pricing Information",
+        "block_id": "ai007",
+        "title": "Sarah Johnson, CEO at TechCorp",
+        "index": 6,
+        "uniqueKey": "acc_6",
         "innerIcon": true,
-        "innericonName": "fas fa-dollar-sign"
-      }
+        "iniconFonts": "font_awesome",
+        "innericonName": "fas fa-quote-left",
+        "titleAlign": "text-left",
+        "markupSch": false
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-blockquote",
+          "attrs": {
+            "block_id": "quote007",
+            "quoteText": "The Plus Addons transformed our website completely. We went from a basic WordPress site to a professional, interactive experience that converts 3x better. The support team is incredibly responsive and helpful.",
+            "authorName": "Sarah Johnson",
+            "authorRole": "CEO, TechCorp"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para007",
+            "content": "<strong>Project:</strong> Complete website redesign<br><strong>Timeline:</strong> 6 weeks<br><strong>Results:</strong> 300% increase in conversions, 45% faster page load times"
+          }
+        }
+      ],
+      "useWithTestimonialBlock": "For simple testimonial grids, use tpgb/tp-testimonials. Use accordion format when you have detailed case studies or longer quotes that would clutter the page when all visible."
+    },
+
+    {
+      "name": "Documentation Section (Code Examples)",
+      "description": "Accordion item with technical documentation, code snippets, and explanations",
+      "visualDescription": "Expands to show formatted code example with syntax highlighting and usage notes",
+      "complexity": "advanced",
+      "useCase": "API documentation, code references, technical guides, developer resources",
+      "attributes": {
+        "block_id": "ai008",
+        "title": "How to add custom CSS to blocks?",
+        "index": 7,
+        "uniqueKey": "acc_7",
+        "innerIcon": true,
+        "iniconFonts": "font_awesome",
+        "innericonName": "fas fa-code",
+        "titleAlign": "text-left",
+        "titleTag": "h3",
+        "markupSch": true
+      },
+      "innerBlocks": [
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para008a",
+            "content": "You can add custom CSS to any The Plus Addons block using the Additional CSS Classes field in the block settings. Then add your CSS to Appearance → Customize → Additional CSS."
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para008b",
+            "content": "<strong>Example CSS:</strong><br><pre><code>.my-custom-heading {<br>  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);<br>  -webkit-background-clip: text;<br>  -webkit-text-fill-color: transparent;<br>}</code></pre>"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-pro-paragraph",
+          "attrs": {
+            "block_id": "para008c",
+            "content": "<strong>Note:</strong> Custom CSS changes are not visible in the editor preview. Always test on the front-end after publishing."
+          }
+        }
+      ],
+      "codeFormattingTip": "Use <pre> and <code> tags in tp-pro-paragraph for inline code examples. For larger code blocks with syntax highlighting, consider using a dedicated code block plugin."
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "block_id": "Required, unique identifier",
+    "title": "Required, the clickable accordion header text",
+    "index": "Required, 0-based index matching parent accordion's accordianList array position",
+    "uniqueKey": "Required for tracking, recommended format: 'acc_' + index",
+    "defaultAct": "Optional, if matches parent's activeIndex, item opens by default (0-based)",
+    "innerIcon": "Boolean, set to true to show icon before title",
+    "innericonName": "Required if innerIcon is true, FontAwesome class (e.g., 'fas fa-home')",
+    "titleAlign": "Text alignment: 'text-left', 'text-center', 'text-right'",
+    "titleTag": "Semantic HTML tag (h3, h4, h5, h6, div), inherited from parent if not set",
+    "markupSch": "Boolean, enable FAQ schema markup for SEO (recommended for FAQ pages)",
+    "innerBlocks": "Array of child blocks, supports any tpgb block for rich content"
+  },
+
+  "warnings": [
+    "CRITICAL: This is a CHILD BLOCK that MUST be inside tpgb/tp-accordion parent - cannot be used independently (inserter: false)",
+    "CRITICAL: index value must match position in parent accordion's accordianList array (0-based, first item = 0)",
+    "uniqueKey must be unique across all accordion items within the same parent accordion",
+    "defaultAct only works if parent accordion's mode is 'accordion' (not 'toggle' where multiple can be open)",
+    "If using markupSch (schema markup), ensure title is a question and content is the answer for proper FAQ schema",
+    "innerIcon requires innericonName to be set (both attributes work together)",
+    "titleTag is optional - if not set, inherits from parent accordion's default titleTag",
+    "Toggle icons (plus/minus) are controlled by parent accordion, not individual items",
+    "Heavy content (videos, carousels) inside accordion items loads on expansion (lazy load)",
+    "Don't use more than 15-20 accordion items in one parent (performance and UX concerns)",
+    "titleAlign only affects text alignment, not the entire header (icon position controlled separately by parent)",
+    "innerBlocks must contain valid WordPress block objects with blockName and attrs",
+    "Each innerBlock needs unique block_id to avoid React rendering issues",
+    "markupSch generates FAQPage schema - only use on genuine FAQ pages, not general accordions",
+    "hrefLink is rarely used - only for linking accordion item to external resource"
+  ],
+
+  "commonMistakes": [
+    "Trying to insert tp-accordion-inner directly without parent tpgb/tp-accordion (won't work - inserter disabled)",
+    "Not matching index with actual position in parent accordion (causes wrong item to open)",
+    "Forgetting unique _key for innerBlocks items (causes React warnings)",
+    "Setting innerIcon: true but forgetting innericonName (icon won't show)",
+    "Using markupSch on non-FAQ content (generates incorrect schema markup)",
+    "Setting defaultAct without coordinating with parent accordion's activeIndex",
+    "Using same uniqueKey for multiple items (breaks tracking)",
+    "Not providing block_id for innerBlocks (can cause rendering issues)",
+    "Setting titleTag differently from siblings (inconsistent heading hierarchy)",
+    "Using titleAlign without understanding it only affects text, not layout",
+    "Forgetting to set index when manually creating accordion items",
+    "Using numeric index as string '0' instead of number 0 (type matters)",
+    "Adding too many innerBlocks (>5-6) making accordion item too heavy",
+    "Not testing accordion item in parent context (always test full accordion)",
+    "Using generic titles like 'Accordion 1', 'Accordion 2' (bad UX and SEO)",
+    "Forgetting closing tags in HTML content within tp-pro-paragraph innerBlocks"
+  ],
+
+  "bestPractices": [
+    "Always test accordion items within their parent tpgb/tp-accordion context",
+    "Use semantic titleTag values (h3, h4) based on page heading hierarchy",
+    "Keep titles concise and descriptive (5-10 words ideal for FAQ questions)",
+    "Use innerIcon to visually categorize accordion items (dollar for pricing, cog for technical, etc.)",
+    "Enable markupSch for genuine FAQ pages to get rich results in search engines",
+    "Use uniqueKey format 'acc_0', 'acc_1', etc. for consistency",
+    "Limit innerBlocks to 3-5 blocks per item for optimal UX",
+    "Use tp-row and tp-column inside accordion items for complex layouts (image + text)",
+    "Set defaultAct: 0 for first item in FAQ accordions (shows answer immediately)",
+    "Use title as question, innerBlocks as answer for FAQ schema compliance",
+    "Keep content scannable with headings, bullet lists, and short paragraphs",
+    "Use tp-stylist-list for feature lists inside accordion items",
+    "Add CTAs (tp-button) inside accordion items when appropriate",
+    "Test mobile responsiveness - accordion items stack vertically on small screens",
+    "Use titleAlign: 'text-left' for FAQ/documentation, 'text-center' for features",
+    "Provide meaningful titles that work standalone (users scan before clicking)",
+    "Use consistent icon library (font_awesome) across all innerIcon instances",
+    "Keep index sequential (0, 1, 2, 3) matching visual order",
+    "Coordinate defaultAct with parent accordion's activeIndex attribute",
+    "Use <strong> tags sparingly in content for emphasis (too many diminish effect)",
+    "For code examples, use <pre> and <code> tags for proper formatting",
+    "Test accordion item expansion animation (default 300ms smooth transition)",
+    "Consider using tp-blockquote for testimonial accordion items",
+    "Group related accordion items (all pricing, all features, all FAQs) together"
+  ],
+
+  "parentChildCoordination": {
+    "requiredParentBlock": "tpgb/tp-accordion",
+    "parentControls": {
+      "styling": "Parent controls all visual styling (colors, borders, shadows, typography)",
+      "layout": "Parent controls icon position (left/right), spacing, alignment",
+      "behavior": "Parent controls accordion/toggle mode, animation speed, default active item",
+      "icons": "Parent sets toggle icons (plus/minus), child can override with innerIcon"
+    },
+    "childControls": {
+      "content": "Child controls its own title and innerBlocks content",
+      "innerIcon": "Child can add optional icon before title",
+      "index": "Child must coordinate index with parent array position",
+      "uniqueKey": "Child sets unique identifier for tracking"
+    },
+    "coordinationExample": {
+      "parent": {
+        "blockName": "tpgb/tp-accordion",
+        "attrs": {
+          "block_id": "acc_parent",
+          "mode": "accordion",
+          "activeIndex": 0,
+          "titleTag": "h3"
+        }
+      },
+      "children": [
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attrs": {
+            "block_id": "ai001",
+            "title": "First Item",
+            "index": 0,
+            "defaultAct": 0,
+            "uniqueKey": "acc_0"
+          }
+        },
+        {
+          "blockName": "tpgb/tp-accordion-inner",
+          "attrs": {
+            "block_id": "ai002",
+            "title": "Second Item",
+            "index": 1,
+            "uniqueKey": "acc_1"
+          }
+        }
+      ]
+    }
+  },
+
+  "schemaMarkupGuide": {
+    "whenToUse": "Enable markupSch: true ONLY for genuine FAQ pages where title is a question and content is the answer",
+    "generatedSchema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is WordPress?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WordPress is a free and open-source content management system..."
+          }
+        }
+      ]
+    },
+    "benefits": [
+      "Rich results in Google search (FAQ accordion shows directly in search results)",
+      "Increased click-through rates from search",
+      "Better visibility for support/help content",
+      "Voice search optimization (Alexa, Google Assistant read FAQ answers)"
+    ],
+    "requirements": [
+      "Title must be a clear question (starts with Who/What/When/Where/Why/How or Is/Does/Can)",
+      "Content must be a direct answer (not promotional text or unrelated content)",
+      "Minimum 2 FAQ items recommended for schema validation",
+      "Keep answers concise (140-300 characters ideal for featured snippets)",
+      "Don't use schema for general accordions (pricing, features, testimonials)"
+    ],
+    "testingSchema": [
+      "Use Google Rich Results Test: https://search.google.com/test/rich-results",
+      "Validate schema with Schema.org validator",
+      "Check Google Search Console for FAQ schema detection",
+      "Monitor search appearance after 2-4 weeks for rich results"
+    ]
+  },
+
+  "accessibilityConsiderations": [
+    "Accordion items are keyboard accessible (Tab to focus, Enter/Space to toggle)",
+    "ARIA attributes automatically added (aria-expanded, aria-controls, role='button')",
+    "Use semantic titleTag (h3, h4) for proper heading hierarchy and screen readers",
+    "Ensure sufficient color contrast for title text (WCAG 4.5:1 for normal text)",
+    "Toggle icons should have aria-label (parent accordion handles this)",
+    "innerIcon should be decorative (aria-hidden='true') - meaning conveyed in title text",
+    "markupSch helps screen readers understand FAQ structure",
+    "Test with keyboard navigation: Tab (navigate), Enter (toggle), Shift+Tab (reverse)",
+    "Expansion animation should respect prefers-reduced-motion CSS media query",
+    "Provide clear, descriptive titles (avoid 'Click here' or 'Learn more')"
+  ],
+
+  "performanceOptimization": [
+    "Accordion items use lazy loading - content only rendered when item expands",
+    "Heavy content (videos, carousels) won't impact initial page load",
+    "CSS-based animations (transform, opacity) are GPU-accelerated",
+    "Use image lazy loading inside accordion items (WordPress native lazy='loading')",
+    "Limit innerBlocks to essential content (don't nest complex layouts unnecessarily)",
+    "Parent accordion uses CSS visibility vs display:none for smooth transitions",
+    "Total accordion items recommended limit: 15-20 items per parent (UX and performance)",
+    "Test mobile performance - accordions improve mobile UX by hiding content by default",
+    "Consider pagination or filtering for 20+ accordion items",
+    "SVG icons (innerIcon) perform better than image icons (smaller file size)"
+  ],
+
+  "troubleshooting": [
+    {
+      "issue": "Accordion item won't insert/add",
+      "solutions": [
+        "Verify you're inside a tpgb/tp-accordion parent block",
+        "Check parent accordion has space for new items",
+        "Try adding item via parent accordion's 'Add Item' control instead",
+        "Check browser console for JavaScript errors"
+      ]
+    },
+    {
+      "issue": "Item opens when it shouldn't / wrong item opens",
+      "solutions": [
+        "Verify index value matches actual position (0-based: first=0, second=1)",
+        "Check uniqueKey is unique across all items",
+        "Verify defaultAct matches parent accordion's activeIndex",
+        "Check parent accordion mode (accordion vs toggle)"
+      ]
+    },
+    {
+      "issue": "Inner icon not showing",
+      "solutions": [
+        "Verify innerIcon is set to true (not false)",
+        "Check innericonName has valid FontAwesome class (e.g., 'fas fa-home')",
+        "Verify FontAwesome is loaded on the page (parent theme/plugins)",
+        "Check for CSS conflicts hiding the icon"
+      ]
+    },
+    {
+      "issue": "Schema markup not working",
+      "solutions": [
+        "Verify markupSch is set to true",
+        "Check title is formatted as a question",
+        "Test with Google Rich Results Test tool",
+        "Ensure minimum 2 FAQ items for schema validation",
+        "Verify content structure (simple text, not complex HTML)"
+      ]
+    },
+    {
+      "issue": "Content not expanding smoothly",
+      "solutions": [
+        "Check innerBlocks don't have CSS position:fixed (breaks animation)",
+        "Verify no JavaScript errors in browser console",
+        "Check parent accordion's animation duration setting",
+        "Test without browser extensions (some block animations)",
+        "Clear browser cache and test in incognito mode"
+      ]
+    },
+    {
+      "issue": "Title styling different from siblings",
+      "solutions": [
+        "Check titleTag is consistent across all items",
+        "Verify custom CSS isn't targeting specific block_id",
+        "Check titleAlign is same for all items",
+        "Verify parent accordion styling applies equally to all children",
+        "Clear any cached CSS (theme caching, CDN)"
+      ]
+    }
+  ],
+
+  "integrationExamples": [
+    {
+      "name": "Complete FAQ Section",
+      "description": "Full FAQ accordion with multiple items and schema markup",
+      "structure": "Parent tp-accordion with 5 tp-accordion-inner children",
+      "blocks": [
+        {
+          "block": "tpgb/tp-accordion",
+          "attrs": {
+            "block_id": "faq_parent",
+            "mode": "accordion",
+            "activeIndex": 0,
+            "titleTag": "h3"
+          },
+          "innerBlocks": [
+            {
+              "block": "tpgb/tp-accordion-inner",
+              "attrs": {
+                "title": "What is your return policy?",
+                "index": 0,
+                "markupSch": true
+              }
+            },
+            {
+              "block": "tpgb/tp-accordion-inner",
+              "attrs": {
+                "title": "How long does shipping take?",
+                "index": 1,
+                "markupSch": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pricing Table with Expandable Details",
+      "description": "Pricing plans with accordion for detailed feature lists",
+      "use": "Combine tp-pricing-table for overview, tp-accordion for detailed features per plan"
+    },
+    {
+      "name": "Product Specifications",
+      "description": "Product page with technical specs in accordion format",
+      "tip": "Use innerIcon to categorize specs (dimensions, materials, care instructions)"
+    },
+    {
+      "name": "Documentation Portal",
+      "description": "Developer docs with categorized accordion sections",
+      "tip": "Use titleTag h3 for main categories, h4 for subcategories, nest accordions if needed"
+    }
+  ],
+
+  "migrationGuide": {
+    "fromAccordianListArray": "Old approach: accordianList array in block attributes",
+    "toInnerBlocksArchitecture": "New approach: WordPress innerBlocks with tp-accordion-inner child blocks",
+    "benefits": "innerBlocks provides rich content, nested blocks, better editor experience",
+    "backwards": "Both approaches supported - existing accordianList arrays still work"
+  },
+
+  "relatedBlocks": [
+    "tpgb/tp-accordion - Parent block (REQUIRED)",
+    "tpgb/tp-tabs-tours - Alternative: tab-based content organization",
+    "tpgb/tp-switcher - Alternative: toggle between content sections",
+    "tpgb/tp-expand - Alternative: read more/less for single content",
+    "tpgb/tp-pro-paragraph - Common innerBlock for text content",
+    "tpgb/tp-heading - Common innerBlock for subheadings",
+    "tpgb/tp-stylist-list - Common innerBlock for feature lists",
+    "tpgb/tp-button - Common innerBlock for CTAs inside items"
+  ]
 }

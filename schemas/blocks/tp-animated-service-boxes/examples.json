@@ -2,115 +2,740 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-animated-service-boxes",
   "title": "Animated Service Boxes - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "description": "Showcase features and services through 8 interactive design patterns: image accordion, sliding boxes, article boxes, info banners, hover sections, fancy boxes, service elements, and portfolio layouts",
+
   "examples": [
     {
-      "description": "Vertical image accordion showcase",
+      "name": "Image Accordion - Vertical Services Showcase",
+      "description": "Interactive vertical accordion expanding on hover to reveal service details",
+      "visualDescription": "Three stacked panels with background images, expands smoothly with title and description overlay when active, purple gradient overlay on active panel",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "asb001",
         "mainStyleType": "image-accordion",
         "imgAcrdnStyle": "accordion-style-1",
         "imgOrientation": "accordion-vertical",
         "activeSlide": "1",
+        "imgFlexGrow": "7.5",
+        "layoutHeight": {"md": "600", "sm": "500", "xs": "400", "unit": "px"},
+        "textAlign": "left",
+        "alignOffset": "flex-end",
+        "visAllCont": false,
+        "disIcnImg": true,
+        "iconStyle": "icon-square",
+        "iconWidth": {"md": "80", "sm": "70", "xs": "60", "unit": "px"},
+        "iconImgSize": {"md": "40", "sm": "35", "xs": "30", "unit": "px"},
+        "serviceBox": [
+          {
+            "_key": "0",
+            "title": "Web Development",
+            "description": "Custom websites built with modern technologies and responsive design",
+            "iconType": "icon",
+            "iconStore": "fas fa-code",
+            "featureImg": {"url": "https://example.com/web-dev-bg.jpg"}
+          },
+          {
+            "_key": "1",
+            "title": "Mobile Apps",
+            "description": "Native iOS and Android applications for seamless user experiences",
+            "iconType": "icon",
+            "iconStore": "fas fa-mobile-alt",
+            "featureImg": {"url": "https://example.com/mobile-bg.jpg"}
+          },
+          {
+            "_key": "2",
+            "title": "Cloud Solutions",
+            "description": "Scalable cloud infrastructure and deployment services",
+            "iconType": "icon",
+            "iconStore": "fas fa-cloud",
+            "featureImg": {"url": "https://example.com/cloud-bg.jpg"}
+          }
+        ],
+        "contentPadding": {
+          "md": {"top": "40", "right": "40", "bottom": "40", "left": "40"},
+          "sm": {"top": "30", "right": "30", "bottom": "30", "left": "30"},
+          "xs": {"top": "20", "right": "20", "bottom": "20", "left": "20"},
+          "unit": "px"
+        },
+        "articleS1BG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 135,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        }
+      },
+      "useCase": "Agency service pages, product showcase landing pages, portfolio sections",
+      "warnings": [
+        "activeSlide is 1-based (first item = '1', second = '2')",
+        "imgFlexGrow controls how much active panel expands (default 7.5 = ~3x larger)",
+        "visAllCont: false hides content on inactive panels for cleaner look",
+        "featureImg is the background image for each accordion panel"
+      ],
+      "relatedBlocks": ["tp-carousel", "tp-tabs-tours", "tp-switcher"]
+    },
+
+    {
+      "name": "Sliding Boxes - Service Features Grid",
+      "description": "Horizontal grid of sliding box cards with icons and Call-to-Action buttons",
+      "visualDescription": "Three-column grid with white cards, FontAwesome icons in purple circles, slides up on hover revealing gradient background and button",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "asb002",
+        "mainStyleType": "sliding-boxes",
+        "slideStyle": "sliding-style-1",
+        "columns": {"md": 4, "sm": 6, "xs": 12},
+        "disBtn": true,
+        "btnStyle": "style-7",
+        "btnIconType": "icon",
+        "btnIconStore": "fas fa-arrow-right",
+        "btnIconPosition": "after",
+        "disIcnImg": true,
+        "iconStyle": "icon-circle",
+        "iconWidth": {"md": "100", "unit": "px"},
+        "iconImgSize": {"md": "50", "unit": "px"},
+        "serviceBox": [
+          {
+            "_key": "0",
+            "title": "Strategy Consulting",
+            "description": "Data-driven strategies to accelerate your business growth",
+            "iconType": "icon",
+            "iconStore": "fas fa-chart-line",
+            "btnText": "Learn More",
+            "btnUrl": {"url": "/services/consulting", "target": "", "nofollow": ""},
+            "ariaLabel": "Learn more about strategy consulting services"
+          },
+          {
+            "_key": "1",
+            "title": "Technical Support",
+            "description": "24/7 expert support for all your technical needs",
+            "iconType": "icon",
+            "iconStore": "fas fa-headset",
+            "btnText": "Get Support",
+            "btnUrl": {"url": "/support", "target": "", "nofollow": ""},
+            "ariaLabel": "Get technical support assistance"
+          },
+          {
+            "_key": "2",
+            "title": "Training Programs",
+            "description": "Comprehensive training to empower your team",
+            "iconType": "icon",
+            "iconStore": "fas fa-graduation-cap",
+            "btnText": "View Courses",
+            "btnUrl": {"url": "/training", "target": "", "nofollow": ""},
+            "ariaLabel": "View available training courses"
+          }
+        ],
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "24", "sm": "20", "xs": "18", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "icnNmlBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "contentBdr": {
+          "openBorder": 1,
+          "type": "solid",
+          "color": "#e5e5e5",
+          "width": {"md": {"top": "1", "right": "1", "bottom": "1", "left": "1"}, "unit": "px"}
+        },
+        "contentBRadius": {
+          "md": {"top": "8", "right": "8", "bottom": "8", "left": "8"},
+          "unit": "px"
+        }
+      },
+      "useCase": "Service offering pages, features sections, benefits grids, SaaS landing pages",
+      "warnings": [
+        "disBtn: true required to show buttons",
+        "btnStyle options: style-7 (default), style-8 (custom styling)",
+        "ariaLabel recommended for accessibility on CTA buttons",
+        "slideStyle options: sliding-style-1 (slide up) vs sliding-style-2 (slide left)"
+      ],
+      "responsiveNotes": "columns: md: 4 = 3 columns, sm: 6 = 2 columns, xs: 12 = 1 column (Bootstrap 12-grid system)",
+      "relatedBlocks": ["tp-infobox", "tp-icon-box", "tp-advanced-buttons"]
+    },
+
+    {
+      "name": "Article Box - Featured Content Cards",
+      "description": "Content cards with background images and overlay text revealing on hover",
+      "visualDescription": "Two-column layout with article boxes, dark overlay on images, white text slides in on hover with Read More button",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "asb003",
+        "mainStyleType": "article-box",
+        "articleStyle": "article-box-style-1",
+        "columns": {"md": 6, "sm": 6, "xs": 12},
+        "layoutHeight": {"md": "400", "sm": "350", "xs": "300", "unit": "px"},
+        "disBtn": true,
+        "btnStyle": "style-8",
+        "disIcnImg": false,
+        "serviceBox": [
+          {
+            "_key": "0",
+            "title": "The Future of AI in Business",
+            "description": "Explore how artificial intelligence is transforming modern enterprises and creating new opportunities for innovation",
+            "featureImg": {"url": "https://example.com/ai-article.jpg"},
+            "btnText": "Read Article",
+            "btnUrl": {"url": "/blog/ai-in-business", "target": "", "nofollow": ""}
+          },
+          {
+            "_key": "1",
+            "title": "Remote Work Best Practices",
+            "description": "Proven strategies and tools for building productive remote teams in the digital age",
+            "featureImg": {"url": "https://example.com/remote-work.jpg"},
+            "btnText": "Read More",
+            "btnUrl": {"url": "/blog/remote-work", "target": "", "nofollow": ""}
+          }
+        ],
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "28", "sm": "24", "xs": "20", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "descTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "lineHeight": {"md": "1.6", "unit": "em"}
+        },
+        "articleS1BG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "rgba(0, 0, 0, 0.7)"
+        },
+        "contentMargin": {
+          "md": {"top": "20", "right": "20", "bottom": "20", "left": "20"},
+          "unit": "px"
+        },
+        "contentBRadius": {
+          "md": {"top": "12", "right": "12", "bottom": "12", "left": "12"},
+          "unit": "px"
+        }
+      },
+      "useCase": "Blog post highlights, case study showcases, featured content sections, magazine-style layouts",
+      "warnings": [
+        "articleStyle options: article-box-style-1 (overlay hover), article-box-style-2 (flip card)",
+        "layoutHeight sets minimum height for consistent card sizes",
+        "articleS1BG is the overlay background (use rgba for transparency)",
+        "featureImg is the main background image for each card"
+      ],
+      "designTip": "Use rgba overlay (0.7 opacity) for readable text while maintaining image visibility",
+      "relatedBlocks": ["tp-media-listing", "tp-creative-image", "tp-button"]
+    },
+
+    {
+      "name": "Info Banner - Call-to-Action Section",
+      "description": "Full-width banner with split layout: content on left, image on right, flip animation on hover",
+      "visualDescription": "Horizontal banner with purple gradient background, text content left-aligned, laptop mockup image right-aligned, flips to reveal additional info",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "asb004",
+        "mainStyleType": "info-banner",
+        "bannerStyle": "info-banner-style-1",
+        "bannerOrientation": "info-banner-left",
+        "layoutHeight": {"md": "500", "sm": "400", "xs": "auto", "unit": "px"},
+        "serviceBox": [
+          {
+            "_key": "0",
+            "title": "Boost Your Sales by 300%",
+            "subTitle": "with our proven marketing automation platform",
+            "description": "Join 10,000+ businesses using our platform to streamline sales processes, nurture leads automatically, and close deals faster than ever before.",
+            "iconType": "image",
+            "imgStore": {"url": "https://example.com/platform-mockup.png"},
+            "btnText": "Start Free Trial",
+            "btnUrl": {"url": "/signup", "target": "", "nofollow": ""}
+          }
+        ],
+        "disBtn": true,
+        "btnStyle": "style-8",
+        "imageSize": "large",
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "48", "sm": "36", "xs": "28", "unit": "px"},
+          "fontWeight": "700",
+          "lineHeight": {"md": "1.2", "unit": "em"}
+        },
+        "subTitleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "24", "sm": "20", "xs": "16", "unit": "px"},
+          "fontWeight": "400",
+          "textTransform": "none"
+        },
+        "articleS1BG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "linear",
+            "gradientAngle": 90,
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        },
+        "contentPadding": {
+          "md": {"top": "60", "right": "60", "bottom": "60", "left": "60"},
+          "sm": {"top": "40", "right": "40", "bottom": "40", "left": "40"},
+          "xs": {"top": "30", "right": "30", "bottom": "30", "left": "30"},
+          "unit": "px"
+        },
+        "btnBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "btnNmlColor": "#667eea"
+      },
+      "useCase": "Hero sections, promotional banners, product announcements, CTA sections",
+      "warnings": [
+        "bannerOrientation options: info-banner-left (content left, image right), info-banner-right (content right, image left)",
+        "bannerStyle options: info-banner-style-1 (horizontal flip), info-banner-style-2 (vertical layout)",
+        "Only ONE item in serviceBox for info-banner (it's a single banner, not repeater)",
+        "subTitle is secondary headline below title"
+      ],
+      "designTip": "Use contrasting button colors against gradient background for better visibility",
+      "relatedBlocks": ["tp-cta-banner", "tp-image", "tp-advanced-buttons"]
+    },
+
+    {
+      "name": "Hover Section - Interactive Background Change",
+      "description": "Grid of service items with full-width background image changing on hover",
+      "visualDescription": "Four service boxes in 2×2 grid, background image of entire section changes smoothly when hovering over each box, active box highlighted with border",
+      "complexity": "advanced",
+      "attributes": {
+        "block_id": "asb005",
+        "mainStyleType": "hover-section",
+        "sectionStyle": "hover-section-style-1",
+        "sectionImgPreload": true,
+        "columns": {"md": 6, "sm": 6, "xs": 12},
+        "layoutHeight": {"md": "700", "sm": "600", "xs": "auto", "unit": "px"},
+        "disIcnImg": true,
+        "iconStyle": "icon-rounded",
+        "iconWidth": {"md": "90", "unit": "px"},
+        "iconImgSize": {"md": "45", "unit": "px"},
         "serviceBox": [
           {
             "_key": "0",
             "title": "Web Design",
-            "featureImg": {
-              "url": "/design.jpg"
-            }
+            "description": "Beautiful, user-centric designs that convert visitors into customers",
+            "iconType": "icon",
+            "iconStore": "fas fa-palette",
+            "featureImg": {"url": "https://example.com/design-bg.jpg"}
           },
           {
             "_key": "1",
             "title": "Development",
-            "featureImg": {
-              "url": "/dev.jpg"
-            }
+            "description": "Robust, scalable applications built with cutting-edge technologies",
+            "iconType": "icon",
+            "iconStore": "fas fa-code",
+            "featureImg": {"url": "https://example.com/dev-bg.jpg"}
           },
           {
             "_key": "2",
             "title": "Marketing",
-            "featureImg": {
-              "url": "/marketing.jpg"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "description": "Sliding boxes with buttons (style-2)",
-      "attributes": {
-        "block_id": "c3d4",
-        "mainStyleType": "sliding-boxes",
-        "slideStyle": "sliding-style-2",
-        "disBtn": true,
-        "btnStyle": "style-7",
-        "serviceBox": [
-          {
-            "_key": "0",
-            "title": "Consulting",
-            "iconStore": "fas fa-chart-line",
-            "btnText": "Learn More"
+            "description": "Data-driven campaigns that maximize ROI and grow your audience",
+            "iconType": "icon",
+            "iconStore": "fas fa-bullhorn",
+            "featureImg": {"url": "https://example.com/marketing-bg.jpg"}
           },
           {
-            "_key": "1",
-            "title": "Support",
-            "iconStore": "fas fa-headset",
-            "btnText": "Contact Us"
+            "_key": "3",
+            "title": "Analytics",
+            "description": "Deep insights into user behavior and business performance metrics",
+            "iconType": "icon",
+            "iconStore": "fas fa-chart-bar",
+            "featureImg": {"url": "https://example.com/analytics-bg.jpg"}
           }
-        ]
-      }
+        ],
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "28", "sm": "24", "xs": "20", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "icnNmlBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "icnNmlColor": "#667eea"
+      },
+      "useCase": "Service overview pages, agency websites, interactive showcases, portfolio sections",
+      "warnings": [
+        "CRITICAL: sectionImgPreload: true required for smooth background transitions (preloads all images)",
+        "featureImg changes the ENTIRE section background, not individual box backgrounds",
+        "Performance: Limit to 4-6 items max to avoid excessive image preloading",
+        "Use optimized images (<200KB each) for fast loading"
+      ],
+      "designTip": "Choose high-contrast featureImg images with dark overlays for better text readability",
+      "performanceNote": "sectionImgPreload downloads all background images upfront (~1-2MB total)",
+      "relatedBlocks": ["tp-container", "tp-infobox", "tp-icon-box"]
     },
+
     {
-      "description": "Fancy box style with icons",
+      "name": "Fancy Box - Elegant Icon Cards with Separator Line",
+      "description": "Sophisticated card grid with icons, titles, descriptions, and animated separator line on hover",
+      "visualDescription": "Three white cards with circular icon backgrounds, purple separator line animates from left to right on hover, subtle shadow effect",
+      "complexity": "simple",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "asb006",
         "mainStyleType": "fancy-box",
         "fancyBStyle": "fancy-box-style-1",
+        "columns": {"md": 4, "sm": 6, "xs": 12},
         "disIcnImg": true,
+        "iconStyle": "icon-circle",
+        "iconWidth": {"md": "80", "unit": "px"},
+        "iconImgSize": {"md": "40", "unit": "px"},
         "serviceBox": [
           {
             "_key": "0",
-            "title": "Fast Delivery",
+            "title": "Fast Performance",
+            "description": "Lightning-fast loading times optimized for all devices and browsers",
             "iconType": "icon",
-            "iconStore": "fas fa-shipping-fast",
-            "description": "Quick turnaround times"
+            "iconStore": "fas fa-bolt"
           },
           {
             "_key": "1",
+            "title": "Secure Platform",
+            "description": "Enterprise-grade security with SSL encryption and regular backups",
+            "iconType": "icon",
+            "iconStore": "fas fa-shield-alt"
+          },
+          {
+            "_key": "2",
             "title": "24/7 Support",
+            "description": "Round-the-clock customer support via chat, email, and phone",
             "iconType": "icon",
-            "iconStore": "fas fa-clock",
-            "description": "Always here to help"
+            "iconStore": "fas fa-life-ring"
           }
-        ]
-      }
+        ],
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "20", "sm": "18", "xs": "16", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "icnNmlBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "icnNmlColor": "#ffffff",
+        "fancyLineSize": {"md": "2", "unit": "px"},
+        "fancyLineColor": "#667eea",
+        "contentBRadius": {
+          "md": {"top": "8", "right": "8", "bottom": "8", "left": "8"},
+          "unit": "px"
+        },
+        "contentPadding": {
+          "md": {"top": "40", "right": "30", "bottom": "40", "left": "30"},
+          "unit": "px"
+        }
+      },
+      "useCase": "Feature benefits sections, service highlights, trust badges, USP (Unique Selling Points) grids",
+      "warnings": [
+        "fancyLineSize controls thickness of animated separator line (1-4px recommended)",
+        "fancyLineColor should match brand color for consistency",
+        "Only fancy-box-style-1 available currently",
+        "Separator line animates width from 0 to 100% on hover"
+      ],
+      "designTip": "Use circular icons (icon-circle) for modern, friendly appearance vs icon-square for professional look",
+      "relatedBlocks": ["tp-icon-box", "tp-infobox", "tp-stylist-list"]
     },
+
     {
-      "description": "Hover section with preloaded images",
+      "name": "Services Element - Expandable Feature Lists (Style-1)",
+      "description": "Service cards with expandable bullet-point feature lists and two-tone backgrounds",
+      "visualDescription": "Three cards with purple icon circles, collapsible feature lists (pipe-separated), white main background with light purple expandable section",
+      "complexity": "medium",
       "attributes": {
-        "block_id": "g7h8",
-        "mainStyleType": "hover-section",
-        "sectionStyle": "hover-section-style-2",
-        "sectionImgPreload": true,
+        "block_id": "asb007",
+        "mainStyleType": "services-element",
+        "serviceEStyle": "services-element-style-1",
+        "columns": {"md": 4, "sm": 6, "xs": 12},
+        "disIcnImg": true,
+        "iconStyle": "icon-circle",
+        "iconWidth": {"md": "70", "unit": "px"},
+        "iconImgSize": {"md": "35", "unit": "px"},
         "serviceBox": [
           {
             "_key": "0",
-            "title": "Project A",
-            "featureImg": {
-              "url": "/project-a-bg.jpg"
-            }
+            "title": "Starter Plan",
+            "description": "Perfect for individuals and small teams getting started",
+            "iconType": "icon",
+            "iconStore": "fas fa-rocket",
+            "contentList": "5 User Accounts | 10GB Storage | Email Support | Basic Analytics"
           },
           {
             "_key": "1",
-            "title": "Project B",
-            "featureImg": {
-              "url": "/project-b-bg.jpg"
-            }
+            "title": "Professional Plan",
+            "description": "Ideal for growing businesses with advanced needs",
+            "iconType": "icon",
+            "iconStore": "fas fa-briefcase",
+            "contentList": "25 User Accounts | 100GB Storage | Priority Support | Advanced Analytics | Custom Integrations | Team Collaboration"
+          },
+          {
+            "_key": "2",
+            "title": "Enterprise Plan",
+            "description": "Comprehensive solution for large organizations",
+            "iconType": "icon",
+            "iconStore": "fas fa-building",
+            "contentList": "Unlimited Users | 1TB Storage | 24/7 Phone Support | Custom Reports | API Access | Dedicated Account Manager | SLA Guarantee | White-Label Options"
           }
-        ]
-      }
+        ],
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "22", "sm": "20", "xs": "18", "unit": "px"},
+          "fontWeight": "600"
+        },
+        "listTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "15", "sm": "14", "xs": "13", "unit": "px"}
+        },
+        "icnNmlBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#667eea"
+        },
+        "icnNmlColor": "#ffffff",
+        "serEls2BG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#ffffff"
+        },
+        "serEls2HBG": {
+          "openBg": 1,
+          "bgType": "color",
+          "bgDefaultColor": "#f3f0ff"
+        },
+        "seContentPadding": {"md": "30", "unit": "px"}
+      },
+      "useCase": "Pricing tables, service packages, feature comparison, plan benefits sections",
+      "warnings": [
+        "CRITICAL: contentList uses pipe separator | to split into bullet points",
+        "Each | creates a new line item in the feature list",
+        "serEls2BG is main card background, serEls2HBG is expandable list section background",
+        "serviceEStyle options: services-element-style-1 (two-tone), services-element-style-2 (circle hover effects)"
+      ],
+      "contentListExample": "Feature 1 | Feature 2 | Feature 3 | Feature 4",
+      "designTip": "Use contrasting background colors for main/expandable sections for visual separation",
+      "relatedBlocks": ["tp-pricing-table", "tp-pricing-list", "tp-accordion"]
+    },
+
+    {
+      "name": "Portfolio - Image Grid with Hover Overlay (Style-1)",
+      "description": "Portfolio grid with circular images and centered overlay content on hover",
+      "visualDescription": "Three-column grid with circular portfolio images, purple gradient overlay fades in on hover revealing project title and 'View Project' link",
+      "complexity": "medium",
+      "attributes": {
+        "block_id": "asb008",
+        "mainStyleType": "portfolio",
+        "portfolioStyle": "portfolio-style-1",
+        "columns": {"md": 4, "sm": 6, "xs": 12},
+        "layoutHeight": {"md": "400", "sm": "350", "xs": "300", "unit": "px"},
+        "textAlign": "center",
+        "alignOffset": "center",
+        "imageSize": "large",
+        "titleOnClick": "View Project",
+        "serviceBox": [
+          {
+            "_key": "0",
+            "title": "E-Commerce Platform Redesign",
+            "subTitle": "UI/UX Design",
+            "description": "Complete redesign of checkout flow resulting in 45% increase in conversion rates",
+            "featureImg": {"url": "https://example.com/portfolio-ecommerce.jpg"},
+            "btnUrl": {"url": "/portfolio/ecommerce-redesign", "target": "", "nofollow": ""}
+          },
+          {
+            "_key": "1",
+            "title": "Mobile Banking App",
+            "subTitle": "iOS & Android Development",
+            "description": "Secure banking app with biometric authentication serving 100K+ active users",
+            "featureImg": {"url": "https://example.com/portfolio-banking.jpg"},
+            "btnUrl": {"url": "/portfolio/banking-app", "target": "", "nofollow": ""}
+          },
+          {
+            "_key": "2",
+            "title": "Marketing Dashboard",
+            "subTitle": "Web Application",
+            "description": "Real-time analytics dashboard integrating 15+ marketing platforms",
+            "featureImg": {"url": "https://example.com/portfolio-dashboard.jpg"},
+            "btnUrl": {"url": "/portfolio/marketing-dashboard", "target": "", "nofollow": ""}
+          }
+        ],
+        "titleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "24", "sm": "20", "xs": "18", "unit": "px"},
+          "fontWeight": "700"
+        },
+        "subTitleTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "14", "sm": "13", "xs": "12", "unit": "px"},
+          "fontWeight": "400",
+          "textTransform": "uppercase",
+          "letterSpacing": {"md": "1", "unit": "px"}
+        },
+        "titleLinkTypo": {
+          "openTypography": 1,
+          "fontSize": {"md": "16", "sm": "15", "xs": "14", "unit": "px"},
+          "fontWeight": "500"
+        },
+        "imgWidthHeight": {"md": "300", "sm": "250", "xs": "200", "unit": "px"},
+        "fImgBRadius": {
+          "md": {"top": "150", "right": "150", "bottom": "150", "left": "150"},
+          "unit": "px"
+        },
+        "articleS1BG": {
+          "openBg": 1,
+          "bgType": "gradient",
+          "bgGradient": {
+            "gradientType": "radial",
+            "gradientPosition": "center center",
+            "gradientColor": [
+              {"color": "#667eea", "position": 0},
+              {"color": "#764ba2", "position": 100}
+            ]
+          }
+        }
+      },
+      "useCase": "Agency portfolios, case study showcases, project galleries, work samples sections",
+      "warnings": [
+        "titleOnClick is the link text (e.g., 'View Project', 'See Details', 'Learn More')",
+        "portfolioStyle options: portfolio-style-1 (overlay center), portfolio-style-2 (overlay bottom)",
+        "imgWidthHeight sets both width and height (creates square images)",
+        "fImgBRadius: use equal values (150px) for perfect circles (half of imgWidthHeight)",
+        "subTitle appears above title as secondary label (e.g., category, service type)",
+        "btnUrl on each item is the project detail page link"
+      ],
+      "designTip": "Use radial gradients for circular portfolio items, linear for rectangular ones",
+      "relatedBlocks": ["tp-media-listing", "tp-creative-image", "tp-anything-carousel"]
     }
   ],
-  "commonPatterns": {}
+
+  "commonPatterns": {
+    "mainStyleTypeOptions": {
+      "image-accordion": "Expandable panels with background images (like vertical tabs)",
+      "sliding-boxes": "Grid of cards that slide up/left on hover revealing content",
+      "article-box": "Featured content cards with image backgrounds and text overlays",
+      "info-banner": "Full-width promotional banner with split content/image layout",
+      "hover-section": "Grid where hovering changes ENTIRE section background image",
+      "fancy-box": "Elegant icon cards with animated separator line",
+      "services-element": "Cards with expandable bullet-point feature lists",
+      "portfolio": "Image grid with overlay content on hover (circular or rectangular)"
+    },
+
+    "serviceBoxStructure": {
+      "_key": "Required React key (0, 1, 2...)",
+      "title": "Main heading",
+      "subTitle": "Optional secondary heading (appears above title in portfolio)",
+      "description": "Detailed text content",
+      "iconType": "'icon' for FontAwesome or 'image' for custom image",
+      "iconStore": "FontAwesome class (e.g., 'fas fa-code') or empty for iconType: image",
+      "imgStore": "Custom image object {url: '...'} when iconType: image",
+      "featureImg": "Background image object {url: '...'} for accordion/article/hover/portfolio",
+      "btnText": "Button label (requires disBtn: true)",
+      "btnUrl": "Link object {url, target, nofollow}",
+      "ariaLabel": "Accessibility label for screen readers",
+      "contentList": "Pipe-separated feature list for services-element: 'Feature 1 | Feature 2 | Feature 3'"
+    },
+
+    "columnsGridSystem": {
+      "Bootstrap 12-column grid": "Total columns = 12",
+      "md: 3 = 4 columns": "12 ÷ 3 = 4 items per row",
+      "md: 4 = 3 columns": "12 ÷ 4 = 3 items per row",
+      "md: 6 = 2 columns": "12 ÷ 6 = 2 items per row",
+      "md: 12 = 1 column": "12 ÷ 12 = 1 item per row (full width)",
+      "responsiveExample": {"md": 4, "sm": 6, "xs": 12}
+    },
+
+    "iconStyleOptions": {
+      "icon-square": "Square icon container with rounded corners",
+      "icon-circle": "Circular icon container (modern, friendly look)",
+      "icon-rounded": "Square with heavy border-radius (softer than square, less than circle)",
+      "none": "No background container (icon only)"
+    },
+
+    "whenToUseWhichStyle": {
+      "image-accordion": "When you have 3-5 services with distinct visuals, want interactive expansion",
+      "sliding-boxes": "Standard service/feature grids, most versatile, works for any content",
+      "article-box": "Blog posts, case studies, featured content with large images",
+      "info-banner": "Hero CTAs, promotional sections, product announcements (single item only)",
+      "hover-section": "Interactive showcases where background context changes (4-6 items max)",
+      "fancy-box": "Clean, minimal feature lists with subtle animations",
+      "services-element": "Detailed service packages with multiple features (pricing tables alternative)",
+      "portfolio": "Project galleries, case study grids, work samples with image focus"
+    }
+  },
+
+  "validationRules": {
+    "serviceBox": "Required array, minimum 1 item (info-banner), 2-8 items recommended (other styles)",
+    "_key": "Required for each serviceBox item, must be unique (0, 1, 2...)",
+    "activeSlide": "1-based index (first item = '1'), only for image-accordion/sliding-boxes",
+    "contentList": "Pipe-separated string, splits on | symbol",
+    "iconStore": "Required when iconType: 'icon', empty when iconType: 'image'",
+    "imgStore": "Required when iconType: 'image', {url: string} format",
+    "featureImg": "Required for image-accordion, article-box, hover-section, portfolio",
+    "columns": "Bootstrap 12-grid, md + sm + xs recommended for responsive",
+    "disBtn": "Must be true to show buttons (default false)",
+    "disIcnImg": "Must be true to show icons/images (default false)"
+  },
+
+  "warnings": [
+    "This is the most complex Nexter block with 8 completely different style systems",
+    "mainStyleType determines which attributes are active - many attributes are style-specific",
+    "info-banner should only have 1 item in serviceBox (it's a single banner, not repeater)",
+    "hover-section with sectionImgPreload: true downloads ALL background images upfront (use sparingly)",
+    "contentList uses pipe | separator, NOT commas (Feature 1 | Feature 2 | Feature 3)",
+    "activeSlide is 1-based for user-facing, but _key is 0-based for React",
+    "Don't mix iconType and featureImg - icons are for small graphics, featureImg is for large backgrounds",
+    "columns uses Bootstrap inverted logic: md: 4 = 3 columns (12 ÷ 4 = 3)",
+    "portfolio titleOnClick is the link text, NOT the click event"
+  ],
+
+  "accessibilityNotes": {
+    "ariaLabel": "Provide descriptive labels for all CTA buttons",
+    "altText": "featureImg and imgStore should have alt attributes in WordPress media library",
+    "semanticHTML": "titleTagType defaults to h6 (can change to h2/h3 for better hierarchy)",
+    "colorContrast": "Ensure 4.5:1 contrast ratio for text over gradient/image backgrounds",
+    "touchTargets": "Buttons should be minimum 44×44px for mobile accessibility"
+  },
+
+  "performanceOptimization": {
+    "imageOptimization": "Use WordPress imageSize: 'large' or 'medium' instead of 'full' for faster loading",
+    "lazyLoading": "Browser-native lazy loading applied to featureImg automatically",
+    "hoverSectionWarning": "sectionImgPreload: true loads all images upfront - limit to 4-6 items max",
+    "responsiveImages": "WordPress generates multiple sizes automatically for different breakpoints"
+  },
+
+  "troubleshooting": [
+    {
+      "issue": "Icons not showing",
+      "solution": "Set disIcnImg: true and ensure iconStore has valid FontAwesome class"
+    },
+    {
+      "issue": "Buttons not appearing",
+      "solution": "Set disBtn: true and add btnText to each serviceBox item"
+    },
+    {
+      "issue": "Background images not loading in hover-section",
+      "solution": "Set sectionImgPreload: true and ensure featureImg URLs are valid"
+    },
+    {
+      "issue": "contentList shows as single line",
+      "solution": "Use pipe | separator, not commas: 'Item 1 | Item 2 | Item 3'"
+    },
+    {
+      "issue": "Columns showing wrong number per row",
+      "solution": "Remember: md: 4 = 3 columns (12 ÷ 4), use Bootstrap 12-grid math"
+    },
+    {
+      "issue": "Accordion panels not expanding properly",
+      "solution": "Check imgFlexGrow value (default 7.5), ensure layoutHeight is set"
+    }
+  ]
 }

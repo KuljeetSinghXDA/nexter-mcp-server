@@ -1,69 +1,205 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-advanced-chart",
-  "title": "Advanced Chart - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Advanced Chart - Comprehensive Usage Examples",
+  "description": "Chart.js-powered data visualization block for displaying complex analytics, statistics, and metrics with interactive charts",
+  "version": "2.0.0",
+  "lastUpdated": "2025-11-23",
+
+  "libraryNote": "This block uses Chart.js (v3+) library for rendering. All Chart.js features and configurations are supported. Charts are responsive by default and include hover animations, tooltips, and legends.",
+
   "examples": [
     {
-      "description": "Simple line chart with 3 datasets",
+      "name": "Monthly Revenue Line Chart (Sales Trends)",
+      "description": "Line chart showing revenue and expenses trends over 12 months with smooth curves and filled areas",
+      "visualDescription": "Blue revenue line trending upward, red expense line below, semi-transparent fill below lines, smooth curves",
+      "complexity": "simple",
+      "useCase": "Financial dashboards, sales tracking, KPI monitoring, business analytics",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "chart001",
         "chartType": "line",
-        "labelValue": "Jan | Feb | Mar | Apr | May",
+        "labelValue": "Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec",
         "dataBox": [
           {
             "_key": "0",
             "label": "Revenue",
-            "data": "25|30|35|40|45",
-            "fillBG": "#667eea99",
+            "data": "42|45|50|48|55|60|62|65|68|70|75|80",
+            "fillBG": "#667eea33",
             "bdrColor": "#667eea",
-            "fillTgl": true
+            "singleDot": "#667eea",
+            "fillTgl": true,
+            "bDashTgl": false,
+            "multiDot": false
           },
           {
             "_key": "1",
             "label": "Expenses",
-            "data": "15|20|18|22|25",
-            "fillBG": "#e7445899",
+            "data": "30|32|35|33|38|40|42|44|45|47|50|52",
+            "fillBG": "#e7445833",
             "bdrColor": "#e74458",
-            "fillTgl": true
+            "singleDot": "#e74458",
+            "fillTgl": true,
+            "bDashTgl": false,
+            "multiDot": false
           }
-        ]
+        ],
+        "smooth": true,
+        "tensionS": "0.4",
+        "legends": true,
+        "legendPos": "top",
+        "legendAlign": "center",
+        "gridLine": true,
+        "yPostFixText": "K",
+        "yPrePostfix": true,
+        "animation": "easeOutQuart",
+        "anDuration": "1000"
+      },
+      "dataFormatGuide": {
+        "pipeS separated": "Values must be separated by pipe | symbol",
+        "matchLabels": "Number of data values must match number of labels",
+        "example": "labelValue='Jan|Feb|Mar' requires data='10|20|30' (3 values)"
+      },
+      "colorGuide": {
+        "hex": "#667eea (solid color)",
+        "rgba": "#667eea33 or rgba(102, 126, 234, 0.2) for semi-transparent",
+        "lastTwoDigits": "33 = 20% opacity, 66 = 40%, 99 = 60%, CC = 80%, FF = 100%"
       }
     },
+
     {
-      "description": "Horizontal bar chart comparison",
+      "name": "Vertical Bar Chart (Quarterly Comparison)",
+      "description": "Vertical bar chart comparing quarterly sales across three products",
+      "visualDescription": "Three grouped vertical bars per quarter (Q1-Q4), different colors for each product, grid lines for easy reading",
+      "complexity": "simple",
+      "useCase": "Quarterly reports, product comparisons, performance tracking, team metrics",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "chart002",
         "chartType": "bar",
-        "barType": "horizontal",
-        "labelValue": "Product A | Product B | Product C",
+        "barType": "vertical",
+        "labelValue": "Q1 | Q2 | Q3 | Q4",
         "dataBox": [
           {
             "_key": "0",
-            "label": "Q1 Sales",
-            "data": "120|95|150",
+            "label": "Product A",
+            "data": "120|135|145|160",
             "fillBG": "#27ae60",
-            "bdrColor": "#27ae60"
+            "bdrColor": "#27ae60",
+            "dotBColor": "#27ae60"
+          },
+          {
+            "_key": "1",
+            "label": "Product B",
+            "data": "95|110|120|130",
+            "fillBG": "#667eea",
+            "bdrColor": "#667eea",
+            "dotBColor": "#667eea"
+          },
+          {
+            "_key": "2",
+            "label": "Product C",
+            "data": "150|165|170|185",
+            "fillBG": "#e67e22",
+            "bdrColor": "#e67e22",
+            "dotBColor": "#e67e22"
           }
-        ]
+        ],
+        "barSize": "40",
+        "barSpace": "30",
+        "legends": true,
+        "legendPos": "top",
+        "gridLine": true,
+        "yPrePostfix": true,
+        "yPostFixText": "K",
+        "tooltip": true,
+        "tipEvent": "hover"
+      },
+      "barSizingGuide": {
+        "barSize": "Bar thickness in pixels (20-60 recommended, 40 standard)",
+        "barSpace": "Space between bar groups in percentage (20-50 recommended, 30 standard)",
+        "responsive": "Bars automatically resize on mobile (use percentage for barSpace)"
       }
     },
+
     {
-      "description": "Pie chart with custom colors",
+      "name": "Horizontal Progress Bars (Project Completion)",
+      "description": "Horizontal bar chart showing project completion percentages",
+      "visualDescription": "Horizontal bars from left to right, color-coded by completion status (green complete, yellow in-progress, red at-risk)",
+      "complexity": "simple",
+      "useCase": "Project dashboards, task progress, goal tracking, skill assessments",
       "attributes": {
-        "block_id": "e5f6",
+        "block_id": "chart003",
+        "chartType": "bar",
+        "barType": "horizontal",
+        "labelValue": "Website Redesign | Mobile App | API Integration | Documentation | Testing",
+        "dataBox": [
+          {
+            "_key": "0",
+            "label": "Completion %",
+            "data": "100|75|60|45|30",
+            "multiDotBG": "#27ae60 | #f39c12 | #f39c12 | #e74c3c | #e74c3c",
+            "dotMultiBColor": "#27ae60 | #f39c12 | #f39c12 | #e74c3c | #e74c3c",
+            "multiDot": true,
+            "multiBdr": true
+          }
+        ],
+        "barSize": "30",
+        "legends": false,
+        "gridLine": true,
+        "xPrePostfix": true,
+        "xPostFixText": "%",
+        "tooltip": true
+      },
+      "multiColorGuide": {
+        "multiDot": "Enable to use different colors for each bar",
+        "multiDotBG": "Pipe-separated colors matching number of data points",
+        "multiBdr": "Enable to use different border colors",
+        "dotMultiBColor": "Pipe-separated border colors",
+        "statusColors": "Green 75-100%, Yellow 50-74%, Red 0-49%"
+      }
+    },
+
+    {
+      "name": "Doughnut Chart (Traffic Sources)",
+      "description": "Doughnut chart showing website traffic breakdown by source with percentage labels",
+      "visualDescription": "Circular chart with center hole, 5 colored segments (search, social, direct, referral, email), legend on right",
+      "complexity": "simple",
+      "useCase": "Traffic analytics, budget allocation, market share, survey results, portfolio breakdown",
+      "attributes": {
+        "block_id": "chart004",
         "chartType": "pie",
         "pieType": "doughnut",
-        "labelValue": "Desktop | Mobile | Tablet",
-        "aloneData": "45 | 35 | 20",
-        "aloneBG": "#667eea | #27ae60 | #e74458",
-        "aloneBdr": "#667eea | #27ae60 | #e74458"
+        "labelValue": "Organic Search | Social Media | Direct Traffic | Referral | Email",
+        "aloneData": "42 | 28 | 18 | 8 | 4",
+        "aloneBG": "#667eea | #3498db | #27ae60 | #e67e22 | #e74c3c",
+        "aloneBdr": "#667eea | #3498db | #27ae60 | #e67e22 | #e74c3c",
+        "legends": true,
+        "legendPos": "right",
+        "legendAlign": "center",
+        "tooltip": true,
+        "tipEvent": "hover",
+        "animation": "easeOutBounce",
+        "anDuration": "1500"
+      },
+      "pieVsDoughnutGuide": {
+        "pie": "Full circle, no center hole - use for simple proportions (3-5 segments)",
+        "doughnut": "Circle with center hole - use for professional dashboards (4-8 segments)",
+        "recommendation": "Doughnut preferred for most use cases (modern, less visual weight)"
+      },
+      "dataCalculation": {
+        "percentages": "Chart.js automatically calculates percentages from raw values",
+        "example": "Values '42|28|18|8|4' sum to 100, showing 42%, 28%, 18%, 8%, 4%",
+        "nonNormalized": "Values '420|280|180|80|40' also work, percentages calculated automatically"
       }
     },
+
     {
-      "description": "Radar chart for multi-metric comparison",
+      "name": "Multi-Dataset Radar Chart (Product Comparison)",
+      "description": "Radar chart comparing two products across five metrics (spider chart)",
+      "visualDescription": "Pentagon shape with 5 axes (Speed, Quality, Price, Support, Features), two overlapping filled areas for Product A (blue) and Product B (green)",
+      "complexity": "medium",
+      "useCase": "Product comparisons, skill assessments, competitive analysis, multi-criteria evaluation",
       "attributes": {
-        "block_id": "g7h8",
+        "block_id": "chart005",
         "chartType": "radar",
         "labelValue": "Speed | Quality | Price | Support | Features",
         "dataBox": [
@@ -71,33 +207,413 @@
             "_key": "0",
             "label": "Product A",
             "data": "85|90|70|95|80",
-            "fillBG": "#667eea66",
-            "bdrColor": "#667eea"
+            "fillBG": "#667eea33",
+            "bdrColor": "#667eea",
+            "singleDot": "#667eea",
+            "fillTgl": true
           },
           {
             "_key": "1",
             "label": "Product B",
             "data": "70|85|90|75|85",
-            "fillBG": "#27ae6066",
-            "bdrColor": "#27ae60"
+            "fillBG": "#27ae6033",
+            "bdrColor": "#27ae60",
+            "singleDot": "#27ae60",
+            "fillTgl": true
           }
-        ]
+        ],
+        "legends": true,
+        "legendPos": "top",
+        "gridLine": true,
+        "gridXColor": "rgba(0,0,0,0.1)",
+        "tooltip": true
+      },
+      "radarChartGuide": {
+        "axes": "Each label creates one axis (3-8 axes recommended)",
+        "scale": "Values typically 0-100 for percentage-based comparison",
+        "overlap": "Use semi-transparent fill (33-66 hex opacity) to see overlapping areas",
+        "interpretation": "Larger area = better overall performance, shape shows strengths/weaknesses"
       }
     },
+
     {
-      "description": "Bubble chart for scatter plot with size",
+      "name": "Smooth Line Chart with Area Fill (User Growth)",
+      "description": "Line chart with smooth curves showing exponential user growth with gradient-like area fill",
+      "visualDescription": "Smooth upward curve from 1K to 50K users, semi-transparent blue fill below line, minimal grid for clean look",
+      "complexity": "simple",
+      "useCase": "Growth metrics, cumulative totals, user acquisition, subscriber growth",
       "attributes": {
-        "block_id": "i9j0",
+        "block_id": "chart006",
+        "chartType": "line",
+        "labelValue": "Week 1 | Week 2 | Week 3 | Week 4 | Week 5 | Week 6 | Week 7 | Week 8",
+        "dataBox": [
+          {
+            "_key": "0",
+            "label": "Total Users",
+            "data": "1000|2500|5000|8500|15000|25000|38000|50000",
+            "fillBG": "#667eea20",
+            "bdrColor": "#667eea",
+            "singleDot": "#667eea",
+            "fillTgl": true,
+            "bDashTgl": false
+          }
+        ],
+        "smooth": true,
+        "tensionS": "0.4",
+        "cPointStyle": true,
+        "pointStyle": "circle",
+        "pointNmlSize": "6",
+        "pointHvrSize": "10",
+        "legends": false,
+        "gridLine": true,
+        "gridXColor": "rgba(0,0,0,0.05)",
+        "gridYColor": "rgba(0,0,0,0.05)",
+        "yPrePostfix": true,
+        "yPostFixText": "K",
+        "tooltip": true
+      },
+      "smoothLineGuide": {
+        "smooth": "Enable for curved lines (vs straight segments)",
+        "tensionS": "Curve tension 0.0-1.0 (0.4 = natural, 0.0 = straight, 1.0 = very curvy)",
+        "cPointStyle": "Enable custom point styling (circles, triangles, etc.)",
+        "pointStyle": "circle, triangle, rect, rectRounded, rectRot, cross, crossRot, star, line, dash",
+        "growthCurves": "Use smooth lines for natural growth patterns, straight for step changes"
+      }
+    },
+
+    {
+      "name": "Stacked Bar Chart (Budget Breakdown)",
+      "description": "Vertical stacked bar chart showing budget allocation across departments per quarter",
+      "visualDescription": "Four stacked bars (Q1-Q4), each divided into three colored segments (Marketing, Development, Operations) showing proportional spend",
+      "complexity": "medium",
+      "useCase": "Budget breakdown, resource allocation, time tracking, cost distribution",
+      "attributes": {
+        "block_id": "chart007",
+        "chartType": "bar",
+        "barType": "vertical",
+        "labelValue": "Q1 | Q2 | Q3 | Q4",
+        "dataBox": [
+          {
+            "_key": "0",
+            "label": "Marketing",
+            "data": "50|55|60|65",
+            "fillBG": "#e74458",
+            "bdrColor": "#e74458"
+          },
+          {
+            "_key": "1",
+            "label": "Development",
+            "data": "80|85|90|95",
+            "fillBG": "#667eea",
+            "bdrColor": "#667eea"
+          },
+          {
+            "_key": "2",
+            "label": "Operations",
+            "data": "30|32|35|38",
+            "fillBG": "#27ae60",
+            "bdrColor": "#27ae60"
+          }
+        ],
+        "barSize": "50",
+        "legends": true,
+        "legendPos": "top",
+        "gridLine": true,
+        "yPrePostfix": true,
+        "yPostFixText": "K USD",
+        "tooltip": true
+      },
+      "stackedChartNote": "Chart.js automatically stacks datasets when using bar chart with multiple datasets. Total height = sum of all datasets at each label.",
+      "budgetVisualizationTip": "Use consistent color coding: Marketing=Red, Development=Blue, Operations=Green across all company dashboards for brand consistency"
+    },
+
+    {
+      "name": "Bubble Chart (Risk-Impact Matrix)",
+      "description": "Bubble chart showing project risks plotted by probability (x), impact (y), and urgency (size)",
+      "visualDescription": "Scattered bubbles of various sizes, position shows risk probability and impact, larger bubbles = more urgent",
+      "complexity": "advanced",
+      "useCase": "Risk assessment, portfolio analysis, priority matrices, scatter plots with 3 dimensions",
+      "attributes": {
+        "block_id": "chart008",
         "chartType": "bubble",
         "bblDataBox": [
           {
             "_key": "0",
-            "bblLabel": "Dataset 1",
-            "bblData": "[20|30|15][40|10|10][60|60|20]"
+            "bblLabel": "Critical Risks",
+            "bblData": "[80|85|25][70|90|30][90|80|20]",
+            "bblMultiBG": true,
+            "bblMultiDotBG": "#e74c3c99 | #e74c3c99 | #e74c3c99",
+            "bblMultiBdr": true,
+            "bblMultiBColor": "#e74c3c | #e74c3c | #e74c3c"
+          },
+          {
+            "_key": "1",
+            "bblLabel": "Medium Risks",
+            "bblData": "[50|60|15][60|50|12][45|55|18]",
+            "bblMultiBG": true,
+            "bblMultiDotBG": "#f39c1299 | #f39c1299 | #f39c1299",
+            "bblMultiBdr": true,
+            "bblMultiBColor": "#f39c12 | #f39c12 | #f39c12"
+          },
+          {
+            "_key": "2",
+            "bblLabel": "Low Risks",
+            "bblData": "[20|30|8][30|20|10][25|25|6]",
+            "bblMultiBG": true,
+            "bblMultiDotBG": "#27ae6099 | #27ae6099 | #27ae6099",
+            "bblMultiBdr": true,
+            "bblMultiBColor": "#27ae60 | #27ae60 | #27ae60"
           }
-        ]
+        ],
+        "legends": true,
+        "legendPos": "top",
+        "gridLine": true,
+        "xPrePostfix": true,
+        "xPostFixText": "% Probability",
+        "yPrePostfix": true,
+        "yPostFixText": "% Impact",
+        "tooltip": true
+      },
+      "bubbleDataFormat": {
+        "structure": "[x|y|size] [x|y|size] [x|y|size]",
+        "xAxis": "Horizontal position (e.g., probability 0-100)",
+        "yAxis": "Vertical position (e.g., impact 0-100)",
+        "size": "Bubble radius in pixels (5-30 recommended)",
+        "example": "[80|85|25] means x=80, y=85, radius=25px"
+      },
+      "riskMatrixGuide": {
+        "quadrants": "Top-right = high risk (red), bottom-left = low risk (green), others = medium (yellow)",
+        "size": "Larger bubbles for more urgent or time-sensitive risks",
+        "actionPlan": "Focus on top-right quadrant (high probability + high impact)"
       }
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "block_id": "Required, unique identifier",
+    "chartType": "Required, must be: line, bar, pie, radar, polarArea, bubble",
+    "labelValue": "Required, pipe-separated labels (must match data point count)",
+    "dataBox": "For line/bar/radar, array of datasets with label, data, colors",
+    "aloneData": "For pie/doughnut, single dataset with pipe-separated values",
+    "bblDataBox": "For bubble charts, array with [x|y|size] format",
+    "dataSync": "Number of data values must match number of labels exactly",
+    "colorFormat": "Hex (#667eea), hex with alpha (#667eea33), or rgba(102,126,234,0.2)"
+  },
+
+  "warnings": [
+    "CRITICAL: Number of data values must exactly match number of labels (3 labels = 3 data values per dataset)",
+    "Pipe separator required: Use | between values, not commas or spaces",
+    "Chart.js library must be loaded (included with The Plus Addons Pro)",
+    "Large datasets (100+ points) may impact performance on mobile",
+    "Bubble chart data format is different: [x|y|size] not simple values",
+    "pieType only works when chartType='pie' (ignored for other types)",
+    "barType only works when chartType='bar' (ignored for other types)",
+    "aloneData is for pie/doughnut only (use dataBox for line/bar/radar)",
+    "Multi-color requires multiDot: true and pipe-separated colors for each bar",
+    "Smooth lines require smooth: true and tensionS value (0.0-1.0)",
+    "Aspect ratio locked if mAspctRatio: true (use chartHeight to control)",
+    "Legends can be hidden but recommended for multi-dataset charts",
+    "Tooltips show on hover by default (tipEvent: 'hover' or 'click')",
+    "Animation duration in milliseconds (1000 = 1 second)",
+    "Grid lines improve readability for data-heavy charts (gridLine: true recommended)"
+  ],
+
+  "commonMistakes": [
+    "Mismatched label and data counts ('Jan|Feb|Mar' with data='10|20' - missing 3rd value)",
+    "Using commas instead of pipes for separation ('10,20,30' should be '10|20|30')",
+    "Forgetting spaces around pipes in labelValue ('Jan|Feb' is correct, 'Jan|  Feb' has extra spaces)",
+    "Using aloneData for line/bar charts (use dataBox array instead)",
+    "Using dataBox for pie/doughnut charts (use aloneData instead)",
+    "Setting pieType='doughnut' when chartType='line' (pieType only works with pie charts)",
+    "Forgetting multiDot: true when using pipe-separated colors in multiDotBG",
+    "Using solid colors for overlapping radar/line fills (use semi-transparent 33-66 opacity)",
+    "Not setting fillTgl: true when you want area fill below line",
+    "Setting tensionS without smooth: true (tensionS only works when smooth enabled)",
+    "Using anDuration='1' instead of '1000' (duration is milliseconds, not seconds)",
+    "Creating too many datasets (5+ on mobile becomes unreadable)",
+    "Not using yPostFixText/xPostFixText for units (%, K, M, USD, etc.)",
+    "Mixing chart types (can't have both line and bar in same chart - use Chart.js mixed type if needed)",
+    "Not testing responsive behavior on mobile (charts may need different sizing)",
+    "Using generic labels ('Data 1', 'Data 2' instead of meaningful names)"
+  ],
+
+  "bestPractices": [
+    "Always match label count with data count (3 labels = 3 values per dataset)",
+    "Use descriptive dataset labels ('Revenue' not 'Dataset 1') for legend clarity",
+    "Add units with yPostFixText/xPostFixText (%, K, USD) for context",
+    "Use semi-transparent fills (33-66 hex) for overlapping line/radar charts",
+    "Enable smooth: true for natural-looking growth curves (tensionS: 0.4)",
+    "Position legends based on chart type: top for bar/line, right for pie/doughnut",
+    "Enable gridLine: true for data-heavy charts (easier to read values)",
+    "Use consistent color schemes across company dashboards (brand colors)",
+    "Limit datasets to 3-4 on mobile (5+ becomes crowded)",
+    "Choose appropriate chart type: line for trends, bar for comparisons, pie for proportions",
+    "Use doughnut over pie for modern, professional look",
+    "Set animation duration 1000-1500ms (too fast looks jarring, too slow feels sluggish)",
+    "Enable tooltips for detailed data on hover (tooltip: true)",
+    "Use horizontal bars for long labels (project names, product titles)",
+    "Apply multi-color strategically (e.g., green for complete, red for incomplete)",
+    "Test on mobile - reduce data points or switch chart type if needed",
+    "Use bubble charts sparingly (3D data harder to interpret than 2D)",
+    "Set appropriate barSize: 40px standard, 30px for many bars, 60px for few bars",
+    "Keep radar charts to 5-8 axes (too many creates visual clutter)",
+    "For financial data, use K, M, B suffixes (50K instead of 50000)",
+    "Use consistent scale across related charts (all 0-100 or all 0-10K)",
+    "Consider accessibility: add aria-label to chart container",
+    "Export chart data as CSV option for users who want raw numbers"
+  ],
+
+  "chartTypeSelectionGuide": {
+    "line": {
+      "bestFor": "Trends over time, continuous data, growth metrics",
+      "examples": "Revenue trends, user growth, temperature changes, stock prices",
+      "tip": "Use smooth curves for natural data, straight lines for discrete measurements"
+    },
+    "bar": {
+      "bestFor": "Comparing discrete categories, ranking, comparisons",
+      "examples": "Quarterly sales, product comparisons, survey results, top performers",
+      "vertical": "Good for time-based comparisons (Q1, Q2, Q3) or short labels",
+      "horizontal": "Better for long labels (product names, project titles) or rankings"
+    },
+    "pie": {
+      "bestFor": "Part-to-whole relationships, proportions, percentages",
+      "examples": "Market share, budget allocation, traffic sources, demographic splits",
+      "pie": "Classic, use for simple 3-5 segment proportions",
+      "doughnut": "Modern, professional, use for 4-8 segments, leaves center for title/total"
+    },
+    "radar": {
+      "bestFor": "Multi-dimensional comparisons, skill assessments, balanced scorecards",
+      "examples": "Product feature comparisons, employee evaluations, competitive analysis",
+      "tip": "Limit to 5-8 axes for readability, use contrasting colors for overlapping areas"
+    },
+    "bubble": {
+      "bestFor": "Three-dimensional data, risk matrices, scatter plots with size dimension",
+      "examples": "Risk-impact matrices, portfolio analysis, competitor positioning",
+      "tip": "Use sparingly - harder to interpret than 2D charts, better for technical audiences"
+    }
+  },
+
+  "accessibilityConsiderations": [
+    "Charts are visual by nature - provide text alternative or data table",
+    "Ensure sufficient color contrast for labels and legends (WCAG 4.5:1)",
+    "Don't rely solely on color to convey information (use labels, patterns, icons)",
+    "Tooltips should be keyboard accessible (Chart.js handles this)",
+    "Consider colorblind users: avoid red/green only comparisons, use blue/orange",
+    "Provide aria-label on chart container describing chart purpose",
+    "Test with screen readers - Chart.js canvas may need additional context",
+    "Use descriptive legend labels (not just 'Series 1', 'Series 2')",
+    "Consider offering CSV export for users who prefer raw data"
+  ],
+
+  "performanceOptimization": [
+    "Chart.js renders on HTML5 canvas (GPU-accelerated, performant)",
+    "Limit data points on mobile: 50-100 points max for smooth animations",
+    "Use lower animation duration on mobile (750ms vs 1500ms desktop)",
+    "Disable animations for print views (anDuration: '0')",
+    "Consider lazy loading for charts below fold (load on viewport intersection)",
+    "Cache chart data when possible (don't fetch on every page load)",
+    "Use responsive: true (default) for automatic mobile resizing",
+    "Test on mid-range mobile devices, not just desktop",
+    "Consider using Chart.js decimation plugin for 1000+ data points"
+  ],
+
+  "troubleshooting": [
+    {
+      "issue": "Chart not displaying / blank area",
+      "solutions": [
+        "Verify Chart.js library is loaded (included with TPGB Pro)",
+        "Check browser console for JavaScript errors",
+        "Verify labelValue and data counts match exactly",
+        "Ensure data values are numbers (not text with letters)",
+        "Check that chartType is spelled correctly",
+        "Test in incognito mode to rule out browser extensions"
+      ]
+    },
+    {
+      "issue": "Data not matching labels / misaligned",
+      "solutions": [
+        "Count labels and data values - must be exactly equal",
+        "Check for extra spaces in labelValue ('Jan | Feb' has spaces)",
+        "Verify pipe separator | is used (not commas, semicolons, or spaces)",
+        "Check for trailing pipes ('Jan|Feb|' has empty 3rd label)",
+        "Inspect dataBox array - each dataset needs same number of values"
+      ]
+    },
+    {
+      "issue": "Colors not showing / wrong colors",
+      "solutions": [
+        "Verify color format is valid hex (#667eea) or rgba",
+        "For semi-transparent, use hex with alpha: #667eea33 (33 = 20% opacity)",
+        "Check multiDot: true when using pipe-separated colors",
+        "Verify bblMultiBG: true for bubble chart multi-colors",
+        "Ensure color count matches data point count for multi-colors"
+      ]
+    },
+    {
+      "issue": "Tooltip not showing",
+      "solutions": [
+        "Verify tooltip: true is set",
+        "Check tipEvent is 'hover' or 'click' (hover is default)",
+        "Test on desktop with mouse (touch devices need click)",
+        "Check browser console for JavaScript errors",
+        "Verify Chart.js version is v3+ (v2 has different tooltip API)"
+      ]
+    },
+    {
+      "issue": "Chart too small / wrong aspect ratio",
+      "solutions": [
+        "Set mAspctRatio: true and define chartHeight {md: '400', unit: 'px'}",
+        "Check parent container width (chart inherits container width)",
+        "Test on different screen sizes (responsive scaling)",
+        "For pie/doughnut, ensure container has defined height",
+        "Consider using chartHeight for fixed height charts"
+      ]
+    },
+    {
+      "issue": "Smooth lines not working",
+      "solutions": [
+        "Verify smooth: true is set",
+        "Set tensionS value (0.4 recommended for natural curves)",
+        "Check chartType is 'line' (smooth only works for line charts)",
+        "Verify data has enough points (minimum 3 for smooth curves)",
+        "Test in modern browser (IE11 may have issues)"
+      ]
+    }
+  ],
+
+  "integrationExamples": [
+    {
+      "name": "Dashboard with Multiple Charts",
+      "description": "Create comprehensive analytics dashboard with 3-4 different chart types",
+      "layout": "Use tp-row and tp-column to arrange charts in grid (2 charts per row on desktop, 1 per row on mobile)",
+      "charts": [
+        "Revenue trend (line chart, top left)",
+        "Product comparison (vertical bar chart, top right)",
+        "Traffic sources (doughnut chart, bottom left)",
+        "Performance metrics (radar chart, bottom right)"
+      ]
+    },
+    {
+      "name": "Financial Report Page",
+      "description": "Quarterly financial report with multiple metrics",
+      "tip": "Use consistent colors: blue for revenue, red for expenses, green for profit across all charts"
+    },
+    {
+      "name": "Project Management Dashboard",
+      "description": "Track project progress, risks, and resource allocation",
+      "charts": [
+        "Task completion (horizontal bars)",
+        "Risk matrix (bubble chart)",
+        "Budget breakdown (stacked bars)"
+      ]
+    }
+  ],
+
+  "relatedBlocks": [
+    "tpgb/tp-number-counter - For single metric highlights before diving into charts",
+    "tpgb/tp-progress-bar - Alternative for simple progress visualization",
+    "tpgb/tp-row and tp-column - For arranging multiple charts in dashboard layout",
+    "tpgb/tp-heading - For chart titles and section headings",
+    "tpgb/tp-container - For dashboard sections with background/borders"
+  ]
 }

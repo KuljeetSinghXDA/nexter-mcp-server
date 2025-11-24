@@ -1,30 +1,138 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "blockName": "tpgb/tp-heading-animation",
-  "title": "Heading Animation - Usage Examples",
-  "description": "Common usage patterns and example configurations",
+  "title": "Heading Animation - Comprehensive Usage Examples",
+  "description": "Animated headings with SVG highlights and rotating text effects for impactful hero sections",
+  "version": "2.0.0",
+  "lastUpdated": "2025-11-23",
+
   "examples": [
     {
-      "description": "Simple underline highlight",
+      "name": "Hero Underline Highlight (Style-1)",
+      "description": "Large hero heading with animated underline highlight drawing attention to key word",
+      "visualDescription": "Center-aligned H1 with 'Innovative' underlined by animated purple SVG stroke that draws from left to right in 2 seconds",
+      "complexity": "simple",
+      "useCase": "Hero sections, landing page headlines, about page intros",
       "attributes": {
-        "block_id": "a1b2",
+        "block_id": "ha001",
         "style": "highlights",
         "highLightStyle": "underline",
         "prefixText": "We are ",
         "highlightsText": "Innovative",
         "postfixText": " thinkers",
+        "titleTag": "h1",
+        "alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "56",
+            "sm": "42",
+            "xs": "32",
+            "unit": "px"
+          },
+          "fontWeight": "700",
+          "lineHeight": {
+            "md": "1.2",
+            "unit": "em"
+          }
+        },
+        "textColor": "#2c3e50",
+        "animTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "56",
+            "sm": "42",
+            "xs": "32",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "animColor": "#667eea",
+        "AnimationDur": "2",
+        "strokeWidth": "3",
+        "strokeColor": "#667eea"
+      },
+      "highlightStyleOptions": {
+        "underline": "Straight line below text (classic)",
+        "circle": "Circular shape around text (attention-grabbing)",
+        "curly": "Hand-drawn curly underline (playful)",
+        "strikethrough": "Line through middle of text (emphasis)",
+        "double-underline": "Two parallel lines below (formal)",
+        "highlight": "Background highlight rectangle (highlighter effect)"
+      },
+      "warnings": [
+        "highLightStyle requires style: 'highlights' (not 'textAnim')",
+        "AnimationDur is in SECONDS for highlights (not milliseconds)",
+        "strokeWidth 1-5 recommended (too thick looks bulky)",
+        "Animated SVG highlights may not work in IE11"
+      ]
+    },
+
+    {
+      "name": "Circle Highlight with Bold Colors",
+      "description": "Centered heading with circular highlight around key word for maximum impact",
+      "visualDescription": "Large 'Best' word circled by animated red SVG stroke, contrasting with dark gray surrounding text",
+      "complexity": "simple",
+      "useCase": "Feature highlights, product USPs, award mentions, key benefits",
+      "attributes": {
+        "block_id": "ha002",
+        "style": "highlights",
+        "highLightStyle": "circle",
+        "prefixText": "The ",
+        "highlightsText": "Best",
+        "postfixText": " Solution for Your Business",
+        "titleTag": "h2",
         "alignment": {
           "md": "center"
         },
-        "titleTag": "h1"
-      }
+        "textTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "48",
+            "sm": "36",
+            "xs": "28",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "textColor": "#34495e",
+        "animTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "52",
+            "sm": "40",
+            "xs": "32",
+            "unit": "px"
+          },
+          "fontWeight": "800"
+        },
+        "animColor": "#e74c3c",
+        "AnimationDur": "1.5",
+        "strokeWidth": "4",
+        "strokeColor": "#e74c3c"
+      },
+      "bestPractices": [
+        "Use circle for single words (not phrases) - works best with 3-12 characters",
+        "Make animated text slightly larger than surrounding text (4-8px) for emphasis",
+        "Use contrasting colors (dark text + bright highlight) for readability",
+        "Animation duration 1-2 seconds is ideal (not too fast, not too slow)"
+      ]
     },
+
     {
-      "description": "Rotating text with 4 words",
+      "name": "Rotating Service Headlines (Text Animation Style-1)",
+      "description": "Dynamic heading with rotating words showing multiple services/benefits with underline effect",
+      "visualDescription": "Left-aligned heading 'We help you' followed by rotating words (Grow, Succeed, Scale, Thrive) with purple underline that animates with each word change",
+      "complexity": "medium",
+      "useCase": "Agency homepages, multi-service businesses, SaaS features, product benefits",
       "attributes": {
-        "block_id": "c3d4",
+        "block_id": "ha003",
         "style": "textAnim",
-        "textAnimStyle": "style-2",
+        "textAnimStyle": "style-1",
         "prefixText": "We help you ",
         "animText": [
           {
@@ -42,36 +150,201 @@
           {
             "_key": "3",
             "singleText": "Thrive"
+          },
+          {
+            "_key": "4",
+            "singleText": "Win"
           }
         ],
-        "durationTiming": "800"
-      }
-    },
-    {
-      "description": "Circle highlight with custom colors",
-      "attributes": {
-        "block_id": "e5f6",
-        "style": "highlights",
-        "highLightStyle": "circle",
-        "prefixText": "The ",
-        "highlightsText": "Best",
-        "postfixText": " Solution",
-        "textColor": "#2c3e50",
-        "animColor": "#667eea",
-        "animTypo": {
+        "postfixText": " your business",
+        "durationTiming": "800",
+        "titleTag": "h2",
+        "alignment": {
+          "md": "left",
+          "sm": "center",
+          "xs": "center"
+        },
+        "textTypo": {
           "openTypography": 1,
-          "size": {
-            "md": "48",
+          "fontSize": {
+            "md": "42",
+            "sm": "32",
+            "xs": "24",
             "unit": "px"
           },
-          "weight": "700"
-        }
+          "fontWeight": "600"
+        },
+        "textColor": "#2c3e50",
+        "animTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "42",
+            "sm": "32",
+            "xs": "24",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "animColor": "#667eea",
+        "lineColor": "#667eea"
+      },
+      "textAnimStyleOptions": {
+        "style-1": "Slide up with underline - Classic text rotation with underline that animates",
+        "style-2": "Fade - Words fade in/out smoothly (subtle)",
+        "style-3": "Slide - Words slide up/down (dynamic)",
+        "style-4": "Flip - Words flip like cards (playful)"
+      },
+      "warnings": [
+        "durationTiming is in MILLISECONDS for textAnim (not seconds like highlights)",
+        "lineColor only works with textAnimStyle: 'style-1' (underline effect)",
+        "Each animText item needs unique _key for React rendering",
+        "Minimum 2 words required in animText array (otherwise no animation)"
+      ]
+    },
+
+    {
+      "name": "Fade Text Animation (Style-2)",
+      "description": "Smooth fade transition between words for elegant, subtle effect",
+      "visualDescription": "Center-aligned heading with words fading in/out gracefully (Design, Develop, Deploy, Deliver) in teal color",
+      "complexity": "simple",
+      "useCase": "Professional services, portfolios, process descriptions, elegant brands",
+      "attributes": {
+        "block_id": "ha004",
+        "style": "textAnim",
+        "textAnimStyle": "style-2",
+        "prefixText": "We ",
+        "animText": [
+          {
+            "_key": "0",
+            "singleText": "Design"
+          },
+          {
+            "_key": "1",
+            "singleText": "Develop"
+          },
+          {
+            "_key": "2",
+            "singleText": "Deploy"
+          },
+          {
+            "_key": "3",
+            "singleText": "Deliver"
+          }
+        ],
+        "postfixText": " Excellence",
+        "durationTiming": "1000",
+        "titleTag": "h1",
+        "alignment": {
+          "md": "center"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "52",
+            "sm": "40",
+            "xs": "30",
+            "unit": "px"
+          },
+          "fontWeight": "500",
+          "letterSpacing": {
+            "md": "1",
+            "unit": "px"
+          }
+        },
+        "textColor": "#34495e",
+        "animTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "52",
+            "sm": "40",
+            "xs": "30",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "animColor": "#16a085"
+      },
+      "durationGuide": {
+        "400-600ms": "Fast - Dynamic, energetic feel (good for many words)",
+        "800-1000ms": "Medium - Balanced, professional (most common)",
+        "1200-1500ms": "Slow - Thoughtful, dramatic (good for fewer words)",
+        "2000ms+": "Very slow - May feel sluggish (avoid unless intentional)"
       }
     },
+
     {
-      "description": "Animated heading with custom duration",
+      "name": "Slide Text Animation (Style-3)",
+      "description": "Words slide up vertically for dynamic, modern effect",
+      "visualDescription": "Words slide upward replacing each other (Build, Launch, Grow) with purple gradient animation",
+      "complexity": "simple",
+      "useCase": "Startups, tech companies, modern brands, action-oriented headlines",
       "attributes": {
-        "block_id": "g7h8",
+        "block_id": "ha005",
+        "style": "textAnim",
+        "textAnimStyle": "style-3",
+        "prefixText": "",
+        "animText": [
+          {
+            "_key": "0",
+            "singleText": "Build"
+          },
+          {
+            "_key": "1",
+            "singleText": "Launch"
+          },
+          {
+            "_key": "2",
+            "singleText": "Grow"
+          }
+        ],
+        "postfixText": " Your Startup",
+        "durationTiming": "700",
+        "titleTag": "h1",
+        "alignment": {
+          "md": "center",
+          "sm": "center",
+          "xs": "center"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "60",
+            "sm": "45",
+            "xs": "32",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "textColor": "#2c3e50",
+        "animTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "60",
+            "sm": "45",
+            "xs": "32",
+            "unit": "px"
+          },
+          "fontWeight": "800",
+          "textTransform": "uppercase"
+        },
+        "animColor": "#8e44ad"
+      },
+      "commonMistakes": [
+        "Using too many words (5+) in animText makes animation feel endless",
+        "Setting durationTiming too short (<400ms) makes text unreadable",
+        "Forgetting postfixText when you need it (e.g., 'Build Your Startup')",
+        "Not testing on mobile where font sizes are smaller"
+      ]
+    },
+
+    {
+      "name": "Flip Text Animation (Style-4)",
+      "description": "Words flip like cards for playful, attention-grabbing effect",
+      "visualDescription": "Words flip 3D-style (Websites, Apps, Experiences) in orange color with bold typography",
+      "complexity": "simple",
+      "useCase": "Creative agencies, portfolios, product showcases, playful brands",
+      "attributes": {
+        "block_id": "ha006",
         "style": "textAnim",
         "textAnimStyle": "style-4",
         "prefixText": "Build ",
@@ -91,11 +364,463 @@
         ],
         "postfixText": " that matter",
         "durationTiming": "1000",
+        "titleTag": "h2",
         "alignment": {
-          "md": "left"
-        }
+          "md": "left",
+          "sm": "left",
+          "xs": "center"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "44",
+            "sm": "34",
+            "xs": "26",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "textColor": "#34495e",
+        "animTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "44",
+            "sm": "34",
+            "xs": "26",
+            "unit": "px"
+          },
+          "fontWeight": "800"
+        },
+        "animColor": "#e67e22"
+      },
+      "accessibilityConsiderations": [
+        "Animated text should not contain critical information (users with motion sensitivity may have prefers-reduced-motion enabled)",
+        "Use titleTag semantically (h1 for main page heading, h2 for section headings)",
+        "Ensure sufficient color contrast ratio (WCAG 4.5:1 for body text, 3:1 for large text)",
+        "Avoid red/green combinations for colorblind users"
+      ]
+    },
+
+    {
+      "name": "Multi-Word Curly Highlight",
+      "description": "Hand-drawn style curly underline for friendly, approachable brand voice",
+      "visualDescription": "Playful curly underline animates beneath 'Amazing' in bright green, creating hand-drawn sketch effect",
+      "complexity": "simple",
+      "useCase": "Creative brands, children's products, casual/friendly voice, organic products",
+      "attributes": {
+        "block_id": "ha007",
+        "style": "highlights",
+        "highLightStyle": "curly",
+        "prefixText": "Discover ",
+        "highlightsText": "Amazing",
+        "postfixText": " Products",
+        "titleTag": "h2",
+        "alignment": {
+          "md": "center"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "48",
+            "sm": "36",
+            "xs": "28",
+            "unit": "px"
+          },
+          "fontWeight": "600",
+          "fontFamily": "Poppins"
+        },
+        "textColor": "#2c3e50",
+        "animTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "48",
+            "sm": "36",
+            "xs": "28",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "animColor": "#27ae60",
+        "AnimationDur": "1.8",
+        "strokeWidth": "2.5",
+        "strokeColor": "#27ae60"
+      },
+      "highlightStyleRecommendations": {
+        "underline": "Professional, corporate, formal contexts",
+        "circle": "Emphasis, awards, achievements, key benefits",
+        "curly": "Playful, creative, organic, hand-crafted brands",
+        "strikethrough": "Corrections, comparisons (old price → new price)",
+        "double-underline": "Formal, academic, legal, important terms",
+        "highlight": "Notes, tips, casual emphasis (like highlighter pen)"
       }
+    },
+
+    {
+      "name": "Rapid Rotating CTA Benefits",
+      "description": "Fast-paced text rotation showing multiple benefits to create urgency",
+      "visualDescription": "Quick 600ms rotation through 6 benefits (Save Time, Save Money, Boost Sales, etc.) in red for urgency",
+      "complexity": "medium",
+      "useCase": "CTAs, limited-time offers, feature lists, benefit highlights, urgency creation",
+      "attributes": {
+        "block_id": "ha008",
+        "style": "textAnim",
+        "textAnimStyle": "style-1",
+        "prefixText": "Start Now and ",
+        "animText": [
+          {
+            "_key": "0",
+            "singleText": "Save Time"
+          },
+          {
+            "_key": "1",
+            "singleText": "Save Money"
+          },
+          {
+            "_key": "2",
+            "singleText": "Boost Sales"
+          },
+          {
+            "_key": "3",
+            "singleText": "Gain Leads"
+          },
+          {
+            "_key": "4",
+            "singleText": "Grow Faster"
+          },
+          {
+            "_key": "5",
+            "singleText": "Scale Easier"
+          }
+        ],
+        "postfixText": "",
+        "durationTiming": "600",
+        "titleTag": "h3",
+        "alignment": {
+          "md": "center"
+        },
+        "textTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "36",
+            "sm": "28",
+            "xs": "22",
+            "unit": "px"
+          },
+          "fontWeight": "600"
+        },
+        "textColor": "#2c3e50",
+        "animTypo": {
+          "openTypography": 1,
+          "fontSize": {
+            "md": "36",
+            "sm": "28",
+            "xs": "22",
+            "unit": "px"
+          },
+          "fontWeight": "700"
+        },
+        "animColor": "#c0392b",
+        "lineColor": "#c0392b"
+      },
+      "performanceConsiderations": [
+        "Animated headings use CSS transitions/transforms (GPU-accelerated, performant)",
+        "SVG path animations use stroke-dashoffset technique (smooth 60fps)",
+        "Avoid using 10+ animated headings on one page (can cause layout thrashing)",
+        "Test on mobile devices (animations may perform differently)",
+        "Consider prefers-reduced-motion CSS media query for accessibility"
+      ]
     }
   ],
-  "commonPatterns": {}
+
+  "validationRules": {
+    "block_id": "Required, unique identifier",
+    "style": "Required, must be 'highlights' or 'textAnim'",
+    "highLightStyle": "Required when style='highlights', options: underline/circle/curly/strikethrough/double-underline/highlight",
+    "textAnimStyle": "Required when style='textAnim', options: style-1/style-2/style-3/style-4",
+    "highlightsText": "Required when style='highlights', the word to highlight",
+    "animText": "Required when style='textAnim', array with minimum 2 items, each needs unique _key",
+    "durationTiming": "For textAnim mode, in milliseconds (400-2000 recommended)",
+    "AnimationDur": "For highlights mode, in seconds (1-3 recommended)",
+    "titleTag": "Semantic HTML tag (h1/h2/h3/h4/h5/h6/div), use h1 for main heading only"
+  },
+
+  "warnings": [
+    "CRITICAL: durationTiming uses MILLISECONDS for textAnim, AnimationDur uses SECONDS for highlights - don't confuse them!",
+    "Each animText item requires unique _key for React rendering (use '0', '1', '2', etc.)",
+    "highLightStyle requires style: 'highlights' to work (won't show with textAnim)",
+    "lineColor only works with textAnimStyle: 'style-1' (underline effect)",
+    "Minimum 2 words required in animText array for animation to work",
+    "animTypo and textTypo should have matching fontSize for consistent line height",
+    "SVG highlights (underline, circle, curly) may not work in IE11 - fallback to plain text",
+    "strokeWidth >5 can look bulky and overlap other elements",
+    "AnimationDur <0.5s may be too fast to see, >4s may feel sluggish",
+    "durationTiming <400ms makes text unreadable, >2000ms feels slow",
+    "Using 6+ words in animText makes endless loop feel tiresome",
+    "Don't nest animated headings inside other animated elements (conflicts)",
+    "prefixText/postfixText should grammatically connect with highlighted/animated word",
+    "Test all animation styles on mobile - some may not trigger on touch devices",
+    "Avoid using critical information in rotating text (users with prefers-reduced-motion won't see it animate)"
+  ],
+
+  "commonMistakes": [
+    "Using highlightsText when style='textAnim' (use animText array instead)",
+    "Using animText array when style='highlights' (use highlightsText instead)",
+    "Setting durationTiming in seconds instead of milliseconds (600 not 0.6)",
+    "Setting AnimationDur in milliseconds instead of seconds (2 not 2000)",
+    "Forgetting to set openTypography: 1 before applying typography settings",
+    "Not providing unique _key for each animText item (causes React warnings)",
+    "Using same font size for animTypo and textTypo when you want emphasis (make animated text slightly larger)",
+    "Setting alignment as string 'center' instead of object {md: 'center'}",
+    "Forgetting postfixText when it's grammatically necessary",
+    "Using too many words (10+) in rapid rotation (overwhelming)",
+    "Not testing responsive typography (text too large/small on mobile)",
+    "Using single-word animText array (minimum 2 required for animation)",
+    "Setting strokeColor without setting strokeWidth (invisible stroke)",
+    "Using lineColor with textAnimStyle other than style-1 (won't show)",
+    "Not considering color contrast for accessibility (animColor vs background)",
+    "Using uppercase textTransform on already capitalized text (redundant)"
+  ],
+
+  "bestPractices": [
+    "Use h1 for main page heading only (SEO), h2-h6 for section headings",
+    "Keep highlighted words short (3-12 characters) for best visual effect",
+    "Use 3-5 words in animText array for optimal pacing (not too short, not endless)",
+    "Set durationTiming based on word length: short words 600ms, long words 1000ms",
+    "Make animColor contrast with textColor for emphasis (e.g., purple animated word in gray text)",
+    "Use prefixText and postfixText to provide context (e.g., 'We help you [Grow] your business')",
+    "For highlights: AnimationDur 1.5-2s is sweet spot (visible but not slow)",
+    "For textAnim: durationTiming 800-1000ms is balanced (readable but dynamic)",
+    "Use semantic titleTag: h1 for hero, h2 for section headings, h3 for subsections",
+    "Responsive typography: reduce font size 25-30% on mobile (56px → 32px)",
+    "Use alignment based on context: center for hero, left for body content",
+    "Choose animation style based on brand: style-1 (underline) professional, style-4 (flip) playful",
+    "Use circle highlight for single important words (Best, New, Free, Award-winning)",
+    "Use curly highlight for friendly/organic brands (handmade, artisan, kids)",
+    "Keep strokeWidth 2-4 for most highlights (3 is default, good balance)",
+    "Test all breakpoints: desktop, tablet (sm), mobile (xs)",
+    "Consider loading performance: use 1-2 animated headings per page (not 10+)",
+    "Ensure WCAG color contrast: 4.5:1 for regular text, 3:1 for large (18px+) bold text",
+    "Use letter-spacing for uppercase text (1-2px) for readability",
+    "Match font families between textTypo and animTypo for consistency",
+    "Provide grammatically correct sentences with prefix + animated/highlighted word + postfix",
+    "For CTAs: use faster animations (600ms) with action verbs (Save, Grow, Win)",
+    "For hero sections: use slower, dramatic animations (1000ms+) with aspirational words",
+    "Group related words in animText (all verbs, all benefits, all features - don't mix)"
+  ],
+
+  "styleComparisonChart": {
+    "highlights": {
+      "underline": {
+        "effect": "Line animates below text from left to right",
+        "bestFor": "Professional, corporate, formal headlines",
+        "duration": "1.5-2s recommended"
+      },
+      "circle": {
+        "effect": "Circular stroke draws around text",
+        "bestFor": "Single-word emphasis, awards, key benefits",
+        "duration": "1.5-2s recommended"
+      },
+      "curly": {
+        "effect": "Hand-drawn curly line below text (organic)",
+        "bestFor": "Playful, creative, artisan brands",
+        "duration": "1.8-2.5s recommended (more complex path)"
+      },
+      "strikethrough": {
+        "effect": "Line through middle of text",
+        "bestFor": "Corrections, price comparisons, emphasis",
+        "duration": "1-1.5s recommended"
+      }
+    },
+    "textAnim": {
+      "style-1": {
+        "effect": "Slide up with underline animation",
+        "bestFor": "Dynamic professional sites, services",
+        "duration": "800ms recommended"
+      },
+      "style-2": {
+        "effect": "Fade in/out smoothly",
+        "bestFor": "Elegant, subtle, refined brands",
+        "duration": "1000ms recommended (smooth fade needs time)"
+      },
+      "style-3": {
+        "effect": "Slide vertically (up/down)",
+        "bestFor": "Modern, tech, startups",
+        "duration": "700ms recommended"
+      },
+      "style-4": {
+        "effect": "3D flip like cards",
+        "bestFor": "Playful, creative, attention-grabbing",
+        "duration": "1000ms recommended (3D transform needs time)"
+      }
+    }
+  },
+
+  "integrationExamples": [
+    {
+      "name": "Hero Section with CTA Button",
+      "description": "Combine animated heading with button for complete hero",
+      "blocks": [
+        {
+          "block": "tpgb/tp-heading-animation",
+          "attributes": {
+            "style": "highlights",
+            "highLightStyle": "underline",
+            "prefixText": "Build ",
+            "highlightsText": "Better",
+            "postfixText": " Websites Faster"
+          }
+        },
+        {
+          "block": "tpgb/tp-button",
+          "attributes": {
+            "buttonText": "Get Started Free",
+            "style": "style-1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Multi-Service Section",
+      "description": "Use textAnim to showcase multiple services in one heading",
+      "blocks": [
+        {
+          "block": "tpgb/tp-heading-animation",
+          "attributes": {
+            "style": "textAnim",
+            "textAnimStyle": "style-2",
+            "prefixText": "We provide ",
+            "animText": [
+              {"_key": "0", "singleText": "Web Design"},
+              {"_key": "1", "singleText": "SEO Services"},
+              {"_key": "2", "singleText": "Content Marketing"},
+              {"_key": "3", "singleText": "Social Media"}
+            ],
+            "durationTiming": "1200"
+          }
+        },
+        {
+          "block": "tpgb/tp-pro-paragraph",
+          "attributes": {
+            "content": "Our comprehensive digital marketing solutions help you grow online."
+          }
+        }
+      ]
+    },
+    {
+      "name": "About Section with Highlighted Values",
+      "description": "Use circle highlight to emphasize company values",
+      "blocks": [
+        {
+          "block": "tpgb/tp-heading-animation",
+          "attributes": {
+            "style": "highlights",
+            "highLightStyle": "circle",
+            "prefixText": "We are ",
+            "highlightsText": "Passionate",
+            "postfixText": " about your success",
+            "titleTag": "h2"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Feature Section with Multiple Animated Headings",
+      "description": "Use multiple animated headings for feature grid (limit to 3-4 max)",
+      "structure": "3-column layout with tp-heading-animation in each column",
+      "warning": "Don't overuse - maximum 3-4 animated headings per page for performance"
+    }
+  ],
+
+  "troubleshooting": [
+    {
+      "issue": "Highlight animation not showing",
+      "solutions": [
+        "Verify style is set to 'highlights' (not 'textAnim')",
+        "Check that highLightStyle is set (underline, circle, etc.)",
+        "Ensure strokeColor and strokeWidth are defined",
+        "Test in modern browser (SVG animations don't work in IE11)"
+      ]
+    },
+    {
+      "issue": "Text rotation not working",
+      "solutions": [
+        "Verify style is set to 'textAnim' (not 'highlights')",
+        "Check that animText array has minimum 2 items",
+        "Ensure each animText item has unique _key",
+        "Verify durationTiming is set (800-1000 recommended)"
+      ]
+    },
+    {
+      "issue": "Underline not showing with style-1 text animation",
+      "solutions": [
+        "Verify textAnimStyle is 'style-1' (lineColor only works with style-1)",
+        "Check that lineColor is defined (e.g., '#667eea')",
+        "Ensure style is 'textAnim' not 'highlights'"
+      ]
+    },
+    {
+      "issue": "Typography not applying",
+      "solutions": [
+        "Verify openTypography is set to 1 (not 0)",
+        "Check that fontSize object has md/sm/xs properties",
+        "Ensure unit is specified ('px', 'rem', 'em')",
+        "Clear browser cache if using custom fonts"
+      ]
+    },
+    {
+      "issue": "Animation feels too fast or too slow",
+      "solutions": [
+        "For textAnim: adjust durationTiming in milliseconds (800-1000 recommended)",
+        "For highlights: adjust AnimationDur in seconds (1.5-2 recommended)",
+        "Test with different word lengths (longer words need more time)",
+        "Consider user expectations (CTAs can be faster, hero can be slower)"
+      ]
+    },
+    {
+      "issue": "Highlighted word breaking to new line",
+      "solutions": [
+        "Use white-space: nowrap on animated text (custom CSS)",
+        "Reduce font size on mobile breakpoints (xs)",
+        "Keep highlighted words short (3-12 characters ideal)",
+        "Test responsive layouts on actual devices"
+      ]
+    },
+    {
+      "issue": "Colors not showing correctly",
+      "solutions": [
+        "Verify color format is valid hex (#667eea) or rgba(102, 126, 234, 1)",
+        "Check that textColor and animColor are both defined",
+        "Ensure strokeColor matches animColor for cohesive look",
+        "Test color contrast for accessibility (WCAG 4.5:1 ratio)"
+      ]
+    },
+    {
+      "issue": "Alignment not responsive",
+      "solutions": [
+        "Use object format for alignment: {md: 'center', sm: 'center', xs: 'left'}",
+        "Don't use string format: 'center' (won't be responsive)",
+        "Test all three breakpoints: md (desktop), sm (tablet), xs (mobile)",
+        "Consider center alignment on mobile for better balance"
+      ]
+    }
+  ],
+
+  "seoConsiderations": [
+    "Use h1 for main page heading only (one per page)",
+    "Use h2-h6 for section hierarchy (don't skip levels)",
+    "Ensure highlighted/animated text contains important keywords",
+    "Provide meaningful text in prefixText + highlightsText/animText + postfixText for screen readers",
+    "Don't rely solely on animation to convey information (accessibility)",
+    "Use titleTag semantically based on page structure (not just visual preference)",
+    "Animated headings are indexed by search engines (text is in DOM, not images)"
+  ],
+
+  "relatedBlocks": [
+    "tpgb/tp-heading - Standard headings without animation",
+    "tpgb/tp-heading-title - Advanced headings with separators and badges",
+    "tpgb/tp-adv-typo - Typography block with text effects",
+    "tpgb/tp-button - CTA buttons to pair with hero headings",
+    "tpgb/tp-pro-paragraph - Paragraph text to follow headings",
+    "tpgb/tp-container - Container for hero sections with animated headings"
+  ]
 }
