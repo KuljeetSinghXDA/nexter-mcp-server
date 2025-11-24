@@ -149,34 +149,57 @@ export class SchemaLoader {
       if (refPath.startsWith('definitions://')) {
         const defName = refPath.replace('definitions://', '');
 
-        // Try to find in loaded definitions
-        for (const [name, definition] of this.definitionsCache.entries()) {
+        // First, try exact $id match across all definitions
+        for (const [_, definition] of this.definitionsCache.entries()) {
           if (definition.$id === refPath) {
-            // Return the structure or definition, removing $id
+            // Return the structure or definition, removing metadata
             const resolved = { ...definition };
             delete resolved.$id;
             delete resolved.$schema;
-            return this.resolve$ref(resolved.structure || resolved, depth + 1);
-          }
-
-          // Check nested definitions (e.g., responsive.json has multiple definitions)
-          if (definition.definitions && definition.definitions[defName]) {
-            const resolved = { ...definition.definitions[defName] };
-            delete resolved.$id;
+            delete resolved.title;
+            delete resolved.description;
+            // Recursively resolve any nested $refs in the structure
             return this.resolve$ref(resolved.structure || resolved, depth + 1);
           }
         }
 
-        logger.warn(`Could not resolve $ref: ${refPath}`);
-        return { $ref: refPath }; // Keep unresolved reference
+        // Second, try nested definitions (e.g., responsive.json has definitions.responsive-unit)
+        for (const [_, definition] of this.definitionsCache.entries()) {
+          if (definition.definitions && definition.definitions[defName]) {
+            const nestedDef = { ...definition.definitions[defName] };
+            delete nestedDef.$id;
+            delete nestedDef.$schema;
+            // Recursively resolve nested $refs
+            return this.resolve$ref(nestedDef.structure || nestedDef, depth + 1);
+          }
+        }
+
+        // Third, try finding by simple name match (e.g., "responsive-unit" in responsive.json)
+        const simpleName = defName.split('/').pop() || defName;
+        for (const [fileName, definition] of this.definitionsCache.entries()) {
+          // Check if filename matches (responsive.json for responsive-unit)
+          if (definition.definitions && definition.definitions[simpleName]) {
+            const nestedDef = { ...definition.definitions[simpleName] };
+            delete nestedDef.$id;
+            delete nestedDef.$schema;
+            // Recursively resolve
+            return this.resolve$ref(nestedDef.structure || nestedDef, depth + 1);
+          }
+        }
+
+        logger.warn(`Could not resolve $ref: ${refPath} (tried $id match, nested definitions, and simple name match)`);
+        return { $ref: refPath }; // Keep unresolved reference for debugging
       }
 
       return obj; // Unknown $ref format
     }
 
-    // Recursively resolve nested objects
+    // Recursively resolve nested objects (handles nested $refs in attributes)
     const resolved: any = {};
     for (const [key, value] of Object.entries(obj)) {
+      if (key === '$id' || key === '$schema' || key === 'title' || key === 'description') {
+        continue; // Skip metadata during resolution
+      }
       resolved[key] = this.resolve$ref(value, depth + 1);
     }
     return resolved;

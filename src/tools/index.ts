@@ -69,6 +69,15 @@ Returns: all content-related blocks`,
                 type: 'string',
                 enum: ['content', 'layout', 'interactive', 'media', 'marketing', 'social', 'forms', 'navigation', 'advanced'],
                 description: 'Block category to retrieve all blocks from'
+              },
+              levels: {
+                type: 'array',
+                items: {
+                  type: 'string',
+                  enum: ['meta', 'core', 'styling', 'examples', 'full']
+                },
+                default: ['full'],
+                description: 'Schema levels to load. Default: ["full"]. Use ["core"] for basic attributes (2KB), ["core", "examples"] for patterns (3KB), ["full"] for everything (9KB). Progressive loading saves 75% context!'
               }
             }
           }
@@ -283,6 +292,59 @@ COMMON ERRORS:
           }
         },
         {
+          name: 'browse_block_catalog',
+          description: `Browse all 83 available Nexter blocks organized by category, complexity, or use case. Use this FIRST to discover blocks before requesting schemas.
+
+WHEN TO USE:
+- At the start of any task - discover what blocks exist
+- To find blocks for a specific purpose ("I need a pricing block")
+- To understand block relationships (parent-child blocks)
+- To see block complexity before using
+
+EXAMPLE 1 - Browse all blocks:
+{ "view": "all" }
+Returns: Complete catalog with 83 blocks grouped by 8 categories
+
+EXAMPLE 2 - Filter by category:
+{ "view": "category", "category": "content" }
+Returns: All content blocks (heading, paragraph, typography, etc.)
+
+EXAMPLE 3 - Filter by complexity:
+{ "view": "complexity", "complexity": "simple" }
+Returns: All simple blocks suitable for basic layouts
+
+EXAMPLE 4 - Find child blocks:
+{ "view": "children" }
+Returns: All child blocks (accordion-inner, form fields, etc.) that require parent blocks
+
+RETURNS:
+- Catalog structure with block metadata
+- Parent-child relationships clearly marked
+- Complexity levels for each block
+- Keywords and use cases for discovery`,
+          inputSchema: {
+            type: 'object',
+            properties: {
+              view: {
+                type: 'string',
+                enum: ['all', 'category', 'complexity', 'children', 'summary'],
+                default: 'all',
+                description: 'View type: "all" (full catalog), "category" (filter by category), "complexity" (filter by difficulty), "children" (only child blocks), "summary" (quick overview)'
+              },
+              category: {
+                type: 'string',
+                enum: ['content', 'layout', 'interactive', 'media', 'marketing', 'forms', 'navigation', 'effects'],
+                description: 'Category filter (required if view=category)'
+              },
+              complexity: {
+                type: 'string',
+                enum: ['simple', 'medium', 'advanced', 'expert'],
+                description: 'Complexity filter (required if view=complexity)'
+              }
+            }
+          }
+        },
+        {
           name: 'validate_content',
           description: `Validate block structure before saving. Checks against Nexter schemas and WordPress requirements. Returns detailed errors with fix suggestions.
 
@@ -376,6 +438,10 @@ RETURNS:
           result = await handleEditContent(args, wpClient, schemaLoader);
           break;
 
+        case 'browse_block_catalog':
+          result = await handleBrowseCatalog(args, schemaLoader);
+          break;
+
         case 'validate_content':
           result = await handleValidateContent(args, wpClient);
           break;
@@ -421,6 +487,7 @@ export const toolHandlers = {
   analyze_content: handleAnalyzeContent,
   search_content: handleSearchContent,
   edit_content: handleEditContent,
+  browse_block_catalog: handleBrowseCatalog,
   validate_content: handleValidateContent
 };
 
@@ -446,6 +513,15 @@ export const toolDefinitions = [
           type: 'string',
           enum: ['content', 'layout', 'interactive', 'media', 'marketing', 'social', 'forms', 'navigation', 'advanced'],
           description: 'Block category to retrieve all blocks from'
+        },
+        levels: {
+          type: 'array',
+          items: {
+            type: 'string',
+            enum: ['meta', 'core', 'styling', 'examples', 'full']
+          },
+          default: ['full'],
+          description: 'Schema levels to load (default: full). Progressive loading saves context.'
         }
       }
     }
@@ -505,6 +581,22 @@ export const toolDefinitions = [
     }
   },
   {
+    name: 'browse_block_catalog',
+    description: 'Browse all available Nexter blocks by category, complexity, or relationships.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        view: {
+          type: 'string',
+          enum: ['all', 'category', 'complexity', 'children', 'summary'],
+          default: 'all'
+        },
+        category: { type: 'string' },
+        complexity: { type: 'string' }
+      }
+    }
+  },
+  {
     name: 'validate_content',
     description: 'Validate block structure before saving.',
     inputSchema: {
@@ -521,10 +613,18 @@ export const toolDefinitions = [
 // Tool implementations
 
 async function handleGetBlockSchemas(args: any, schemaLoader: SchemaLoader) {
+  const levels = args.levels || ['full'];
   let schemas;
 
   if (args.block_names) {
-    schemas = await schemaLoader.getSchemas(args.block_names);
+    // Progressive loading support
+    schemas = [];
+    for (const blockName of args.block_names) {
+      const schema = await schemaLoader.getBlockSchema(blockName, levels as any, true);
+      if (schema) {
+        schemas.push(schema);
+      }
+    }
   } else if (args.use_case) {
     schemas = await schemaLoader.getSchemasForUseCase(args.use_case);
   } else if (args.category) {
@@ -540,7 +640,9 @@ async function handleGetBlockSchemas(args: any, schemaLoader: SchemaLoader) {
     success: true,
     schemas: schemas,
     count: schemas.length,
-    note: `Loaded ${schemas.length} block schema(s). Use these to understand block structure.`
+    levels_loaded: levels,
+    context_saved: levels.includes('full') ? '0%' : levels.includes('core') ? '~75%' : '~50%',
+    note: `Loaded ${schemas.length} block schema(s) at level(s): ${levels.join(', ')}. ${levels.includes('full') ? 'Full schemas loaded.' : 'Progressive loading active - use ["full"] if you need complete reference.'}`
   };
 }
 
@@ -788,6 +890,125 @@ async function handleEditContent(
       ...(validation.warnings || [])
     ],
     message: 'Changes saved with new revision. Original preserved.'
+  };
+}
+
+async function handleBrowseCatalog(args: any, schemaLoader: SchemaLoader) {
+  const view = args.view || 'all';
+  const catalog = schemaLoader.getCatalog();
+
+  if (!catalog) {
+    return {
+      success: false,
+      error: 'Block catalog not loaded'
+    };
+  }
+
+  // Summary view - quick overview
+  if (view === 'summary') {
+    const categoryNames = Object.keys(catalog.categories || {});
+    const summary: any = {
+      totalBlocks: catalog.totalBlocks || 0,
+      categories: {}
+    };
+
+    for (const cat of categoryNames) {
+      const catData = catalog.categories[cat];
+      summary.categories[cat] = {
+        count: catData.blocks?.length || 0,
+        description: catData.description
+      };
+    }
+
+    return {
+      success: true,
+      view: 'summary',
+      summary,
+      note: 'Use view="category" to see blocks in a specific category, or view="all" for complete catalog'
+    };
+  }
+
+  // Children view - only child blocks
+  if (view === 'children') {
+    const allBlocks: any[] = [];
+    for (const catName of Object.keys(catalog.categories || {})) {
+      allBlocks.push(...catalog.categories[catName].blocks);
+    }
+
+    const childBlocks = allBlocks.filter((b: any) => b.isChild === true);
+
+    return {
+      success: true,
+      view: 'children',
+      totalChildBlocks: childBlocks.length,
+      blocks: childBlocks,
+      note: 'These blocks REQUIRE a parent block. Check the "parent" field for required parent block name.',
+      warning: 'Child blocks cannot be used standalone - they must be innerBlocks of their parent'
+    };
+  }
+
+  // Category view - filter by specific category
+  if (view === 'category') {
+    if (!args.category) {
+      return {
+        success: false,
+        error: 'category parameter required when view=category',
+        availableCategories: Object.keys(catalog.categories || {})
+      };
+    }
+
+    const categoryData = catalog.categories[args.category];
+    if (!categoryData) {
+      return {
+        success: false,
+        error: `Unknown category: ${args.category}`,
+        availableCategories: Object.keys(catalog.categories || {})
+      };
+    }
+
+    return {
+      success: true,
+      view: 'category',
+      category: args.category,
+      description: categoryData.description,
+      count: categoryData.blocks.length,
+      blocks: categoryData.blocks
+    };
+  }
+
+  // Complexity view - filter by complexity level
+  if (view === 'complexity') {
+    if (!args.complexity) {
+      return {
+        success: false,
+        error: 'complexity parameter required when view=complexity',
+        availableLevels: ['simple', 'medium', 'advanced', 'expert']
+      };
+    }
+
+    const allBlocks: any[] = [];
+    for (const catName of Object.keys(catalog.categories || {})) {
+      allBlocks.push(...catalog.categories[catName].blocks);
+    }
+
+    const filtered = allBlocks.filter((b: any) => b.complexity === args.complexity);
+
+    return {
+      success: true,
+      view: 'complexity',
+      complexity: args.complexity,
+      count: filtered.length,
+      blocks: filtered,
+      note: `Showing ${filtered.length} ${args.complexity} blocks. ${args.complexity === 'simple' ? 'Great for getting started!' : args.complexity === 'expert' ? 'Advanced blocks requiring deep knowledge.' : ''}`
+    };
+  }
+
+  // All view - complete catalog
+  return {
+    success: true,
+    view: 'all',
+    catalog,
+    note: 'Complete catalog loaded. Use filters (view="category", view="complexity", view="children") to narrow down results.'
   };
 }
 
